@@ -46,6 +46,8 @@
       
     
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/stackoverflow-dark.min.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -466,46 +468,43 @@
 
 <h1 id="how-to-build-type-annotations">How to build type annotations<a class="headerlink" href="#how-to-build-type-annotations" title="Permanent link">#</a></h1>
 <h2 id="locally">Locally<a class="headerlink" href="#locally" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install preferred version of `boto3`</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">boto3</span><span class="o">==</span><span class="m">1</span>.16.25<span class="w"> </span><span class="nv">botocore</span><span class="o">==</span><span class="m">1</span>.19.25
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Install `mypy-boto3-builder`</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mypy-boto3-builder
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Build all packages in mypy_boto3_output directory</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>python<span class="w"> </span>-m<span class="w"> </span>mypy_boto3_builder<span class="w"> </span>mypy_boto3_output
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Or specify required services explicitly</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>python<span class="w"> </span>-m<span class="w"> </span>mypy_boto3_builder<span class="w"> </span>mypy_boto3_output<span class="w"> </span>-s<span class="w"> </span>ec2<span class="w"> </span>s3
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Install custom `boto3-stubs` packages</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">cd</span><span class="w"> </span>mypy_boto3_output
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./mypy_boto3_ec2_package
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./mypy_boto3_s3_package
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./boto3_stubs_package
-</code></pre></div>
+<pre class="highlight"><code class="language-bash"># Install preferred version of `boto3`
+python -m pip install boto3==1.16.25 botocore==1.19.25
+
+# Install `mypy-boto3-builder`
+python -m pip install mypy-boto3-builder
+
+# Build all packages in mypy_boto3_output directory
+python -m mypy_boto3_builder mypy_boto3_output
+
+# Or specify required services explicitly
+python -m mypy_boto3_builder mypy_boto3_output -s ec2 s3
+
+# Install custom `boto3-stubs` packages
+cd mypy_boto3_output
+python -m pip install -e ./mypy_boto3_ec2_package
+python -m pip install -e ./mypy_boto3_s3_package
+python -m pip install -e ./boto3_stubs_package</code></pre>
 <h2 id="with-docker-image">With Docker image<a class="headerlink" href="#with-docker-image" title="Permanent link">#</a></h2>
 <ul>
 <li>Install <a href="https://docs.docker.com/install/">Docker</a></li>
 <li>Pull latest <code>mypy_boto3_builder</code> version and tag it</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>tag<span class="w"> </span>docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest<span class="w"> </span>mypy_boto3_builder
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">docker pull docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest
+docker tag docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest mypy_boto3_builder</code></pre>
 <ul>
 <li>Generate stubs in <code>output</code> directory</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>output
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># generate stubs for all services</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/output:/output<span class="w"> </span>-ti<span class="w"> </span>mypy_boto3_builder_stable
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># generate stubs for s3 service</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/output:/output<span class="w"> </span>-ti<span class="w"> </span>mypy_boto3_builder_stable<span class="w"> </span>-s<span class="w"> </span>s3
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># generate stubs for a specific boto3 version</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">BOTO3_VERSION</span><span class="o">=</span><span class="m">1</span>.16.25<span class="w"> </span><span class="nv">BOTOCORE_VERSION</span><span class="o">=</span><span class="m">1</span>.19.25<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/output:/output<span class="w"> </span>-ti<span class="w"> </span>mypy_boto3_builder_stable
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">mkdir output
+
+# generate stubs for all services
+docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable
+
+# generate stubs for s3 service
+docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable -s s3
+
+# generate stubs for a specific boto3 version
+docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/output -ti mypy_boto3_builder_stable</code></pre>
 <ul>
 <li>Install packages from <code>output</code> directory as described above</li>
 </ul>
@@ -559,6 +558,10 @@
     
     
       <script src="../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+      
+        <script src="../js/highlight.js"></script>
       
     
   </body>
