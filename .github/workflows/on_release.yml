@@ -16,8 +16,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Install poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -32,17 +30,18 @@ jobs:
               return context.payload.inputs.version
             }
             return context.ref.split('/').pop()
-      - name: Install builder
-        run: |
-          poetry install -n
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install the project
+        run: uv sync --all-extras --dev
       - name: Bump version
         env:
           VERSION: ${{ steps.version.outputs.result }}
         run: |
           echo "Bumping version to ${VERSION}"
-          poetry version ${VERSION}
-          rm -rf *.egg-info || true
-          poetry install -n
+          # uv version ${VERSION}
+          sed -i 's/^version = ".*"$/version = "'$VERSION'"/' pyproject.toml
+          uv sync --all-extras --dev
       - name: Set up git
         run: |
           git config --global user.email "github-actions@github.com"
@@ -59,11 +58,11 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          poetry run pip install -U twine wheel setuptools
-          poetry build
-          poetry run twine upload  --non-interactive dist/*
+          uv run pip install -U twine wheel setuptools
+          uvx --from build pyproject-build --installer uv
+          uvx twine upload  --non-interactive dist/*
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          poetry run bash ./scripts/dockerize.sh
+          uv run bash ./scripts/dockerize.sh

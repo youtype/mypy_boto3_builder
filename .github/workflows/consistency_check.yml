@@ -46,25 +46,24 @@ jobs:
     needs: versions
     steps:
       - uses: actions/checkout@v4
-      - name: Install poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version-file: pyproject.toml
-      - name: Install dependencies
-        run: |
-          poetry install -n
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install the project
+        run: uv sync --all-extras --dev
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ needs.versions.outputs.boto3 }}
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
-          poetry run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
-          poetry run pip install -U botocore-stubs
+          uv run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+          uv run pip install -U botocore-stubs
       - name: Uninstall stubs
         run: |
-          poetry run pip uninstall -y boto3-stubs
+          uv run pip uninstall -y boto3-stubs
       - name: Check boto3 stubs
         run: |
-          poetry run istub -c ./istub.yml -bid boto3
+          uv run istub -c ./istub.yml -bid boto3

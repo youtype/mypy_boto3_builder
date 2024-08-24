@@ -1,0 +1,9 @@
+include mypy_boto3_builder/py.typed
+include mypy_boto3_builder/templates/*/*.jinja2
+include mypy_boto3_builder/templates/*/*/*.jinja2
+include mypy_boto3_builder/templates/*/*/*/*.jinja2
+include mypy_boto3_builder/stubs_static/*.pyi
+include mypy_boto3_builder/stubs_static/*/*.pyi
+include mypy_boto3_builder/stubs_static/*/*.py
+include mypy_boto3_builder/stubs_static/*/*/*.pyi
+include mypy_boto3_builder/stubs_static/*/*/*.py

@@ -8,44 +8,26 @@ jobs:
   unit-tests:
     name: Code style & unit tests
     runs-on: ubuntu-latest
+    env:
+      UV_CACHE_DIR: /tmp/.uv-cache
     strategy:
       matrix:
         version:
           - "3.10"
           - "3.11"
           - "3.12"
-        include:
-          - version: "3.10"
-            check-lint: "true"
-            check-typing: "true"
-          - version: "3.11"
-            check-lint: "true"
-            check-typing: "true"
-          - version: "3.12"
-            check-lint: "true"
-            check-typing: "true"
     steps:
       - uses: actions/checkout@v4
-      - name: Install poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "${{ matrix.version }}"
-          cache: "poetry"
-      - name: Install dependencies
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install the project
+        run: uv sync --all-extras --dev
+      - name: Install extra dependencies
+        run: uv run pip install -U --no-dependencies aioboto3 aiobotocore types-aioboto3 types-aiobotocore
+      - name: Run pre-commit
         run: |
-          poetry install -n
-          poetry run pip install -U --no-dependencies aioboto3 aiobotocore types-aioboto3 types-aiobotocore aiohttp
-          poetry install -n
-      - name: Lint
-        if: ${{ matrix.check-lint }}
-        run: |
-          poetry run ruff check --output-format github
-      - name: Typing
-        if: ${{ matrix.check-typing }}
-        run: |
-          poetry run pyright mypy_boto3_builder
-      - name: Test
-        run: |
-          poetry run pytest
+          uv run pre-commit run --all-files

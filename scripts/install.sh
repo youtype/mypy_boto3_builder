@@ -11,7 +11,7 @@ fi
 if [[ "$1" == "master" ]]; then
     echo Installing boto3-stubs package
     cd ${OUTPUT_PATH}/boto3_stubs_package
-    poetry run pip install .
+    uv run pip install .
     cd -
 
     exit
@@ -20,7 +20,7 @@ fi
 if [[ "$1" == "full" ]]; then
     echo Installing boto3-stubs-full package
     cd ${OUTPUT_PATH}/boto3_stubs_full_package
-    poetry run pip install .
+    uv run pip install .
     cd -
 
     exit
@@ -30,6 +30,6 @@ for package in $PACKAGES
 do
     echo Installing $(basename ${package})
     cd ${package}
-    poetry run pip install . -v
+    uv run pip install . -v
     cd -
 done

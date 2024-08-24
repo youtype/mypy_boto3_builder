@@ -11,16 +11,14 @@ known_third_party = ["botocore", "boto3", "aiobotocore"]
 known_first_party = ["mypy_boto3_builder", "tests"]
 src_paths = []
 
-[tool.poetry]
+[project]
 name = "mypy-boto3-builder"
 version = "7.26.1"
+requires-python = ">=3.10"
 description = "Builder for boto3-stubs and types-aiobotocore"
-authors = ["Vlad Emelianov <vlad.emelianov.nz@gmail.com>"]
-license = "MIT"
+authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
+license = { file = "LICENSE" }
 readme = "README.md"
-homepage = "https://youtype.github.io/mypy_boto3_builder/"
-repository = "https://github.com/youtype/mypy_boto3_builder"
-documentation = "https://youtype.github.io/mypy_boto3_builder/"
 keywords = ["boto3", "type-annotations", "pyright", "mypy", "boto3-stubs"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -38,72 +36,59 @@ classifiers = [
     "Typing :: Typed",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-packages = [{ include = "mypy_boto3_builder" }]
-include = [
-    "mypy_boto3_builder/py.typed",
-    "mypy_boto3_builder/templates/*/*.jinja2",
-    "mypy_boto3_builder/templates/*/*/*.jinja2",
-    "mypy_boto3_builder/templates/*/*/*/*.jinja2",
-    "mypy_boto3_builder/stubs_static/*.pyi",
-    "mypy_boto3_builder/stubs_static/*/*.pyi",
-    "mypy_boto3_builder/stubs_static/*/*.py",
-    "mypy_boto3_builder/stubs_static/*/*/*.pyi",
-    "mypy_boto3_builder/stubs_static/*/*/*.py",
+dependencies = [
+    "boto3",
+    "black",
+    "isort",
+    "jinja2",
+    "mdformat",
+    "typing_extensions",
+    "packaging",
+    "setuptools",
 ]
 
-[tool.poetry.scripts]
+[tool.uv]
+dev-dependencies = [
+    "cryptography",
+    "types-requests",
+    "types-setuptools",
+    "types-six",
+    "types-certifi",
+    "types-python-dateutil",
+    "types-urllib3",
+    "types-s3transfer",
+    "boto3-stubs",
+    "botocore-stubs",
+    "pre-commit",
+    "mypy",
+    "ruff",
+    "flake8",
+    "vulture",
+    "pyright",
+    "istub",
+    "twine",
+    "pytest-cov",
+    "pytest",
+    "aiohttp>=3.10.5",
+    "wheel>=0.44.0",
+]
+
+[project.scripts]
 mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 
-[tool.poetry.urls]
-"Documentation" = "https://youtype.github.io/mypy_boto3_builder/"
-"Source" = "https://github.com/youtype/mypy_boto3_builder"
-"Bug Tracker" = "https://github.com/youtype/mypy_boto3_builder/issues"
-
-[tool.poetry.dependencies]
-python = "^3.10"
-pip = "*"
-boto3 = "*"
-black = "*"
-isort = "*"
-jinja2 = "*"
-mdformat = "*"
-typing_extensions = "*"
-packaging = "*"
-
-[tool.poetry.group.dev.dependencies]
-handsdown = "*"
-cryptography = "*"
-types-requests = "*"
-types-setuptools = "*"
-types-six = "*"
-types-certifi = "*"
-types-python-dateutil = "*"
-types-urllib3 = "*"
-types-s3transfer = "*"
-boto3-stubs = "*"
-botocore-stubs = "*"
-pre-commit = "*"
-
-[tool.poetry.group.ci.dependencies]
-mypy = "*"
-ruff = "*"
-flake8 = "*"
-vulture = "*"
-pyright = "*"
-istub = "*"
-
-[tool.poetry.group.build.dependencies]
-twine = "*"
-setuptools = "*"
-
-[tool.poetry.group.test.dependencies]
-pytest-cov = "*"
-pytest = "*"
-
+[project.urls]
+Homepage = "https://youtype.github.io/mypy_boto3_builder/"
+Documentation = "https://youtype.github.io/mypy_boto3_builder/"
+Repository = "https://github.com/youtype/mypy_boto3_builder"
+Changelog = "https://github.com/youtype/mypy_boto3_builder/releases"
+Issues = "https://github.com/youtype/mypy_boto3_builder/issues"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools]
+py-modules = ["mypy_boto3_builder"]
 
 [tool.coverage.report]
 exclude_lines = [
