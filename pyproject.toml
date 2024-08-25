@@ -65,7 +65,7 @@ mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 
 [project.urls]
 Homepage = "https://github.com/youtype/mypy_boto3_builder"
-Documentation = "https://github.com/youtype/mypy_boto3_builder"
+Documentation = "https://youtype.github.io/mypy_boto3_builder/"
 Repository = "https://github.com/youtype/mypy_boto3_builder"
 Changelog = "https://github.com/youtype/mypy_boto3_builder/releases"
 Issues = "https://github.com/youtype/mypy_boto3_builder/issues"
