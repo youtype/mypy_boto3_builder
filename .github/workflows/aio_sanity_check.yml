@@ -60,6 +60,7 @@ jobs:
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
           uv pip install boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+          uv pip install -U aioboto3
       - name: Build master packages
         run: |
           rm -rf mypy_boto3_output/*
