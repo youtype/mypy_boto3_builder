@@ -1,4 +1,4 @@
-# Boto3 type annotations generator
+# Mypy Boto3 Builder
 
 [![PyPI - mypy-boto3-builder](https://img.shields.io/pypi/v/mypy-boto3-builder.svg?color=blue&label=mypy-boto3-builder)](https://pypi.org/project/mypy-boto3-builder)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
@@ -39,141 +39,24 @@ See how it helps to find and fix potential bugs:
 
 Do you want more? Check the [documentation](https://youtype.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
 
-- [Boto3 type annotations generator](#boto3-type-annotations-generator)
-  - [Using built libraries](#using-built-libraries)
-    - [boto3](#boto3)
-    - [aiobotocore](#aiobotocore)
-    - [aioboto3](#aioboto3)
-  - [How to build type annotations](#how-to-build-type-annotations)
-    - [Locally](#locally)
-    - [With Docker image](#with-docker-image)
-  - [Development](#development)
+- [Mypy Boto3 Builder](#mypy-boto3-builder)
+  - [Quickstart](#quickstart)
+  - [Documentation](#documentation)
   - [Versioning](#versioning)
   - [Latest changes](#latest-changes)
-  - [Thank you](#thank-you)
-    - [Toolset](#toolset)
-    - [Contributors](#contributors)
 
-## Using built libraries
+## Quickstart
 
-### boto3
+- If you use `boto3` or `botocore`, follow [boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/)
+- For `aiobotocore` follow [types-aiobotocore documentation](https://youtype.github.io/types_aiobotocore_docs/)
+- For `aioboto3` follow [types-aioboto3 documentation](https://youtype.github.io/types_aioboto3_docs/)
 
-Check [boto3-stubs](https://pypi.org/project/boto3-stubs/) project for installation
-and usage instructions.
+## Documentation
 
-If you use VSCode, add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
-extension to your VSCode and run `AWS boto3: Quick Start` command.
-
-If not, just install `boto3-stubs` with `pip`:
-
-```bash
-python -m pip install 'boto3-stubs[essential]'
-
-# Lite version does not provide session.client/resource overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'boto3-stubs-lite[essential]'
-
-# do not forget to install mypy or pyright
-```
-
-That's it! You should already have code completion and type checking in your IDE.
-
-### aiobotocore
-
-Check [types-aiobotocore](https://pypi.org/project/types-aiobotocore/) project for installation
-and usage instructions.
-
-Or just install `types-aiobotocore` with `pip`:
-
-```bash
-python -m pip install 'types-aiobotocore[essential]'
-
-# Lite version does not provide session.create_client overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'types-aiobotocore-lite[essential]'
-
-# do not forget to install mypy or pyright
-```
-
-Ready to go! Enjoy code completion and type checking in your `aiobotocore` project.
-
-### aioboto3
-
-Check [types-aioboto3](https://pypi.org/project/types-aioboto3/) project for installation
-and usage instructions.
-
-Or just install `types-aioboto3` with `pip`:
-
-```bash
-python -m pip install 'types-aioboto3[essential]'
-
-# Lite version does not provide session.client/resource overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'types-aioboto3-lite[essential]'
-
-# do not forget to install mypy or pyright
-```
-
-Whoa! All `aioboto3` methods and attributes are now type annotated and even code completion works.
-
-## How to build type annotations
-
-### Locally
-
-```bash
-# Install preferred version of `boto3`
-python -m pip install boto3==1.16.25 botocore==1.19.25
-
-# Install `mypy-boto3-builder`
-python -m pip install mypy-boto3-builder
-
-# Build all packages in mypy_boto3_output directory
-python -m mypy_boto3_builder mypy_boto3_output
-
-# Or specify required services explicitly
-python -m mypy_boto3_builder mypy_boto3_output -s ec2 s3
-
-# Install custom `boto3-stubs` packages
-cd mypy_boto3_output
-python -m pip install -e ./mypy_boto3_ec2_package
-python -m pip install -e ./mypy_boto3_s3_package
-python -m pip install -e ./boto3_stubs_package
-```
-
-### With Docker image
-
-- Install [Docker](https://docs.docker.com/install/)
-- Pull latest `mypy_boto3_builder` version and tag it
-
-```bash
-docker pull docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest
-docker tag docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest mypy_boto3_builder
-```
-
-- Generate stubs in `output` directory
-
-```bash
-mkdir output
-
-# generate stubs for all services
-docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable
-
-# generate stubs for s3 service
-docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable -s s3
-
-# generate stubs for a specific boto3 version
-docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/output -ti mypy_boto3_builder_stable
-```
-
-- Install packages from `output` directory as described above
-
-## Development
-
-- Install Python 3.11+, ideally with [pyenv](https://github.com/pyenv/pyenv)
-- Install [uv](https://docs.astral.sh/uv/): `curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Install dependencies: `uv sync --all-extras --dev`
-- Use scripts for repo to check if everything works: `./scripts/build.sh`
-- Run manual pre-commit: `./scripts/before_commit.sh`
+- [How to use pre-built libraries](./docsmd/pre_build.md)
+- [How to build type annotations](./docsmd/how_to_build.md)
+- [Development](./docsmd/development.md)
+- [Contributors](./docsmd/thank_you.md)
 
 ## Versioning
 
@@ -183,32 +66,3 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 ## Latest changes
 
 Full changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_builder/releases).
-
-## Thank you
-
-### Toolset
-
-- [black](https://github.com/psf/black) developers for an awesome formatting tool
-- [Timothy Edmund Crosley](https://github.com/timothycrosley) for
-  [isort](https://github.com/PyCQA/isort) and how flexible it is
-- [mypy](https://github.com/python/mypy) developers for doing all dirty work for us
-- [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
-- [ruff](https://github.com/astral-sh/ruff) developers for the fastest swiss knife for Python
-
-### Contributors
-
-- [Allie Fitter](https://github.com/alliefitter), author of original
-  [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/)
-- [jbpratt](https://github.com/jbpratt)
-- [Chris Hollinworth](https://github.com/chrishollinworth)
-- [Yoan Blanc](https://github.com/greut)
-- [Kostya Leschenko](https://github.com/kleschenko)
-- [pyto86](https://github.com/pyto86pri)
-- [Ashton Honnecke](https://github.com/ahonnecke)
-- [Mike Carey](https://github.com/mike-carey)
-- [Ole-Martin Bratteng](https://github.com/omBratteng)
-- [Nikhil Benesch](https://github.com/benesch)
-- [Maksym Balatsko](https://github.com/mbalatsko)
-- [Jacob](https://github.com/fivepapertigers)
-- [Jakob Keller](https://github.com/jakob-keller)
-- [Ari Pollak](https://github.com/aripollak)
