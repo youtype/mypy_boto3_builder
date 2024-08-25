@@ -164,6 +164,7 @@ def run_ruff(path: Path) -> None:
         "D102",
         "D105",
         "D107",
+        "D203",
         "D205",
         "D212",
         "D400",
