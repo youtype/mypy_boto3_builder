@@ -1014,9 +1014,6 @@ class ShapeParser:
         if not clashing_typed_dict:
             return new_typed_dict_name
 
-        self.logger.debug(
-            f"Found clashing typed dict name: {clashing_typed_dict.render_definition()}"
-        )
         temp_typed_dict = typed_dict.copy()
         temp_typed_dict.name = new_typed_dict_name
         if clashing_typed_dict.is_same(temp_typed_dict):
