@@ -54,6 +54,7 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 ## Documentation
 
 - [How to use pre-built libraries](./docsmd/pre_build.md)
+- [How builder works](./docsmd/how_it_works.md)
 - [How to build type annotations](./docsmd/how_to_build.md)
 - [Development](./docsmd/development.md)
 - [Contributors](./docsmd/thank_you.md)

@@ -12,13 +12,11 @@ from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.markdown import fix_pypi_headers
 from mypy_boto3_builder.utils.path import print_path, walk_path
+from mypy_boto3_builder.writers.ruff_formatter import RuffFormatter
 from mypy_boto3_builder.writers.utils import (
-    blackify,
-    blackify_markdown,
     format_md,
     insert_md_toc,
     render_jinja2_package_template,
-    sort_imports,
 )
 
 
@@ -126,27 +124,13 @@ class PackageWriter:
         package: Package,
     ) -> None:
         content = render_jinja2_package_template(template_path, package=package)
-        for file_path in render_paths:
-            file_extension = file_path.suffix.lower().replace(".", "")
-            if file_extension in ("py", "pyi"):
-                content = sort_imports(
-                    content,
-                    package.name,
-                    extension="py" if file_extension == "py" else "pyi",
-                    third_party=[
-                        "boto3",
-                        "botocore",
-                        "aiobotocore",
-                        *[package.data.get_service_package_name(i) for i in package.service_names],
-                    ],
-                )
-                content = blackify(content, file_path)
+        for output_path in render_paths:
+            file_extension = output_path.suffix.lower().replace(".", "")
             if file_extension == "md":
                 content = insert_md_toc(content)
-                content = blackify_markdown(content)
                 content = fix_pypi_headers(content)
                 content = format_md(content)
-            self._write_template(file_path, content)
+            self._write_template(output_path, content)
 
     def _render_templates(
         self,
@@ -213,8 +197,36 @@ class PackageWriter:
 
         rendered_paths = [path for t in template_renders for path in t.paths]
         valid_paths = (*rendered_paths, *static_paths)
+
+        self._format_output(package, valid_paths)
+
         output_path = self._get_setup_path(package) if self.generate_setup else package_path
         self._cleanup(valid_paths, output_path)
+
+    def _format_output(self, package: Package, paths: Sequence[Path]) -> None:
+        ruff_formatter = RuffFormatter(
+            known_first_party=[package.name],
+            known_third_party=[
+                "boto3",
+                "botocore",
+                "aioboto3",
+                "aiobotocore",
+                *[package.data.get_service_package_name(i) for i in package.service_names],
+            ],
+        )
+        existing_paths = [path for path in paths if path.exists()]
+        format_python_paths = [
+            path for path in existing_paths if path.suffix.lower() in (".py", ".pyi")
+        ]
+        if format_python_paths:
+            ruff_formatter.format_python(format_python_paths)
+
+        format_md_paths = [path for path in existing_paths if path.suffix.lower() == ".md"]
+        if format_md_paths:
+            for path in format_md_paths:
+                content = path.read_text()
+                content = ruff_formatter.format_markdown(content)
+                path.write_text(content)
 
     def write_docs(self, package: Package, templates_path: Path) -> None:
         """
@@ -246,7 +258,8 @@ class PackageWriter:
                 ),
             ),
             TemplateRender(
-                module_templates_path / "__main__.py.jinja2", package_path / "__main__.py"
+                module_templates_path / "__main__.py.jinja2",
+                package_path / "__main__.py",
             ),
             TemplateRender(module_templates_path / "py.typed.jinja2", package_path / "py.typed"),
             TemplateRender(
@@ -323,6 +336,9 @@ class PackageWriter:
         self._render_templates(package, template_renders)
 
         valid_paths = [path for t in template_renders for path in t.paths]
+
+        self._format_output(package, valid_paths)
+
         output_path = (
             self._get_setup_path(package)
             if self.generate_setup
