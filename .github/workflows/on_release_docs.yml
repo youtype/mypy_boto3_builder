@@ -39,22 +39,21 @@ jobs:
             echo "gh-pages branch created"
             git checkout ${MAIN_BRANCH}
           fi
-      - name: Install poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version-file: pyproject.toml
-      - name: Install project
-        run: |
-          poetry install -n
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install the project
+        run: uv sync --dev
       - name: Install handsdown
         run: |
-          poetry run pip install -r requirements.mkdocs.txt
+          uv run pip install -r requirements.mkdocs.txt
       - name: Build docs
         run: |
           rm -rf docs/*
-          poetry run mkdocs build
+          uv run mkdocs build
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:

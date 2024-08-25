@@ -46,38 +46,34 @@ jobs:
     needs: versions
     steps:
       - uses: actions/checkout@v4
-      - name: Install poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version-file: pyproject.toml
-          cache: "poetry"
-      - name: Install dependencies
-        run: |
-          poetry install -n
-          poetry run pip install -U aioboto3 boto3-stubs types-aiobotocore types-aioboto3
-          poetry install -n
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install the project
+        run: uv sync --extra check --dev
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ needs.versions.outputs.boto3 }}
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
-          poetry run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+          uv pip install boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
       - name: Build master packages
         run: |
           rm -rf mypy_boto3_output/*
-          poetry run mypy_boto3_builder mypy_boto3_output --product aioboto3 aiobotocore
+          uv run mypy_boto3_builder mypy_boto3_output --product aioboto3 aiobotocore
       - name: Install master packages
         run: |
           bash ./scripts/install_aiobotocore.sh master
       - name: Check s3 output
         run: |
-          poetry run mypy_boto3_builder mypy_boto3_output --product aiobotocore-services -s s3
-          poetry run python ./scripts/check_output.py -p ./mypy_boto3_output s3
+          uv run mypy_boto3_builder mypy_boto3_output --product aiobotocore-services -s s3
+          uv run ./scripts/check_output.py -p ./mypy_boto3_output s3
       - name: Build packages
         run: |
-          poetry run mypy_boto3_builder mypy_boto3_output --product aiobotocore-services
+          uv run mypy_boto3_builder mypy_boto3_output --product aiobotocore-services
       - name: Check output
         run: |
-          poetry run python ./scripts/check_output.py -p ./mypy_boto3_output
+          uv run ./scripts/check_output.py -p ./mypy_boto3_output

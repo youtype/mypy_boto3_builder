@@ -11,20 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version-file: pyproject.toml
-          cache: "poetry"
-      - name: Install dependencies
-        run: |
-          poetry install -n
-          poetry run pip install -U --no-dependencies aiobotocore
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install the project
+        run: uv sync --extra check --dev
+      - name: Install extras
+        run: uv pip install -U aiobotocore
       - name: Integration tests
         run: |
-          poetry run python scripts/integration.py --product boto3 -d
+          uv run scripts/integration.py --product boto3 -d
       - name: Store artifacts
         uses: actions/upload-artifact@v4
         with:
