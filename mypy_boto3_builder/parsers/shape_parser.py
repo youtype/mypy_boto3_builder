@@ -1014,6 +1014,9 @@ class ShapeParser:
         if not clashing_typed_dict:
             return new_typed_dict_name
 
+        self.logger.debug(
+            f"Found clashing typed dict name: {clashing_typed_dict.render_definition()}"
+        )
         temp_typed_dict = typed_dict.copy()
         temp_typed_dict.name = new_typed_dict_name
         if clashing_typed_dict.is_same(temp_typed_dict):
@@ -1042,8 +1045,10 @@ class ShapeParser:
                 if typed_dict.is_same(output_typed_dict):
                     continue
 
-                old_typed_dict_name = typed_dict.name
-                new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
+                old_typed_dict_name = output_typed_dict.name
+                new_typed_dict_name = self._get_non_clashing_typed_dict_name(
+                    output_typed_dict, "Output"
+                )
                 self._fixed_typed_dict_map[typed_dict] = output_typed_dict
                 self.logger.debug(
                     "Fixing output TypedDict name clash"
