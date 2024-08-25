@@ -2,7 +2,7 @@
 Class method.
 """
 
-from typing import Iterator
+from collections.abc import Iterator
 
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function

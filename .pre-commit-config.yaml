@@ -5,7 +5,7 @@ repos:
         name: lint
         language: system
         pass_filenames: false
-        entry: uv run ruff check
+        entry: uv run ruff check --fix
       - id: format
         name: format
         language: system
