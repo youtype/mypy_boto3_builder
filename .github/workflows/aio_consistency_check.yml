@@ -55,7 +55,7 @@ jobs:
       - name: Install the project
         run: uv sync --extra check --dev
       - name: Install extras
-        run: uv pip install -U aiobotocore aioboto3
+        run: uv pip install -U aioboto3
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ needs.versions.outputs.boto3 }}

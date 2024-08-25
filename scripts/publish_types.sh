@@ -5,8 +5,8 @@ ROOT_PATH=$(dirname $(dirname $(realpath $0)))
 
 cd $ROOT_PATH/types_boto3
 rm -rf dist/* && python setup.py build sdist bdist_wheel
-uv run twine upload dist/* || true
+uvx twine upload dist/* || true
 
 cd $ROOT_PATH/types_botocore
 rm -rf dist/* && python setup.py build sdist bdist_wheel
-uv run twine upload dist/* || true
+uvx twine upload dist/* || true
