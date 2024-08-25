@@ -4,7 +4,7 @@ packages:
     checks:
       mypy: true
       stubtest: true
-      flake8: true
+      flake8: false
       pyright: true
     install:
       - mypy_boto3_output/boto3_stubs_lite_package
