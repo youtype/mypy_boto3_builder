@@ -1,16 +1,3 @@
-[tool.black]
-line-length = 100
-include = '(mypy_boto3_builder|tests)/.*\.pyi?$'
-target-version = ['py310', 'py311', 'py312']
-preview = true
-
-[tool.isort]
-profile = "black"
-line_length = 100
-known_third_party = ["botocore", "boto3", "aiobotocore"]
-known_first_party = ["mypy_boto3_builder", "tests"]
-src_paths = []
-
 [project]
 name = "mypy-boto3-builder"
 version = "7.26.1"
@@ -38,8 +25,7 @@ classifiers = [
 ]
 dependencies = [
     "boto3",
-    "black",
-    "isort",
+    "ruff",
     "jinja2",
     "mdformat",
     "typing_extensions",
@@ -64,8 +50,6 @@ dev-dependencies = [
     "botocore-stubs",
     "pre-commit",
     "mypy",
-    "ruff",
-    "flake8",
     "vulture",
     "pyright",
     "istub",
@@ -225,7 +209,7 @@ exclude = ["test_*.py", "*.pyi", "examples/*", "aio_examples/*"]
 quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
-line-ending = "auto"
+line-ending = "lf"
 docstring-code-format = false
 docstring-code-line-length = "dynamic"
 

@@ -124,7 +124,40 @@ def run_ruff(path: Path) -> None:
     """
     Check output with ruff.
     """
+    select_checks = [
+        "E",
+        "W",
+        "F",
+        "B",
+        "I",
+        "N",
+        "D",
+        "C4",
+        "C90",
+        "RUF",
+        "SIM",
+        "PYI",
+        "PT",
+        # "T",
+        "LOG",
+        "Q",
+        "RSE",
+        "RET",
+        "TID",
+        # "TCH",
+        "S",
+        "BLE",
+        # "ANN",
+        "A",
+        "PTH",
+        "YTT",
+        # "UP",
+        "TRY",
+        "PERF",
+        "FURB",
+    ]
     ignore_errors = [
+        "A002",
         "B014",
         "D200",
         "D101",
@@ -132,6 +165,7 @@ def run_ruff(path: Path) -> None:
         "D105",
         "D107",
         "D205",
+        "D212",
         "D400",
         "D401",
         "D403",
@@ -143,6 +177,8 @@ def run_ruff(path: Path) -> None:
         "N802",
         "N803",
         "N812",
+        "PYI036",
+        "RET503",
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
@@ -154,6 +190,8 @@ def run_ruff(path: Path) -> None:
                     "check",
                     "--target-version",
                     "py38",
+                    "--select",
+                    ",".join(select_checks),
                     "--ignore",
                     ",".join(ignore_errors),
                     path.as_posix(),
