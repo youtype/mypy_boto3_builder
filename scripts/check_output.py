@@ -151,7 +151,7 @@ def run_ruff(path: Path) -> None:
         "A",
         "PTH",
         "YTT",
-        # "UP",
+        "UP",
         "TRY",
         "PERF",
         "FURB",
@@ -179,6 +179,8 @@ def run_ruff(path: Path) -> None:
         "N812",
         "PYI036",
         "RET503",
+        "UP004",
+        "UP013",
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
