@@ -7,7 +7,6 @@ theme:
   name: material
   icon:
     logo: material/file-check-outline
-  include_sidebar: true
   palette:
     - scheme: slate
       primary: blue
