@@ -159,7 +159,7 @@ def build(path: Path, max_retries: int = 10) -> Path:
     """
     logger = logging.getLogger(LOGGER_NAME)
     attempt = 1
-    last_error: Exception = Exception("Unknown error")
+    last_error = Exception("Unknown error")
     while attempt <= max_retries:
         cleanup(path)
 
@@ -190,7 +190,7 @@ def publish(path: Path, max_retries: int = 10) -> Path:
     dist_path = path / "dist"
     packages = [i.as_posix() for i in dist_path.glob("*")]
     logger = logging.getLogger(LOGGER_NAME)
-    last_error: Exception = Exception("Unknown error")
+    last_error = Exception("Unknown error")
     while attempt <= max_retries:
         try:
             with patch("twine.repository.print"), patch("twine.commands.upload.print"):
