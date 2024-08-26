@@ -88,9 +88,6 @@ def get_available_service_names(session: BotocoreSession) -> list[ServiceName]:
 def get_generator_cls(product: Product) -> type[BaseGenerator]:
     """
     Get Generator class for a product.
-
-    Raises:
-        ValueError -- If product is not supported.
     """
     library = product.get_library()
     match library:
