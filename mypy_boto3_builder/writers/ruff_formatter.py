@@ -9,8 +9,7 @@ import tempfile
 from collections.abc import Iterable, Sequence
 from pathlib import Path
 
-from mypy_boto3_builder.constants import LINE_LENGTH
-from mypy_boto3_builder.utils.version import get_supported_python_versions
+from mypy_boto3_builder.constants import LINE_LENGTH, SUPPORTED_PY_VERSIONS
 
 
 class RuffError(RuntimeError):
@@ -29,9 +28,14 @@ class RuffFormatter:
         known_first_party: Sequence[str] = (),
         known_third_party: Sequence[str] = (),
     ) -> None:
-        self._target_version = "py" + get_supported_python_versions()[0].replace(".", "")
+        self._target_version = self._get_target_version()
         self._known_first_party = list(known_first_party)
         self._known_third_party = [i for i in known_third_party if i not in self._known_first_party]
+
+    @staticmethod
+    def _get_target_version() -> str:
+        min_version = min(v for v in SUPPORTED_PY_VERSIONS if len(v) > 1)
+        return f"py{min_version[0]}{min_version[1]}"
 
     def format_python(self, paths: Sequence[Path]) -> None:
         """

@@ -23,7 +23,6 @@ class TestPackage:
             == "https://pypi.org/project/mypy-boto3-s3/"
         )
         assert package.min_python_version
-        assert package.get_classifiers()
         package.library_version = "1.2.3"
         package.version = "2.3.4"
         assert str(package) == "boto3-stubs 2.3.4 (boto3 1.2.3)"
@@ -35,3 +34,10 @@ class TestPackage:
         package.service_names.append(ServiceNameCatalog.ec2)
         with pytest.raises(ValueError):
             package.service_name
+
+    def test_get_classifiers(self) -> None:
+        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])
+        classifiers = package.get_classifiers()
+        assert "Programming Language :: Python :: 3" in classifiers
+        assert "Programming Language :: Python :: 3.13" in classifiers
+        assert "Programming Language :: Python :: 3 :: Only" in classifiers

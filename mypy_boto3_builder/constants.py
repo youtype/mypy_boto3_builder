@@ -43,3 +43,6 @@ CLIENT = "Client"
 
 # keys to mark as NotRequired for output TypeDicts
 NOT_REQUIRED_OUTPUT_KEYS = ("NextToken", "Contents", "Item", "CommonPrefixes")
+
+# python versions supported by output stubs
+SUPPORTED_PY_VERSIONS = {(3, 8), (3, 9), (3, 10), (3, 11), (3, 12), (3, 13)}

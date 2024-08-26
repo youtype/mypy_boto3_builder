@@ -4,13 +4,13 @@ Parent class for all package structures.
 
 from collections.abc import Iterable
 
+from mypy_boto3_builder.constants import SUPPORTED_PY_VERSIONS
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.version import (
     get_max_build_version,
     get_min_build_version,
-    get_supported_python_versions,
 )
 
 
@@ -103,7 +103,8 @@ class Package:
         """
         Minimum required python version.
         """
-        return get_supported_python_versions()[0]
+        min_version = min(SUPPORTED_PY_VERSIONS)
+        return ".".join(str(i) for i in min_version)
 
     def get_classifiers(self) -> list[str]:
         """
@@ -116,17 +117,26 @@ class Package:
             "License :: OSI Approved :: MIT License",
             "Natural Language :: English",
             "Operating System :: OS Independent",
-            "Programming Language :: Python :: 3",
         ]
+        major_versions = {version[0] for version in SUPPORTED_PY_VERSIONS}
+        for major in sorted(major_versions):
+            result.append(f"Programming Language :: Python :: {major}")
+            minor_versions = {
+                version[1]
+                for version in SUPPORTED_PY_VERSIONS
+                if version[0] == major and len(version) > 1
+            }
+            result.extend(
+                f"Programming Language :: Python :: {major}.{minor}"
+                for minor in sorted(minor_versions)
+            )
+        if len(major_versions) == 1:
+            major = next(iter(major_versions))
+            result.append(f"Programming Language :: Python :: {major} :: Only")
         result.extend(
-            f"Programming Language :: Python :: {version}"
-            for version in get_supported_python_versions()
-        )
-        result.extend(
-            [
-                "Programming Language :: Python :: 3 :: Only",
+            (
                 "Programming Language :: Python :: Implementation :: CPython",
                 "Typing :: Stubs Only",
-            ]
+            )
         )
         return result

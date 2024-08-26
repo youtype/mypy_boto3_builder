@@ -20,13 +20,6 @@ def get_builder_version() -> str:
     return "0.0.0"
 
 
-def get_supported_python_versions() -> tuple[str, ...]:
-    """
-    Get supported python versions.
-    """
-    return ("3.8", "3.9", "3.10", "3.11", "3.12", "3.13")
-
-
 def get_min_build_version(version: str) -> str:
     """
     Get min version build version by setting micro to 0.
