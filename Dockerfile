@@ -4,10 +4,10 @@ RUN mkdir -p /home/builder/scripts
 RUN mkdir -p /output
 WORKDIR /home/builder
 
-ADD ./mypy_boto3_builder ./mypy_boto3_builder
-ADD ./LICENSE ./LICENSE
-ADD ./pyproject.toml ./pyproject.toml
-ADD ./README.md ./README.md
+COPY ./mypy_boto3_builder ./mypy_boto3_builder
+COPY ./LICENSE ./LICENSE
+COPY ./pyproject.toml ./pyproject.toml
+COPY ./README.md ./README.md
 
 RUN adduser \
     --disabled-password \
@@ -19,7 +19,7 @@ USER builder
 ENV PATH "$PATH:/home/builder/.local/bin"
 RUN python -m pip install --no-cache-dir .
 
-ADD ./scripts/docker.sh ./scripts/docker.sh
+COPY ./scripts/docker.sh ./scripts/docker.sh
 
 WORKDIR /output
 
