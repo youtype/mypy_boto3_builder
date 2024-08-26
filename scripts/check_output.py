@@ -69,6 +69,11 @@ class SnapshotMismatchError(Exception):
     Main snapshot mismatch exception.
     """
 
+    def __init__(self, path: Path, error: str) -> None:
+        super().__init__(f"Snapshot mismatch for {path}: {error}")
+        self.path = path
+        self.errors = error
+
 
 def setup_logging(level: int) -> logging.Logger:
     """
@@ -205,7 +210,7 @@ def run_ruff(path: Path) -> None:
         except subprocess.CalledProcessError:
             temp_path = Path(f.name)
             output = temp_path.read_text()
-            raise SnapshotMismatchError(output) from None
+            raise SnapshotMismatchError(path, output) from None
 
 
 def run_pyright(path: Path) -> None:
@@ -253,7 +258,7 @@ def run_pyright(path: Path) -> None:
                     "pyright:"
                     f" {file_path}:{error['range']['start']['line']} {error.get('message', '')}"
                 )
-            raise SnapshotMismatchError("\n".join(messages))
+            raise SnapshotMismatchError(path, "\n".join(messages))
 
 
 def run_mypy(path: Path) -> None:
@@ -277,7 +282,7 @@ def run_mypy(path: Path) -> None:
             errors.append(f"mypy: {message}")
 
         if errors:
-            raise SnapshotMismatchError("\n".join(errors)) from None
+            raise SnapshotMismatchError(path, "\n".join(errors)) from None
 
 
 def run_call(path: Path) -> None:
@@ -289,7 +294,7 @@ def run_call(path: Path) -> None:
     try:
         subprocess.check_call([sys.executable, path.as_posix()], stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
-        raise SnapshotMismatchError(f"Path {path} cannot be imported: {e}") from None
+        raise SnapshotMismatchError(path, f"Cannot be called: {e}") from None
 
 
 def run_import(path: Path) -> None:
@@ -313,7 +318,7 @@ def run_import(path: Path) -> None:
             stdout=subprocess.DEVNULL,
         )
     except subprocess.CalledProcessError as e:
-        raise SnapshotMismatchError(f"Path {path} cannot be imported: {e}") from None
+        raise SnapshotMismatchError(path, f"Cannot be imported: {e}") from None
 
 
 def is_package_dir(path: Path) -> bool:

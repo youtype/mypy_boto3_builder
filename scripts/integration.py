@@ -30,6 +30,9 @@ class SnapshotMismatchError(Exception):
     Exception for e2e failures.
     """
 
+    def __init__(self, path: Path) -> None:
+        super().__init__(f"Snapshot {path} is different")
+
 
 class Product(enum.Enum):
     """
@@ -198,7 +201,7 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
     )
     for line in diff:
         logger.warning(line)
-    raise SnapshotMismatchError(f"Snapshot {snapshot_path} is different")
+    raise SnapshotMismatchError(snapshot_path)
 
 
 def run_pyright(path: Path, snapshot_path: Path, update: bool) -> None:

@@ -159,6 +159,7 @@ def build(path: Path, max_retries: int = 10) -> Path:
     """
     logger = logging.getLogger(LOGGER_NAME)
     attempt = 1
+    last_error: Exception = Exception("Unknown error")
     while attempt <= max_retries:
         cleanup(path)
 
@@ -172,12 +173,13 @@ def build(path: Path, max_retries: int = 10) -> Path:
             check_call((sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()))
         except (subprocess.CalledProcessError, IndexError) as e:
             attempt += 1
+            last_error = e
             logger.warning(f"Failed building {path.name} {attempt} attempt: {e}")
             continue
 
         return path
 
-    raise RuntimeError(f"Failed building {path.name} after {attempt} attempts")
+    raise last_error
 
 
 def publish(path: Path, max_retries: int = 10) -> Path:
@@ -188,6 +190,7 @@ def publish(path: Path, max_retries: int = 10) -> Path:
     dist_path = path / "dist"
     packages = [i.as_posix() for i in dist_path.glob("*")]
     logger = logging.getLogger(LOGGER_NAME)
+    last_error: Exception = Exception("Unknown error")
     while attempt <= max_retries:
         try:
             with patch("twine.repository.print"), patch("twine.commands.upload.print"):
@@ -207,6 +210,7 @@ def publish(path: Path, max_retries: int = 10) -> Path:
             raise
         except HTTPError as e:
             attempt += 1
+            last_error = e
             response = e.response.text
             if "File already exists" in response:
                 logger.info(f"Already published {path.name}")
@@ -217,12 +221,13 @@ def publish(path: Path, max_retries: int = 10) -> Path:
             logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
         except RequestsConnectionError as e:
             attempt += 1
+            last_error = e
             logger.warning(f"Error while publishing {path.name}: {e}")
             logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
         else:
             return path
 
-    raise RuntimeError(f"Failed {path.name} after {attempt} attempts")
+    raise last_error
 
 
 def get_progress_str(index: int, total: int) -> str:
