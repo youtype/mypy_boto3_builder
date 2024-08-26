@@ -1,8 +1,8 @@
-FROM python:3.11.7-alpine3.19
+FROM python:3.12.5-alpine3.20
 
 RUN mkdir -p /home/builder/scripts
 RUN mkdir -p /output
-WORKDIR /builder
+WORKDIR /home/builder
 
 ADD ./mypy_boto3_builder ./mypy_boto3_builder
 ADD ./LICENSE ./LICENSE
@@ -17,7 +17,6 @@ RUN adduser \
 USER builder
 
 ENV PATH "$PATH:/home/builder/.local/bin"
-RUN python -m pip install -U pip
 RUN python -m pip install --no-cache-dir .
 
 ADD ./scripts/docker.sh ./scripts/docker.sh
