@@ -34,19 +34,26 @@ class EnumListAction(argparse.Action):
     Argparse action for handling Enums.
     """
 
-    def __init__(self, **kwargs: Any) -> None:
-        enum_type = kwargs.pop("type", None)
+    def __init__(
+        self,
+        type: type[enum.Enum],  # noqa: A002
+        option_strings: Sequence[str],
+        dest: str,
+        default: Sequence[enum.Enum] | None = None,
+        required: bool = False,
+        **kwargs: str | None,
+    ) -> None:
+        self._enum_class = type
 
-        if enum_type is None:
-            raise ValueError("type must be assigned an Enum when using EnumAction")
-        if not issubclass(enum_type, enum.Enum):
-            raise TypeError("type must be an Enum when using EnumAction")
-
-        kwargs.setdefault("choices", tuple(e.value for e in enum_type))
-
-        super().__init__(**kwargs)
-
-        self._enum = enum_type
+        super().__init__(
+            choices=tuple(e.value for e in self._enum_class),
+            option_strings=option_strings,
+            default=default,
+            dest=dest,
+            type=None,
+            required=required,
+            **kwargs,
+        )
 
     def __call__(
         self,
@@ -63,7 +70,7 @@ class EnumListAction(argparse.Action):
             value_list.append(value)
         if isinstance(value, list):
             value_list.extend([i for i in value if isinstance(i, str)])
-        enum_values = [self._enum(i) for i in value_list]
+        enum_values = [self._enum_class(i) for i in value_list]
         setattr(namespace, self.dest, enum_values)
 
 

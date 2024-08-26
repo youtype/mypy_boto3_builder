@@ -2,13 +2,14 @@
 Jinja2-related utils.
 """
 
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
 from mypy_boto3_builder.jinja_manager import JinjaManager
 
 
-def render_jinja2_template(template_path: Path, **kwargs: Any) -> str:
+def render_jinja2_template(template_path: Path, context: Mapping[str, Any]) -> str:
     """
     Render Jinja2 template to a string.
 
@@ -20,4 +21,4 @@ def render_jinja2_template(template_path: Path, **kwargs: Any) -> str:
         A rendered template.
     """
     template = JinjaManager.singleton().get_template(template_path)
-    return template.render(**kwargs)
+    return template.render(context)

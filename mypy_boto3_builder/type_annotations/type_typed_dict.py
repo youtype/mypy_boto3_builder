@@ -139,7 +139,7 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         Render type annotation definition.
         """
-        return render_jinja2_template(Path("common/typed_dict.py.jinja2"), type_def=self)
+        return render_jinja2_template(Path("common/typed_dict.py.jinja2"), {"type_def": self})
 
     def get_definition_import_records(self) -> set[ImportRecord]:
         """

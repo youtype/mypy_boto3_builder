@@ -151,54 +151,54 @@ target-version = "py310"
 [tool.ruff.lint]
 # preview = true
 select = [
-    "E",
-    "W",
-    "F",
-    "B",
-    "I",
-    "N",
-    "D",
-    "C4",
-    "C90",
-    "RUF",
-    "SIM",
-    "PYI",
-    "PT",
-    "T",
-    "LOG",
-    "Q",
-    "RSE",
-    "RET",
-    "TID",
-    "TCH",
-    "S",
-    "BLE",
-    "ANN",
-    "A",
-    "PTH",
-    "YTT",
-    "UP",
-    "TRY",
-    "PERF",
-    "FURB",
+    "E",    # pycodestyle
+    "W",    # pycodestyle
+    "F",    # Pyflakes
+    "B",    # flake8-bugbear
+    "I",    # isort
+    "N",    # pep8-naming
+    "D",    # pydocstyle
+    "C4",   # flake8-comprehensions
+    "C90",  # mccabe
+    "RUF",  # Ruff-specific rules
+    "SIM",  # flake8-simplify
+    "PYI",  # flake8-pyi
+    "PT",   # flake8-pytest-style
+    "T",    # flake8-raise
+    "LOG",  # flake8-logging
+    "Q",    # flake8-quotes
+    "RSE",  # flake8-raise
+    "RET",  # flake8-return
+    "TID",  # flake8-tidy-imports
+    "TCH",  # flake8-type-checking
+    "S",    # flake8-bandit
+    "BLE",  # flake8-blind-except
+    "ANN",  # flake8-annotations
+    "A",    # flake8-builtins
+    "PTH",  # flake8-use-pathlib
+    "YTT",  # flake8-2020
+    "UP",   # pyupgrade
+    "TRY",  # tryceratops
+    "PERF", # Perflint
+    "FURB", # refurb
 ]
 ignore = [
-    "D107",
-    "D200",
-    "D203",
-    "D212",
-    "D406",
-    "D407",
-    "D413",
-    "D417",
-    "S310",
-    "S404",
-    "S603",
-    "ANN101",
-    "ANN102",
-    "ANN401",
-    "TRY003",
-    "PERF203",
+    "D107",   # undocumented-public-init
+    "D200",   # fits-on-one-line
+    "D203",   # one-blank-line-before-class
+    "D212",   # multi-line-summary-first-line
+    "D406",   # new-line-after-section-name
+    "D407",   # dashed-underline-after-section
+    "D413",   # blank-line-after-last-section
+    "D417",   # undocumented-param
+    "S310",   # suspicious-url-open-usage
+    "S404",   # suspicious-subprocess-import
+    "S603",   # subprocess-without-shell-equals-true
+    "ANN101", # missing-type-self
+    "ANN102", # missing-type-cls
+    # "ANN401",  # any-type
+    "TRY003",  # raise-vanilla-args
+    "PERF203", # try-except-in-loop
 ]
 fixable = ["ALL"]
 unfixable = ["B"]

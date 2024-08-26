@@ -108,4 +108,4 @@ class TypeLiteral(FakeAnnotation):
         """
         Render type annotation definition.
         """
-        return render_jinja2_template(Path("common/literal.py.jinja2"), literal=self)
+        return render_jinja2_template(Path("common/literal.py.jinja2"), {"literal": self})

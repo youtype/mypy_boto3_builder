@@ -180,6 +180,6 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         Render type annotation definition.
         """
         if self.is_named():
-            return render_jinja2_template(Path("common/named_union.py.jinja2"), type_def=self)
+            return render_jinja2_template(Path("common/named_union.py.jinja2"), {"type_def": self})
 
         return self.render()
