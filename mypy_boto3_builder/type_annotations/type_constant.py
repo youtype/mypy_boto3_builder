@@ -2,9 +2,7 @@
 Wrapper for constant like `False` or `"test"`.
 """
 
-from typing import Final
-
-from typing_extensions import Self
+from typing import Final, Self
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 

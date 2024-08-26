@@ -3,9 +3,7 @@ Method or function argument.
 """
 
 from collections.abc import Iterator
-from typing import Literal
-
-from typing_extensions import Self
+from typing import Literal, Self
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant

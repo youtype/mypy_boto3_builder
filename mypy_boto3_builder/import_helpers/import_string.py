@@ -3,8 +3,7 @@ Wrapper for Python import strings.
 """
 
 import functools
-
-from typing_extensions import Self
+from typing import Self
 
 
 @functools.total_ordering

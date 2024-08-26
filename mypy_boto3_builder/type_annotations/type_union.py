@@ -4,8 +4,7 @@ Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 
 from collections.abc import Iterable, Iterator
 from pathlib import Path
-
-from typing_extensions import Self
+from typing import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord

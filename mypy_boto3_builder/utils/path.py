@@ -1,5 +1,5 @@
 """
-Path that represents it as relative to workdir.
+Path utils.
 """
 
 from collections.abc import Generator, Iterable
@@ -8,7 +8,7 @@ from pathlib import Path
 
 def print_path(path: Path) -> str:
     """
-    Print path relative to workdir.
+    Get path as a string relative to current workdir.
     """
     if path.is_absolute():
         cwd = Path.cwd()

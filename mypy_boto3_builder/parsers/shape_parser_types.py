@@ -2,9 +2,7 @@
 Types for botocore shape files.
 """
 
-from typing import Any, TypedDict
-
-from typing_extensions import NotRequired
+from typing import Any, NotRequired, TypedDict
 
 
 class PaginatorShape(TypedDict):

@@ -3,8 +3,7 @@ Wrapper for type annotations imported from 3rd party libraries, like `boto3.serv
 """
 
 import inspect
-
-from typing_extensions import Self
+from typing import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString

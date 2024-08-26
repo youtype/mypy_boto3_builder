@@ -1,7 +1,7 @@
 [project]
 name = "mypy-boto3-builder"
 version = "7.26.1"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 description = "Builder for boto3-stubs and types-aiobotocore"
 authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
 license = { file = "LICENSE" }
@@ -14,8 +14,6 @@ classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3 :: Only",
@@ -28,7 +26,6 @@ dependencies = [
     "ruff",
     "jinja2",
     "mdformat",
-    "typing_extensions",
     "packaging",
     "setuptools",
 ]
@@ -38,6 +35,7 @@ check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 
 [tool.uv]
 dev-dependencies = [
+    "typing_extensions",
     "cryptography",
     "types-requests",
     "types-setuptools",
@@ -107,10 +105,10 @@ reportMissingTypeArgument = "error"
 reportIncompatibleMethodOverride = "error"
 reportIncompatibleVariableOverride = "error"
 reportUnknownParameterType = "error"
-pythonVersion = "3.10"
+pythonVersion = "3.12"
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.12"
 warn_return_any = true
 warn_unused_ignores = false
 warn_unused_configs = true

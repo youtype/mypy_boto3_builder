@@ -15,8 +15,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Sequence, Tuple
 
-from mypy_boto3_builder.utils.path import print_path
-
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 EXAMPLES_PATH = ROOT_PATH / "examples"
@@ -34,13 +32,38 @@ class SnapshotMismatchError(Exception):
         super().__init__(f"Snapshot {path} is different")
 
 
-class Product(enum.Enum):
+@dataclass
+class Product:
     """
     Product to test.
     """
 
-    boto3 = "boto3"
-    aioboto3 = "aioboto3"
+    name: str
+    examples_path: Path
+    install_script_path: Path
+    build_product: str
+    master_build_products: Tuple[str, ...]
+
+
+class ProductChoices(enum.Enum):
+    """
+    Product to test.
+    """
+
+    boto3 = Product(
+        name="boto3",
+        examples_path=EXAMPLES_PATH,
+        install_script_path=SCRIPTS_PATH / "install.sh",
+        build_product="boto3-services",
+        master_build_products=("boto3",),
+    )
+    aioboto3 = Product(
+        name="aioboto3",
+        examples_path=AIO_EXAMPLES_PATH,
+        install_script_path=SCRIPTS_PATH / "install_aiobotocore.sh",
+        build_product="aiobotocore-services",
+        master_build_products=("aioboto3", "aiobotocore"),
+    )
 
 
 def setup_logging(level: int) -> logging.Logger:
@@ -61,6 +84,26 @@ def setup_logging(level: int) -> logging.Logger:
     logger.addHandler(stream_handler)
     logger.setLevel(level)
     return logger
+
+
+def print_path(path: Path) -> str:
+    """
+    Get path as a string relative to current workdir.
+    """
+    if path.is_absolute():
+        cwd = Path.cwd()
+        if path == cwd or path.parts <= cwd.parts:
+            return path.as_posix()
+
+        try:
+            path = path.relative_to(cwd)
+        except ValueError:
+            return str(path)
+
+    if len(path.parts) == 1:
+        return f"./{path.as_posix()}"
+
+    return path.as_posix()
 
 
 @dataclass
@@ -87,15 +130,15 @@ def parse_args() -> CLINamespace:
     parser.add_argument(
         "-p",
         "--product",
-        choices=("boto3", "aioboto3"),
-        default="boto3",
-        help="Product to test. Default: boto3",
+        choices=[i.name for i in ProductChoices],
+        default=ProductChoices.boto3.name,
+        help=f"Product to test. Default: {ProductChoices.boto3.name}",
     )
     parser.add_argument("services", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
         log_level=logging.DEBUG if args.debug else logging.INFO,
-        product=Product(args.product),
+        product=ProductChoices[args.product].value,
         fast=args.fast,
         update=args.update,
         services=tuple(args.services),
@@ -123,13 +166,8 @@ def install_master(product: Product) -> None:
     - boto3: `boto3-stubs`
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
-    if product == Product.boto3:
-        check_call([print_path(SCRIPTS_PATH / "build.sh"), "--product", "boto3"])
-        check_call([print_path(SCRIPTS_PATH / "install.sh"), "master"])
-
-    if product == Product.aioboto3:
-        check_call([print_path(SCRIPTS_PATH / "build.sh"), "--product", "aioboto3", "aiobotocore"])
-        check_call([print_path(SCRIPTS_PATH / "install_aiobotocore.sh"), "master"])
+    check_call([print_path(SCRIPTS_PATH / "build.sh"), "--product", *product.master_build_products])
+    check_call([print_path(product.install_script_path), "master"])
 
 
 def install_service(service_name: str, product: Product) -> None:
@@ -139,40 +177,16 @@ def install_service(service_name: str, product: Product) -> None:
     - boto3: `mypy-boto3-*`
     - aioboto3: `types-aiobotocore-*`
     """
-    if product == Product.boto3:
-        check_call(
-            [
-                print_path(SCRIPTS_PATH / "build.sh"),
-                "-s",
-                service_name,
-                "--product",
-                "boto3-services",
-            ]
-        )
-        check_call([print_path(SCRIPTS_PATH / "install.sh"), service_name])
-    if product == Product.aioboto3:
-        check_call(
-            [
-                print_path(SCRIPTS_PATH / "build.sh"),
-                "-s",
-                service_name,
-                "--product",
-                "aiobotocore-services",
-            ]
-        )
-        check_call([print_path(SCRIPTS_PATH / "install_aiobotocore.sh"), service_name])
-
-
-def get_examples_path(product: Product) -> Path:
-    """
-    Get path to examples for a product.
-    """
-    if product == Product.boto3:
-        return EXAMPLES_PATH
-    if product == Product.aioboto3:
-        return AIO_EXAMPLES_PATH
-
-    raise ValueError(f"Unknown product: {product}")
+    check_call(
+        [
+            print_path(SCRIPTS_PATH / "build.sh"),
+            "-s",
+            service_name,
+            "--product",
+            product.build_product,
+        ]
+    )
+    check_call([print_path(product.install_script_path), service_name])
 
 
 def compare(data: str, snapshot_path: Path, update: bool) -> None:
@@ -277,8 +291,7 @@ def main() -> None:
         logger.info("Installing master...")
         install_master(args.product)
     error: Optional[Exception] = None
-    examples_path = get_examples_path(args.product)
-    for file in examples_path.iterdir():
+    for file in args.product.examples_path.iterdir():
         if not file.name.endswith("_example.py"):
             continue
         service_name = file.name.replace("_example.py", "")
@@ -292,10 +305,10 @@ def main() -> None:
             logger.debug(f"Running {print_path(file)} ...")
             run_call(file)
             logger.debug(f"Running mypy for {print_path(file)} ...")
-            snapshot_path = examples_path / "mypy" / f"{file.name}.out"
+            snapshot_path = args.product.examples_path / "mypy" / f"{file.name}.out"
             run_mypy(file, snapshot_path, args.update)
             logger.debug(f"Running pyright for {print_path(file)} ...")
-            snapshot_path = examples_path / "pyright" / f"{file.name}.json"
+            snapshot_path = args.product.examples_path / "pyright" / f"{file.name}.json"
             run_pyright(file, snapshot_path, args.update)
         except SnapshotMismatchError as e:
             logger.warning(f"Snapshot mismatch: {e}")

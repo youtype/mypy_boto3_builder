@@ -4,9 +4,7 @@ Parent class for all type annotation wrappers.
 
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
-from typing import Final
-
-from typing_extensions import Self
+from typing import Final, Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString

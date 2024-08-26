@@ -3,9 +3,7 @@ Helper for Python import strings.
 """
 
 import functools
-from typing import ClassVar, Final
-
-from typing_extensions import Self
+from typing import ClassVar, Final, Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString

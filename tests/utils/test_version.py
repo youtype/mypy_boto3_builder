@@ -3,6 +3,7 @@ from mypy_boto3_builder.utils.version import (
     get_builder_version,
     get_max_build_version,
     get_min_build_version,
+    get_release_version,
 )
 
 
@@ -27,3 +28,8 @@ class TestStrings:
         assert bump_postrelease("1.22.36.post") == "1.22.36.post1"
         assert bump_postrelease("1.22.36.post0") == "1.22.36.post1"
         assert bump_postrelease("1.22.36.post5") == "1.22.36.post6"
+
+    def test_get_release_version(self):
+        assert get_release_version("1.22.36") == "1.22.36"
+        assert get_release_version("1.22.36.post13") == "1.22.36"
+        assert get_release_version("1.13.2.post56+dev123") == "1.13.2"

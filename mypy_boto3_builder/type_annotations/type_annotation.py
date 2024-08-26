@@ -3,9 +3,7 @@ Wrapper for `typing` type annotation.
 """
 
 from collections.abc import Mapping
-from typing import Final
-
-from typing_extensions import Self
+from typing import Final, Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString

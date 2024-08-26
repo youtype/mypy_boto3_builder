@@ -7,9 +7,7 @@ from json.decoder import JSONDecodeError
 from urllib.error import HTTPError
 from urllib.request import urlopen
 
-from packaging.version import Version
-
-from mypy_boto3_builder.utils.version import bump_postrelease
+from mypy_boto3_builder.utils.version import bump_postrelease, get_release_version
 
 
 class PyPIManager:
@@ -76,5 +74,5 @@ class PyPIManager:
             return set()
 
         version_strs = set(data["releases"].keys())
-        self._versions = {str(Version(i)) for i in version_strs}
+        self._versions = {get_release_version(i) for i in version_strs}
         return self._versions

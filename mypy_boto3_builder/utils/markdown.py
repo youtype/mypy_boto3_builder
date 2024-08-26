@@ -3,8 +3,7 @@ Utils for markdown rendering.
 """
 
 from collections.abc import Iterable
-
-from typing_extensions import Self
+from typing import Self
 
 from mypy_boto3_builder.utils.strings import get_anchor_link
 

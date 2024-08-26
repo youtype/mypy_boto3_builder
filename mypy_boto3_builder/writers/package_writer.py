@@ -147,16 +147,13 @@ class PackageWriter:
         path.write_text(content)
         self.logger.debug(f"Rendered {print_path(path)}")
 
-    def _render_md_templates(
+    def _render_docs_templates(
         self,
         package: Package,
         template_renders: Iterable[TemplateRender],
     ) -> None:
         for template_render in template_renders:
             content = render_jinja2_package_template(template_render.template_path, package=package)
-            # if file_path.suffix == ".md":
-            #     content = fix_pypi_headers(content)
-            #     content = format_md(content)
             for output_path in template_render.paths:
                 self._write_template(output_path, content)
 
@@ -238,7 +235,7 @@ class PackageWriter:
             file_name = template_path.stem
             template_renders.append(TemplateRender(template_path, self.output_path / file_name))
 
-        self._render_md_templates(package, template_renders)
+        self._render_docs_templates(package, template_renders)
 
     def _get_service_package_template_paths(
         self, package: ServicePackage, templates_path: Path
@@ -390,6 +387,6 @@ class PackageWriter:
                 )
             )
 
-        self._render_md_templates(package, template_renders)
+        self._render_docs_templates(package, template_renders)
         valid_paths = [path for t in template_renders for path in t.paths]
         self._cleanup(valid_paths, docs_path)

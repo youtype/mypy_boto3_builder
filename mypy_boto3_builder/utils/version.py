@@ -28,6 +28,13 @@ def get_min_build_version(version: str) -> str:
     return f"{major}.{minor}.0"
 
 
+def get_release_version(version: str) -> str:
+    """
+    Get release version by removing post.
+    """
+    return Version(version).base_version
+
+
 def get_max_build_version(version: str) -> str:
     """
     Get min version build version by bumping minor.

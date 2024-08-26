@@ -4,8 +4,7 @@ Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a
 
 from collections.abc import Iterable
 from pathlib import Path
-
-from typing_extensions import Self
+from typing import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord

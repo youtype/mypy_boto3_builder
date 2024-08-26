@@ -93,13 +93,13 @@ def get_generator_cls(product: Product) -> type[BaseGenerator]:
         ValueError -- If product is not supported.
     """
     library = product.get_library()
-    if library == ProductLibrary.boto3:
-        return Boto3Generator
-    if library == ProductLibrary.aiobotocore:
-        return AioBotocoreGenerator
-    if library == ProductLibrary.aioboto3:
-        return AioBoto3Generator
-    raise ValueError(f"Unknown product library: {library}")
+    match library:
+        case ProductLibrary.boto3:
+            return Boto3Generator
+        case ProductLibrary.aiobotocore:
+            return AioBotocoreGenerator
+        case ProductLibrary.aioboto3:
+            return AioBoto3Generator
 
 
 def generate_product(

@@ -3,8 +3,7 @@ Module-level function.
 """
 
 from collections.abc import Iterable, Iterator
-
-from typing_extensions import Self
+from typing import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
