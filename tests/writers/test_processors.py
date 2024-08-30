@@ -34,7 +34,7 @@ class TestProcessors:
             [ServiceNameCatalog.ec2],
             True,
             version="1.2.3",
-            package_data=Boto3StubsPackageData,
+            static_files_path=Path("static_files_path"),
         )
         PackageWriterMock().write_package.assert_called_once_with(
             package=package_mock,
@@ -66,6 +66,7 @@ class TestProcessors:
             [ServiceNameCatalog.ec2],
             True,
             version="1.2.3",
+            static_files_path=Path("static_files_path"),
         )
         PackageWriterMock().write_package.assert_called_once_with(
             package=package_mock,
@@ -138,11 +139,12 @@ class TestProcessors:
             [ServiceNameCatalog.ec2],
             True,
             version="1.2.3",
-            package_data=Boto3StubsFullPackageData,
+            static_files_path=Path("static_files_path"),
         )
         PackageWriterMock().write_package.assert_called_once_with(
             package=package_mock,
             templates_path=ANY,
+            static_files_path=ANY,
         )
         parse_boto3_stubs_package_mock.assert_called_once_with(
             session=session_mock,

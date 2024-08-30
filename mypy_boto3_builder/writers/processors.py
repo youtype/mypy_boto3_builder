@@ -7,10 +7,10 @@ from pathlib import Path
 
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH, TEMPLATES_PATH
+from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import (
-    BasePackageData,
+    Boto3StubsFullPackageData,
     Boto3StubsLitePackageData,
     Boto3StubsPackageData,
 )
@@ -29,7 +29,7 @@ def process_boto3_stubs(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-    package_data: type[BasePackageData],
+    static_files_path: Path,
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3_stubs`.
@@ -40,11 +40,13 @@ def process_boto3_stubs(
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
+        static_files_path -- Path to static files
 
     Return:
         Parsed Boto3StubsPackage.
     """
     logger = get_logger()
+    package_data = Boto3StubsPackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
     boto3_stubs_package = parse_boto3_stubs_package(
         session=session,
@@ -60,7 +62,7 @@ def process_boto3_stubs(
     package_writer.write_package(
         package=boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs",
-        static_files_path=BOTO3_STUBS_STATIC_PATH,
+        static_files_path=static_files_path,
     )
 
     return boto3_stubs_package
@@ -72,6 +74,7 @@ def process_boto3_stubs_lite(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
+    static_files_path: Path,
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3-stubs-lite`.
@@ -82,6 +85,7 @@ def process_boto3_stubs_lite(
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
+        static_files_path -- Path to static files
 
     Return:
         Parsed Boto3StubsPackage.
@@ -103,7 +107,7 @@ def process_boto3_stubs_lite(
     package_writer.write_package(
         package=boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs",
-        static_files_path=BOTO3_STUBS_STATIC_PATH,
+        static_files_path=static_files_path,
         exclude_template_names=[
             "session.pyi.jinja2",
             "__init__.pyi.jinja2",
@@ -187,7 +191,7 @@ def process_boto3_stubs_full(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-    package_data: type[BasePackageData],
+    static_files_path: Path,
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3-stubs-full`.
@@ -198,11 +202,12 @@ def process_boto3_stubs_full(
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
-        package_data -- Package data
+        static_files_path -- Path to static files
 
     Return:
         Parsed Boto3StubsPackage.
     """
+    package_data = Boto3StubsFullPackageData
     logger = get_logger()
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
     boto3_stubs_package = parse_boto3_stubs_package(
@@ -219,6 +224,7 @@ def process_boto3_stubs_full(
     package_writer.write_package(
         package=boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs-full",
+        static_files_path=static_files_path,
     )
 
     return boto3_stubs_package

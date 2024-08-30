@@ -24,6 +24,7 @@ def main() -> None:
         partial_overload=False,
         skip_published=False,
         disable_smart_version=True,
+        download_static_stubs=False,
     )
     run(args)
 

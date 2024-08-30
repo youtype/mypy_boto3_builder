@@ -7,7 +7,7 @@ from pathlib import Path
 
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import AIOBOTOCORE_STUBS_STATIC_PATH, TEMPLATES_PATH
+from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import (
     BasePackageData,
@@ -27,6 +27,7 @@ def process_aiobotocore_stubs(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
+    static_files_path: Path,
 ) -> TypesAioBotocorePackage:
     """
     Parse and write stubs package `aiobotocore-stubs`.
@@ -37,26 +38,27 @@ def process_aiobotocore_stubs(
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
+        static_files_path -- Path to static files
 
     Return:
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
+    types_aiobotocore_package = parse_aiobotocore_stubs_package(
         session, service_names, TypesAioBotocorePackageData
     )
-    aiobotocore_stubs_package.version = version
-    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {print_path(output_path)}")
+    types_aiobotocore_package.version = version
+    logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
         output_path=output_path, generate_setup=generate_setup, cleanup=True
     )
     package_writer.write_package(
-        aiobotocore_stubs_package,
+        types_aiobotocore_package,
         templates_path=TEMPLATES_PATH / "aiobotocore-stubs",
-        static_files_path=AIOBOTOCORE_STUBS_STATIC_PATH,
+        static_files_path=static_files_path,
     )
-    return aiobotocore_stubs_package
+    return types_aiobotocore_package
 
 
 def process_aiobotocore_stubs_lite(
@@ -65,6 +67,7 @@ def process_aiobotocore_stubs_lite(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
+    static_files_path: Path,
 ) -> TypesAioBotocorePackage:
     """
     Parse and write stubs package `aiobotocore-stubs-lite`.
@@ -75,16 +78,17 @@ def process_aiobotocore_stubs_lite(
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
+        static_files_path -- Path to static files
 
     Return:
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
+    types_aiobotocore_package = parse_aiobotocore_stubs_package(
         session, service_names, TypesAioBotocoreLitePackageData
     )
-    aiobotocore_stubs_package.version = version
-    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {print_path(output_path)}")
+    types_aiobotocore_package.version = version
+    logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
         output_path=output_path,
@@ -92,12 +96,12 @@ def process_aiobotocore_stubs_lite(
         cleanup=True,
     )
     package_writer.write_package(
-        aiobotocore_stubs_package,
+        types_aiobotocore_package,
         templates_path=TEMPLATES_PATH / "aiobotocore-stubs",
-        static_files_path=AIOBOTOCORE_STUBS_STATIC_PATH,
+        static_files_path=static_files_path,
         exclude_template_names=["session.pyi.jinja2"],
     )
-    return aiobotocore_stubs_package
+    return types_aiobotocore_package
 
 
 def process_aiobotocore_stubs_docs(
@@ -117,19 +121,19 @@ def process_aiobotocore_stubs_docs(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
+    types_aiobotocore_package = parse_aiobotocore_stubs_package(
         session, service_names, TypesAioBotocorePackageData
     )
 
-    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {print_path(output_path)}")
+    logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
     package_writer.write_docs(
-        aiobotocore_stubs_package,
+        types_aiobotocore_package,
         templates_path=TEMPLATES_PATH / "aiobotocore_stubs_docs",
     )
 
-    return aiobotocore_stubs_package
+    return types_aiobotocore_package
 
 
 def process_aiobotocore_stubs_full(
@@ -139,6 +143,7 @@ def process_aiobotocore_stubs_full(
     generate_setup: bool,
     version: str,
     package_data: type[BasePackageData],
+    static_files_path: Path,
 ) -> TypesAioBotocorePackage:
     """
     Parse and write stubs package `types-aiobotocore-full`.
@@ -150,26 +155,28 @@ def process_aiobotocore_stubs_full(
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
         package_data -- Package data
+        static_files_path -- Path to static files
 
     Return:
-        Parsed Boto3StubsPackage.
+        Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
-    boto3_stubs_package = parse_aiobotocore_stubs_package(
+    types_aiobotocore_package = parse_aiobotocore_stubs_package(
         session=session,
         service_names=service_names,
         package_data=package_data,
     )
-    boto3_stubs_package.version = version
+    types_aiobotocore_package.version = version
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
         output_path=output_path, generate_setup=generate_setup, cleanup=True
     )
     package_writer.write_package(
-        boto3_stubs_package,
+        types_aiobotocore_package,
         templates_path=TEMPLATES_PATH / "types-aiobotocore-full",
+        static_files_path=static_files_path,
     )
 
-    return boto3_stubs_package
+    return types_aiobotocore_package

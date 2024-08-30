@@ -6,6 +6,8 @@ import re
 
 import requests
 
+from mypy_boto3_builder.constants import REQUEST_TIMEOUT
+
 
 class BotocoreChangelog:
     """
@@ -20,9 +22,11 @@ class BotocoreChangelog:
 
     @classmethod
     def _get_changelog(cls) -> str:
-        response = requests.get(cls.URL, timeout=100)
+        response = requests.get(cls.URL, timeout=REQUEST_TIMEOUT)
         if not response.ok:
-            raise RuntimeError(f"Cannot retrieve {cls.URL}: {response.text}") from None
+            raise RuntimeError(
+                f"Cannot retrieve {cls.URL}: {response.status_code} {response.text}"
+            ) from None
 
         return response.text
 

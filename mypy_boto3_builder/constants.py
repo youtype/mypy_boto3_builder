@@ -19,6 +19,9 @@ AIOBOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "aiobot
 # Static *.pyi files for types-aioboto3
 AIOBOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "aioboto3"
 
+# Static *.pyi files zip download URL for boto3-stubs
+BOTO3_STUBS_STATIC_URL = "https://api.github.com/repos/youtype/boto3-stubs/zipball/main"
+
 # Max line length for boto3 docs
 LINE_LENGTH = 100
 
@@ -46,3 +49,6 @@ NOT_REQUIRED_OUTPUT_KEYS = ("NextToken", "Contents", "Item", "CommonPrefixes")
 
 # python versions supported by output stubs
 SUPPORTED_PY_VERSIONS = {(3, 8), (3, 9), (3, 10), (3, 11), (3, 12), (3, 13)}
+
+# default timeout for HTTP requests
+REQUEST_TIMEOUT = 120

@@ -4,6 +4,7 @@ Version manager for PyPI packages.
 
 import requests
 
+from mypy_boto3_builder.constants import REQUEST_TIMEOUT
 from mypy_boto3_builder.utils.version import bump_postrelease, get_release_version
 
 
@@ -54,11 +55,13 @@ class PyPIManager:
         if self._versions is not None:
             return self._versions
 
-        response = requests.get(self.json_url, timeout=100)
+        response = requests.get(self.json_url, timeout=REQUEST_TIMEOUT)
         if response.status_code == 404:
             return set()
         if not response.ok:
-            raise RuntimeError(f"Cannot retrieve {self.json_url}: {response.text}") from None
+            raise RuntimeError(
+                f"Cannot retrieve {self.json_url}: {response.status_code} {response.text}"
+            ) from None
 
         data = response.json()
 

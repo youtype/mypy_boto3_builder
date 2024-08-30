@@ -2,7 +2,9 @@
 AioBoto3 stubs generator.
 """
 
-from mypy_boto3_builder.constants import TEMPLATES_PATH
+from pathlib import Path
+
+from mypy_boto3_builder.constants import AIOBOTO3_STUBS_STATIC_PATH, TEMPLATES_PATH
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
@@ -22,6 +24,9 @@ class AioBoto3Generator(BaseGenerator):
 
     service_package_data = TypesAioBoto3PackageData
     service_template_path = TEMPLATES_PATH / "aioboto3_service"
+
+    def _get_static_files_path(self) -> Path:
+        return self._get_or_download_static_files_path(AIOBOTO3_STUBS_STATIC_PATH)
 
     def get_library_version(self) -> str:
         """
@@ -55,6 +60,7 @@ class AioBoto3Generator(BaseGenerator):
             self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
+            static_files_path=self._get_static_files_path(),
         )
 
     def _generate_stubs_lite(self) -> None:
@@ -70,6 +76,7 @@ class AioBoto3Generator(BaseGenerator):
             self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
+            static_files_path=self._get_static_files_path(),
         )
 
     def generate_docs(self) -> None:

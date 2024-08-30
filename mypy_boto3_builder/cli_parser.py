@@ -90,6 +90,7 @@ class CLINamespace:
     partial_overload: bool
     skip_published: bool
     disable_smart_version: bool
+    download_static_stubs: bool
 
 
 def parse_args(args: Sequence[str]) -> CLINamespace:
@@ -132,6 +133,11 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
             "Set this flag to run packages build in offline mode. "
             "skip-published flag is ignored in this case."
         ),
+    )
+    parser.add_argument(
+        "--download-static-stubs",
+        action="store_true",
+        help="Download static stubs from GitHub repositories instead of using built-in files.",
     )
     parser.add_argument(
         "--panic",
@@ -182,4 +188,5 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         partial_overload=result.partial_overload,
         skip_published=result.skip_published,
         disable_smart_version=result.no_smart_version,
+        download_static_stubs=result.download_static_stubs,
     )

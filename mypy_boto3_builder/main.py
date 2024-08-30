@@ -118,14 +118,12 @@ def generate_product(
     generator = generator_cls(
         service_names=service_names,
         master_service_names=master_service_names,
-        output_path=args.output_path,
-        generate_setup=not args.installed,
-        skip_published=args.skip_published,
-        disable_smart_version=args.disable_smart_version,
+        config=args,
         version=args.build_version,
         cleanup=True,
     )
     generator.generate_product(product.get_type())
+    generator.cleanup_temporary_files()
 
 
 def run(args: CLINamespace) -> None:

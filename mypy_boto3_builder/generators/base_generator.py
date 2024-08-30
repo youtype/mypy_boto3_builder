@@ -2,11 +2,19 @@
 Base stubs/docs generator.
 """
 
+import shutil
+import tempfile
 from abc import ABC, abstractmethod
 from collections.abc import Sequence
+from io import BytesIO
 from pathlib import Path
 from typing import ClassVar
+from zipfile import ZipFile
 
+import requests
+
+from mypy_boto3_builder.cli_parser import CLINamespace
+from mypy_boto3_builder.constants import REQUEST_TIMEOUT
 from mypy_boto3_builder.enums.product import ProductType
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
@@ -31,6 +39,7 @@ class BaseGenerator(ABC):
         generate_setup -- Whether to create package or installed module
         skip_published -- Whether to skip packages that are already published
         disable_smart_version -- Whether to create a new postrelease based on latest PyPI version
+        download_static_stubs -- Whether to download static stubs from GitHub repositories
         version -- Package build version
         cleanup -- Whether to cleanup generated files
     """
@@ -42,28 +51,68 @@ class BaseGenerator(ABC):
         self,
         service_names: Sequence[ServiceName],
         master_service_names: Sequence[ServiceName],
-        output_path: Path,
-        generate_setup: bool,
-        skip_published: bool,
-        disable_smart_version: bool,
+        config: CLINamespace,
         version: str,
         cleanup: bool,
     ) -> None:
         self.session = get_boto3_session()
         self.service_names = service_names
         self.master_service_names = master_service_names
-        self.output_path = output_path
+        self.config = config
+        self.output_path = config.output_path
         self.logger = get_logger()
-        self.generate_setup = generate_setup
-        self.skip_published = skip_published
-        self.disable_smart_version = disable_smart_version
+        self.generate_setup = not config.installed
         self.version = version or self.get_library_version()
         self.cleanup = cleanup
         self.package_writer = PackageWriter(
-            output_path=self.output_path,
+            output_path=self.config.output_path,
             generate_setup=self.generate_setup,
             cleanup=cleanup,
         )
+        self._downloaded_static_files_path: Path | None = None
+        self._cleanup_dirs: list[Path] = []
+
+    def _get_or_download_static_files_path(
+        self, static_path: Path, download_url: str | None = None
+    ) -> Path:
+        """
+        Get path to static files. Download if needed.
+        """
+        if not self.config.download_static_stubs or not download_url:
+            return static_path
+
+        if self._downloaded_static_files_path:
+            return self._downloaded_static_files_path
+
+        self.logger.debug(f"Downloading static files from {download_url}")
+        response = requests.get(download_url, timeout=REQUEST_TIMEOUT)
+        zipfile = ZipFile(BytesIO(response.content))
+
+        if not response.ok:
+            raise ValueError(
+                f"Failed to download static files: {response.status_code} {response.text}"
+            )
+
+        project_roots = [
+            Path(i).parent.as_posix() for i in zipfile.namelist() if Path(i).name == "py.typed"
+        ]
+        if len(project_roots) != 1:
+            raise ValueError(f"Failed to detect project root: {project_roots}")
+
+        project_root = project_roots[0]
+
+        with tempfile.TemporaryDirectory(delete=False) as temp_dir:
+            temp_dir_path = Path(temp_dir)
+
+            for member in zipfile.namelist():
+                if not member.startswith(project_root):
+                    continue
+                zipfile.extract(member, temp_dir_path)
+
+        self.logger.debug(f"Downloaded static files to {temp_dir_path}")
+        self._cleanup_dirs.append(temp_dir_path)
+        self._downloaded_static_files_path = temp_dir_path / project_root
+        return self._downloaded_static_files_path
 
     @abstractmethod
     def get_postprocessor(self, service_package: ServicePackage) -> BasePostprocessor:
@@ -79,13 +128,13 @@ class BaseGenerator(ABC):
         raise NotImplementedError("Method should be implemented in child class")
 
     def _get_package_version(self, pypi_name: str, version: str) -> str | None:
-        if self.disable_smart_version:
+        if self.config.disable_smart_version:
             return version
         pypi_manager = PyPIManager(pypi_name)
         if not pypi_manager.has_version(version):
             return version
 
-        if self.skip_published:
+        if self.config.skip_published:
             self.logger.info(f"Skipping {pypi_name} {version}, already on PyPI")
             return None
 
@@ -233,3 +282,14 @@ class BaseGenerator(ABC):
 
             self.logger.info(f"{progress_str} Generating {pypi_name} {version}")
             self._generate_service(service_name)
+
+    def cleanup_temporary_files(self) -> None:
+        """
+        Cleanup temporary files.
+        """
+        for dir_path in self._cleanup_dirs:
+            if not dir_path.exists():
+                continue
+
+            self.logger.debug(f"Removing {dir_path}")
+            shutil.rmtree(dir_path)
