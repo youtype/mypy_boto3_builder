@@ -22,6 +22,12 @@ AIOBOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "aioboto3"
 # Static *.pyi files zip download URL for boto3-stubs
 BOTO3_STUBS_STATIC_URL = "https://api.github.com/repos/youtype/boto3-stubs/zipball/main"
 
+# Static *.pyi files zip download URL for types-aiobotocore
+AIOBOTOCORE_STUBS_STATIC_URL = "https://api.github.com/repos/youtype/types-aiobotocore/zipball/main"
+
+# Static *.pyi files zip download URL for types-aioboto3
+AIOBOTO3_STUBS_STATIC_URL = "https://api.github.com/repos/youtype/types-aioboto3/zipball/main"
+
 # Max line length for boto3 docs
 LINE_LENGTH = 100
 

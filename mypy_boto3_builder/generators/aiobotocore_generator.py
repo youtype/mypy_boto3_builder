@@ -4,7 +4,11 @@ AioBotocore stubs/docs generator.
 
 from pathlib import Path
 
-from mypy_boto3_builder.constants import AIOBOTOCORE_STUBS_STATIC_PATH, TEMPLATES_PATH
+from mypy_boto3_builder.constants import (
+    AIOBOTOCORE_STUBS_STATIC_PATH,
+    AIOBOTOCORE_STUBS_STATIC_URL,
+    TEMPLATES_PATH,
+)
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
     TypesAioBotocoreFullPackageData,
@@ -31,7 +35,10 @@ class AioBotocoreGenerator(BaseGenerator):
     service_template_path = TEMPLATES_PATH / "aiobotocore_service"
 
     def _get_static_files_path(self) -> Path:
-        return self._get_or_download_static_files_path(AIOBOTOCORE_STUBS_STATIC_PATH)
+        return self._get_or_download_static_files_path(
+            AIOBOTOCORE_STUBS_STATIC_PATH,
+            AIOBOTOCORE_STUBS_STATIC_URL,
+        )
 
     def get_library_version(self) -> str:
         """
