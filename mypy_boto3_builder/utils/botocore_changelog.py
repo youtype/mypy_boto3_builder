@@ -3,9 +3,8 @@ Parser for boto3 changelog.
 """
 
 import re
-from typing import IO
-from urllib.error import HTTPError
-from urllib.request import urlopen
+
+import requests
 
 
 class BotocoreChangelog:
@@ -21,12 +20,11 @@ class BotocoreChangelog:
 
     @classmethod
     def _get_changelog(cls) -> str:
-        try:
-            response: IO[bytes]
-            with urlopen(cls.URL) as response:
-                return response.read().decode("utf-8")
-        except HTTPError as e:
-            raise RuntimeError(f"Cannot retrieve {cls.URL}: {e}") from None
+        response = requests.get(cls.URL, timeout=100)
+        if not response.ok:
+            raise RuntimeError(f"Cannot retrieve {cls.URL}: {response.text}") from None
+
+        return response.text
 
     def _get_section(self, version: str) -> str:
         result: list[str] = []

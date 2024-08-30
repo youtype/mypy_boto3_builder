@@ -2,10 +2,7 @@
 Version manager for PyPI packages.
 """
 
-import json
-from json.decoder import JSONDecodeError
-from urllib.error import HTTPError
-from urllib.request import urlopen
+import requests
 
 from mypy_boto3_builder.utils.version import bump_postrelease, get_release_version
 
@@ -57,18 +54,13 @@ class PyPIManager:
         if self._versions is not None:
             return self._versions
 
-        try:
-            with urlopen(self.json_url) as response:
-                data_raw = response.read()
-        except HTTPError as e:
-            if e.code == 404:
-                return set()
-            raise RuntimeError(f"Cannot retrieve {self.json_url}: {e}") from None
-
-        try:
-            data = json.loads(data_raw)
-        except JSONDecodeError:
+        response = requests.get(self.json_url, timeout=100)
+        if response.status_code == 404:
             return set()
+        if not response.ok:
+            raise RuntimeError(f"Cannot retrieve {self.json_url}: {response.text}") from None
+
+        data = response.json()
 
         if "releases" not in data:
             return set()

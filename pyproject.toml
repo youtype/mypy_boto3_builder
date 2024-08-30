@@ -28,6 +28,7 @@ dependencies = [
     "mdformat",
     "packaging",
     "setuptools",
+    "requests",
 ]
 
 [project.optional-dependencies]
@@ -38,6 +39,7 @@ dev-dependencies = [
     "typing_extensions",
     "cryptography",
     "types-requests",
+    "requests-mock",
     "types-setuptools",
     "types-six",
     "types-certifi",
