@@ -54,6 +54,13 @@ def get_selected_service_names(
             for service_name_str in updated_service_names
             if service_name_str in available_map
         )
+    if ServiceName.ESSENTIAL in selected_service_names:
+        selected_service_names.remove(ServiceName.ESSENTIAL)
+        selected_service_names.extend(
+            service_name_str
+            for service_name_str in available_map
+            if service_name_str in ServiceName.ESSENTIAL_NAMES
+        )
 
     for service_name_str in selected_service_names:
         if service_name_str not in available_map:

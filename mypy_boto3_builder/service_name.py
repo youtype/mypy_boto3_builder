@@ -19,8 +19,10 @@ class ServiceName:
 
     ALL = "all"
     UPDATED = "updated"
+    ESSENTIAL = "essential"
     LATEST = "latest"
-    ESSENTIAL = (
+
+    ESSENTIAL_NAMES = (
         "ec2",
         "rds",
         "s3",
@@ -93,7 +95,7 @@ class ServiceName:
         """
         Whether service is included to `boto3-stubs[essential]`.
         """
-        return self.name in self.ESSENTIAL
+        return self.name in self.ESSENTIAL_NAMES
 
     def is_conda_forge_available(self) -> bool:
         """

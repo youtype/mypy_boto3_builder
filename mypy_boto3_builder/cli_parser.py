@@ -156,6 +156,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         help=(
             "List of AWS services, by default all services are used."
             " Use `updated` to build only services updated in the release."
+            " Use `essential` to build only essential services."
             " Use `all` to build all services. (default: all)"
         ),
         default=(ServiceName.ALL,),
