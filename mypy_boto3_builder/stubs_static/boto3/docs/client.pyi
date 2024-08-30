@@ -1,0 +1,3 @@
+from botocore.docs.client import ClientDocumenter
+
+class Boto3ClientDocumenter(ClientDocumenter): ...
