@@ -1,0 +1,27 @@
+name: boto3-stubs-full integration
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  integration:
+    name: Integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: pyproject.toml
+      - name: Set up uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install the project
+        run: uv sync --extra check --dev
+      - name: Build full package
+        run: uv run scripts/build.sh --product boto3-full -s s3 ec2
+      - name: Install full package
+        run: uv run scripts/install.sh full
+      - name: Integration tests
+        run: uv run scripts/integration.py --product boto3 -fd s3 ec2

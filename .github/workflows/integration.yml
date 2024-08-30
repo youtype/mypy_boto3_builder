@@ -19,8 +19,6 @@ jobs:
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install the project
         run: uv sync --extra check --dev
-      - name: Install extras
-        run: uv pip install -U aiobotocore
       - name: Integration tests
         run: |
           uv run scripts/integration.py --product boto3 -d
