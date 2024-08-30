@@ -372,17 +372,17 @@ def main() -> None:
     args = parse_args()
     logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
     has_errors = False
-    for folder in sorted(args.path.iterdir()):
-        if not folder.name.endswith("_package"):
+    for directory in sorted(args.path.iterdir()):
+        if not directory.name.endswith("_package"):
             continue
 
-        if args.filter and not any(s in folder.as_posix() for s in args.filter):
+        if args.filter and not any(s in directory.as_posix() for s in args.filter):
             continue
 
-        package_path = find_package_path(folder)
+        package_path = find_package_path(directory)
         if not package_path:
             continue
-        logger.info(f"Checking {folder.name}/{package_path.name} ...")
+        logger.info(f"Checking {directory.name}/{package_path.name} ...")
         try:
             check_snapshot(package_path)
         except SnapshotMismatchError as e:

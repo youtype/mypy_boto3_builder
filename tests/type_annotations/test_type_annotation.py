@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 
@@ -12,7 +13,7 @@ class TestTypeAnnotation:
         assert self.dict.get_import_name() == "Dict"
         assert hash(self.dict)
 
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeAnnotationError):
             TypeAnnotation("str")
 
     def test_render(self) -> None:

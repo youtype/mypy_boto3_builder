@@ -191,7 +191,6 @@ def process_boto3_stubs_full(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-    static_files_path: Path,
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3-stubs-full`.
@@ -202,7 +201,6 @@ def process_boto3_stubs_full(
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
-        static_files_path -- Path to static files
 
     Return:
         Parsed Boto3StubsPackage.
@@ -224,7 +222,6 @@ def process_boto3_stubs_full(
     package_writer.write_package(
         package=boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs-full",
-        static_files_path=static_files_path,
     )
 
     return boto3_stubs_package

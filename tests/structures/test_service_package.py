@@ -2,6 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.structures.client import Client
@@ -38,7 +39,7 @@ class TestServicePackage:
         assert self.service_package.client.name == "Client"
 
         self.service_package._client = None  # type: ignore
-        with pytest.raises(ValueError):
+        with pytest.raises(StructureError):
             self.service_package.client
 
     def test_extract_literals(self) -> None:
@@ -79,11 +80,11 @@ class TestServicePackage:
 
     def test_validate(self) -> None:
         self.service_package.validate()
-        with pytest.raises(ValueError):
+        with pytest.raises(StructureError):
             service_package = self.service_package
             service_package.literals[0].name = "Literal"
             service_package.validate()
-        with pytest.raises(ValueError):
+        with pytest.raises(StructureError):
             service_package = self.service_package
             service_package.literals[0].name = "MyTypedDict"
             service_package.validate()

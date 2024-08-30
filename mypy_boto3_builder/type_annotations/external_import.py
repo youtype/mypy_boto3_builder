@@ -5,6 +5,7 @@ Wrapper for type annotations imported from 3rd party libraries, like `boto3.serv
 import inspect
 from typing import Self
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -45,7 +46,7 @@ class ExternalImport(FakeAnnotation):
         """
         module = inspect.getmodule(obj)
         if module is None:
-            raise ValueError(f"Unknown module for {obj}")
+            raise TypeAnnotationError(f"Unknown module for {obj}")
 
         module_name = module.__name__
         return cls(

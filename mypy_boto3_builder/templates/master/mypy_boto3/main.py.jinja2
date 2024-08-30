@@ -107,7 +107,7 @@ def main() -> None:
         for submodule in SUBMODULES:
             submodule_path = ROOT_PATH / submodule.import_name
             if submodule_path.exists():
-                logger.info('Removing folder %s', submodule_path)
+                logger.info('Removing directory %s', submodule_path)
                 shutil.rmtree(submodule_path)
 
         package_names = [

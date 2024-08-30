@@ -10,6 +10,8 @@ from unittest.mock import MagicMock
 
 from botocore.utils import get_service_module_name
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
+
 RESERVED_NAMES = {
     *dir(typing),
     *dir(builtins),
@@ -155,7 +157,7 @@ def get_type_def_name(*parts: str) -> str:
         ```
     """
     if not parts:
-        raise ValueError("At least one part is required")
+        raise TypeAnnotationError("At least one part is required")
 
     parts_camelcased = [get_class_prefix(i) for i in parts]
     name = "".join(parts_camelcased)

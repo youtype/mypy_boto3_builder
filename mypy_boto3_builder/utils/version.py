@@ -8,6 +8,7 @@ import importlib.metadata
 from packaging.version import Version
 
 from mypy_boto3_builder.constants import PACKAGE_NAME
+from mypy_boto3_builder.exceptions import BuildEnvError
 
 
 def get_builder_version() -> str:
@@ -60,7 +61,7 @@ def get_botocore_version() -> str:
     try:
         from botocore import __version__ as version
     except ImportError as e:
-        raise RuntimeError("botocore is not installed") from e
+        raise BuildEnvError("botocore is not installed") from e
     return f"{version}"
 
 
@@ -71,7 +72,7 @@ def get_boto3_version() -> str:
     try:
         from boto3 import __version__ as version
     except ImportError as e:
-        raise RuntimeError("boto3 is not installed") from e
+        raise BuildEnvError("boto3 is not installed") from e
     return f"{version}"
 
 
@@ -82,7 +83,7 @@ def get_aiobotocore_version() -> str:
     try:
         from aiobotocore import __version__ as version  # type: ignore
     except ImportError as e:
-        raise RuntimeError("aiobotocore is not installed") from e
+        raise BuildEnvError("aiobotocore is not installed") from e
     return f"{version}"
 
 
@@ -93,6 +94,6 @@ def get_aioboto3_version() -> str:
     try:
         from aioboto3 import __version__ as version  # type: ignore
     except ImportError as e:
-        raise RuntimeError("aioboto3 is not installed") from e
+        raise BuildEnvError("aioboto3 is not installed") from e
 
     return f"{version}"

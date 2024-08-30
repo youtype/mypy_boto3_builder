@@ -142,7 +142,7 @@ class BaseGenerator(ABC):
             progress_str = f"[{current_str}/{total_str}]"
 
             self.logger.info(
-                f"{progress_str} Generating {service_name.boto3_name} {package.version} folder"
+                f"{progress_str} Generating {service_name.boto3_name} package directory"
             )
             service_package = self._parse_service_package(
                 service_name, package.version, package.data

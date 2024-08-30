@@ -5,6 +5,7 @@ Wrapper for `typing` type annotation.
 from collections.abc import Mapping
 from typing import Final, Self
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -55,7 +56,7 @@ class TypeAnnotation(FakeAnnotation):
 
     def __init__(self, wrapped_type: str) -> None:
         if wrapped_type not in self.SUPPORTED_TYPES:
-            raise ValueError(f"Cannot wrap {wrapped_type}")
+            raise TypeAnnotationError(f"Cannot wrap {wrapped_type}")
 
         self._wrapped_type: str = wrapped_type
 

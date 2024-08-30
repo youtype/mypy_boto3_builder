@@ -5,6 +5,7 @@ Version manager for PyPI packages.
 import requests
 
 from mypy_boto3_builder.constants import REQUEST_TIMEOUT
+from mypy_boto3_builder.exceptions import BuildEnvError
 from mypy_boto3_builder.utils.version import bump_postrelease, get_release_version
 
 
@@ -59,7 +60,7 @@ class PyPIManager:
         if response.status_code == 404:
             return set()
         if not response.ok:
-            raise RuntimeError(
+            raise BuildEnvError(
                 f"Cannot retrieve {self.json_url}: {response.status_code} {response.text}"
             ) from None
 

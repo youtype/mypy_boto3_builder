@@ -27,6 +27,7 @@ from mypy_boto3_builder.constants import (
     NOT_REQUIRED_OUTPUT_KEYS,
     SERVICE_RESOURCE,
 )
+from mypy_boto3_builder.exceptions import ShapeParserError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.shape_parser_types import (
     ActionShape,
@@ -73,12 +74,6 @@ from mypy_boto3_builder.utils.strings import capitalize, get_type_def_name
 
 if TYPE_CHECKING:
     from botocore.session import Session as BotocoreSession
-
-
-class ShapeParserError(Exception):
-    """
-    Main error for ShapeParser.
-    """
 
 
 class ShapeParser:
@@ -329,7 +324,7 @@ class ShapeParser:
             if literal_name in self._type_literal_map:
                 old_type_literal = self._type_literal_map[literal_name]
                 if not type_literal.is_same(old_type_literal):
-                    raise ValueError(
+                    raise ShapeParserError(
                         f"Literal {literal_name} has different values:"
                         f" {old_type_literal.children} vs {type_literal.children}"
                     )

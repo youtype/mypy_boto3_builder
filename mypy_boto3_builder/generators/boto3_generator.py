@@ -154,6 +154,5 @@ class Boto3Generator(BaseGenerator):
             self.service_names,
             generate_setup=self.generate_setup,
             version=version,
-            static_files_path=self._get_static_files_path(),
         )
         self._generate_full_stubs_services(boto3_stubs_package)

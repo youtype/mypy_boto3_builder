@@ -168,7 +168,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
     parser.add_argument(
         "--installed",
         action="store_true",
-        help="Generate already installed packages for typings folder.",
+        help="Generate already installed packages for typings directory.",
     )
     parser.add_argument(
         "--list-services",

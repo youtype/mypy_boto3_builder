@@ -1,12 +1,13 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
 class TestImportString:
     def test_from_str(self) -> None:
         assert ImportString.from_str("my.module.path") == "my.module.path"
-        with pytest.raises(ValueError):
+        with pytest.raises(StructureError):
             ImportString.from_str("")
 
     def test_empty(self) -> None:

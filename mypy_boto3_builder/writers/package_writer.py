@@ -52,7 +52,7 @@ class PackageWriter:
         self.logger = get_logger()
 
     def _get_package_path(self, package: Package) -> Path:
-        if self.generate_setup:
+        if not self.generate_setup:
             return self.output_path / package.directory_name / package.name
 
         return self.output_path / package.library_name
@@ -66,9 +66,10 @@ class PackageWriter:
     def _get_setup_path(self, package: Package) -> Path:
         return self.output_path / package.directory_name
 
-    def _write_static_paths(self, static_files_path: Path | None, package_path: Path) -> list[Path]:
+    def _write_static_paths(self, static_files_path: Path | None, package: Package) -> list[Path]:
         if not static_files_path:
             return []
+        package_path = self._get_package_path(package)
         result: list[Path] = []
         for static_path in static_files_path.glob("**/*.pyi"):
             relative_output_path = static_path.relative_to(static_files_path)
@@ -103,7 +104,7 @@ class PackageWriter:
     def _get_package_template_paths(
         self, package: Package, templates_path: Path | None
     ) -> list[TemplateRender]:
-        if not templates_path or not self.generate_setup:
+        if not templates_path or not self.generate_setup or not package.has_main_package():
             return []
 
         result: list[TemplateRender] = []
@@ -158,7 +159,7 @@ class PackageWriter:
                 self._write_template(output_path, content)
 
     def _cleanup(self, valid_paths: Sequence[Path], output_path: Path) -> None:
-        if not self.cleanup:
+        if not self.cleanup or not output_path.exists():
             return
         for unknown_path in walk_path(output_path, valid_paths):
             unknown_path.unlink()
@@ -180,9 +181,7 @@ class PackageWriter:
             static_files_path -- Path to static files for package
             exclude_template_names -- Do not render templates with these names
         """
-        package_path = self._get_package_path(package)
-
-        static_paths = self._write_static_paths(static_files_path, package_path)
+        static_paths = self._write_static_paths(static_files_path, package)
         template_renders: list[TemplateRender] = [
             *self._get_setup_template_paths(package, templates_path),
             *self._get_package_template_paths(package, templates_path),
@@ -197,12 +196,22 @@ class PackageWriter:
 
         self._format_output(package, valid_paths)
 
-        output_path = self._get_setup_path(package) if self.generate_setup else package_path
-        self._cleanup(valid_paths, output_path)
+        cleanup_path = self._get_cleanup_path(package)
+        if cleanup_path:
+            self._cleanup(valid_paths, cleanup_path)
+
+    def _get_cleanup_path(self, package: Package) -> Path | None:
+        if self.generate_setup:
+            return self._get_setup_path(package)
+
+        if package.has_main_package():
+            return self._get_package_path(package)
+
+        return None
 
     def _format_output(self, package: Package, paths: Sequence[Path]) -> None:
         ruff_formatter = RuffFormatter(
-            known_first_party=[package.name],
+            known_first_party=[package.name] if package.has_main_package() else [],
             known_third_party=[
                 "boto3",
                 "botocore",
@@ -349,7 +358,7 @@ class PackageWriter:
 
         Arguments:
             package -- Service package.
-            output_path -- Path to output folder.
+            output_path -- Path to output directory.
         """
         docs_path = self.output_path / package.name
         docs_path.mkdir(exist_ok=True, parents=True)

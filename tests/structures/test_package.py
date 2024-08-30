@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.structures.package import Package
@@ -32,7 +33,7 @@ class TestPackage:
         assert package.service_name == ServiceNameCatalog.s3
 
         package.service_names.append(ServiceNameCatalog.ec2)
-        with pytest.raises(ValueError):
+        with pytest.raises(StructureError):
             package.service_name
 
     def test_get_classifiers(self) -> None:

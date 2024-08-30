@@ -157,7 +157,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 
 - Install `pyright`: `npm i -g pyright`
 - Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
-- Optionally, you can install `boto3-stubs` to `typings` folder.
+- Optionally, you can install `boto3-stubs` to `typings` directory.
 
 Type checking should work for installed `boto3` services.
 No explicit type annotations required, write your `boto3` code as usual.

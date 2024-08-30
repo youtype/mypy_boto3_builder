@@ -139,7 +139,6 @@ class TestProcessors:
             [ServiceNameCatalog.ec2],
             True,
             version="1.2.3",
-            static_files_path=Path("static_files_path"),
         )
         PackageWriterMock().write_package.assert_called_once_with(
             package=package_mock,

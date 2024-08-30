@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Pull static stubs from GitHub to local folders.
+Pull static stubs from GitHub to local directories.
 """
 
 import logging

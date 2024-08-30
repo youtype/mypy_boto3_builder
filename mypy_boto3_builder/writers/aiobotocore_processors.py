@@ -143,7 +143,6 @@ def process_aiobotocore_stubs_full(
     generate_setup: bool,
     version: str,
     package_data: type[BasePackageData],
-    static_files_path: Path,
 ) -> TypesAioBotocorePackage:
     """
     Parse and write stubs package `types-aiobotocore-full`.
@@ -155,7 +154,6 @@ def process_aiobotocore_stubs_full(
         generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
         package_data -- Package data
-        static_files_path -- Path to static files
 
     Return:
         Parsed TypesAioBotocorePackage.
@@ -176,7 +174,6 @@ def process_aiobotocore_stubs_full(
     package_writer.write_package(
         types_aiobotocore_package,
         templates_path=TEMPLATES_PATH / "types-aiobotocore-full",
-        static_files_path=static_files_path,
     )
 
     return types_aiobotocore_package

@@ -2,7 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from mypy_boto3_builder.jinja_manager import JinjaManager, JinjaManagerError
+from mypy_boto3_builder.exceptions import JinjaManagerError
+from mypy_boto3_builder.jinja_manager import JinjaManager
 
 
 class TestJinjaManager:

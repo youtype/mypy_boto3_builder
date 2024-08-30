@@ -132,6 +132,5 @@ class AioBotocoreGenerator(BaseGenerator):
             generate_setup=self.generate_setup,
             package_data=package_data,
             version=version,
-            static_files_path=self._get_static_files_path(),
         )
         self._generate_full_stubs_services(package)

@@ -13,6 +13,7 @@ from botocore.exceptions import UnknownServiceError
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.helpers import get_dummy_method, get_public_methods
@@ -82,7 +83,7 @@ class ServiceResourceParser:
         Get boto3 resource for service.
         """
         if self._boto3_resource is None:
-            raise ValueError(f"No resource for {self.service_name.boto3_name}")
+            raise BuildInternalError(f"No resource for {self.service_name.boto3_name}")
         return self._boto3_resource
 
     def parse(self) -> ServiceResource | None:
@@ -198,14 +199,14 @@ class ServiceResourceParser:
 
         loader: Loader = self.botocore_session.get_component("data_loader")
         if self.boto3_resource.meta.service_name != self.service_name.boto3_name:
-            raise ValueError(
+            raise BuildInternalError(
                 "Resource name mismatch:"
                 f" {self.boto3_resource.meta.service_name} != {self.service_name.boto3_name}"
             )
         json_resource_model = loader.load_service_model(self.service_name.boto3_name, "resources-1")
         service_model = self.boto3_resource.meta.client.meta.service_model
         if service_model.service_name != self.service_name.boto3_name:
-            raise ValueError(
+            raise BuildInternalError(
                 "Service model name mismatch:"
                 f" {service_model.service_name} != {self.service_name.boto3_name}"
             )

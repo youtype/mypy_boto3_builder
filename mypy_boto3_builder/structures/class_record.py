@@ -6,6 +6,7 @@ from collections.abc import Iterable, Iterator
 
 from botocore import xform_name
 
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.method import Method
@@ -49,7 +50,7 @@ class ClassRecord:
             Name prefixed with underscore.
         """
         if not self.use_alias:
-            raise ValueError(f"Cannot get alias for {self.name} with no alias.")
+            raise StructureError(f"Cannot get alias for {self.name} with no alias.")
 
         return InternalImport.get_alias(self.name)
 
@@ -109,4 +110,4 @@ class ClassRecord:
             if method.name == name:
                 return method
 
-        raise ValueError(f"Method {name} not found")
+        raise StructureError(f"Method {name} not found")

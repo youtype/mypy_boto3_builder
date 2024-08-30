@@ -6,6 +6,7 @@ from collections.abc import Iterable, Iterator
 from typing import Literal
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import BasePackageData
@@ -42,7 +43,6 @@ class ServicePackage(Package):
         helper_functions: Iterable[Function] = (),
     ) -> None:
         super().__init__(data)
-        self.name = data.get_service_package_name(service_name)
         self.pypi_name = data.get_service_pypi_name(service_name)
         self._client = client
         self.service_resource = service_resource
@@ -54,12 +54,19 @@ class ServicePackage(Package):
         self.service_names = [service_name]
 
     @property
+    def name(self) -> str:
+        """
+        Package name.
+        """
+        return self.data.get_service_package_name(self.service_names[0])
+
+    @property
     def client(self) -> Client:
         """
         Service Client.
         """
         if not self._client:
-            raise ValueError(f"Client is not present for {self.service_name}")
+            raise StructureError(f"Client is not present for {self.service_name}")
         return self._client
 
     def extract_literals(self) -> list[TypeLiteral]:
@@ -247,12 +254,12 @@ class ServicePackage(Package):
             *(self.service_resource.get_all_names() if self.service_resource else []),
         ):
             if is_reserved(name):
-                raise ValueError(f"{name} is a reserved keyword")
+                raise StructureError(f"{name} is a reserved keyword")
             if name in names:
                 for type_def in self.type_defs:
                     if type_def.name == name:
                         self.logger.warning(type_def.render_definition())
-                raise ValueError(f"Duplicate name {name}")
+                raise StructureError(f"Duplicate name {name}")
             names.add(name)
 
     def get_doc_link(

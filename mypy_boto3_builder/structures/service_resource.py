@@ -9,6 +9,7 @@ from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
@@ -116,7 +117,7 @@ class ServiceResource(ClassRecord):
         for resource in self.sub_resources:
             for collection in resource.collections:
                 if collection.name in collection_names:
-                    raise ValueError(f"Conflicting collections: {collection.name}")
+                    raise StructureError(f"Conflicting collections: {collection.name}")
                 collection_names.append(collection.name)
                 result.append(collection)
 

@@ -101,7 +101,7 @@ class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
     types-aiobotocore-full package data.
     """
 
-    NAME = "types_aiobotocore"
+    NAME = ""
     PYPI_NAME = "types-aiobotocore-full"
     LIBRARY_NAME = "boto3"
 
@@ -149,7 +149,7 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
     boto3-stubs-full package data.
     """
 
-    NAME = "mypy_boto3"
+    NAME = ""
     PYPI_NAME = "boto3-stubs-full"
     LIBRARY_NAME = "boto3"
 

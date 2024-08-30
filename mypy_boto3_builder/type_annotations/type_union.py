@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -32,7 +33,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         self.parent = Type.Union
         self.children: list[FakeAnnotation] = list(children)
         if len(self.children) < 2:
-            raise ValueError("Union must have at least 2 children")
+            raise TypeAnnotationError("Union must have at least 2 children")
         self._stringify = stringify
 
     def is_stringified(self) -> bool:

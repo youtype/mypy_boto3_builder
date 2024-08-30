@@ -3,6 +3,7 @@ import requests_mock
 
 import pytest
 
+from mypy_boto3_builder.exceptions import BuildEnvError
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 
 
@@ -44,5 +45,5 @@ class TestBotocoreChangelogChangelog:
             status_code=404,
         )
         botocore_changelog = BotocoreChangelog()
-        with pytest.raises(RuntimeError):
+        with pytest.raises(BuildEnvError):
             botocore_changelog.fetch_updated("4.0.0")

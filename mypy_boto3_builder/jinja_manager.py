@@ -12,16 +12,11 @@ from jinja2.loaders import FileSystemLoader
 from jinja2.runtime import StrictUndefined
 
 from mypy_boto3_builder.constants import BUILDER_REPO_URL, TEMPLATES_PATH
+from mypy_boto3_builder.exceptions import JinjaManagerError
 from mypy_boto3_builder.utils.strings import get_anchor_link
 from mypy_boto3_builder.utils.version import get_builder_version
 
-__all__ = ["JinjaManager", "JinjaManagerError"]
-
-
-class JinjaManagerError(Exception):
-    """
-    Base JinjaManager exception.
-    """
+__all__ = ["JinjaManager"]
 
 
 class JinjaManager:

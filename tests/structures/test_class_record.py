@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.structures.argument import Argument
@@ -38,7 +39,7 @@ class TestClassRecord:
         assert self.class_record.alias_name == "_Name"
 
         self.class_record.use_alias = False
-        with pytest.raises(ValueError):
+        with pytest.raises(StructureError):
             self.class_record.alias_name
 
     def test_variable_name(self) -> None:
@@ -49,7 +50,7 @@ class TestClassRecord:
 
     def test_get_method(self) -> None:
         assert self.class_record.get_method("my_method").name == "my_method"
-        with pytest.raises(ValueError):
+        with pytest.raises(StructureError):
             self.class_record.get_method("non_existing")
 
     def test_boto3_doc_link(self) -> None:

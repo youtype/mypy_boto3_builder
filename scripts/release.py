@@ -41,10 +41,6 @@ def setup_logging(level: int) -> logging.Logger:
     """
     Get Logger instance.
 
-    Arguments:
-        verbose -- Set log level to DEBUG.
-        panic -- Raise RuntimeError on warning.
-
     Returns:
         Overriden Logger.
     """
@@ -143,7 +139,7 @@ def chdir(path: Path) -> Iterator[Path]:
 
 def cleanup(path: Path) -> None:
     """
-    Remove build folders.
+    Remove build directories.
     """
     if (path / "build").exists():
         shutil.rmtree(path / "build")

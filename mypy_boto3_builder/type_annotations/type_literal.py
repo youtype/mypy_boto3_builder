@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -28,7 +29,7 @@ class TypeLiteral(FakeAnnotation):
         self.children: set[str] = set(children)
         self.name: str = name
         if not children:
-            raise ValueError("Literal should have children")
+            raise TypeAnnotationError("Literal should have children")
 
     def get_sort_key(self) -> str:
         """
@@ -89,7 +90,7 @@ class TypeLiteral(FakeAnnotation):
         """
         Disabled method to avoid confusion.
         """
-        raise ValueError("Use add_literal_child function.")
+        raise TypeAnnotationError("Use add_literal_child function.")
 
     def is_same(self: Self, other: Self) -> bool:
         """

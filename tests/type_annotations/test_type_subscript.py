@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
@@ -59,5 +60,5 @@ class TestTypeSubscript:
         outer = TypeSubscript(Type.Dict, [Type.str, inner])
         assert outer.copy().replace_child(Type.str, Type.bool).render() == "Dict[bool, List[int]]"
         assert outer.copy().replace_child(inner, Type.bool).render() == "Dict[str, bool]"
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeAnnotationError):
             outer.copy().replace_child(Type.int, Type.bool)

@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.utils.strings import (
     capitalize,
     get_anchor_link,
@@ -60,7 +61,7 @@ class TestStrings:
         assert get_type_def_name("MyClass", "my_method") == "MyClassMyMethodTypeDef"
         assert get_type_def_name("my_func") == "MyFuncTypeDef"
 
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeAnnotationError):
             get_type_def_name()
 
     def test_textwrap(self) -> None:

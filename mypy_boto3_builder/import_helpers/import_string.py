@@ -5,6 +5,8 @@ Wrapper for Python import strings.
 import functools
 from typing import Self
 
+from mypy_boto3_builder.exceptions import StructureError
+
 
 @functools.total_ordering
 class ImportString:
@@ -35,7 +37,7 @@ class ImportString:
         all_parts = [master_name, *parts]
         for part in all_parts:
             if not part or "." in part:
-                raise ValueError(f"Invalid ImportString parts: {parts} - {part}")
+                raise StructureError(f"Invalid ImportString parts: {parts} - {part}")
             self.parts.append(part)
 
     @classmethod

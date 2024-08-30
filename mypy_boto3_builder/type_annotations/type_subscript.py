@@ -5,6 +5,7 @@ Wrapper for subscript type annotations, like `List[str]`.
 from collections.abc import Iterable, Iterator
 from typing import Self
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
@@ -126,7 +127,7 @@ class TypeSubscript(FakeAnnotation):
         Replace child type annotation with a new one.
         """
         if child not in self.children:
-            raise ValueError(f"Child not found: {child}")
+            raise TypeAnnotationError(f"Child not found: {child}")
 
         index = self.children.index(child)
         self.children[index] = new_child

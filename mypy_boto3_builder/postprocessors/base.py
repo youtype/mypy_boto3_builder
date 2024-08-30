@@ -7,6 +7,7 @@ from collections.abc import Sequence
 
 from boto3.session import Session
 
+from mypy_boto3_builder.exceptions import BuildEnvError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
@@ -238,7 +239,7 @@ class BasePostprocessor(ABC):
             )
             return
 
-        raise RuntimeError(
+        raise BuildEnvError(
             f"Cannot replace child {reference.name} in {parent.name}.{attribute.name}"
         )
 

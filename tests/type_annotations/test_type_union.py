@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 
@@ -12,9 +13,9 @@ class TestTypeLiteral:
         assert self.result.children == [Type.str, Type.Any]
         assert hash(self.result)
         assert self.result.name == "Test"
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeAnnotationError):
             TypeUnion([])
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeAnnotationError):
             TypeUnion([Type.str])
 
     def test_get_sort_key(self) -> None:

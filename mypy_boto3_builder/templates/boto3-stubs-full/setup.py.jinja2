@@ -31,7 +31,11 @@ setup(
     keywords='boto3 type-annotations boto3-stubs mypy typeshed autocomplete',
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
-    package_data={"{{ package.name }}": ["py.typed", "*.pyi", "*/*.pyi"]},
+    package_data={
+        {% for service_name in package.service_names -%}
+            "{{ package.data.get_service_package_name(service_name) }}": ["py.typed", "*.pyi", "*/*.pyi"],
+        {% endfor -%}
+    },
     python_requires='>={{ package.min_python_version }}',
     project_urls={
         'Documentation': '{{ package.get_local_doc_link() }}',

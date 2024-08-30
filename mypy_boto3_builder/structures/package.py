@@ -5,6 +5,7 @@ Parent class for all package structures.
 from collections.abc import Iterable
 
 from mypy_boto3_builder.constants import SUPPORTED_PY_VERSIONS
+from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
@@ -25,7 +26,6 @@ class Package:
         service_names: Iterable[ServiceName] = (),
     ) -> None:
         self.data = data
-        self.name = data.NAME
         self.pypi_name = data.PYPI_NAME
         self.library_name = data.LIBRARY_NAME
         self.library_version = data.get_library_version()
@@ -35,12 +35,28 @@ class Package:
         self.logger = get_logger()
 
     @property
+    def name(self) -> str:
+        """
+        Package name.
+        """
+        if not self.data.NAME:
+            raise StructureError(f"Package name is not set for {self.pypi_name}")
+
+        return self.data.NAME
+
+    def has_main_package(self) -> bool:
+        """
+        Check if package has main package.
+        """
+        return self.data.NAME != ""
+
+    @property
     def service_name(self) -> ServiceName:
         """
         Service name for the package.
         """
         if len(self.service_names) != 1:
-            raise ValueError(f"Package {self.name} has more than one service name")
+            raise StructureError(f"Package {self.name} has more than one service name")
         return self.service_names[0]
 
     @property

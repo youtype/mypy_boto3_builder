@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
@@ -11,7 +12,7 @@ class TestTypeLiteral:
         assert self.result.children == {"a", "b"}
         assert hash(self.result)
         assert TypeLiteral("Type", ["a"]).name == "Type"
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeAnnotationError):
             TypeLiteral("test", [])
 
     def test_get_sort_key(self) -> None:
@@ -33,7 +34,7 @@ class TestTypeLiteral:
         assert import_records[1].render() == "from typing import Literal"
 
     def test_add_child(self) -> None:
-        with pytest.raises(ValueError):
+        with pytest.raises(TypeAnnotationError):
             self.result.add_child(TypeLiteral("test", ("a", "b")))
 
     def test_is_type(self) -> None:
