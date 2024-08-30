@@ -6,15 +6,10 @@ import shutil
 import tempfile
 from abc import ABC, abstractmethod
 from collections.abc import Sequence
-from io import BytesIO
 from pathlib import Path
 from typing import ClassVar
-from zipfile import ZipFile
-
-import requests
 
 from mypy_boto3_builder.cli_parser import CLINamespace
-from mypy_boto3_builder.constants import REQUEST_TIMEOUT
 from mypy_boto3_builder.enums.product import ProductType
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
@@ -24,6 +19,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_session
+from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -85,33 +81,13 @@ class BaseGenerator(ABC):
             return self._downloaded_static_files_path
 
         self.logger.debug(f"Downloading static files from {download_url}")
-        response = requests.get(download_url, timeout=REQUEST_TIMEOUT)
-        zipfile = ZipFile(BytesIO(response.content))
-
-        if not response.ok:
-            raise ValueError(
-                f"Failed to download static files: {response.status_code} {response.text}"
-            )
-
-        project_roots = [
-            Path(i).parent.as_posix() for i in zipfile.namelist() if Path(i).name == "py.typed"
-        ]
-        if len(project_roots) != 1:
-            raise ValueError(f"Failed to detect project root: {project_roots}")
-
-        project_root = project_roots[0]
-
         with tempfile.TemporaryDirectory(delete=False) as temp_dir:
             temp_dir_path = Path(temp_dir)
+            self._cleanup_dirs.append(temp_dir_path)
+            self._downloaded_static_files_path = download_and_extract(download_url, temp_dir_path)
 
-            for member in zipfile.namelist():
-                if not member.startswith(project_root):
-                    continue
-                zipfile.extract(member, temp_dir_path)
+        self.logger.debug(f"Downloaded static files to {self._downloaded_static_files_path}")
 
-        self.logger.debug(f"Downloaded static files to {temp_dir_path}")
-        self._cleanup_dirs.append(temp_dir_path)
-        self._downloaded_static_files_path = temp_dir_path / project_root
         return self._downloaded_static_files_path
 
     @abstractmethod

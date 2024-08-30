@@ -6,11 +6,8 @@ Pull static stubs from GitHub to local folders.
 import logging
 import shutil
 import tempfile
-from io import BytesIO
 from pathlib import Path
-from zipfile import ZipFile
 
-import requests
 from mypy_boto3_builder.constants import (
     AIOBOTO3_STUBS_STATIC_PATH,
     AIOBOTO3_STUBS_STATIC_URL,
@@ -19,6 +16,7 @@ from mypy_boto3_builder.constants import (
     BOTO3_STUBS_STATIC_PATH,
     BOTO3_STUBS_STATIC_URL,
 )
+from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.path import print_path
 
 
@@ -43,32 +41,6 @@ def setup_logging(level: int) -> logging.Logger:
 
 
 logger = setup_logging(logging.DEBUG)
-
-
-def download_and_extract(download_url: str, output_path: Path) -> Path:
-    """
-    Download and extract zip file from URL.
-    """
-    response = requests.get(download_url, timeout=60)
-    zipfile = ZipFile(BytesIO(response.content))
-
-    if not response.ok:
-        raise ValueError(f"Failed to download static files: {response.status_code} {response.text}")
-
-    project_roots = [
-        Path(i).parent.as_posix() for i in zipfile.namelist() if Path(i).name == "py.typed"
-    ]
-    if len(project_roots) != 1:
-        raise ValueError(f"Failed to detect project root: {project_roots}")
-
-    project_root = project_roots[0]
-
-    for member in zipfile.namelist():
-        if not member.startswith(project_root):
-            continue
-        zipfile.extract(member, output_path)
-
-    return output_path / project_root
 
 
 def pull_static(url: str, output_path: Path, temp_path: Path) -> None:
