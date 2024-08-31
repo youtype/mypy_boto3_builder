@@ -20,8 +20,12 @@ jobs:
       - name: Install the project
         run: uv sync --extra check --dev
       - name: Build full package
-        run: uv run scripts/build.sh --product boto3-full -s s3 ec2
+        run: |
+          uv run scripts/build.sh --product boto3
+          uv run scripts/build.sh --product boto3-full -s s3 ec2
       - name: Install full package
-        run: uv run scripts/install.sh full
+        run: |
+          uv run scripts/install.sh master
+          uv run scripts/install.sh full
       - name: Integration tests
         run: uv run scripts/integration.py --product boto3 -fd s3 ec2
