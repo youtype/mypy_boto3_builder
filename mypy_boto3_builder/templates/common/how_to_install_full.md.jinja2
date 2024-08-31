@@ -14,29 +14,11 @@ Click `Auto-discover services` and select services you use in the current projec
 Install `{{ package.data.PYPI_NAME }}` to add type annotations for `{{ package.library_name }}` package.
 
 ```bash
-# install type annotations only for {{ package.library_name }}
+# install type annotations
 python -m pip install {{ package.data.PYPI_NAME }}
-
-# install {{ package.library_name }} type annotations
-# for ec2, s3, rds, lambda, sqs, dynamo and cloudformation
-python -m pip install '{{ package.data.PYPI_NAME }}[essential]'
-
-# or install annotations for services you use
-python -m pip install '{{ package.data.PYPI_NAME }}[acm,apigateway]'
 
 # or install annotations in sync with {{ package.library_name }} version
 python -m pip install '{{ package.data.PYPI_NAME }}[{{ package.library_name }}]'
-
-{% if package.data.PYPI_FULL_NAME %}
-# or install all-in-one annotations for all services at once
-python -m pip install {{ package.data.PYPI_FULL_NAME }}
-{% endif %}
-
-{% if package.data.PYPI_LITE_NAME %}
-# Lite version does not provide session.client/resource overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install '{{ package.data.PYPI_LITE_NAME }}[essential]'
-{% endif %}
 ```
 
 {% if package.data.IS_CONDA_FORGE_SUPPORTED -%}
@@ -50,10 +32,10 @@ conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `{{ package.data.PYPI_NAME }}`
-and `{{ package.data.PYPI_NAME }}-essential` can be installed with:
+can be installed with:
 
 ```bash
-conda install {{ package.data.PYPI_NAME }} {{ package.data.PYPI_NAME }}-essential
+conda install {{ package.data.PYPI_NAME }}
 ```
 
 It is possible to list all of the versions of `{{ package.data.PYPI_NAME }}` available on your platform with:

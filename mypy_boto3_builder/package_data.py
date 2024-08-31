@@ -103,6 +103,7 @@ class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
 
     NAME = ""
     PYPI_NAME = "types-aiobotocore-full"
+    IS_CONDA_FORGE_SUPPORTED = False
 
     @classmethod
     def get_service_pypi_name(cls, service_name: ServiceName) -> str:
@@ -144,6 +145,7 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
     NAME = ""
     PYPI_NAME = "boto3-stubs-full"
     LIBRARY_NAME = "boto3"
+    IS_CONDA_FORGE_SUPPORTED = False
 
     @classmethod
     def get_service_pypi_name(cls, service_name: ServiceName) -> str:

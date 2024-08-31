@@ -8,7 +8,7 @@
 - Install `{{ package.data.PYPI_NAME }}` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_NAME }}'
+python -m pip install {{ package.data.PYPI_NAME }}
 ```
 
 Both type checking and code completion should now work.
@@ -19,7 +19,7 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 Install `{{ package.data.PYPI_NAME }}` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_NAME }}'`
+python -m pip install {{ package.data.PYPI_NAME }}
 ```
 
 Both type checking and code completion should now work.
@@ -30,7 +30,7 @@ Explicit type annotations **are required**.
 - Install `{{ package.data.PYPI_NAME }}` with services you use in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_NAME }}'
+python -m pip install {{ package.data.PYPI_NAME }}
 ```
 
 - Install
@@ -61,7 +61,7 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 - Install `{{ package.data.PYPI_NAME }}` with services you use in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_NAME }}'
+python -m pip install {{ package.data.PYPI_NAME }}
 ```
 
 - Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
@@ -79,7 +79,7 @@ Not tested, but as long as your IDE supports `mypy` or `pyright`, everything sho
 - Install `{{ package.data.PYPI_NAME }}` in your environment: 
 
 ```bash
-python -m pip install '{{ package.data.PYPI_NAME }}'`
+python -m pip install {{ package.data.PYPI_NAME }}
 ```
 
 Type checking should now work.
@@ -88,10 +88,10 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 ### pyright
 
 - Install `pyright`: `npm i -g pyright`
-- Install `{{ package.data.PYPI_NAME }}[{{ extras_name }}]` in your environment: 
+- Install `{{ package.data.PYPI_NAME }}` in your environment: 
 
 ```bash
-python -m pip install '{{ package.data.PYPI_NAME }}[{{ extras_name }}]'
+python -m pip install {{ package.data.PYPI_NAME }}
 ```
 
 Optionally, you can install `{{ package.data.PYPI_NAME }}` to `typings` directory.
