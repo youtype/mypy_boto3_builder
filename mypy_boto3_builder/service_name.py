@@ -150,7 +150,7 @@ class ServiceName:
 
 class ServiceNameCatalog:
     """
-    Finder for boto3 services by name.
+    Finder for botocore services by name.
     """
 
     all = ServiceName("__all", "__all")
