@@ -19,13 +19,21 @@ jobs:
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install the project
         run: uv sync --extra check --dev
-      - name: Build full package
+      - name: Install extras
+        run: uv pip install aioboto3
+      - name: Build full packages
         run: |
-          uv run scripts/build.sh --product boto3
-          uv run scripts/build.sh --product boto3-full -s s3 ec2
-      - name: Install full package
+          uv run scripts/build.sh --product boto3 --no-smart-version
+          uv run scripts/build.sh --product boto3-full -s s3 ec2 --no-smart-version
+          uv run scripts/build.sh --product aioboto3 aiobotocore --no-smart-version
+          uv run scripts/build.sh --product aiobotocore-full -s s3 --no-smart-version
+      - name: Install full packages
         run: |
           uv run scripts/install.sh master
           uv run scripts/install.sh full
+          uv run scripts/install_aiobotocore.sh master
+          uv run scripts/install_aiobotocore.sh full
       - name: Integration tests
         run: uv run scripts/integration.py --product boto3 -fd s3 ec2
+      - name: Aio integration tests
+        run: uv run scripts/integration.py --product aioboto3 -fd s3
