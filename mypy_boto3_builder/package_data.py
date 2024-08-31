@@ -103,14 +103,6 @@ class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
 
     NAME = ""
     PYPI_NAME = "types-aiobotocore-full"
-    LIBRARY_NAME = "boto3"
-
-    @classmethod
-    def get_service_package_name(cls, service_name: ServiceName) -> str:
-        """
-        Get service package name.
-        """
-        return cls.NAME
 
     @classmethod
     def get_service_pypi_name(cls, service_name: ServiceName) -> str:
