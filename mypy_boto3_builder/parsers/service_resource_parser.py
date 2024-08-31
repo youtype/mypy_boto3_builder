@@ -75,6 +75,7 @@ class ServiceResourceParser:
                 self.service_name,
                 ServiceModuleName.service_resource,
             ),
+            type_ignore=True,
         )
 
     @property
