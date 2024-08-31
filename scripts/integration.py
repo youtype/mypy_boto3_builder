@@ -166,7 +166,14 @@ def install_master(product: Product) -> None:
     - boto3: `boto3-stubs`
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
-    check_call([print_path(SCRIPTS_PATH / "build.sh"), "--product", *product.master_build_products])
+    check_call(
+        [
+            print_path(SCRIPTS_PATH / "build.sh"),
+            "--product",
+            *product.master_build_products,
+            "--no-smart-version",
+        ]
+    )
     check_call([print_path(product.install_script_path), "master"])
 
 
@@ -184,6 +191,7 @@ def install_service(service_name: str, product: Product) -> None:
             service_name,
             "--product",
             product.build_product,
+            "--no-smart-version",
         ]
     )
     check_call([print_path(product.install_script_path), service_name])

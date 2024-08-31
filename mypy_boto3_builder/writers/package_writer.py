@@ -52,7 +52,7 @@ class PackageWriter:
         self.logger = get_logger()
 
     def _get_package_path(self, package: Package) -> Path:
-        if not self.generate_setup:
+        if self.generate_setup:
             return self.output_path / package.directory_name / package.name
 
         return self.output_path / package.library_name
