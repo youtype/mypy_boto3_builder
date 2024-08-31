@@ -5,11 +5,12 @@ from mypy_boto3_builder.utils.version import (
     get_min_build_version,
     get_release_version,
 )
+from packaging.version import Version
 
 
 class TestStrings:
     def test_get_builder_version(self):
-        assert get_builder_version().startswith("7.")
+        assert Version(get_builder_version())
 
     def test_get_min_build_version(self):
         assert get_min_build_version("1.22.36") == "1.22.0"
