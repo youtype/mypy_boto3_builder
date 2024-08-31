@@ -32,6 +32,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+build = ["setuptools"]
 check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 
 [tool.uv]
@@ -59,6 +60,7 @@ dev-dependencies = [
     "aiohttp",
     "wheel",
 ]
+package = true
 
 [project.scripts]
 mypy_boto3_builder = 'mypy_boto3_builder.main:main'
@@ -74,8 +76,9 @@ Issues = "https://github.com/youtype/mypy_boto3_builder/issues"
 requires = ['setuptools']
 build-backend = 'setuptools.build_meta'
 
-[tool.setuptools]
-py-modules = ["mypy_boto3_builder"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mypy_boto3_builder", "mypy_boto3_builder.*"]
 
 [tool.coverage.report]
 exclude_lines = [
