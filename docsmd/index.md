@@ -22,6 +22,7 @@ See how it helps to find and fix potential bugs:
 ## Documentation
 
 - [How to use pre-built libraries](./pre_build.md)
+- [How builder works](./how_it_works.md)
 - [How to build type annotations](./how_to_build.md)
 - [Development](./development.md)
 - [Contributors](./thank_you.md)

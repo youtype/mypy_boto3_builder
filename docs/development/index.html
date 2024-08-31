@@ -12,11 +12,11 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../how_to_build/">
+        <link rel="next" href="../how_it_works/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.33">
     
     
       
@@ -303,6 +303,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../how_it_works/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How it works
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../how_to_build/" class="md-nav__link">
         
   
@@ -394,9 +414,8 @@
 
 <h1 id="development">Development<a class="headerlink" href="#development" title="Permanent link">#</a></h1>
 <ul>
-<li>Install Python 3.11+, ideally with <a href="https://github.com/pyenv/pyenv">pyenv</a></li>
-<li>Install <a href="https://python-poetry.org/">poetry</a>: <code>pip install poetry</code></li>
-<li>Install dependencies: <code>poetry install</code></li>
+<li>Install <a href="https://docs.astral.sh/uv/">uv</a>: <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></li>
+<li>Install dependencies: <code>uv sync --all-extras --dev</code></li>
 <li>Use scripts for repo to check if everything works: <code>./scripts/build.sh</code></li>
 <li>Run manual pre-commit: <code>./scripts/before_commit.sh</code></li>
 </ul>

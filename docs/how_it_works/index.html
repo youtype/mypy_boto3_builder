@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../development/">
       
-        <link rel="next" href="development/">
+      
+        <link rel="next" href="../how_to_build/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.33">
     
     
       
-        <title>Mypy Boto3 Builder</title>
+        <title>How it works - Mypy Boto3 Builder</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +48,7 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/stackoverflow-dark.min.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mypy-boto3-builder" class="md-skip">
+        <a href="#how-it-works" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Mypy Boto3 Builder" class="md-header__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
+    <a href=".." title="Mypy Boto3 Builder" class="md-header__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.5 17-5 5-3.5-3.5 1.5-1.5 2 2 3.5-3.5 1.5 1.5m-10.41 3H6V4h7v5h5v4.09c.33-.05.66-.09 1-.09s.67.04 1 .09V8l-6-6H6a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h7.81c-.35-.61-.6-1.28-.72-2Z"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mypy Boto3 Builder
+              How it works
             
           </span>
         </div>
@@ -221,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Mypy Boto3 Builder" class="md-nav__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
+    <a href=".." title="Mypy Boto3 Builder" class="md-nav__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.5 17-5 5-3.5-3.5 1.5-1.5 2 2 3.5-3.5 1.5 1.5m-10.41 3H6V4h7v5h5v4.09c.33-.05.66-.09 1-.09s.67.04 1 .09V8l-6-6H6a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h7.81c-.35-.61-.6-1.28-.72-2Z"/></svg>
@@ -248,30 +250,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Mypy Boto3 Builder
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,62 +262,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quickstart
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Versioning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#latest-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latest changes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -347,7 +273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/" class="md-nav__link">
+      <a href="../development/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -364,10 +290,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="how_it_works/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -376,6 +311,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -387,7 +323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how_to_build/" class="md-nav__link">
+      <a href="../how_to_build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -407,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pre_build/" class="md-nav__link">
+      <a href="../pre_build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -427,7 +363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="thank_you/" class="md-nav__link">
+      <a href="../thank_you/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -460,50 +396,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quickstart
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Versioning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#latest-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latest changes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -520,36 +412,18 @@
   
 
 
-<h1 id="mypy-boto3-builder">Mypy Boto3 Builder<a class="headerlink" href="#mypy-boto3-builder" title="Permanent link">#</a></h1>
-<p>Type annotations builder for <a href="https://pypi.org/project/boto3-stubs/">boto3-stubs</a>, <a href="https://pypi.org/project/types-aiobotocore/">types-aiobotocore</a>, and <a href="https://pypi.org/project/types-aioboto3/">types-aioboto3</a> projects. Compatible with
-<a href="https://code.visualstudio.com/">VSCode</a>,
-<a href="https://www.jetbrains.com/pycharm/">PyCharm</a>,
-<a href="https://www.gnu.org/software/emacs/">Emacs</a>,
-<a href="https://www.sublimetext.com/">Sublime Text</a>,
-<a href="https://github.com/python/mypy">mypy</a>,
-<a href="https://github.com/microsoft/pyright">pyright</a>
-and other tools.</p>
-<p>See how it helps to find and fix potential bugs:</p>
-<p><img alt="boto3-stubs demo" src="https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/demo.gif" /></p>
-<h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
+<h1 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h1>
+<p>Fully automated <a href="https://github.com/youtype/mypy_boto3_builder">mypy-boto3-builder</a> carefully generates
+type annotations for each service, patiently waiting for <code>boto3</code> updates. It delivers
+drop-in type annotations for you and makes sure that:</p>
 <ul>
-<li>If you use <code>boto3</code> or <code>botocore</code>, follow <a href="https://youtype.github.io/boto3_stubs_docs/">boto3-stubs documentation</a></li>
-<li>For <code>aiobotocore</code> follow <a href="https://youtype.github.io/types_aiobotocore_docs/">types-aiobotocore documentation</a></li>
-<li>For <code>aioboto3</code> follow <a href="https://youtype.github.io/types_aioboto3_docs/">types-aioboto3 documentation</a></li>
+<li>All available <code>botocore</code> services are covered.</li>
+<li>Each public class and method of every <code>botocore</code> service gets valid type annotations
+  extracted from <code>botocore</code> schemas.</li>
+<li>Type annotations include up-to-date documentation.</li>
+<li>Link to documentation is provided for every method.</li>
+<li>Code is processed by <a href="https://docs.astral.sh/ruff/">ruff</a> for readability.</li>
 </ul>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">#</a></h2>
-<ul>
-<li><a href="pre_build/">How to use pre-built libraries</a></li>
-<li><a href="how_it_works/">How builder works</a></li>
-<li><a href="how_to_build/">How to build type annotations</a></li>
-<li><a href="development/">Development</a></li>
-<li><a href="thank_you/">Contributors</a></li>
-</ul>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">#</a></h2>
-<p><code>mypy_boto3_builder</code> version is not related to <code>boto3</code> version and follows
-<a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a>.</p>
-<h2 id="latest-changes">Latest changes<a class="headerlink" href="#latest-changes" title="Permanent link">#</a></h2>
-<p>Full changelog can be found in <a href="https://github.com/youtype/mypy_boto3_builder/releases">Releases</a>.</p>
 
 
 
@@ -596,14 +470,14 @@ and other tools.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.tracking", "content.code.annotate"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.instant", "navigation.tracking", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.af256bd8.min.js"></script>
+      <script src="../assets/javascripts/bundle.af256bd8.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
       
-        <script src="js/highlight.js"></script>
+        <script src="../js/highlight.js"></script>
       
     
   </body>
