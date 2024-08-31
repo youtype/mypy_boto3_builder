@@ -1,7 +1,7 @@
 [
     {
         "severity": "error",
-        "message": "Expression of type \"Coroutine[Any, Any, _Bucket]\" is incompatible with declared type \"Bucket\"\n\u00a0\u00a0\"Coroutine[Any, Any, _Bucket]\" is incompatible with \"Bucket\"",
+        "message": "Type \"Coroutine[Any, Any, _Bucket]\" is not assignable to declared type \"Bucket\"\n\u00a0\u00a0\"Coroutine[Any, Any, _Bucket]\" is not assignable to \"Bucket\"",
         "range": {
             "start": {
                 "line": 36,
@@ -31,7 +31,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"upload_file\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"upload_file\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
         "range": {
             "start": {
                 "line": 40,
@@ -46,7 +46,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" is incompatible with type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"None\"",
+        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" is not assignable to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is not assignable to \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is not assignable to \"None\"",
         "range": {
             "start": {
                 "line": 40,
@@ -61,7 +61,7 @@
     },
     {
         "severity": "error",
-        "message": "Expression of type \"dict[str, str]\" is incompatible with declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined item in type \"BucketUploadFileRequestTypeDef\"",
+        "message": "Type \"dict[str, str]\" is not assignable to declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined item in type \"BucketUploadFileRequestTypeDef\"",
         "range": {
             "start": {
                 "line": 41,
@@ -91,7 +91,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceOrStrTypeDef\" in function \"copy_from\"\n\u00a0\u00a0Type \"Literal[123]\" is incompatible with type \"CopySourceOrStrTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is incompatible with \"CopySourceTypeDef\"",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceOrStrTypeDef\" in function \"copy_from\"\n\u00a0\u00a0Type \"Literal[123]\" is not assignable to type \"CopySourceOrStrTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is not assignable to \"CopySourceTypeDef\"",
         "range": {
             "start": {
                 "line": 53,
@@ -106,7 +106,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" is incompatible with type \"Literal['requester']\"",
+        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" is not assignable to type \"Literal['requester']\"",
         "range": {
             "start": {
                 "line": 57,
@@ -121,7 +121,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['1']\" cannot be assigned to parameter \"part_number\" of type \"int\" in function \"Part\"\n\u00a0\u00a0\"Literal['1']\" is incompatible with \"int\"",
+        "message": "Argument of type \"Literal['1']\" cannot be assigned to parameter \"part_number\" of type \"int\" in function \"Part\"\n\u00a0\u00a0\"Literal['1']\" is not assignable to \"int\"",
         "range": {
             "start": {
                 "line": 58,
@@ -151,7 +151,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" is incompatible with type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"StreamingBody\"",
+        "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" is not assignable to type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"StreamingBody\"",
         "range": {
             "start": {
                 "line": 75,
@@ -166,7 +166,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" is incompatible with type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"str\"",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" is not assignable to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"str\"",
         "range": {
             "start": {
                 "line": 76,
@@ -256,7 +256,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0\"None\" is incompatible with \"str\"",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0\"None\" is not assignable to \"str\"",
         "range": {
             "start": {
                 "line": 103,

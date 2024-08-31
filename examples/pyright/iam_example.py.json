@@ -1,7 +1,7 @@
 [
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"UserName\" of type \"str\" in function \"add_user_to_group\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"UserName\" of type \"str\" in function \"add_user_to_group\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
         "range": {
             "start": {
                 "line": 18,

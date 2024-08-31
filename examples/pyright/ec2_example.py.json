@@ -16,7 +16,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool\" in function \"delete\"\n\u00a0\u00a0\"Literal['incorrect']\" is incompatible with \"bool\"",
+        "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool\" in function \"delete\"\n\u00a0\u00a0\"Literal['incorrect']\" is not assignable to \"bool\"",
         "range": {
             "start": {
                 "line": 32,
@@ -31,7 +31,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
         "range": {
             "start": {
                 "line": 36,
@@ -46,7 +46,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
         "range": {
             "start": {
                 "line": 47,

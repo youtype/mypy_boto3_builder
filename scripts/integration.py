@@ -42,7 +42,8 @@ class Product:
     examples_path: Path
     install_script_path: Path
     build_product: str
-    master_build_products: Tuple[str, ...]
+    prerequisites: Tuple[str, ...] = ()
+    master_build_products: Tuple[str, ...] = ()
 
 
 class ProductChoices(enum.Enum):
@@ -59,6 +60,7 @@ class ProductChoices(enum.Enum):
     )
     aioboto3 = Product(
         name="aioboto3",
+        prerequisites=("aioboto3",),
         examples_path=AIO_EXAMPLES_PATH,
         install_script_path=SCRIPTS_PATH / "install_aiobotocore.sh",
         build_product="aiobotocore-services",
@@ -166,6 +168,8 @@ def install_master(product: Product) -> None:
     - boto3: `boto3-stubs`
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
+    if product.prerequisites:
+        check_call([sys.executable, "-m", "pip", "install", *product.prerequisites])
     check_call(
         [
             print_path(SCRIPTS_PATH / "build.sh"),
