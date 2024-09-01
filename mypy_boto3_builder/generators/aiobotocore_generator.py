@@ -5,9 +5,9 @@ AioBotocore stubs/docs generator.
 from pathlib import Path
 
 from mypy_boto3_builder.constants import (
-    AIOBOTOCORE_STUBS_STATIC_PATH,
-    AIOBOTOCORE_STUBS_STATIC_URL,
-    TEMPLATES_PATH,
+    StaticStubsPath,
+    StaticStubsPullURL,
+    TemplatePath,
 )
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
@@ -19,10 +19,10 @@ from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocess
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.version import get_aiobotocore_version
 from mypy_boto3_builder.writers.aiobotocore_processors import (
-    process_aiobotocore_stubs,
-    process_aiobotocore_stubs_docs,
-    process_aiobotocore_stubs_full,
-    process_aiobotocore_stubs_lite,
+    process_types_aiobotocore,
+    process_types_aiobotocore_docs,
+    process_types_aiobotocore_full,
+    process_types_aiobotocore_lite,
 )
 
 
@@ -32,12 +32,12 @@ class AioBotocoreGenerator(BaseGenerator):
     """
 
     service_package_data = TypesAioBotocorePackageData
-    service_template_path = TEMPLATES_PATH / "aiobotocore_service"
+    service_template_path = TemplatePath.types_aiobotocore_service
 
     def _get_static_files_path(self) -> Path:
         return self._get_or_download_static_files_path(
-            AIOBOTOCORE_STUBS_STATIC_PATH,
-            AIOBOTOCORE_STUBS_STATIC_URL,
+            StaticStubsPath.aiobotocore,
+            StaticStubsPullURL.aiobotocore,
         )
 
     def get_library_version(self) -> str:
@@ -66,7 +66,7 @@ class AioBotocoreGenerator(BaseGenerator):
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        process_aiobotocore_stubs(
+        process_types_aiobotocore(
             self.session,
             self.output_path,
             self.master_service_names,
@@ -82,7 +82,7 @@ class AioBotocoreGenerator(BaseGenerator):
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        process_aiobotocore_stubs_lite(
+        process_types_aiobotocore_lite(
             self.session,
             self.output_path,
             self.master_service_names,
@@ -99,7 +99,7 @@ class AioBotocoreGenerator(BaseGenerator):
         total_str = f"{len(self.service_names)}"
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} module docs")
-        process_aiobotocore_stubs_docs(
+        process_types_aiobotocore_docs(
             self.session,
             self.output_path,
             self.service_names,
@@ -112,7 +112,7 @@ class AioBotocoreGenerator(BaseGenerator):
             self._process_service_docs(
                 service_name=service_name,
                 package_data=package_data,
-                templates_path=TEMPLATES_PATH / "aiobotocore_service_docs",
+                templates_path=TemplatePath.types_aiobotocore_service_docs,
             )
 
     def generate_full_stubs(self) -> None:
@@ -125,7 +125,7 @@ class AioBotocoreGenerator(BaseGenerator):
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        package = process_aiobotocore_stubs_full(
+        package = process_types_aiobotocore_full(
             self.session,
             self.output_path,
             self.service_names,

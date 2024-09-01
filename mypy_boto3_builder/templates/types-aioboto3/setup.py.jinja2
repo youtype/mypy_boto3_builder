@@ -40,6 +40,9 @@ setup(
         "typing-extensions>=4.1.0; python_version<\"3.12\"",
     ],
     extras_require={
+        "full": [
+            "{{ package.data.PYPI_FULL_NAME }}",
+        ],
         "all": [
             {% for service_name in package.service_names -%}
             "{{ package.data.get_service_pypi_name(service_name) }}",

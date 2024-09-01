@@ -7,7 +7,7 @@ from pathlib import Path
 
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import TEMPLATES_PATH
+from mypy_boto3_builder.constants import TemplatePath
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import (
     Boto3StubsFullPackageData,
@@ -61,7 +61,7 @@ def process_boto3_stubs(
     )
     package_writer.write_package(
         package=boto3_stubs_package,
-        templates_path=TEMPLATES_PATH / "boto3-stubs",
+        templates_path=TemplatePath.boto3_stubs,
         static_files_path=static_files_path,
     )
 
@@ -106,7 +106,7 @@ def process_boto3_stubs_lite(
     )
     package_writer.write_package(
         package=boto3_stubs_package,
-        templates_path=TEMPLATES_PATH / "boto3-stubs",
+        templates_path=TemplatePath.boto3_stubs,
         static_files_path=static_files_path,
         exclude_template_names=[
             "session.pyi.jinja2",
@@ -148,7 +148,7 @@ def process_master(
     )
     package_writer.write_package(
         master_package,
-        templates_path=TEMPLATES_PATH / "master",
+        templates_path=TemplatePath.master,
     )
 
     return master_package
@@ -179,7 +179,7 @@ def process_boto3_stubs_docs(
     package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
     package_writer.write_docs(
         boto3_stubs_package,
-        templates_path=TEMPLATES_PATH / "boto3_stubs_docs",
+        templates_path=TemplatePath.boto3_stubs_docs,
     )
 
     return boto3_stubs_package
@@ -221,7 +221,7 @@ def process_boto3_stubs_full(
     )
     package_writer.write_package(
         package=boto3_stubs_package,
-        templates_path=TEMPLATES_PATH / "boto3-stubs-full",
+        templates_path=TemplatePath.boto3_stubs_full,
     )
 
     return boto3_stubs_package

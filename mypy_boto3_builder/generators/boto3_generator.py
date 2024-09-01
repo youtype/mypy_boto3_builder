@@ -5,9 +5,9 @@ Boto3 stubs/docs generator.
 from pathlib import Path
 
 from mypy_boto3_builder.constants import (
-    BOTO3_STUBS_STATIC_PATH,
-    BOTO3_STUBS_STATIC_URL,
-    TEMPLATES_PATH,
+    StaticStubsPath,
+    StaticStubsPullURL,
+    TemplatePath,
 )
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
@@ -34,7 +34,7 @@ class Boto3Generator(BaseGenerator):
     """
 
     service_package_data = Boto3StubsPackageData
-    service_template_path = TEMPLATES_PATH / "boto3_service"
+    service_template_path = TemplatePath.boto3_stubs_service
 
     def get_library_version(self) -> str:
         """
@@ -68,8 +68,8 @@ class Boto3Generator(BaseGenerator):
 
     def _get_static_files_path(self) -> Path:
         return self._get_or_download_static_files_path(
-            BOTO3_STUBS_STATIC_PATH,
-            BOTO3_STUBS_STATIC_URL,
+            StaticStubsPath.boto3,
+            StaticStubsPullURL.boto3,
         )
 
     def _generate_boto3_stubs(self) -> None:
@@ -135,7 +135,7 @@ class Boto3Generator(BaseGenerator):
             self._process_service_docs(
                 service_name=service_name,
                 package_data=package_data,
-                templates_path=TEMPLATES_PATH / "boto3_service_docs",
+                templates_path=TemplatePath.boto3_stubs_service_docs,
             )
 
     def generate_full_stubs(self) -> None:

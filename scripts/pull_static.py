@@ -8,14 +8,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from mypy_boto3_builder.constants import (
-    AIOBOTO3_STUBS_STATIC_PATH,
-    AIOBOTO3_STUBS_STATIC_URL,
-    AIOBOTOCORE_STUBS_STATIC_PATH,
-    AIOBOTOCORE_STUBS_STATIC_URL,
-    BOTO3_STUBS_STATIC_PATH,
-    BOTO3_STUBS_STATIC_URL,
-)
+from mypy_boto3_builder.constants import StaticStubsPath, StaticStubsPullURL
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.path import print_path
 
@@ -81,9 +74,9 @@ def main() -> None:
     """
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_dir_path = Path(temp_dir)
-        pull_static(BOTO3_STUBS_STATIC_URL, BOTO3_STUBS_STATIC_PATH, temp_dir_path)
-        pull_static(AIOBOTOCORE_STUBS_STATIC_URL, AIOBOTOCORE_STUBS_STATIC_PATH, temp_dir_path)
-        pull_static(AIOBOTO3_STUBS_STATIC_URL, AIOBOTO3_STUBS_STATIC_PATH, temp_dir_path)
+        pull_static(StaticStubsPullURL.boto3, StaticStubsPath.boto3, temp_dir_path)
+        pull_static(StaticStubsPullURL.aiobotocore, StaticStubsPath.aiobotocore, temp_dir_path)
+        pull_static(StaticStubsPullURL.aioboto3, StaticStubsPath.aioboto3, temp_dir_path)
 
 
 if __name__ == "__main__":

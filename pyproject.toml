@@ -102,6 +102,7 @@ ignore = [
     "typestubs",
     "examples",
     "aio_examples",
+    "mypy_boto3_builder/stubs_static",
 ]
 typeCheckingMode = "strict"
 reportMissingImports = "error"
@@ -120,17 +121,10 @@ warn_unused_configs = true
 disallow_untyped_defs = true
 ignore_missing_imports = true
 ignore_errors = false
+exclude = ["^mypy_boto3_builder/stubs_static/.*"]
 
 [[tool.mypy.overrides]]
 module = "mypy-tests.*"
-ignore_errors = true
-
-[[tool.mypy.overrides]]
-module = "mypy-mypy_boto3_builder.stubs_static.aiobotocore.*"
-ignore_errors = true
-
-[[tool.mypy.overrides]]
-module = "mypy-mypy_boto3_builder.stubs_static.aioboto3.*"
 ignore_errors = true
 
 [tool.ruff]

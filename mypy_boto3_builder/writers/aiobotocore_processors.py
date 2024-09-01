@@ -7,7 +7,7 @@ from pathlib import Path
 
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import TEMPLATES_PATH
+from mypy_boto3_builder.constants import TemplatePath
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import (
     BasePackageData,
@@ -21,7 +21,7 @@ from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
-def process_aiobotocore_stubs(
+def process_types_aiobotocore(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -30,7 +30,7 @@ def process_aiobotocore_stubs(
     static_files_path: Path,
 ) -> TypesAioBotocorePackage:
     """
-    Parse and write stubs package `aiobotocore-stubs`.
+    Parse and write stubs package `types-aiobotocore`.
 
     Arguments:
         session -- boto3 session
@@ -55,13 +55,13 @@ def process_aiobotocore_stubs(
     )
     package_writer.write_package(
         types_aiobotocore_package,
-        templates_path=TEMPLATES_PATH / "aiobotocore-stubs",
+        templates_path=TemplatePath.types_aiobotocore,
         static_files_path=static_files_path,
     )
     return types_aiobotocore_package
 
 
-def process_aiobotocore_stubs_lite(
+def process_types_aiobotocore_lite(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -70,7 +70,7 @@ def process_aiobotocore_stubs_lite(
     static_files_path: Path,
 ) -> TypesAioBotocorePackage:
     """
-    Parse and write stubs package `aiobotocore-stubs-lite`.
+    Parse and write stubs package `types-aiobotocore-lite`.
 
     Arguments:
         session -- boto3 session
@@ -97,14 +97,14 @@ def process_aiobotocore_stubs_lite(
     )
     package_writer.write_package(
         types_aiobotocore_package,
-        templates_path=TEMPLATES_PATH / "aiobotocore-stubs",
+        templates_path=TemplatePath.types_aiobotocore,
         static_files_path=static_files_path,
         exclude_template_names=["session.pyi.jinja2"],
     )
     return types_aiobotocore_package
 
 
-def process_aiobotocore_stubs_docs(
+def process_types_aiobotocore_docs(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -130,13 +130,13 @@ def process_aiobotocore_stubs_docs(
     package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
     package_writer.write_docs(
         types_aiobotocore_package,
-        templates_path=TEMPLATES_PATH / "aiobotocore_stubs_docs",
+        templates_path=TemplatePath.types_aiobotocore_docs,
     )
 
     return types_aiobotocore_package
 
 
-def process_aiobotocore_stubs_full(
+def process_types_aiobotocore_full(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -173,7 +173,7 @@ def process_aiobotocore_stubs_full(
     )
     package_writer.write_package(
         types_aiobotocore_package,
-        templates_path=TEMPLATES_PATH / "types-aiobotocore-full",
+        templates_path=TemplatePath.types_aiobotocore_full,
     )
 
     return types_aiobotocore_package
