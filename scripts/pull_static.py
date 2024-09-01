@@ -47,7 +47,7 @@ def pull_static(url: str, output_path: Path, temp_path: Path) -> None:
     """
     Pull static files from URL and copy them to output path.
     """
-    logger.info(f"Pulling static files from {url} to {output_path}")
+    logger.debug(f"Pulling static files from {url} to {print_path(output_path)}")
     download_path = download_and_extract(url, temp_path)
     download_path_map = {i.relative_to(download_path): i for i in download_path.glob("**/*.pyi")}
     output_path_map = {i.relative_to(output_path): i for i in output_path.glob("**/*.pyi")}
