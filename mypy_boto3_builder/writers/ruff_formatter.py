@@ -10,6 +10,8 @@ from collections.abc import Iterable, Sequence
 from pathlib import Path
 
 from mypy_boto3_builder.constants import LINE_LENGTH, SUPPORTED_PY_VERSIONS
+from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.utils.path import print_path
 
 
 class RuffError(RuntimeError):
@@ -28,6 +30,7 @@ class RuffFormatter:
         known_first_party: Sequence[str] = (),
         known_third_party: Sequence[str] = (),
     ) -> None:
+        self.logger = get_logger()
         self._target_version = self._get_target_version()
         self._known_first_party = list(known_first_party)
         self._known_third_party = [i for i in known_third_party if i not in self._known_first_party]
@@ -85,7 +88,9 @@ class RuffFormatter:
                 stderr=subprocess.STDOUT,
             )
         except subprocess.CalledProcessError as e:
-            raise RuffError(f"Sorting imports failed: {e.output}, paths: {paths}") from None
+            for path in paths:
+                self.logger.warning(f"Sorting imports failed for path {print_path(path)}")
+            raise RuffError(f"Sorting imports failed with status {e.returncode}") from None
 
     def format_code(self, paths: Sequence[Path]) -> None:
         """

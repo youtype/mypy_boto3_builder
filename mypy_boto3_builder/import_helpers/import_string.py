@@ -3,9 +3,11 @@ Wrapper for Python import strings.
 """
 
 import functools
-from typing import Self
+from typing import Final, Self
 
-from mypy_boto3_builder.exceptions import StructureError
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.exceptions import BuildInternalError, StructureError
+from mypy_boto3_builder.package_data import Boto3StubsPackageData, TypesAioBotocorePackageData
 
 
 @functools.total_ordering
@@ -32,13 +34,16 @@ class ImportString:
         'my.name.test'
     """
 
+    _BUILTINS: Final[str] = "builtins"
+    _THIRD_PARTY: Final[tuple[str, ...]] = ("boto3", "botocore")
+
     def __init__(self, master_name: str, *parts: str) -> None:
-        self.parts: list[str] = []
         all_parts = [master_name, *parts]
         for part in all_parts:
-            if not part or "." in part:
-                raise StructureError(f"Invalid ImportString parts: {parts} - {part}")
-            self.parts.append(part)
+            if "." in part:
+                raise StructureError(f"Invalid ImportString parts: {all_parts} - {part}")
+
+        self.parts: tuple[str, ...] = tuple(all_parts)
 
     @classmethod
     def from_str(cls: type[Self], import_string: str) -> Self:
@@ -53,7 +58,7 @@ class ImportString:
         Create an empty ImportString.
         """
         result = cls("fake")
-        result.parts.clear()
+        result.parts = ()
         return result
 
     @classmethod
@@ -61,9 +66,7 @@ class ImportString:
         """
         Get parent ImportString.
         """
-        result = cls.empty()
-        result.parts.append("")
-        return result
+        return cls("")
 
     def __bool__(self) -> bool:
         """
@@ -81,13 +84,16 @@ class ImportString:
         """
         Calculate hash value based on all parts.
         """
-        return hash(str(self))
+        return hash(self.parts)
 
     def __eq__(self, other: object) -> bool:
         """
         Whether import strings produce the same render.
         """
-        return str(self) == str(other)
+        if not isinstance(other, ImportString):
+            raise BuildInternalError(f"{other} is not ImportString")
+
+        return self.parts == other.parts
 
     def __gt__(self, other: object) -> bool:
         """
@@ -95,16 +101,32 @@ class ImportString:
 
         Emulates `isort` logic.
         """
-        return str(self) > str(other)
+        if not isinstance(other, ImportString):
+            raise BuildInternalError(f"{other} is not ImportString")
+
+        if self == other:
+            return False
+
+        if self.is_local() and not other.is_local():
+            return True
+
+        if other.is_local() and not self.is_local():
+            return False
+
+        if self.is_third_party() and not other.is_third_party():
+            return True
+
+        if other.is_third_party() and not self.is_third_party():
+            return False
+
+        return self.parts > other.parts
 
     def __add__(self: Self, other: Self | str) -> Self:
         """
         Create a new import string by adding another import string parts to the end.
         """
         other_import_string = other if isinstance(other, ImportString) else ImportString(other)
-        result = self.__class__.empty()
-        result.parts = self.parts + other_import_string.parts
-        return result
+        return self.__class__(*self.parts, *other_import_string.parts)
 
     def startswith(self: Self, other: Self) -> bool:
         """
@@ -119,9 +141,6 @@ class ImportString:
             False
 
             ImportString('my', 'name').startswith(ImportString('my, 'name'))
-            True
-
-            ImportString('my', 'name').startswith(ImportString.empty())
             True
 
         Arguments:
@@ -153,6 +172,38 @@ class ImportString:
         Get first import string part or `builtins`.
         """
         if not self.parts:
-            return "builtins"
+            return self._BUILTINS
 
         return self.parts[0]
+
+    def is_local(self) -> bool:
+        """
+        Whether import is from local module.
+        """
+        if self.master_name.startswith(Boto3StubsPackageData.SERVICE_PREFIX):
+            return True
+
+        if self.master_name.startswith(TypesAioBotocorePackageData.SERVICE_PREFIX):
+            return True
+
+        return self.is_type_defs()
+
+    def is_builtins(self) -> bool:
+        """
+        Whether import is from Python `builtins` module.
+        """
+        return self.master_name == self._BUILTINS
+
+    def is_type_defs(self) -> bool:
+        """
+        Whether import is from `type_defs` module.
+        """
+        if not self.parts:
+            return False
+        return self.parts[-1] == ServiceModuleName.type_defs.value
+
+    def is_third_party(self) -> bool:
+        """
+        Whether import is from 3rd party module.
+        """
+        return self.master_name in self._THIRD_PARTY

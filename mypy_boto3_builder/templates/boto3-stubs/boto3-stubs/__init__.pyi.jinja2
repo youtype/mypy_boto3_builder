@@ -5,7 +5,7 @@ from boto3.session import Session as Session
 from botocore.session import Session as BotocoreSession
 
 {% for import_record in package.get_init_required_import_records() -%}
-    {% include "common/import_record.py.jinja2" with context %}
+    {{ import_record -}}{{ "\n" -}}
 {% endfor -%}
 
 __author__: str

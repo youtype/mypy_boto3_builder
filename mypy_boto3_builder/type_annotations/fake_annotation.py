@@ -75,10 +75,8 @@ class FakeAnnotation(ABC):
         result: set[ImportRecord] = set()
         import_records = self._get_import_records()
         for import_record in import_records:
-            if not import_record.is_empty() and not import_record.is_builtins():
+            if not import_record.is_empty() and not import_record.source.is_builtins():
                 result.add(import_record)
-            if import_record.needs_sys_fallback():
-                result.add(self._sys_import_record)
 
         return result
 

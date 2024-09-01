@@ -8,6 +8,7 @@ from typing import Literal
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
@@ -124,40 +125,40 @@ class ServicePackage(Package):
         for paginator in self.paginators:
             yield from paginator.iterate_types()
 
-    def get_init_import_records(self) -> list[ImportRecord]:
+    def get_init_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `__init__.py[i]`.
+        Get import records group for `__init__.py[i]`.
         """
-        import_records: set[ImportRecord] = set()
-        import_records.add(
+        result = ImportRecordGroup()
+        result.add(
             ImportRecord(
                 ImportString.parent() + ServiceModuleName.client.name,
                 self.client.name,
             )
         )
         if self.service_resource:
-            import_records.add(
+            result.add(
                 ImportRecord(
                     ImportString.parent() + ServiceModuleName.service_resource.name,
                     self.service_resource.name,
                 )
             )
         for waiter in self.waiters:
-            import_records.add(
+            result.add(
                 ImportRecord(
                     ImportString.parent() + ServiceModuleName.waiter.name,
                     waiter.name,
                 )
             )
         for paginator in self.paginators:
-            import_records.add(
+            result.add(
                 ImportRecord(
                     ImportString.parent() + ServiceModuleName.paginator.name,
                     paginator.name,
                 )
             )
 
-        return sorted(import_records)
+        return result
 
     def get_init_all_names(self) -> list[str]:
         """
@@ -176,67 +177,66 @@ class ServicePackage(Package):
         result.sort()
         return result
 
-    def get_client_required_import_records(self) -> list[ImportRecord]:
+    def get_client_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `client.py[i]`.
+        Get import record group for `client.py[i]`.
         """
-        import_records: set[ImportRecord] = set()
-        import_records.update(self.client.get_required_import_records())
-        import_records.update(self.client.exceptions_class.get_required_import_records())
+        result = ImportRecordGroup()
+        result.add(*self.client.get_required_import_records())
+        result.add(*self.client.exceptions_class.get_required_import_records())
 
-        return sorted(import_records)
+        return result
 
-    def get_service_resource_required_import_records(self) -> list[ImportRecord]:
+    def get_service_resource_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `service_resource.py[i]`.
+        Get import record group for `service_resource.py[i]`.
         """
         if self.service_resource is None:
-            return []
+            return ImportRecordGroup()
 
-        class_import_records = self.service_resource.get_required_import_records()
-        return sorted(class_import_records)
+        return ImportRecordGroup(self.service_resource.get_required_import_records())
 
-    def get_paginator_required_import_records(self) -> list[ImportRecord]:
+    def get_paginator_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `paginator.py[i]`.
+        Get import record group for `paginator.py[i]`.
         """
-        import_records: set[ImportRecord] = set()
+        result = ImportRecordGroup()
         for paginator in self.paginators:
-            import_records.update(paginator.get_required_import_records())
+            result.add(*paginator.get_required_import_records())
 
-        return sorted(import_records)
+        return result
 
-    def get_waiter_required_import_records(self) -> list[ImportRecord]:
+    def get_waiter_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `waiter.py[i]`.
+        Get import record group for `waiter.py[i]`.
         """
-        import_records: set[ImportRecord] = set()
+        result = ImportRecordGroup()
         for waiter in self.waiters:
-            import_records.update(waiter.get_required_import_records())
+            result.add(*waiter.get_required_import_records())
 
-        return sorted(import_records)
+        return result
 
-    def get_type_defs_required_import_records(self) -> list[ImportRecord]:
+    def get_type_defs_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `type_defs.py[i]`.
+        Get import record group for `type_defs.py[i]`.
         """
+        result = ImportRecordGroup()
         if not self.type_defs:
-            return []
+            return result
 
-        result: set[ImportRecord] = set()
         for type_def in self.type_defs:
             for import_record in type_def.get_definition_import_records():
-                if import_record.is_type_defs():
+                if import_record.source.is_type_defs():
                     continue
                 result.add(import_record)
 
-        return sorted(result)
+        return result
 
-    def get_literals_required_import_records(self) -> list[ImportRecord]:
+    def get_literals_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `literals.py[i]`.
+        Get import record group for `literals.py[i]`.
         """
-        return sorted(Type.Literal.get_import_records())
+        return ImportRecordGroup(Type.Literal.get_import_records())
 
     def validate(self) -> None:
         """

@@ -49,34 +49,50 @@ class TestServicePackage:
         assert self.service_package.get_type_defs() == set()
 
     def test_get_init_import_records(self) -> None:
-        assert len(self.service_package.get_init_import_records()) == 4
+        assert len(list(self.service_package.get_init_import_records())) == 4
 
     def test_get_init_all_names(self) -> None:
         assert len(self.service_package.get_init_all_names()) == 4
 
     def test_get_client_required_import_records(self) -> None:
-        assert len(self.service_package.get_client_required_import_records()) == 3
+        assert list(self.service_package.get_client_required_import_records()) == [
+            "from typing import Any, Dict",
+            "from botocore.client import BaseClient",
+        ]
 
     def test_get_service_resource_required_import_records(self) -> None:
-        assert len(self.service_package.get_service_resource_required_import_records()) == 3
+        assert list(self.service_package.get_service_resource_required_import_records()) == [
+            "from .client import S3Client",
+            "from boto3.resources.base import ResourceMeta, ServiceResource",
+        ]
 
         self.service_package.service_resource = None
-        assert len(self.service_package.get_service_resource_required_import_records()) == 0
+        assert list(self.service_package.get_service_resource_required_import_records()) == []
 
     def test_get_paginator_required_import_records(self) -> None:
-        assert len(self.service_package.get_paginator_required_import_records()) == 1
+        assert list(self.service_package.get_paginator_required_import_records()) == [
+            "from botocore.paginate import Paginator"
+        ]
 
     def test_get_waiter_required_import_records(self) -> None:
-        assert len(self.service_package.get_waiter_required_import_records()) == 1
+        assert list(self.service_package.get_waiter_required_import_records()) == [
+            "from botocore.waiter import Waiter"
+        ]
 
     def test_get_type_defs_required_import_records(self) -> None:
-        assert len(self.service_package.get_type_defs_required_import_records()) == 2
+        assert list(self.service_package.get_type_defs_required_import_records()) == [
+            "import sys",
+            "if sys.version_info >= (3, 12):\n    from typing import TypedDict\nelse:\n    from typing_extensions import TypedDict",
+        ]
 
         self.service_package.type_defs = []
-        assert len(self.service_package.get_type_defs_required_import_records()) == 0
+        assert list(self.service_package.get_type_defs_required_import_records()) == []
 
     def test_get_literals_required_import_records(self) -> None:
-        assert len(self.service_package.get_literals_required_import_records()) == 2
+        assert list(self.service_package.get_literals_required_import_records()) == [
+            "import sys",
+            "if sys.version_info >= (3, 12):\n    from typing import Literal\nelse:\n    from typing_extensions import Literal",
+        ]
 
     def test_validate(self) -> None:
         self.service_package.validate()

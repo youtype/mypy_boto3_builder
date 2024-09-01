@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from collections.abc import Iterable
 from typing import TYPE_CHECKING
 
-from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -38,22 +38,21 @@ class WrapperPackage(Package, ABC):
         """
         return [service_name for service_name in self.service_names if service_name.is_essential()]
 
-    def get_init_required_import_records(self) -> list[ImportRecord]:
+    def get_init_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `__init__.py[i]`.
+        Get import record group for `__init__.py[i]`.
         """
-        import_records: set[ImportRecord] = set()
+        result = ImportRecordGroup()
         for init_function in self.init_functions:
-            import_records.update(init_function.get_required_import_records())
+            result.add(*init_function.get_required_import_records())
 
-        return sorted(import_records)
+        return result
 
-    def get_session_required_import_records(self) -> list[ImportRecord]:
+    def get_session_required_import_records(self) -> ImportRecordGroup:
         """
-        Get import records for `session.py[i]`.
+        Get import record group for `session.py[i]`.
         """
-        import_records = self.session_class.get_required_import_records()
-        return sorted(import_records)
+        return ImportRecordGroup(self.session_class.get_required_import_records())
 
     @abstractmethod
     def get_all_names(self) -> list[str]:

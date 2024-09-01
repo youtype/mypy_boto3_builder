@@ -29,9 +29,8 @@ class TestTypeLiteral:
         assert import_records[0].render() == "from .literals import test"
 
         import_records = sorted(TypeLiteral("test", ["a"]).get_import_records())
-        assert len(import_records) == 2
-        assert import_records[0].render() == "import sys"
-        assert import_records[1].render() == "from typing import Literal"
+        assert len(import_records) == 1
+        assert import_records[0].render() == "from typing import Literal"
 
     def test_add_child(self) -> None:
         with pytest.raises(TypeAnnotationError):

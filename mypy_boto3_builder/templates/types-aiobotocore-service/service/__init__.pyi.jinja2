@@ -33,7 +33,7 @@ Usage::
     {{ '    ' -}}```
 """
 {% for import_record in package.get_init_import_records() -%}
-    {% include "common/import_record.py.jinja2" with context %}
+    {{ import_record -}}{{ "\n" -}}
 {% endfor -%}
 
 {{ "\n\n" -}}

@@ -13,7 +13,7 @@ from botocore.config import Config
 from botocore.hooks import BaseEventHooks
 
 {% for import_record in package.get_session_required_import_records() -%}
-    {% include "common/import_record.py.jinja2" with context %}
+    {{ import_record -}}{{ "\n" -}}
 {% endfor -%}
 
 {% for literal in package.literals -%}

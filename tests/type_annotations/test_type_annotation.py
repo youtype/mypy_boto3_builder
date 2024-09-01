@@ -33,9 +33,8 @@ class TestTypeAnnotation:
         assert result[0].render() == "from typing import Dict"
 
         result = sorted(TypeAnnotation("Literal").get_import_records())
-        assert len(result) == 2
-        assert result[0].render() == "import sys"
-        assert result[1].render() == "from typing import Literal"
+        assert len(result) == 1
+        assert result[0].render() == "from typing import Literal"
 
         result = sorted(Type.DictStrAny.get_import_records())
         assert len(result) == 2
@@ -56,10 +55,9 @@ class TestTypeAnnotation:
         sample = TypeAnnotation("NotRequired")
         assert sample.render() == "NotRequired"
         import_records = sorted(sample.get_import_records())
-        assert len(import_records) == 2
-        assert import_records[0].render() == "import sys"
-        assert import_records[1].render() == "from typing import NotRequired"
+        assert len(import_records) == 1
+        assert import_records[0].render() == "from typing import NotRequired"
 
-        fallback = import_records[1].fallback
+        fallback = import_records[0].fallback
         assert fallback is not None
         assert fallback.render() == "from typing_extensions import NotRequired"

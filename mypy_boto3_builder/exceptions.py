@@ -35,7 +35,7 @@ class BuildEnvError(BuildError):
 
 class BuildInternalError(BuildError):
     """
-    Error on invalid internal structure.
+    Error on invalid build.
     """
 
 

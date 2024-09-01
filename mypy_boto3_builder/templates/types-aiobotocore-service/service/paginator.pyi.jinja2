@@ -30,7 +30,7 @@ from typing import TypeVar, Generic, Iterator
 from botocore.paginate import PageIterator
 
 {% for import_record in package.get_paginator_required_import_records() -%}
-    {% include "common/import_record.py.jinja2" with context %}
+    {{ import_record -}}{{ "\n" -}}
 {% endfor -%}
 
 {{ "\n\n" -}}
