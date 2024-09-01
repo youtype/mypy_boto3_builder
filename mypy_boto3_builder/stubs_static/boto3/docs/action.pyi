@@ -1,28 +1,31 @@
-from typing import Dict, List, Any
-from boto3.docs.base import NestedDocumenter
+from typing import Dict, List
+from .base import NestedDocumenter
 from botocore.hooks import BaseEventHooks
+from botocore.docs.bcdoc.restdoc import DocumentStructure
+from botocore.model import ServiceModel
+from boto3.resources.model import Action
 
 PUT_DATA_WARNING_MESSAGE: str
 WARNING_MESSAGES: Dict[str, Dict[str, str]]
 IGNORE_PARAMS: Dict[str, Dict[str, List[str]]]
 
 class ActionDocumenter(NestedDocumenter):
-    def document_actions(self, section: Any) -> None: ...
+    def document_actions(self, section: DocumentStructure) -> None: ...
 
 def document_action(
-    section: Any,
+    section: DocumentStructure,
     resource_name: str,
     event_emitter: BaseEventHooks,
-    action_model: Any,
-    service_model: Any,
+    action_model: Action,
+    service_model: ServiceModel,
     include_signature: bool = ...,
 ) -> None: ...
 def document_load_reload_action(
-    section: Any,
+    section: DocumentStructure,
     action_name: str,
     resource_name: str,
     event_emitter: BaseEventHooks,
-    load_model: Any,
-    service_model: Any,
+    load_model: Action,
+    service_model: ServiceModel,
     include_signature: bool = ...,
 ) -> None: ...

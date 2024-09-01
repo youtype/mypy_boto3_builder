@@ -1,8 +1,9 @@
 from typing import Any
-from boto3.docs.base import NestedDocumenter
+from .base import NestedDocumenter
 from botocore.hooks import BaseEventHooks
 from botocore.model import ServiceModel
 from botocore.waiter import WaiterModel
+from botocore.docs.bcdoc.restdoc import DocumentStructure
 
 class WaiterResourceDocumenter(NestedDocumenter):
     def __init__(
@@ -11,10 +12,10 @@ class WaiterResourceDocumenter(NestedDocumenter):
         service_waiter_model: WaiterModel,
         root_docs_path: str,
     ) -> None: ...
-    def document_resource_waiters(self, section: Any) -> None: ...
+    def document_resource_waiters(self, section: DocumentStructure) -> None: ...
 
 def document_resource_waiter(
-    section: Any,
+    section: DocumentStructure,
     resource_name: str,
     event_emitter: BaseEventHooks,
     service_model: ServiceModel,

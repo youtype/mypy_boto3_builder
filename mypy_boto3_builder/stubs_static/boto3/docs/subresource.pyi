@@ -1,13 +1,15 @@
-from typing import Any
-from boto3.docs.base import NestedDocumenter
+from .base import NestedDocumenter
+from botocore.docs.bcdoc.restdoc import DocumentStructure
+from boto3.resources.model import ResourceModel
+from botocore.model import ServiceModel
 
 class SubResourceDocumenter(NestedDocumenter):
-    def document_sub_resources(self, section: Any) -> None: ...
+    def document_sub_resources(self, section: DocumentStructure) -> None: ...
 
 def document_sub_resource(
-    section: Any,
+    section: DocumentStructure,
     resource_name: str,
-    sub_resource_model: Any,
-    service_model: Any,
+    sub_resource_model: ResourceModel,
+    service_model: ServiceModel,
     include_signature: bool = ...,
 ) -> None: ...
