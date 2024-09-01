@@ -70,6 +70,7 @@ jobs:
           bash ./scripts/install_aiobotocore.sh master
       - name: Check s3 output
         run: |
+          rm -rf mypy_boto3_output/*
           uv run mypy_boto3_builder mypy_boto3_output --product aiobotocore-services -s s3
           uv run ./scripts/check_output.py -p ./mypy_boto3_output s3
       - name: Build packages
