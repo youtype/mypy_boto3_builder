@@ -30,12 +30,6 @@ class TypeSubscript(FakeAnnotation):
         self.children: list[FakeAnnotation] = list(children)
         self._stringify = stringify
 
-    def __hash__(self) -> int:
-        """
-        Calculate hash value based on parent and children.
-        """
-        return hash(f"{self.parent}.{self.children}")
-
     def render(self) -> str:
         """
         Render type annotation to a valid Python code for local usage.

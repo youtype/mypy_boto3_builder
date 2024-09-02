@@ -75,7 +75,7 @@ class ExternalImport(FakeAnnotation):
         """
         Calcualte hash value based on import record.
         """
-        return hash(self.import_record.render())
+        return hash(self.source) + hash(self.name) + hash(self.alias) + hash(self.safe)
 
     def render(self) -> str:
         """

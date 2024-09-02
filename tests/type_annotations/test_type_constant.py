@@ -1,3 +1,5 @@
+import pytest
+from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 
@@ -28,5 +30,6 @@ class TestTypeConstant:
         assert self.result == TypeConstant("value")
         assert self.result != TypeConstant("other")
         assert self.result > TypeConstant("aaa")
-        assert not self.result == "value"
-        assert self.result != "value"
+
+        with pytest.raises(BuildInternalError):
+            assert self.result == "value"

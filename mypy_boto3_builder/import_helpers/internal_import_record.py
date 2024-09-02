@@ -21,5 +21,5 @@ class InternalImportRecord(ImportRecord):
         self, service_module_name: ServiceModuleName, name: str = "", alias: str = ""
     ) -> None:
         self._local_source = ImportString(service_module_name.name)
-        source = ImportString("") + self._local_source
+        source = ImportString("", *self._local_source.parts)
         super().__init__(source, name=name, alias=alias)

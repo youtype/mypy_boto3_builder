@@ -2,43 +2,37 @@
 Parent class for all type annotation wrappers.
 """
 
+import functools
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
-from typing import Final, Self
+from typing import Self
 
+from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
+@functools.total_ordering
 class FakeAnnotation(ABC):
     """
     Parent class for all type annotation wrappers.
     """
 
-    _sys_import_record: Final[ImportRecord] = ImportRecord(ImportString("sys"))
-
     def __hash__(self) -> int:
         """
         Calculate hash value based on string render.
         """
-        return hash(self.render())
+        return hash(self.get_sort_key())
 
     def __eq__(self, other: object) -> bool:
         """
         Whether two annotations are equal.
         """
         if not isinstance(other, FakeAnnotation):
-            return False
+            raise BuildInternalError(f"{other} is not FakeAnnotation")
 
         return self.get_sort_key() == other.get_sort_key()
 
-    def __lt__(self: Self, other: Self) -> bool:
-        """
-        Compare two annotations for sorting.
-        """
-        return self.get_sort_key() < other.get_sort_key()
-
-    def __gt__(self: Self, other: Self) -> bool:
+    def __gt__(self: Self, other: "FakeAnnotation") -> bool:
         """
         Compare two annotations for sorting.
         """

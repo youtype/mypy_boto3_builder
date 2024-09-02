@@ -28,25 +28,25 @@ class ImportString:
 
         import_string.render()
         'my.name'
-
-        import_string.parts.append('test')
-        import_string.render()
-        'my.name.test'
     """
 
     _BUILTINS: Final[str] = "builtins"
     _THIRD_PARTY: Final[tuple[str, ...]] = ("boto3", "botocore")
 
     def __init__(self, master_name: str, *parts: str) -> None:
-        all_parts = [master_name, *parts]
+        all_parts = (master_name, *parts)
+        if not master_name and not parts:
+            raise StructureError("ImportString cannot be empty")
         has_not_empty_part = False
         for part in all_parts:
             if "." in part:
-                raise StructureError(f"Invalid ImportString parts: {all_parts}")
+                raise StructureError(f"ImportString parts are not slitted correctly: {all_parts}")
             if part:
                 has_not_empty_part = True
             elif has_not_empty_part:
-                raise StructureError(f"Invalid ImportString parts: {all_parts}")
+                raise StructureError(
+                    f"ImportString cannot have empty parts after parents: {all_parts}"
+                )
 
         self.parts: Final[tuple[str, ...]] = tuple(all_parts)
 

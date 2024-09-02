@@ -5,18 +5,25 @@ from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
 class TestImportString:
+    def test_init(self) -> None:
+        assert ImportString("my", "module").render() == "my.module"
+        assert ImportString("my").render() == "my"
+        assert ImportString("", "", "test").render() == "..test"
+        with pytest.raises(StructureError):
+            ImportString("")
+        with pytest.raises(StructureError):
+            ImportString("my", "", "test")
+
     def test_from_str(self) -> None:
         assert ImportString.from_str("my.module.path").render() == "my.module.path"
-        assert ImportString.from_str("").render() == ""
+        assert ImportString.from_str(".test").render() == ".test"
+        with pytest.raises(StructureError):
+            assert ImportString.from_str("").render()
 
     def test_parent(self) -> None:
-        assert ImportString("").render() == ""
         assert ImportString("", "").render() == "."
         assert ImportString("", "test", "my").render() == ".test.my"
         assert ImportString("", "", "test", "my").render() == "..test.my"
-
-        with pytest.raises(StructureError):
-            ImportString("my", "", "test").render()
 
     def test_operations(self) -> None:
         assert ImportString("my") < ImportString("test")
@@ -38,7 +45,7 @@ class TestImportString:
 
     def test_master_name(self) -> None:
         assert ImportString("my", "module").master_name == "my"
-        assert ImportString("").master_name == ""
+        assert ImportString("", "").master_name == ""
 
     def test_is_builtins(self) -> None:
         assert ImportString("builtins").is_builtins()
@@ -64,7 +71,7 @@ class TestImportString:
         assert ImportString("botocore", "test").is_third_party()
 
     def test_is_local(self) -> None:
-        assert not ImportString("").is_local()
+        assert not ImportString("", "").is_local()
         assert ImportString("mypy_boto3", "test").is_local()
         assert ImportString("type_defs").is_local()
         assert not ImportString("other").is_local()
