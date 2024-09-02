@@ -58,7 +58,7 @@ class Paginator(ClassRecord):
                 ),
             ],
             return_type=ExternalImport(
-                source=ImportString.parent() + ServiceModuleName.paginator.value,
+                source=ImportString("", ServiceModuleName.paginator.value),
                 name=self.name,
             ),
         )

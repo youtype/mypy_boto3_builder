@@ -35,6 +35,8 @@ class ImportRecord:
         self.alias = alias
         self.min_version = min_version
         self.fallback = fallback
+        if not self.source:
+            raise StructureError(f"ImportRecord source is empty: {self.render()}")
 
     def __bool__(self) -> bool:
         """
@@ -83,7 +85,13 @@ class ImportRecord:
         """
         Calculate hash value based on source, name and alias.
         """
-        return hash(str(self))
+        return (
+            hash(self.source)
+            + hash(self.name)
+            + hash(self.alias)
+            + hash(self.min_version)
+            + hash(self.fallback)
+        )
 
     def __eq__(self, other: object) -> bool:
         """
@@ -100,19 +108,16 @@ class ImportRecord:
 
         Emulates `isort` logic.
         """
-        if (self.min_version or ()) != (other.min_version or ()):
+        if self.min_version != other.min_version:
             return (self.min_version or ()) > (other.min_version or ())
 
         if bool(self.fallback) != bool(other.fallback):
             return bool(self.fallback) > bool(other.fallback)
 
-        if self.source > other.source:
-            return True
+        if self.source != other.source:
+            return self.source > other.source
 
-        if self.source == other.source:
-            return self.name > other.name
-
-        return False
+        return self.name > other.name
 
     def get_local_name(self) -> str:
         """

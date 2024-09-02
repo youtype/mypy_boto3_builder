@@ -132,28 +132,28 @@ class ServicePackage(Package):
         result = ImportRecordGroup()
         result.add(
             ImportRecord(
-                ImportString.parent() + ServiceModuleName.client.name,
+                ImportString("", ServiceModuleName.client.name),
                 self.client.name,
             )
         )
         if self.service_resource:
             result.add(
                 ImportRecord(
-                    ImportString.parent() + ServiceModuleName.service_resource.name,
+                    ImportString("", ServiceModuleName.service_resource.name),
                     self.service_resource.name,
                 )
             )
         for waiter in self.waiters:
             result.add(
                 ImportRecord(
-                    ImportString.parent() + ServiceModuleName.waiter.name,
+                    ImportString("", ServiceModuleName.waiter.name),
                     waiter.name,
                 )
             )
         for paginator in self.paginators:
             result.add(
                 ImportRecord(
-                    ImportString.parent() + ServiceModuleName.paginator.name,
+                    ImportString("", ServiceModuleName.paginator.name),
                     paginator.name,
                 )
             )

@@ -13,7 +13,6 @@ class TestImportRecord:
     def test_operations(self) -> None:
         source = ImportString("source")
         assert ImportRecord(source, "name", "alias")
-        assert not ImportRecord(ImportString.empty(), "name", "alias")
         assert hash(ImportRecord(source, "name")) == hash(ImportRecord(source, "name"))
         assert hash(ImportRecord(source, "name")) != hash(ImportRecord(source, "name2"))
         assert ImportRecord(source, "name") == ImportRecord(source, "name")

@@ -182,7 +182,7 @@ class ServiceResourceParser:
                 Attribute(
                     "client",
                     ExternalImport(
-                        source=ImportString.parent() + ServiceModuleName.client.value,
+                        source=ImportString("", ServiceModuleName.client.value),
                         name=Client.get_class_name(self.service_name),
                     ),
                 )

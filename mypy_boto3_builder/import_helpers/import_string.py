@@ -39,11 +39,16 @@ class ImportString:
 
     def __init__(self, master_name: str, *parts: str) -> None:
         all_parts = [master_name, *parts]
+        has_not_empty_part = False
         for part in all_parts:
             if "." in part:
-                raise StructureError(f"Invalid ImportString parts: {all_parts} - {part}")
+                raise StructureError(f"Invalid ImportString parts: {all_parts}")
+            if part:
+                has_not_empty_part = True
+            elif has_not_empty_part:
+                raise StructureError(f"Invalid ImportString parts: {all_parts}")
 
-        self.parts: tuple[str, ...] = tuple(all_parts)
+        self.parts: Final[tuple[str, ...]] = tuple(all_parts)
 
     @classmethod
     def from_str(cls: type[Self], import_string: str) -> Self:
@@ -52,27 +57,14 @@ class ImportString:
         """
         return cls(*import_string.split("."))
 
-    @classmethod
-    def empty(cls: type[Self]) -> Self:
-        """
-        Create an empty ImportString.
-        """
-        result = cls("fake")
-        result.parts = ()
-        return result
-
-    @classmethod
-    def parent(cls: type[Self]) -> Self:
-        """
-        Get parent ImportString.
-        """
-        return cls("")
-
     def __bool__(self) -> bool:
         """
         Whether import string is not empty.
         """
-        return bool(self.parts)
+        if len(self.parts) > 1:
+            return True
+
+        return bool(self.parts and self.parts[0])
 
     def __str__(self) -> str:
         """
@@ -107,17 +99,11 @@ class ImportString:
         if self == other:
             return False
 
-        if self.is_local() and not other.is_local():
-            return True
+        if self.is_local() != other.is_local():
+            return self.is_local() > other.is_local()
 
-        if other.is_local() and not self.is_local():
-            return False
-
-        if self.is_third_party() and not other.is_third_party():
-            return True
-
-        if other.is_third_party() and not self.is_third_party():
-            return False
+        if self.is_third_party() != other.is_third_party():
+            return self.is_third_party() > other.is_third_party()
 
         return self.parts > other.parts
 
@@ -171,10 +157,7 @@ class ImportString:
         """
         Get first import string part or `builtins`.
         """
-        if not self.parts:
-            return self._BUILTINS
-
-        return self.parts[0]
+        return self.parts[0] if self.parts else ""
 
     def is_local(self) -> bool:
         """

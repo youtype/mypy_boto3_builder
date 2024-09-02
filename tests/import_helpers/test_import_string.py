@@ -7,17 +7,21 @@ from mypy_boto3_builder.import_helpers.import_string import ImportString
 class TestImportString:
     def test_from_str(self) -> None:
         assert ImportString.from_str("my.module.path").render() == "my.module.path"
-        assert ImportString.from_str("")
+        assert ImportString.from_str("").render() == ""
 
-    def test_empty(self) -> None:
-        assert ImportString.empty().render() == ""
-        assert ImportString.parent().render() == ""
+    def test_parent(self) -> None:
+        assert ImportString("").render() == ""
+        assert ImportString("", "").render() == "."
+        assert ImportString("", "test", "my").render() == ".test.my"
+        assert ImportString("", "", "test", "my").render() == "..test.my"
+
+        with pytest.raises(StructureError):
+            ImportString("my", "", "test").render()
 
     def test_operations(self) -> None:
         assert ImportString("my") < ImportString("test")
         assert ImportString("my", "test")
-        assert not ImportString.empty()
-        assert hash(ImportString("my")) != hash(ImportString.empty())
+        assert hash(ImportString("my")) != hash(ImportString("test"))
 
         with pytest.raises(BuildInternalError):
             assert ImportString("my") + ImportString("test") == "my.test"
@@ -28,15 +32,13 @@ class TestImportString:
         assert not ImportString("my_module", "name").startswith(ImportString("my"))
         assert ImportString("my", "name").startswith(ImportString("my", "name"))
         assert not ImportString("my").startswith(ImportString("my", "name"))
-        assert ImportString("my", "name").startswith(ImportString.empty())
 
     def test_render(self) -> None:
         assert ImportString("my", "module").render() == "my.module"
-        assert ImportString.empty().render() == ""
 
     def test_master_name(self) -> None:
         assert ImportString("my", "module").master_name == "my"
-        assert ImportString.empty().master_name == "builtins"
+        assert ImportString("").master_name == ""
 
     def test_is_builtins(self) -> None:
         assert ImportString("builtins").is_builtins()
@@ -62,7 +64,7 @@ class TestImportString:
         assert ImportString("botocore", "test").is_third_party()
 
     def test_is_local(self) -> None:
-        assert not ImportString.empty().is_local()
+        assert not ImportString("").is_local()
         assert ImportString("mypy_boto3", "test").is_local()
         assert ImportString("type_defs").is_local()
         assert not ImportString("other").is_local()
