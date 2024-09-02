@@ -31,11 +31,18 @@ class ImportString:
     """
 
     _BUILTINS: Final[str] = "builtins"
-    _THIRD_PARTY: Final[tuple[str, ...]] = ("boto3", "botocore")
+    _THIRD_PARTY: Final[tuple[str, ...]] = (
+        "boto3",
+        "botocore",
+        "aioboto3",
+        "aiobotocore",
+        "s3transfer",
+        "awscrt",
+    )
 
-    def __init__(self, master_name: str, *parts: str) -> None:
-        all_parts = (master_name, *parts)
-        if not master_name and not parts:
+    def __init__(self, parent: str, *parts: str) -> None:
+        all_parts = (parent, *parts)
+        if not parent and not parts:
             raise StructureError("ImportString cannot be empty")
         has_not_empty_part = False
         for part in all_parts:
@@ -111,35 +118,6 @@ class ImportString:
         other_import_string = other if isinstance(other, ImportString) else ImportString(other)
         return self.__class__(*self.parts, *other_import_string.parts)
 
-    def startswith(self: Self, other: Self) -> bool:
-        """
-        Check if import string starts with `other`.
-
-        Examples::
-
-            ImportString('my', 'name').startswith(ImportString('my'))
-            True
-
-            ImportString('my_module', 'name').startswith(ImportString('my'))
-            False
-
-            ImportString('my', 'name').startswith(ImportString('my, 'name'))
-            True
-
-        Arguments:
-            other -- Other import string.
-        """
-        for part_index, part in enumerate(other.parts):
-            try:
-                self_part = self.parts[part_index]
-            except IndexError:
-                return False
-
-            if self_part != part:
-                return False
-
-        return True
-
     def render(self) -> str:
         """
         Render to string.
@@ -150,7 +128,7 @@ class ImportString:
         return ".".join(self.parts)
 
     @property
-    def master_name(self) -> str:
+    def parent(self) -> str:
         """
         Get first import string part or `builtins`.
         """
@@ -160,10 +138,10 @@ class ImportString:
         """
         Whether import is from local module.
         """
-        if self.master_name.startswith(Boto3StubsPackageData.SERVICE_PREFIX):
+        if self.parent.startswith(Boto3StubsPackageData.SERVICE_PREFIX):
             return True
 
-        if self.master_name.startswith(TypesAioBotocorePackageData.SERVICE_PREFIX):
+        if self.parent.startswith(TypesAioBotocorePackageData.SERVICE_PREFIX):
             return True
 
         return self.is_type_defs()
@@ -172,7 +150,7 @@ class ImportString:
         """
         Whether import is from Python `builtins` module.
         """
-        return self.master_name == self._BUILTINS
+        return self.parent == self._BUILTINS
 
     def is_type_defs(self) -> bool:
         """
@@ -186,4 +164,4 @@ class ImportString:
         """
         Whether import is from 3rd party module.
         """
-        return self.master_name in self._THIRD_PARTY
+        return self.parent in self._THIRD_PARTY

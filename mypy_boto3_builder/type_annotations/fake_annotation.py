@@ -66,13 +66,11 @@ class FakeAnnotation(ABC):
         """
         Get all import records required for using type annotation.
         """
-        result: set[ImportRecord] = set()
-        import_records = self._get_import_records()
-        for import_record in import_records:
-            if not import_record.is_empty() and not import_record.source.is_builtins():
-                result.add(import_record)
-
-        return result
+        return {
+            import_record
+            for import_record in self._get_import_records()
+            if not import_record.source.is_builtins()
+        }
 
     def iterate_types(self) -> Iterator["FakeAnnotation"]:
         """

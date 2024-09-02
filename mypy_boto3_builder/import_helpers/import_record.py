@@ -36,26 +36,14 @@ class ImportRecord:
         self.min_version = min_version
         self.fallback = fallback
         if not self.source:
-            raise StructureError(f"ImportRecord source is empty: {self.render()}")
-
-    def __bool__(self) -> bool:
-        """
-        Whether import record is an empty string.
-        """
-        return not self.is_empty()
-
-    def is_empty(self) -> bool:
-        """
-        Whether import record is an empty string.
-        """
-        return not self.source
+            raise StructureError(f"ImportRecord source is empty: {self}")
 
     def render_name(self) -> str:
         """
         Get rendered import name.
         """
         if not self.name:
-            raise StructureError(f"ImportRecord {self.render()} has no name")
+            raise StructureError(f"ImportRecord {self} has no name")
 
         if self.alias:
             return f"{self.name} as {self.alias}"

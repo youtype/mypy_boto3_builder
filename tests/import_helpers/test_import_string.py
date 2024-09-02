@@ -8,9 +8,15 @@ class TestImportString:
     def test_init(self) -> None:
         assert ImportString("my", "module").render() == "my.module"
         assert ImportString("my").render() == "my"
-        assert ImportString("", "", "test").render() == "..test"
+
+        assert ImportString("", "").render() == "."
+        assert ImportString("", "test", "my").render() == ".test.my"
+        assert ImportString("", "", "test", "my").render() == "..test.my"
+
         with pytest.raises(StructureError):
             ImportString("")
+        with pytest.raises(StructureError):
+            ImportString("test", "another.module")
         with pytest.raises(StructureError):
             ImportString("my", "", "test")
 
@@ -20,11 +26,6 @@ class TestImportString:
         with pytest.raises(StructureError):
             assert ImportString.from_str("").render()
 
-    def test_parent(self) -> None:
-        assert ImportString("", "").render() == "."
-        assert ImportString("", "test", "my").render() == ".test.my"
-        assert ImportString("", "", "test", "my").render() == "..test.my"
-
     def test_operations(self) -> None:
         assert ImportString("my") < ImportString("test")
         assert ImportString("my", "test")
@@ -33,19 +34,12 @@ class TestImportString:
         with pytest.raises(BuildInternalError):
             assert ImportString("my") + ImportString("test") == "my.test"
 
-    def test_startswith(self) -> None:
-        assert ImportString("my", "name").startswith(ImportString("my"))
-        assert ImportString("my").startswith(ImportString("my"))
-        assert not ImportString("my_module", "name").startswith(ImportString("my"))
-        assert ImportString("my", "name").startswith(ImportString("my", "name"))
-        assert not ImportString("my").startswith(ImportString("my", "name"))
-
     def test_render(self) -> None:
         assert ImportString("my", "module").render() == "my.module"
 
-    def test_master_name(self) -> None:
-        assert ImportString("my", "module").master_name == "my"
-        assert ImportString("", "").master_name == ""
+    def test_parent(self) -> None:
+        assert ImportString("my", "module").parent == "my"
+        assert ImportString("", "").parent == ""
 
     def test_is_builtins(self) -> None:
         assert ImportString("builtins").is_builtins()

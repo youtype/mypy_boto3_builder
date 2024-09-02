@@ -237,6 +237,6 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 type_annotation.copy_from(new_type_annotation)
                 continue
 
-            if type_annotation.source.startswith(ImportString("boto3")):
+            if type_annotation.source.parent == "boto3":
                 type_annotation.safe = True
                 continue
