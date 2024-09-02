@@ -108,6 +108,9 @@ class ImportRecord:
 
         Emulates `isort` logic.
         """
+        if self == other:
+            return False
+
         if self.min_version != other.min_version:
             return (self.min_version or ()) > (other.min_version or ())
 

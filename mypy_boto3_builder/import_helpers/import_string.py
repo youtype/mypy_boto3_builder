@@ -87,15 +87,12 @@ class ImportString:
 
         return self.parts == other.parts
 
-    def __gt__(self, other: object) -> bool:
+    def __gt__(self, other: Self) -> bool:
         """
         Compare import strings for sorting.
 
         Emulates `isort` logic.
         """
-        if not isinstance(other, ImportString):
-            raise BuildInternalError(f"{other} is not ImportString")
-
         if self == other:
             return False
 
