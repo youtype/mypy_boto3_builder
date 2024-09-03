@@ -18,7 +18,7 @@ from mypy_boto3_builder.package_data import (
 )
 from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.utils.version import get_boto3_version
+from mypy_boto3_builder.utils.version_getters import get_boto3_version
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,

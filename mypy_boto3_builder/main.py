@@ -19,7 +19,7 @@ from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_botocore_class_name
-from mypy_boto3_builder.utils.version import get_botocore_version
+from mypy_boto3_builder.utils.version_getters import get_botocore_version
 
 
 def get_selected_service_names(

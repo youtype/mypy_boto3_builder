@@ -6,7 +6,7 @@ import requests
 
 from mypy_boto3_builder.constants import REQUEST_TIMEOUT
 from mypy_boto3_builder.exceptions import BuildEnvError
-from mypy_boto3_builder.utils.version import bump_postrelease, get_release_version
+from mypy_boto3_builder.utils.version import bump_postrelease, get_release_version, sort_versions
 
 
 class PyPIManager:
@@ -51,6 +51,17 @@ class PyPIManager:
         while new_version in versions:
             new_version = bump_postrelease(new_version)
         return new_version
+
+    def get_latest_stable_version(self) -> str:
+        """
+        Get latest stable package version from PyPI.
+        """
+        versions = self._get_versions()
+        if not versions:
+            raise BuildEnvError(f"No versions found for {self.package}")
+
+        sorted_versions = sort_versions(versions)
+        return get_release_version(sorted_versions[-1])
 
     def _get_versions(self) -> set[str]:
         if self._versions is not None:

@@ -5,7 +5,7 @@ PyPI package data constants.
 from typing import ClassVar
 
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.utils.version import (
+from mypy_boto3_builder.utils.version_getters import (
     get_aioboto3_version,
     get_aiobotocore_version,
     get_boto3_version,

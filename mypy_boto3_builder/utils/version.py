@@ -4,11 +4,11 @@ Version-related utils.
 
 import contextlib
 import importlib.metadata
+from collections.abc import Iterable
 
 from packaging.version import Version
 
 from mypy_boto3_builder.constants import PACKAGE_NAME
-from mypy_boto3_builder.exceptions import BuildEnvError
 
 
 def get_builder_version() -> str:
@@ -54,46 +54,8 @@ def bump_postrelease(version: str) -> str:
     return f"{major}.{minor}.{patch}.post{post}"
 
 
-def get_botocore_version() -> str:
+def sort_versions(version_list: Iterable[str]) -> list[str]:
     """
-    Get botocore package version.
+    Sort version list.
     """
-    try:
-        from botocore import __version__ as version
-    except ImportError as e:
-        raise BuildEnvError("botocore is not installed") from e
-    return f"{version}"
-
-
-def get_boto3_version() -> str:
-    """
-    Get boto3 package version.
-    """
-    try:
-        from boto3 import __version__ as version
-    except ImportError as e:
-        raise BuildEnvError("boto3 is not installed") from e
-    return f"{version}"
-
-
-def get_aiobotocore_version() -> str:
-    """
-    Get aiobotocore package version.
-    """
-    try:
-        from aiobotocore import __version__ as version  # type: ignore
-    except ImportError as e:
-        raise BuildEnvError("aiobotocore is not installed") from e
-    return f"{version}"
-
-
-def get_aioboto3_version() -> str:
-    """
-    Get aioboto3 package version.
-    """
-    try:
-        from aioboto3 import __version__ as version  # type: ignore
-    except ImportError as e:
-        raise BuildEnvError("aioboto3 is not installed") from e
-
-    return f"{version}"
+    return sorted(version_list, key=Version)
