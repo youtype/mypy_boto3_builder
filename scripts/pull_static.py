@@ -74,9 +74,21 @@ def main() -> None:
     """
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_dir_path = Path(temp_dir)
-        pull_static(StaticStubsPullURL.boto3, StaticStubsPath.boto3, temp_dir_path)
-        pull_static(StaticStubsPullURL.aiobotocore, StaticStubsPath.aiobotocore, temp_dir_path)
-        pull_static(StaticStubsPullURL.aioboto3, StaticStubsPath.aioboto3, temp_dir_path)
+        pull_static(
+            StaticStubsPullURL.boto3_stubs,
+            StaticStubsPath.boto3_stubs,
+            temp_dir_path,
+        )
+        pull_static(
+            StaticStubsPullURL.types_aiobotocore,
+            StaticStubsPath.types_aiobotocore,
+            temp_dir_path,
+        )
+        pull_static(
+            StaticStubsPullURL.types_aioboto3,
+            StaticStubsPath.types_aioboto3,
+            temp_dir_path,
+        )
 
 
 if __name__ == "__main__":

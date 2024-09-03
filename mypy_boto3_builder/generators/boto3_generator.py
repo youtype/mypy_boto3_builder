@@ -68,8 +68,8 @@ class Boto3Generator(BaseGenerator):
 
     def _get_static_files_path(self) -> Path:
         return self._get_or_download_static_files_path(
-            StaticStubsPath.boto3,
-            StaticStubsPullURL.boto3,
+            StaticStubsPath.boto3_stubs,
+            StaticStubsPullURL.boto3_stubs,
         )
 
     def _generate_boto3_stubs(self) -> None:

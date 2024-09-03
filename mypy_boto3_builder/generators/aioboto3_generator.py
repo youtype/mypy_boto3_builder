@@ -30,8 +30,8 @@ class AioBoto3Generator(BaseGenerator):
 
     def _get_static_files_path(self) -> Path:
         return self._get_or_download_static_files_path(
-            StaticStubsPath.aioboto3,
-            StaticStubsPullURL.aioboto3,
+            StaticStubsPath.types_aioboto3,
+            StaticStubsPullURL.types_aioboto3,
         )
 
     def get_library_version(self) -> str:

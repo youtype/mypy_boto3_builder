@@ -86,9 +86,9 @@ class StaticStubsPath:
     Static *.pyi files path.
     """
 
-    boto3: Final[Path] = ROOT_PATH / "stubs_static" / "boto3-stubs"
-    aiobotocore: Final[Path] = ROOT_PATH / "stubs_static" / "types-aiobotocore"
-    aioboto3: Final[Path] = ROOT_PATH / "stubs_static" / "types-aioboto3"
+    boto3_stubs: Final[Path] = ROOT_PATH / "stubs_static" / "boto3-stubs"
+    types_aiobotocore: Final[Path] = ROOT_PATH / "stubs_static" / "types-aiobotocore"
+    types_aioboto3: Final[Path] = ROOT_PATH / "stubs_static" / "types-aioboto3"
 
 
 class StaticStubsPullURL:
@@ -96,6 +96,8 @@ class StaticStubsPullURL:
     Static *.pyi files zip download URL.
     """
 
-    boto3: Final[str] = "https://api.github.com/repos/youtype/boto3-stubs/zipball/main"
-    aiobotocore: Final[str] = "https://api.github.com/repos/youtype/types-aiobotocore/zipball/main"
-    aioboto3: Final[str] = "https://api.github.com/repos/youtype/types-aioboto3/zipball/main"
+    boto3_stubs: Final[str] = "https://api.github.com/repos/youtype/boto3-stubs/zipball/main"
+    types_aiobotocore: Final[str] = (
+        "https://api.github.com/repos/youtype/types-aiobotocore/zipball/main"
+    )
+    types_aioboto3: Final[str] = "https://api.github.com/repos/youtype/types-aioboto3/zipball/main"

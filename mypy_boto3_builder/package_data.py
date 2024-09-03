@@ -173,6 +173,7 @@ class TypesAioBoto3PackageData(BasePackageData):
     NAME = "aioboto3-stubs"
     PYPI_NAME = "types-aioboto3"
     PYPI_LITE_NAME = "types-aioboto3-lite"
+    PYPI_FULL_NAME = "types-aiobotocore-full"
     LIBRARY_NAME = "aioboto3"
     SERVICE_PREFIX = "types_aiobotocore"
     SERVICE_PYPI_PREFIX = "types-aiobotocore"

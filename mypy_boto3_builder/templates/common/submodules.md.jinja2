@@ -1,7 +1,11 @@
 ## Submodules
 {{ "- `" -}}
 {{ package.data.PYPI_NAME -}}
-{{ "[all]` - Type annotations for all " -}} {{ package.service_names|length -}} {{ " services" -}}
+{{ "[full]` - Type annotations for all " -}} {{ package.service_names|length -}} {{ " services in one package (recommended)" -}}
+{{ ".\n" -}}
+{{ "- `" -}}
+{{ package.data.PYPI_NAME -}}
+{{ "[all]` - Type annotations for all " -}} {{ package.service_names|length -}} {{ " services in separate packages" -}}
 {{ ".\n" -}}
 {% if package.essential_service_names -%}
     {{ "- `" -}}
