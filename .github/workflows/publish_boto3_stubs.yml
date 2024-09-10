@@ -210,7 +210,12 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building updated packages"
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 boto3-services ${EXTRA_FLAGS} -s updated -d
+          python -m mypy_boto3_builder mypy_boto3_output \
+            -b ${VERSION} \
+            --product boto3 boto3-services \
+            ${EXTRA_FLAGS} \
+            --download-static-stubs \
+            -s updated -d
       - name: Build all packages
         if: needs.versions.outputs.build-all == 'true'
         env:
