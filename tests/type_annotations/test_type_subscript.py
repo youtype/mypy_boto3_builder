@@ -62,3 +62,14 @@ class TestTypeSubscript:
         assert outer.copy().replace_child(inner, Type.bool).render() == "Dict[str, bool]"
         with pytest.raises(TypeAnnotationError):
             outer.copy().replace_child(Type.int, Type.bool)
+
+    def test_iterate_types(self) -> None:
+        assert list(self.result.iterate_types()) == [Type.Dict, Type.str, Type.int, Type.Any]
+        assert list(TypeSubscript(Type.List, [Type.int]).iterate_types()) == [Type.List, Type.int]
+        assert list(
+            TypeSubscript(Type.List, [TypeSubscript(Type.List, [Type.int])]).iterate_types()
+        ) == [
+            Type.List,
+            Type.List,
+            Type.int,
+        ]

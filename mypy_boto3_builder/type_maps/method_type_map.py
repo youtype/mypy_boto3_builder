@@ -2,8 +2,9 @@
 String to type annotation map that find type annotation by method and argument name.
 """
 
+from boto3.dynamodb.table import BatchWriter
+
 from mypy_boto3_builder.constants import ALL, CLIENT
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -59,9 +60,7 @@ TYPE_MAP: ServiceTypeMap = {
     },
     ServiceNameCatalog.dynamodb: {
         "Table": {
-            "batch_writer": {
-                "return": ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter")
-            },
+            "batch_writer": {"return": ExternalImport.from_class(BatchWriter)},
             "query": {
                 "KeyConditionExpression": ConditionBaseImportTypeDef,
                 "FilterExpression": ConditionBaseImportTypeDef,

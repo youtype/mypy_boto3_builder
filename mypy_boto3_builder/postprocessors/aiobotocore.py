@@ -2,7 +2,7 @@
 Postprocessor for aiobotocore classes and methods.
 """
 
-from collections.abc import Iterator, Mapping
+from collections.abc import Iterable, Iterator, Mapping
 from typing import Final
 
 from boto3.dynamodb.table import BatchWriter, TableResource
@@ -213,22 +213,20 @@ class AioBotocorePostprocessor(BasePostprocessor):
             yield from waiter.iterate_types()
         if self.package.service_resource:
             yield from self.package.service_resource.iterate_types()
-            for collection in self.package.service_resource.collections:
-                yield from collection.iterate_types()
-            for sub_resource in self.package.service_resource.sub_resources:
-                yield from sub_resource.iterate_types()
-                for collection in sub_resource.collections:
-                    yield from collection.iterate_types()
 
-    def _iterate_types(self) -> Iterator[FakeAnnotation]:
-        for type_annotation in self._iterate_types_shallow():
+    def _iterate_types(
+        self,
+        type_annotations: Iterable[FakeAnnotation],
+    ) -> Iterator[FakeAnnotation]:
+        for type_annotation in type_annotations:
             if isinstance(type_annotation, TypeDefSortable):
-                yield from type_annotation.get_children_types()
+                yield from self._iterate_types(type_annotation.get_children_types())
             else:
                 yield type_annotation
 
     def _replace_external_imports(self) -> None:
-        for type_annotation in self._iterate_types():
+        shallow_type_annotations = self._iterate_types_shallow()
+        for type_annotation in self._iterate_types(shallow_type_annotations):
             if not isinstance(type_annotation, ExternalImport):
                 continue
 
