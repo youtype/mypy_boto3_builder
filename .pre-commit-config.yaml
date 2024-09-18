@@ -5,17 +5,17 @@ repos:
         name: lint
         language: system
         pass_filenames: false
-        entry: uv run ruff check --fix
+        entry: uvx ruff check --fix
       - id: format
         name: format
         language: system
         pass_filenames: false
-        entry: uv run ruff format
+        entry: uvx ruff format
       - id: vulture
         name: vulture
         language: system
         pass_filenames: false
-        entry: uv run vulture
+        entry: uvx vulture
       - id: pyright
         name: pyright
         language: system

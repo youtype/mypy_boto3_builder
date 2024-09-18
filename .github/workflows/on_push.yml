@@ -29,4 +29,4 @@ jobs:
       - name: Install extra dependencies
         run: uv pip install -U aioboto3
       - name: Run pre-commit
-        run: uv run pre-commit run --all-files
+        run: uvx pre-commit run --all-files
