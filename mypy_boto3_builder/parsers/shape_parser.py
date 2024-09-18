@@ -1030,10 +1030,7 @@ class ShapeParser:
             if typed_dict is None:
                 continue
 
-            for (
-                old_typed_dict_name,
-                output_typed_dict,
-            ) in self._output_typed_dict_map.iterate_pairs(name):
+            for output_typed_dict in self._output_typed_dict_map.iterate_by_name(name):
                 if typed_dict.is_same(output_typed_dict):
                     continue
 
@@ -1065,13 +1062,11 @@ class ShapeParser:
             if typed_dict is None:
                 continue
 
-            for (
-                old_typed_dict_name,
-                response_typed_dict,
-            ) in self._response_typed_dict_map.iterate_pairs(name):
+            for response_typed_dict in self._response_typed_dict_map.iterate_by_name(name):
                 if typed_dict.is_same(response_typed_dict):
                     continue
 
+                old_typed_dict_name = response_typed_dict.name
                 new_typed_dict_name = self._get_non_clashing_typed_dict_name(
                     response_typed_dict, "Response"
                 )

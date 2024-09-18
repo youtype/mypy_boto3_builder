@@ -178,6 +178,7 @@ select = [
     "TRY",  # tryceratops
     "PERF", # Perflint
     "FURB", # refurb
+    "PL",   # pylint
 ]
 ignore = [
     "D107",   # undocumented-public-init
@@ -196,6 +197,7 @@ ignore = [
     # "ANN401",  # any-type
     "TRY003",  # raise-vanilla-args
     "PERF203", # try-except-in-loop
+    "PLR0913", # too-many-arguments
 ]
 fixable = ["ALL"]
 unfixable = ["B"]

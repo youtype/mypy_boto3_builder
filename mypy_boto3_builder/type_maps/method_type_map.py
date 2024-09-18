@@ -115,18 +115,18 @@ def _get_from_service_map(
     )
     class_type_map = service_type_map[service_name]
 
-    for class_name, method_name, argument_name in checks:
-        if class_name not in class_type_map:
+    for check_class_name, check_method_name, check_argument_name in checks:
+        if check_class_name not in class_type_map:
             continue
 
-        method_type_map = class_type_map[class_name]
+        method_type_map = class_type_map[check_class_name]
 
-        if method_name not in method_type_map:
+        if check_method_name not in method_type_map:
             continue
 
-        operation_type_map = method_type_map[method_name]
-        if argument_name in operation_type_map:
-            return operation_type_map[argument_name]
+        operation_type_map = method_type_map[check_method_name]
+        if check_argument_name in operation_type_map:
+            return operation_type_map[check_argument_name]
 
     return None
 

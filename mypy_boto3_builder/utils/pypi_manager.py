@@ -68,7 +68,7 @@ class PyPIManager:
             return self._versions
 
         response = requests.get(self.json_url, timeout=REQUEST_TIMEOUT)
-        if response.status_code == 404:
+        if response.status_code == requests.codes.not_found:
             return set()
         if not response.ok:
             raise BuildEnvError(

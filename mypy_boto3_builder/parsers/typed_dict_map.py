@@ -19,13 +19,14 @@ class TypedDictMap(dict[str, TypeTypedDict]):
         """
         self[item.name] = item
 
-    def iterate_pairs(self, name: str) -> Iterator[tuple[str, TypeTypedDict]]:
+    def iterate_by_name(self, name: str) -> Iterator[TypeTypedDict]:
         """
-        Iterate over pairs mathed by real dict name.
+        Iterate over items matched by real dict name.
         """
-        for key, value in list(self.items()):
-            if value.name == name:
-                yield key, value
+        items = list(self.values())
+        for item in items:
+            if item.name == name:
+                yield item
 
     def rename(self, item: TypeTypedDict, new_name: str) -> None:
         """

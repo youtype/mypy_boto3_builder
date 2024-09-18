@@ -67,8 +67,8 @@ def get_short_docstring(doc: str) -> str:
     result: list[str] = []
     if not doc:
         return ""
-    for line in doc.splitlines():
-        line = line.strip().removesuffix("::")
+    for raw_line in doc.splitlines():
+        line = raw_line.strip().removesuffix("::")
         if not line:
             continue
         if line.startswith(":") or line.lower().startswith("**request syntax**"):
@@ -114,11 +114,12 @@ def textwrap(text: str, width: int) -> str:
     Wrap text to `width` chars.
     """
     result: list[str] = []
-    for line in text.splitlines():
-        if len(line) <= width:
-            result.append(line)
+    for raw_line in text.splitlines():
+        if len(raw_line) <= width:
+            result.append(raw_line)
             continue
 
+        line = raw_line
         while line:
             space_index = line.rfind(" ", 0, width)
             if space_index < 0:

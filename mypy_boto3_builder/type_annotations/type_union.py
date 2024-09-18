@@ -4,7 +4,7 @@ Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 
 from collections.abc import Iterable, Iterator
 from pathlib import Path
-from typing import Self
+from typing import Final, Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import TypeAnnotationError
@@ -23,6 +23,8 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
     Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
     """
 
+    MIN_CHILDREN: Final[int] = 2
+
     def __init__(
         self,
         children: Iterable[FakeAnnotation],
@@ -32,8 +34,8 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         self.name = name
         self.parent = Type.Union
         self.children: list[FakeAnnotation] = list(children)
-        if len(self.children) < 2:
-            raise TypeAnnotationError("Union must have at least 2 children")
+        if len(self.children) < self.MIN_CHILDREN:
+            raise TypeAnnotationError(f"Union must have at least {self.MIN_CHILDREN} children")
         self._stringify = stringify
 
     def is_stringified(self) -> bool:
