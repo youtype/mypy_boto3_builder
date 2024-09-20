@@ -38,8 +38,7 @@ class TypedDictAttribute:
         """
         Calculate hash value based on name, required and type annotation.
         """
-        # return hash(self.name) + hash(self.required) + hash(self.type_annotation.get_sort_key())
-        return hash(self.name) + hash(self.required)
+        return hash(self.name) + hash(self.required) + hash(self.type_annotation.get_sort_key())
 
     def get_type_annotation(self) -> FakeAnnotation:
         """
