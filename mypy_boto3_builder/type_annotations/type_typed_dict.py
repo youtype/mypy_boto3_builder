@@ -7,12 +7,14 @@ from pathlib import Path
 from typing import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
 
@@ -36,7 +38,8 @@ class TypedDictAttribute:
         """
         Calculate hash value based on name, required and type annotation.
         """
-        return hash(self.name) + hash(self.required) + hash(self.type_annotation.get_sort_key())
+        # return hash(self.name) + hash(self.required) + hash(self.type_annotation.get_sort_key())
+        return hash(self.name) + hash(self.required)
 
     def get_type_annotation(self) -> FakeAnnotation:
         """
@@ -234,6 +237,13 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             result.update(child.iterate_types())
         return result
 
+    def iterate_children_types(self) -> Iterator[FakeAnnotation]:
+        """
+        Extract required type annotations from attributes.
+        """
+        for child in self.children:
+            yield child.type_annotation
+
     def get_sortable_children(self) -> list[TypeDefSortable]:
         """
         Extract required TypeDefSortable list from attributes.
@@ -297,3 +307,44 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         Whether type annotation is a TypeUnion.
         """
         return False
+
+    def replace_child(self, child: FakeAnnotation, new_child: FakeAnnotation) -> Self:
+        """
+        Replace child type annotation with a new one.
+        """
+        children_types = [i.type_annotation for i in self.children]
+        if child not in children_types:
+            raise TypeAnnotationError(f"Child not found: {child}")
+
+        index = children_types.index(child)
+        self.children[index].type_annotation = new_child
+        return self
+
+    def find_type_annotation_parent(
+        self: Self, type_annotation: FakeAnnotation
+    ) -> TypeParent | None:
+        """
+        Check recursively if child is present in subscript.
+        """
+        for child_type in self.iterate_children_types():
+            if child_type == type_annotation:
+                return self
+            if isinstance(child_type, TypeParent):
+                result = child_type.find_type_annotation_parent(type_annotation)
+                if result is not None:
+                    return result
+
+        return None
+
+    def replace_self_references(self, replacement: FakeAnnotation) -> list[TypeParent]:
+        """
+        Replace self references with a new type annotation to avoid recursion.
+        """
+        result: list[TypeParent] = []
+        while True:
+            parent = self.find_type_annotation_parent(self)
+            if parent is None:
+                return result
+
+            parent.replace_child(self, replacement)
+            result.append(parent)

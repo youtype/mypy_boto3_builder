@@ -566,7 +566,16 @@ class ShapeParser:
         if shape_type_stub:
             return shape_type_stub
 
-        return self._parse_shape_by_type(shape, is_output_or_child, is_output, is_streaming)
+        result = self._parse_shape_by_type(shape, is_output_or_child, is_output, is_streaming)
+        if isinstance(result, TypeTypedDict):
+            replacement = Type.DictStrAny if is_output_or_child else Type.MappingStrAny
+            mutated_parents = result.replace_self_references(replacement)
+            for mutated_parent in mutated_parents:
+                self.logger.debug(
+                    f"Replaced self reference for {result.render()} in {mutated_parent.render()}"
+                )
+
+        return result
 
     def get_paginate_method(self, paginator_name: str) -> Method:
         """

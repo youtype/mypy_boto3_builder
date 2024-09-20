@@ -171,12 +171,6 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return self.parent == Type.Union
 
-    def iterate_children(self) -> Iterator[FakeAnnotation]:
-        """
-        Iterate over children.
-        """
-        yield from self.children
-
     def render_definition(self) -> str:
         """
         Render type annotation definition.

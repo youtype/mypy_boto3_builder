@@ -2,16 +2,17 @@
 Sortable protocol for TypeDefSorter.
 """
 
-from collections.abc import Iterable, Iterator
-from typing import Any, Protocol, runtime_checkable
+from collections.abc import Iterable
+from typing import Protocol, runtime_checkable
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 
 
 @runtime_checkable
-class TypeDefSortable(Protocol):
+class TypeDefSortable(TypeParent, Protocol):
     """
     Sortable protocol for TypeDefSorter.
     """
@@ -95,11 +96,5 @@ class TypeDefSortable(Protocol):
     def is_union(self) -> bool:
         """
         Whether type annotation is a TypeUnion.
-        """
-        ...
-
-    def iterate_children(self) -> Iterator[Any]:
-        """
-        Iterate over children.
         """
         ...

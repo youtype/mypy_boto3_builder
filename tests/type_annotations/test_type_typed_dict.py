@@ -159,3 +159,19 @@ class TestTypeTypedDict:
         assert not result.is_stringified()
         result.stringify()
         assert result.is_stringified()
+
+    def test_replace_self_references(self) -> None:
+        typed_dict = TypeTypedDict(
+            "MyDict",
+            [
+                TypedDictAttribute("required", Type.str, True),
+            ],
+        )
+        typed_dict.add_attribute("self_one", typed_dict, True)
+        typed_dict.add_attribute("self_two", typed_dict, False)
+        assert typed_dict.replace_self_references(Type.DictStrAny)
+        assert (
+            typed_dict.render_definition()
+            == 'MyDict = TypedDict("MyDict", {"required": str, "self_one": Dict[str, Any], "self_two": NotRequired[Dict[str, Any]], })'
+        )
+        assert not self.result.replace_self_references(Type.DictStrAny)

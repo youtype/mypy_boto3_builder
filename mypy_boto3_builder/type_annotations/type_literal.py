@@ -11,7 +11,7 @@ from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
 
 
@@ -64,7 +64,7 @@ class TypeLiteral(FakeAnnotation):
         Get import record required for using type annotation.
         """
         if self.inline:
-            return Type.Literal.get_import_records()
+            return TypeAnnotation("Literal").get_import_records()
 
         return {InternalImportRecord(ServiceModuleName.literals, name=self.name)}
 
@@ -72,7 +72,7 @@ class TypeLiteral(FakeAnnotation):
         """
         Get import record required for using Literal.
         """
-        return Type.Literal.get_import_records()
+        return TypeAnnotation("Literal").get_import_records()
 
     def __copy__(self: Self) -> Self:
         """

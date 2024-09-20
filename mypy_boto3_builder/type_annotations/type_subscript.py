@@ -8,9 +8,10 @@ from typing import Self
 from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 
 
-class TypeSubscript(FakeAnnotation):
+class TypeSubscript(FakeAnnotation, TypeParent):
     """
     Wrapper for subscript type annotations, like `List[str]`.
 
@@ -101,20 +102,40 @@ class TypeSubscript(FakeAnnotation):
             result.extend(child.get_local_types())
         return result
 
-    def find_type_annotation_parent(self: Self, type_annotation: FakeAnnotation) -> Self | None:
+    def iterate_children_types(self) -> Iterator[FakeAnnotation]:
+        """
+        Extract required type annotations from attributes.
+        """
+        yield from self.children
+
+    def find_type_annotation_parent(
+        self: Self, type_annotation: FakeAnnotation
+    ) -> TypeParent | None:
         """
         Check recursively if child is present in subscript.
         """
-        if type_annotation in self.children:
-            return self
-
-        type_subscript_children = [i for i in self.children if isinstance(i, self.__class__)]
-        for child in type_subscript_children:
-            result = child.find_type_annotation_parent(type_annotation)
-            if result is not None:
-                return result
+        for child_type in self.iterate_children_types():
+            if child_type == type_annotation:
+                return self
+            if isinstance(child_type, TypeParent):
+                result = child_type.find_type_annotation_parent(type_annotation)
+                if result is not None:
+                    return result
 
         return None
+
+    def replace_self_references(self, replacement: FakeAnnotation) -> list[TypeParent]:
+        """
+        Replace self references with a new type annotation to avoid recursion.
+        """
+        result: list[TypeParent] = []
+        while True:
+            parent = self.find_type_annotation_parent(self)
+            if parent is None:
+                return result
+
+            parent.replace_child(self, replacement)
+            result.append(parent)
 
     def replace_child(self, child: FakeAnnotation, new_child: FakeAnnotation) -> Self:
         """
@@ -126,3 +147,9 @@ class TypeSubscript(FakeAnnotation):
         index = self.children.index(child)
         self.children[index] = new_child
         return self
+
+    def iterate_children(self) -> Iterator[FakeAnnotation]:
+        """
+        Iterate over children.
+        """
+        yield from self.children
