@@ -60,7 +60,7 @@ class ServicePackageParser:
         )
 
         self.shape_parser.fix_typed_dict_names()
-        self.shape_parser.fix_method_arguments_for_mypy(
+        self.shape_parser.convert_input_arguments_to_unions(
             [
                 *result.client.methods,
                 *(result.service_resource.methods if result.service_resource else []),

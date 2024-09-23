@@ -43,6 +43,6 @@ class TypedDictMap(dict[str, TypeTypedDict]):
         """
         Get real TypedDict names topologically sorted.
         """
-        sorted_values = TypeDefSorter(self.values()).sort()
+        sorted_values = TypeDefSorter(set(self.values())).sort()
         allowed_names = {i.name for i in self.values()}
         return [i.name for i in sorted_values if i.name in allowed_names]

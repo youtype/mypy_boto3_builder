@@ -77,7 +77,7 @@ class TypedDictAttribute:
         self.required = True
 
 
-class TypeTypedDict(FakeAnnotation, TypeDefSortable):
+class TypeTypedDict(TypeParent, TypeDefSortable):
     """
     Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 
@@ -236,25 +236,12 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             result.update(child.iterate_types())
         return result
 
-    def iterate_children_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_children_type_annotations(self) -> Iterator[FakeAnnotation]:
         """
         Extract required type annotations from attributes.
         """
         for child in self.children:
             yield child.type_annotation
-
-    def get_sortable_children(self) -> list[TypeDefSortable]:
-        """
-        Extract required TypeDefSortable list from attributes.
-        """
-        result: list[TypeDefSortable] = []
-        children_types = self.get_children_types()
-        for type_annotation in children_types:
-            if not isinstance(type_annotation, TypeDefSortable):
-                continue
-            result.append(type_annotation)
-
-        return result
 
     def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
         """
@@ -315,35 +302,8 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         if child not in children_types:
             raise TypeAnnotationError(f"Child not found: {child}")
 
-        index = children_types.index(child)
-        self.children[index].type_annotation = new_child
+        indices = [i for i, x in enumerate(children_types) if x == child]
+        for index in indices:
+            self.children[index].type_annotation = new_child
+
         return self
-
-    def find_type_annotation_parent(
-        self: Self, type_annotation: FakeAnnotation
-    ) -> TypeParent | None:
-        """
-        Check recursively if child is present in subscript.
-        """
-        for child_type in self.iterate_children_types():
-            if child_type == type_annotation:
-                return self
-            if isinstance(child_type, TypeParent):
-                result = child_type.find_type_annotation_parent(type_annotation)
-                if result is not None:
-                    return result
-
-        return None
-
-    def replace_self_references(self, replacement: FakeAnnotation) -> list[TypeParent]:
-        """
-        Replace self references with a new type annotation to avoid recursion.
-        """
-        result: list[TypeParent] = []
-        while True:
-            parent = self.find_type_annotation_parent(self)
-            if parent is None:
-                return result
-
-            parent.replace_child(self, replacement)
-            result.append(parent)

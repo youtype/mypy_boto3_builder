@@ -49,6 +49,7 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
@@ -570,7 +571,7 @@ class ShapeParser:
         if isinstance(result, TypeTypedDict):
             replacement = Type.DictStrAny if is_output_or_child else Type.MappingStrAny
             mutated_parents = result.replace_self_references(replacement)
-            for mutated_parent in mutated_parents:
+            for mutated_parent in sorted(mutated_parents):
                 self.logger.debug(
                     f"Replaced self reference for {result.render()} in {mutated_parent.render()}"
                 )
@@ -1086,51 +1087,38 @@ class ShapeParser:
 
                 self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)
 
-    def fix_method_arguments_for_mypy(self, methods: Sequence[Method]) -> None:
+    @staticmethod
+    def _get_parent_type_annotations(
+        methods: Sequence[Method],
+    ) -> set[TypeParent]:
+        result: set[TypeParent] = set()
+        for method in methods:
+            for argument in method.arguments:
+                if isinstance(argument.type_annotation, TypeParent):
+                    result.add(argument.type_annotation)
+        return result
+
+    def convert_input_arguments_to_unions(self, methods: Sequence[Method]) -> None:
         """
         Accept both input and output shapes in method arguments.
 
         mypy does not compare TypedDicts, so we need to accept both input and output shapes.
         https://github.com/youtype/mypy_boto3_builder/issues/209
         """
+        parent_type_annotations = list(self._get_parent_type_annotations(methods))
         for input_typed_dict, output_typed_dict in self._fixed_typed_dict_map.items():
-            for method in methods:
-                for argument in method.arguments:
-                    if not argument.type_annotation:
+            union_name = self._get_non_clashing_typed_dict_name(input_typed_dict, "Union")
+            union_type_annotation = TypeUnion(
+                name=union_name,
+                children=[input_typed_dict, output_typed_dict],
+            )
+            for type_annotation in parent_type_annotations:
+                parents = type_annotation.find_type_annotation_parents(input_typed_dict)
+                for parent in sorted(parents):
+                    if parent is union_type_annotation:
                         continue
-                    if (
-                        argument.type_annotation.is_typed_dict()
-                        and argument.type_annotation == input_typed_dict
-                    ):
-                        self.logger.debug(
-                            f"Adding output shape to {method.name} {argument.name} type:"
-                            f" {input_typed_dict.name} | {output_typed_dict.name}"
-                        )
-                        union_name = self._get_non_clashing_typed_dict_name(
-                            input_typed_dict, "Union"
-                        )
-                        argument.type_annotation = TypeUnion(
-                            name=union_name,
-                            children=[input_typed_dict, output_typed_dict],
-                        )
-                        continue
-                    if isinstance(argument.type_annotation, TypeSubscript):
-                        parent = argument.type_annotation.find_type_annotation_parent(
-                            input_typed_dict
-                        )
-                        if parent:
-                            self.logger.debug(
-                                f"Adding output shape to {method.name} {argument.name} type:"
-                                f" {input_typed_dict.name} | {output_typed_dict.name}"
-                            )
-                            union_name = self._get_non_clashing_typed_dict_name(
-                                input_typed_dict, "Union"
-                            )
-                            parent.replace_child(
-                                input_typed_dict,
-                                TypeUnion(
-                                    name=union_name,
-                                    children=[input_typed_dict, output_typed_dict],
-                                ),
-                            )
-                            continue
+                    self.logger.debug(
+                        f"Adding output shape to {parent.render()} type:"
+                        f" {input_typed_dict.name} | {output_typed_dict.name}"
+                    )
+                    parent.replace_child(input_typed_dict, union_type_annotation)

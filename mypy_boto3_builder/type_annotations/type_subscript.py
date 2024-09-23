@@ -11,7 +11,7 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 
 
-class TypeSubscript(FakeAnnotation, TypeParent):
+class TypeSubscript(TypeParent):
     """
     Wrapper for subscript type annotations, like `List[str]`.
 
@@ -102,40 +102,20 @@ class TypeSubscript(FakeAnnotation, TypeParent):
             result.extend(child.get_local_types())
         return result
 
-    def iterate_children_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_children_type_annotations(self) -> Iterator[FakeAnnotation]:
         """
         Extract required type annotations from attributes.
         """
         yield from self.children
 
-    def find_type_annotation_parent(
-        self: Self, type_annotation: FakeAnnotation
-    ) -> TypeParent | None:
+    def get_children_types(self) -> set[FakeAnnotation]:
         """
-        Check recursively if child is present in subscript.
+        Extract required type annotations from attributes.
         """
-        for child_type in self.iterate_children_types():
-            if child_type == type_annotation:
-                return self
-            if isinstance(child_type, TypeParent):
-                result = child_type.find_type_annotation_parent(type_annotation)
-                if result is not None:
-                    return result
-
-        return None
-
-    def replace_self_references(self, replacement: FakeAnnotation) -> list[TypeParent]:
-        """
-        Replace self references with a new type annotation to avoid recursion.
-        """
-        result: list[TypeParent] = []
-        while True:
-            parent = self.find_type_annotation_parent(self)
-            if parent is None:
-                return result
-
-            parent.replace_child(self, replacement)
-            result.append(parent)
+        result: set[FakeAnnotation] = set()
+        for child in self.children:
+            result.update(child.iterate_types())
+        return result
 
     def replace_child(self, child: FakeAnnotation, new_child: FakeAnnotation) -> Self:
         """

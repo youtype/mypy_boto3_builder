@@ -8,11 +8,10 @@ from typing import Protocol, runtime_checkable
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 
 
 @runtime_checkable
-class TypeDefSortable(TypeParent, Protocol):
+class TypeDefSortable(Protocol):
     """
     Sortable protocol for TypeDefSorter.
     """

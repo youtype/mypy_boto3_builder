@@ -92,19 +92,6 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
             result.update(child.iterate_types())
         return result
 
-    def get_sortable_children(self) -> list[TypeDefSortable]:
-        """
-        Extract required TypeDefSortable list from attributes.
-        """
-        result: list[TypeDefSortable] = []
-        children_types = self.get_children_types()
-        for type_annotation in children_types:
-            if not isinstance(type_annotation, TypeDefSortable):
-                continue
-            result.append(type_annotation)
-
-        return result
-
     def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
         """
         Extract required TypeLiteral list from attributes.
