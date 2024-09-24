@@ -2,6 +2,8 @@ name: Publish types-aiobotocore-full
 concurrency: update_types_aiobotocore_full
 
 on:
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       aiobotocore_version:
