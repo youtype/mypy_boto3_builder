@@ -19,7 +19,7 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 Install `{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}[{{extras_name}}]` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}[{{extras_name}}]'`
+python -m pip install '{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}[{{extras_name}}]'
 ```
 
 Both type checking and code completion should now work.
