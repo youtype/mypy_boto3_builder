@@ -61,6 +61,7 @@ IGNORE_MYPY_ERRORS = (
     'imported name has type "type[object]", local name has type',
     'incompatible with return type "Iterator[list[Any]]" in supertype "ResourceCollection"',
     "note:",
+    "invalid syntax; you likely need to run mypy using Python 3.12 or newer",
 )
 
 
