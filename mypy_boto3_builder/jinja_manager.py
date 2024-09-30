@@ -2,8 +2,6 @@
 Jinja2 `Environment` manager.
 """
 
-import datetime
-from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -11,10 +9,8 @@ from jinja2.environment import Environment, Template
 from jinja2.loaders import FileSystemLoader
 from jinja2.runtime import StrictUndefined
 
-from mypy_boto3_builder.constants import BUILDER_REPO_URL, TEMPLATES_PATH
+from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.exceptions import JinjaManagerError
-from mypy_boto3_builder.utils.strings import get_anchor_link
-from mypy_boto3_builder.utils.version import get_builder_version
 
 __all__ = ["JinjaManager"]
 
@@ -32,16 +28,6 @@ class JinjaManager:
 
     def __init__(self) -> None:
         self._environment.filters["escape_md"] = self.escape_md  # type: ignore
-        self.update_globals(
-            builder_version=get_builder_version(),
-            current_year=str(datetime.datetime.now(datetime.timezone.utc).year),
-            get_anchor_link=get_anchor_link,
-            hasattr=hasattr,
-            len=len,
-            sorted=sorted,
-            repr=repr,
-            builder_repo_url=BUILDER_REPO_URL,
-        )
         self._template_cache: dict[Path, Template] = {}
 
     @classmethod
@@ -54,7 +40,7 @@ class JinjaManager:
         return cls._singleton
 
     @classmethod
-    def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None:
+    def update_globals(cls, **kwargs: Any) -> None:
         """
         Update global variables in `jinja2.Environment`.
 

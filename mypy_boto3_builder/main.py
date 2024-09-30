@@ -2,6 +2,7 @@
 Main entrypoint for builder.
 """
 
+import datetime
 import sys
 import warnings
 from collections.abc import Iterable, Sequence
@@ -9,16 +10,20 @@ from collections.abc import Iterable, Sequence
 from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.cli_parser import CLINamespace, parse_args
+from mypy_boto3_builder.constants import BUILDER_REPO_URL
 from mypy_boto3_builder.enums.product import Product, ProductLibrary
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
+from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
-from mypy_boto3_builder.utils.strings import get_botocore_class_name
+from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
+from mypy_boto3_builder.utils.type_checks import is_literal, is_type_def, is_typed_dict, is_union
+from mypy_boto3_builder.utils.version import get_builder_version
 from mypy_boto3_builder.utils.version_getters import get_botocore_version
 
 
@@ -131,6 +136,24 @@ def generate_product(
     )
     generator.generate_product(product.get_type())
     generator.cleanup_temporary_files()
+    
+
+def initialize_jinja_manager() -> None:
+    jinja_manager = JinjaManager.singleton()
+    jinja_manager.update_globals(
+        builder_version=get_builder_version(),
+        current_year=str(datetime.datetime.now(datetime.timezone.utc).year),
+        get_anchor_link=get_anchor_link,
+        hasattr=hasattr,
+        len=len,
+        sorted=sorted,
+        repr=repr,
+        builder_repo_url=BUILDER_REPO_URL,
+        is_typed_dict=is_typed_dict,
+        is_union=is_union,
+        is_literal=is_literal,
+        is_type_def=is_type_def,
+    )
 
 
 def run(args: CLINamespace) -> None:
@@ -142,6 +165,7 @@ def run(args: CLINamespace) -> None:
 
     logger = get_logger(level=args.log_level)
 
+    initialize_jinja_manager()
     session = get_boto3_session()
 
     args.output_path.mkdir(exist_ok=True, parents=True)
