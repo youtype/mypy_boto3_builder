@@ -55,7 +55,10 @@ jobs:
       - name: Publish to PyPI
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
-        run: uv publish
+        run: |
+          rm -rf dist/*
+          uv build --sdist --wheel
+          uv publish
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
