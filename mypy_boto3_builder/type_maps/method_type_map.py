@@ -2,7 +2,9 @@
 String to type annotation map that find type annotation by method and argument name.
 """
 
+from typing import TypeVar
 from boto3.dynamodb.table import BatchWriter
+from collections.abc import Mapping
 
 from mypy_boto3_builder.constants import ALL, CLIENT
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -20,14 +22,11 @@ from mypy_boto3_builder.type_maps.typed_dicts import CopySourceTypeDef
 
 __all__ = ("get_method_type_stub",)
 
-
-ArgumentTypeMap = dict[str, FakeAnnotation]
-MethodTypeMap = dict[str, ArgumentTypeMap]
-ClassTypeMap = dict[str, MethodTypeMap]
-ServiceTypeMap = dict[ServiceName, ClassTypeMap]
+_T = TypeVar("_T", bound=FakeAnnotation)
+ServiceTypeMap = Mapping[ServiceName, Mapping[str, Mapping[str, Mapping[str, _T]]]]
 
 
-DEFAULT_VALUE_MAP: ServiceTypeMap = {
+DEFAULT_VALUE_MAP: ServiceTypeMap[TypeConstant] = {
     ServiceNameCatalog.glacier: {
         CLIENT: {
             ALL: {
@@ -37,7 +36,7 @@ DEFAULT_VALUE_MAP: ServiceTypeMap = {
     },
 }
 
-TYPE_MAP: ServiceTypeMap = {
+TYPE_MAP: ServiceTypeMap[FakeAnnotation] = {
     ServiceNameCatalog.s3: {
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.
         # Types are set according to docs, might be incorrect
@@ -102,8 +101,8 @@ def _get_from_service_map(
     class_name: str,
     method_name: str,
     argument_name: str,
-    service_type_map: ServiceTypeMap,
-) -> FakeAnnotation | None:
+    service_type_map: ServiceTypeMap[_T],
+) -> _T | None:
     if service_name not in service_type_map:
         return None
 
@@ -164,11 +163,6 @@ def get_default_value_stub(
     Returns:
         TypeConstant or None.
     """
-    result = _get_from_service_map(
+    return _get_from_service_map(
         service_name, class_name, method_name, argument_name, DEFAULT_VALUE_MAP
     )
-    if result is None:
-        return None
-    if not isinstance(result, TypeConstant):
-        return None
-    return result
