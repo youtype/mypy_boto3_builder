@@ -24,6 +24,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
+from mypy_boto3_builder.utils.type_checks import is_type_def
 
 
 class ServicePackage(Package):
@@ -100,9 +101,7 @@ class ServicePackage(Package):
         """
         result: set[TypeDefSortable] = set()
         for type_annotation in self.iterate_types():
-            if not isinstance(type_annotation, TypeDefSortable):
-                continue
-            if not type_annotation.is_type_def():
+            if not is_type_def(type_annotation):
                 continue
             result.add(type_annotation)
 

@@ -40,7 +40,7 @@ class JinjaManager:
         return cls._singleton
 
     @classmethod
-    def update_globals(cls, **kwargs: Any) -> None:
+    def update_globals(cls, **kwargs: Any) -> None:  # noqa: ANN401
         """
         Update global variables in `jinja2.Environment`.
 

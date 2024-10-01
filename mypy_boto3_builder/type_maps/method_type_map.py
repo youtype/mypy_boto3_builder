@@ -2,9 +2,10 @@
 String to type annotation map that find type annotation by method and argument name.
 """
 
-from typing import TypeVar
-from boto3.dynamodb.table import BatchWriter
 from collections.abc import Mapping
+from typing import TypeVar
+
+from boto3.dynamodb.table import BatchWriter
 
 from mypy_boto3_builder.constants import ALL, CLIENT
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog

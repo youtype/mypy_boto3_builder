@@ -136,9 +136,12 @@ def generate_product(
     )
     generator.generate_product(product.get_type())
     generator.cleanup_temporary_files()
-    
+
 
 def initialize_jinja_manager() -> None:
+    """
+    Initialize Jinja manager with globals.
+    """
     jinja_manager = JinjaManager.singleton()
     jinja_manager.update_globals(
         builder_version=get_builder_version(),

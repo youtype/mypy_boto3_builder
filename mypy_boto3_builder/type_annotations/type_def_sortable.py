@@ -1,99 +1,62 @@
 """
-Sortable protocol for TypeDefSorter.
+Sortable abstractclass for TypeDefSorter.
 """
 
+from abc import ABC, abstractmethod
 from collections.abc import Iterable
-from typing import Protocol, runtime_checkable
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
-@runtime_checkable
-class TypeDefSortable(Protocol):
+class TypeDefSortable(FakeAnnotation, ABC):
     """
-    Sortable protocol for TypeDefSorter.
+    Sortable abstractclass for TypeDefSorter.
     """
 
     name: str
     _stringify: bool
 
-    def __gt__(self, other: FakeAnnotation) -> bool:
-        """
-        Compare with another TypeDefSortable. Has to be implemented.
-        """
-        ...
-
-    def __lt__(self, other: FakeAnnotation) -> bool:
-        """
-        Compare with another TypeDefSortable. Has to be implemented.
-        """
-        ...
-
+    @abstractmethod
     def get_sortable_children(self) -> list["TypeDefSortable"]:
         """
         Extract required sortable TypeDef list from attributes.
         """
-        ...
+
+    @abstractmethod
+    def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
+        """
+        Extract required TypeLiteral list from attributes.
+        """
+
+    @property
+    @abstractmethod
+    def type_hint_annotations(self) -> list[FakeAnnotation]:
+        """
+        Type annotations list from arguments and return type with internal types.
+        """
+
+    @abstractmethod
+    def get_definition_import_records(self) -> set[ImportRecord]:
+        """
+        Get import record required for using TypeAnnotation.
+        """
 
     def is_stringified(self) -> bool:
         """
         Whether TypeDef usage should be rendered as a string.
         """
-        ...
+        return self._stringify
 
     def stringify(self) -> None:
         """
         Render TypeDef usage as a string.
         """
-        ...
+        self._stringify = True
 
+    @abstractmethod
     def get_children_types(self) -> set[FakeAnnotation]:
         """
         Extract required type annotations from attributes.
         """
-        ...
-
-    def render_definition(self) -> str:
-        """
-        Render type annotation for debug purposes.
-        """
-        ...
-
-    def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
-        """
-        Extract required TypeLiteral list from attributes.
-        """
-        ...
-
-    def is_type_def(self) -> bool:
-        """
-        Whether type annotation is a TypeDef.
-        """
-        ...
-
-    @property
-    def type_hint_annotations(self) -> list[FakeAnnotation]:
-        """
-        Type annotations list from arguments and return type with internal types.
-        """
-        ...
-
-    def get_definition_import_records(self) -> set[ImportRecord]:
-        """
-        Get import record required for using TypeAnnotation.
-        """
-        ...
-
-    def is_typed_dict(self) -> bool:
-        """
-        Whether type annotation is a TypedDict.
-        """
-        ...
-
-    def is_union(self) -> bool:
-        """
-        Whether type annotation is a TypeUnion.
-        """
-        ...

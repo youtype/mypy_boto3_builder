@@ -3,6 +3,7 @@ Type checking utils.
 """
 
 from typing_extensions import TypeIs
+
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
@@ -16,11 +17,13 @@ def is_typed_dict(annotation: FakeAnnotation) -> TypeIs[TypeTypedDict]:
     """
     return isinstance(annotation, TypeTypedDict)
 
+
 def is_union(annotation: FakeAnnotation) -> TypeIs[TypeUnion]:
     """
     Whether type annotation is a Union.
     """
     return isinstance(annotation, TypeUnion)
+
 
 def is_literal(annotation: FakeAnnotation) -> TypeIs[TypeLiteral]:
     """
@@ -28,14 +31,15 @@ def is_literal(annotation: FakeAnnotation) -> TypeIs[TypeLiteral]:
     """
     return isinstance(annotation, TypeLiteral)
 
+
 def is_type_def(annotation: FakeAnnotation) -> TypeIs[TypeDefSortable]:
     """
     Whether type annotation is a named TypeDefSortable.
     """
     if is_typed_dict(annotation):
         return True
-    
+
     if is_union(annotation):
         return annotation.is_named()
-    
+
     return False
