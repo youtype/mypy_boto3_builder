@@ -1,17 +1,17 @@
-{% if type_annotation.is_typed_dict() -%}
+{% if is_typed_dict(type_annotation) -%}
     [{{ type_annotation.name }}]({{ package.service_name.get_md_doc_link("type_defs", type_annotation.name) }}{{ ')' -}}
-{% elif type_annotation.is_literal() and not type_annotation.inline -%}
+{% elif is_literal(type_annotation) and not type_annotation.inline -%}
     [{{ type_annotation.name }}]({{ package.service_name.get_md_doc_link("literals", type_annotation.name) }}{{ ')' -}}
-{% elif type_annotation.is_literal() -%}
+{% elif is_literal(type_annotation) -%}
     {{ '`' -}}{{ type_annotation.render() }}{{ '`' -}}{{ ' ' -}}(see [{{ type_annotation.name }}]({{ package.service_name.get_md_doc_link("literals", type_annotation.name) }}{{ '))' -}}
 {% elif type_annotation.is_dict() -%}
     {{ '`' -}}{{ type_annotation.parent.render() }}`{{ '[' }}{% with type_annotation=type_annotation.children[0] -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith %}, {% with type_annotation=type_annotation.children[1] -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ ']' -}}
 {% elif type_annotation.is_list() -%}
     {{ '`' -}}{{ type_annotation.parent.render() }}`{{ '[' }}{% with type_annotation=type_annotation.children[0] -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ ']' -}}
-{% elif hasattr(type_annotation, 'parent') -%}
-    {{ '`' -}}{{ type_annotation.parent.render() }}`{{ '[' }}{% for child in type_annotation.children %}{% with type_annotation=child -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ "" if loop.last else ", " -}}{% endfor -%}{{ ']' -}}
-{% elif hasattr(type_annotation, 'stringify') -%}
+{% elif is_type_def(type_annotation) -%}
     [{{ type_annotation.name }}{{ '](#' }}{{ get_anchor_link(type_annotation.name) }}{{ ')' -}}
+{% elif is_type_parent(type_annotation) -%}
+    {{ '`' -}}{{ type_annotation.parent.render() }}`{{ '[' }}{% for child in type_annotation.children %}{% with type_annotation=child -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ "" if loop.last else ", " -}}{% endfor -%}{{ ']' -}}
 {% else -%}
     {{ '`' -}}{{ type_annotation.render() }}{{ '`' -}}
 {% endif -%}

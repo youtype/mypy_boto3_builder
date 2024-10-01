@@ -22,7 +22,13 @@ from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
-from mypy_boto3_builder.utils.type_checks import is_literal, is_type_def, is_typed_dict, is_union
+from mypy_boto3_builder.utils.type_checks import (
+    is_literal,
+    is_type_def,
+    is_type_parent,
+    is_typed_dict,
+    is_union,
+)
 from mypy_boto3_builder.utils.version import get_builder_version
 from mypy_boto3_builder.utils.version_getters import get_botocore_version
 
@@ -147,7 +153,6 @@ def initialize_jinja_manager() -> None:
         builder_version=get_builder_version(),
         current_year=str(datetime.datetime.now(datetime.timezone.utc).year),
         get_anchor_link=get_anchor_link,
-        hasattr=hasattr,
         len=len,
         sorted=sorted,
         repr=repr,
@@ -156,6 +161,7 @@ def initialize_jinja_manager() -> None:
         is_union=is_union,
         is_literal=is_literal,
         is_type_def=is_type_def,
+        is_type_parent=is_type_parent,
     )
 
 

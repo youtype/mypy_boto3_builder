@@ -69,9 +69,6 @@ class TestTypeTypedDict:
     def test_is_dict(self) -> None:
         assert self.result.is_dict()
 
-    def test_is_typed_dict(self) -> None:
-        assert self.result.is_typed_dict()
-
     def test_has_optional(self) -> None:
         assert self.result.has_optional()
         assert not TypeTypedDict(

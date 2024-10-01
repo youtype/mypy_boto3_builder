@@ -152,12 +152,6 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return [child for child in self.children if child.get_local_types()]
 
-    def is_union(self) -> bool:
-        """
-        Whether type annotation is a TypeUnion.
-        """
-        return self.parent == Type.Union
-
     def render_definition(self) -> str:
         """
         Render type annotation definition.

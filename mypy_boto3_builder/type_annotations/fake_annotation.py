@@ -84,12 +84,6 @@ class FakeAnnotation(ABC):
         """
         return False
 
-    def is_typed_dict(self) -> bool:
-        """
-        Whether type annotation is `TypedDict`.
-        """
-        return False
-
     def is_list(self) -> bool:
         """
         Whether type annotation is `List`.

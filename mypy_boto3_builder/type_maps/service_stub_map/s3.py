@@ -13,24 +13,25 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.named_unions import FileobjTypeDef, PresignedPostConditionsTypeDef
 from mypy_boto3_builder.type_maps.typed_dicts import CopySourceTypeDef
+from mypy_boto3_builder.utils.type_checks import get_optional
 
 callback_arg = Argument(
     "Callback",
-    Type.get_optional(TypeSubscript(Type.Callable, [Type.Ellipsis, Type.Any])),
+    get_optional(TypeSubscript(Type.Callable, [Type.Ellipsis, Type.Any])),
     Type.Ellipsis,
 )
 
 config_arg = Argument(
     "Config",
-    Type.get_optional(ExternalImport.from_class(TransferConfig)),
+    get_optional(ExternalImport.from_class(TransferConfig)),
     Type.Ellipsis,
 )
 
-extra_args_arg = Argument("ExtraArgs", Type.get_optional(Type.DictStrAny), Type.Ellipsis)
+extra_args_arg = Argument("ExtraArgs", get_optional(Type.DictStrAny), Type.Ellipsis)
 
 source_client_arg = Argument(
     "SourceClient",
-    Type.get_optional(ExternalImport.from_class(BaseClient)),
+    get_optional(ExternalImport.from_class(BaseClient)),
     Type.Ellipsis,
 )
 
@@ -83,8 +84,8 @@ generate_presigned_post_method = Method(
         Argument("self", None),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
-        Argument("Fields", Type.get_optional(Type.DictStrAny), Type.Ellipsis),
-        Argument("Conditions", Type.get_optional(PresignedPostConditionsTypeDef), Type.Ellipsis),
+        Argument("Fields", get_optional(Type.DictStrAny), Type.Ellipsis),
+        Argument("Conditions", get_optional(PresignedPostConditionsTypeDef), Type.Ellipsis),
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
     ],
     Type.DictStrAny,

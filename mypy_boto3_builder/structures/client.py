@@ -16,6 +16,7 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.utils.type_checks import is_typed_dict
 
 
 class Client(ClassRecord):
@@ -130,7 +131,7 @@ class Client(ClassRecord):
                 continue
             if not method.return_type:
                 continue
-            if not method.return_type.is_typed_dict():
+            if not is_typed_dict(method.return_type):
                 continue
 
             return method

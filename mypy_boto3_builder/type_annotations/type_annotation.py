@@ -107,12 +107,6 @@ class TypeAnnotation(FakeAnnotation):
         """
         return self._wrapped_type == "List"
 
-    def is_union(self) -> bool:
-        """
-        Whether annotation is a Union.
-        """
-        return self._wrapped_type == "Union"
-
     def __copy__(self: Self) -> Self:
         """
         Create a copy of type annotation wrapper.

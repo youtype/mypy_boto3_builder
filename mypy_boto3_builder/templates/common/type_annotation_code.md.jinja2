@@ -1,8 +1,10 @@
-{% if type_annotation.is_typed_dict() -%}
+{% if is_typed_dict(type_annotation) -%}
     {{ type_annotation.name -}}
-{% elif type_annotation.is_literal() -%}
+{% elif is_literal(type_annotation) -%}
     {{ type_annotation.name -}}
-{% elif hasattr(type_annotation, 'parent') -%}
+{% elif is_type_def(type_annotation) -%}
+    {{ type_annotation.name -}}
+{% elif is_type_parent(type_annotation) -%}
     {% with type_annotation=type_annotation.parent -%}
         {% include "common/type_annotation_code.md.jinja2" with context -%}
     {% endwith -%}
@@ -14,8 +16,6 @@
         {{ "" if loop.last else ", " -}}
     {% endfor -%}
     {{ ']' -}}
-{% elif hasattr(type_annotation, 'stringify') -%}
-    {{ type_annotation.name -}}
 {% else -%}
     {{ type_annotation.render() -}}
 {% endif -%}

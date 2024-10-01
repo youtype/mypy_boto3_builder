@@ -77,18 +77,3 @@ class Type:
         Get Optional type annotation.
         """
         return TypeSubscript(cls.Optional, [wrapped])
-
-    @classmethod
-    def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
-        """
-        Get Optional type annotation.
-        """
-        if (
-            isinstance(wrapped, TypeSubscript)
-            and isinstance(wrapped.parent, TypeAnnotation)
-            and wrapped.parent.is_union()
-        ):
-            result = wrapped.copy()
-            result.add_child(cls.none)
-            return result
-        return TypeSubscript(cls.Optional, [wrapped])

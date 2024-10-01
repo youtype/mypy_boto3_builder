@@ -42,10 +42,8 @@ class TestTypeLiteral:
         assert set(clone.children) == {Type.str, Type.Any, Type.bool}
 
     def test_is_type(self) -> None:
-        assert self.result.is_union()
-        assert not self.result.is_literal()
+        assert not self.result.is_dict()
         assert not self.result.is_list()
-        assert not self.result.is_typed_dict()
 
     def test_copy(self) -> None:
         assert self.result.copy().children == self.result.children

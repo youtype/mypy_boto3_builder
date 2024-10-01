@@ -1,9 +1,9 @@
 {% for type_annotation in type_annotation.get_local_types() -%}
-{% if type_annotation.is_typed_dict() -%}
+{% if is_typed_dict(type_annotation) -%}
     [:material-code-braces: {{ type_annotation.name }}]({{ package.service_name.get_md_doc_link("type_defs", type_annotation.name) }}{{ ')' -}}
-{% elif type_annotation.is_literal() -%}
+{% elif is_literal(type_annotation) -%}
     [:material-code-brackets: {{ type_annotation.name }}]({{ package.service_name.get_md_doc_link("literals", type_annotation.name) }}{{ ')' -}}
-{% elif hasattr(type_annotation, 'stringify') -%}
+{% elif is_type_def(type_annotation) -%}
     [{{ type_annotation.name }}{{ '](#' }}{{ get_anchor_link(type_annotation.name) }}{{ ')' -}}
 {% else -%}
     {{ '`' -}}{{ type_annotation.render() }}{{ '`' -}}

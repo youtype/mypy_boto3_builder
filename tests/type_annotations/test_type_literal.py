@@ -37,7 +37,6 @@ class TestTypeLiteral:
             self.result.add_child(TypeLiteral("test", ("a", "b")))
 
     def test_is_type(self) -> None:
-        assert self.result.is_literal()
         assert not self.result.is_dict()
         assert not self.result.is_list()
 

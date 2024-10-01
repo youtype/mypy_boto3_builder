@@ -20,6 +20,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_maps.named_unions import VerifyTypeDef
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
+from mypy_boto3_builder.utils.type_checks import get_optional
 
 
 class WrapperPackageParser:
@@ -32,17 +33,17 @@ class WrapperPackageParser:
     """
 
     init_arguments = (
-        Argument("region_name", Type.optional(Type.str), Type.Ellipsis),
-        Argument("api_version", Type.optional(Type.str), Type.Ellipsis),
-        Argument("use_ssl", Type.optional(Type.bool), Type.Ellipsis),
+        Argument("region_name", get_optional(Type.str), Type.Ellipsis),
+        Argument("api_version", get_optional(Type.str), Type.Ellipsis),
+        Argument("use_ssl", get_optional(Type.bool), Type.Ellipsis),
         Argument("verify", VerifyTypeDef, Type.Ellipsis),
-        Argument("endpoint_url", Type.optional(Type.str), Type.Ellipsis),
-        Argument("aws_access_key_id", Type.optional(Type.str), Type.Ellipsis),
-        Argument("aws_secret_access_key", Type.optional(Type.str), Type.Ellipsis),
-        Argument("aws_session_token", Type.optional(Type.str), Type.Ellipsis),
+        Argument("endpoint_url", get_optional(Type.str), Type.Ellipsis),
+        Argument("aws_access_key_id", get_optional(Type.str), Type.Ellipsis),
+        Argument("aws_secret_access_key", get_optional(Type.str), Type.Ellipsis),
+        Argument("aws_session_token", get_optional(Type.str), Type.Ellipsis),
         Argument(
             "config",
-            Type.optional(ExternalImport.from_class(Config)),
+            get_optional(ExternalImport.from_class(Config)),
             Type.Ellipsis,
         ),
     )

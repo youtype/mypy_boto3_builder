@@ -174,12 +174,6 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         """
         return True
 
-    def is_typed_dict(self) -> bool:
-        """
-        Whether type annotation is `TypedDict`.
-        """
-        return True
-
     def has_optional(self) -> bool:
         """
         Whether TypedDict has optional keys.
@@ -287,12 +281,6 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         Whether type annotation is a TypeDef.
         """
         return True
-
-    def is_union(self) -> bool:
-        """
-        Whether type annotation is a TypeUnion.
-        """
-        return False
 
     def replace_child(self, child: FakeAnnotation, new_child: FakeAnnotation) -> Self:
         """

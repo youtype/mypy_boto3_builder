@@ -22,7 +22,6 @@ class TestTypeConstant:
         assert self.result.copy().value == "value"
 
     def test_is_type(self) -> None:
-        assert not self.result.is_literal()
         assert not self.result.is_dict()
         assert not self.result.is_list()
 
