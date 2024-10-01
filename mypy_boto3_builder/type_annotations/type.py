@@ -70,10 +70,3 @@ class Type:
         Get List type annotation.
         """
         return TypeSubscript(cls.List, [wrapped])
-
-    @classmethod
-    def optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
-        """
-        Get Optional type annotation.
-        """
-        return TypeSubscript(cls.Optional, [wrapped])
