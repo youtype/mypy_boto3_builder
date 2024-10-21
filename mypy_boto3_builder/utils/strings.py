@@ -19,7 +19,7 @@ RESERVED_NAMES = {
 }
 MAX_DOCSTRING_LENGTH: int = 300
 AWS_LINK_RE = re.compile(r"`([^`]+\S)\s*<https://(\S+)>`\_*")
-REPLACE_DOCSTRING_CHARS = {"’": "'", "–": "-"}  # noqa
+REPLACE_DOCSTRING_CHARS = {"’": "'", "–": "-"}  # noqa: RUF001
 
 
 def get_class_prefix(func_name: str) -> str:
