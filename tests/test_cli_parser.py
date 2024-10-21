@@ -1,11 +1,18 @@
+from collections.abc import Iterator
 from unittest.mock import MagicMock, patch
+
+import pytest
 
 from mypy_boto3_builder.cli_parser import get_absolute_path, parse_args
 
 
 class TestCLIParser:
-    @patch("mypy_boto3_builder.cli_parser.argparse")
-    def test_parse_args(self, _argparse_mock: MagicMock) -> None:
+    @pytest.fixture(autouse=True)
+    def _patch_argparse(self) -> Iterator[None]:
+        with patch("mypy_boto3_builder.cli_parser.argparse"):
+            yield
+
+    def test_parse_args(self) -> None:
         result = parse_args([])
         assert result
 

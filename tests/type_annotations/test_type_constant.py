@@ -1,4 +1,5 @@
 import pytest
+
 from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 

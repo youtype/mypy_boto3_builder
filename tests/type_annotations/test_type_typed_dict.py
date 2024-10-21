@@ -26,7 +26,7 @@ class TestTypedDictAttribute:
 class TestTypeTypedDict:
     result: TypeTypedDict
 
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.result = TypeTypedDict(
             "MyDict",
             [
@@ -167,8 +167,9 @@ class TestTypeTypedDict:
         typed_dict.add_attribute("self_one", typed_dict, True)
         typed_dict.add_attribute("self_two", typed_dict, False)
         assert typed_dict.replace_self_references(Type.DictStrAny)
-        assert (
-            typed_dict.render_definition()
-            == 'MyDict = TypedDict("MyDict", {"required": str, "self_one": Dict[str, Any], "self_two": NotRequired[Dict[str, Any]], })'
+        assert typed_dict.render_definition() == (
+            'MyDict = TypedDict("MyDict",'
+            ' {"required": str, "self_one": Dict[str, Any],'
+            ' "self_two": NotRequired[Dict[str, Any]], })'
         )
         assert not self.result.replace_self_references(Type.DictStrAny)

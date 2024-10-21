@@ -40,7 +40,7 @@ class TestServicePackage:
 
         self.service_package._client = None  # type: ignore
         with pytest.raises(StructureError):
-            self.service_package.client
+            _ = self.service_package.client
 
     def test_extract_literals(self) -> None:
         assert self.service_package.extract_literals() == []
@@ -82,7 +82,12 @@ class TestServicePackage:
     def test_get_type_defs_required_import_records(self) -> None:
         assert list(self.service_package.get_type_defs_required_import_records()) == [
             "import sys",
-            "if sys.version_info >= (3, 12):\n    from typing import TypedDict\nelse:\n    from typing_extensions import TypedDict",
+            (
+                "if sys.version_info >= (3, 12):"
+                "\n    from typing import TypedDict"
+                "\nelse:"
+                "\n    from typing_extensions import TypedDict"
+            ),
         ]
 
         self.service_package.type_defs = []
@@ -91,18 +96,25 @@ class TestServicePackage:
     def test_get_literals_required_import_records(self) -> None:
         assert list(self.service_package.get_literals_required_import_records()) == [
             "import sys",
-            "if sys.version_info >= (3, 12):\n    from typing import Literal\nelse:\n    from typing_extensions import Literal",
+            (
+                "if sys.version_info >= (3, 12):"
+                "\n    from typing import Literal"
+                "\nelse:"
+                "\n    from typing_extensions import Literal"
+            ),
         ]
 
     def test_validate(self) -> None:
         self.service_package.validate()
+
+        service_package = self.service_package
+        service_package.literals[0].name = "Literal"
         with pytest.raises(StructureError):
-            service_package = self.service_package
-            service_package.literals[0].name = "Literal"
             service_package.validate()
+
+        service_package = self.service_package
+        service_package.literals[0].name = "MyTypedDict"
         with pytest.raises(StructureError):
-            service_package = self.service_package
-            service_package.literals[0].name = "MyTypedDict"
             service_package.validate()
 
     def test_get_doc_link(self) -> None:

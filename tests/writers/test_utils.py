@@ -18,7 +18,7 @@ class TestUtils:
         package = Package(Boto3StubsPackageData, [ServiceNameCatalog.ec2, ServiceNameCatalog.s3])
         result = render_jinja2_package_template(template_path, package)
         render_jinja2_template_mock.assert_called_once_with(
-            template_path, dict(package=package, service_name=None)
+            template_path, {"package": package, "service_name": None}
         )
         assert result == render_jinja2_template_mock()
         render_jinja2_template_mock.reset_mock()
@@ -26,14 +26,14 @@ class TestUtils:
         package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])
         result = render_jinja2_package_template(template_path, package)
         render_jinja2_template_mock.assert_called_once_with(
-            template_path, dict(package=package, service_name=ServiceNameCatalog.s3)
+            template_path, {"package": package, "service_name": ServiceNameCatalog.s3}
         )
         render_jinja2_template_mock.reset_mock()
 
         package = Package(Boto3StubsPackageData, [])
         result = render_jinja2_package_template(template_path, package)
         render_jinja2_template_mock.assert_called_once_with(
-            template_path, dict(package=package, service_name=None)
+            template_path, {"package": package, "service_name": None}
         )
 
     def test_insert_md_toc(self) -> None:

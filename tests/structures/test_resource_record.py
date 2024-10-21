@@ -6,7 +6,7 @@ from mypy_boto3_builder.structures.resource_record import ResourceRecord
 class TestResource:
     resource: ResourceRecord
 
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.resource = ResourceRecord(
             name="Name",
             service_name=ServiceNameCatalog.s3,

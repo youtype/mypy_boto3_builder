@@ -1,6 +1,9 @@
-from pathlib import Path
+from typing import TYPE_CHECKING
 
-from mypy_boto3_builder.constants import StaticStubsPath, TemplatePath, TEMPLATES_PATH
+from mypy_boto3_builder.constants import TEMPLATES_PATH, StaticStubsPath, TemplatePath
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 
 class TestConstants:

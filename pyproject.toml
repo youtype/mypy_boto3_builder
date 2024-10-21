@@ -200,7 +200,15 @@ ignore = [
 fixable = ["ALL"]
 unfixable = ["B"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-exclude = ["test_*.py", "*.pyi", "examples/*", "aio_examples/*"]
+exclude = ["*.pyi", "examples/*", "aio_examples/*"]
+
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = [
+    "D",       # missing-docstring
+    "S101",    # use-of-assert
+    "N803",    # argument-name-does-not-match
+    "PLR2004", # constant-comparison
+]
 
 [tool.ruff.format]
 quote-style = "double"

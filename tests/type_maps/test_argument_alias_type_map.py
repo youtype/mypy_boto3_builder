@@ -3,7 +3,7 @@ from mypy_boto3_builder.type_maps.argument_alias_map import get_argument_alias
 
 
 class TestArgumentAliasTypeMap:
-    def test_get_argument_alias(self):
+    def test_get_argument_alias(self) -> None:
         assert (
             get_argument_alias(ServiceNameCatalog.cloudsearchdomain, "Search", "return")
             == "returnFields"

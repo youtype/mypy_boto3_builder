@@ -7,11 +7,11 @@ from mypy_boto3_builder.jinja_manager import JinjaManager
 
 
 class TestJinjaManager:
-    def test_init(self):
+    def test_init(self) -> None:
         assert JinjaManager() != JinjaManager()
         assert JinjaManager.singleton() == JinjaManager.singleton()
 
-    def test_get_template(self):
+    def test_get_template(self) -> None:
         manager = JinjaManager()
         assert manager.get_template(Path("common/named_union.py.jinja2"))
         assert manager.get_template(Path("common/named_union.py.jinja2"))

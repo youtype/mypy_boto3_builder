@@ -1,7 +1,8 @@
+from collections.abc import Iterator
 from pathlib import Path
-import requests_mock
 
 import pytest
+import requests_mock
 
 from mypy_boto3_builder.exceptions import BuildEnvError
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
@@ -9,7 +10,7 @@ from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 
 class TestBotocoreChangelogChangelog:
     @pytest.fixture(autouse=True)
-    def patch_requests(self):
+    def _patch_requests(self) -> Iterator[None]:
         data = (Path(__file__).parent / "fake_changelog.rst").read_text()
         with requests_mock.Mocker() as m:
             self.requests_mock = m
@@ -19,7 +20,7 @@ class TestBotocoreChangelogChangelog:
             )
             yield
 
-    def test_existing(self):
+    def test_existing(self) -> None:
         botocore_changelog = BotocoreChangelog()
         assert botocore_changelog.fetch_updated("1.22.5") == [
             "autoscaling",
@@ -34,11 +35,11 @@ class TestBotocoreChangelogChangelog:
             "chime-sdk-identity",
         ]
 
-    def test_non_existing(self):
+    def test_non_existing(self) -> None:
         botocore_changelog = BotocoreChangelog()
         assert botocore_changelog.fetch_updated("4.0.0") == []
 
-    def test_http_error(self):
+    def test_http_error(self) -> None:
         self.requests_mock.get(
             "https://raw.githubusercontent.com/boto/botocore/develop/CHANGELOG.rst",
             text="not found",

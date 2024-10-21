@@ -7,7 +7,7 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 class TestMethod:
     method: Method
 
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.method = Method(
             name="name",
             arguments=[

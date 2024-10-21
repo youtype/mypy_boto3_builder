@@ -33,7 +33,7 @@ class TestStrings:
         assert get_short_docstring("") == ""
         assert get_short_docstring("\n") == ""
         assert get_short_docstring("`asd\n:type") == "`asd`."
-        assert get_short_docstring("`as’d\n:type") == "`as'd`."
+        assert get_short_docstring("`as’d\n:type") == "`as'd`."  # noqa: RUF001
         assert (
             get_short_docstring("`asd <https://link>`\n **Request syntax**::\ntest")
             == "[asd](https://link)."
@@ -45,9 +45,12 @@ class TestStrings:
                 upload. After a multipart upload is aborted,
                 no additional parts can be uploaded using that upload ID. The storage
                 consumed by any previously uploaded parts will be freed. However, if
-                any part uploads are currently in progress, those part uploads might or might not succeed. As a result, it might be necessary to abort a given multipart upload multiple times in order to completely free all storage consumed by all parts. 
+                any part uploads are currently in progress, those part uploads might or might
+                not succeed.
+                As a result, it might be necessary to abort a given multipart upload multiple times
+                in order to completely free all storage consumed by all parts.
 
-                
+
                 To verify that all parts have been removed, so you don't get charged
                 for the part storage, you should call the `ListParts
                 <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html>`

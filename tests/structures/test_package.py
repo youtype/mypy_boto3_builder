@@ -34,7 +34,7 @@ class TestPackage:
 
         package.service_names.append(ServiceNameCatalog.ec2)
         with pytest.raises(StructureError):
-            package.service_name
+            _ = package.service_name
 
     def test_get_classifiers(self) -> None:
         package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])

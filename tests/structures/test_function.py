@@ -10,7 +10,7 @@ from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribu
 class TestFunction:
     function: Function
 
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.function = Function(
             name="name",
             arguments=[

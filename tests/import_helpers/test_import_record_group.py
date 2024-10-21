@@ -38,8 +38,16 @@ class TestImportRecordGroup:
             ),
         )
         assert list(group) == [
-            "try:\n    from another import name21\nexcept ImportError:\n    from another2 import name213",
-            "try:\n    from source import name as alias, name2\nexcept ImportError:\n    from source2 import name as alias, name2",
+            (
+                "try:"
+                "\n    from another import name21\nexcept ImportError:"
+                "\n    from another2 import name213"
+            ),
+            (
+                "try:"
+                "\n    from source import name as alias, name2\nexcept ImportError:"
+                "\n    from source2 import name as alias, name2"
+            ),
         ]
 
     def test_min_version(self) -> None:
@@ -66,5 +74,10 @@ class TestImportRecordGroup:
         assert list(group) == [
             "import sys",
             "from boto3.s3.transfer import TransferConfig",
-            "if sys.version_info >= (3, 12):\n    from typing import Literal, Unpack\nelse:\n    from typing_extensions import Literal, Unpack",
+            (
+                "if sys.version_info >= (3, 12):"
+                "\n    from typing import Literal, Unpack"
+                "\nelse:"
+                "\n    from typing_extensions import Literal, Unpack"
+            ),
         ]

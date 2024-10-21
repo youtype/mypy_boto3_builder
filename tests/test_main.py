@@ -45,7 +45,7 @@ class TestMain:
 
     @patch("mypy_boto3_builder.main.get_available_service_names")
     @patch("mypy_boto3_builder.main.Boto3Generator")
-    @patch.object(sys, "argv", ["-o", "/tmp", "-b", "1.2.3.post4"])
+    @patch.object(sys, "argv", ["-o", "/tmp", "-b", "1.2.3.post4"])  # noqa: S108
     def test_main(
         self, Boto3GeneratorMock: MagicMock, get_available_service_names_mock: MagicMock
     ) -> None:

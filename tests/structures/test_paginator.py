@@ -5,7 +5,7 @@ from mypy_boto3_builder.structures.paginator import Paginator
 class TestPaginator:
     paginator: Paginator
 
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.paginator = Paginator(
             name="name",
             operation_name="my_operation_name",

@@ -15,7 +15,7 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 class TestClassRecord:
     class_record: ClassRecord
 
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.class_record = ClassRecord(
             name="Name",
             methods=[
@@ -40,7 +40,7 @@ class TestClassRecord:
 
         self.class_record.use_alias = False
         with pytest.raises(StructureError):
-            self.class_record.alias_name
+            _ = self.class_record.alias_name
 
     def test_variable_name(self) -> None:
         assert self.class_record.variable_name == "name"

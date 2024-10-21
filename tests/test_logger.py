@@ -15,8 +15,8 @@ class TestLogger:
         logger_mock.setLevel.assert_called_with(logging_mock.DEBUG)
 
         logging_mock.reset_mock()
-        HandlerMock = MagicMock()
-        logger_mock.handlers = [HandlerMock]
+        handler_mock = MagicMock()
+        logger_mock.handlers = [handler_mock]
         result = get_logger()
         logging_mock.StreamHandler.assert_not_called()
         logger_mock.setLevel.assert_not_called()
