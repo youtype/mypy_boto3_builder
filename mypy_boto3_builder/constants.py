@@ -38,6 +38,7 @@ CLIENT: Final[str] = "Client"
 # keys to mark as NotRequired for output TypeDicts
 NOT_REQUIRED_OUTPUT_KEYS: Final[tuple[str, ...]] = (
     "NextToken",
+    "nextToken",
     "Contents",
     "Item",
     "CommonPrefixes",
