@@ -28,6 +28,7 @@ dependencies = [
     "mdformat",
     "packaging",
     "setuptools",
+    "typing_extensions",
     "requests",
 ]
 
@@ -37,7 +38,6 @@ check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 
 [tool.uv]
 dev-dependencies = [
-    "typing_extensions",
     "cryptography",
     "types-requests",
     "requests-mock",
