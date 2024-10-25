@@ -27,6 +27,7 @@ class Attribute:
         name: str,
         type_annotation: FakeAnnotation,
         value: TypeConstant | None = None,
+        *,
         type_ignore: bool = False,
         is_reference: bool = False,
         is_identifier: bool = False,

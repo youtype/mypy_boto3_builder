@@ -144,7 +144,7 @@ indent-width = 4
 target-version = "py310"
 
 [tool.ruff.lint]
-# preview = true
+preview = true
 select = [
     "E",    # pycodestyle
     "W",    # pycodestyle
@@ -196,6 +196,8 @@ ignore = [
     "TRY003",  # raise-vanilla-args
     "PERF203", # try-except-in-loop
     "PLR0913", # too-many-arguments
+    "PLR0904", # too-many-public-methods
+    "PLR6301", # no-self-use
 ]
 fixable = ["ALL"]
 unfixable = ["B"]

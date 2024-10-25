@@ -16,7 +16,7 @@ from mypy_boto3_builder.utils.strings import (
 class TestStrings:
     def test_get_class_prefix(self) -> None:
         assert get_class_prefix("my_func") == "MyFunc"
-        assert get_class_prefix("") == ""
+        assert not get_class_prefix("")
         assert get_class_prefix("myFunc") == "MyFunc"
 
     def test_get_anchor_link(self) -> None:
@@ -30,8 +30,8 @@ class TestStrings:
         assert not is_reserved("myname")
 
     def test_get_short_docstring(self) -> None:
-        assert get_short_docstring("") == ""
-        assert get_short_docstring("\n") == ""
+        assert not get_short_docstring("")
+        assert not get_short_docstring("\n")
         assert get_short_docstring("`asd\n:type") == "`asd`."
         assert get_short_docstring("`as’d\n:type") == "`as'd`."
         assert (

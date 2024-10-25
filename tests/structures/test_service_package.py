@@ -20,7 +20,7 @@ class TestServicePackage:
     def setup_method(self) -> None:
         service_name = ServiceNameCatalog.s3
         self.service_package = ServicePackage(
-            Boto3StubsPackageData,
+            data=Boto3StubsPackageData,
             service_name=service_name,
             client=Client("Client", service_name, Mock()),
             service_resource=ServiceResource("ServiceResource", service_name, Mock()),

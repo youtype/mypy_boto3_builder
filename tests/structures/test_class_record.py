@@ -22,7 +22,7 @@ class TestClassRecord:
                 Method(
                     name="my_method",
                     arguments=[
-                        Argument("self", None),
+                        Argument.self(),
                         Argument("my_str", Type.str, TypeConstant("test")),
                         Argument("lst", Type.ListAny),
                     ],
@@ -54,7 +54,7 @@ class TestClassRecord:
             self.class_record.get_method("non_existing")
 
     def test_boto3_doc_link(self) -> None:
-        assert self.class_record.boto3_doc_link == ""
+        assert not self.class_record.boto3_doc_link
 
     def test_get_types(self) -> None:
         assert set(self.class_record.iterate_types()) == {

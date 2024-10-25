@@ -71,7 +71,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         Check if type annotation is a named type annotation.
         """
-        return self.name != ""
+        return bool(self.name)
 
     def __copy__(self: Self) -> Self:
         """

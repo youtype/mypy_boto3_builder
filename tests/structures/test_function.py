@@ -14,7 +14,7 @@ class TestFunction:
         self.function = Function(
             name="name",
             arguments=[
-                Argument("self", None),
+                Argument.self(),
                 Argument("my_str", Type.str, TypeConstant("test")),
                 Argument("lst", Type.ListAny),
             ],
@@ -33,17 +33,17 @@ class TestFunction:
         assert repr(self.function) == "def name(self, my_str: str = 'test', lst: List[Any]) -> None"
 
         self.function.docstring = ""
-        assert self.function.short_docstring == ""
+        assert not self.function.short_docstring
 
     def test_short_docstring(self) -> None:
         self.function.docstring = "docstring\n\nlong"
         assert self.function.short_docstring == "docstring"
 
         self.function.docstring = "[text](link)"
-        assert self.function.short_docstring == ""
+        assert not self.function.short_docstring
 
         self.function.docstring = ""
-        assert self.function.short_docstring == ""
+        assert not self.function.short_docstring
 
     def test_returns_none(self) -> None:
         self.function.return_type = Type.none
@@ -72,7 +72,7 @@ class TestFunction:
 
         my_typed_dict = TypeTypedDict("MyTypedDict", [TypedDictAttribute("key", Type.str, False)])
         self.function.arguments = [
-            Argument("self", None),
+            Argument.self(),
             Argument("my_str", Type.str, TypeConstant("test")),
             Argument("dct", my_typed_dict),
         ]

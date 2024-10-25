@@ -34,6 +34,7 @@ class ServicePackage(Package):
 
     def __init__(
         self,
+        *,
         data: type[BasePackageData],
         service_name: ServiceName,
         client: Client | None = None,
@@ -165,12 +166,9 @@ class ServicePackage(Package):
         """
         names = {self.client.name, self.client.alias_name}
         if self.service_resource:
-            names.add(self.service_resource.name)
-            names.add(self.service_resource.alias_name)
-        for waiter in self.waiters:
-            names.add(waiter.name)
-        for paginator in self.paginators:
-            names.add(paginator.name)
+            names.update((self.service_resource.name, self.service_resource.alias_name))
+        names.update(waiter.name for waiter in self.waiters)
+        names.update(paginator.name for paginator in self.paginators)
 
         result = list(names)
         result.sort()

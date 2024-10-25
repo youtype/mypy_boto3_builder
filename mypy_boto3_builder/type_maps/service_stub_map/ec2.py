@@ -9,37 +9,35 @@ from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.typed_dicts import TagTypeDef
 
 create_tags_method = Method(
-    "create_tags",
-    [
-        Argument("self", None),
+    name="create_tags",
+    arguments=(
+        Argument.self(),
         Argument.kwflag(),
         Argument("Resources", TypeSubscript(Type.Sequence, [Type.str])),
         Argument("Tags", TypeSubscript(Type.Sequence, [TagTypeDef])),
         Argument("DryRun", Type.bool, Type.Ellipsis),
-    ],
-    Type.none,
+    ),
+    return_type=Type.none,
 )
 
 delete_tags_method = Method(
-    "delete_tags",
-    [
-        Argument("self", None),
+    name="delete_tags",
+    arguments=(
+        Argument.self(),
         Argument.kwflag(),
         Argument("Resources", TypeSubscript(Type.Sequence, [Type.str])),
         Argument("Tags", TypeSubscript(Type.Sequence, [TagTypeDef]), Type.Ellipsis),
         Argument("DryRun", Type.bool, Type.Ellipsis),
-    ],
-    Type.none,
+    ),
+    return_type=Type.none,
 )
 
-CLIENT_METHODS = [
+CLIENT_METHODS = (
     create_tags_method.copy(),
     delete_tags_method.copy(),
-]
-INSTANCE_METHODS = [
+)
+INSTANCE_METHODS = (
     create_tags_method.copy().remove_argument("Resources"),
     delete_tags_method.copy().remove_argument("Resources"),
-]
-COMMON_METHODS = [
-    create_tags_method.copy().remove_argument("Resources"),
-]
+)
+COMMON_METHODS = (create_tags_method.copy().remove_argument("Resources"),)

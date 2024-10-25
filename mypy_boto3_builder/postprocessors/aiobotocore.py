@@ -43,6 +43,12 @@ class AioBotocorePostprocessor(BasePostprocessor):
         "limit",
         "page_size",
     )
+    NOT_ASYNC_METHOD_NAMES: Final[tuple[str, ...]] = (
+        "exceptions",
+        "get_waiter",
+        "get_paginator",
+        "can_paginate",
+    )
 
     EXTERNAL_IMPORTS_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
         ExternalImport.from_class(StreamingBody): ExternalImport(
@@ -92,12 +98,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
     def _make_async_client(self) -> None:
         for method in self.package.client.methods:
-            if method.name in [
-                "exceptions",
-                "get_waiter",
-                "get_paginator",
-                "can_paginate",
-            ]:
+            if method.name in self.NOT_ASYNC_METHOD_NAMES:
                 continue
             method.is_async = True
 
@@ -181,10 +182,8 @@ class AioBotocorePostprocessor(BasePostprocessor):
     def _add_contextmanager_methods(self) -> None:
         self.package.client.methods.append(
             Method(
-                "__aenter__",
-                [
-                    Argument("self", None),
-                ],
+                name="__aenter__",
+                arguments=(Argument.self(),),
                 return_type=InternalImport(self.package.client.name),
                 is_async=True,
                 docstring=self.package.client.docstring,
@@ -192,13 +191,13 @@ class AioBotocorePostprocessor(BasePostprocessor):
         )
         self.package.client.methods.append(
             Method(
-                "__aexit__",
-                [
-                    Argument("self", None),
+                name="__aexit__",
+                arguments=(
+                    Argument.self(),
                     Argument("exc_type", Type.Any),
                     Argument("exc_val", Type.Any),
                     Argument("exc_tb", Type.Any),
-                ],
+                ),
                 return_type=Type.Any,
                 is_async=True,
                 docstring=self.package.client.docstring,

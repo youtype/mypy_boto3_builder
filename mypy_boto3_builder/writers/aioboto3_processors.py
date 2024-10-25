@@ -18,6 +18,7 @@ from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
 def process_types_aioboto3(
+    *,
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -56,6 +57,7 @@ def process_types_aioboto3(
 
 
 def process_types_aioboto3_lite(
+    *,
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],

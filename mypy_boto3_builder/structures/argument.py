@@ -2,6 +2,7 @@
 Method or function argument.
 """
 
+import copy
 from collections.abc import Iterator
 from typing import Literal, Self
 
@@ -43,6 +44,13 @@ class Argument:
         return f"{self.name}: {self.type_annotation.render()}{default_suffix}"
 
     @classmethod
+    def self(cls: type[Self]) -> Self:
+        """
+        Create `self` argument.
+        """
+        return cls(name="self", type_annotation=None)
+
+    @classmethod
     def kwflag(cls: type[Self]) -> Self:
         """
         Create `*` keywords separator.
@@ -75,7 +83,7 @@ class Argument:
         """
         Deep copy argument.
         """
-        return self.__copy__()
+        return copy.copy(self)
 
     def __copy__(self: Self) -> Self:
         """

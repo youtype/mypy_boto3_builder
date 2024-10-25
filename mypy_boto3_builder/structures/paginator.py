@@ -51,7 +51,7 @@ class Paginator(ClassRecord):
             decorators=[Type.overload],
             docstring=self.docstring,
             arguments=[
-                Argument("self", None),
+                Argument.self(),
                 Argument(
                     "operation_name",
                     TypeLiteral(f"{self.name}Name", [self.operation_name]),

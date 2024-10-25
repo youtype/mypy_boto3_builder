@@ -39,7 +39,7 @@ class TestImportString:
 
     def test_parent(self) -> None:
         assert ImportString("my", "module").parent == "my"
-        assert ImportString("", "").parent == ""
+        assert not ImportString("", "").parent
 
     def test_is_builtins(self) -> None:
         assert ImportString("builtins").is_builtins()

@@ -14,9 +14,9 @@ AIO_RESOURCE_METHOD_MAP: dict[ServiceName, dict[str, dict[str, Method]]] = {
     ServiceNameCatalog.dynamodb: {
         "Table": {
             "batch_writer": Method(
-                "batch_writer",
-                [
-                    Argument("self", None),
+                name="batch_writer",
+                arguments=[
+                    Argument.self(),
                     Argument(
                         "overwrite_by_pkeys",
                         get_optional(Type.list(Type.str)),

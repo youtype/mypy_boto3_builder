@@ -36,9 +36,9 @@ source_client_arg = Argument(
 )
 
 copy_method = Method(
-    "copy",
-    [
-        Argument("self", None),
+    name="copy",
+    arguments=[
+        Argument.self(),
         Argument("CopySource", CopySourceTypeDef),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
@@ -47,13 +47,13 @@ copy_method = Method(
         source_client_arg,
         config_arg,
     ],
-    Type.none,
+    return_type=Type.none,
 )
 
 download_file_method = Method(
-    "download_file",
-    [
-        Argument("self", None),
+    name="download_file",
+    arguments=[
+        Argument.self(),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Filename", Type.str),
@@ -61,13 +61,13 @@ download_file_method = Method(
         callback_arg,
         config_arg,
     ],
-    Type.none,
+    return_type=Type.none,
 )
 
 download_fileobj_method = Method(
-    "download_fileobj",
-    [
-        Argument("self", None),
+    name="download_fileobj",
+    arguments=[
+        Argument.self(),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Fileobj", FileobjTypeDef),
@@ -75,26 +75,26 @@ download_fileobj_method = Method(
         callback_arg,
         config_arg,
     ],
-    Type.none,
+    return_type=Type.none,
 )
 
 generate_presigned_post_method = Method(
-    "generate_presigned_post",
-    [
-        Argument("self", None),
+    name="generate_presigned_post",
+    arguments=[
+        Argument.self(),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Fields", get_optional(Type.DictStrAny), Type.Ellipsis),
         Argument("Conditions", get_optional(PresignedPostConditionsTypeDef), Type.Ellipsis),
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
     ],
-    Type.DictStrAny,
+    return_type=Type.DictStrAny,
 )
 
 upload_file_method = Method(
-    "upload_file",
-    [
-        Argument("self", None),
+    name="upload_file",
+    arguments=[
+        Argument.self(),
         Argument("Filename", Type.str),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
@@ -102,13 +102,13 @@ upload_file_method = Method(
         callback_arg,
         config_arg,
     ],
-    Type.none,
+    return_type=Type.none,
 )
 
 upload_fileobj_method = Method(
-    "upload_fileobj",
-    [
-        Argument("self", None),
+    name="upload_fileobj",
+    arguments=[
+        Argument.self(),
         Argument("Fileobj", FileobjTypeDef),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
@@ -116,7 +116,7 @@ upload_fileobj_method = Method(
         callback_arg,
         config_arg,
     ],
-    Type.none,
+    return_type=Type.none,
 )
 
 

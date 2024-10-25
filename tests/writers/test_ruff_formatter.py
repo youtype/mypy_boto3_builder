@@ -10,7 +10,7 @@ class TestRuffFormatter:
             known_first_party=["local"],
             known_third_party=["extra", "local"],
         )
-        with tempfile.NamedTemporaryFile("+w") as f:
+        with tempfile.NamedTemporaryFile("+w", encoding="utf-8") as f:
             f.write("import os\n")
             f.write("import datetime\n")
             f.write("import black\n")
@@ -19,7 +19,7 @@ class TestRuffFormatter:
             f.write("a   =datetime.datetime.now()\n")
             f.flush()
             formatter.format_python([Path(f.name)])
-            assert Path(f.name).read_text() == (
+            assert Path(f.name).read_text(encoding="utf-8") == (
                 "import datetime\n"
                 "import os\n"
                 "\n"
@@ -33,7 +33,7 @@ class TestRuffFormatter:
 
     def test_format_markdown(self) -> None:
         formatter = RuffFormatter()
-        assert formatter.format_markdown("") == ""
+        assert not formatter.format_markdown("")
         assert (
             formatter.format_markdown("# a\ntest\n## b\n## c\ntest2")
             == "# a\ntest\n## b\n## c\ntest2"

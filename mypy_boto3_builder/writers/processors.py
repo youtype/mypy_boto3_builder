@@ -24,6 +24,7 @@ from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
 def process_boto3_stubs(
+    *,
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -69,6 +70,7 @@ def process_boto3_stubs(
 
 
 def process_boto3_stubs_lite(
+    *,
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],

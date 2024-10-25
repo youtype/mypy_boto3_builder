@@ -22,6 +22,7 @@ from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
 def process_types_aiobotocore(
+    *,
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -62,6 +63,7 @@ def process_types_aiobotocore(
 
 
 def process_types_aiobotocore_lite(
+    *,
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
@@ -137,6 +139,7 @@ def process_types_aiobotocore_docs(
 
 
 def process_types_aiobotocore_full(
+    *,
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],

@@ -11,7 +11,7 @@ class TestMethod:
         self.method = Method(
             name="name",
             arguments=[
-                Argument("self", None),
+                Argument.self(),
                 Argument("my_str", Type.str, TypeConstant("test")),
                 Argument("lst", Type.ListAny),
             ],
@@ -25,14 +25,14 @@ class TestMethod:
         assert self.method.is_kw_only() is False
 
         self.method.arguments = [
-            Argument("self", None),
+            Argument.self(),
             Argument.kwflag(),
             Argument("lst", Type.ListAny),
         ]
         assert self.method.is_kw_only() is True
 
         self.method.arguments = [
-            Argument("self", None),
+            Argument.self(),
             Argument("lst", Type.ListAny),
             Argument.kwflag(),
             Argument("lst2", Type.ListAny),
@@ -53,7 +53,7 @@ class TestMethod:
         assert len(list(self.method.iterate_packed_arguments())) == 3
 
         self.method.arguments = [
-            Argument("self", None),
+            Argument.self(),
             Argument.kwflag(),
             Argument("lst2", Type.ListAny),
         ]
@@ -64,7 +64,7 @@ class TestMethod:
     def test_has_arguments(self) -> None:
         assert self.method.has_arguments() is True
 
-        self.method.arguments = [Argument("self", None)]
+        self.method.arguments = [Argument.self()]
         assert self.method.has_arguments() is False
 
         self.method.arguments = [Argument("other", Type.str)]

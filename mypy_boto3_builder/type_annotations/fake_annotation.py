@@ -2,6 +2,7 @@
 Parent class for all type annotation wrappers.
 """
 
+import copy
 import functools
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
@@ -106,7 +107,7 @@ class FakeAnnotation(ABC):
         """
         Create a copy of type annotation wrapper.
         """
-        return self.__copy__()
+        return copy.copy(self)
 
     def get_local_types(self) -> list["FakeAnnotation"]:
         """

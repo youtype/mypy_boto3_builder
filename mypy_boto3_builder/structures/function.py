@@ -2,6 +2,7 @@
 Module-level function.
 """
 
+import copy
 from collections.abc import Iterable, Iterator
 from typing import Self
 
@@ -22,6 +23,7 @@ class Function:
         name: str,
         arguments: Iterable[Argument],
         return_type: FakeAnnotation,
+        *,
         docstring: str = "",
         decorators: Iterable[FakeAnnotation] = (),
         body_lines: Iterable[str] = (),
@@ -137,7 +139,7 @@ class Function:
         if not self.has_arguments():
             return False
 
-        first_argument = self.iterate_call_arguments().__next__()
+        first_argument = next(self.iterate_call_arguments())
         return first_argument.is_kwflag()
 
     def iterate_call_arguments(self) -> Iterator[Argument]:
@@ -165,7 +167,7 @@ class Function:
         """
         Deep copy function.
         """
-        return self.__copy__()
+        return copy.copy(self)
 
     def __copy__(self: Self) -> Self:
         """

@@ -4,6 +4,7 @@ Writer for package static and template files.
 
 from collections.abc import Iterable, Sequence
 from pathlib import Path
+from typing import Final
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -44,6 +45,8 @@ class PackageWriter:
         generate_setup -- Whether to generate setup files
         cleanup -- Whether to remove unknown files
     """
+
+    PY_EXTENSIONS: Final[tuple[str, ...]] = (".py", ".pyi")
 
     def __init__(self, output_path: Path, generate_setup: bool, cleanup: bool) -> None:
         self.output_path = output_path
@@ -222,7 +225,7 @@ class PackageWriter:
         )
         existing_paths = [path for path in paths if path.exists()]
         format_python_paths = [
-            path for path in existing_paths if path.suffix.lower() in (".py", ".pyi")
+            path for path in existing_paths if path.suffix.lower() in self.PY_EXTENSIONS
         ]
         if format_python_paths:
             ruff_formatter.format_python(format_python_paths)

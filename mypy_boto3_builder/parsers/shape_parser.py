@@ -175,6 +175,7 @@ class ShapeParser:
 
     def _parse_arguments(
         self,
+        *,
         class_name: str,
         method_name: str,
         operation_name: str,
@@ -251,38 +252,38 @@ class ShapeParser:
         self._resource_name = CLIENT
         result: dict[str, Method] = {
             "can_paginate": Method(
-                "can_paginate",
-                [Argument("self", None), Argument("operation_name", Type.str)],
-                Type.bool,
+                name="can_paginate",
+                arguments=(Argument.self(), Argument("operation_name", Type.str)),
+                return_type=Type.bool,
             ),
             "generate_presigned_url": Method(
-                "generate_presigned_url",
-                [
-                    Argument("self", None),
+                name="generate_presigned_url",
+                arguments=(
+                    Argument.self(),
                     Argument("ClientMethod", Type.str),
                     Argument("Params", Type.MappingStrAny, Type.Ellipsis),
                     Argument("ExpiresIn", Type.int, TypeConstant(3600)),
                     Argument("HttpMethod", Type.str, Type.Ellipsis),
-                ],
-                Type.str,
+                ),
+                return_type=Type.str,
             ),
             "close": Method(
-                "close",
-                [Argument("self", None)],
-                Type.none,
+                name="close",
+                arguments=(Argument.self(),),
+                return_type=Type.none,
             ),
         }
         for operation_name in self.service_model.operation_names:
             operation_model = self._get_operation(operation_name)
-            arguments: list[Argument] = [Argument("self", None)]
+            arguments: list[Argument] = [Argument.self()]
             method_name = xform_name(operation_name)
 
             if operation_model.input_shape is not None:
                 shape_arguments = self._parse_arguments(
-                    self._resource_name,
-                    method_name,
-                    operation_name,
-                    operation_model.input_shape,
+                    class_name=self._resource_name,
+                    method_name=method_name,
+                    operation_name=operation_name,
+                    shape=operation_model.input_shape,
                 )
                 arguments.extend(self._get_kw_flags(method_name, shape_arguments))
                 arguments.extend(shape_arguments)
@@ -320,7 +321,7 @@ class ShapeParser:
             children = list(shape.enum)
             literal_name = self._get_literal_name(shape)
             literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
-            children = literal_type_stub if literal_type_stub else list(shape.enum)
+            children = literal_type_stub or list(shape.enum)
             type_literal = TypeLiteral(literal_name, children)
             if literal_name in self._type_literal_map:
                 old_type_literal = self._type_literal_map[literal_name]
@@ -601,14 +602,14 @@ class ShapeParser:
         if "limit_key" in paginator_shape:
             skip_argument_names.append(paginator_shape["limit_key"])
 
-        arguments: list[Argument] = [Argument("self", None)]
+        arguments: list[Argument] = [Argument.self()]
 
         if operation_shape.input_shape is not None:
             shape_arguments = self._parse_arguments(
-                "Paginator",
-                "paginate",
-                operation_name,
-                operation_shape.input_shape,
+                class_name="Paginator",
+                method_name="paginate",
+                operation_name=operation_name,
+                shape=operation_shape.input_shape,
                 exclude_names=skip_argument_names,
             )
             shape_arguments.append(
@@ -625,7 +626,7 @@ class ShapeParser:
             )
             return_type = TypeSubscript(page_iterator_import, [return_item])
 
-        method = Method("paginate", arguments, return_type)
+        method = Method(name="paginate", arguments=arguments, return_type=return_type)
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
@@ -650,11 +651,14 @@ class ShapeParser:
         operation_name = self._waiters_shape["waiters"][waiter_name]["operation"]
         operation_shape = self._get_operation(operation_name)
 
-        arguments: list[Argument] = [Argument("self", None)]
+        arguments: list[Argument] = [Argument.self()]
 
         if operation_shape.input_shape is not None:
             shape_arguments = self._parse_arguments(
-                "Waiter", "wait", operation_name, operation_shape.input_shape
+                class_name="Waiter",
+                method_name="wait",
+                operation_name=operation_name,
+                shape=operation_shape.input_shape,
             )
             shape_arguments.append(Argument("WaiterConfig", WaiterConfigTypeDef, Type.Ellipsis))
             arguments.extend(self._get_kw_flags("wait", shape_arguments))
@@ -709,7 +713,7 @@ class ShapeParser:
         attribute_type = self._get_identifier_type(
             resource_name, ATTRIBUTES, attribute_name, identifier
         )
-        return Attribute(attribute_name, attribute_type, is_identifier=True)
+        return Attribute(name=attribute_name, type_annotation=attribute_type, is_identifier=True)
 
     def get_service_resource_method_map(self) -> dict[str, Method]:
         """
@@ -720,9 +724,9 @@ class ShapeParser:
         """
         result: dict[str, Method] = {
             "get_available_subresources": Method(
-                "get_available_subresources",
-                [Argument("self", None)],
-                TypeSubscript(Type.Sequence, [Type.str]),
+                name="get_available_subresources",
+                arguments=[Argument.self()],
+                return_type=TypeSubscript(Type.Sequence, [Type.str]),
             ),
         }
         self._resource_name = SERVICE_RESOURCE
@@ -733,7 +737,7 @@ class ShapeParser:
 
         for sub_resource_name in self._get_resource_names():
             resource_shape = self._get_resource_shape(sub_resource_name)
-            arguments = [Argument("self", None)]
+            arguments = [Argument.self()]
             identifiers = resource_shape.get("identifiers", [])
             for identifier in identifiers:
                 argument = self._get_identifier_argument(
@@ -741,7 +745,7 @@ class ShapeParser:
                 )
                 arguments.append(argument)
             method = Method(
-                sub_resource_name,
+                name=sub_resource_name,
                 arguments=arguments,
                 return_type=InternalImport(sub_resource_name, use_alias=True),
             )
@@ -780,12 +784,12 @@ class ShapeParser:
         resource_shape = self._get_resource_shape(resource_name)
         result: dict[str, Method] = {
             "get_available_subresources": Method(
-                "get_available_subresources",
-                [Argument("self", None)],
-                TypeSubscript(Type.Sequence, [Type.str]),
+                name="get_available_subresources",
+                arguments=[Argument.self()],
+                return_type=TypeSubscript(Type.Sequence, [Type.str]),
             ),
-            "load": Method("load", [Argument("self", None)], Type.none),
-            "reload": Method("reload", [Argument("self", None)], Type.none),
+            "load": Method(name="load", arguments=[Argument.self()], return_type=Type.none),
+            "reload": Method(name="reload", arguments=[Argument.self()], return_type=Type.none),
         }
 
         if "actions" in resource_shape:
@@ -796,9 +800,9 @@ class ShapeParser:
         if "waiters" in resource_shape:
             for waiter_name in resource_shape["waiters"]:
                 method = Method(
-                    f"wait_until_{xform_name(waiter_name)}",
-                    [Argument("self", None)],
-                    Type.none,
+                    name=f"wait_until_{xform_name(waiter_name)}",
+                    arguments=[Argument.self()],
+                    return_type=Type.none,
                 )
                 result[method.name] = method
 
@@ -807,7 +811,7 @@ class ShapeParser:
                 if "resource" not in sub_resource:
                     continue
                 data = sub_resource["resource"]
-                arguments = [Argument("self", None)]
+                arguments = [Argument.self()]
                 identifiers = data.get("identifiers", [])
                 for identifier in identifiers:
                     if identifier.get("source") != "input":
@@ -818,7 +822,7 @@ class ShapeParser:
                     arguments.append(argument)
 
                 method = Method(
-                    sub_resource_name,
+                    name=sub_resource_name,
                     arguments=arguments,
                     return_type=InternalImport(data["type"], use_alias=True),
                 )
@@ -864,7 +868,7 @@ class ShapeParser:
     def _get_resource_method(self, action_name: str, action_shape: ActionShape) -> Method:
         return_type: FakeAnnotation = Type.none
         method_name = xform_name(action_name)
-        arguments: list[Argument] = [Argument("self", None)]
+        arguments: list[Argument] = [Argument.self()]
         if "resource" in action_shape:
             return_type = self._parse_return_type(
                 self.resource_name, method_name, Shape("resource", action_shape["resource"])
@@ -880,10 +884,10 @@ class ShapeParser:
             skip_argument_names = self._get_skip_argument_names(action_shape)
             if operation_shape.input_shape is not None:
                 shape_arguments = self._parse_arguments(
-                    self.resource_name,
-                    method_name,
-                    operation_name,
-                    operation_shape.input_shape,
+                    class_name=self.resource_name,
+                    method_name=method_name,
+                    operation_name=operation_name,
+                    shape=operation_shape.input_shape,
                     exclude_names=skip_argument_names,
                 )
                 arguments.extend(self._get_kw_flags(method_name, shape_arguments))
@@ -923,7 +927,7 @@ class ShapeParser:
         """
         result = Method(
             name="filter",
-            arguments=[Argument("self", None)],
+            arguments=[Argument.self()],
             return_type=self_type,
         )
         if not collection.request:
@@ -934,10 +938,10 @@ class ShapeParser:
 
         if operation_model.input_shape is not None:
             shape_arguments = self._parse_arguments(
-                name,
-                result.name,
-                operation_name,
-                operation_model.input_shape,
+                class_name=name,
+                method_name=result.name,
+                operation_name=operation_name,
+                shape=operation_model.input_shape,
                 optional_only=True,
             )
             result.arguments.extend(self._get_kw_flags(result.name, shape_arguments))
@@ -961,7 +965,7 @@ class ShapeParser:
         for batch_action in collection.batch_actions:
             method = Method(
                 name=batch_action.name,
-                arguments=[Argument("self", None)],
+                arguments=[Argument.self()],
                 return_type=Type.none,
             )
             result.append(method)
@@ -970,10 +974,10 @@ class ShapeParser:
                 operation_model = self._get_operation(operation_name)
                 if operation_model.input_shape is not None:
                     shape_arguments = self._parse_arguments(
-                        name,
-                        batch_action.name,
-                        operation_name,
-                        operation_model.input_shape,
+                        class_name=name,
+                        method_name=batch_action.name,
+                        operation_name=operation_name,
+                        shape=operation_model.input_shape,
                         optional_only=True,
                     )
                     method.arguments.extend(self._get_kw_flags(batch_action.name, shape_arguments))

@@ -103,8 +103,6 @@ def fix_pypi_headers(text: str) -> str:
 
         level, title = line.split(" ", 1)
         header = Header(title.strip(), len(level))
-        result.append(f'<a id="{header.anchor}"></a>')
-        result.append("")
-        result.append(line)
+        result.append(f'<a id="{header.anchor}"></a>\n\n{line}')
 
     return "\n".join(result)

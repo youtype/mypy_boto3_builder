@@ -48,7 +48,7 @@ def parse_collections(
         collection_record.methods.append(
             Method(
                 name="all",
-                arguments=[Argument("self", None)],
+                arguments=(Argument.self(),),
                 return_type=self_type,
                 docstring=(
                     "Get all items from the collection, optionally"
@@ -74,25 +74,25 @@ def parse_collections(
             collection_record.methods.append(batch_method)
         collection_record.methods.append(
             Method(
-                "limit",
-                [Argument("self", None), Argument("count", Type.int)],
-                self_type,
+                name="limit",
+                arguments=[Argument.self(), Argument("count", Type.int)],
+                return_type=self_type,
                 docstring=f"Return at most this many {object_class_name}s.",
             )
         )
         collection_record.methods.append(
             Method(
-                "page_size",
-                [Argument("self", None), Argument("count", Type.int)],
-                self_type,
+                name="page_size",
+                arguments=[Argument.self(), Argument("count", Type.int)],
+                return_type=self_type,
                 docstring=f"Fetch at most this many {object_class_name}s per service request.",
             )
         )
         collection_record.methods.append(
             Method(
-                "pages",
-                [Argument("self", None)],
-                TypeSubscript(
+                name="pages",
+                arguments=[Argument.self()],
+                return_type=TypeSubscript(
                     Type.Iterator,
                     [Type.list(InternalImport(name=object_class_name))],
                 ),
@@ -101,9 +101,9 @@ def parse_collections(
         )
         collection_record.methods.append(
             Method(
-                "__iter__",
-                [Argument("self", None)],
-                TypeSubscript(Type.Iterator, [InternalImport(name=object_class_name)]),
+                name="__iter__",
+                arguments=[Argument.self()],
+                return_type=TypeSubscript(Type.Iterator, [InternalImport(name=object_class_name)]),
                 docstring=f"A generator which yields {object_class_name}s.",
             )
         )

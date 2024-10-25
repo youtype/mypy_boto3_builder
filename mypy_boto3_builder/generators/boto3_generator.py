@@ -80,9 +80,9 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_boto3_stubs(
-            self.session,
-            self.output_path,
-            self.master_service_names,
+            session=self.session,
+            output_path=self.output_path,
+            service_names=self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
             static_files_path=self._get_static_files_path(),
@@ -96,9 +96,9 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_boto3_stubs_lite(
-            self.session,
-            self.output_path,
-            self.master_service_names,
+            session=self.session,
+            output_path=self.output_path,
+            service_names=self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
             static_files_path=self._get_static_files_path(),

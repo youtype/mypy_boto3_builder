@@ -2,14 +2,16 @@
 Methods for boto3 injected methods.
 """
 
+from collections.abc import Mapping, Sequence
+
 from mypy_boto3_builder.constants import CLIENT
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_maps.service_stub_map import dynamodb, ec2, rds, s3
 from mypy_boto3_builder.utils.strings import get_type_def_name
 
-ClassTypeMap = dict[str, list[Method]]
-ServiceStubMap = dict[ServiceName, ClassTypeMap]
+ClassTypeMap = Mapping[str, Sequence[Method]]
+ServiceStubMap = Mapping[ServiceName, ClassTypeMap]
 
 SERVICE_STUB_MAP: ServiceStubMap = {
     ServiceNameCatalog.ec2: {

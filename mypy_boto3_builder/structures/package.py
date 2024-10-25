@@ -48,7 +48,7 @@ class Package:
         """
         Check if package has main package.
         """
-        return self.data.NAME != ""
+        return bool(self.data.NAME)
 
     @property
     def service_name(self) -> ServiceName:

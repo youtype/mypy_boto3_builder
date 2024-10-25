@@ -29,10 +29,10 @@ class TestProcessors:
         package_mock = MagicMock()
         parse_boto3_stubs_package_mock.return_value = package_mock
         result = process_boto3_stubs(
-            session_mock,
-            Path("my_path"),
-            [ServiceNameCatalog.ec2],
-            True,
+            session=session_mock,
+            output_path=Path("my_path"),
+            service_names=[ServiceNameCatalog.ec2],
+            generate_setup=True,
             version="1.2.3",
             static_files_path=Path("static_files_path"),
         )
@@ -61,10 +61,10 @@ class TestProcessors:
         package_mock = MagicMock()
         parse_boto3_stubs_package_mock.return_value = package_mock
         result = process_boto3_stubs_lite(
-            session_mock,
-            Path("my_path"),
-            [ServiceNameCatalog.ec2],
-            True,
+            session=session_mock,
+            output_path=Path("my_path"),
+            service_names=[ServiceNameCatalog.ec2],
+            generate_setup=True,
             version="1.2.3",
             static_files_path=Path("static_files_path"),
         )

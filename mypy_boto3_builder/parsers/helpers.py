@@ -46,10 +46,10 @@ def get_dummy_method(name: str) -> Method:
     """
     return Method(
         name=name,
-        arguments=[
-            Argument("self", None),
+        arguments=(
+            Argument.self(),
             Argument("args", Type.Any, prefix="*"),
             Argument("kwargs", Type.Any, prefix="**"),
-        ],
+        ),
         return_type=Type.Any,
     )

@@ -14,7 +14,7 @@ def get_botocore_version() -> str:
     Get botocore package version.
     """
     try:
-        from botocore import __version__ as version
+        from botocore import __version__ as version  # noqa: PLC0415
     except ImportError as e:
         raise BuildEnvError("botocore is not installed") from e
     return f"{version}"
@@ -25,7 +25,7 @@ def get_boto3_version() -> str:
     Get boto3 package version.
     """
     try:
-        from boto3 import __version__ as version
+        from boto3 import __version__ as version  # noqa: PLC0415
     except ImportError as e:
         raise BuildEnvError("boto3 is not installed") from e
     return f"{version}"
@@ -37,7 +37,7 @@ def get_aiobotocore_version() -> str:
     Get aiobotocore package version.
     """
     try:
-        from aiobotocore import __version__ as version  # type: ignore
+        from aiobotocore import __version__ as version  # type: ignore  # noqa: PLC0415
     except ImportError:
         pass
     else:
@@ -55,7 +55,7 @@ def get_aioboto3_version() -> str:
     Get aioboto3 package version.
     """
     try:
-        from aioboto3 import __version__ as version  # type: ignore
+        from aioboto3 import __version__ as version  # type: ignore  # noqa: PLC0415
     except ImportError:
         pass
     else:

@@ -127,7 +127,7 @@ class WrapperPackageParser:
                 name=Client.get_class_name(service_name),
             )
             arguments = [
-                Argument("self", None),
+                Argument.self(),
                 service_name_argument,
                 *self.init_arguments,
             ]
@@ -186,7 +186,7 @@ class WrapperPackageParser:
                 name=ServiceResource.get_class_name(service_name),
             )
             arguments = [
-                Argument("self", None),
+                Argument.self(),
                 service_name_argument,
                 *self.init_arguments,
             ]

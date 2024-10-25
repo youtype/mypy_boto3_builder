@@ -11,7 +11,7 @@ class TestExternalImport:
 
     def test_init(self) -> None:
         assert self.result.name == "name"
-        assert self.result.alias == ""
+        assert not self.result.alias
         assert self.result.source.render() == "module"
         assert self.result.import_record.render() == "from module import name"
         assert hash(self.result)

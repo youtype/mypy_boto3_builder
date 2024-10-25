@@ -48,10 +48,10 @@ class Waiter(ClassRecord):
             name="get_waiter",
             decorators=[Type.overload],
             docstring=self.docstring,
-            arguments=[
-                Argument("self", None),
+            arguments=(
+                Argument.self(),
                 Argument("waiter_name", TypeLiteral(f"{self.name}Name", [self.waiter_name])),
-            ],
+            ),
             return_type=ExternalImport(
                 source=ImportString("", ServiceModuleName.waiter.value),
                 name=self.name,

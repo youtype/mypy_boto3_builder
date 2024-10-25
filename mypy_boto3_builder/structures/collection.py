@@ -19,6 +19,7 @@ class Collection(ClassRecord):
 
     def __init__(
         self,
+        *,
         name: str,
         attribute_name: str,
         parent_name: str,

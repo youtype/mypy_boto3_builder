@@ -7,7 +7,7 @@ class TestAttribute:
     def test_init(self) -> None:
         assert Attribute("attr", Type.DictStrAny)
         assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"))
-        assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"), True)
+        assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore=True)
 
     def test_render(self) -> None:
         assert Attribute("attr", Type.DictStrAny).render() == "attr: Dict[str, Any]"
@@ -16,7 +16,7 @@ class TestAttribute:
             == "attr: Dict[str, Any]"
         )
         assert (
-            Attribute("attr", Type.DictStrAny, TypeConstant("abc"), True).render()
+            Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore=True).render()
             == "attr: Dict[str, Any]  # type: ignore"
         )
 

@@ -3,6 +3,7 @@ Boto3 Client.
 """
 
 from collections.abc import Iterator
+from typing import Final
 
 from botocore.client import BaseClient
 
@@ -24,6 +25,12 @@ class Client(ClassRecord):
     Service Client.
     """
 
+    OWN_METHOD_NAMES: Final[tuple[str, ...]] = (
+        "get_waiter",
+        "get_paginator",
+        "exceptions",
+    )
+
     def __init__(self, name: str, service_name: ServiceName, boto3_client: BaseClient) -> None:
         super().__init__(name=name)
         self.service_name = service_name
@@ -33,17 +40,17 @@ class Client(ClassRecord):
         self.client_error_class = ClassRecord(
             name="BotocoreClientError",
             attributes=[
-                Attribute("MSG_TEMPLATE", Type.str),
+                Attribute(name="MSG_TEMPLATE", type_annotation=Type.str),
             ],
             bases=[ExternalImport.from_class(Exception)],
             methods=[
                 Method(
                     name="__init__",
-                    arguments=[
-                        Argument("self", None),
+                    arguments=(
+                        Argument.self(),
                         Argument("error_response", Type.MappingStrAny),
                         Argument("operation_name", Type.str),
-                    ],
+                    ),
                     return_type=Type.none,
                     body_lines=[
                         "self.response: Dict[str, Any]",
@@ -92,7 +99,7 @@ class Client(ClassRecord):
         Get a list of auto-generated methods.
         """
         for method in self.methods:
-            if method.name not in ("get_waiter", "get_paginator", "exceptions"):
+            if method.name not in self.OWN_METHOD_NAMES:
                 yield method
 
     def get_exceptions_property(self) -> Method:
@@ -103,7 +110,7 @@ class Client(ClassRecord):
             name="exceptions",
             decorators=[ExternalImport.from_class(property)],
             arguments=[
-                Argument("self", None),
+                Argument.self(),
             ],
             return_type=InternalImport(
                 name=self.exceptions_class.name,
