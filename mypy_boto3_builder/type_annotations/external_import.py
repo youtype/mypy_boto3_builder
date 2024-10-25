@@ -67,7 +67,7 @@ class ExternalImport(FakeAnnotation):
                 self.name,
                 self.alias,
                 min_version=None,
-                fallback=ImportRecord(ImportString("builtins"), "object", self.name),
+                fallback=ImportRecord(ImportString(ImportString.BUILTINS), "object", self.name),
             )
         return ImportRecord(source=self.source, name=self.name, alias=self.alias)
 
@@ -75,7 +75,7 @@ class ExternalImport(FakeAnnotation):
         """
         Calcualte hash value based on import record.
         """
-        return hash(self.source) + hash(self.name) + hash(self.alias) + hash(self.safe)
+        return hash((self.source, self.name, self.alias, self.safe))
 
     def render(self) -> str:
         """

@@ -2,7 +2,8 @@
 String to type annotation map to replace overriden botocore shapes.
 """
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
+from typing import Final
 
 from mypy_boto3_builder.constants import ALL, SERVICE_RESOURCE
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -19,9 +20,9 @@ from mypy_boto3_builder.type_maps.named_unions import (
 )
 from mypy_boto3_builder.type_maps.typed_dicts import GetTemplateOutputTypeDef
 
-ShapeTypeMap = dict[ServiceName, dict[str, dict[str, FakeAnnotation]]]
+ShapeTypeMap = Mapping[ServiceName, Mapping[str, Mapping[str, FakeAnnotation]]]
 
-SHAPE_TYPE_MAP: ShapeTypeMap = {
+SHAPE_TYPE_MAP: Final[ShapeTypeMap] = {
     ServiceNameCatalog.all: {
         ALL: {
             "integer": Type.int,

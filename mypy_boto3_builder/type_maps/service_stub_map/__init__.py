@@ -3,6 +3,7 @@ Methods for boto3 injected methods.
 """
 
 from collections.abc import Mapping, Sequence
+from typing import Final
 
 from mypy_boto3_builder.constants import CLIENT
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -13,7 +14,7 @@ from mypy_boto3_builder.utils.strings import get_type_def_name
 ClassTypeMap = Mapping[str, Sequence[Method]]
 ServiceStubMap = Mapping[ServiceName, ClassTypeMap]
 
-SERVICE_STUB_MAP: ServiceStubMap = {
+SERVICE_STUB_MAP: Final[ServiceStubMap] = {
     ServiceNameCatalog.ec2: {
         CLIENT: ec2.CLIENT_METHODS,
         "Instance": ec2.INSTANCE_METHODS,

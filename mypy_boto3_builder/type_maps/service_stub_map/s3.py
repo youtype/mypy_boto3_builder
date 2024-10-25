@@ -17,7 +17,7 @@ from mypy_boto3_builder.utils.type_checks import get_optional
 
 callback_arg = Argument(
     "Callback",
-    get_optional(TypeSubscript(Type.Callable, [Type.Ellipsis, Type.Any])),
+    get_optional(TypeSubscript(Type.Callable, (Type.Ellipsis, Type.Any))),
     Type.Ellipsis,
 )
 
@@ -37,7 +37,7 @@ source_client_arg = Argument(
 
 copy_method = Method(
     name="copy",
-    arguments=[
+    arguments=(
         Argument.self(),
         Argument("CopySource", CopySourceTypeDef),
         Argument("Bucket", Type.str),
@@ -46,13 +46,13 @@ copy_method = Method(
         callback_arg,
         source_client_arg,
         config_arg,
-    ],
+    ),
     return_type=Type.none,
 )
 
 download_file_method = Method(
     name="download_file",
-    arguments=[
+    arguments=(
         Argument.self(),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
@@ -60,13 +60,13 @@ download_file_method = Method(
         extra_args_arg,
         callback_arg,
         config_arg,
-    ],
+    ),
     return_type=Type.none,
 )
 
 download_fileobj_method = Method(
     name="download_fileobj",
-    arguments=[
+    arguments=(
         Argument.self(),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
@@ -74,26 +74,26 @@ download_fileobj_method = Method(
         extra_args_arg,
         callback_arg,
         config_arg,
-    ],
+    ),
     return_type=Type.none,
 )
 
 generate_presigned_post_method = Method(
     name="generate_presigned_post",
-    arguments=[
+    arguments=(
         Argument.self(),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Fields", get_optional(Type.DictStrAny), Type.Ellipsis),
         Argument("Conditions", get_optional(PresignedPostConditionsTypeDef), Type.Ellipsis),
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
-    ],
+    ),
     return_type=Type.DictStrAny,
 )
 
 upload_file_method = Method(
     name="upload_file",
-    arguments=[
+    arguments=(
         Argument.self(),
         Argument("Filename", Type.str),
         Argument("Bucket", Type.str),
@@ -101,13 +101,13 @@ upload_file_method = Method(
         extra_args_arg,
         callback_arg,
         config_arg,
-    ],
+    ),
     return_type=Type.none,
 )
 
 upload_fileobj_method = Method(
     name="upload_fileobj",
-    arguments=[
+    arguments=(
         Argument.self(),
         Argument("Fileobj", FileobjTypeDef),
         Argument("Bucket", Type.str),
@@ -115,30 +115,30 @@ upload_fileobj_method = Method(
         extra_args_arg,
         callback_arg,
         config_arg,
-    ],
+    ),
     return_type=Type.none,
 )
 
 
-CLIENT_METHODS = [
+CLIENT_METHODS = (
     copy_method,
     download_file_method,
     download_fileobj_method,
     generate_presigned_post_method,
     upload_file_method,
     upload_fileobj_method,
-]
-BUCKET_METHODS = [
+)
+BUCKET_METHODS = (
     copy_method.copy().remove_argument("Bucket"),
     download_file_method.copy().remove_argument("Bucket"),
     download_fileobj_method.copy().remove_argument("Bucket"),
     upload_file_method.copy().remove_argument("Bucket"),
     upload_fileobj_method.copy().remove_argument("Bucket"),
-]
-OBJECT_METHODS = [
+)
+OBJECT_METHODS = (
     copy_method.copy().remove_argument("Bucket", "Key"),
     download_file_method.copy().remove_argument("Bucket", "Key"),
     download_fileobj_method.copy().remove_argument("Bucket", "Key"),
     upload_file_method.copy().remove_argument("Bucket", "Key"),
     upload_fileobj_method.copy().remove_argument("Bucket", "Key"),
-]
+)

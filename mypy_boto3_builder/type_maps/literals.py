@@ -6,7 +6,7 @@ from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 QueueAttributeFilterType = TypeLiteral(
     "QueueAttributeFilterType",
-    [
+    (
         "All",
         "AWSTraceHeader",
         "ApproximateFirstReceiveTimestamp",
@@ -37,5 +37,5 @@ QueueAttributeFilterType = TypeLiteral(
         "FifoThroughputLimit",
         "RedriveAllowPolicy",
         "SqsManagedSseEnabled",
-    ],
+    ),
 )

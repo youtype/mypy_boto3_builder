@@ -47,6 +47,7 @@ class PackageWriter:
     """
 
     _PY_EXTENSIONS: Final[set[str]] = {".py", ".pyi"}
+    _MD_EXTENSIONS: Final[set[str]] = {".md"}
 
     def __init__(self, output_path: Path, generate_setup: bool, cleanup: bool) -> None:
         self.output_path = output_path
@@ -93,11 +94,11 @@ class PackageWriter:
 
         result: list[TemplateRender] = []
         setup_path = self._get_setup_path(package)
-        template_paths = [
+        template_paths = (
             templates_path / "setup.py.jinja2",
             templates_path / "README.md.jinja2",
             TEMPLATES_PATH / "common" / "LICENSE.jinja2",
-        ]
+        )
         for template_path in template_paths:
             file_name = template_path.stem
             output_file_path = setup_path / file_name
@@ -129,8 +130,8 @@ class PackageWriter:
     ) -> None:
         content = render_jinja2_package_template(template_path, package=package)
         for output_path in render_paths:
-            file_extension = output_path.suffix.lower().replace(".", "")
-            if file_extension == "md":
+            file_suffix = output_path.suffix.lower()
+            if file_suffix in self._MD_EXTENSIONS:
                 content = insert_md_toc(content)
                 content = fix_pypi_headers(content)
                 content = format_md(content)
@@ -230,7 +231,9 @@ class PackageWriter:
         if format_python_paths:
             ruff_formatter.format_python(format_python_paths)
 
-        format_md_paths = [path for path in existing_paths if path.suffix.lower() == ".md"]
+        format_md_paths = [
+            path for path in existing_paths if path.suffix.lower() in self._MD_EXTENSIONS
+        ]
         if format_md_paths:
             for path in format_md_paths:
                 content = path.read_text()

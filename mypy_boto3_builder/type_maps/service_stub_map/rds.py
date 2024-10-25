@@ -19,6 +19,4 @@ generate_db_auth_token_method = Method(
     return_type=Type.str,
 )
 
-CLIENT_METHODS = [
-    generate_db_auth_token_method,
-]
+CLIENT_METHODS = (generate_db_auth_token_method,)

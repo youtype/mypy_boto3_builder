@@ -54,7 +54,7 @@ from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.type_maps.argument_alias_map import get_argument_alias
-from mypy_boto3_builder.type_maps.literal_type_map import get_literal_type_stub
+from mypy_boto3_builder.type_maps.literal_type_map import get_type_literal_stub
 from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
     get_method_type_stub,
@@ -308,9 +308,9 @@ class ShapeParser:
 
     @staticmethod
     def _get_literal_name(shape: StringShape) -> str:
-        # FIXME: hack for APIGWv2
+        # FIXME: hack for apigatewayv2
         if shape.name == "__string":
-            children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in shape.enum))
+            children_name = "".join(sorted(capitalize(i) for i in shape.enum))
             return f"{children_name}Type"
 
         name = capitalize(shape.name.lstrip("_"))
@@ -318,11 +318,9 @@ class ShapeParser:
 
     def _parse_shape_string(self, shape: StringShape, output_child: bool) -> FakeAnnotation:
         if shape.enum:
-            children = list(shape.enum)
             literal_name = self._get_literal_name(shape)
-            literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
-            children = literal_type_stub or list(shape.enum)
-            type_literal = TypeLiteral(literal_name, children)
+            type_literal_stub = get_type_literal_stub(self.service_name, literal_name)
+            type_literal = type_literal_stub or TypeLiteral(literal_name, set(shape.enum))
             if literal_name in self._type_literal_map:
                 old_type_literal = self._type_literal_map[literal_name]
                 if not type_literal.is_same(old_type_literal):

@@ -5,10 +5,13 @@ Alias map fixes added by botocore for documentation build.
 # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L1055
 """
 
+from collections.abc import Mapping
+from typing import Final
+
 from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 
-ARGUMENT_ALIASES: dict[ServiceName, dict[str, dict[str, str | None]]] = {
+ARGUMENT_ALIASES: Final[Mapping[ServiceName, Mapping[str, Mapping[str, str | None]]]] = {
     ServiceNameCatalog.cloudsearchdomain: {"Search": {"return": "returnFields"}},
     ServiceNameCatalog.logs: {"CreateExportTask": {"from": "fromTime"}},
     ServiceNameCatalog.ec2: {ALL: {"Filter": "Filters"}},
@@ -30,7 +33,9 @@ ARGUMENT_ALIASES: dict[ServiceName, dict[str, dict[str, str | None]]] = {
 
 
 def get_argument_alias(
-    service_name: ServiceName, operation_name: str, argument_name: str
+    service_name: ServiceName,
+    operation_name: str,
+    argument_name: str,
 ) -> str | None:
     """
     Get argument alias for operation.

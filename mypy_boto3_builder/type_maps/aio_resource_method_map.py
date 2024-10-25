@@ -2,6 +2,9 @@
 Resource method map for aio libs.
 """
 
+from collections.abc import Mapping
+from typing import Final
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
@@ -10,7 +13,7 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.utils.type_checks import get_optional
 
-AIO_RESOURCE_METHOD_MAP: dict[ServiceName, dict[str, dict[str, Method]]] = {
+AIO_RESOURCE_METHOD_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, Method]]]] = {
     ServiceNameCatalog.dynamodb: {
         "Table": {
             "batch_writer": Method(
@@ -35,7 +38,9 @@ AIO_RESOURCE_METHOD_MAP: dict[ServiceName, dict[str, dict[str, Method]]] = {
 
 
 def get_aio_resource_method(
-    service_name: ServiceName, resource_name: str, method_name: str
+    service_name: ServiceName,
+    resource_name: str,
+    method_name: str,
 ) -> Method | None:
     """
     Get aio resource method override.

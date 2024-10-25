@@ -30,7 +30,7 @@ class ImportString:
         'my.name'
     """
 
-    _BUILTINS: Final[str] = "builtins"
+    BUILTINS: Final[str] = "builtins"
     _THIRD_PARTY: Final[set[str]] = {
         "boto3",
         "botocore",
@@ -150,7 +150,7 @@ class ImportString:
         """
         Whether import is from Python `builtins` module.
         """
-        return self.parent == self._BUILTINS
+        return self.parent == self.BUILTINS
 
     def is_type_defs(self) -> bool:
         """

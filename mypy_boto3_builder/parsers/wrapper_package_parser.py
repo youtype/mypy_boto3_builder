@@ -2,6 +2,8 @@
 Parser that produces `structures.wrapper_package.WrapperPackage`.
 """
 
+from typing import Final
+
 from boto3.session import Session
 from botocore.config import Config
 
@@ -32,7 +34,7 @@ class WrapperPackageParser:
         package -- Prepared wrapper package with data
     """
 
-    init_arguments = (
+    _INIT_ARGUMENTS: Final[tuple[Argument, ...]] = (
         Argument("region_name", get_optional(Type.str), Type.Ellipsis),
         Argument("api_version", get_optional(Type.str), Type.Ellipsis),
         Argument("use_ssl", get_optional(Type.bool), Type.Ellipsis),
@@ -99,7 +101,7 @@ class WrapperPackageParser:
             )
             arguments = [
                 service_name_argument,
-                *self.init_arguments,
+                *self._INIT_ARGUMENTS,
             ]
             client_function = Function(
                 name=name,
@@ -129,7 +131,7 @@ class WrapperPackageParser:
             arguments = [
                 Argument.self(),
                 service_name_argument,
-                *self.init_arguments,
+                *self._INIT_ARGUMENTS,
             ]
             method = Method(
                 name=name,
@@ -158,7 +160,7 @@ class WrapperPackageParser:
             )
             arguments = [
                 service_name_argument,
-                *self.init_arguments,
+                *self._INIT_ARGUMENTS,
             ]
             resource_function = Function(
                 name=name,
@@ -188,7 +190,7 @@ class WrapperPackageParser:
             arguments = [
                 Argument.self(),
                 service_name_argument,
-                *self.init_arguments,
+                *self._INIT_ARGUMENTS,
             ]
             resource_method = Method(
                 name=name,

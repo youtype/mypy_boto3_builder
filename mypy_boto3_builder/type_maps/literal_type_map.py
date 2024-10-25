@@ -2,15 +2,19 @@
 String to type annotation map to replace overriden botocore literals.
 """
 
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from collections.abc import Mapping
+from typing import Final
 
-LITERAL_TYPE_MAP: dict[ServiceName, dict[str, list[str]]] = {
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+
+LITERAL_TYPE_MAP: Final[Mapping[ServiceName, Mapping[str, set[str]]]] = {
     # FIXME: https://github.com/boto/botocore/issues/3128
-    ServiceNameCatalog.ec2: {"PlatformValuesType": ["windows"]}
+    ServiceNameCatalog.ec2: {"PlatformValuesType": {"windows"}}
 }
 
 
-def get_literal_type_stub(service_name: ServiceName, literal_name: str) -> list[str] | None:
+def get_type_literal_stub(service_name: ServiceName, literal_name: str) -> TypeLiteral | None:
     """
     Get stub type for botocore literal.
 
@@ -28,4 +32,4 @@ def get_literal_type_stub(service_name: ServiceName, literal_name: str) -> list[
     if literal_name not in service_literal_type_map:
         return None
 
-    return service_literal_type_map[literal_name]
+    return TypeLiteral(literal_name, service_literal_type_map[literal_name])

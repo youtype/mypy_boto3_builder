@@ -19,35 +19,36 @@ StreamingBodyType = ExternalImport.from_class(StreamingBody)
 
 ConditionBaseImportTypeDef = TypeUnion(
     name="ConditionBaseImportTypeDef",
-    children=[
+    children=(
         Type.str,
         ExternalImport.from_class(ConditionBase),
-    ],
+    ),
 )
 
 CopySourceOrStrTypeDef = TypeUnion(
     name="CopySourceOrStrTypeDef",
-    children=[Type.str, CopySourceTypeDef],
+    children=(Type.str, CopySourceTypeDef),
 )
 
 BlobTypeDef = TypeUnion(
-    name="BlobTypeDef", children=[Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
+    name="BlobTypeDef",
+    children=(Type.str, Type.bytes, Type.IOAny, StreamingBodyType),
 )
 
-TimestampTypeDef = TypeUnion(name="TimestampTypeDef", children=[Type.datetime, Type.str])
+TimestampTypeDef = TypeUnion(name="TimestampTypeDef", children=(Type.datetime, Type.str))
 
 FileobjTypeDef = TypeUnion(
     name="FileobjTypeDef",
     children=[Type.IOAny, StreamingBodyType],
 )
 
-VerifyTypeDef = TypeUnion([Type.bool, Type.str, Type.none])
-PresignedPostConditionsTypeDef = TypeUnion([Type.ListAny, Type.DictStrAny])
+VerifyTypeDef = TypeUnion((Type.bool, Type.str, Type.none))
+PresignedPostConditionsTypeDef = TypeUnion((Type.ListAny, Type.DictStrAny))
 
 # FIXME: a hack to avoid cicular TypedDict in dynamodb package
 TableAttributeValueTypeDef = TypeUnion(
     name="TableAttributeValueTypeDef",
-    children=[
+    children=(
         Type.bytes,
         Type.bytearray,
         Type.str,
@@ -62,17 +63,18 @@ TableAttributeValueTypeDef = TypeUnion(
         Type.SequenceAny,
         Type.MappingStrAny,
         Type.none,
-    ],
+    ),
 )
 
 UniversalAttributeValueTypeDef = TypeUnion(
     name="UniversalAttributeValueTypeDef",
-    children=[
+    children=(
         AttributeValueTypeDef,
         *TableAttributeValueTypeDef.children,
-    ],
+    ),
 )
 
 PolicyDocumentTypeDef = TypeUnion(
-    name="PolicyDocumentTypeDef", children=[Type.str, PolicyDocumentDictTypeDef]
+    name="PolicyDocumentTypeDef",
+    children=(Type.str, PolicyDocumentDictTypeDef),
 )

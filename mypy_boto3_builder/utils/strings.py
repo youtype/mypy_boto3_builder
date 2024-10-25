@@ -172,4 +172,4 @@ def capitalize(s: str) -> str:
     """
     Capitalize first letter of a string.
     """
-    return s[:1].upper() + s[1:]
+    return f"{s[:1].upper()}{s[1:]}"

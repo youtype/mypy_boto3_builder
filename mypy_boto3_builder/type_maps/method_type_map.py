@@ -3,7 +3,7 @@ String to type annotation map that find type annotation by method and argument n
 """
 
 from collections.abc import Mapping
-from typing import TypeVar
+from typing import Final, TypeVar
 
 from boto3.dynamodb.table import BatchWriter
 
@@ -27,7 +27,7 @@ _T = TypeVar("_T", bound=FakeAnnotation)
 ServiceTypeMap = Mapping[ServiceName, Mapping[str, Mapping[str, Mapping[str, _T]]]]
 
 
-DEFAULT_VALUE_MAP: ServiceTypeMap[TypeConstant] = {
+DEFAULT_VALUE_MAP: Final[ServiceTypeMap[TypeConstant]] = {
     ServiceNameCatalog.glacier: {
         CLIENT: {
             ALL: {
@@ -37,7 +37,7 @@ DEFAULT_VALUE_MAP: ServiceTypeMap[TypeConstant] = {
     },
 }
 
-TYPE_MAP: ServiceTypeMap[FakeAnnotation] = {
+TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
     ServiceNameCatalog.s3: {
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.
         # Types are set according to docs, might be incorrect
@@ -132,7 +132,10 @@ def _get_from_service_map(
 
 
 def get_method_type_stub(
-    service_name: ServiceName, class_name: str, method_name: str, argument_name: str
+    service_name: ServiceName,
+    class_name: str,
+    method_name: str,
+    argument_name: str,
 ) -> FakeAnnotation | None:
     """
     Get stub type for method argument.

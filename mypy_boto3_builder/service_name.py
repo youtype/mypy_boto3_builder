@@ -2,7 +2,7 @@
 Description for boto3 service.
 """
 
-from typing import ClassVar, Literal
+from typing import ClassVar, Final, Literal
 
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
@@ -17,12 +17,12 @@ class ServiceName:
     Description for boto3 service.
     """
 
-    ALL = "all"
-    UPDATED = "updated"
-    ESSENTIAL = "essential"
-    LATEST = "latest"
+    ALL: Final[str] = "all"
+    UPDATED: Final[str] = "updated"
+    ESSENTIAL: Final[str] = "essential"
+    LATEST: Final[str] = "latest"
 
-    ESSENTIAL_NAMES = (
+    ESSENTIAL_NAMES: Final[set[str]] = {
         "ec2",
         "rds",
         "s3",
@@ -30,8 +30,8 @@ class ServiceName:
         "sqs",
         "cloudformation",
         "dynamodb",
-    )
-    CONDA_FORGE_AVAILABLE = (
+    }
+    CONDA_FORGE_AVAILABLE: Final[set[str]] = {
         "ec2",
         "rds",
         "s3",
@@ -39,7 +39,7 @@ class ServiceName:
         "sqs",
         "cloudformation",
         "dynamodb",
-    )
+    }
 
     def __init__(self, name: str, class_name: str, override_boto3_name: str = "") -> None:
         self.name = name
