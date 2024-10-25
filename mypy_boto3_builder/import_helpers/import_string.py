@@ -47,7 +47,7 @@ class ImportString:
         has_not_empty_part = False
         for part in all_parts:
             if "." in part:
-                raise StructureError(f"ImportString parts are not slitted correctly: {all_parts}")
+                raise StructureError(f"ImportString parts are not splitted correctly: {all_parts}")
             if part:
                 has_not_empty_part = True
             elif has_not_empty_part:
@@ -63,15 +63,6 @@ class ImportString:
         Create from string.
         """
         return cls(*import_string.split("."))
-
-    def __bool__(self) -> bool:
-        """
-        Whether import string is not empty.
-        """
-        if len(self.parts) > 1:
-            return True
-
-        return bool(self.parts and self.parts[0])
 
     def __str__(self) -> str:
         """
@@ -132,7 +123,7 @@ class ImportString:
         """
         Get first import string part or `builtins`.
         """
-        return self.parts[0] if self.parts else ""
+        return self.parts[0]
 
     def is_local(self) -> bool:
         """

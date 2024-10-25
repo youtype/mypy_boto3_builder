@@ -61,7 +61,7 @@ class ServicePackage(Package):
         """
         Package name.
         """
-        return self.data.get_service_package_name(self.service_names[0])
+        return self.data.get_service_package_name(self.service_name)
 
     @property
     def client(self) -> Client:

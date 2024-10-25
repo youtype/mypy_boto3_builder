@@ -35,8 +35,6 @@ class ImportRecord:
         self.alias = alias
         self.min_version = min_version
         self.fallback = fallback
-        if not self.source:
-            raise StructureError(f"ImportRecord source is empty: {self}")
 
     def render_name(self) -> str:
         """
@@ -58,10 +56,8 @@ class ImportRecord:
             return f"from {self.source} import {self.render_name()}"
         if self.alias:
             return f"import {self.source} as {self.alias}"
-        if self.source:
-            return f"import {self.source}"
 
-        return ""
+        return f"import {self.source}"
 
     def __str__(self) -> str:
         """
@@ -73,12 +69,14 @@ class ImportRecord:
         """
         Calculate hash value based on source, name and alias.
         """
-        return (
-            hash(self.source)
-            + hash(self.name)
-            + hash(self.alias)
-            + hash(self.min_version)
-            + hash(self.fallback)
+        return hash(
+            (
+                self.source,
+                self.name,
+                self.alias,
+                self.min_version,
+                self.fallback,
+            )
         )
 
     def __eq__(self, other: object) -> bool:
