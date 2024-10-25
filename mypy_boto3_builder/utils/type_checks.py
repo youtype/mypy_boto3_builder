@@ -2,7 +2,7 @@
 Type checking utils.
 """
 
-from typing_extensions import TypeIs
+from typing import TypeGuard
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
@@ -14,28 +14,28 @@ from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 
 
-def is_typed_dict(annotation: FakeAnnotation) -> TypeIs[TypeTypedDict]:
+def is_typed_dict(annotation: FakeAnnotation) -> TypeGuard[TypeTypedDict]:
     """
     Whether type annotation is TypedDict.
     """
     return isinstance(annotation, TypeTypedDict)
 
 
-def is_union(annotation: FakeAnnotation) -> TypeIs[TypeUnion]:
+def is_union(annotation: FakeAnnotation) -> TypeGuard[TypeUnion]:
     """
     Whether type annotation is a Union.
     """
     return isinstance(annotation, TypeUnion)
 
 
-def is_literal(annotation: FakeAnnotation) -> TypeIs[TypeLiteral]:
+def is_literal(annotation: FakeAnnotation) -> TypeGuard[TypeLiteral]:
     """
     Whether type annotation is a literal.
     """
     return isinstance(annotation, TypeLiteral)
 
 
-def is_type_def(annotation: FakeAnnotation) -> TypeIs[TypeDefSortable]:
+def is_type_def(annotation: FakeAnnotation) -> TypeGuard[TypeDefSortable]:
     """
     Whether type annotation is a named TypeDefSortable.
     """
@@ -48,7 +48,7 @@ def is_type_def(annotation: FakeAnnotation) -> TypeIs[TypeDefSortable]:
     return False
 
 
-def is_type_parent(annotation: FakeAnnotation) -> TypeIs[TypeParent]:
+def is_type_parent(annotation: FakeAnnotation) -> TypeGuard[TypeParent]:
     """
     Whether type annotation is a TypeParent.
     """
