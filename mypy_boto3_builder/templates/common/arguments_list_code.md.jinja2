@@ -11,7 +11,7 @@
 {{ argument.default.render() -}}
 {% endif -%}
 {{ ',' -}}
-{% if argument.type_annotation in method.type_hint_annotations -%}
+{% if argument.type_annotation and argument.type_annotation in method.type_hint_annotations -%}
 {{ '  # (' -}}{{ method.type_hint_annotations.index(argument.type_annotation) + 1 -}}{{ ')' -}}
 {% endif -%}
 {{ '\n' -}}
