@@ -34,7 +34,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
     Postprocessor for aiobotocore classes and methods.
     """
 
-    COMMON_COLLECTION_METHOD_NAMES: Final[tuple[str, ...]] = (
+    _COMMON_COLLECTION_METHOD_NAMES: Final[set[str]] = {
         "__iter__",
         "__aiter__",
         "all",
@@ -42,13 +42,13 @@ class AioBotocorePostprocessor(BasePostprocessor):
         "filter",
         "limit",
         "page_size",
-    )
-    NOT_ASYNC_METHOD_NAMES: Final[tuple[str, ...]] = (
+    }
+    _NOT_ASYNC_METHOD_NAMES: Final[set[str]] = {
         "exceptions",
         "get_waiter",
         "get_paginator",
         "can_paginate",
-    )
+    }
 
     EXTERNAL_IMPORTS_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
         ExternalImport.from_class(StreamingBody): ExternalImport(
@@ -98,14 +98,14 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
     def _make_async_client(self) -> None:
         for method in self.package.client.methods:
-            if method.name in self.NOT_ASYNC_METHOD_NAMES:
+            if method.name in self._NOT_ASYNC_METHOD_NAMES:
                 continue
             method.is_async = True
 
     @classmethod
     def _make_async_collection(cls, collection: Collection) -> None:
         for method in collection.methods:
-            if method.name not in cls.COMMON_COLLECTION_METHOD_NAMES:
+            if method.name not in cls._COMMON_COLLECTION_METHOD_NAMES:
                 method.is_async = True
 
         pages_method = collection.get_method("pages")

@@ -23,7 +23,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
     Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
     """
 
-    MIN_CHILDREN: Final[int] = 2
+    _MIN_CHILDREN: Final[int] = 2
 
     def __init__(
         self,
@@ -34,8 +34,8 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         self.name = name
         self.parent = Type.Union
         self.children: list[FakeAnnotation] = list(children)
-        if len(self.children) < self.MIN_CHILDREN:
-            raise TypeAnnotationError(f"Union must have at least {self.MIN_CHILDREN} children")
+        if len(self.children) < self._MIN_CHILDREN:
+            raise TypeAnnotationError(f"Union must have at least {self._MIN_CHILDREN} children")
         self._stringify = stringify
 
     def is_stringified(self) -> bool:

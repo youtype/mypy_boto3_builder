@@ -4,7 +4,7 @@ Method or function argument.
 
 import copy
 from collections.abc import Iterator
-from typing import Literal, Self
+from typing import Final, Literal, Self
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
@@ -20,6 +20,11 @@ class Argument:
         value -- Default argument value.
         prefix -- Used for starargs.
     """
+
+    SELF_NAME: Final[str] = "self"
+    CLS_NAME: Final[str] = "cls"
+    KW_NAME: Final[str] = "*"
+    FIRST_NAMES: Final[set[str]] = {SELF_NAME, CLS_NAME}
 
     def __init__(
         self,
@@ -48,14 +53,14 @@ class Argument:
         """
         Create `self` argument.
         """
-        return cls(name="self", type_annotation=None)
+        return cls(name=cls.SELF_NAME, type_annotation=None)
 
     @classmethod
     def kwflag(cls: type[Self]) -> Self:
         """
         Create `*` keywords separator.
         """
-        return cls(name="*", type_annotation=None)
+        return cls(name=cls.KW_NAME, type_annotation=None)
 
     def is_kwflag(self) -> bool:
         """

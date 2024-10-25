@@ -25,11 +25,11 @@ class Client(ClassRecord):
     Service Client.
     """
 
-    OWN_METHOD_NAMES: Final[tuple[str, ...]] = (
+    _OWN_METHOD_NAMES: Final[set[str]] = {
         "get_waiter",
         "get_paginator",
         "exceptions",
-    )
+    }
 
     def __init__(self, name: str, service_name: ServiceName, boto3_client: BaseClient) -> None:
         super().__init__(name=name)
@@ -99,7 +99,7 @@ class Client(ClassRecord):
         Get a list of auto-generated methods.
         """
         for method in self.methods:
-            if method.name not in self.OWN_METHOD_NAMES:
+            if method.name not in self._OWN_METHOD_NAMES:
                 yield method
 
     def get_exceptions_property(self) -> Method:

@@ -7,8 +7,6 @@ from collections.abc import Iterator
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function
 
-FIRST_ARGUMENT_NAMES = ("self", "cls")
-
 
 class Method(Function):
     """
@@ -22,7 +20,7 @@ class Method(Function):
         if not self.arguments:
             return None
         first_argument = self.arguments[0]
-        if first_argument.name in FIRST_ARGUMENT_NAMES:
+        if first_argument.name in Argument.FIRST_NAMES:
             return first_argument
 
         return None

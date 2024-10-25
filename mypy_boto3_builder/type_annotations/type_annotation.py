@@ -19,43 +19,43 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation as a string.
     """
 
-    _typing: Final[ImportString] = ImportString("typing")
-    _typing_extensions: Final[ImportString] = ImportString("typing_extensions")
+    _TYPING: Final[ImportString] = ImportString("typing")
+    _TYPING_EXTENSIONS: Final[ImportString] = ImportString("typing_extensions")
 
     # Set of supported type annotations. value is default import module
-    SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {
-        "Union": _typing,  # typing.Union
-        "Any": _typing,  # typing.Any
-        "Dict": _typing,  # typing.Dict
-        "List": _typing,  # typing.List
-        "Set": _typing,  # typing.Set
-        "Optional": _typing,  # typing.Optional
-        "IO": _typing,  # typing.IO
-        "overload": _typing,  # typing.overload
-        "Type": _typing,  # typing.Type
-        "NoReturn": _typing,  # typing.NoReturn
-        "TypedDict": _typing,  # typing_extensions.TypedDict / typing.TypedDict
-        "Literal": _typing,  # typing_extensions.Literal / typing.Literal
-        "Mapping": _typing,  # typing.Mapping
-        "Sequence": _typing,  # typing.Sequence
-        "Callable": _typing,  # typing.Callable
-        "Iterator": _typing,  # typing.Iterator
-        "Awaitable": _typing,  # typing.Awaitable
-        "AsyncIterator": _typing,  # typing.AsyncIterator
-        "NotRequired": _typing,  # typing_extensions.NotRequired / typing.NotRequired
-        "Unpack": _typing,  # typing_extensions.Unpack / typing.Unpack
+    _SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {
+        "Union": _TYPING,  # typing.Union
+        "Any": _TYPING,  # typing.Any
+        "Dict": _TYPING,  # typing.Dict
+        "List": _TYPING,  # typing.List
+        "Set": _TYPING,  # typing.Set
+        "Optional": _TYPING,  # typing.Optional
+        "IO": _TYPING,  # typing.IO
+        "overload": _TYPING,  # typing.overload
+        "Type": _TYPING,  # typing.Type
+        "NoReturn": _TYPING,  # typing.NoReturn
+        "TypedDict": _TYPING,  # typing_extensions.TypedDict / typing.TypedDict
+        "Literal": _TYPING,  # typing_extensions.Literal / typing.Literal
+        "Mapping": _TYPING,  # typing.Mapping
+        "Sequence": _TYPING,  # typing.Sequence
+        "Callable": _TYPING,  # typing.Callable
+        "Iterator": _TYPING,  # typing.Iterator
+        "Awaitable": _TYPING,  # typing.Awaitable
+        "AsyncIterator": _TYPING,  # typing.AsyncIterator
+        "NotRequired": _TYPING,  # typing_extensions.NotRequired / typing.NotRequired
+        "Unpack": _TYPING,  # typing_extensions.Unpack / typing.Unpack
     }
 
     # Set of fallback type annotations
-    FALLBACK: Final[Mapping[str, tuple[tuple[int, int] | None, ImportString]]] = {
-        "NotRequired": ((3, 12), _typing_extensions),
-        "TypedDict": ((3, 12), _typing_extensions),
-        "Literal": ((3, 12), _typing_extensions),
-        "Unpack": ((3, 12), _typing_extensions),
+    _FALLBACK: Final[Mapping[str, tuple[tuple[int, int] | None, ImportString]]] = {
+        "NotRequired": ((3, 12), _TYPING_EXTENSIONS),
+        "TypedDict": ((3, 12), _TYPING_EXTENSIONS),
+        "Literal": ((3, 12), _TYPING_EXTENSIONS),
+        "Unpack": ((3, 12), _TYPING_EXTENSIONS),
     }
 
     def __init__(self, wrapped_type: str) -> None:
-        if wrapped_type not in self.SUPPORTED_TYPES:
+        if wrapped_type not in self._SUPPORTED_TYPES:
             raise TypeAnnotationError(f"Cannot wrap {wrapped_type}")
 
         self._wrapped_type: str = wrapped_type
@@ -80,11 +80,11 @@ class TypeAnnotation(FakeAnnotation):
         Create a safe Import Record for annotation.
         """
         name = self.get_import_name()
-        source = self.SUPPORTED_TYPES[name]
-        if name not in self.FALLBACK:
+        source = self._SUPPORTED_TYPES[name]
+        if name not in self._FALLBACK:
             return {ImportRecord(source=source, name=name)}
 
-        fallback_min_version, fallback_source = self.FALLBACK[name]
+        fallback_min_version, fallback_source = self._FALLBACK[name]
 
         return {
             ImportRecord(

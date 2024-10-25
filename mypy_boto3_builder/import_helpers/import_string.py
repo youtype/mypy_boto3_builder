@@ -31,14 +31,14 @@ class ImportString:
     """
 
     _BUILTINS: Final[str] = "builtins"
-    _THIRD_PARTY: Final[tuple[str, ...]] = (
+    _THIRD_PARTY: Final[set[str]] = {
         "boto3",
         "botocore",
         "aioboto3",
         "aiobotocore",
         "s3transfer",
         "awscrt",
-    )
+    }
 
     def __init__(self, parent: str, *parts: str) -> None:
         all_parts = (parent, *parts)

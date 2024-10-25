@@ -36,13 +36,13 @@ SERVICE_RESOURCE: Final[str] = "ServiceResource"
 CLIENT: Final[str] = "Client"
 
 # keys to mark as NotRequired for output TypeDicts
-NOT_REQUIRED_OUTPUT_KEYS: Final[tuple[str, ...]] = (
+NOT_REQUIRED_OUTPUT_KEYS: Final[set[str]] = {
     "NextToken",
     "nextToken",
     "Contents",
     "Item",
     "CommonPrefixes",
-)
+}
 
 # python versions supported by output stubs
 SUPPORTED_PY_VERSIONS: Final[set[tuple[int, int]]] = {

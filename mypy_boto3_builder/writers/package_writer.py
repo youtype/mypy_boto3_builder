@@ -46,7 +46,7 @@ class PackageWriter:
         cleanup -- Whether to remove unknown files
     """
 
-    PY_EXTENSIONS: Final[tuple[str, ...]] = (".py", ".pyi")
+    _PY_EXTENSIONS: Final[set[str]] = {".py", ".pyi"}
 
     def __init__(self, output_path: Path, generate_setup: bool, cleanup: bool) -> None:
         self.output_path = output_path
@@ -225,7 +225,7 @@ class PackageWriter:
         )
         existing_paths = [path for path in paths if path.exists()]
         format_python_paths = [
-            path for path in existing_paths if path.suffix.lower() in self.PY_EXTENSIONS
+            path for path in existing_paths if path.suffix.lower() in self._PY_EXTENSIONS
         ]
         if format_python_paths:
             ruff_formatter.format_python(format_python_paths)
