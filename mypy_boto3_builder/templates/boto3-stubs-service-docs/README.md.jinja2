@@ -107,7 +107,7 @@ def get_collection() -> {{ package.service_resource.collections[0].name }}:
 ```
 
 {% for collection in package.service_resource.collections -%}
-- [{{ collection.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }}){{ '\n' -}}
+- [{{ collection.name }}]({{ service_name.get_md_doc_link('service_resource', collection.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 

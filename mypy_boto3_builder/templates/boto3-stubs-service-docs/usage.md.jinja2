@@ -181,7 +181,7 @@ for item in collection:
 ```
 
 1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
-2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }})
+2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', collection.name) }})
 3. item: {{ collection.object_class_name }}
 {% endif %}
 
