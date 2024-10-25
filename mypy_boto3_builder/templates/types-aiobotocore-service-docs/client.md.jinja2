@@ -10,7 +10,7 @@ Type annotations and code completion for `#!python session.create_client("{{ ser
 [:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
 ```python
-{{ package.client.name }} usage example
+# {{ package.client.name }} usage example
 
 from {{ package.library_name }}.session import get_session
 from {{ package.name }}.client import {{ package.client.name }}
@@ -27,7 +27,7 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:
 This class provides code completion for `#!python session.create_client("{{ service_name.boto3_name }}").exceptions` structure.
 
 ```python
-{{ package.client.name }}.exceptions usage example
+# {{ package.client.name }}.exceptions usage example
 
 async with session.create_client("{{ service_name.boto3_name }}") as client:
     try:
@@ -41,7 +41,7 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:
 ```
 
 ```python
-{{ package.client.name }} usage type checking example
+# {{ package.client.name }} usage type checking example
 
 from {{ package.name }}.client import {{ package.client.exceptions_class.name }}
 
