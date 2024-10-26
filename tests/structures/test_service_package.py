@@ -45,8 +45,8 @@ class TestServicePackage:
     def test_extract_literals(self) -> None:
         assert self.service_package.extract_literals() == []
 
-    def test_get_type_defs(self) -> None:
-        assert self.service_package.get_type_defs() == set()
+    def test_extract_type_defs(self) -> None:
+        assert self.service_package.extract_type_defs() == set()
 
     def test_get_init_import_records(self) -> None:
         assert len(list(self.service_package.get_init_import_records())) == 4

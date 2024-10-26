@@ -105,7 +105,7 @@ class ServiceResource(ClassRecord):
         result = [self.name]
         result.extend(resource.name for resource in self.sub_resources)
         result.extend(collection.name for collection in self.get_collections())
-        return result
+        return sorted(result)
 
     def get_collections(self) -> list[Collection]:
         """

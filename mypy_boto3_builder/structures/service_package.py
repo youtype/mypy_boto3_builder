@@ -95,7 +95,7 @@ class ServicePackage(Package):
             for resource in self.service_resource.sub_resources:
                 yield from resource.methods
 
-    def get_type_defs(self) -> set[TypeDefSortable]:
+    def extract_type_defs(self) -> set[TypeDefSortable]:
         """
         Extract typed defs from children.
         """
@@ -111,6 +111,18 @@ class ServicePackage(Package):
             result.add(method.request_type_annotation)
 
         return result
+
+    def get_type_defs_all_names(self) -> list[str]:
+        """
+        Get `__all__` statement names for `type_defs.py[i]`.
+        """
+        return sorted([i.name for i in self.type_defs])
+
+    def get_literals_all_names(self) -> list[str]:
+        """
+        Get `__all__` statement names for `literals.py[i]`.
+        """
+        return sorted([i.name for i in self.literals])
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

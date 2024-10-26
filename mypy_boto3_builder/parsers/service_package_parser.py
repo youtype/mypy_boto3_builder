@@ -54,7 +54,11 @@ class ServicePackageParser:
         """
         result = self._parse_service_package()
         result.waiters.extend(self._parse_waiters(result.client))
+        result.waiters.sort()
+
         result.paginators.extend(self._parse_paginators(result.client))
+        result.paginators.sort()
+
         result.client.methods.extend(
             self._get_extra_client_methods(result.paginators, result.waiters)
         )
@@ -69,7 +73,7 @@ class ServicePackageParser:
             ]
         )
 
-        type_defs = result.get_type_defs()
+        type_defs = result.extract_type_defs()
 
         # Add hardcoded CloudwatchEvent type definitions to cloudwatch service
         if self.service_name == ServiceNameCatalog.cloudwatch:

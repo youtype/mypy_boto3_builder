@@ -18,9 +18,9 @@ Usage::
 {{ "\n\n" -}}
 
 __all__ = (
-{% for literal in package.literals -%}
+{% for literal_name in package.get_literals_all_names() -%}
     {{ '"' -}}
-    {{ literal.name -}}
+    {{ literal_name -}}
     {{ '"' -}}
     {{ ",\n" if not loop.last or loop.first else "\n" }}
 {% endfor -%}
