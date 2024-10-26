@@ -17,6 +17,7 @@ from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
+from mypy_boto3_builder.utils.strings import is_reserved
 
 
 class TypedDictAttribute:
@@ -51,12 +52,21 @@ class TypedDictAttribute:
 
     def render(self) -> str:
         """
-        Render attribute to use in class-based TypedDict definition.
+        Render attribute to use in function-based TypedDict definition.
 
         Returns:
             A string with argument definition.
         """
         return f'"{self.name}": {self.get_type_annotation().render()}'
+
+    def render_attribute(self) -> str:
+        """
+        Render attribute to use in class-based TypedDict definition.
+
+        Returns:
+            A string with argument definition.
+        """
+        return f"{self.name}: {self.get_type_annotation().render()}"
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
@@ -136,11 +146,23 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
 
         return self.name
 
+    def _is_safe_as_class(self) -> bool:
+        """
+        Whether type annotation can be safely rendered as a class.
+        """
+        names = (self.name, *(child.name for child in self.children))
+        return not any(is_reserved(name) for name in names)
+
     def render_definition(self) -> str:
         """
         Render type annotation definition.
         """
-        return render_jinja2_template(Path("common/typed_dict.py.jinja2"), {"type_def": self})
+        template = (
+            Path("common/typed_dict_class.py.jinja2")
+            if self._is_safe_as_class()
+            else Path("common/typed_dict.py.jinja2")
+        )
+        return render_jinja2_template(template, {"type_def": self})
 
     def get_definition_import_records(self) -> set[ImportRecord]:
         """

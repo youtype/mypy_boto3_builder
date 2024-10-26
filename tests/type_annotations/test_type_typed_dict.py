@@ -49,9 +49,20 @@ class TestTypeTypedDict:
 
     def test_render_definition(self) -> None:
         result = self.result.copy()
+        assert result.render_definition() == (
+            "class MyDict(TypedDict):\n    required: bool\n    optional: NotRequired[str]\n"
+        )
+
+        typed_dict = TypeTypedDict(
+            "MyDict",
+            [
+                TypedDictAttribute("required", Type.str, True),
+                TypedDictAttribute("Type", Type.str, False),
+            ],
+        )
         assert (
-            result.render_definition()
-            == 'MyDict = TypedDict("MyDict", {"required": bool, "optional": NotRequired[str], })'
+            typed_dict.render_definition()
+            == 'MyDict = TypedDict("MyDict", {"required": str, "Type": NotRequired[str], })'
         )
 
     def test_get_import_records(self) -> None:
@@ -165,11 +176,11 @@ class TestTypeTypedDict:
             ],
         )
         typed_dict.add_attribute("self_one", typed_dict, True)
-        typed_dict.add_attribute("self_two", typed_dict, False)
+        typed_dict.add_attribute("Type", typed_dict, False)
         assert typed_dict.replace_self_references(Type.DictStrAny)
         assert typed_dict.render_definition() == (
             'MyDict = TypedDict("MyDict",'
             ' {"required": str, "self_one": Dict[str, Any],'
-            ' "self_two": NotRequired[Dict[str, Any]], })'
+            ' "Type": NotRequired[Dict[str, Any]], })'
         )
         assert not self.result.replace_self_references(Type.DictStrAny)

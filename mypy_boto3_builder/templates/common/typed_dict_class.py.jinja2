@@ -1,0 +1,4 @@
+class {{ type_def.name -}}(TypedDict):
+{% for child in type_def.iterate_children() -%}
+    {{ '    ' -}}{{ child.render_attribute() -}}{{ '\n' -}}
+{% endfor -%}

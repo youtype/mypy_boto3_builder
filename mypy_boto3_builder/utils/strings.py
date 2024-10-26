@@ -48,7 +48,7 @@ def get_anchor_link(text: str) -> str:
 
 def is_reserved(word: str) -> bool:
     """
-    Check whether varialbe name conflicts with Python reserved names.
+    Check whether variable name conflicts with Python reserved names.
     """
     return word in RESERVED_NAMES
 
