@@ -32,7 +32,7 @@ class TestPackage:
         package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])
         assert package.service_name == ServiceNameCatalog.s3
 
-        package.service_names.append(ServiceNameCatalog.ec2)
+        package.service_names = (*package.service_names, ServiceNameCatalog.ec2)
         with pytest.raises(StructureError):
             _ = package.service_name
 

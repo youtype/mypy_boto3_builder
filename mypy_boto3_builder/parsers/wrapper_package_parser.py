@@ -67,7 +67,7 @@ class WrapperPackageParser:
             ),
         )
 
-    def get_client_service_names(self) -> list[ServiceName]:
+    def get_client_service_names(self) -> tuple[ServiceName, ...]:
         """
         Get service names that have a Client.
         """

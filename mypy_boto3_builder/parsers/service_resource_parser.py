@@ -218,6 +218,8 @@ class ServiceResourceParser:
             )
         except UnknownServiceError:
             service_waiter_model = None
+
+        boto3_client = get_boto3_client(self.session, self.service_name)
         for name in json_resource_model["resources"]:
             resource_model = json_resource_model["resources"][name]
             resource_class = self.session.resource_factory.load_from_definition(
@@ -232,8 +234,6 @@ class ServiceResourceParser:
             )
             identifiers = resource_class.meta.resource_model.identifiers
             args = ["foo"] * len(identifiers)
-            result.append(
-                resource_class(*args, client=get_boto3_client(self.session, self.service_name))
-            )
+            result.append(resource_class(*args, client=boto3_client))
 
         return result

@@ -31,7 +31,7 @@ class Package:
         self.library_version = data.get_library_version()
         self.botocore_version = data.get_botocore_version()
         self.version = "0.0.0"
-        self.service_names: list[ServiceName] = list(service_names)
+        self.service_names = tuple(service_names)
         self.logger = get_logger()
 
     @property

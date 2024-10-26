@@ -45,7 +45,7 @@ class ServicePackage(Package):
         literals: Iterable[TypeLiteral] = (),
         helper_functions: Iterable[Function] = (),
     ) -> None:
-        super().__init__(data)
+        super().__init__(data, (service_name,))
         self.pypi_name = data.get_service_pypi_name(service_name)
         self._client = client
         self.service_resource = service_resource
@@ -54,7 +54,6 @@ class ServicePackage(Package):
         self.type_defs = list(type_defs)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
-        self.service_names = [service_name]
 
     @property
     def name(self) -> str:

@@ -24,9 +24,8 @@ class WrapperPackage(Package, ABC):
     """
 
     def __init__(self, data: type[BasePackageData], service_names: Iterable[ServiceName]) -> None:
-        super().__init__(data)
+        super().__init__(data, service_names)
         self.session_class = ClassRecord("Session")
-        self.service_names = list(service_names)
         self.service_packages: list[ServicePackage] = []
         self.init_functions: list[Function] = []
         self.literals: list[TypeLiteral] = []
