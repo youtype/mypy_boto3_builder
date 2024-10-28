@@ -58,7 +58,7 @@ from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
     get_method_type_stub,
 )
-from mypy_boto3_builder.type_maps.not_required_attribute_map import is_not_required
+from mypy_boto3_builder.type_maps.required_attribute_map import is_required
 from mypy_boto3_builder.type_maps.shape_type_map import (
     get_output_shape_type_stub,
     get_shape_type_stub,
@@ -429,8 +429,13 @@ class ShapeParser:
 
     def _mark_typed_dict_as_total(self, typed_dict: TypeTypedDict) -> None:
         for attribute in typed_dict.children:
-            if is_not_required(self.service_name, typed_dict.name, attribute.name):
+            if is_required(self.service_name, typed_dict.name, attribute.name):
                 attribute.mark_as_required()
+            else:
+                self.logger.debug(
+                    f"Leaving output {typed_dict.name}.{attribute.name}"
+                    f" as {attribute.get_type_annotation().render()}"
+                )
 
     def _add_response_metadata(self, typed_dict: TypeTypedDict) -> None:
         child_names = {i.name for i in typed_dict.children}
