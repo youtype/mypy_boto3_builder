@@ -19,8 +19,8 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation as a string.
     """
 
-    _TYPING: Final[ImportString] = ImportString("typing")
-    _TYPING_EXTENSIONS: Final[ImportString] = ImportString("typing_extensions")
+    _TYPING: Final = ImportString("typing")
+    _TYPING_EXTENSIONS: Final = ImportString("typing_extensions")
 
     # Set of supported type annotations. value is default import module
     _SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {

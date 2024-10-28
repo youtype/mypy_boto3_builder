@@ -25,7 +25,7 @@ class Client(ClassRecord):
     Service Client.
     """
 
-    _OWN_METHOD_NAMES: Final[set[str]] = {
+    _OWN_METHOD_NAMES: Final = {
         "get_waiter",
         "get_paginator",
         "exceptions",

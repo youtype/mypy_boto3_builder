@@ -17,12 +17,12 @@ class ServiceName:
     Description for boto3 service.
     """
 
-    ALL: Final[str] = "all"
-    UPDATED: Final[str] = "updated"
-    ESSENTIAL: Final[str] = "essential"
-    LATEST: Final[str] = "latest"
+    ALL: Final = "all"
+    UPDATED: Final = "updated"
+    ESSENTIAL: Final = "essential"
+    LATEST: Final = "latest"
 
-    ESSENTIAL_NAMES: Final[set[str]] = {
+    ESSENTIAL_NAMES: Final = {
         "ec2",
         "rds",
         "s3",
@@ -31,7 +31,7 @@ class ServiceName:
         "cloudformation",
         "dynamodb",
     }
-    CONDA_FORGE_AVAILABLE: Final[set[str]] = {
+    CONDA_FORGE_AVAILABLE: Final = {
         "ec2",
         "rds",
         "s3",
@@ -57,7 +57,7 @@ class ServiceName:
         """
         Represent as string for debugging.
         """
-        return f"<ServiceName {self.name} {self.class_name}>"
+        return self.name
 
     @property
     def underscore_name(self) -> str:
@@ -168,6 +168,7 @@ class ServiceNameCatalog:
     cloudsearchdomain = ServiceName("cloudsearchdomain", "CloudSearchDomain")
     logs = ServiceName("logs", "CloudWatchLogs")
     lambda_ = ServiceName("lambda", "Lambda")
+    stepfunctions = ServiceName("stepfunctions", "SFN")
     old_redshift_serverless = ServiceName(
         "redshift-serverless", "RedshiftServerless", "redshiftserverless"
     )

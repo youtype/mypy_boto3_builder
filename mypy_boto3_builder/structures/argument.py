@@ -21,10 +21,10 @@ class Argument:
         prefix -- Used for starargs.
     """
 
-    SELF_NAME: Final[str] = "self"
-    CLS_NAME: Final[str] = "cls"
-    KW_NAME: Final[str] = "*"
-    FIRST_NAMES: Final[set[str]] = {SELF_NAME, CLS_NAME}
+    SELF_NAME: Final = "self"
+    CLS_NAME: Final = "cls"
+    KW_NAME: Final = "*"
+    FIRST_NAMES: Final = {SELF_NAME, CLS_NAME}
 
     def __init__(
         self,

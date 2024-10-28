@@ -6,7 +6,6 @@ import builtins
 import keyword
 import re
 import typing
-from collections.abc import Mapping
 from types import MappingProxyType
 from typing import Final
 from unittest.mock import MagicMock
@@ -15,14 +14,14 @@ from botocore.utils import get_service_module_name
 
 from mypy_boto3_builder.exceptions import TypeAnnotationError
 
-RESERVED_NAMES: Final[set[str]] = {
+RESERVED_NAMES: Final = {
     *dir(typing),
     *dir(builtins),
     *keyword.kwlist,
 }
-MAX_DOCSTRING_LENGTH: Final[int] = 300
-AWS_LINK_RE: Final[re.Pattern[str]] = re.compile(r"`([^`]+\S)\s*<https://(\S+)>`\_*")
-REPLACE_DOCSTRING_CHARS: Final[Mapping[str, str]] = MappingProxyType({"’": "'", "–": "-"})
+MAX_DOCSTRING_LENGTH: Final = 300
+AWS_LINK_RE: Final = re.compile(r"`([^`]+\S)\s*<https://(\S+)>`\_*")
+REPLACE_DOCSTRING_CHARS: Final = MappingProxyType({"’": "'", "–": "-"})
 
 
 def get_class_prefix(func_name: str) -> str:

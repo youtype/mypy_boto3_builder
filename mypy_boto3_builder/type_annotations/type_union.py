@@ -23,7 +23,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
     Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
     """
 
-    _MIN_CHILDREN: Final[int] = 2
+    _MIN_CHILDREN: Final = 2
 
     def __init__(
         self,

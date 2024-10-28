@@ -46,8 +46,8 @@ class PackageWriter:
         cleanup -- Whether to remove unknown files
     """
 
-    _PY_EXTENSIONS: Final[set[str]] = {".py", ".pyi"}
-    _MD_EXTENSIONS: Final[set[str]] = {".md"}
+    _PY_EXTENSIONS: Final = {".py", ".pyi"}
+    _MD_EXTENSIONS: Final = {".md"}
 
     def __init__(self, output_path: Path, generate_setup: bool, cleanup: bool) -> None:
         self.output_path = output_path

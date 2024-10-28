@@ -34,7 +34,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
     Postprocessor for aiobotocore classes and methods.
     """
 
-    _COMMON_COLLECTION_METHOD_NAMES: Final[set[str]] = {
+    _COMMON_COLLECTION_METHOD_NAMES: Final = {
         "__iter__",
         "__aiter__",
         "all",
@@ -43,7 +43,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         "limit",
         "page_size",
     }
-    _NOT_ASYNC_METHOD_NAMES: Final[set[str]] = {
+    _NOT_ASYNC_METHOD_NAMES: Final = {
         "exceptions",
         "get_waiter",
         "get_paginator",
