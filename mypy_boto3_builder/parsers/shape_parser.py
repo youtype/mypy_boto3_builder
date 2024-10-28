@@ -24,7 +24,6 @@ from botocore.model import (
 from mypy_boto3_builder.constants import (
     ATTRIBUTES,
     CLIENT,
-    NOT_REQUIRED_OUTPUT_KEYS,
     SERVICE_RESOURCE,
 )
 from mypy_boto3_builder.exceptions import ShapeParserError
@@ -59,6 +58,7 @@ from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
     get_method_type_stub,
 )
+from mypy_boto3_builder.type_maps.not_required_attribute_map import is_not_required
 from mypy_boto3_builder.type_maps.shape_type_map import (
     OUTPUT_SHAPE_TYPE_MAP,
     SHAPE_TYPE_MAP,
@@ -430,7 +430,7 @@ class ShapeParser:
 
     def _mark_typed_dict_as_total(self, typed_dict: TypeTypedDict) -> None:
         for attribute in typed_dict.children:
-            if attribute.name not in NOT_REQUIRED_OUTPUT_KEYS:
+            if is_not_required(self.service_name, typed_dict.name, attribute.name):
                 attribute.mark_as_required()
 
     def _add_response_metadata(self, typed_dict: TypeTypedDict) -> None:
