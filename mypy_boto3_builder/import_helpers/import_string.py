@@ -58,7 +58,7 @@ class ImportString:
         self.parts: Final[tuple[str, ...]] = tuple(all_parts)
 
     @classmethod
-    def from_str(cls: type[Self], import_string: str) -> Self:
+    def from_str(cls, import_string: str) -> Self:
         """
         Create from string.
         """

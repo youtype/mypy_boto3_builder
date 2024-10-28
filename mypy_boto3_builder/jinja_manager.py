@@ -3,7 +3,7 @@ Jinja2 `Environment` manager.
 """
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Self
 
 from jinja2.environment import Environment, Template
 from jinja2.loaders import FileSystemLoader
@@ -24,20 +24,20 @@ class JinjaManager:
         loader=FileSystemLoader(TEMPLATES_PATH.as_posix()),
         undefined=StrictUndefined,
     )
-    _singleton: "JinjaManager | None" = None
+    _singleton: Self | None = None
 
     def __init__(self) -> None:
         self._environment.filters["escape_md"] = self.escape_md  # type: ignore
         self._template_cache: dict[Path, Template] = {}
 
     @classmethod
-    def singleton(cls) -> "JinjaManager":
+    def singleton(cls) -> Self:
         """
         Get singleton instance.
         """
         if cls._singleton is None:
             cls._singleton = cls()
-        return cls._singleton
+        return cls._singleton  # type: ignore
 
     @classmethod
     def update_globals(cls, **kwargs: Any) -> None:  # noqa: ANN401

@@ -35,7 +35,7 @@ class ExternalImport(FakeAnnotation):
         self.safe: bool = safe
 
     @classmethod
-    def from_class(cls: type[Self], obj: type, alias: str = "", safe: bool = False) -> Self:
+    def from_class(cls, obj: type, alias: str = "", safe: bool = False) -> Self:
         """
         Create an instance from an imported class.
 

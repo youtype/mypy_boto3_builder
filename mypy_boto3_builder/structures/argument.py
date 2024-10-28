@@ -49,14 +49,14 @@ class Argument:
         return f"{self.name}: {self.type_annotation.render()}{default_suffix}"
 
     @classmethod
-    def self(cls: type[Self]) -> Self:
+    def self(cls) -> Self:
         """
         Create `self` argument.
         """
         return cls(name=cls.SELF_NAME, type_annotation=None)
 
     @classmethod
-    def kwflag(cls: type[Self]) -> Self:
+    def kwflag(cls) -> Self:
         """
         Create `*` keywords separator.
         """

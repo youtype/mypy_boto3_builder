@@ -48,7 +48,7 @@ class TableOfContents:
         self.headers: list[Header] = list(headers)
 
     @classmethod
-    def parse(cls: type[Self], text: str) -> Self:
+    def parse(cls, text: str) -> Self:
         """
         Parse table of Contents for MarkDown text.
 
