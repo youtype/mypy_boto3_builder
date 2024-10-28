@@ -11,6 +11,7 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.utils.lookup_dict import LookupDict
 from mypy_boto3_builder.utils.type_checks import get_optional
 
 AIO_RESOURCE_METHOD_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, Method]]]] = {
@@ -36,6 +37,10 @@ AIO_RESOURCE_METHOD_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, Me
     }
 }
 
+_LOOKUP: LookupDict[Method] = LookupDict(
+    {ServiceNameCatalog.to_str(k): v for k, v in AIO_RESOURCE_METHOD_MAP.items()}
+)
+
 
 def get_aio_resource_method(
     service_name: ServiceName,
@@ -53,4 +58,4 @@ def get_aio_resource_method(
     Returns:
         Method structure or None.
     """
-    return AIO_RESOURCE_METHOD_MAP.get(service_name, {}).get(resource_name, {}).get(method_name)
+    return _LOOKUP.get(service_name.name, resource_name, method_name)

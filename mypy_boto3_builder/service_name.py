@@ -4,6 +4,7 @@ Description for boto3 service.
 
 from typing import ClassVar, Final, Literal
 
+from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
 __all__ = (
@@ -57,7 +58,7 @@ class ServiceName:
         """
         Represent as string for debugging.
         """
-        return self.name
+        return f"<ServiceName {self.name} {self.class_name}>"
 
     @property
     def underscore_name(self) -> str:
@@ -209,3 +210,12 @@ class ServiceNameCatalog:
         service_name = ServiceName(name, class_name)
         cls.ITEMS[name] = service_name
         return service_name
+
+    @classmethod
+    def to_str(cls, service_name: ServiceName) -> str:
+        """
+        Represent ServiceName as string for lookups.
+        """
+        if service_name is cls.all:
+            return ALL
+        return service_name.name

@@ -7,11 +7,16 @@ from typing import Final
 
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
 LITERAL_TYPE_MAP: Final[Mapping[ServiceName, Mapping[str, set[str]]]] = {
     # FIXME: https://github.com/boto/botocore/issues/3128
     ServiceNameCatalog.ec2: {"PlatformValuesType": {"windows"}}
 }
+
+_LOOKUP: LookupDict[set[str]] = LookupDict(
+    {ServiceNameCatalog.to_str(k): v for k, v in LITERAL_TYPE_MAP.items()}
+)
 
 
 def get_type_literal_stub(service_name: ServiceName, literal_name: str) -> TypeLiteral | None:
@@ -25,11 +30,8 @@ def get_type_literal_stub(service_name: ServiceName, literal_name: str) -> TypeL
     Returns:
         Literal children or None.
     """
-    if service_name not in LITERAL_TYPE_MAP:
+    literal_children = _LOOKUP.get(service_name.name, literal_name)
+    if not literal_children:
         return None
 
-    service_literal_type_map = LITERAL_TYPE_MAP[service_name]
-    if literal_name not in service_literal_type_map:
-        return None
-
-    return TypeLiteral(literal_name, service_literal_type_map[literal_name])
+    return TypeLiteral(literal_name, literal_children)

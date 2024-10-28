@@ -2,7 +2,7 @@
 String to type annotation map to replace overriden botocore shapes.
 """
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Mapping
 from typing import Final
 
 from mypy_boto3_builder.constants import ALL, SERVICE_RESOURCE
@@ -19,6 +19,7 @@ from mypy_boto3_builder.type_maps.named_unions import (
     UniversalAttributeValueTypeDef,
 )
 from mypy_boto3_builder.type_maps.typed_dicts import GetTemplateOutputTypeDef
+from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
 ShapeTypeMap = Mapping[ServiceName, Mapping[str, Mapping[str, FakeAnnotation]]]
 
@@ -48,6 +49,10 @@ SHAPE_TYPE_MAP: Final[ShapeTypeMap] = {
         },
     },
 }
+
+_SHAPE_TYPE_MAP_LOOKUP: LookupDict[FakeAnnotation] = LookupDict(
+    {ServiceNameCatalog.to_str(k): v for k, v in SHAPE_TYPE_MAP.items()}
+)
 
 OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
     ServiceNameCatalog.all: {
@@ -81,15 +86,37 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
     },
 }
 
+_OUTPUT_SHAPE_TYPE_MAP_LOOKUP: LookupDict[FakeAnnotation] = LookupDict(
+    {ServiceNameCatalog.to_str(k): v for k, v in OUTPUT_SHAPE_TYPE_MAP.items()}
+)
+
 
 def get_shape_type_stub(
-    shape_type_maps: Iterable[ShapeTypeMap],
     service_name: ServiceName,
     resource_name: str,
     shape_name: str,
 ) -> FakeAnnotation | None:
     """
     Get stub type for input botocore shape.
+
+    Arguments:
+        service_name -- Service name
+        resource_name -- Resource name
+        shape_name -- Target Shape name
+
+    Returns:
+        Type annotation or None.
+    """
+    return _SHAPE_TYPE_MAP_LOOKUP.get(service_name.name, resource_name, shape_name)
+
+
+def get_output_shape_type_stub(
+    service_name: ServiceName,
+    resource_name: str,
+    shape_name: str,
+) -> FakeAnnotation | None:
+    """
+    Get stub type for output botocore shape.
 
     Arguments:
         shape_type_map -- Map to lookup
@@ -100,22 +127,10 @@ def get_shape_type_stub(
     Returns:
         Type annotation or None.
     """
-    checks = (
-        (service_name, resource_name),
-        (service_name, ALL),
-        (ServiceNameCatalog.all, resource_name),
-        (ServiceNameCatalog.all, ALL),
+    type_annotation = _OUTPUT_SHAPE_TYPE_MAP_LOOKUP.get(
+        service_name.name, resource_name, shape_name
     )
-    for shape_type_map in shape_type_maps:
-        for current_service_name, current_resource_name in checks:
-            if current_service_name not in shape_type_map:
-                continue
-            service_type_map = shape_type_map[current_service_name]
-            if current_resource_name not in service_type_map:
-                continue
-            resource_type_map = service_type_map[current_resource_name]
-            if shape_name not in resource_type_map:
-                continue
-            return resource_type_map[shape_name]
+    if type_annotation:
+        return type_annotation
 
-    return None
+    return get_shape_type_stub(service_name, resource_name, shape_name)

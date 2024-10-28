@@ -60,8 +60,7 @@ from mypy_boto3_builder.type_maps.method_type_map import (
 )
 from mypy_boto3_builder.type_maps.not_required_attribute_map import is_not_required
 from mypy_boto3_builder.type_maps.shape_type_map import (
-    OUTPUT_SHAPE_TYPE_MAP,
-    SHAPE_TYPE_MAP,
+    get_output_shape_type_stub,
     get_shape_type_stub,
 )
 from mypy_boto3_builder.type_maps.typed_dicts import (
@@ -554,15 +553,15 @@ class ShapeParser:
         if is_streaming and shape.type_name == "blob":
             type_name = "blob_streaming"
 
-        shape_type_stub = get_shape_type_stub(
-            (
-                OUTPUT_SHAPE_TYPE_MAP if is_output_or_child else {},
-                SHAPE_TYPE_MAP,
-            ),
-            self.service_name,
-            self._resource_name,
-            type_name,
-        )
+        if is_output_or_child:
+            shape_type_stub = get_output_shape_type_stub(
+                self.service_name,
+                self._resource_name,
+                type_name,
+            )
+        else:
+            shape_type_stub = get_shape_type_stub(self.service_name, self._resource_name, type_name)
+
         if shape_type_stub:
             return shape_type_stub
 
@@ -684,7 +683,7 @@ class ShapeParser:
         identifier_type = identifier.get("type")
         if identifier_type:
             argument_type_stub = get_shape_type_stub(
-                [SHAPE_TYPE_MAP], self.service_name, resource_name, identifier_type
+                self.service_name, resource_name, identifier_type
             )
             if argument_type_stub:
                 return argument_type_stub

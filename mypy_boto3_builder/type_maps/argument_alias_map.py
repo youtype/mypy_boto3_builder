@@ -8,28 +8,33 @@ Alias map fixes added by botocore for documentation build.
 from collections.abc import Mapping
 from typing import Final
 
-from mypy_boto3_builder.constants import ALL
+from mypy_boto3_builder.constants import ALL, DELETE
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
-ARGUMENT_ALIASES: Final[Mapping[ServiceName, Mapping[str, Mapping[str, str | None]]]] = {
+ARGUMENT_ALIASES: Final[Mapping[ServiceName, Mapping[str, Mapping[str, str]]]] = {
     ServiceNameCatalog.cloudsearchdomain: {"Search": {"return": "returnFields"}},
     ServiceNameCatalog.logs: {"CreateExportTask": {"from": "fromTime"}},
     ServiceNameCatalog.ec2: {ALL: {"Filter": "Filters"}},
     ServiceNameCatalog.s3: {
-        "PutBucketAcl": {"ContentMD5": None},
-        "PutBucketCors": {"ContentMD5": None},
-        "PutBucketLifecycle": {"ContentMD5": None},
-        "PutBucketLogging": {"ContentMD5": None},
-        "PutBucketNotification": {"ContentMD5": None},
-        "PutBucketPolicy": {"ContentMD5": None},
-        "PutBucketReplication": {"ContentMD5": None},
-        "PutBucketRequestPayment": {"ContentMD5": None},
-        "PutBucketTagging": {"ContentMD5": None},
-        "PutBucketVersioning": {"ContentMD5": None},
-        "PutBucketWebsite": {"ContentMD5": None},
-        "PutObjectAcl": {"ContentMD5": None},
+        "PutBucketAcl": {"ContentMD5": DELETE},
+        "PutBucketCors": {"ContentMD5": DELETE},
+        "PutBucketLifecycle": {"ContentMD5": DELETE},
+        "PutBucketLogging": {"ContentMD5": DELETE},
+        "PutBucketNotification": {"ContentMD5": DELETE},
+        "PutBucketPolicy": {"ContentMD5": DELETE},
+        "PutBucketReplication": {"ContentMD5": DELETE},
+        "PutBucketRequestPayment": {"ContentMD5": DELETE},
+        "PutBucketTagging": {"ContentMD5": DELETE},
+        "PutBucketVersioning": {"ContentMD5": DELETE},
+        "PutBucketWebsite": {"ContentMD5": DELETE},
+        "PutObjectAcl": {"ContentMD5": DELETE},
     },
 }
+
+_LOOKUP: LookupDict[str] = LookupDict(
+    {ServiceNameCatalog.to_str(k): v for k, v in ARGUMENT_ALIASES.items()}
+)
 
 
 def get_argument_alias(
@@ -48,24 +53,8 @@ def get_argument_alias(
     Returns:
         Argument alias name or None if argument has to be deleted.
     """
-    checks = (
-        (service_name, operation_name),
-        (service_name, ALL),
-        (ServiceNameCatalog.all, operation_name),
-        (ServiceNameCatalog.all, ALL),
-    )
-    for current_service_name, current_operation_name in checks:
-        if current_service_name not in ARGUMENT_ALIASES:
-            continue
-        service_type_map = ARGUMENT_ALIASES[current_service_name]
+    lookup_argument_name = _LOOKUP.get(service_name.name, operation_name, argument_name)
+    if lookup_argument_name == DELETE:
+        return None
 
-        if current_operation_name not in service_type_map:
-            continue
-        operation_type_map = service_type_map[current_operation_name]
-
-        if argument_name not in operation_type_map:
-            continue
-
-        return operation_type_map[argument_name]
-
-    return argument_name
+    return lookup_argument_name or argument_name

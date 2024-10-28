@@ -20,6 +20,7 @@ from mypy_boto3_builder.type_maps.named_unions import (
     CopySourceOrStrTypeDef,
 )
 from mypy_boto3_builder.type_maps.typed_dicts import CopySourceTypeDef
+from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
 __all__ = ("get_method_type_stub",)
 
@@ -36,6 +37,10 @@ DEFAULT_VALUE_MAP: Final[ServiceTypeMap[TypeConstant]] = {
         }
     },
 }
+
+_DEFAULT_VALUE_MAP_LOOKUP: LookupDict[TypeConstant] = LookupDict(
+    {ServiceNameCatalog.to_str(k): v for k, v in DEFAULT_VALUE_MAP.items()}
+)
 
 TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
     ServiceNameCatalog.s3: {
@@ -96,39 +101,9 @@ TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
     },
 }
 
-
-def _get_from_service_map(
-    service_name: ServiceName,
-    class_name: str,
-    method_name: str,
-    argument_name: str,
-    service_type_map: ServiceTypeMap[_T],
-) -> _T | None:
-    if service_name not in service_type_map:
-        return None
-
-    checks = (
-        (class_name, method_name, argument_name),
-        (class_name, ALL, argument_name),
-        (ALL, method_name, argument_name),
-        (ALL, ALL, argument_name),
-    )
-    class_type_map = service_type_map[service_name]
-
-    for check_class_name, check_method_name, check_argument_name in checks:
-        if check_class_name not in class_type_map:
-            continue
-
-        method_type_map = class_type_map[check_class_name]
-
-        if check_method_name not in method_type_map:
-            continue
-
-        operation_type_map = method_type_map[check_method_name]
-        if check_argument_name in operation_type_map:
-            return operation_type_map[check_argument_name]
-
-    return None
+_TYPE_MAP_LOOKUP: LookupDict[FakeAnnotation] = LookupDict(
+    {ServiceNameCatalog.to_str(k): v for k, v in TYPE_MAP.items()}
+)
 
 
 def get_method_type_stub(
@@ -149,7 +124,7 @@ def get_method_type_stub(
     Returns:
         Type annotation or None.
     """
-    return _get_from_service_map(service_name, class_name, method_name, argument_name, TYPE_MAP)
+    return _TYPE_MAP_LOOKUP.get(service_name.name, class_name, method_name, argument_name)
 
 
 def get_default_value_stub(
@@ -167,6 +142,4 @@ def get_default_value_stub(
     Returns:
         TypeConstant or None.
     """
-    return _get_from_service_map(
-        service_name, class_name, method_name, argument_name, DEFAULT_VALUE_MAP
-    )
+    return _DEFAULT_VALUE_MAP_LOOKUP.get(service_name.name, class_name, method_name, argument_name)
