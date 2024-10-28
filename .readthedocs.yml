@@ -19,5 +19,5 @@ mkdocs:
 formats: all
 
 python:
-   install:
-   - requirements: requirements.mkdocs.txt
+  install:
+    - requirements: requirements.mkdocs.txt

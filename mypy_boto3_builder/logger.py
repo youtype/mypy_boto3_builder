@@ -9,7 +9,7 @@ from mypy_boto3_builder.constants import LOGGER_NAME
 __all__ = ("get_logger",)
 
 
-def get_logger(level: int | None = None) -> logging.Logger:
+def get_logger(level: int | None = None, name: str = LOGGER_NAME) -> logging.Logger:
     """
     Get Logger instance.
 
@@ -19,7 +19,7 @@ def get_logger(level: int | None = None) -> logging.Logger:
     Returns:
         Overriden Logger.
     """
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = logging.getLogger(name)
     if not logger.handlers:
         stream_handler = logging.StreamHandler()
         formatter = logging.Formatter(

@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Sequence, Tuple
 from unittest.mock import patch
 
+from mypy_boto3_builder.logger import get_logger
 from requests.exceptions import ConnectionError as RequestsConnectionError
 from requests.exceptions import HTTPError
 from twine.commands.upload import upload
@@ -36,25 +37,9 @@ MASTER_PACKAGES = [
 ]
 LOGGER_NAME = "release"
 
-
-def setup_logging(level: int) -> logging.Logger:
-    """
-    Get Logger instance.
-
-    Returns:
-        Overriden Logger.
-    """
-    logging.getLogger("twine").disabled = True
-    logging.getLogger("twine.commands.upload").disabled = True
-
-    logger = logging.getLogger(LOGGER_NAME)
-    stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S")
-    stream_handler.setFormatter(formatter)
-    stream_handler.setLevel(level)
-    logger.addHandler(stream_handler)
-    logger.setLevel(level)
-    return logger
+logging.getLogger("twine").disabled = True
+logging.getLogger("twine.commands.upload").disabled = True
+logger = get_logger(logging.DEBUG, LOGGER_NAME)
 
 
 @dataclass
@@ -112,7 +97,6 @@ def check_call(cmd: Sequence[str], print_error: bool = True) -> str:
         return subprocess.check_output(cmd, stderr=subprocess.STDOUT, encoding="utf-8")
     except subprocess.CalledProcessError as e:
         if print_error:
-            logger = logging.getLogger(LOGGER_NAME)
             for line in e.output.splitlines():
                 logger.warning(line)
         raise
@@ -153,7 +137,6 @@ def build(path: Path, max_retries: int = 10) -> Path:
     """
     Build package.
     """
-    logger = logging.getLogger(LOGGER_NAME)
     attempt = 1
     last_error = Exception("Unknown error")
     while attempt <= max_retries:
@@ -185,7 +168,6 @@ def publish(path: Path, max_retries: int = 10) -> Path:
     attempt = 1
     dist_path = path / "dist"
     packages = [i.as_posix() for i in dist_path.glob("*")]
-    logger = logging.getLogger(LOGGER_NAME)
     last_error = Exception("Unknown error")
     while attempt <= max_retries:
         try:
@@ -264,8 +246,6 @@ def main() -> None:
     Run main logic.
     """
     args = parse_args()
-    setup_logging(logging.DEBUG)
-    logger = logging.getLogger(LOGGER_NAME)
     paths = [i for i in args.path.absolute().iterdir() if i.is_dir()]
     paths.sort(key=lambda x: x.name)
     if args.filter:

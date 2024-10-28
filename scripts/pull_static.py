@@ -9,31 +9,11 @@ import tempfile
 from pathlib import Path
 
 from mypy_boto3_builder.constants import StaticStubsPath, StaticStubsPullURL
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.path import print_path
 
-
-def setup_logging(level: int) -> logging.Logger:
-    """
-    Get Logger instance.
-
-    Arguments:
-        level -- Log level
-
-    Returns:
-        Overriden Logger.
-    """
-    logger = logging.getLogger(Path(__file__).stem)
-    stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S")
-    stream_handler.setFormatter(formatter)
-    stream_handler.setLevel(level)
-    logger.addHandler(stream_handler)
-    logger.setLevel(level)
-    return logger
-
-
-logger = setup_logging(logging.DEBUG)
+logger = get_logger(logging.DEBUG, Path(__file__).stem)
 
 
 def pull_static(url: str, output_path: Path, temp_path: Path) -> None:
