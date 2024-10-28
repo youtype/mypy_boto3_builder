@@ -44,6 +44,7 @@ SUPPORTED_PY_VERSIONS: Final = {
     (3, 11),
     (3, 12),
     (3, 13),
+    (3, 14),
 }
 
 # default timeout for HTTP requests
