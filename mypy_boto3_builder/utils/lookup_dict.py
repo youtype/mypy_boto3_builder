@@ -51,11 +51,11 @@ class LookupDict(Generic[_V]):
         result: dict[tuple[str, ...], _V] = {}
         for key, value in hash_map.items():
             if isinstance(value, Mapping):
-                value = cast(Mapping[str, _T], value)
+                value = cast(Mapping[str, _T], value)  # type: ignore
                 result.update(self._generate_lookup(value, (*keys, key)))
             else:
-                value = cast(_V, value)
-                result[(*keys, key)] = value
+                value_v = cast(_V, value)  # type: ignore
+                result[(*keys, key)] = value_v
         return result
 
     def _iterate_lookup_keys(self, keys: tuple[str, ...]) -> Iterator[tuple[str, ...]]:
