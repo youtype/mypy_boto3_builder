@@ -60,6 +60,7 @@ class TestTypeTypedDict:
                 TypedDictAttribute("Type", Type.str, False),
             ],
         )
+        typed_dict.is_safe_as_class = False
         assert (
             typed_dict.render_definition()
             == 'MyDict = TypedDict("MyDict", {"required": str, "Type": NotRequired[str], })'
@@ -175,6 +176,7 @@ class TestTypeTypedDict:
                 TypedDictAttribute("required", Type.str, True),
             ],
         )
+        typed_dict.is_safe_as_class = False
         typed_dict.add_attribute("self_one", typed_dict, True)
         typed_dict.add_attribute("Type", typed_dict, False)
         assert typed_dict.replace_self_references(Type.DictStrAny)

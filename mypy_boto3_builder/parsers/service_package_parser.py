@@ -20,6 +20,8 @@ from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_maps.typed_dicts import CloudwatchEventTypeDef
+from mypy_boto3_builder.utils.strings import RESERVED_NAMES, is_reserved
+from mypy_boto3_builder.utils.type_checks import is_typed_dict
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
@@ -84,6 +86,30 @@ class ServicePackageParser:
         result.validate()
 
         return result
+
+    @staticmethod
+    def mark_unsafe_typed_dicts(service_package: ServicePackage) -> None:
+        """
+        Mark TypedDicts that can't be rendered as classes safely.
+
+        TypedDict cannot be rendered as class if its name or any attribute is a reserver word,
+        or if any argument is names as another TypeDef.
+        """
+        unsafe_keys = {
+            *RESERVED_NAMES,
+            *(type_def.name for type_def in service_package.type_defs),
+            *(literal.name for literal in service_package.literals),
+        }
+        for type_def in service_package.type_defs:
+            if not is_typed_dict(type_def):
+                continue
+            type_def.is_safe_as_class = True
+            if is_reserved(type_def.name):
+                type_def.is_safe_as_class = False
+                continue
+            if any(attribute.name in unsafe_keys for attribute in type_def.children):
+                type_def.is_safe_as_class = False
+                continue
 
     def _parse_service_package(self) -> ServicePackage:
         client = parse_client(self.session, self.service_name, self.shape_parser)

@@ -17,7 +17,6 @@ from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
-from mypy_boto3_builder.utils.strings import is_reserved
 
 
 class TypedDictAttribute:
@@ -109,6 +108,7 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         self.children = list(children)
         self.docstring = docstring
         self._stringify = stringify
+        self.is_safe_as_class = True
 
     def is_stringified(self) -> bool:
         """
@@ -146,20 +146,13 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
 
         return self.name
 
-    def _is_safe_as_class(self) -> bool:
-        """
-        Whether type annotation can be safely rendered as a class.
-        """
-        names = (self.name, *(child.name for child in self.children))
-        return not any(is_reserved(name) for name in names)
-
     def render_definition(self) -> str:
         """
         Render type annotation definition.
         """
         template = (
             Path("common/typed_dict_class.py.jinja2")
-            if self._is_safe_as_class()
+            if self.is_safe_as_class
             else Path("common/typed_dict.py.jinja2")
         )
         return render_jinja2_template(template, {"type_def": self})
