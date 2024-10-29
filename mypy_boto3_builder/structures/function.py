@@ -163,13 +163,13 @@ class Function:
             result.append(self.return_type)
         return result
 
-    def copy(self: Self) -> Self:
+    def copy(self) -> Self:
         """
         Deep copy function.
         """
         return copy.copy(self)
 
-    def __copy__(self: Self) -> Self:
+    def __copy__(self) -> Self:
         """
         Deep copy function.
         """

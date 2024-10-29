@@ -84,13 +84,13 @@ class Argument:
         """
         return self.default is None
 
-    def copy(self: Self) -> Self:
+    def copy(self) -> Self:
         """
         Deep copy argument.
         """
         return copy.copy(self)
 
-    def __copy__(self: Self) -> Self:
+    def __copy__(self) -> Self:
         """
         Deep copy argument.
         """

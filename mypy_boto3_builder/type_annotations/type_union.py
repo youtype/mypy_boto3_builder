@@ -73,7 +73,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return bool(self.name)
 
-    def __copy__(self: Self) -> Self:
+    def __copy__(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

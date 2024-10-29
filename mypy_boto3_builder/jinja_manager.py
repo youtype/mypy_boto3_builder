@@ -27,7 +27,7 @@ class JinjaManager:
     _singleton: Self | None = None
 
     def __init__(self) -> None:
-        self._environment.filters["escape_md"] = self.escape_md  # type: ignore
+        self._environment.filters["escape_md"] = self.escape_md
         self._template_cache: dict[Path, Template] = {}
 
     @classmethod
@@ -47,7 +47,7 @@ class JinjaManager:
         Arguments:
             kwargs -- Globals to set.
         """
-        cls._environment.globals.update(kwargs)  # type: ignore
+        cls._environment.globals.update(kwargs)
 
     @staticmethod
     def escape_md(value: str) -> str:

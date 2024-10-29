@@ -219,7 +219,7 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         """
         return tuple(child for child in self.children if not child.is_required())
 
-    def __copy__(self: Self) -> Self:
+    def __copy__(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
