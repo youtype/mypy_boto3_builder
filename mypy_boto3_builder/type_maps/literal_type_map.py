@@ -9,6 +9,9 @@ from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
+# Mapping overriding literal types for botocore literals.
+# ServiceName -> Literal name -> Literal children
+# Missing value is parsed from botocore shapes.
 LITERAL_TYPE_MAP: Final[Mapping[ServiceName, Mapping[str, set[str]]]] = {
     # FIXME: https://github.com/boto/botocore/issues/3128
     ServiceNameCatalog.ec2: {"PlatformValuesType": {"windows"}}

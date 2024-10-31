@@ -28,6 +28,9 @@ _T = TypeVar("_T", bound=FakeAnnotation)
 ServiceTypeMap = Mapping[ServiceName, Mapping[str, Mapping[str, Mapping[str, _T]]]]
 
 
+# Mapping representing default values for botocore methods.
+# ServiceName -> TypedDict name -> Argument name -> default value
+# Missing value is set to Ellipsis.
 DEFAULT_VALUE_MAP: Final[ServiceTypeMap[TypeConstant]] = {
     ServiceNameCatalog.glacier: {
         CLIENT: {
@@ -42,6 +45,9 @@ _DEFAULT_VALUE_MAP_LOOKUP: LookupDict[TypeConstant] = LookupDict(
     {ServiceNameCatalog.to_str(k): v for k, v in DEFAULT_VALUE_MAP.items()}
 )
 
+# Mapping overriding type annotations for botocore method arguments.
+# ServiceName -> TypedDict name -> Argument name -> type annotation
+# Missing value is parsed from botocore shapes.
 TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
     ServiceNameCatalog.s3: {
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.

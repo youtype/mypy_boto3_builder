@@ -14,6 +14,8 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.utils.lookup_dict import LookupDict
 from mypy_boto3_builder.utils.type_checks import get_optional
 
+# Mapping to override aio resource methods.
+# ServiceName -> Resource name -> Method name -> Method
 AIO_RESOURCE_METHOD_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, Method]]]] = {
     ServiceNameCatalog.dynamodb: {
         "Table": {

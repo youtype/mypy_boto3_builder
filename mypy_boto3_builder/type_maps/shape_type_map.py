@@ -23,6 +23,9 @@ from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
 ShapeTypeMap = Mapping[ServiceName, Mapping[str, Mapping[str, FakeAnnotation]]]
 
+# Mapping overriding TypeDefs for botocore shapes.
+# ServiceName -> TypedDict name -> Shape name -> Type annotation
+# Missing value is parsed from botocore shapes.
 SHAPE_TYPE_MAP: Final[ShapeTypeMap] = {
     ServiceNameCatalog.all: {
         ALL: {

@@ -12,6 +12,9 @@ from mypy_boto3_builder.constants import ALL, DELETE
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
+# Mapping to rename for botocore method arguments.
+# ServiceName -> Operation name -> Argument name -> alias name
+# DELETE means that argument has to be deleted.
 ARGUMENT_ALIASES: Final[Mapping[ServiceName, Mapping[str, Mapping[str, str]]]] = {
     ServiceNameCatalog.cloudsearchdomain: {"Search": {"return": "returnFields"}},
     ServiceNameCatalog.logs: {"CreateExportTask": {"from": "fromTime"}},
