@@ -91,7 +91,7 @@ class ResourceCreatorContext:
     async def __aenter__(self) -> AIOBoto3ServiceResource: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[Exception]],
-        exc: Optional[Exception],
+        exc_type: Optional[Type[BaseException]],
+        exc: Optional[BaseException],
         tb: Optional[TracebackType],
     ) -> None: ...

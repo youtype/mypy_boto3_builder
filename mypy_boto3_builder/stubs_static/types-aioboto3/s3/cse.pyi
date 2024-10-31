@@ -99,8 +99,8 @@ class S3CSE:
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[Exception]],
-        exc_val: Optional[Exception],
+        exc_type: Optional[Type[BaseException]],
+        exc_val: Optional[BaseException],
         tb: Optional[TracebackType],
     ) -> None: ...
     async def get_object(self, Bucket: str, Key: str, **kwargs: Any) -> Dict[str, Any]: ...
