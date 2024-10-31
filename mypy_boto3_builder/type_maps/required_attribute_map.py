@@ -9,6 +9,11 @@ from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
+# Mapping reresenting Required/NotRequired keys of output botocore shapes.
+# ServiceName -> TypedDict name -> Argument name -> is_required (True/False)
+# False means that argument should be marked as NotRequired.
+# True means that argument should be marked as Required.
+# None or missing value means that argument should be marked as is_required by default.
 REQUIRED_ATTRIBUTE_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, bool]]]] = {
     ServiceNameCatalog.all: {
         ALL: {
@@ -17,6 +22,11 @@ REQUIRED_ATTRIBUTE_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, boo
             "Contents": False,
             "Item": False,
             "CommonPrefixes": False,
+        }
+    },
+    ServiceNameCatalog.dynamodb: {
+        ALL: {
+            "LastEvaluatedKey": False,
         }
     },
     ServiceNameCatalog.stepfunctions: {
