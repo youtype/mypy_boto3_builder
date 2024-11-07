@@ -88,8 +88,10 @@ class RuffFormatter:
                 stderr=subprocess.STDOUT,
             )
         except subprocess.CalledProcessError as e:
-            for path in paths:
-                self.logger.warning(f"Sorting imports failed for path {print_path(path)}")
+            self.logger.warning(
+                f"Sorting imports failed for paths {[print_path(path) for path in paths]}"
+            )
+            self.logger.warning(e.output.decode())
             raise RuffError(f"Sorting imports failed with status {e.returncode}") from None
 
     def format_code(self, paths: Sequence[Path]) -> None:
