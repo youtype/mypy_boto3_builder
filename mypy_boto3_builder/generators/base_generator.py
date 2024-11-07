@@ -147,7 +147,7 @@ class BaseGenerator(ABC):
             service_package = self._parse_service_package(
                 service_name, package.version, package.data
             )
-            ServicePackageParser.mark_unsafe_typed_dicts(service_package)
+            ServicePackageParser.mark_safe_typed_dicts(service_package)
 
             service_package.pypi_name = package.pypi_name
             service_package.version = package.version
@@ -204,7 +204,7 @@ class BaseGenerator(ABC):
         templates_path: Path,
     ) -> ServicePackage:
         service_package = self._parse_service_package(service_name, version, package_data)
-        ServicePackageParser.mark_unsafe_typed_dicts(service_package)
+        ServicePackageParser.mark_safe_typed_dicts(service_package)
 
         self.logger.debug(f"Writing {service_name.boto3_name}")
         self.package_writer.write_service_package(

@@ -88,9 +88,9 @@ class ServicePackageParser:
         return result
 
     @staticmethod
-    def mark_unsafe_typed_dicts(service_package: ServicePackage) -> None:
+    def mark_safe_typed_dicts(service_package: ServicePackage) -> None:
         """
-        Mark TypedDicts that can't be rendered as classes safely.
+        Mark TypedDicts that can be rendered as classes safely.
 
         TypedDict cannot be rendered as class if its name or any attribute is a reserver word,
         or if any argument is names as another TypeDef.
