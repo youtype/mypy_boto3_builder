@@ -39,7 +39,7 @@ jobs:
           VERSION: ${{ steps.version.outputs.result }}
         run: |
           echo "Bumping version to ${VERSION}"
-          sed -i 's/^version = ".*"$/version = "'$VERSION'"/' pyproject.toml
+          uvx newversion -psi ${VERSION}
           uv pip install .
       - name: Set up git
         run: |
