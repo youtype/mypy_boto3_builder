@@ -44,7 +44,9 @@ jobs:
         with:
           python-version-file: .python-version
       - name: Set up uv
-        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
       - name: Install the project
         run: uv sync --dev
       - name: Install handsdown
