@@ -41,7 +41,7 @@ jobs:
           VERSION: ${{ steps.version.outputs.result }}
         run: |
           echo "Bumping version to ${VERSION}"
-          uvx newversion -psi ${VERSION}
+          uvx newversion -i ${VERSION} --save
           uv pip install .
       - name: Set up git
         run: |
