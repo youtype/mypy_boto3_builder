@@ -5,7 +5,9 @@ Boto3 ServiceResource or Resource collection.
 from collections.abc import Iterator
 
 from boto3.resources.collection import ResourceCollection
+from botocore import xform_name
 
+from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -39,11 +41,27 @@ class Collection(ClassRecord):
         self.object_class_name = object_class_name
 
     @property
+    def boto3_doc_link_parent(self) -> str:
+        """
+        Link to boto3 docs parent directory.
+        """
+        parent_name_part = (
+            "service-resource" if self.parent_name == SERVICE_RESOURCE else self.parent_name.lower()
+        )
+        return (
+            f"{self.service_name.boto3_doc_link_parent}"
+            f"/{parent_name_part}/{self.attribute_name}.html"
+        )
+
+    @property
     def boto3_doc_link(self) -> str:
         """
         Link to boto3 docs.
         """
-        return self.service_name.get_boto3_doc_link(self.parent_name, self.attribute_name)
+        return (
+            f"{self.boto3_doc_link_parent}"
+            f"#{self.service_name.class_name}.{self.parent_name}.{self.attribute_name}"
+        )
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

@@ -128,13 +128,14 @@ class ServicePackageParser:
 
     def _parse_waiters(self, client: Client) -> list[Waiter]:
         waiters: list[Waiter] = []
-        waiter_names: list[str] = client.boto3_client.waiter_names
-        for waiter_name in waiter_names:
-            self._logger.debug(f"Parsing Waiter {waiter_name}")
-            waiter = client.boto3_client.get_waiter(waiter_name)
+        waiter_attribute_names: list[str] = client.boto3_client.waiter_names
+        for waiter_attribute_name in waiter_attribute_names:
+            self._logger.debug(f"Parsing Waiter {waiter_attribute_name}")
+            waiter = client.boto3_client.get_waiter(waiter_attribute_name)
             waiter_record = Waiter(
                 name=f"{waiter.name}Waiter",
-                waiter_name=waiter_name,
+                waiter_name=waiter.name,
+                attribute_name=waiter_attribute_name,
                 service_name=self.service_name,
             )
 

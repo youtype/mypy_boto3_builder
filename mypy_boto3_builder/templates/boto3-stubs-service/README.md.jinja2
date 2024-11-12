@@ -86,7 +86,7 @@ client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name
 # Explicit type annotations are optional here
 # Types should be correctly discovered by mypy and IDEs
 {% for waiter in package.waiters -%}
-{{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+{{ waiter.attribute_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
 {% endfor -%}
 ```
 {% endif %}

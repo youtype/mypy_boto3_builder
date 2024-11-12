@@ -13,7 +13,7 @@ from unittest.mock import MagicMock
 from botocore import xform_name as botocore_xform_name
 from botocore.utils import get_service_module_name
 
-from mypy_boto3_builder.exceptions import TypeAnnotationError
+from mypy_boto3_builder.exceptions import BuildInternalError, TypeAnnotationError
 
 RESERVED_NAMES: Final = {
     *dir(typing),
@@ -183,4 +183,6 @@ def xform_name(name: str, sep: str = "_") -> str:
         name -- Any string.
         sep -- Separator.
     """
+    if not sep:
+        raise BuildInternalError("Separator is required")
     return botocore_xform_name(name, sep)

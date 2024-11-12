@@ -54,7 +54,7 @@ def get_collection() -> {{ collection.name }}:
 {{ method.short_docstring }}
 
 Type annotations and code completion for `#!python session.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
-[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link('ServiceResource', method.name) }})
+[:material-aws: boto3 documentation]({{ method.boto3_doc_link }})
 
 {% include "common/method_code.md.jinja2" with context -%}
 {% else %}
@@ -116,7 +116,7 @@ def get_collection() -> {{ collection.name }}:
 {{ method.short_docstring }}
 
 Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
-[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link(resource.name, method.name) }})
+[:material-aws: boto3 documentation]({{ method.boto3_doc_link }})
 
 {% include "common/method_code.md.jinja2" with context -%}
 {% endfor %}

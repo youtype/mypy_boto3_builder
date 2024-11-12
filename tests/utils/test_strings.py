@@ -1,6 +1,6 @@
 import pytest
 
-from mypy_boto3_builder.exceptions import TypeAnnotationError
+from mypy_boto3_builder.exceptions import BuildInternalError, TypeAnnotationError
 from mypy_boto3_builder.utils.strings import (
     capitalize,
     get_anchor_link,
@@ -95,3 +95,5 @@ class TestStrings:
         assert xform_name("test") == "test"
         assert xform_name("MyClass") == "my_class"
         assert xform_name("MyClass", "-") == "my-class"
+        with pytest.raises(BuildInternalError):
+            xform_name("MyClass", "")

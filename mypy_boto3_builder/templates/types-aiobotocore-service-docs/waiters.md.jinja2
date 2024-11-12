@@ -7,7 +7,7 @@
 {% for waiter in package.waiters -%}
 ## {{ waiter.name }}
 
-Type annotations and code completion for `#!python session.create_client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")`.
+Type annotations and code completion for `#!python session.create_client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.attribute_name }}")`.
 [:material-aws: boto3 documentation]({{ waiter.boto3_doc_link }})
 
 ```python
@@ -19,7 +19,7 @@ from {{ package.name }}.waiter import {{ waiter.name }}
 
 session = get_session()
 async with session.create_client("{{ service_name.boto3_name }}") as client:  # (1)
-    waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
+    waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")  # (2)
     await waiter.wait()
 ```
 

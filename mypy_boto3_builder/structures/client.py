@@ -85,7 +85,10 @@ class Client(ClassRecord):
         """
         List to boto3 docs page.
         """
-        return self.service_name.get_boto3_doc_link("Client")
+        return (
+            f"{self.service_name.boto3_doc_link_parent}.html"
+            f"#{self.service_name.class_name}.Client"
+        )
 
     def get_all_names(self) -> list[str]:
         """
@@ -106,7 +109,7 @@ class Client(ClassRecord):
         """
         Generate Client exceptions property.
         """
-        return Method(
+        method = Method(
             name="exceptions",
             decorators=[ExternalImport.from_class(property)],
             arguments=[
@@ -120,6 +123,8 @@ class Client(ClassRecord):
             ),
             docstring=f"{self.name} exceptions.",
         )
+        method.set_boto3_doc_link(self.boto3_doc_link)
+        return method
 
     def get_required_import_records(self) -> set[ImportRecord]:
         """

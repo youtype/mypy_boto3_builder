@@ -53,14 +53,15 @@ def parse_fake_service_package(
             boto3_service_resource=boto3_resource,
         )
 
-    waiter_names: list[str] = boto3_client.waiter_names
-    for waiter_name in waiter_names:
-        real_class_name = get_class_prefix(waiter_name)
+    waiter_attribute_names: list[str] = boto3_client.waiter_names
+    for waiter_attribute_name in waiter_attribute_names:
+        real_class_name = get_class_prefix(waiter_attribute_name)
         waiter_class_name = f"{real_class_name}Waiter"
         result.waiters.append(
             Waiter(
-                waiter_class_name,
-                waiter_name=waiter_name,
+                name=waiter_class_name,
+                waiter_name=real_class_name,
+                attribute_name=waiter_attribute_name,
                 service_name=service_name,
             )
         )

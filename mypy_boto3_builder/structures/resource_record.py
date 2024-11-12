@@ -6,6 +6,7 @@ from collections.abc import Iterator
 from typing import TYPE_CHECKING
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
+from botocore import xform_name
 
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -35,7 +36,10 @@ class ResourceRecord(ClassRecord):
         """
         Link to boto3 docs.
         """
-        return self.service_name.get_boto3_doc_link("ServiceResource", self.name)
+        return (
+            f"{self.service_name.boto3_doc_link_parent}/{self.name.lower()}/index.html"
+            f"#{self.service_name.class_name}.{self.name}"
+        )
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

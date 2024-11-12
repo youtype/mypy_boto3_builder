@@ -72,7 +72,11 @@ class Paginator(ClassRecord):
         """
         Link to boto3 docs.
         """
-        return self.service_name.get_boto3_doc_link("Paginator", self.paginator_name)
+        return (
+            f"{self.service_name.boto3_doc_link_parent}"
+            f"/paginator/{self.paginator_name}.html"
+            f"#{self.service_name.class_name}.Paginator.{self.paginator_name}"
+        )
 
     def get_client_method(self) -> Method:
         """

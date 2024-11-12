@@ -14,6 +14,10 @@ class TestServiceName:
             service_name.boto3_doc_link
             == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/my-service.html#MyService"
         )
+        assert (
+            service_name.boto3_doc_link_parent
+            == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/my-service"
+        )
 
     def test_special_name(self) -> None:
         assert ServiceName("lambda", "MyService").import_name == "lambda_"

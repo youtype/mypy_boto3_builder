@@ -24,7 +24,7 @@ class TestServicePackage:
             service_name=service_name,
             client=Client("Client", service_name, Mock()),
             service_resource=ServiceResource("ServiceResource", service_name, Mock()),
-            waiters=[Waiter("waiter", "waiter", service_name)],
+            waiters=[Waiter("waiter", "waiter", "waiter", service_name)],
             paginators=[Paginator("Paginator", "Paginator", "paginate", service_name)],
             type_defs=[TypeTypedDict("MyTypedDict", [])],
             literals=[TypeLiteral("MyLiteral", ["value"])],

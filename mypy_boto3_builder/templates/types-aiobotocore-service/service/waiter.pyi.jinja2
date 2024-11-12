@@ -21,7 +21,7 @@ Usage::
 
 {% for waiter in package.waiters -%}
     {{ "        " -}}
-    {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+    {{ waiter.attribute_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
 {% endfor -%}
     {{ '    ' -}}```
 """

@@ -44,17 +44,21 @@ def parse_collection(
     )
     self_type = InternalImport(collection_record.name, stringify=True)
 
-    collection_record.methods.append(
-        Method(
-            name="all",
-            arguments=(Argument.self(),),
-            return_type=self_type,
-            docstring=(
-                "Get all items from the collection, optionally"
-                " with a custom page size and item count limit."
-            ),
-        )
+    all_method = Method(
+        name="all",
+        arguments=(Argument.self(),),
+        return_type=self_type,
+        docstring=(
+            "Get all items from the collection, optionally"
+            " with a custom page size and item count limit."
+        ),
     )
+    # FIXME: other ciollection methods use different anchor format. This will probably change.
+    all_method.set_boto3_doc_link(
+        f"{collection_record.boto3_doc_link_parent}#{service_name.class_name}.{collection_record.parent_name}.all"
+    )
+
+    collection_record.methods.append(all_method)
     filter_method = shape_parser.get_collection_filter_method(
         collection_record.name, collection, self_type
     )

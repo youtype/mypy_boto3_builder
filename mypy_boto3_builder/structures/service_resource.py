@@ -85,7 +85,7 @@ class ServiceResource(ClassRecord):
         """
         Link to boto3 docs.
         """
-        return self.service_name.get_boto3_doc_link("ServiceResource")
+        return f"{self.service_name.boto3_doc_link_parent}/service-resource/index.html"
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

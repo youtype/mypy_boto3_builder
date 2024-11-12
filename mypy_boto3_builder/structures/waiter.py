@@ -29,6 +29,7 @@ class Waiter(ClassRecord):
         self,
         name: str,
         waiter_name: str,
+        attribute_name: str,
         service_name: ServiceName,
     ) -> None:
         super().__init__(
@@ -36,6 +37,7 @@ class Waiter(ClassRecord):
             bases=[ExternalImport.from_class(BotocoreWaiter)],
         )
         self.waiter_name = waiter_name
+        self.attribute_name = attribute_name
         self.service_name = service_name
 
     def __hash__(self) -> int:
@@ -70,7 +72,11 @@ class Waiter(ClassRecord):
         """
         Link to waiter boto3 docs.
         """
-        return self.service_name.get_boto3_doc_link("Waiter", self.name.replace("Waiter", ""))
+        return (
+            f"{self.service_name.boto3_doc_link_parent}"
+            f"/waiter/{self.waiter_name}.html"
+            f"#{self.service_name.class_name}.Waiter.{self.waiter_name}"
+        )
 
     def get_client_method(self) -> Method:
         """
@@ -82,7 +88,7 @@ class Waiter(ClassRecord):
             docstring=self.docstring,
             arguments=(
                 Argument.self(),
-                Argument("waiter_name", TypeLiteral(f"{self.name}Name", [self.waiter_name])),
+                Argument("waiter_name", TypeLiteral(f"{self.name}Name", [self.attribute_name])),
             ),
             return_type=ExternalImport(
                 source=ImportString("", ServiceModuleName.waiter.value),

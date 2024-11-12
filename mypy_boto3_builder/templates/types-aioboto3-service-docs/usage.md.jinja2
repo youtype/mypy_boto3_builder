@@ -64,7 +64,7 @@ from {{ package.library_name }}.session import Session
 session = Session()
 
 async with session.client("{{ package.service_name.boto3_name }}") as client:  # (1)
-    waiter = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
+    waiter = client.get_waiter("{{ waiter.attribute_name }}")  # (2)
     await waiter.wait()
 ```
 
@@ -144,7 +144,7 @@ from {{ package.name }}.waiter import {{ waiter.name }}
 session = Session()
 
 async with session.client("{{ package.service_name.boto3_name }}") as client:  # (1)
-    waiter = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
+    waiter = client.get_waiter("{{ waiter.attribute_name }}")  # (2)
     await waiter.wait()
 ```
 

@@ -1,3 +1,6 @@
+import pytest
+
+from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.structures.argument import Argument
@@ -34,6 +37,15 @@ class TestFunction:
 
         self.function.docstring = ""
         assert not self.function.short_docstring
+
+    def test_set_boto3_doc_link(self) -> None:
+        with pytest.raises(BuildInternalError):
+            _link = self.function.boto3_doc_link
+
+        assert not self.function.has_boto3_doc_link()
+        self.function.set_boto3_doc_link("link")
+        assert self.function.boto3_doc_link == "link"
+        assert self.function.has_boto3_doc_link()
 
     def test_short_docstring(self) -> None:
         self.function.docstring = "docstring\n\nlong"

@@ -6,6 +6,7 @@ import copy
 from collections.abc import Iterable, Iterator
 from typing import Self
 
+from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -39,6 +40,28 @@ class Function:
         self.type_ignore = type_ignore
         self.request_type_annotation: TypeTypedDict | None = None
         self.is_async = is_async
+        self._boto3_doc_link = ""
+
+    @property
+    def boto3_doc_link(self) -> str:
+        """
+        Link to boto3 docs.
+        """
+        if not self._boto3_doc_link:
+            raise BuildInternalError(f"{self.name} has no boto3_doc_link")
+        return self._boto3_doc_link
+
+    def set_boto3_doc_link(self, link: str) -> None:
+        """
+        Set link to boto3 docs.
+        """
+        self._boto3_doc_link = link
+
+    def has_boto3_doc_link(self) -> bool:
+        """
+        Whether boto3_doc_link is set.
+        """
+        return bool(self._boto3_doc_link)
 
     def __repr__(self) -> str:
         """

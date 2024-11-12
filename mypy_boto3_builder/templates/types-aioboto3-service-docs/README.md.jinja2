@@ -62,8 +62,8 @@ from `#!python session.client("{{ package.service_name.boto3_name }}").get_waite
 
 from {{ package.name }}.waiter import {{ package.waiters[0].name }}
 
-def get_{{ package.waiters[0].waiter_name }}_waiter() -> {{ package.waiters[0].name }}:
-    return Session().client("{{ service_name.boto3_name }}").get_waiter("{{ package.waiters[0].waiter_name }}")
+def get_{{ package.waiters[0].attribute_name }}_waiter() -> {{ package.waiters[0].name }}:
+    return Session().client("{{ service_name.boto3_name }}").get_waiter("{{ package.waiters[0].attribute_name }}")
 ```
 
 {% for waiter in package.waiters -%}

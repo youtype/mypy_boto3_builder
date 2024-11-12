@@ -92,7 +92,7 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:
     # Explicit type annotations are optional here
     # Types should be correctly discovered by mypy and IDEs
     {%- for waiter in package.waiters -%}
-    {{ '\n    ' -}}{{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+    {{ '\n    ' -}}{{ waiter.attribute_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
     {%- endfor -%}
 {{ '\n' }}```
 {% endif %}

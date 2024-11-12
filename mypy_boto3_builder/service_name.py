@@ -114,14 +114,15 @@ class ServiceName:
             f"latest/reference/services/{self.boto3_name}.html#{self.class_name}"
         )
 
-    def get_boto3_doc_link(self, *parts: str) -> str:
+    @property
+    def boto3_doc_link_parent(self) -> str:
         """
-        Get link to boto3 docs with anchor.
-
-        Arguments:
-            parts -- Anchor parts
+        Link to boto3 docs parent directory.
         """
-        return ".".join([self.boto3_doc_link, *parts])
+        return (
+            "https://boto3.amazonaws.com/v1/documentation/api/"
+            f"latest/reference/services/{self.boto3_name}"
+        )
 
     @staticmethod
     def get_md_doc_link(

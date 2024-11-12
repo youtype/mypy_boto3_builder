@@ -21,7 +21,7 @@ class TestPaginator:
     def test_boto3_doc_link(self) -> None:
         assert (
             self.paginator.boto3_doc_link
-            == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.paginator_name"
+            == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/paginator/paginator_name.html#S3.Paginator.paginator_name"
         )
 
     def test_get_client_method(self) -> None:

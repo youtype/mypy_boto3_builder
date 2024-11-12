@@ -60,7 +60,7 @@ def handle_error(exc: {{ package.client.exceptions_class.name }}.{{ package.clie
 {{ method.short_docstring }}
 
 Type annotations and code completion for `#!python session.client("{{ service_name.boto3_name }}").{{ method.name }}` method.
-[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link("Client", method.name) }})
+[:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
 {% include "common/method_code.md.jinja2" with context -%}
 
@@ -84,6 +84,6 @@ Type annotations and code completion for `#!python session.client("{{ service_na
 Type annotations and code completion for `#!python session.client("{{ service_name.boto3_name }}").get_waiter` method with overloads.
 
 {% for waiter in package.waiters -%}
-- `client.get_waiter("{{ waiter.waiter_name }}")` -> [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+- `client.get_waiter("{{ waiter.attribute_name }}")` -> [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
