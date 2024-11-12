@@ -4,14 +4,13 @@ Base class for all structures that can be rendered to a class.
 
 from collections.abc import Iterable, Iterator
 
-from botocore import xform_name
-
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.utils.strings import xform_name
 
 
 class ClassRecord:

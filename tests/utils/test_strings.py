@@ -10,6 +10,7 @@ from mypy_boto3_builder.utils.strings import (
     get_type_def_name,
     is_reserved,
     textwrap,
+    xform_name,
 )
 
 
@@ -89,3 +90,8 @@ class TestStrings:
         assert capitalize("test caps") == "Test caps"
         assert capitalize("test Caps") == "Test Caps"
         assert capitalize("TEST") == "TEST"
+
+    def test_xform_name(self) -> None:
+        assert xform_name("test") == "test"
+        assert xform_name("MyClass") == "my_class"
+        assert xform_name("MyClass", "-") == "my-class"

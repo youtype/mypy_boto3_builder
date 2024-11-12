@@ -3,7 +3,6 @@ Fake parser that produces `structures.ServiceModule` for master module and stubs
 """
 
 from boto3.session import Session
-from botocore import xform_name
 
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
@@ -14,7 +13,7 @@ from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_client, get_boto3_resource
-from mypy_boto3_builder.utils.strings import get_class_prefix
+from mypy_boto3_builder.utils.strings import get_class_prefix, xform_name
 
 
 def parse_fake_service_package(

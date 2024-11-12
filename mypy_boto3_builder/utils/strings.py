@@ -10,6 +10,7 @@ from types import MappingProxyType
 from typing import Final
 from unittest.mock import MagicMock
 
+from botocore import xform_name as botocore_xform_name
 from botocore.utils import get_service_module_name
 
 from mypy_boto3_builder.exceptions import TypeAnnotationError
@@ -172,3 +173,14 @@ def capitalize(s: str) -> str:
     Capitalize first letter of a string.
     """
     return f"{s[:1].upper()}{s[1:]}"
+
+
+def xform_name(name: str, sep: str = "_") -> str:
+    """
+    Convert name to snake_case.
+
+    Arguments:
+        name -- Any string.
+        sep -- Separator.
+    """
+    return botocore_xform_name(name, sep)

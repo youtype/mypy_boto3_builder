@@ -8,7 +8,6 @@ from typing import TYPE_CHECKING
 
 from boto3.resources.model import Collection
 from boto3.session import Session
-from botocore import xform_name
 from botocore.eventstream import EventStream
 from botocore.exceptions import UnknownServiceError
 from botocore.model import (
@@ -70,7 +69,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     WaiterConfigTypeDef,
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
-from mypy_boto3_builder.utils.strings import capitalize, get_type_def_name
+from mypy_boto3_builder.utils.strings import capitalize, get_type_def_name, xform_name
 
 if TYPE_CHECKING:
     from botocore.session import Session as BotocoreSession

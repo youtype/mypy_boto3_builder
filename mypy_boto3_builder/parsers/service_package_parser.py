@@ -5,7 +5,6 @@ Parser that produces `structures.ServicePackage`.
 from collections.abc import Iterable
 
 from boto3.session import Session
-from botocore import xform_name
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
@@ -20,7 +19,7 @@ from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_maps.typed_dicts import CloudwatchEventTypeDef
-from mypy_boto3_builder.utils.strings import RESERVED_NAMES, is_reserved
+from mypy_boto3_builder.utils.strings import RESERVED_NAMES, is_reserved, xform_name
 from mypy_boto3_builder.utils.type_checks import is_typed_dict
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
