@@ -53,7 +53,7 @@ def parse_collection(
             " with a custom page size and item count limit."
         ),
     )
-    # FIXME: other ciollection methods use different anchor format. This will probably change.
+    # FIXME: other collection methods use different anchor format. This will probably change.
     all_method.set_boto3_doc_link(
         f"{collection_record.boto3_doc_link_parent}#{service_name.class_name}.{collection_record.parent_name}.all"
     )

@@ -17,9 +17,9 @@ class TestResource:
         assert self.resource.service_name == ServiceNameCatalog.s3
 
     def test_boto3_doc_link(self) -> None:
-        assert (
-            self.resource.boto3_doc_link
-            == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/Name/index.html#S3.Name"
+        assert self.resource.boto3_doc_link == (
+            "https://boto3.amazonaws.com/v1/documentation/api/latest/reference"
+            "/services/s3/name/index.html#S3.Name"
         )
 
     def test_iterate_types(self) -> None:

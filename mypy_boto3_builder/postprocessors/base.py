@@ -16,7 +16,7 @@ from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource, get_region_name_literal
-from mypy_boto3_builder.utils.strings import xform_name
+from mypy_boto3_builder.utils.strings import textwrap
 
 
 class BasePostprocessor(ABC):
@@ -59,59 +59,42 @@ class BasePostprocessor(ABC):
         """
 
     def _generate_docstrings_client(self) -> None:
-        boto3_doc_link = self.package.client.boto3_doc_link
-        local_doc_link = self.package.get_doc_link("client")
         client = self.package.client
-        client.docstring = (
-            f"[Show boto3 documentation]({boto3_doc_link})\n"
-            f"[Show {self.docs_package_name} documentation]({local_doc_link})"
-        )
+        local_doc_link = self.package.get_doc_link("client")
+        client.docstring = self._construct_docstring("", client.boto3_doc_link, local_doc_link)
         for method in client.methods:
-            docstring = f"{method.docstring}\n\n" if method.docstring else ""
             boto3_doc_link = (
                 f"{self.package.service_name.boto3_doc_link_parent}/client/{method.name}.html"
             )
             if not method.has_boto3_doc_link():
                 method.set_boto3_doc_link(boto3_doc_link)
             local_doc_link = self.package.get_doc_link("client", method.name)
-            method.docstring = (
-                f"{docstring}"
-                f"[Show boto3 documentation]({method.boto3_doc_link})\n"
-                f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+            method.docstring = self._construct_docstring(
+                method.docstring, method.boto3_doc_link, local_doc_link
             )
 
     def _generate_docstrings_paginators(self) -> None:
         for paginator in self.package.paginators:
             local_doc_link = self.package.get_doc_link("paginators", paginator.name)
-            paginator.docstring = (
-                f"[Show boto3 documentation]({paginator.boto3_doc_link})\n"
-                f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+            paginator.docstring = self._construct_docstring(
+                "", paginator.boto3_doc_link, local_doc_link
             )
             for method in paginator.methods:
-                docstring = f"{method.docstring}\n\n" if method.docstring else ""
                 boto3_doc_link = f"{paginator.boto3_doc_link}.{method.name}"
                 method.set_boto3_doc_link(boto3_doc_link)
-                method.docstring = (
-                    f"{docstring}"
-                    f"[Show boto3 documentation]({method.boto3_doc_link})\n"
-                    f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+                method.docstring = self._construct_docstring(
+                    method.docstring, method.boto3_doc_link, local_doc_link
                 )
 
     def _generate_docstrings_waiters(self) -> None:
         for waiter in self.package.waiters:
             local_doc_link = self.package.get_doc_link("waiters", waiter.name)
-            waiter.docstring = (
-                f"[Show boto3 documentation]({waiter.boto3_doc_link})\n"
-                f"[Show {self.docs_package_name} documentation]({local_doc_link})"
-            )
+            waiter.docstring = self._construct_docstring("", waiter.boto3_doc_link, local_doc_link)
             for method in waiter.methods:
-                docstring = f"{method.docstring}\n\n" if method.docstring else ""
                 boto3_doc_link = f"{waiter.boto3_doc_link}.{method.name}"
                 method.set_boto3_doc_link(boto3_doc_link)
-                method.docstring = (
-                    f"{docstring}"
-                    f"[Show boto3 documentation]({method.boto3_doc_link})\n"
-                    f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+                method.docstring = self._construct_docstring(
+                    method.docstring, method.boto3_doc_link, local_doc_link
                 )
 
     def _generate_docstrings_service_resource(self) -> None:
@@ -120,12 +103,10 @@ class BasePostprocessor(ABC):
 
         service_resource = self.package.service_resource
         local_doc_link = self.package.get_doc_link("service_resource")
-        service_resource.docstring = (
-            f"[Show boto3 documentation]({service_resource.boto3_doc_link})\n"
-            f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+        service_resource.docstring = self._construct_docstring(
+            "", service_resource.boto3_doc_link, local_doc_link
         )
         for method in service_resource.methods:
-            docstring = f"{method.docstring}\n\n" if method.docstring else ""
             boto3_doc_link = (
                 f"{service_resource.service_name.boto3_doc_link_parent}"
                 f"/service-resource/{method.name}.html"
@@ -134,10 +115,8 @@ class BasePostprocessor(ABC):
             local_doc_link = self.package.get_doc_link(
                 "service_resource", service_resource.name, f"{method.name} method"
             )
-            method.docstring = (
-                f"{docstring}"
-                f"[Show boto3 documentation]({method.boto3_doc_link})\n"
-                f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+            method.docstring = self._construct_docstring(
+                method.docstring, method.boto3_doc_link, local_doc_link
             )
 
     def _generate_docstrings_collections(self) -> None:
@@ -146,19 +125,15 @@ class BasePostprocessor(ABC):
 
         for collection in self.package.service_resource.collections:
             local_doc_link = self.package.get_doc_link("service_resource", collection.name)
-            collection.docstring = (
-                f"[Show boto3 documentation]({collection.boto3_doc_link})\n"
-                f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+            collection.docstring = self._construct_docstring(
+                "", collection.boto3_doc_link, local_doc_link
             )
             for method in collection.methods:
-                docstring = f"{method.docstring}\n\n" if method.docstring else ""
                 # FIXME: potentially links will be changed to the same as paginators/waiters use
                 if not method.has_boto3_doc_link():
                     method.set_boto3_doc_link(f"{collection.boto3_doc_link_parent}#{method.name}")
-                method.docstring = (
-                    f"{docstring}"
-                    f"[Show boto3 documentation]({method.boto3_doc_link})\n"
-                    f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+                method.docstring = self._construct_docstring(
+                    method.docstring, method.boto3_doc_link, local_doc_link
                 )
 
     def _generate_docstrings_sub_resources(self) -> None:
@@ -167,12 +142,10 @@ class BasePostprocessor(ABC):
 
         for sub_resource in self.package.service_resource.sub_resources:
             local_doc_link = self.package.get_doc_link("service_resource", sub_resource.name)
-            sub_resource.docstring = (
-                f"[Show boto3 documentation]({sub_resource.boto3_doc_link})\n"
-                f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+            sub_resource.docstring = self._construct_docstring(
+                "", sub_resource.boto3_doc_link, local_doc_link
             )
             for method in sub_resource.methods:
-                docstring = f"{method.docstring}\n\n" if method.docstring else ""
                 boto3_doc_link = (
                     f"{sub_resource.service_name.boto3_doc_link_parent}"
                     f"/{sub_resource.name.lower()}"
@@ -182,11 +155,32 @@ class BasePostprocessor(ABC):
                 local_doc_link = self.package.get_doc_link(
                     "service_resource", sub_resource.name, f"{method.name} method"
                 )
-                method.docstring = (
-                    f"{docstring}"
-                    f"[Show boto3 documentation]({boto3_doc_link})\n"
-                    f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+                method.docstring = self._construct_docstring(
+                    method.docstring, method.boto3_doc_link, local_doc_link
                 )
+            for collection in sub_resource.collections:
+                local_doc_link = self.package.get_doc_link(
+                    "service_resource", sub_resource.name, collection.attribute_name
+                )
+                collection.docstring = self._construct_docstring(
+                    "", collection.boto3_doc_link, local_doc_link
+                )
+                for method in collection.methods:
+                    if not method.has_boto3_doc_link():
+                        method.set_boto3_doc_link(
+                            f"{collection.boto3_doc_link_parent}#{method.name}"
+                        )
+                    method.docstring = self._construct_docstring(
+                        method.docstring, method.boto3_doc_link, local_doc_link
+                    )
+
+    def _construct_docstring(self, docstring: str, boto3_doc_link: str, local_doc_link: str) -> str:
+        docstring_part = f"{textwrap(docstring)}\n\n" if docstring else ""
+        return (
+            f"{docstring_part}"
+            f"[Show boto3 documentation]({boto3_doc_link})\n"
+            f"[Show {self.docs_package_name} documentation]({local_doc_link})"
+        )
 
     def extend_literals(self) -> None:
         """
