@@ -5,7 +5,6 @@ Boto3 ServiceResource or Resource collection.
 from collections.abc import Iterator
 
 from boto3.resources.collection import ResourceCollection
-from botocore import xform_name
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.service_name import ServiceName

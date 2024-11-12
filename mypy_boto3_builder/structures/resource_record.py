@@ -6,7 +6,6 @@ from collections.abc import Iterator
 from typing import TYPE_CHECKING
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
-from botocore import xform_name
 
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
