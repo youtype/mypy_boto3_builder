@@ -9,7 +9,7 @@ def print_info() -> None:
     Print package info to stdout.
     """
     print(
-        "Type annotations for {{ package.library_name }}.{{ service_name.class_name }} {{ package.library_version }}\n"
+        "Type annotations for {{ package.library_name }} {{ service_name.class_name }} {{ package.library_version }}\n"
         "Version:         {{ package.version }}\n"
         "Builder version: {{ builder_version }}\n"
         "Docs:            {{ package.get_local_doc_link() }}/\n"
