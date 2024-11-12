@@ -13,6 +13,7 @@ from unittest.mock import MagicMock
 from botocore import xform_name as botocore_xform_name
 from botocore.utils import get_service_module_name
 
+from mypy_boto3_builder.constants import DOCSTRING_LINE_LENGTH, DOCSTRING_MAX_LENGTH
 from mypy_boto3_builder.exceptions import BuildInternalError, TypeAnnotationError
 
 RESERVED_NAMES: Final = {
@@ -20,7 +21,6 @@ RESERVED_NAMES: Final = {
     *dir(builtins),
     *keyword.kwlist,
 }
-MAX_DOCSTRING_LENGTH: Final = 300
 AWS_LINK_RE: Final = re.compile(r"`([^`]+\S)\s*<https://(\S+)>`\_*")
 REPLACE_DOCSTRING_CHARS: Final = MappingProxyType({"’": "'", "–": "-"})
 
@@ -65,8 +65,8 @@ def get_short_docstring(doc: str) -> str:
     Wraps docstring to 80 chars.
     """
     doc = str(doc)
-    if len(doc) > MAX_DOCSTRING_LENGTH:
-        doc = f"{doc[:MAX_DOCSTRING_LENGTH - 3]}..."
+    if len(doc) > DOCSTRING_MAX_LENGTH:
+        doc = f"{doc[:DOCSTRING_MAX_LENGTH - 3]}..."
     result: list[str] = []
     if not doc:
         return ""
@@ -83,10 +83,8 @@ def get_short_docstring(doc: str) -> str:
         if line.endswith("."):
             break
 
-    result_str = " ".join(result).replace("```", "`").replace("``", "`").strip()
-    result_str = clean_artifacts(result_str)
-
-    return textwrap(result_str, width=80)
+    result_str = " ".join(result).replace("```", "`").replace("``", "`").replace("\n", " ").strip()
+    return clean_artifacts(result_str)
 
 
 def clean_artifacts(line: str) -> str:
@@ -112,7 +110,7 @@ def clean_artifacts(line: str) -> str:
     return line
 
 
-def textwrap(text: str, width: int) -> str:
+def textwrap(text: str, width: int = DOCSTRING_LINE_LENGTH) -> str:
     """
     Wrap text to `width` chars.
     """
@@ -124,6 +122,9 @@ def textwrap(text: str, width: int) -> str:
 
         line = raw_line
         while line:
+            if len(line) < width:
+                result.append(line)
+                break
             space_index = line.rfind(" ", 0, width)
             if space_index < 0:
                 space_index = line.find(" ", width)

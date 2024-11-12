@@ -17,6 +17,12 @@ TEMPLATES_PATH: Final = ROOT_PATH / "templates"
 # Max line length for formatting
 LINE_LENGTH: Final = 100
 
+# Max line length for formatting docstrings
+DOCSTRING_LINE_LENGTH: Final = 80
+
+# Max docstring length extracted from method
+DOCSTRING_MAX_LENGTH: Final = 300
+
 # mypy-boto3-builder GitHub link
 BUILDER_REPO_URL: Final = "https://github.com/youtype/mypy_boto3_builder"
 

@@ -75,6 +75,13 @@ class TestStrings:
         assert textwrap("te  st words", 6) == "te\nst\nwords"
         assert textwrap("te  stwords", 12) == "te  stwords"
         assert textwrap("te  stwords new", 6) == "te\nstwords\nnew"
+        assert textwrap(
+            "Get all items from the collection, optionally"
+            " with a custom page size and item count limit."
+        ) == (
+            "Get all items from the collection, optionally with a custom page size and item"
+            "\ncount limit."
+        )
 
     def test_get_botocore_class_name(self) -> None:
         assert get_botocore_class_name({"serviceAbbreviation": "drs"}) == "Drs"
