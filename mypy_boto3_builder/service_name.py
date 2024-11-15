@@ -111,7 +111,7 @@ class ServiceName:
         """
         return (
             "https://boto3.amazonaws.com/v1/documentation/api/"
-            f"latest/reference/services/{self.boto3_name}.html#{self.class_name}"
+            f"latest/reference/services/{self.boto3_name}.html#{self.class_name.lower()}"
         )
 
     @property

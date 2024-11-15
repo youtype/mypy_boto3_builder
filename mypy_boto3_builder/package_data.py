@@ -58,11 +58,11 @@ class BasePackageData:
         return get_botocore_version()
 
     @classmethod
-    def get_service_pypi_link(cls, service_name: ServiceName) -> str:
+    def has_pypi_lite_package(cls) -> bool:
         """
-        Get link to PyPI.
+        Check if package has lite version.
         """
-        return f"https://pypi.org/project/{cls.get_service_pypi_name(service_name)}/"
+        return bool(cls.PYPI_LITE_NAME)
 
 
 class TypesAioBotocorePackageData(BasePackageData):

@@ -19,10 +19,6 @@ class TestPackage:
         )
         assert package.get_module_name(ServiceNameCatalog.s3) == "mypy_boto3_s3"
         assert package.get_service_pypi_name(ServiceNameCatalog.s3) == "mypy-boto3-s3"
-        assert (
-            package.get_service_pypi_link(ServiceNameCatalog.s3)
-            == "https://pypi.org/project/mypy-boto3-s3/"
-        )
         assert package.min_python_version
         package.library_version = "1.2.3"
         package.version = "2.3.4"

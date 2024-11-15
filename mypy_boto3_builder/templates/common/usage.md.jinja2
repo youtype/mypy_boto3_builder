@@ -16,18 +16,19 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 
 ### PyCharm
 
-Install `{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}[{{extras_name}}]` in your environment:
+{% if package.data.has_pypi_lite_package() %}
+⚠️ Due to [Slow PyCharm performance on `Literal` overloads](https://youtrack.jetbrains.com/issue/PY-40997)
+it is recommended to use [{{ package.data.PYPI_LITE_NAME }}]({{ package.url.stubs_lite_pypi }})! until it is resolved.
+{% endif %}
+
+
+Install `{{ package.data.PYPI_NAME or package.data.PYPI_LITE_NAME }}[{{extras_name}}]` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}[{{extras_name}}]'
+python -m pip install '{{ package.data.PYPI_NAME or package.data.PYPI_LITE_NAME }}[{{extras_name}}]'
 ```
 
 Both type checking and code completion should now work.
-Explicit type annotations **are required**.
-
-{% if package.data.PYPI_LITE_NAME %}
-Use `{{ package.data.PYPI_NAME }}` package instead for implicit type discovery.
-{% endif %}
 
 ### Emacs
 

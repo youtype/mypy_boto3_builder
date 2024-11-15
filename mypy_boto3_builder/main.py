@@ -10,7 +10,7 @@ from collections.abc import Iterable, Sequence
 from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.cli_parser import CLINamespace, parse_args
-from mypy_boto3_builder.constants import BUILDER_REPO_URL
+from mypy_boto3_builder.constants import BUILDER_REPO_URL, PACKAGE_NAME
 from mypy_boto3_builder.enums.product import Product, ProductLibrary
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
@@ -156,6 +156,7 @@ def initialize_jinja_manager() -> None:
         len=len,
         sorted=sorted,
         repr=repr,
+        builder_package_name=PACKAGE_NAME,
         builder_repo_url=BUILDER_REPO_URL,
         is_typed_dict=is_typed_dict,
         is_union=is_union,

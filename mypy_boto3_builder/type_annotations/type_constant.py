@@ -13,7 +13,7 @@ class EllipsisType:
     """
 
 
-ValueType = str | int | float | None | EllipsisType
+ValueType = str | int | float | EllipsisType | None
 
 
 class TypeConstant(FakeAnnotation):

@@ -187,3 +187,10 @@ def xform_name(name: str, sep: str = "_") -> str:
     if not sep:
         raise BuildInternalError("Separator is required")
     return botocore_xform_name(name, sep)
+
+
+def get_pypi_link(package_name: str) -> str:
+    """
+    Get link to PyPI.
+    """
+    return f"https://pypi.org/project/{package_name}/"

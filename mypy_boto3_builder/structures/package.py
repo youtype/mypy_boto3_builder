@@ -9,6 +9,7 @@ from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.package_url import PackageURL
 from mypy_boto3_builder.utils.version import (
     get_max_build_version,
     get_min_build_version,
@@ -26,13 +27,25 @@ class Package:
         service_names: Iterable[ServiceName] = (),
     ) -> None:
         self.data = data
-        self.pypi_name = data.PYPI_NAME
-        self.library_name = data.LIBRARY_NAME
+        self._pypi_name = self.data.PYPI_NAME
         self.library_version = data.get_library_version()
         self.botocore_version = data.get_botocore_version()
         self.version = "0.0.0"
         self.service_names = tuple(service_names)
         self.logger = get_logger()
+        self.url = PackageURL(self.pypi_name, self.data)
+
+    @property
+    def pypi_name(self) -> str:
+        """
+        PyPI package name.
+        """
+        return self._pypi_name
+
+    @pypi_name.setter
+    def pypi_name(self, value: str) -> None:
+        self._pypi_name = value
+        self.url.pypi_name = value
 
     @property
     def name(self) -> str:
@@ -43,6 +56,13 @@ class Package:
             raise StructureError(f"Package name is not set for {self.pypi_name}")
 
         return self.data.NAME
+
+    @property
+    def library_name(self) -> str:
+        """
+        PyPI library package name.
+        """
+        return self.data.LIBRARY_NAME
 
     def has_main_package(self) -> bool:
         """
@@ -93,12 +113,6 @@ class Package:
         Get PyPI package name for a service package.
         """
         return self.data.get_service_pypi_name(service_name)
-
-    def get_service_pypi_link(self, service_name: ServiceName) -> str:
-        """
-        Get link to PyPI.
-        """
-        return self.data.get_service_pypi_link(service_name)
 
     @property
     def min_library_version(self) -> str:

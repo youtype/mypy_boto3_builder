@@ -12,7 +12,7 @@ class TestServiceName:
         assert service_name.extras_name == "my-service"
         assert (
             service_name.boto3_doc_link
-            == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/my-service.html#MyService"
+            == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/my-service.html#myservice"
         )
         assert (
             service_name.boto3_doc_link_parent
