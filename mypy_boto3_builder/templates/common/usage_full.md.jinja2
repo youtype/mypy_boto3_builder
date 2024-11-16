@@ -8,7 +8,7 @@
 - Install `{{ package.data.PYPI_NAME }}` in your environment:
 
 ```bash
-python -m pip install {{ package.data.PYPI_NAME }}
+python -m pip install '{{ package.data.PYPI_NAME }}[full]'
 ```
 
 Both type checking and code completion should now work.
@@ -29,25 +29,25 @@ until the issue is resolved.
 [{{ package.data.PYPI_LITE_NAME }}]({{ package.url.stubs_lite_pypi }}):
 
 ```bash
-pip uninstall {{ package.data.PYPI_NAME }}
-pip install {{ package.data.PYPI_LITE_NAME }}
+python -m pip uninstall -y {{ package.data.PYPI_NAME }}
+python -m pip install '{{ package.data.PYPI_LITE_NAME }}[full]'
 ```
 {% endif %}
 
 Install `{{ package.data.PYPI_NAME or package.data.PYPI_LITE_NAME }}` in your environment:
 
 ```bash
-python -m pip install {{ package.data.PYPI_NAME or package.data.PYPI_LITE_NAME }}
+python -m pip install '{{ package.data.PYPI_NAME or package.data.PYPI_LITE_NAME }}[full]'
 ```
 
 Both type checking and code completion should now work.
 
 ### Emacs
 
-- Install `{{ package.data.PYPI_NAME }}` with services you use in your environment:
+- Install `{{ package.data.PYPI_NAME }}` in your environment:
 
 ```bash
-python -m pip install {{ package.data.PYPI_NAME }}
+python -m pip install '{{ package.data.PYPI_NAME }}[full]'
 ```
 
 - Install
@@ -75,10 +75,10 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 
 ### Sublime Text
 
-- Install `{{ package.data.PYPI_NAME }}` with services you use in your environment:
+- Install `{{ package.data.PYPI_NAME }}` in your environment:
 
 ```bash
-python -m pip install {{ package.data.PYPI_NAME }}
+python -m pip install '{{ package.data.PYPI_NAME }}[full]'
 ```
 
 - Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
@@ -96,7 +96,7 @@ Not tested, but as long as your IDE supports `mypy` or `pyright`, everything sho
 - Install `{{ package.data.PYPI_NAME }}` in your environment: 
 
 ```bash
-python -m pip install {{ package.data.PYPI_NAME }}
+python -m pip install '{{ package.data.PYPI_NAME }}[full]'
 ```
 
 Type checking should now work.
@@ -108,7 +108,7 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 - Install `{{ package.data.PYPI_NAME }}` in your environment: 
 
 ```bash
-python -m pip install {{ package.data.PYPI_NAME }}
+python -m pip install '{{ package.data.PYPI_NAME }}[full]'
 ```
 
 Optionally, you can install `{{ package.data.PYPI_NAME }}` to `typings` directory.
