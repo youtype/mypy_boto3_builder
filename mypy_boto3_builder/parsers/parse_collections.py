@@ -44,6 +44,7 @@ def parse_collection(
     )
     self_type = InternalImport(collection_record.name, stringify=True)
 
+    # FIXME: other collection methods use different anchor format. This will probably change.
     all_method = Method(
         name="all",
         arguments=(Argument.self(),),
@@ -52,10 +53,7 @@ def parse_collection(
             "Get all items from the collection, optionally"
             " with a custom page size and item count limit."
         ),
-    )
-    # FIXME: other collection methods use different anchor format. This will probably change.
-    all_method.set_boto3_doc_link(
-        f"{collection_record.boto3_doc_link_parent}#{service_name.class_name}.{collection_record.parent_name}.all"
+        boto3_doc_link=f"{collection_record.boto3_doc_link_parent}#{service_name.class_name}.{collection_record.parent_name}.all",
     )
 
     collection_record.methods.append(all_method)

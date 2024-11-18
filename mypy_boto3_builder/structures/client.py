@@ -109,7 +109,7 @@ class Client(ClassRecord):
         """
         Generate Client exceptions property.
         """
-        method = Method(
+        return Method(
             name="exceptions",
             decorators=[ExternalImport.from_class(property)],
             arguments=[
@@ -122,9 +122,8 @@ class Client(ClassRecord):
                 stringify=False,
             ),
             docstring=f"{self.name} exceptions.",
+            boto3_doc_link=self.boto3_doc_link,
         )
-        method.set_boto3_doc_link(self.boto3_doc_link)
-        return method
 
     def get_required_import_records(self) -> set[ImportRecord]:
         """

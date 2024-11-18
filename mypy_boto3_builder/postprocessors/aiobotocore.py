@@ -180,28 +180,31 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 )
 
     def _add_contextmanager_methods(self) -> None:
-        aenter_method = Method(
-            name="__aenter__",
-            arguments=(Argument.self(),),
-            return_type=InternalImport(self.package.client.name),
-            is_async=True,
-            docstring=self.package.client.docstring,
+        self.package.client.methods.extend(
+            (
+                Method(
+                    name="__aenter__",
+                    arguments=(Argument.self(),),
+                    return_type=InternalImport(self.package.client.name),
+                    is_async=True,
+                    docstring=self.package.client.docstring,
+                    boto3_doc_link=self.package.client.boto3_doc_link,
+                ),
+                Method(
+                    name="__aexit__",
+                    arguments=(
+                        Argument.self(),
+                        Argument("exc_type", Type.Any),
+                        Argument("exc_val", Type.Any),
+                        Argument("exc_tb", Type.Any),
+                    ),
+                    return_type=Type.Any,
+                    is_async=True,
+                    docstring=self.package.client.docstring,
+                    boto3_doc_link=self.package.client.boto3_doc_link,
+                ),
+            )
         )
-        aenter_method.set_boto3_doc_link(self.package.client.boto3_doc_link)
-        aexit_method = Method(
-            name="__aexit__",
-            arguments=(
-                Argument.self(),
-                Argument("exc_type", Type.Any),
-                Argument("exc_val", Type.Any),
-                Argument("exc_tb", Type.Any),
-            ),
-            return_type=Type.Any,
-            is_async=True,
-            docstring=self.package.client.docstring,
-        )
-        aexit_method.set_boto3_doc_link(self.package.client.boto3_doc_link)
-        self.package.client.methods.extend((aenter_method, aexit_method))
 
     def _iterate_types_shallow(self) -> Iterator[FakeAnnotation]:
         yield from self.package.client.iterate_types()

@@ -19,7 +19,12 @@ class TestMethod:
             return_type=Type.none,
             body_lines=["line1", "line2"],
             docstring="docstring\n\nlong",
+            boto3_doc_link="boto3://doc.link",
         )
+
+    def test_set_boto3_doc_link(self) -> None:
+        self.method.set_boto3_doc_link("new")
+        assert self.method.boto3_doc_link == "new"
 
     def test_is_kw_only(self) -> None:
         assert self.method.is_kw_only() is False

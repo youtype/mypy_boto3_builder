@@ -30,6 +30,7 @@ class Function:
         body_lines: Iterable[str] = (),
         type_ignore: bool = False,
         is_async: bool = False,
+        boto3_doc_link: str = "",
     ) -> None:
         self.name = name
         self.arguments = list(arguments)
@@ -40,7 +41,7 @@ class Function:
         self.type_ignore = type_ignore
         self.request_type_annotation: TypeTypedDict | None = None
         self.is_async = is_async
-        self._boto3_doc_link = ""
+        self._boto3_doc_link = boto3_doc_link
 
     @property
     def boto3_doc_link(self) -> str:
