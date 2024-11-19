@@ -32,6 +32,8 @@ Usage::
 {% endfor -%}
 {% endif -%}
     {{ '    ' -}}```
+
+{{ copyright }}
 """
 {% for import_record in package.get_init_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

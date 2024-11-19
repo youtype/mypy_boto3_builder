@@ -5,6 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 import builtins
+import datetime
 import keyword
 import re
 import typing
@@ -195,4 +196,14 @@ def get_pypi_link(package_name: str) -> str:
     """
     Get link to PyPI.
     """
+    if not package_name:
+        raise BuildInternalError("package_name is required")
     return f"https://pypi.org/project/{package_name}/"
+
+
+def get_copyright() -> str:
+    """
+    Get copyright notice.
+    """
+    now = datetime.datetime.now(datetime.timezone.utc)
+    return f"Copyright {now.year} Vlad Emelianov"

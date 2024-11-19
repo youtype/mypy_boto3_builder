@@ -23,6 +23,8 @@ Usage::
     {{ waiter.attribute_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
 {% endfor -%}
     {{ '    ' -}}```
+
+{{ copyright }}
 """
 {% for import_record in package.get_waiter_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

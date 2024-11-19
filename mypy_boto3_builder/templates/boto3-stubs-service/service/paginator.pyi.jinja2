@@ -23,6 +23,8 @@ Usage::
     {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
 {% endfor -%}
     {{ '    ' -}}```
+
+{{ copyright }}
 """
 from typing import TypeVar, Generic, Iterator
 

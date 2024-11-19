@@ -6,6 +6,8 @@ from mypy_boto3_builder.utils.strings import (
     get_anchor_link,
     get_botocore_class_name,
     get_class_prefix,
+    get_copyright,
+    get_pypi_link,
     get_short_docstring,
     get_type_def_name,
     is_reserved,
@@ -104,3 +106,11 @@ class TestStrings:
         assert xform_name("MyClass", "-") == "my-class"
         with pytest.raises(BuildInternalError):
             xform_name("MyClass", "")
+
+    def test_get_pypi_link(self) -> None:
+        assert get_pypi_link("mypy-boto3-builder") == "https://pypi.org/project/mypy-boto3-builder/"
+        with pytest.raises(BuildInternalError):
+            get_pypi_link("")
+
+    def test_get_copyright(self) -> None:
+        assert "Copyright" in get_copyright()

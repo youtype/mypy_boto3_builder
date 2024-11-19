@@ -6,6 +6,8 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterable
 
+from packaging.version import InvalidVersion, Version
+
 from mypy_boto3_builder.constants import SUPPORTED_PY_VERSIONS
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.logger import get_logger
@@ -27,12 +29,15 @@ class Package:
         self,
         data: type[BasePackageData],
         service_names: Iterable[ServiceName] = (),
+        version: str | None = None,
     ) -> None:
         self.data = data
         self._pypi_name = self.data.PYPI_NAME
         self.library_version = data.get_library_version()
         self.botocore_version = data.get_botocore_version()
-        self.version = "0.0.0"
+        self._version: str | None = None
+        if version:
+            self.version = version
         self.service_names = tuple(service_names)
         self.logger = get_logger()
         self.url = PackageURL(self.pypi_name, self.data)
@@ -48,6 +53,23 @@ class Package:
     def pypi_name(self, value: str) -> None:
         self._pypi_name = value
         self.url.pypi_name = value
+
+    @property
+    def version(self) -> str:
+        """
+        Package version.
+        """
+        if not self._version:
+            raise StructureError(f"Version is not set for {self.pypi_name}")
+        return self._version
+
+    @version.setter
+    def version(self, value: str) -> None:
+        try:
+            Version(value)
+        except InvalidVersion:
+            raise StructureError(f"Invalid version: {value}") from None
+        self._version = value
 
     @property
     def name(self) -> str:
@@ -93,7 +115,7 @@ class Package:
         """
         Get string representation for debugging.
         """
-        return f"{self.name} {self.version} ({self.library_name} {self.library_version})"
+        return f"{self.name} {self._version} ({self.library_name} {self.library_version})"
 
     def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
         """

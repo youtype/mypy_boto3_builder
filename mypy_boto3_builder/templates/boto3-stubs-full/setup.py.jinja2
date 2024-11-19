@@ -1,5 +1,7 @@
 """
 Setup script for {{ package.pypi_name }}.
+
+{{ copyright }}
 """
 from pathlib import Path
 
@@ -43,7 +45,6 @@ setup(
         'Tracker': '{{ builder_repo_url }}/issues',
     },
     install_requires=[
-        "boto3-stubs",
         "botocore-stubs",
         "types-s3transfer",
         "typing-extensions>=4.1.0; python_version<\"3.12\"",

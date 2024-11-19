@@ -10,6 +10,8 @@ Usage::
 
     data: {{ package.type_defs[0].name }} = ...
     ```
+
+{{ copyright }}
 """
 {% for import_record in package.get_type_defs_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

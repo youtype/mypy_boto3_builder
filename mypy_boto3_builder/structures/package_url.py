@@ -71,7 +71,7 @@ class PackageURL:
         """
         Get link to PyPI lite version of stubs.
         """
-        return get_pypi_link(self.data.PYPI_NAME)
+        return get_pypi_link(self.data.PYPI_STUBS_NAME)
 
     @property
     def stubs_lite_pypi(self) -> str:

@@ -23,6 +23,7 @@ class BasePackageData:
 
     NAME: ClassVar[str] = "boto3-stubs"
     PYPI_NAME: ClassVar[str] = "boto3-stubs"
+    PYPI_STUBS_NAME: ClassVar[str] = ""
     PYPI_LITE_NAME: ClassVar[str] = ""
     PYPI_FULL_NAME: ClassVar[str] = ""
     LIBRARY_NAME: ClassVar[str] = "boto3"
@@ -75,6 +76,7 @@ class TypesAioBotocorePackageData(BasePackageData):
 
     NAME = "aiobotocore-stubs"
     PYPI_NAME = "types-aiobotocore"
+    PYPI_STUBS_NAME = "types-aiobotocore"
     PYPI_LITE_NAME = "types-aiobotocore-lite"
     PYPI_FULL_NAME = "types-aiobotocore-full"
     LIBRARY_NAME = "aiobotocore"
@@ -124,6 +126,7 @@ class Boto3StubsPackageData(BasePackageData):
 
     NAME = "boto3-stubs"
     PYPI_NAME = "boto3-stubs"
+    PYPI_STUBS_NAME = "boto3-stubs"
     PYPI_LITE_NAME = "boto3-stubs-lite"
     PYPI_FULL_NAME = "boto3-stubs-full"
     LIBRARY_NAME = "boto3"
@@ -148,7 +151,6 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
 
     NAME = ""
     PYPI_NAME = "boto3-stubs-full"
-    LIBRARY_NAME = "boto3"
     IS_CONDA_FORGE_SUPPORTED = False
 
     @typing.override
@@ -177,6 +179,7 @@ class TypesAioBoto3PackageData(BasePackageData):
 
     NAME = "aioboto3-stubs"
     PYPI_NAME = "types-aioboto3"
+    PYPI_STUBS_NAME = "types-aioboto3"
     PYPI_LITE_NAME = "types-aioboto3-lite"
     PYPI_FULL_NAME = "types-aiobotocore-full"
     LIBRARY_NAME = "aioboto3"

@@ -23,7 +23,7 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
-from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
+from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name, get_copyright
 from mypy_boto3_builder.utils.type_checks import (
     is_literal,
     is_type_def,
@@ -160,6 +160,7 @@ def initialize_jinja_manager() -> None:
         repr=repr,
         builder_package_name=PACKAGE_NAME,
         builder_repo_url=BUILDER_REPO_URL,
+        copyright=get_copyright(),
         is_typed_dict=is_typed_dict,
         is_union=is_union,
         is_literal=is_literal,

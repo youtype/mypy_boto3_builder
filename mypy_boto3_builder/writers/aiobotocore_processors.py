@@ -47,13 +47,13 @@ def process_types_aiobotocore(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    types_aiobotocore_package = parse_aiobotocore_stubs_package(
+    package = parse_aiobotocore_stubs_package(
         session,
         service_names,
         TypesAioBotocorePackageData,
     )
-    types_aiobotocore_package.version = version
-    logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
+    package.version = version
+    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
         output_path=output_path,
@@ -61,11 +61,11 @@ def process_types_aiobotocore(
         cleanup=True,
     )
     package_writer.write_package(
-        types_aiobotocore_package,
+        package,
         templates_path=TemplatePath.types_aiobotocore,
         static_files_path=static_files_path,
     )
-    return types_aiobotocore_package
+    return package
 
 
 def process_types_aiobotocore_lite(
@@ -92,13 +92,13 @@ def process_types_aiobotocore_lite(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    types_aiobotocore_package = parse_aiobotocore_stubs_package(
+    package = parse_aiobotocore_stubs_package(
         session,
         service_names,
         TypesAioBotocoreLitePackageData,
     )
-    types_aiobotocore_package.version = version
-    logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
+    package.version = version
+    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
         output_path=output_path,
@@ -106,12 +106,12 @@ def process_types_aiobotocore_lite(
         cleanup=True,
     )
     package_writer.write_package(
-        types_aiobotocore_package,
+        package,
         templates_path=TemplatePath.types_aiobotocore,
         static_files_path=static_files_path,
         exclude_template_names=["session.pyi.jinja2"],
     )
-    return types_aiobotocore_package
+    return package
 
 
 def process_types_aiobotocore_docs(
@@ -131,21 +131,21 @@ def process_types_aiobotocore_docs(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    types_aiobotocore_package = parse_aiobotocore_stubs_package(
+    package = parse_aiobotocore_stubs_package(
         session,
         service_names,
         TypesAioBotocorePackageData,
     )
 
-    logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
+    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
     package_writer.write_docs(
-        types_aiobotocore_package,
+        package,
         templates_path=TemplatePath.types_aiobotocore_docs,
     )
 
-    return types_aiobotocore_package
+    return package
 
 
 def process_types_aiobotocore_full(
@@ -172,14 +172,14 @@ def process_types_aiobotocore_full(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    logger.debug(f"Parsing {package_data.PYPI_NAME}")
-    types_aiobotocore_package = parse_aiobotocore_stubs_package(
+    logger.debug(f"Parsing {package_data.PYPI_FULL_NAME}")
+    package = parse_aiobotocore_stubs_package(
         session=session,
         service_names=service_names,
         package_data=package_data,
     )
-    types_aiobotocore_package.version = version
-    logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
+    package.version = version
+    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
         output_path=output_path,
@@ -187,8 +187,8 @@ def process_types_aiobotocore_full(
         cleanup=True,
     )
     package_writer.write_package(
-        types_aiobotocore_package,
+        package,
         templates_path=TemplatePath.types_aiobotocore_full,
     )
 
-    return types_aiobotocore_package
+    return package

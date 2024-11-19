@@ -102,6 +102,7 @@ ignore = [
     "examples",
     "aio_examples",
     "mypy_boto3_builder/stubs_static",
+    "**/test_*.py",
 ]
 typeCheckingMode = "strict"
 reportMissingImports = "error"
@@ -168,12 +169,12 @@ select = [
     "C4",    # flake8-comprehensions
     "DTZ",   # flake8-datetimez
     "T10",   # flake8-debugger
-    # "EM",  # flake8-errmsg
+    # "EM",    # flake8-errmsg
     "FA",  # flake8-future-annotations
     "ISC", # flake8-implicit-str-concat
     "ICN", # flake8-import-conventions
     "LOG", # flake8-logging
-    # "G",   # flake8-logging-format
+    # "G",    # flake8-logging-format
     # "INP",  # flake8-no-pep420
     "PIE",  # flake8-pie
     "T20",  # flake8-print

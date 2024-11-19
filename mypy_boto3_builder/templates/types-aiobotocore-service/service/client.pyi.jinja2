@@ -13,6 +13,8 @@ Usage::
     async with session.create_client("{{ package.service_name.boto3_name }}") as client:
         client: {{ package.client.name }}
     ```
+
+{{ copyright }}
 """
 {% for import_record in package.get_client_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}
