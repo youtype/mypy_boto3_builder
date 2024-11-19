@@ -139,8 +139,8 @@ class TestProcessors:
             session_mock,
             Path("my_path"),
             [ServiceNameCatalog.ec2],
-            generate_setup=True,
             version="1.2.3",
+            generate_setup=True,
         )
         PackageWriterMock().write_package.assert_called_once_with(
             package=package_mock,

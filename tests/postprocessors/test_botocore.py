@@ -13,29 +13,29 @@ class TestBotocorePostprocessor:
         self_ref_typed_dict = TypeTypedDict(
             "TestTypeDef",
             [
-                TypedDictAttribute("test", Type.str, False),
+                TypedDictAttribute("test", Type.str, required=False),
             ],
         )
         other_typed_dict = TypeTypedDict(
             "OtherTypeDef",
             [
-                TypedDictAttribute("test", Type.str, False),
+                TypedDictAttribute("test", Type.str, required=False),
             ],
         )
         deep_self_ref_typed_dict = TypeTypedDict(
             "DeepSelfRefTypeDef",
             [
-                TypedDictAttribute("test", Type.str, False),
+                TypedDictAttribute("test", Type.str, required=False),
                 TypedDictAttribute(
                     "deep_self_ref",
                     TypeUnion([self_ref_typed_dict, Type.str]),
-                    False,
+                    required=False,
                 ),
             ],
         )
-        self_ref_typed_dict.add_attribute("self_ref", self_ref_typed_dict, False)
-        self_ref_typed_dict.add_attribute("other_ref", other_typed_dict, False)
-        self_ref_typed_dict.add_attribute("deep_self_ref", deep_self_ref_typed_dict, False)
+        self_ref_typed_dict.add_attribute("self_ref", self_ref_typed_dict, required=False)
+        self_ref_typed_dict.add_attribute("other_ref", other_typed_dict, required=False)
+        self_ref_typed_dict.add_attribute("deep_self_ref", deep_self_ref_typed_dict, required=False)
 
         package.type_defs = [self_ref_typed_dict]
         postprocessor = BotocorePostprocessor(

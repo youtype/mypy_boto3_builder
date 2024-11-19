@@ -31,6 +31,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         self,
         children: Iterable[FakeAnnotation],
         name: str = "",
+        *,
         stringify: bool = False,
     ) -> None:
         self.name = name

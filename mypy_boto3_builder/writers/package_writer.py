@@ -51,7 +51,7 @@ class PackageWriter:
     _PY_EXTENSIONS: Final = {".py", ".pyi"}
     _MD_EXTENSIONS: Final = {".md"}
 
-    def __init__(self, output_path: Path, generate_setup: bool, cleanup: bool) -> None:
+    def __init__(self, output_path: Path, *, generate_setup: bool, cleanup: bool) -> None:
         self.output_path = output_path
         self.generate_setup = generate_setup
         self.cleanup = cleanup
@@ -400,7 +400,8 @@ class PackageWriter:
         if package.paginators:
             template_renders.append(
                 TemplateRender(
-                    templates_path / "paginators.md.jinja2", docs_path / "paginators.md"
+                    templates_path / "paginators.md.jinja2",
+                    docs_path / "paginators.md",
                 ),
             )
 

@@ -51,6 +51,7 @@ class BaseGenerator(ABC):
         master_service_names: Sequence[ServiceName],
         config: CLINamespace,
         version: str,
+        *,
         cleanup: bool,
     ) -> None:
         self.session = get_boto3_session()

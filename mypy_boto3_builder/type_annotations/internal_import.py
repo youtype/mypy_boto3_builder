@@ -28,6 +28,7 @@ class InternalImport(FakeAnnotation):
         name: str,
         service_name: ServiceName | None = None,
         module_name: ServiceModuleName = ServiceModuleName.service_resource,
+        *,
         stringify: bool = True,
         use_alias: bool = False,
     ) -> None:

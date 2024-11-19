@@ -82,7 +82,10 @@ class TestFunction:
     def test_type_hint_annotations(self) -> None:
         assert self.function.type_hint_annotations == []
 
-        my_typed_dict = TypeTypedDict("MyTypedDict", [TypedDictAttribute("key", Type.str, False)])
+        my_typed_dict = TypeTypedDict(
+            "MyTypedDict",
+            [TypedDictAttribute("key", Type.str, required=False)],
+        )
         self.function.arguments = [
             Argument.self(),
             Argument("my_str", Type.str, TypeConstant("test")),

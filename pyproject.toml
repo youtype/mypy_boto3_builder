@@ -160,17 +160,17 @@ select = [
     "ASYNC", # flake8-async
     "S",     # flake8-bandit
     "BLE",   # flake8-blind-except
-    # "FBT",   # flake8-boolean-trap
-    "B", # flake8-bugbear
-    "A", # flake8-builtins
-    # "COM",   # flake8-commas
-    "CPY", # flake8-copyright
-    "C4",  # flake8-comprehensions
-    "DTZ", # flake8-datetimez
-    "T10", # flake8-debugger
-    # "EM",    # flake8-errmsg
-    "FA", # flake8-future-annotations
-    # "ISC",   # flake8-implicit-str-concat
+    "FBT",   # flake8-boolean-trap
+    "B",     # flake8-bugbear
+    "A",     # flake8-builtins
+    "COM",   # flake8-commas
+    "CPY",   # flake8-copyright
+    "C4",    # flake8-comprehensions
+    "DTZ",   # flake8-datetimez
+    "T10",   # flake8-debugger
+    # "EM",  # flake8-errmsg
+    "FA",  # flake8-future-annotations
+    "ISC", # flake8-implicit-str-concat
     # "ICN",   # flake8-import-conventions
     "LOG", # flake8-logging
     # "G",   # flake8-logging-format
@@ -224,6 +224,7 @@ ignore = [
     "FBT003",  # boolean-identity
     "SLF001",  # private-member-access
     "ARG002",  # unused-argument
+    "ISC001",  # implicit-str-concat
 ]
 fixable = ["ALL"]
 unfixable = ["B"]

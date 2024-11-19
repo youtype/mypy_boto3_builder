@@ -14,28 +14,28 @@ from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 WaiterConfigTypeDef = TypeTypedDict(
     "WaiterConfigTypeDef",
     (
-        TypedDictAttribute("Delay", Type.int, False),
-        TypedDictAttribute("MaxAttempts", Type.int, False),
+        TypedDictAttribute("Delay", Type.int, required=False),
+        TypedDictAttribute("MaxAttempts", Type.int, required=False),
     ),
 )
 
 PaginatorConfigTypeDef = TypeTypedDict(
     "PaginatorConfigTypeDef",
     (
-        TypedDictAttribute("MaxItems", Type.int, False),
-        TypedDictAttribute("PageSize", Type.int, False),
-        TypedDictAttribute("StartingToken", Type.str, False),
+        TypedDictAttribute("MaxItems", Type.int, required=False),
+        TypedDictAttribute("PageSize", Type.int, required=False),
+        TypedDictAttribute("StartingToken", Type.str, required=False),
     ),
 )
 
 ResponseMetadataTypeDef = TypeTypedDict(
     "ResponseMetadataTypeDef",
     (
-        TypedDictAttribute("RequestId", Type.str, True),
-        TypedDictAttribute("HostId", Type.str, False),
-        TypedDictAttribute("HTTPStatusCode", Type.int, True),
-        TypedDictAttribute("HTTPHeaders", Type.DictStrStr, True),
-        TypedDictAttribute("RetryAttempts", Type.int, True),
+        TypedDictAttribute("RequestId", Type.str, required=True),
+        TypedDictAttribute("HostId", Type.str, required=False),
+        TypedDictAttribute("HTTPStatusCode", Type.int, required=True),
+        TypedDictAttribute("HTTPHeaders", Type.DictStrStr, required=True),
+        TypedDictAttribute("RetryAttempts", Type.int, required=True),
     ),
 )
 
@@ -43,9 +43,9 @@ ResponseMetadataTypeDef = TypeTypedDict(
 CopySourceTypeDef = TypeTypedDict(
     "CopySourceTypeDef",
     (
-        TypedDictAttribute("Bucket", Type.str, True),
-        TypedDictAttribute("Key", Type.str, True),
-        TypedDictAttribute("VersionId", Type.str, False),
+        TypedDictAttribute("Bucket", Type.str, required=True),
+        TypedDictAttribute("Key", Type.str, required=True),
+        TypedDictAttribute("VersionId", Type.str, required=False),
     ),
 )
 
@@ -53,8 +53,8 @@ CopySourceTypeDef = TypeTypedDict(
 TagTypeDef = TypeTypedDict(
     "TagTypeDef",
     (
-        TypedDictAttribute("Key", Type.str, False),
-        TypedDictAttribute("Value", Type.str, False),
+        TypedDictAttribute("Key", Type.str, required=False),
+        TypedDictAttribute("Value", Type.str, required=False),
     ),
 )
 
@@ -62,23 +62,23 @@ TagTypeDef = TypeTypedDict(
 # dynamodb
 EmptyResponseMetadataTypeDef = TypeTypedDict(
     "EmptyResponseMetadataTypeDef",
-    (TypedDictAttribute("ResponseMetadata", ResponseMetadataTypeDef, True),),
+    (TypedDictAttribute("ResponseMetadata", ResponseMetadataTypeDef, required=True),),
 )
 
 # dynamodb
 AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
     "AttributeValueTypeDef",
     (
-        TypedDictAttribute("S", Type.str, False),
-        TypedDictAttribute("N", Type.str, False),
-        TypedDictAttribute("B", Type.bytes, False),
-        TypedDictAttribute("SS", TypeSubscript(Type.Sequence, [Type.str]), False),
-        TypedDictAttribute("NS", TypeSubscript(Type.Sequence, [Type.str]), False),
-        TypedDictAttribute("BS", TypeSubscript(Type.Sequence, [Type.bytes]), False),
-        TypedDictAttribute("M", Type.MappingStrAny, False),
-        TypedDictAttribute("L", Type.SequenceAny, False),
-        TypedDictAttribute("NULL", Type.bool, False),
-        TypedDictAttribute("BOOL", Type.bool, False),
+        TypedDictAttribute("S", Type.str, required=False),
+        TypedDictAttribute("N", Type.str, required=False),
+        TypedDictAttribute("B", Type.bytes, required=False),
+        TypedDictAttribute("SS", TypeSubscript(Type.Sequence, [Type.str]), required=False),
+        TypedDictAttribute("NS", TypeSubscript(Type.Sequence, [Type.str]), required=False),
+        TypedDictAttribute("BS", TypeSubscript(Type.Sequence, [Type.bytes]), required=False),
+        TypedDictAttribute("M", Type.MappingStrAny, required=False),
+        TypedDictAttribute("L", Type.SequenceAny, required=False),
+        TypedDictAttribute("NULL", Type.bool, required=False),
+        TypedDictAttribute("BOOL", Type.bool, required=False),
     ),
 )
 
@@ -86,16 +86,16 @@ AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
 GetTemplateOutputTypeDef = TypeTypedDict(
     "GetTemplateOutputTypeDef",
     (
-        TypedDictAttribute("TemplateBody", Type.DictStrAny, True),
+        TypedDictAttribute("TemplateBody", Type.DictStrAny, required=True),
         TypedDictAttribute(
             "StagesAvailable",
             TypeSubscript(
                 Type.List,
                 [InternalImport(name="TemplateStageType", module_name=ServiceModuleName.literals)],
             ),
-            True,
+            required=True,
         ),
-        TypedDictAttribute("ResponseMetadata", ResponseMetadataTypeDef, True),
+        TypedDictAttribute("ResponseMetadata", ResponseMetadataTypeDef, required=True),
     ),
 )
 
@@ -104,17 +104,17 @@ GetTemplateOutputTypeDef = TypeTypedDict(
 PolicyDocumentStatementTypeDef = TypeTypedDict(
     "PolicyDocumentStatementTypeDef",
     (
-        TypedDictAttribute("Effect", Type.str, True),
+        TypedDictAttribute("Effect", Type.str, required=True),
         TypedDictAttribute(
             "Resource",
             TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))),
-            True,
+            required=True,
         ),
-        TypedDictAttribute("Sid", Type.str, True),
+        TypedDictAttribute("Sid", Type.str, required=True),
         TypedDictAttribute(
             "Action",
             TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))),
-            True,
+            required=True,
         ),
     ),
 )
@@ -122,11 +122,11 @@ PolicyDocumentStatementTypeDef = TypeTypedDict(
 PolicyDocumentDictTypeDef = TypeTypedDict(
     "PolicyDocumentDictTypeDef",
     (
-        TypedDictAttribute("Version", Type.str, True),
+        TypedDictAttribute("Version", Type.str, required=True),
         TypedDictAttribute(
             "Statement",
             TypeSubscript(Type.List, [PolicyDocumentStatementTypeDef]),
-            True,
+            required=True,
         ),
     ),
 )
@@ -136,95 +136,103 @@ PolicyDocumentDictTypeDef = TypeTypedDict(
 CloudwatchEventStateTypeDef = TypeTypedDict(
     "CloudwatchEventStateTypeDef",
     (
-        TypedDictAttribute("reason", Type.str, False),
-        TypedDictAttribute("reasonData", Type.str, False),
-        TypedDictAttribute("timestamp", Type.str, True),
-        TypedDictAttribute("value", Type.str, True),
-        TypedDictAttribute("actionsSuppressedBy", Type.str, False),
-        TypedDictAttribute("actionsSuppressedReason", Type.str, False),
+        TypedDictAttribute("reason", Type.str, required=False),
+        TypedDictAttribute("reasonData", Type.str, required=False),
+        TypedDictAttribute("timestamp", Type.str, required=True),
+        TypedDictAttribute("value", Type.str, required=True),
+        TypedDictAttribute("actionsSuppressedBy", Type.str, required=False),
+        TypedDictAttribute("actionsSuppressedReason", Type.str, required=False),
     ),
 )
 
 CloudwatchEventMetricStatsMetricTypeDef = TypeTypedDict(
     "CloudwatchEventMetricStatsMetricTypeDef",
     (
-        TypedDictAttribute("metricName", Type.str, True),
-        TypedDictAttribute("namespace", Type.str, True),
-        TypedDictAttribute("dimensions", Type.DictStrStr, True),
+        TypedDictAttribute("metricName", Type.str, required=True),
+        TypedDictAttribute("namespace", Type.str, required=True),
+        TypedDictAttribute("dimensions", Type.DictStrStr, required=True),
     ),
 )
 
 CloudwatchEventMetricStatsTypeDef = TypeTypedDict(
     "CloudwatchEventMetricStatsTypeDef",
     (
-        TypedDictAttribute("metric", CloudwatchEventMetricStatsMetricTypeDef, False),
-        TypedDictAttribute("period", Type.str, True),
-        TypedDictAttribute("stat", Type.str, True),
+        TypedDictAttribute("metric", CloudwatchEventMetricStatsMetricTypeDef, required=False),
+        TypedDictAttribute("period", Type.str, required=True),
+        TypedDictAttribute("stat", Type.str, required=True),
     ),
 )
 
 CloudwatchEventMetricTypeDef = TypeTypedDict(
     "CloudwatchEventMetricTypeDef",
     (
-        TypedDictAttribute("id", Type.str, True),
-        TypedDictAttribute("metricStat", CloudwatchEventMetricStatsTypeDef, False),
-        TypedDictAttribute("returnData", Type.bool, True),
-        TypedDictAttribute("expression", Type.str, False),
-        TypedDictAttribute("label", Type.str, False),
-        TypedDictAttribute("period", Type.int, False),
+        TypedDictAttribute("id", Type.str, required=True),
+        TypedDictAttribute("metricStat", CloudwatchEventMetricStatsTypeDef, required=False),
+        TypedDictAttribute("returnData", Type.bool, required=True),
+        TypedDictAttribute("expression", Type.str, required=False),
+        TypedDictAttribute("label", Type.str, required=False),
+        TypedDictAttribute("period", Type.int, required=False),
     ),
 )
 
 CloudwatchEventConfigurationTypeDef = TypeTypedDict(
     "CloudwatchEventDetailConfigurationTypeDef",
     (
-        TypedDictAttribute("id", Type.str, False),
-        TypedDictAttribute("description", Type.str, False),
+        TypedDictAttribute("id", Type.str, required=False),
+        TypedDictAttribute("description", Type.str, required=False),
         TypedDictAttribute(
             "metrics",
             TypeSubscript(Type.List, [CloudwatchEventMetricTypeDef]),
-            False,
+            required=False,
         ),
-        TypedDictAttribute("actionsSuppressor", Type.str, False),
-        TypedDictAttribute("actionsSuppressorWaitPeriod", Type.int, False),
-        TypedDictAttribute("actionsSuppressorExtensionPeriod", Type.int, False),
-        TypedDictAttribute("threshold", Type.int, False),
-        TypedDictAttribute("evaluationPeriods", Type.int, False),
-        TypedDictAttribute("alarmRule", Type.str, False),
-        TypedDictAttribute("alarmName", Type.str, False),
-        TypedDictAttribute("treatMissingData", Type.str, False),
-        TypedDictAttribute("comparisonOperator", Type.str, False),
-        TypedDictAttribute("timestamp", Type.str, False),
-        TypedDictAttribute("actionsEnabled", Type.bool, False),
-        TypedDictAttribute("okActions", TypeSubscript(Type.List, [Type.str]), False),
-        TypedDictAttribute("alarmActions", TypeSubscript(Type.List, [Type.str]), False),
-        TypedDictAttribute("insufficientDataActions", TypeSubscript(Type.List, [Type.str]), False),
+        TypedDictAttribute("actionsSuppressor", Type.str, required=False),
+        TypedDictAttribute("actionsSuppressorWaitPeriod", Type.int, required=False),
+        TypedDictAttribute("actionsSuppressorExtensionPeriod", Type.int, required=False),
+        TypedDictAttribute("threshold", Type.int, required=False),
+        TypedDictAttribute("evaluationPeriods", Type.int, required=False),
+        TypedDictAttribute("alarmRule", Type.str, required=False),
+        TypedDictAttribute("alarmName", Type.str, required=False),
+        TypedDictAttribute("treatMissingData", Type.str, required=False),
+        TypedDictAttribute("comparisonOperator", Type.str, required=False),
+        TypedDictAttribute("timestamp", Type.str, required=False),
+        TypedDictAttribute("actionsEnabled", Type.bool, required=False),
+        TypedDictAttribute("okActions", TypeSubscript(Type.List, [Type.str]), required=False),
+        TypedDictAttribute("alarmActions", TypeSubscript(Type.List, [Type.str]), required=False),
+        TypedDictAttribute(
+            "insufficientDataActions",
+            TypeSubscript(Type.List, [Type.str]),
+            required=False,
+        ),
     ),
 )
 
 CloudwatchEventDetailTypeDef = TypeTypedDict(
     "CloudwatchEventDetailTypeDef",
     (
-        TypedDictAttribute("alarmName", Type.str, True),
-        TypedDictAttribute("operation", Type.str, False),
-        TypedDictAttribute("configuration", CloudwatchEventConfigurationTypeDef, False),
-        TypedDictAttribute("previousConfiguration", CloudwatchEventConfigurationTypeDef, False),
-        TypedDictAttribute("previousState", CloudwatchEventStateTypeDef, False),
-        TypedDictAttribute("state", CloudwatchEventStateTypeDef, True),
+        TypedDictAttribute("alarmName", Type.str, required=True),
+        TypedDictAttribute("operation", Type.str, required=False),
+        TypedDictAttribute("configuration", CloudwatchEventConfigurationTypeDef, required=False),
+        TypedDictAttribute(
+            "previousConfiguration",
+            CloudwatchEventConfigurationTypeDef,
+            required=False,
+        ),
+        TypedDictAttribute("previousState", CloudwatchEventStateTypeDef, required=False),
+        TypedDictAttribute("state", CloudwatchEventStateTypeDef, required=True),
     ),
 )
 
 CloudwatchEventTypeDef = TypeTypedDict(
     "CloudwatchEventTypeDef",
     (
-        TypedDictAttribute("version", Type.str, True),
-        TypedDictAttribute("id", Type.str, True),
-        TypedDictAttribute("detail-type", Type.str, True),
-        TypedDictAttribute("source", Type.str, True),
-        TypedDictAttribute("account", Type.str, True),
-        TypedDictAttribute("time", Type.str, True),
-        TypedDictAttribute("region", Type.str, True),
-        TypedDictAttribute("resources", TypeSubscript(Type.List, [Type.str]), True),
-        TypedDictAttribute("detail", CloudwatchEventDetailTypeDef, True),
+        TypedDictAttribute("version", Type.str, required=True),
+        TypedDictAttribute("id", Type.str, required=True),
+        TypedDictAttribute("detail-type", Type.str, required=True),
+        TypedDictAttribute("source", Type.str, required=True),
+        TypedDictAttribute("account", Type.str, required=True),
+        TypedDictAttribute("time", Type.str, required=True),
+        TypedDictAttribute("region", Type.str, required=True),
+        TypedDictAttribute("resources", TypeSubscript(Type.List, [Type.str]), required=True),
+        TypedDictAttribute("detail", CloudwatchEventDetailTypeDef, required=True),
     ),
 )

@@ -31,7 +31,7 @@ class TypedDictAttribute:
         required -- Whether the attribute has to be set.
     """
 
-    def __init__(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
+    def __init__(self, name: str, type_annotation: FakeAnnotation, *, required: bool) -> None:
         self.name = name
         self.required = required
         self.type_annotation = type_annotation
@@ -104,6 +104,7 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         name: str,
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
+        *,
         stringify: bool = False,
     ) -> None:
         self.name = name
@@ -174,7 +175,7 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         """
         return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
 
-    def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
+    def add_attribute(self, name: str, type_annotation: FakeAnnotation, *, required: bool) -> None:
         """
         Add new attribute to a dictionary.
 
@@ -183,7 +184,7 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
             type_annotation -- Argument type annotation.
             required -- Whether argument has to be set.
         """
-        self.children.append(TypedDictAttribute(name, type_annotation, required))
+        self.children.append(TypedDictAttribute(name, type_annotation, required=required))
 
     def is_dict(self) -> bool:
         """

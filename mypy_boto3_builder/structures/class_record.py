@@ -26,6 +26,7 @@ class ClassRecord:
         methods: Iterable[Method] = (),
         attributes: Iterable[Attribute] = (),
         bases: Iterable[FakeAnnotation] = (),
+        *,
         use_alias: bool = False,
     ) -> None:
         self.name = name

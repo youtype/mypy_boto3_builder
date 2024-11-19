@@ -42,6 +42,7 @@ class EnumListAction(argparse.Action):
         option_strings: Sequence[str],
         dest: str,
         default: Sequence[enum.Enum] | None = None,
+        *,
         required: bool = False,
         **kwargs: str | None,
     ) -> None:

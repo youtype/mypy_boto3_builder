@@ -187,7 +187,8 @@ def run(args: CLINamespace) -> None:
     if args.list_services:
         for service_name in available_service_names:
             sys.stdout.write(
-                f"- {service_name.name} : {service_name.class_name} {service_name.boto3_doc_link}\n"
+                f"- {service_name.name} : {service_name.class_name}"
+                f" {service_name.boto3_doc_link}\n",
             )
         return
 

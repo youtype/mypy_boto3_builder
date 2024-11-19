@@ -332,7 +332,7 @@ class ShapeParser:
         name = capitalize(shape.name.lstrip("_"))
         return f"{name}Type"
 
-    def _parse_shape_string(self, shape: StringShape, output_child: bool) -> FakeAnnotation:
+    def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
         if shape.enum:
             literal_name = self._get_literal_name(shape)
             type_literal_stub = get_type_literal_stub(self.service_name, literal_name)
@@ -365,6 +365,7 @@ class ShapeParser:
     def _parse_shape_map(
         self,
         shape: MapShape,
+        *,
         is_output_child: bool = False,
         is_streaming: bool = False,
     ) -> FakeAnnotation:
@@ -393,7 +394,7 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _get_typed_dict_map(self, output: bool, output_child: bool) -> TypedDictMap:
+    def _get_typed_dict_map(self, *, output: bool, output_child: bool) -> TypedDictMap:
         if output:
             return self._response_typed_dict_map
         if output_child:
@@ -403,6 +404,7 @@ class ShapeParser:
     def _parse_shape_structure(
         self,
         shape: StructureShape,
+        *,
         output: bool = False,
         output_child: bool = False,
         is_streaming: bool = False,
@@ -415,7 +417,7 @@ class ShapeParser:
         typed_dict_name = self._get_shape_type_name(shape)
         typed_dict = TypeTypedDict(typed_dict_name)
 
-        typed_dict_map = self._get_typed_dict_map(output, output_child)
+        typed_dict_map = self._get_typed_dict_map(output=output, output_child=output_child)
         resource_typed_dict_name = self._get_typed_dict_name(shape, postfix=self.resource_name)
         found_typed_dict = typed_dict_map.get(typed_dict.name)
         found_resource_typed_dict = typed_dict_map.get(resource_typed_dict_name)
@@ -434,7 +436,7 @@ class ShapeParser:
                     is_output_child=is_output_or_child,
                     is_streaming=is_streaming,
                 ),
-                attr_name in required,
+                required=attr_name in required,
             )
         if output:
             self._mark_typed_dict_as_total(typed_dict)
@@ -464,10 +466,15 @@ class ShapeParser:
             typed_dict.add_attribute(
                 "ResponseMetadata",
                 ResponseMetadataTypeDef,
-                True,
+                required=True,
             )
 
-    def _parse_shape_list(self, shape: ListShape, is_output_child: bool = False) -> FakeAnnotation:
+    def _parse_shape_list(
+        self,
+        shape: ListShape,
+        *,
+        is_output_child: bool = False,
+    ) -> FakeAnnotation:
         type_subscript = (
             TypeSubscript(Type.List) if is_output_child else TypeSubscript(Type.Sequence)
         )
@@ -505,13 +512,14 @@ class ShapeParser:
     def _parse_shape_by_type(
         self,
         shape: Shape,
+        *,
         is_output_or_child: bool,
         output: bool,
         is_streaming: bool,
     ) -> FakeAnnotation:
         match shape:
             case StringShape():
-                return self._parse_shape_string(shape, output_child=is_output_or_child)
+                return self._parse_shape_string(shape)
             case MapShape():
                 return self._parse_shape_map(
                     shape,
@@ -539,6 +547,7 @@ class ShapeParser:
     def parse_shape(
         self,
         shape: Shape,
+        *,
         is_output: bool = False,
         is_output_child: bool = False,
         is_streaming: bool = False,
@@ -591,7 +600,12 @@ class ShapeParser:
         if shape_type_stub:
             return shape_type_stub
 
-        result = self._parse_shape_by_type(shape, is_output_or_child, is_output, is_streaming)
+        result = self._parse_shape_by_type(
+            shape,
+            is_output_or_child=is_output_or_child,
+            output=is_output,
+            is_streaming=is_streaming,
+        )
         if isinstance(result, TypeTypedDict):
             replacement = Type.DictStrAny if is_output_or_child else Type.MappingStrAny
             mutated_parents = result.replace_self_references(replacement)
@@ -694,7 +708,8 @@ class ShapeParser:
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
-                    operation_shape.input_shape, postfix=f"{waiter_name}Wait"
+                    operation_shape.input_shape,
+                    postfix=f"{waiter_name}Wait",
                 ),
             )
         return method

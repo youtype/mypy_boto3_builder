@@ -107,7 +107,7 @@ def parse_args() -> CLINamespace:
     )
 
 
-def check_call(cmd: Sequence[str], print_error: bool = True) -> str:
+def check_call(cmd: Sequence[str], *, print_error: bool = True) -> str:
     """
     Check command exit code and output on error.
 

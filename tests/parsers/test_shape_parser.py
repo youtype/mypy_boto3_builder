@@ -151,25 +151,25 @@ class TestShapeParser:
                 "TestTypeDef": TypeTypedDict(
                     "TestTypeDef",
                     [
-                        TypedDictAttribute("Test", Type.Any, False),
+                        TypedDictAttribute("Test", Type.Any, required=False),
                     ],
                 ),
                 "Test2TypeDef": TypeTypedDict(
                     "Test2TypeDef",
                     [
-                        TypedDictAttribute("Test2", Type.Any, False),
+                        TypedDictAttribute("Test2", Type.Any, required=False),
                     ],
                 ),
                 "Test3TypeDef": TypeTypedDict(
                     "Test3TypeDef",
                     [
-                        TypedDictAttribute("Test3", Type.Any, True),
+                        TypedDictAttribute("Test3", Type.Any, required=True),
                     ],
                 ),
                 "Test2ResponseTypeDef": TypeTypedDict(
                     "Test2ResponseTypeDef",
                     [
-                        TypedDictAttribute("ResponseMetadata", Type.Any, False),
+                        TypedDictAttribute("ResponseMetadata", Type.Any, required=False),
                     ],
                 ),
             },
@@ -179,7 +179,7 @@ class TestShapeParser:
                 "TestTypeDef": TypeTypedDict(
                     "TestTypeDef",
                     [
-                        TypedDictAttribute("Test", Type.Any, True),
+                        TypedDictAttribute("Test", Type.Any, required=True),
                     ],
                 ),
             },
@@ -189,7 +189,7 @@ class TestShapeParser:
                 "Test2TypeDef": TypeTypedDict(
                     "Test2TypeDef",
                     [
-                        TypedDictAttribute("Test2", Type.Any, True),
+                        TypedDictAttribute("Test2", Type.Any, required=True),
                     ],
                 ),
             },
@@ -236,12 +236,12 @@ class TestShapeParser:
         shape.name = "MyShape"
         shape.enum = []
         shape.metadata = {"pattern": "any"}
-        assert shape_parser._parse_shape_string(shape, False).render() == "str"
+        assert shape_parser._parse_shape_string(shape).render() == "str"
 
         shape.enum = ["a", "b"]
-        assert shape_parser._parse_shape_string(shape, True).render() == "MyShapeType"
-        assert shape_parser._parse_shape_string(shape, False).render() == "MyShapeType"
-        assert shape_parser._parse_shape_string(shape, False).children == {"a", "b"}
+        assert shape_parser._parse_shape_string(shape).render() == "MyShapeType"
+        assert shape_parser._parse_shape_string(shape).render() == "MyShapeType"
+        assert shape_parser._parse_shape_string(shape).children == {"a", "b"}
 
     def test_get_resource_method_map(self) -> None:
         self.session_mock._loader.load_service_model.return_value = {

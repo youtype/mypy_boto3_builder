@@ -205,7 +205,7 @@ def install_service(service_name: str, product: Product) -> None:
     check_call([print_path(product.install_script_path), service_name])
 
 
-def compare(data: str, snapshot_path: Path, update: bool) -> None:
+def compare(data: str, snapshot_path: Path, *, update: bool) -> None:
     """
     Compare tool output with a snapshot.
     """
@@ -236,7 +236,7 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
     raise SnapshotMismatchError(snapshot_path)
 
 
-def run_pyright(path: Path, snapshot_path: Path, update: bool) -> None:
+def run_pyright(path: Path, snapshot_path: Path, *, update: bool) -> None:
     """
     Run `pyright` and compare output.
     """
@@ -261,10 +261,10 @@ def run_pyright(path: Path, snapshot_path: Path, update: bool) -> None:
             del diag["uri"]
 
     new_data = json.dumps(data, indent=4)
-    compare(new_data, snapshot_path, update)
+    compare(new_data, snapshot_path, update=update)
 
 
-def run_mypy(path: Path, snapshot_path: Path, update: bool) -> None:
+def run_mypy(path: Path, snapshot_path: Path, *, update: bool) -> None:
     """
     Run `mypy` and compare output.
     """
@@ -283,7 +283,7 @@ def run_mypy(path: Path, snapshot_path: Path, update: bool) -> None:
             continue
         new_data_lines.append(line)
     new_data = "\n".join(new_data_lines)
-    compare(new_data, snapshot_path, update)
+    compare(new_data, snapshot_path, update=update)
 
 
 def run_call(path: Path) -> None:
@@ -324,10 +324,10 @@ def main() -> None:
             run_call(file)
             logger.debug(f"Running mypy for {print_path(file)} ...")
             snapshot_path = args.product.examples_path / "mypy" / f"{file.name}.out"
-            run_mypy(file, snapshot_path, args.update)
+            run_mypy(file, snapshot_path, update=args.update)
             logger.debug(f"Running pyright for {print_path(file)} ...")
             snapshot_path = args.product.examples_path / "pyright" / f"{file.name}.json"
-            run_pyright(file, snapshot_path, args.update)
+            run_pyright(file, snapshot_path, update=args.update)
         except SnapshotMismatchError as e:
             logger.warning(f"Snapshot mismatch: {e}")
             error = e

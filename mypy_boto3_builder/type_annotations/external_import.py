@@ -29,6 +29,7 @@ class ExternalImport(FakeAnnotation):
         source: ImportString,
         name: str = "",
         alias: str = "",
+        *,
         safe: bool = False,
     ) -> None:
         self.source: ImportString = source
@@ -37,7 +38,7 @@ class ExternalImport(FakeAnnotation):
         self.safe: bool = safe
 
     @classmethod
-    def from_class(cls, obj: type, alias: str = "", safe: bool = False) -> Self:
+    def from_class(cls, obj: type, alias: str = "", *, safe: bool = False) -> Self:
         """
         Create an instance from an imported class.
 
@@ -98,7 +99,7 @@ class ExternalImport(FakeAnnotation):
         """
         Create a copy of type annotation wrapper.
         """
-        return self.__class__(self.source, self.name, self.alias, self.safe)
+        return self.__class__(self.source, self.name, self.alias, safe=self.safe)
 
     def copy_from(self: Self, other: Self) -> None:
         """

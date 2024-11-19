@@ -129,8 +129,9 @@ def process_master(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
     version: str,
+    *,
+    generate_setup: bool,
 ) -> MasterPackage:
     """
     Parse and write master package `mypy_boto3`.
@@ -199,8 +200,9 @@ def process_boto3_stubs_full(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
     version: str,
+    *,
+    generate_setup: bool,
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3-stubs-full`.
@@ -209,8 +211,8 @@ def process_boto3_stubs_full(
         session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
+        generate_setup -- Generate ready-to-install or to-use package
 
     Return:
         Parsed Boto3StubsPackage.

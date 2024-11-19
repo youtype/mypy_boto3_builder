@@ -27,6 +27,7 @@ class TypeSubscript(TypeParent):
         self,
         parent: FakeAnnotation,
         children: Iterable[FakeAnnotation] = (),
+        *,
         stringify: bool = False,
     ) -> None:
         self.parent: FakeAnnotation = parent
