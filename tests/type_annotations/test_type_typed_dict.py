@@ -105,18 +105,6 @@ class TestTypeTypedDict:
         ).has_required()
         assert not TypeTypedDict("MyDict", []).has_required()
 
-    def test_has_both(self) -> None:
-        assert self.result.has_both()
-        assert not TypeTypedDict(
-            "MyDict",
-            [TypedDictAttribute("required", Type.bool, required=True)],
-        ).has_both()
-        assert not TypeTypedDict(
-            "MyDict",
-            [TypedDictAttribute("optional", Type.str, required=False)],
-        ).has_both()
-        assert not TypeTypedDict("MyDict", []).has_both()
-
     def test_get_required(self) -> None:
         assert len(self.result.get_required()) == 1
         assert self.result.get_required()[0].name == "required"

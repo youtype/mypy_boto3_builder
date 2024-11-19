@@ -204,12 +204,6 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         """
         return any(child.is_required() for child in self.children)
 
-    def has_both(self) -> bool:
-        """
-        Whether TypedDict has both optional and required keys.
-        """
-        return self.has_required() and self.has_optional()
-
     def get_required(self) -> tuple[TypedDictAttribute, ...]:
         """
         Get a list of required attributes.
