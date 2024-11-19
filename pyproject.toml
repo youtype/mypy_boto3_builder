@@ -171,10 +171,10 @@ select = [
     # "EM",  # flake8-errmsg
     "FA",  # flake8-future-annotations
     "ISC", # flake8-implicit-str-concat
-    # "ICN",   # flake8-import-conventions
+    "ICN", # flake8-import-conventions
     "LOG", # flake8-logging
     # "G",   # flake8-logging-format
-    # "INP",   # flake8-no-pep420
+    # "INP",  # flake8-no-pep420
     "PIE",  # flake8-pie
     "T20",  # flake8-print
     "PYI",  # flake8-pyi
