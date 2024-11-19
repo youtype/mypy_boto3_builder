@@ -34,6 +34,7 @@ class ServicePackageParser:
         session -- boto3 session.
         service_name -- Target service name.
         package_data -- Package data.
+        version -- Package version.
 
     Returns:
         ServiceModule structure.
@@ -44,10 +45,12 @@ class ServicePackageParser:
         session: Session,
         service_name: ServiceName,
         package_data: type[BasePackageData],
+        version: str,
     ) -> None:
         self.session = session
         self.service_name = service_name
         self.package_data = package_data
+        self.version = version
         self.shape_parser = ShapeParser(self.session, self.service_name)
         self._logger = get_logger()
 
@@ -126,6 +129,7 @@ class ServicePackageParser:
             service_name=self.service_name,
             client=client,
             service_resource=service_resource,
+            version=self.version,
         )
 
     def _parse_waiters(self, client: Client) -> list[Waiter]:

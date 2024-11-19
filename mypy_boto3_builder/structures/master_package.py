@@ -21,18 +21,18 @@ class MasterPackage(Package):
     Structure for mypy-boto3 package.
 
     Arguments:
-        name -- Module name.
-        pypi_name -- Module PyPI name.
         service_names -- List of included service names.
         service_packages -- List of included service packages.
+        version -- Package version.
     """
 
     def __init__(
         self,
-        service_names: Iterable[ServiceName] = (),
-        service_packages: Iterable[ServicePackage] = (),
+        service_names: Iterable[ServiceName],
+        service_packages: Iterable[ServicePackage],
+        version: str,
     ) -> None:
-        super().__init__(MypyBoto3PackageData, service_names)
+        super().__init__(MypyBoto3PackageData, service_names, version=version)
         self.service_packages = list(service_packages)
         self.literals: list[TypeLiteral] = []
 

@@ -13,6 +13,7 @@ from typing import ClassVar
 
 from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.enums.product import ProductType
+from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.service_package_parser import ServicePackageParser
@@ -108,7 +109,7 @@ class BaseGenerator(ABC):
         """
         raise NotImplementedError("Method should be implemented in child class")
 
-    def _get_package_version(self, pypi_name: str, version: str) -> str | None:
+    def _get_package_version(self, pypi_name: str, version: str) -> str:
         if self.config.disable_smart_version:
             return version
         pypi_manager = PyPIManager(pypi_name)
@@ -116,8 +117,7 @@ class BaseGenerator(ABC):
             return version
 
         if self.config.skip_published:
-            self.logger.info(f"Skipping {pypi_name} {version}, already on PyPI")
-            return None
+            raise AlreadyPublishedError(f"{pypi_name} {version} is already on PyPI")
 
         return pypi_manager.get_next_version(version)
 
@@ -150,16 +150,15 @@ class BaseGenerator(ABC):
                 f"{progress_str} Generating {service_name.boto3_name} package directory",
             )
             service_package = self._parse_service_package(
-                service_name,
-                package.version,
-                package.data,
+                service_name=service_name,
+                version=package.version,
+                package_data=package.data,
             )
             ServicePackageParser.mark_safe_typed_dicts(service_package)
 
             service_package.pypi_name = package.pypi_name
-            service_package.version = package.version
             package_writer.write_service_package(
-                service_package,
+                package=service_package,
                 templates_path=self.service_template_path,
             )
 
@@ -186,14 +185,12 @@ class BaseGenerator(ABC):
     def _parse_service_package(
         self,
         service_name: ServiceName,
-        version: str | None,
+        version: str,
         package_data: type[BasePackageData],
     ) -> ServicePackage:
         self.logger.debug(f"Parsing {service_name.boto3_name}")
-        parser = ServicePackageParser(self.session, service_name, package_data)
+        parser = ServicePackageParser(self.session, service_name, package_data, version)
         service_package = parser.parse()
-        if version:
-            service_package.version = version
 
         postprocessor = self.get_postprocessor(service_package)
         postprocessor.generate_docstrings()
@@ -210,7 +207,11 @@ class BaseGenerator(ABC):
         package_data: type[BasePackageData],
         templates_path: Path,
     ) -> ServicePackage:
-        service_package = self._parse_service_package(service_name, version, package_data)
+        service_package = self._parse_service_package(
+            service_name=service_name,
+            version=version,
+            package_data=package_data,
+        )
         ServicePackageParser.mark_safe_typed_dicts(service_package)
 
         self.logger.debug(f"Writing {service_name.boto3_name}")
@@ -223,12 +224,13 @@ class BaseGenerator(ABC):
     def _process_service_docs(
         self,
         service_name: ServiceName,
+        version: str,
         package_data: type[BasePackageData],
         templates_path: Path,
     ) -> ServicePackage:
         service_package = self._parse_service_package(
             service_name=service_name,
-            version=None,
+            version=version,
             package_data=package_data,
         )
 
@@ -238,19 +240,6 @@ class BaseGenerator(ABC):
             templates_path=templates_path,
         )
         return service_package
-
-    def _generate_service(self, service_name: ServiceName) -> ServicePackage:
-        pypi_name = self.service_package_data.get_service_pypi_name(service_name)
-        version = self._get_package_version(pypi_name, self.version)
-        if not version:
-            return ServicePackage(data=self.service_package_data, service_name=service_name)
-
-        return self._process_service(
-            service_name=service_name,
-            version=version,
-            package_data=self.service_package_data,
-            templates_path=self.service_template_path,
-        )
 
     def generate_service_stubs(self) -> None:
         """
@@ -262,12 +251,19 @@ class BaseGenerator(ABC):
             progress_str = f"[{current_str}/{total_str}]"
 
             pypi_name = self.service_package_data.get_service_pypi_name(service_name)
-            version = self._get_package_version(pypi_name, self.version)
-            if not version:
+            try:
+                version = self._get_package_version(pypi_name, self.version)
+            except AlreadyPublishedError:
+                self.logger.info(f"Skipping {pypi_name} {self.version}, already on PyPI")
                 continue
 
             self.logger.info(f"{progress_str} Generating {pypi_name} {version}")
-            self._generate_service(service_name)
+            self._process_service(
+                service_name=service_name,
+                version=version,
+                package_data=self.service_package_data,
+                templates_path=self.service_template_path,
+            )
 
     def cleanup_temporary_files(self) -> None:
         """

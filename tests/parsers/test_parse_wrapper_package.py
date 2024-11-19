@@ -17,6 +17,7 @@ class TestParseWrapperPackage:
             session_mock,
             [service_name_mock, service_name2_mock],
             Boto3StubsPackageData,
+            version="1.2.3",
         )
         assert result.essential_service_names == [service_name_mock, service_name2_mock]
         assert len(result.session_class.methods) == 2

@@ -16,21 +16,26 @@ from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
 
 
-def parse_master_package(session: Session, service_names: Iterable[ServiceName]) -> MasterPackage:
+def parse_master_package(
+    session: Session,
+    service_names: Iterable[ServiceName],
+    version: str,
+) -> MasterPackage:
     """
     Parse data for master package.
 
     Arguments:
         session -- boto3 session.
         service_names -- All available service names.
+        version -- Package version.
 
     Returns:
         MasterPackage structure.
     """
-    result = MasterPackage(service_names=service_names)
+    result = MasterPackage(service_names=service_names, service_packages=[], version=version)
     for service_name in result.service_names:
         result.service_packages.append(
-            parse_fake_service_package(session, service_name, Boto3StubsPackageData),
+            parse_fake_service_package(session, service_name, Boto3StubsPackageData, version),
         )
 
     if service_names:

@@ -39,6 +39,7 @@ class ServicePackage(Package):
         *,
         data: type[BasePackageData],
         service_name: ServiceName,
+        version: str,
         client: Client | None = None,
         service_resource: ServiceResource | None = None,
         waiters: Iterable[Waiter] = (),
@@ -47,7 +48,7 @@ class ServicePackage(Package):
         literals: Iterable[TypeLiteral] = (),
         helper_functions: Iterable[Function] = (),
     ) -> None:
-        super().__init__(data, (service_name,))
+        super().__init__(data, (service_name,), version)
         self.pypi_name = data.get_service_pypi_name(service_name)
         self._client = client
         self.service_resource = service_resource

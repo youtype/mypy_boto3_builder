@@ -43,8 +43,12 @@ def process_types_aioboto3(
         Parsed TypesAioBoto3Package.
     """
     logger = get_logger()
-    package = parse_types_aioboto3_package(session, service_names, TypesAioBoto3PackageData)
-    package.version = version
+    package = parse_types_aioboto3_package(
+        session,
+        service_names,
+        TypesAioBoto3PackageData,
+        version,
+    )
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -84,8 +88,12 @@ def process_types_aioboto3_lite(
         Parsed AioBotocoreStubsPackage.
     """
     logger = get_logger()
-    package = parse_types_aioboto3_package(session, service_names, TypesAioBoto3LitePackageData)
-    package.version = version
+    package = parse_types_aioboto3_package(
+        session,
+        service_names,
+        TypesAioBoto3LitePackageData,
+        version,
+    )
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -106,6 +114,7 @@ def process_types_aioboto3_docs(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
+    version: str,
 ) -> TypesAioBoto3Package:
     """
     Parse and write master package docs.
@@ -114,12 +123,18 @@ def process_types_aioboto3_docs(
         session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
+        version -- Package version
 
     Return:
         Parsed AioBotocoreStubsPackage.
     """
     logger = get_logger()
-    package = parse_types_aioboto3_package(session, service_names, TypesAioBoto3PackageData)
+    package = parse_types_aioboto3_package(
+        session,
+        service_names,
+        TypesAioBoto3PackageData,
+        version,
+    )
 
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 

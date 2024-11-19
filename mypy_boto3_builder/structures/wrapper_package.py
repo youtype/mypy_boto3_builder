@@ -29,7 +29,7 @@ class WrapperPackage(Package, ABC):
         self,
         data: type[BasePackageData],
         service_names: Iterable[ServiceName],
-        version: str | None = None,
+        version: str,
     ) -> None:
         super().__init__(data, service_names, version)
         self.session_class = ClassRecord("Session")

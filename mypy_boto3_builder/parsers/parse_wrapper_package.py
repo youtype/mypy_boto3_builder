@@ -20,6 +20,7 @@ def parse_boto3_stubs_package(
     session: Session,
     service_names: Iterable[ServiceName],
     package_data: type[BasePackageData],
+    version: str,
 ) -> Boto3StubsPackage:
     """
     Parse data for boto3-stubs package.
@@ -28,11 +29,12 @@ def parse_boto3_stubs_package(
         session -- boto3 session
         service_names -- All available service names
         package_data -- Package data
+        version -- Package version
 
     Returns:
         Boto3StubsPackage structure.
     """
-    package = Boto3StubsPackage(package_data, service_names)
+    package = Boto3StubsPackage(package_data, service_names, version)
     parser = WrapperPackageParser(session, package)
     package.init_functions.extend(parser.get_init_client_functions())
     package.init_functions.extend(parser.get_init_resource_functions())
@@ -45,6 +47,7 @@ def parse_aiobotocore_stubs_package(
     session: Session,
     service_names: Iterable[ServiceName],
     package_data: type[BasePackageData],
+    version: str,
 ) -> TypesAioBotocorePackage:
     """
     Parse data for types-aiobotocore package.
@@ -53,11 +56,12 @@ def parse_aiobotocore_stubs_package(
         session -- boto3 session
         service_names -- All available service names
         package_data -- Package data
+        version -- Package version
 
     Returns:
         TypesAioBotocorePackage structure.
     """
-    package = TypesAioBotocorePackage(package_data, service_names)
+    package = TypesAioBotocorePackage(package_data, service_names, version)
     parser = WrapperPackageParser(session, package)
     package.session_class.methods.extend(parser.get_session_client_methods("create_client"))
     return package
@@ -67,6 +71,7 @@ def parse_types_aioboto3_package(
     session: Session,
     service_names: Iterable[ServiceName],
     package_data: type[BasePackageData],
+    version: str,
 ) -> TypesAioBoto3Package:
     """
     Parse data for types-aioboto3 package.
@@ -75,11 +80,12 @@ def parse_types_aioboto3_package(
         session -- boto3 session
         service_names -- All available service names
         package_data -- Package data
+        version -- Package version
 
     Returns:
         TypesAioBoto3Package structure.
     """
-    package = TypesAioBoto3Package(package_data, service_names)
+    package = TypesAioBoto3Package(package_data, service_names, version)
     parser = WrapperPackageParser(session, package)
     package.init_functions.extend(parser.get_init_client_functions())
     package.init_functions.extend(parser.get_init_resource_functions())

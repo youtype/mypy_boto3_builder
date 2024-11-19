@@ -29,13 +29,13 @@ class Package:
         self,
         data: type[BasePackageData],
         service_names: Iterable[ServiceName] = (),
-        version: str | None = None,
+        version: str = "",
     ) -> None:
         self.data = data
         self._pypi_name = self.data.PYPI_NAME
         self.library_version = data.get_library_version()
         self.botocore_version = data.get_botocore_version()
-        self._version: str | None = None
+        self._version: str = ""
         if version:
             self.version = version
         self.service_names = tuple(service_names)

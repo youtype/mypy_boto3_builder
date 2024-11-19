@@ -22,6 +22,7 @@ def parse_fake_service_package(
     session: Session,
     service_name: ServiceName,
     package_data: type[BasePackageData],
+    version: str,
 ) -> ServicePackage:
     """
     Create fake boto3 service module structure.
@@ -32,6 +33,7 @@ def parse_fake_service_package(
         session -- boto3 session.
         service_name -- Target service name.
         package_data -- Package data.
+        version -- Package version.
 
     Returns:
         ServiceModule structure.
@@ -48,6 +50,7 @@ def parse_fake_service_package(
             service_name=service_name,
             boto3_client=boto3_client,
         ),
+        version=version,
     )
 
     if boto3_resource is not None:

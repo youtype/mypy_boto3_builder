@@ -8,7 +8,7 @@ from mypy_boto3_builder.structures.package import Package
 
 class TestPackage:
     def test_init(self) -> None:
-        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])
+        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3], version="2.3.4")
         assert package.directory_name == "boto3_stubs_package"
         assert package.min_library_version
         assert package.max_library_version
@@ -21,7 +21,6 @@ class TestPackage:
         assert package.get_service_pypi_name(ServiceNameCatalog.s3) == "mypy-boto3-s3"
         assert package.min_python_version
         package.library_version = "1.2.3"
-        package.version = "2.3.4"
         assert str(package) == "boto3-stubs 2.3.4 (boto3 1.2.3)"
 
     def test_service_name(self) -> None:

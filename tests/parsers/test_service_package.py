@@ -14,6 +14,11 @@ class TestBoto3StubsPackage:
         service_name_mock.boto3_name = "s3"
         ClientExceptionsFactoryMock.create_client_exceptions.return_value = []
 
-        parser = ServicePackageParser(session_mock, service_name_mock, Boto3StubsPackageData)
+        parser = ServicePackageParser(
+            session_mock,
+            service_name_mock,
+            Boto3StubsPackageData,
+            version="1.2.3",
+        )
         result = parser.parse()
         assert result.service_name == service_name_mock

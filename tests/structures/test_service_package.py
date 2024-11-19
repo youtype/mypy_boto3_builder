@@ -22,6 +22,7 @@ class TestServicePackage:
         self.service_package = ServicePackage(
             data=Boto3StubsPackageData,
             service_name=service_name,
+            version="1.2.3",
             client=Client("Client", service_name, Mock()),
             service_resource=ServiceResource("ServiceResource", service_name, Mock()),
             waiters=[Waiter("waiter", "waiter", "waiter", service_name)],

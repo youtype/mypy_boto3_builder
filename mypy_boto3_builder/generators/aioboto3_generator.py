@@ -11,6 +11,7 @@ from mypy_boto3_builder.constants import (
     StaticStubsPullURL,
     TemplatePath,
 )
+from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
@@ -57,8 +58,10 @@ class AioBoto3Generator(BaseGenerator):
 
     def _generate_stubs(self) -> None:
         package_data = TypesAioBoto3PackageData
-        version = self._get_package_version(package_data.PYPI_NAME, self.version)
-        if not version:
+        try:
+            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        except AlreadyPublishedError:
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
@@ -73,8 +76,10 @@ class AioBoto3Generator(BaseGenerator):
 
     def _generate_stubs_lite(self) -> None:
         package_data = TypesAioBoto3LitePackageData
-        version = self._get_package_version(package_data.PYPI_NAME, self.version)
-        if not version:
+        try:
+            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        except AlreadyPublishedError:
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
@@ -99,6 +104,7 @@ class AioBoto3Generator(BaseGenerator):
             self.session,
             self.output_path,
             self.service_names,
+            self.version,
         )
 
         for index, service_name in enumerate(self.service_names):
@@ -109,6 +115,7 @@ class AioBoto3Generator(BaseGenerator):
                 service_name=service_name,
                 package_data=package_data,
                 templates_path=TemplatePath.types_aioboto3_service_docs,
+                version=self.version,
             )
 
     def generate_service_stubs(self) -> None:

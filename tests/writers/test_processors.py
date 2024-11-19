@@ -45,8 +45,8 @@ class TestProcessors:
             session=session_mock,
             service_names=[ServiceNameCatalog.ec2],
             package_data=Boto3StubsPackageData,
+            version="1.2.3",
         )
-        assert package_mock.version == "1.2.3"
         assert result == package_mock
 
     @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
@@ -81,8 +81,8 @@ class TestProcessors:
             session=session_mock,
             service_names=[ServiceNameCatalog.ec2],
             package_data=Boto3StubsLitePackageData,
+            version="1.2.3",
         )
-        assert package_mock.version == "1.2.3"
         assert result == package_mock
 
     @patch("mypy_boto3_builder.writers.processors.parse_master_package")
@@ -96,14 +96,18 @@ class TestProcessors:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         result = process_master(
-            session_mock,
-            Path("my_path"),
-            [service_name_mock],
-            generate_setup=True,
+            session=session_mock,
+            output_path=Path("my_path"),
+            service_names=[service_name_mock],
             version="1.2.3",
+            generate_setup=True,
         )
         PackageWriterMock().write_package.assert_called()
-        parse_master_package_mock.assert_called_with(session_mock, [service_name_mock])
+        parse_master_package_mock.assert_called_with(
+            session=session_mock,
+            service_names=[service_name_mock],
+            version="1.2.3",
+        )
         assert result == parse_master_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
@@ -115,12 +119,18 @@ class TestProcessors:
     ) -> None:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
-        result = process_boto3_stubs_docs(session_mock, Path("my_path"), [service_name_mock])
+        result = process_boto3_stubs_docs(
+            session=session_mock,
+            output_path=Path("my_path"),
+            service_names=[service_name_mock],
+            version="1.2.3",
+        )
         PackageWriterMock().write_docs.assert_called()
         parse_boto3_stubs_package_mock.assert_called_with(
-            session_mock,
-            [service_name_mock],
-            Boto3StubsPackageData,
+            session=session_mock,
+            service_names=[service_name_mock],
+            package_data=Boto3StubsPackageData,
+            version="1.2.3",
         )
         assert result == parse_boto3_stubs_package_mock()
 
@@ -136,9 +146,9 @@ class TestProcessors:
         package_mock = MagicMock()
         parse_boto3_stubs_package_mock.return_value = package_mock
         result = process_boto3_stubs_full(
-            session_mock,
-            Path("my_path"),
-            [ServiceNameCatalog.ec2],
+            session=session_mock,
+            output_path=Path("my_path"),
+            service_names=[ServiceNameCatalog.ec2],
             version="1.2.3",
             generate_setup=True,
         )
@@ -150,6 +160,6 @@ class TestProcessors:
             session=session_mock,
             service_names=[ServiceNameCatalog.ec2],
             package_data=Boto3StubsFullPackageData,
+            version="1.2.3",
         )
-        assert package_mock.version == "1.2.3"
         assert result == package_mock

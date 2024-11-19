@@ -55,8 +55,8 @@ def process_boto3_stubs(
         session=session,
         service_names=service_names,
         package_data=package_data,
+        version=version,
     )
-    package.version = version
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -103,8 +103,8 @@ def process_boto3_stubs_lite(
         session=session,
         service_names=service_names,
         package_data=package_data,
+        version=version,
     )
-    package.version = version
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -140,16 +140,15 @@ def process_master(
         session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
         version -- Package version
+        generate_setup -- Generate ready-to-install or to-use package
 
     Return:
         Parsed MasterPackage.
     """
     logger = get_logger()
     logger.debug("Parsing master")
-    package = parse_master_package(session, service_names)
-    package.version = version
+    package = parse_master_package(session=session, service_names=service_names, version=version)
     logger.debug(f"Writing master to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -169,6 +168,7 @@ def process_boto3_stubs_docs(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
+    version: str,
 ) -> Boto3StubsPackage:
     """
     Parse and write master package docs.
@@ -177,6 +177,7 @@ def process_boto3_stubs_docs(
         session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
+        version -- Package version
 
     Return:
         Parsed Boto3StubsPackage.
@@ -184,12 +185,17 @@ def process_boto3_stubs_docs(
     logger = get_logger()
     package_data = Boto3StubsPackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
-    package = parse_boto3_stubs_package(session, service_names, package_data)
+    package = parse_boto3_stubs_package(
+        session=session,
+        service_names=service_names,
+        package_data=package_data,
+        version=version,
+    )
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
     package_writer.write_docs(
-        package,
+        package=package,
         templates_path=TemplatePath.boto3_stubs_docs,
     )
 
@@ -224,8 +230,8 @@ def process_boto3_stubs_full(
         session=session,
         service_names=service_names,
         package_data=package_data,
+        version=version,
     )
-    package.version = version
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(

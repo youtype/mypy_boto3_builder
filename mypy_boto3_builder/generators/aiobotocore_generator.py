@@ -11,6 +11,7 @@ from mypy_boto3_builder.constants import (
     StaticStubsPullURL,
     TemplatePath,
 )
+from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
     TypesAioBotocoreFullPackageData,
@@ -63,8 +64,10 @@ class AioBotocoreGenerator(BaseGenerator):
 
     def _generate_stubs(self) -> None:
         package_data = TypesAioBotocorePackageData
-        version = self._get_package_version(package_data.PYPI_NAME, self.version)
-        if not version:
+        try:
+            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        except AlreadyPublishedError:
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
@@ -79,8 +82,10 @@ class AioBotocoreGenerator(BaseGenerator):
 
     def _generate_stubs_lite(self) -> None:
         package_data = TypesAioBotocoreLitePackageData
-        version = self._get_package_version(package_data.PYPI_NAME, self.version)
-        if not version:
+        try:
+            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        except AlreadyPublishedError:
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
@@ -105,6 +110,7 @@ class AioBotocoreGenerator(BaseGenerator):
             self.session,
             self.output_path,
             self.service_names,
+            self.version,
         )
 
         for index, service_name in enumerate(self.service_names):
@@ -115,6 +121,7 @@ class AioBotocoreGenerator(BaseGenerator):
                 service_name=service_name,
                 package_data=package_data,
                 templates_path=TemplatePath.types_aiobotocore_service_docs,
+                version=self.version,
             )
 
     def generate_full_stubs(self) -> None:
@@ -122,8 +129,10 @@ class AioBotocoreGenerator(BaseGenerator):
         Generate full stubs.
         """
         package_data = TypesAioBotocoreFullPackageData
-        version = self._get_package_version(package_data.PYPI_NAME, self.version)
-        if not version:
+        try:
+            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        except AlreadyPublishedError:
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")

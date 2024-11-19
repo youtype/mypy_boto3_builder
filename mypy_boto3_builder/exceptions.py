@@ -51,3 +51,9 @@ class StructureError(BuildInternalError):
     """
     Error on invalid internal structure.
     """
+
+
+class AlreadyPublishedError(BuildInternalError):
+    """
+    Error on already published package.
+    """

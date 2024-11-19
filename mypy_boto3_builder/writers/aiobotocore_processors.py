@@ -51,8 +51,8 @@ def process_types_aiobotocore(
         session,
         service_names,
         TypesAioBotocorePackageData,
+        version,
     )
-    package.version = version
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -96,8 +96,8 @@ def process_types_aiobotocore_lite(
         session,
         service_names,
         TypesAioBotocoreLitePackageData,
+        version,
     )
-    package.version = version
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -118,6 +118,7 @@ def process_types_aiobotocore_docs(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
+    version: str,
 ) -> TypesAioBotocorePackage:
     """
     Parse and write master package docs.
@@ -126,6 +127,7 @@ def process_types_aiobotocore_docs(
         session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
+        version -- Package version
 
     Return:
         Parsed TypesAioBotocorePackage.
@@ -135,6 +137,7 @@ def process_types_aiobotocore_docs(
         session,
         service_names,
         TypesAioBotocorePackageData,
+        version,
     )
 
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
@@ -177,8 +180,8 @@ def process_types_aiobotocore_full(
         session=session,
         service_names=service_names,
         package_data=package_data,
+        version=version,
     )
-    package.version = version
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
