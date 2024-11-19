@@ -1,5 +1,7 @@
 """
 Sortable abstractclass for TypeDefSorter.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from abc import ABC, abstractmethod

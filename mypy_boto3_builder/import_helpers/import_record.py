@@ -1,5 +1,7 @@
 """
 Helper for Python import strings.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import functools
@@ -76,7 +78,7 @@ class ImportRecord:
                 self.alias,
                 self.min_version,
                 self.fallback,
-            )
+            ),
         )
 
     def __eq__(self, other: object) -> bool:

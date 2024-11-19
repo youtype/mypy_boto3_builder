@@ -1,5 +1,7 @@
 """
 Multiple string utils collection.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import builtins

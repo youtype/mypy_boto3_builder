@@ -1,5 +1,7 @@
 """
 Collection of TypeUnions added by boto3.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from boto3.dynamodb.conditions import ConditionBase

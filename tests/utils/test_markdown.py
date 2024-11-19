@@ -8,7 +8,7 @@ class TestTableOfContents:
                 Header("a", 1),
                 Header("b", 3),
                 Header("c", 6),
-            ]
+            ],
         )
         assert toc.render() == "- [a](#a)\n    - [b](#b)"
 

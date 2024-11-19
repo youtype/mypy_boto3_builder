@@ -1,5 +1,7 @@
 """
 Utils for getting underlying package versions.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import functools

@@ -1,5 +1,7 @@
 """
 S3 service injected methods.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from boto3.s3.transfer import TransferConfig

@@ -31,7 +31,9 @@ class TestImportRecord:
         assert ImportRecord(third_party_source, "name") > ImportRecord(other_source, "test")
         assert ImportRecord(ImportString("zzz")) > ImportRecord(ImportString("aaa"))
         assert ImportRecord(
-            local_source, "test", fallback=ImportRecord(local_source, "test2")
+            local_source,
+            "test",
+            fallback=ImportRecord(local_source, "test2"),
         ) > ImportRecord(local_source, "name")
         assert not (
             ImportRecord(local_source, "name")

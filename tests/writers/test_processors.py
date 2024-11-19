@@ -99,7 +99,7 @@ class TestProcessors:
             session_mock,
             Path("my_path"),
             [service_name_mock],
-            True,
+            generate_setup=True,
             version="1.2.3",
         )
         PackageWriterMock().write_package.assert_called()
@@ -118,7 +118,9 @@ class TestProcessors:
         result = process_boto3_stubs_docs(session_mock, Path("my_path"), [service_name_mock])
         PackageWriterMock().write_docs.assert_called()
         parse_boto3_stubs_package_mock.assert_called_with(
-            session_mock, [service_name_mock], Boto3StubsPackageData
+            session_mock,
+            [service_name_mock],
+            Boto3StubsPackageData,
         )
         assert result == parse_boto3_stubs_package_mock()
 
@@ -137,7 +139,7 @@ class TestProcessors:
             session_mock,
             Path("my_path"),
             [ServiceNameCatalog.ec2],
-            True,
+            generate_setup=True,
             version="1.2.3",
         )
         PackageWriterMock().write_package.assert_called_once_with(

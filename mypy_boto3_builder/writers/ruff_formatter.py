@@ -1,5 +1,7 @@
 """
 Ruff formatter.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import json
@@ -89,7 +91,7 @@ class RuffFormatter:
             )
         except subprocess.CalledProcessError as e:
             self.logger.warning(
-                f"Sorting imports failed for paths {[print_path(path) for path in paths]}"
+                f"Sorting imports failed for paths {[print_path(path) for path in paths]}",
             )
             self.logger.warning(e.output.decode())
             raise RuffError(f"Sorting imports failed with status {e.returncode}") from None

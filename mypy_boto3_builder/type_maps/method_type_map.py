@@ -1,5 +1,7 @@
 """
 String to type annotation map that find type annotation by method and argument name.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Mapping
@@ -36,13 +38,13 @@ DEFAULT_VALUE_MAP: Final[ServiceTypeMap[TypeConstant]] = {
         CLIENT: {
             ALL: {
                 "accountId": TypeConstant("-"),
-            }
-        }
+            },
+        },
     },
 }
 
 _DEFAULT_VALUE_MAP_LOOKUP: LookupDict[TypeConstant] = LookupDict(
-    {ServiceNameCatalog.to_str(k): v for k, v in DEFAULT_VALUE_MAP.items()}
+    {ServiceNameCatalog.to_str(k): v for k, v in DEFAULT_VALUE_MAP.items()},
 )
 
 # Mapping overriding type annotations for botocore method arguments.
@@ -103,12 +105,12 @@ TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
             "get_queue_attributes": {
                 "AttributeNames": TypeSubscript(Type.Sequence, [QueueAttributeFilterType]),
             },
-        }
+        },
     },
 }
 
 _TYPE_MAP_LOOKUP: LookupDict[FakeAnnotation] = LookupDict(
-    {ServiceNameCatalog.to_str(k): v for k, v in TYPE_MAP.items()}
+    {ServiceNameCatalog.to_str(k): v for k, v in TYPE_MAP.items()},
 )
 
 
@@ -134,7 +136,10 @@ def get_method_type_stub(
 
 
 def get_default_value_stub(
-    service_name: ServiceName, class_name: str, method_name: str, argument_name: str
+    service_name: ServiceName,
+    class_name: str,
+    method_name: str,
+    argument_name: str,
 ) -> TypeConstant | None:
     """
     Get default value stub for method argument.

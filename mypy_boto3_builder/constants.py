@@ -1,5 +1,7 @@
 """
 Constants and paths.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from pathlib import Path

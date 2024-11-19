@@ -1,5 +1,7 @@
 """
 Description for boto3 service.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from typing import ClassVar, Final, Literal
@@ -172,7 +174,9 @@ class ServiceNameCatalog:
     lambda_ = ServiceName("lambda", "Lambda")
     stepfunctions = ServiceName("stepfunctions", "SFN")
     old_redshift_serverless = ServiceName(
-        "redshift-serverless", "RedshiftServerless", "redshiftserverless"
+        "redshift-serverless",
+        "RedshiftServerless",
+        "redshiftserverless",
     )
     old_ssm_sap = ServiceName("ssm-sap", "SsmSap", "ssmsap")
 

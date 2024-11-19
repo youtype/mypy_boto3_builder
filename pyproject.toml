@@ -147,37 +147,59 @@ target-version = "py310"
 [tool.ruff.lint]
 preview = true
 select = [
-    "E",    # pycodestyle
-    "W",    # pycodestyle
-    "F",    # Pyflakes
-    "B",    # flake8-bugbear
-    "I",    # isort
-    "N",    # pep8-naming
-    "D",    # pydocstyle
-    "C4",   # flake8-comprehensions
-    "C90",  # mccabe
-    "RUF",  # Ruff-specific rules
-    "SIM",  # flake8-simplify
+    "F",     # Pyflakes
+    "E",     # pycodestyle
+    "W",     # pycodestyle
+    "C90",   # mccabe
+    "I",     # isort
+    "N",     # pep8-naming
+    "D",     # pydocstyle
+    "UP",    # pyupgrade
+    "YTT",   # flake8-2020
+    "ANN",   # flake8-annotations
+    "ASYNC", # flake8-async
+    "S",     # flake8-bandit
+    "BLE",   # flake8-blind-except
+    # "FBT",   # flake8-boolean-trap
+    "B", # flake8-bugbear
+    "A", # flake8-builtins
+    # "COM",   # flake8-commas
+    "CPY", # flake8-copyright
+    "C4",  # flake8-comprehensions
+    "DTZ", # flake8-datetimez
+    "T10", # flake8-debugger
+    # "EM",    # flake8-errmsg
+    "FA", # flake8-future-annotations
+    # "ISC",   # flake8-implicit-str-concat
+    # "ICN",   # flake8-import-conventions
+    "LOG", # flake8-logging
+    # "G",   # flake8-logging-format
+    # "INP",   # flake8-no-pep420
+    "PIE",  # flake8-pie
+    "T20",  # flake8-print
     "PYI",  # flake8-pyi
     "PT",   # flake8-pytest-style
-    "T",    # flake8-raise
-    "LOG",  # flake8-logging
     "Q",    # flake8-quotes
     "RSE",  # flake8-raise
     "RET",  # flake8-return
+    "SLF",  # flake8-self
+    "SLOT", # flake8-slots
+    "SIM",  # flake8-simplify
     "TID",  # flake8-tidy-imports
     "TCH",  # flake8-type-checking
-    "S",    # flake8-bandit
-    "BLE",  # flake8-blind-except
-    "ANN",  # flake8-annotations
-    "A",    # flake8-builtins
+    "INT",  # flake8-gettext
+    "ARG",  # flake8-unused-arguments
     "PTH",  # flake8-use-pathlib
-    "YTT",  # flake8-2020
-    "UP",   # pyupgrade
+    # "TD",    # flake8-todos
+    # "FIX",   # flake8-fixme
+    # "ERA",   # eradicate
+    "PL",   # pylint
     "TRY",  # tryceratops
+    "FLY",  # flynt
     "PERF", # Perflint
     "FURB", # refurb
-    "PL",   # pylint
+    # "DOC",  # pydoclint
+    "RUF", # Ruff-specific rules
 ]
 ignore = [
     "D107",   # undocumented-public-init
@@ -199,6 +221,9 @@ ignore = [
     "PLR0913", # too-many-arguments
     "PLR0904", # too-many-public-methods
     "PLR6301", # no-self-use
+    "FBT003",  # boolean-identity
+    "SLF001",  # private-member-access
+    "ARG002",  # unused-argument
 ]
 fixable = ["ALL"]
 unfixable = ["B"]
@@ -212,6 +237,7 @@ allowed-confusables = ["’", "–"]
     "S101",    # use-of-assert
     "N803",    # argument-name-does-not-match
     "PLR2004", # constant-comparison
+    "CPY001",  # missing-copyright
 ]
 
 [tool.ruff.format]
@@ -221,6 +247,11 @@ skip-magic-trailing-comma = false
 line-ending = "lf"
 docstring-code-format = false
 docstring-code-line-length = "dynamic"
+
+[tool.ruff.lint.flake8-copyright]
+# author = "Vlad Emelianov"
+min-file-size = 200
+notice-rgx = "(?i)Copyright 2024"
 
 [tool.vulture]
 make_whitelist = true

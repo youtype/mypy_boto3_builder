@@ -1,5 +1,7 @@
 """
 Exceptions for mypy_boto3_builder.
+
+Copyright 2024 Vlad Emelianov
 """
 
 

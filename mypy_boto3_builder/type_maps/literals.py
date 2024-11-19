@@ -1,5 +1,7 @@
 """
 Collection of Literals added by boto3.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral

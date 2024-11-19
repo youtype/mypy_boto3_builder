@@ -1,5 +1,7 @@
 """
 Parser that produces `structures.ServicePackage`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -61,7 +63,7 @@ class ServicePackageParser:
         result.paginators.sort()
 
         result.client.methods.extend(
-            self._get_extra_client_methods(result.paginators, result.waiters)
+            self._get_extra_client_methods(result.paginators, result.waiters),
         )
 
         self.shape_parser.fix_typed_dict_names()
@@ -71,7 +73,7 @@ class ServicePackageParser:
                 *(result.service_resource.methods if result.service_resource else []),
                 *[method for paginator in result.paginators for method in paginator.methods],
                 *[method for waiter in result.waiters for method in waiter.methods],
-            ]
+            ],
         )
 
         type_defs = result.extract_type_defs()
@@ -165,7 +167,9 @@ class ServicePackageParser:
         return result
 
     def _get_extra_client_methods(
-        self, paginators: list[Paginator], waiters: list[Waiter]
+        self,
+        paginators: list[Paginator],
+        waiters: list[Waiter],
     ) -> list[Method]:
         result: list[Method] = []
         for paginator in paginators:

@@ -1,5 +1,7 @@
 """
 Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import inspect
@@ -116,7 +118,7 @@ class ServiceResourceParser:
         result.attributes.extend(attributes)
 
         result.attributes.extend(
-            self.shape_parser.get_resource_identifier_attributes(SERVICE_RESOURCE)
+            self.shape_parser.get_resource_identifier_attributes(SERVICE_RESOURCE),
         )
 
         references = parse_references(self.boto3_resource)
@@ -139,14 +141,17 @@ class ServiceResourceParser:
                         self.service_name,
                         stringify=False,
                     ),
-                )
+                ),
             )
 
         for boto3_sub_resource in self._get_boto3_sub_resources():
             sub_resource_name = boto3_sub_resource.__class__.__name__.split(".", 1)[-1]
             self._logger.debug(f"Parsing {sub_resource_name} sub resource")
             sub_resource = parse_resource(
-                sub_resource_name, boto3_sub_resource, self.service_name, self.shape_parser
+                sub_resource_name,
+                boto3_sub_resource,
+                self.service_name,
+                self.shape_parser,
             )
             result.sub_resources.append(sub_resource)
             sub_resource.attributes.append(self._get_meta_attribute())
@@ -165,7 +170,7 @@ class ServiceResourceParser:
 
             if method is None:
                 self._logger.warning(
-                    f"Unknown method {SERVICE_RESOURCE}.{method_name}, replaced with a dummy"
+                    f"Unknown method {SERVICE_RESOURCE}.{method_name}, replaced with a dummy",
                 )
                 method = get_dummy_method(method_name)
 
@@ -185,7 +190,7 @@ class ServiceResourceParser:
                         source=ImportString("", ServiceModuleName.client.value),
                         name=Client.get_class_name(self.service_name),
                     ),
-                )
+                ),
             ],
         )
 
@@ -202,19 +207,19 @@ class ServiceResourceParser:
         if self.boto3_resource.meta.service_name != self.service_name.boto3_name:
             raise BuildInternalError(
                 "Resource name mismatch:"
-                f" {self.boto3_resource.meta.service_name} != {self.service_name.boto3_name}"
+                f" {self.boto3_resource.meta.service_name} != {self.service_name.boto3_name}",
             )
         json_resource_model = loader.load_service_model(self.service_name.boto3_name, "resources-1")
         service_model = self.boto3_resource.meta.client.meta.service_model
         if service_model.service_name != self.service_name.boto3_name:
             raise BuildInternalError(
                 "Service model name mismatch:"
-                f" {service_model.service_name} != {self.service_name.boto3_name}"
+                f" {service_model.service_name} != {self.service_name.boto3_name}",
             )
         service_waiter_model: WaiterModel | None
         try:
             service_waiter_model = self.botocore_session.get_waiter_model(
-                self.service_name.boto3_name
+                self.service_name.boto3_name,
             )
         except UnknownServiceError:
             service_waiter_model = None

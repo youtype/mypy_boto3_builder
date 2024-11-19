@@ -1,5 +1,7 @@
 """
 Main entrypoint for builder.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import datetime

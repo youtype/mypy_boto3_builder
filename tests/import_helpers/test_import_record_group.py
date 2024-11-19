@@ -69,7 +69,7 @@ class TestImportRecordGroup:
                     ImportString("boto3", "s3", "transfer"),
                     "TransferConfig",
                 ),
-            ]
+            ],
         )
         assert list(group) == [
             "import sys",

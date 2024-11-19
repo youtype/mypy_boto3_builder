@@ -46,7 +46,7 @@ class TestShapeParser:
         ServiceModelMock().operation_names = ["my_operation"]
         ServiceModelMock().operation_model.return_value = operation_model_mock
         session_mock._loader.load_service_model.return_value = {
-            "resources": {"c": None, "a": None, "b": None}
+            "resources": {"c": None, "a": None, "b": None},
         }
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_client_method_map()
@@ -130,7 +130,9 @@ class TestShapeParser:
         collection_mock.request.operation = "my_operation"
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_collection_filter_method(
-            "MyCollection", collection_mock, Type.Any
+            "MyCollection",
+            collection_mock,
+            Type.Any,
         )
         assert result.name == "filter"
         assert len(result.decorators) == 0
@@ -170,7 +172,7 @@ class TestShapeParser:
                         TypedDictAttribute("ResponseMetadata", Type.Any, False),
                     ],
                 ),
-            }
+            },
         )
         shape_parser._output_typed_dict_map = TypedDictMap(
             {
@@ -180,7 +182,7 @@ class TestShapeParser:
                         TypedDictAttribute("Test", Type.Any, True),
                     ],
                 ),
-            }
+            },
         )
         shape_parser._response_typed_dict_map = TypedDictMap(
             {
@@ -190,7 +192,7 @@ class TestShapeParser:
                         TypedDictAttribute("Test2", Type.Any, True),
                     ],
                 ),
-            }
+            },
         )
         shape_parser.fix_typed_dict_names()
         assert len(shape_parser._typed_dict_map) == 4
@@ -265,7 +267,7 @@ class TestShapeParser:
                                     },
                                 ],
                             },
-                        }
+                        },
                     },
                     "waiters": {"MyWaiter": {"operation": "MyOperation"}},
                     "has": {
@@ -276,12 +278,12 @@ class TestShapeParser:
                                     {"source": "noinput", "name": "ident", "type": "bool"},
                                 ],
                                 "type": "str",
-                            }
+                            },
                         },
                         "NoSubResource": {},
                     },
-                }
-            }
+                },
+            },
         }
         shape_parser = ShapeParser(self.session_mock, self.service_name)
         result = shape_parser.get_resource_method_map("c")

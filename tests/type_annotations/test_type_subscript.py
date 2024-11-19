@@ -20,7 +20,7 @@ class TestTypeSubscript:
         assert self.result.render() == "Dict[str, int, Any]"
         assert TypeSubscript(Type.List, [Type.str], stringify=True).render() == '"List[str]"'
         assert TypeSubscript(Type.Dict).render() == "Dict"
-        assert TypeSubscript(Type.Dict, [], True).render() == '"Dict"'
+        assert TypeSubscript(Type.Dict, [], stringify=True).render() == '"Dict"'
 
     def test_get_import_records(self) -> None:
         records = sorted(self.result.get_import_records())
@@ -67,7 +67,7 @@ class TestTypeSubscript:
         assert list(self.result.iterate_types()) == [Type.Dict, Type.str, Type.int, Type.Any]
         assert list(TypeSubscript(Type.List, [Type.int]).iterate_types()) == [Type.List, Type.int]
         assert list(
-            TypeSubscript(Type.List, [TypeSubscript(Type.List, [Type.int])]).iterate_types()
+            TypeSubscript(Type.List, [TypeSubscript(Type.List, [Type.int])]).iterate_types(),
         ) == [
             Type.List,
             Type.List,

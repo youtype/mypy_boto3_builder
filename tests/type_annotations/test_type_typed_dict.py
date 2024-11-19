@@ -7,7 +7,7 @@ class TestTypedDictAttribute:
     result: TypedDictAttribute
 
     def setup_method(self) -> None:
-        self.result = TypedDictAttribute("test", Type.DictStrAny, True)
+        self.result = TypedDictAttribute("test", Type.DictStrAny, required=True)
 
     def test_init(self) -> None:
         assert self.result.name == "test"
@@ -30,8 +30,8 @@ class TestTypeTypedDict:
         self.result = TypeTypedDict(
             "MyDict",
             [
-                TypedDictAttribute("required", Type.bool, True),
-                TypedDictAttribute("optional", Type.str, False),
+                TypedDictAttribute("required", Type.bool, required=True),
+                TypedDictAttribute("optional", Type.str, required=False),
             ],
             "documentation",
         )
@@ -56,8 +56,8 @@ class TestTypeTypedDict:
         typed_dict = TypeTypedDict(
             "MyDict",
             [
-                TypedDictAttribute("required", Type.str, True),
-                TypedDictAttribute("Type", Type.str, False),
+                TypedDictAttribute("required", Type.str, required=True),
+                TypedDictAttribute("Type", Type.str, required=False),
             ],
         )
         typed_dict.is_safe_as_class = False
@@ -75,7 +75,7 @@ class TestTypeTypedDict:
         assert set(self.result.iterate_types()) == {self.result}
 
     def test_add_attribute(self) -> None:
-        self.result.add_attribute("third", Type.int, False)
+        self.result.add_attribute("third", Type.int, required=False)
         assert len(self.result.children) == 3
 
     def test_is_dict(self) -> None:
@@ -85,11 +85,11 @@ class TestTypeTypedDict:
         assert self.result.has_optional()
         assert not TypeTypedDict(
             "MyDict",
-            [TypedDictAttribute("required", Type.bool, True)],
+            [TypedDictAttribute("required", Type.bool, required=True)],
         ).has_optional()
         assert TypeTypedDict(
             "MyDict",
-            [TypedDictAttribute("optional", Type.str, False)],
+            [TypedDictAttribute("optional", Type.str, required=False)],
         ).has_optional()
         assert not TypeTypedDict("MyDict", []).has_optional()
 
@@ -97,11 +97,11 @@ class TestTypeTypedDict:
         assert self.result.has_required()
         assert TypeTypedDict(
             "MyDict",
-            [TypedDictAttribute("required", Type.bool, True)],
+            [TypedDictAttribute("required", Type.bool, required=True)],
         ).has_required()
         assert not TypeTypedDict(
             "MyDict",
-            [TypedDictAttribute("optional", Type.str, False)],
+            [TypedDictAttribute("optional", Type.str, required=False)],
         ).has_required()
         assert not TypeTypedDict("MyDict", []).has_required()
 
@@ -109,11 +109,11 @@ class TestTypeTypedDict:
         assert self.result.has_both()
         assert not TypeTypedDict(
             "MyDict",
-            [TypedDictAttribute("required", Type.bool, True)],
+            [TypedDictAttribute("required", Type.bool, required=True)],
         ).has_both()
         assert not TypeTypedDict(
             "MyDict",
-            [TypedDictAttribute("optional", Type.str, False)],
+            [TypedDictAttribute("optional", Type.str, required=False)],
         ).has_both()
         assert not TypeTypedDict("MyDict", []).has_both()
 
@@ -133,19 +133,19 @@ class TestTypeTypedDict:
             TypeTypedDict(
                 "MyDict",
                 [
-                    TypedDictAttribute("required", Type.bool, True),
-                    TypedDictAttribute("optional", Type.str, False),
+                    TypedDictAttribute("required", Type.bool, required=True),
+                    TypedDictAttribute("optional", Type.str, required=False),
                 ],
-            )
+            ),
         )
         assert not self.result.is_same(
             TypeTypedDict(
                 "MyDict",
                 [
-                    TypedDictAttribute("required", Type.bool, True),
-                    TypedDictAttribute("optional", Type.float, False),
+                    TypedDictAttribute("required", Type.bool, required=True),
+                    TypedDictAttribute("optional", Type.float, required=False),
                 ],
-            )
+            ),
         )
 
     def test_get_children_types(self) -> None:
@@ -158,7 +158,7 @@ class TestTypeTypedDict:
     def test_get_children_literals(self) -> None:
         clone = self.result.copy()
         assert len(clone.get_children_literals()) == 0
-        clone.add_attribute("literal", TypeLiteral("test", ["asd"]), True)
+        clone.add_attribute("literal", TypeLiteral("test", ["asd"]), required=True)
         assert len(clone.get_children_literals()) == 1
         assert len(clone.get_children_literals(["other"])) == 1
         assert len(clone.get_children_literals([clone.name])) == 0
@@ -173,12 +173,12 @@ class TestTypeTypedDict:
         typed_dict = TypeTypedDict(
             "MyDict",
             [
-                TypedDictAttribute("required", Type.str, True),
+                TypedDictAttribute("required", Type.str, required=True),
             ],
         )
         typed_dict.is_safe_as_class = False
-        typed_dict.add_attribute("self_one", typed_dict, True)
-        typed_dict.add_attribute("Type", typed_dict, False)
+        typed_dict.add_attribute("self_one", typed_dict, required=True)
+        typed_dict.add_attribute("Type", typed_dict, required=False)
         assert typed_dict.replace_self_references(Type.DictStrAny)
         assert typed_dict.render_definition() == (
             'MyDict = TypedDict("MyDict",'

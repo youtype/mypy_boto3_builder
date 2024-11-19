@@ -1,5 +1,7 @@
 """
 Boto3 ServiceResource collections parser, produces `structures.Collection`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
@@ -58,7 +60,9 @@ def parse_collection(
 
     collection_record.methods.append(all_method)
     filter_method = shape_parser.get_collection_filter_method(
-        collection_record.name, collection, self_type
+        collection_record.name,
+        collection,
+        self_type,
     )
     filter_method.docstring = (
         "Get items from the collection, passing keyword arguments along"

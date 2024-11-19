@@ -1,5 +1,7 @@
 """
 Base class for all structures that can be rendered to a class.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Iterator

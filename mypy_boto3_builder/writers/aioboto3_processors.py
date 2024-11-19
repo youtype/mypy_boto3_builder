@@ -1,5 +1,7 @@
 """
 Processors for parsing and writing `aioboto3` modules.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -46,7 +48,9 @@ def process_types_aioboto3(
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
-        output_path=output_path, generate_setup=generate_setup, cleanup=True
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
     )
     package_writer.write_package(
         package,

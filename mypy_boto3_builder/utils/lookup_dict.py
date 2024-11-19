@@ -1,5 +1,7 @@
 """
 Lookup dictionary to get values by multiple keys.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import itertools

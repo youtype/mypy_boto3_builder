@@ -1,5 +1,7 @@
 """
 Sorter for TypeDefSorter to prevent import errors.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -24,7 +26,9 @@ class TypeDefSorter:
 
     @classmethod
     def _get_type_defs_map(
-        cls, type_defs: Iterable[TypeDefSortable], skip: Iterable[str] = ()
+        cls,
+        type_defs: Iterable[TypeDefSortable],
+        skip: Iterable[str] = (),
     ) -> dict[str, TypeDefSortable]:
         result: dict[str, TypeDefSortable] = {}
         for type_def in type_defs:
@@ -48,7 +52,7 @@ class TypeDefSorter:
                 for type_def in self._get(*e.args[-1]):
                     self.logger.debug(
                         f"Stringifying {type_def.name}: unsortable children"
-                        f" {self.typed_def_map[type_def.name]}"
+                        f" {self.typed_def_map[type_def.name]}",
                     )
                     type_def.stringify()
             else:

@@ -1,5 +1,7 @@
 """
 Version-related utils.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import contextlib

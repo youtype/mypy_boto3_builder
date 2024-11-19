@@ -71,12 +71,12 @@ class TestServicePackage:
 
     def test_get_paginator_required_import_records(self) -> None:
         assert list(self.service_package.get_paginator_required_import_records()) == [
-            "from botocore.paginate import Paginator"
+            "from botocore.paginate import Paginator",
         ]
 
     def test_get_waiter_required_import_records(self) -> None:
         assert list(self.service_package.get_waiter_required_import_records()) == [
-            "from botocore.waiter import Waiter"
+            "from botocore.waiter import Waiter",
         ]
 
     def test_get_type_defs_required_import_records(self) -> None:

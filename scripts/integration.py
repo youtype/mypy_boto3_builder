@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 """
 Integration tests.
+
+Copyright 2024 Vlad Emelianov
 """
+
+from __future__ import annotations
 
 import argparse
 import difflib
@@ -13,7 +17,7 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Sequence, Tuple
+from typing import Sequence
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -42,8 +46,8 @@ class Product:
     examples_path: Path
     install_script_path: Path
     build_product: str
-    prerequisites: Tuple[str, ...] = ()
-    master_build_products: Tuple[str, ...] = ()
+    prerequisites: tuple[str, ...] = ()
+    master_build_products: tuple[str, ...] = ()
 
 
 class ProductChoices(enum.Enum):
@@ -118,7 +122,7 @@ class CLINamespace:
     product: Product
     fast: bool
     update: bool
-    services: Tuple[str, ...]
+    services: tuple[str, ...]
 
 
 def parse_args() -> CLINamespace:
@@ -176,7 +180,7 @@ def install_master(product: Product) -> None:
             "--product",
             *product.master_build_products,
             "--no-smart-version",
-        ]
+        ],
     )
     check_call([print_path(product.install_script_path), "master"])
 
@@ -196,7 +200,7 @@ def install_service(service_name: str, product: Product) -> None:
             "--product",
             product.build_product,
             "--no-smart-version",
-        ]
+        ],
     )
     check_call([print_path(product.install_script_path), service_name])
 
@@ -223,7 +227,9 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
         return
 
     diff = difflib.unified_diff(
-        old_data.strip().splitlines(), data.strip().splitlines(), lineterm=""
+        old_data.strip().splitlines(),
+        data.strip().splitlines(),
+        lineterm="",
     )
     for line in diff:
         logger.warning(line)
@@ -302,7 +308,7 @@ def main() -> None:
     if not args.fast:
         logger.info("Installing master...")
         install_master(args.product)
-    error: Optional[Exception] = None
+    error: Exception | None = None
     for file in args.product.examples_path.iterdir():
         if not file.name.endswith("_example.py"):
             continue

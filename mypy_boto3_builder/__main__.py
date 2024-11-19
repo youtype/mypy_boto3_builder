@@ -1,5 +1,7 @@
 """
 Main entrypoint for module.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import sys

@@ -1,5 +1,7 @@
 """
 Group tool for ImportRecord sets.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Iterator
@@ -72,7 +74,7 @@ class ImportRecordGroup:
                     *(f"    {x}" for x in self._render_records(source_records)),
                     "except ImportError:",
                     *(f"    {x}" for x in self._render_records(fallback_records)),
-                )
+                ),
             )
 
     def _iterate_render_source_min_version(self) -> Iterator[str]:
@@ -91,7 +93,7 @@ class ImportRecordGroup:
                     *(f"    {x}" for x in self._render_records(min_version_records)),
                     "else:",
                     *(f"    {x}" for x in self._render_records(fallback_records)),
-                )
+                ),
             )
 
     def __iter__(self) -> Iterator[str]:

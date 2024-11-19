@@ -1,5 +1,7 @@
 """
 Base stubs/docs generator.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import shutil
@@ -69,7 +71,9 @@ class BaseGenerator(ABC):
         self._cleanup_dirs: list[Path] = []
 
     def _get_or_download_static_files_path(
-        self, static_path: Path, download_url: str | None = None
+        self,
+        static_path: Path,
+        download_url: str | None = None,
     ) -> Path:
         """
         Get path to static files. Download if needed.
@@ -142,10 +146,12 @@ class BaseGenerator(ABC):
             progress_str = f"[{current_str}/{total_str}]"
 
             self.logger.info(
-                f"{progress_str} Generating {service_name.boto3_name} package directory"
+                f"{progress_str} Generating {service_name.boto3_name} package directory",
             )
             service_package = self._parse_service_package(
-                service_name, package.version, package.data
+                service_name,
+                package.version,
+                package.data,
             )
             ServicePackageParser.mark_safe_typed_dicts(service_package)
 

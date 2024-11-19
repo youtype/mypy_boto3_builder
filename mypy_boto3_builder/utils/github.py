@@ -1,5 +1,7 @@
 """
 GitHub-related utils.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from io import BytesIO

@@ -3,6 +3,8 @@ Alias map fixes added by botocore for documentation build.
 
 # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L773
 # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L1055
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Mapping
@@ -36,7 +38,7 @@ ARGUMENT_ALIASES: Final[Mapping[ServiceName, Mapping[str, Mapping[str, str]]]] =
 }
 
 _LOOKUP: LookupDict[str] = LookupDict(
-    {ServiceNameCatalog.to_str(k): v for k, v in ARGUMENT_ALIASES.items()}
+    {ServiceNameCatalog.to_str(k): v for k, v in ARGUMENT_ALIASES.items()},
 )
 
 

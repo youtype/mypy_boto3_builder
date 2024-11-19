@@ -1,5 +1,7 @@
 """
 Parent class for all package structures.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -167,6 +169,6 @@ class Package:
             (
                 "Programming Language :: Python :: Implementation :: CPython",
                 "Typing :: Stubs Only",
-            )
+            ),
         )
         return result

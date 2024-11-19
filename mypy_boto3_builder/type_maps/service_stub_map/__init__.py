@@ -1,5 +1,7 @@
 """
 Methods for boto3 injected methods.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Mapping, Sequence

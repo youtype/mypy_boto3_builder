@@ -1,5 +1,7 @@
 """
 Wrapper for Python import strings.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import functools
@@ -52,7 +54,7 @@ class ImportString:
                 has_not_empty_part = True
             elif has_not_empty_part:
                 raise StructureError(
-                    f"ImportString cannot have empty parts after parents: {all_parts}"
+                    f"ImportString cannot have empty parts after parents: {all_parts}",
                 )
 
         self.parts: Final[tuple[str, ...]] = tuple(all_parts)

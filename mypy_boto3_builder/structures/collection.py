@@ -1,5 +1,7 @@
 """
 Boto3 ServiceResource or Resource collection.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterator

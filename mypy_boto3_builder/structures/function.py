@@ -1,5 +1,7 @@
 """
 Module-level function.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import copy

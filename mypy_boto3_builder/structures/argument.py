@@ -1,5 +1,7 @@
 """
 Method or function argument.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import copy

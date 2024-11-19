@@ -1,5 +1,7 @@
 """
 Wrapper for `typing` type annotation.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Mapping
@@ -92,7 +94,7 @@ class TypeAnnotation(FakeAnnotation):
                 name=name,
                 fallback=ImportRecord(source=fallback_source, name=name),
                 min_version=fallback_min_version,
-            )
+            ),
         }
 
     def is_dict(self) -> bool:

@@ -27,7 +27,7 @@ class TestClassRecord:
                         Argument("lst", Type.ListAny),
                     ],
                     return_type=Type.none,
-                )
+                ),
             ],
             attributes=[Attribute("attr", Type.Any, Type.none)],
             bases=[Type.Any],

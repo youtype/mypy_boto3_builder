@@ -1,5 +1,7 @@
 """
 Boto3 client parser, produces `structures.Client`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import inspect
@@ -83,7 +85,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
                     Type.Type,
                     [InternalImport("BotocoreClientError", stringify=False)],
                 ),
-            )
+            ),
         )
 
     result.attributes.append(Attribute("meta", ExternalImport.from_class(ClientMeta)))

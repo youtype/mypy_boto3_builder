@@ -1,5 +1,7 @@
 """
 Resource method map for aio libs.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Mapping
@@ -32,15 +34,17 @@ AIO_RESOURCE_METHOD_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, Me
                     Argument("on_exit_loop_sleep", Type.int, default=Type.Ellipsis),
                 ],
                 return_type=ExternalImport(
-                    ImportString("aioboto3", "dynamodb", "table"), "BatchWriter", safe=True
+                    ImportString("aioboto3", "dynamodb", "table"),
+                    "BatchWriter",
+                    safe=True,
                 ),
-            )
-        }
-    }
+            ),
+        },
+    },
 }
 
 _LOOKUP: LookupDict[Method] = LookupDict(
-    {ServiceNameCatalog.to_str(k): v for k, v in AIO_RESOURCE_METHOD_MAP.items()}
+    {ServiceNameCatalog.to_str(k): v for k, v in AIO_RESOURCE_METHOD_MAP.items()},
 )
 
 

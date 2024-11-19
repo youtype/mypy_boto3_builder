@@ -1,5 +1,7 @@
 """
 Protocol for types with children.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from abc import ABC, abstractmethod
@@ -37,7 +39,9 @@ class TypeParent(FakeAnnotation, ABC):
         ...
 
     def find_type_annotation_parents(
-        self, type_annotation: FakeAnnotation, skip: Iterable[FakeAnnotation] = ()
+        self,
+        type_annotation: FakeAnnotation,
+        skip: Iterable[FakeAnnotation] = (),
     ) -> "set[TypeParent]":
         """
         Check recursively if child is present in type def.
@@ -53,7 +57,8 @@ class TypeParent(FakeAnnotation, ABC):
                 continue
 
             parents = child_type.find_type_annotation_parents(
-                type_annotation, skip={*skip, child_type}
+                type_annotation,
+                skip={*skip, child_type},
             )
             result.update(parents)
 

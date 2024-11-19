@@ -1,7 +1,10 @@
 """
 PyPI package data constants.
+
+Copyright 2024 Vlad Emelianov
 """
 
+import typing
 from typing import ClassVar
 
 from mypy_boto3_builder.service_name import ServiceName
@@ -105,6 +108,7 @@ class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
     PYPI_NAME = "types-aiobotocore-full"
     IS_CONDA_FORGE_SUPPORTED = False
 
+    @typing.override
     @classmethod
     def get_service_pypi_name(cls, service_name: ServiceName) -> str:
         """
@@ -147,6 +151,7 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
     LIBRARY_NAME = "boto3"
     IS_CONDA_FORGE_SUPPORTED = False
 
+    @typing.override
     @classmethod
     def get_service_pypi_name(cls, service_name: ServiceName) -> str:
         """

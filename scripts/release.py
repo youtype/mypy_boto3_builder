@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 """
 Publish packages to PyPI.
+
+Copyright 2024 Vlad Emelianov
 """
+
+from __future__ import annotations
 
 import argparse
 import logging
@@ -9,12 +13,11 @@ import os
 import shutil
 import subprocess
 import sys
-from collections.abc import Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
-from typing import Sequence, Tuple
+from typing import TYPE_CHECKING, Sequence
 from unittest.mock import patch
 
 from requests.exceptions import ConnectionError as RequestsConnectionError
@@ -22,6 +25,9 @@ from requests.exceptions import HTTPError
 from twine.commands.upload import upload
 from twine.exceptions import TwineException
 from twine.settings import Settings
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 
 MASTER_PACKAGES = [
     "types_aiobotocore_package",
@@ -66,7 +72,7 @@ class CLINamespace:
     path: Path
     threads: int
     publish_threads: int
-    filter: Tuple[Path, ...]
+    filter: tuple[Path, ...]
     skip_build: bool
     skip_publish: bool
     retries: int
@@ -287,7 +293,7 @@ def main() -> None:
             package_name = get_package_name(path)
             version = get_version(path)
             logger.info(
-                f"{get_progress_str(index, len(build_paths))} Built {package_name} {version}"
+                f"{get_progress_str(index, len(build_paths))} Built {package_name} {version}",
             )
 
     if not args.skip_publish:
@@ -298,7 +304,7 @@ def main() -> None:
                 version = get_version(path)
                 logger.info(
                     f"{get_progress_str(index, len(build_paths))} Published"
-                    f" {package_name} {version}"
+                    f" {package_name} {version}",
                 )
 
         for index, path in enumerate(master_paths):
@@ -308,7 +314,7 @@ def main() -> None:
             version = get_version(path)
             logger.info(
                 f"{get_progress_str(total_index, len(build_paths))} Published"
-                f" {package_name} {version}"
+                f" {package_name} {version}",
             )
 
 

@@ -1,5 +1,7 @@
 """
 Predefined FakeAnnotation instances.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from datetime import datetime

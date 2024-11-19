@@ -1,5 +1,7 @@
 """
 Fake parser that produces `structures.ServiceModule` for master module and stubs.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from boto3.session import Session
@@ -17,7 +19,9 @@ from mypy_boto3_builder.utils.strings import get_class_prefix, xform_name
 
 
 def parse_fake_service_package(
-    session: Session, service_name: ServiceName, package_data: type[BasePackageData]
+    session: Session,
+    service_name: ServiceName,
+    package_data: type[BasePackageData],
 ) -> ServicePackage:
     """
     Create fake boto3 service module structure.
@@ -63,7 +67,7 @@ def parse_fake_service_package(
                 waiter_name=real_class_name,
                 attribute_name=waiter_attribute_name,
                 service_name=service_name,
-            )
+            ),
         )
 
     for paginator_name in shape_parser.get_paginator_names():
@@ -74,7 +78,7 @@ def parse_fake_service_package(
                 operation_name=operation_name,
                 service_name=service_name,
                 paginator_name=paginator_name,
-            )
+            ),
         )
 
     return result

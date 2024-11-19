@@ -6,7 +6,11 @@ Checker of generated packages.
 - [x] ruff
 - [x] pyright
 - [x] mypy
+
+Copyright 2024 Vlad Emelianov
 """
+
+from __future__ import annotations
 
 import argparse
 import json
@@ -17,7 +21,7 @@ import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -104,7 +108,7 @@ class CLINamespace:
 
     debug: bool
     path: Path
-    filter: List[str]
+    filter: list[str]
     exit_on_error: bool
 
 
@@ -239,7 +243,7 @@ def run_pyright(path: Path) -> None:
         output = temp_path.read_text()
 
         data = json.loads(output).get("generalDiagnostics", [])
-        errors: List[Dict[str, Any]] = []
+        errors: list[dict[str, Any]] = []
         for error in data:
             message = error.get("message", "")
             if any(imsg in message for imsg in IGNORE_PYRIGHT_ERRORS):
@@ -247,7 +251,7 @@ def run_pyright(path: Path) -> None:
             errors.append(error)
 
         if errors:
-            messages: List[str] = []
+            messages: list[str] = []
             for error in errors:
                 file_path = ""
                 if error.get("file"):
@@ -257,7 +261,7 @@ def run_pyright(path: Path) -> None:
 
                 messages.append(
                     "pyright:"
-                    f" {file_path}:{error['range']['start']['line']} {error.get('message', '')}"
+                    f" {file_path}:{error['range']['start']['line']} {error.get('message', '')}",
                 )
             raise SnapshotMismatchError(path, "\n".join(messages))
 
@@ -274,7 +278,7 @@ def run_mypy(path: Path) -> None:
         )
     except subprocess.CalledProcessError as e:
         output: str = e.output
-        errors: List[str] = []
+        errors: list[str] = []
         for message in output.splitlines():
             if not message or message.startswith("Found"):
                 continue
@@ -355,7 +359,7 @@ def check_snapshot(path: Path) -> None:
         run_import(path)
 
 
-def find_package_path(path: Path) -> Optional[Path]:
+def find_package_path(path: Path) -> Path | None:
     """
     Find package directory inside `path`.
     """

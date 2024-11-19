@@ -1,5 +1,7 @@
 """
 Helpers for parsing methods and attributes.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import inspect

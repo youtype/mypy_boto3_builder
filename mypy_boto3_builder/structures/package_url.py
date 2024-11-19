@@ -1,5 +1,7 @@
 """
 Package links structure.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.package_data import BasePackageData

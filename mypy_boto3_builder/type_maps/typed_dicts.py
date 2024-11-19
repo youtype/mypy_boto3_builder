@@ -1,5 +1,7 @@
 """
 Collection of TypedDicts added by boto3.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -104,11 +106,15 @@ PolicyDocumentStatementTypeDef = TypeTypedDict(
     (
         TypedDictAttribute("Effect", Type.str, True),
         TypedDictAttribute(
-            "Resource", TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True
+            "Resource",
+            TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))),
+            True,
         ),
         TypedDictAttribute("Sid", Type.str, True),
         TypedDictAttribute(
-            "Action", TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True
+            "Action",
+            TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))),
+            True,
         ),
     ),
 )
@@ -118,7 +124,9 @@ PolicyDocumentDictTypeDef = TypeTypedDict(
     (
         TypedDictAttribute("Version", Type.str, True),
         TypedDictAttribute(
-            "Statement", TypeSubscript(Type.List, [PolicyDocumentStatementTypeDef]), True
+            "Statement",
+            TypeSubscript(Type.List, [PolicyDocumentStatementTypeDef]),
+            True,
         ),
     ),
 )
@@ -173,7 +181,9 @@ CloudwatchEventConfigurationTypeDef = TypeTypedDict(
         TypedDictAttribute("id", Type.str, False),
         TypedDictAttribute("description", Type.str, False),
         TypedDictAttribute(
-            "metrics", TypeSubscript(Type.List, [CloudwatchEventMetricTypeDef]), False
+            "metrics",
+            TypeSubscript(Type.List, [CloudwatchEventMetricTypeDef]),
+            False,
         ),
         TypedDictAttribute("actionsSuppressor", Type.str, False),
         TypedDictAttribute("actionsSuppressorWaitPeriod", Type.int, False),

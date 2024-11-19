@@ -1,5 +1,7 @@
 """
 Jinja2 `Environment` manager.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from pathlib import Path

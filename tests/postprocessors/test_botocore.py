@@ -27,7 +27,9 @@ class TestBotocorePostprocessor:
             [
                 TypedDictAttribute("test", Type.str, False),
                 TypedDictAttribute(
-                    "deep_self_ref", TypeUnion([self_ref_typed_dict, Type.str]), False
+                    "deep_self_ref",
+                    TypeUnion([self_ref_typed_dict, Type.str]),
+                    False,
                 ),
             ],
         )
@@ -37,7 +39,9 @@ class TestBotocorePostprocessor:
 
         package.type_defs = [self_ref_typed_dict]
         postprocessor = BotocorePostprocessor(
-            session=Mock(), package=package, service_names=[ServiceNameCatalog.s3]
+            session=Mock(),
+            package=package,
+            service_names=[ServiceNameCatalog.s3],
         )
         postprocessor.replace_self_ref_typed_dicts()
         assert self_ref_typed_dict.children[0].type_annotation == Type.str

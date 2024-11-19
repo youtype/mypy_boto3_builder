@@ -1,5 +1,7 @@
 """
 Parsed Service package.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Iterator
@@ -145,28 +147,28 @@ class ServicePackage(Package):
             ImportRecord(
                 ImportString("", ServiceModuleName.client.name),
                 self.client.name,
-            )
+            ),
         )
         if self.service_resource:
             result.add(
                 ImportRecord(
                     ImportString("", ServiceModuleName.service_resource.name),
                     self.service_resource.name,
-                )
+                ),
             )
         for waiter in self.waiters:
             result.add(
                 ImportRecord(
                     ImportString("", ServiceModuleName.waiter.name),
                     waiter.name,
-                )
+                ),
             )
         for paginator in self.paginators:
             result.add(
                 ImportRecord(
                     ImportString("", ServiceModuleName.paginator.name),
                     paginator.name,
-                )
+                ),
             )
 
         return result

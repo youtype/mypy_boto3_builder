@@ -1,5 +1,7 @@
 """
 Base postprocessor for classes and methods.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from abc import ABC, abstractmethod
@@ -30,7 +32,10 @@ class BasePostprocessor(ABC):
     """
 
     def __init__(
-        self, session: Session, package: ServicePackage, service_names: Sequence[ServiceName]
+        self,
+        session: Session,
+        package: ServicePackage,
+        service_names: Sequence[ServiceName],
     ) -> None:
         self.session = session
         self.package = package
@@ -70,20 +75,26 @@ class BasePostprocessor(ABC):
                 method.set_boto3_doc_link(boto3_doc_link)
             local_doc_link = self.package.get_doc_link("client", method.name)
             method.docstring = self._construct_docstring(
-                method.docstring, method.boto3_doc_link, local_doc_link
+                method.docstring,
+                method.boto3_doc_link,
+                local_doc_link,
             )
 
     def _generate_docstrings_paginators(self) -> None:
         for paginator in self.package.paginators:
             local_doc_link = self.package.get_doc_link("paginators", paginator.name)
             paginator.docstring = self._construct_docstring(
-                "", paginator.boto3_doc_link, local_doc_link
+                "",
+                paginator.boto3_doc_link,
+                local_doc_link,
             )
             for method in paginator.methods:
                 boto3_doc_link = f"{paginator.boto3_doc_link}.{method.name}"
                 method.set_boto3_doc_link(boto3_doc_link)
                 method.docstring = self._construct_docstring(
-                    method.docstring, method.boto3_doc_link, local_doc_link
+                    method.docstring,
+                    method.boto3_doc_link,
+                    local_doc_link,
                 )
 
     def _generate_docstrings_waiters(self) -> None:
@@ -94,7 +105,9 @@ class BasePostprocessor(ABC):
                 boto3_doc_link = f"{waiter.boto3_doc_link}.{method.name}"
                 method.set_boto3_doc_link(boto3_doc_link)
                 method.docstring = self._construct_docstring(
-                    method.docstring, method.boto3_doc_link, local_doc_link
+                    method.docstring,
+                    method.boto3_doc_link,
+                    local_doc_link,
                 )
 
     def _generate_docstrings_service_resource(self) -> None:
@@ -104,7 +117,9 @@ class BasePostprocessor(ABC):
         service_resource = self.package.service_resource
         local_doc_link = self.package.get_doc_link("service_resource")
         service_resource.docstring = self._construct_docstring(
-            "", service_resource.boto3_doc_link, local_doc_link
+            "",
+            service_resource.boto3_doc_link,
+            local_doc_link,
         )
         for method in service_resource.methods:
             boto3_doc_link = (
@@ -113,10 +128,14 @@ class BasePostprocessor(ABC):
             )
             method.set_boto3_doc_link(boto3_doc_link)
             local_doc_link = self.package.get_doc_link(
-                "service_resource", service_resource.name, f"{method.name} method"
+                "service_resource",
+                service_resource.name,
+                f"{method.name} method",
             )
             method.docstring = self._construct_docstring(
-                method.docstring, method.boto3_doc_link, local_doc_link
+                method.docstring,
+                method.boto3_doc_link,
+                local_doc_link,
             )
 
     def _generate_docstrings_collections(self) -> None:
@@ -126,14 +145,18 @@ class BasePostprocessor(ABC):
         for collection in self.package.service_resource.collections:
             local_doc_link = self.package.get_doc_link("service_resource", collection.name)
             collection.docstring = self._construct_docstring(
-                "", collection.boto3_doc_link, local_doc_link
+                "",
+                collection.boto3_doc_link,
+                local_doc_link,
             )
             for method in collection.methods:
                 # FIXME: potentially links will be changed to the same as paginators/waiters use
                 if not method.has_boto3_doc_link():
                     method.set_boto3_doc_link(f"{collection.boto3_doc_link_parent}#{method.name}")
                 method.docstring = self._construct_docstring(
-                    method.docstring, method.boto3_doc_link, local_doc_link
+                    method.docstring,
+                    method.boto3_doc_link,
+                    local_doc_link,
                 )
 
     def _generate_docstrings_sub_resources(self) -> None:
@@ -143,7 +166,9 @@ class BasePostprocessor(ABC):
         for sub_resource in self.package.service_resource.sub_resources:
             local_doc_link = self.package.get_doc_link("service_resource", sub_resource.name)
             sub_resource.docstring = self._construct_docstring(
-                "", sub_resource.boto3_doc_link, local_doc_link
+                "",
+                sub_resource.boto3_doc_link,
+                local_doc_link,
             )
             for method in sub_resource.methods:
                 boto3_doc_link = (
@@ -153,25 +178,35 @@ class BasePostprocessor(ABC):
                 )
                 method.set_boto3_doc_link(boto3_doc_link)
                 local_doc_link = self.package.get_doc_link(
-                    "service_resource", sub_resource.name, f"{method.name} method"
+                    "service_resource",
+                    sub_resource.name,
+                    f"{method.name} method",
                 )
                 method.docstring = self._construct_docstring(
-                    method.docstring, method.boto3_doc_link, local_doc_link
+                    method.docstring,
+                    method.boto3_doc_link,
+                    local_doc_link,
                 )
             for collection in sub_resource.collections:
                 local_doc_link = self.package.get_doc_link(
-                    "service_resource", sub_resource.name, collection.attribute_name
+                    "service_resource",
+                    sub_resource.name,
+                    collection.attribute_name,
                 )
                 collection.docstring = self._construct_docstring(
-                    "", collection.boto3_doc_link, local_doc_link
+                    "",
+                    collection.boto3_doc_link,
+                    local_doc_link,
                 )
                 for method in collection.methods:
                     if not method.has_boto3_doc_link():
                         method.set_boto3_doc_link(
-                            f"{collection.boto3_doc_link_parent}#{method.name}"
+                            f"{collection.boto3_doc_link_parent}#{method.name}",
                         )
                     method.docstring = self._construct_docstring(
-                        method.docstring, method.boto3_doc_link, local_doc_link
+                        method.docstring,
+                        method.boto3_doc_link,
+                        local_doc_link,
                     )
 
     def _construct_docstring(self, docstring: str, boto3_doc_link: str, local_doc_link: str) -> str:
@@ -197,16 +232,16 @@ class BasePostprocessor(ABC):
             TypeLiteral(
                 f"{self.package.service_name.class_name}ServiceName",
                 [self.package.service_name.boto3_name],
-            )
+            ),
         )
         if self.service_names:
             self.package.literals.append(
-                TypeLiteral("ServiceName", [i.boto3_name for i in self.service_names])
+                TypeLiteral("ServiceName", [i.boto3_name for i in self.service_names]),
             )
         resource_service_names = [i for i in self.service_names if self._has_service_resource(i)]
         if resource_service_names:
             self.package.literals.append(
-                TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names])
+                TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names]),
             )
 
         paginator_names = [paginator.operation_name for paginator in self.package.paginators]
@@ -222,14 +257,17 @@ class BasePostprocessor(ABC):
             self.package.literals.append(region_name_literal)
 
     def _replace_typed_dict_with_dict(
-        self, attribute: TypedDictAttribute, reference: TypeTypedDict, parent: TypeTypedDict
+        self,
+        attribute: TypedDictAttribute,
+        reference: TypeTypedDict,
+        parent: TypeTypedDict,
     ) -> None:
         replacement = Type.DictStrAny
         if attribute.type_annotation is reference:
             attribute.type_annotation = replacement
             self.logger.debug(
                 f"Replaced {reference.name} with {replacement.render()} in"
-                f" {parent.name}.{attribute.name}"
+                f" {parent.name}.{attribute.name}",
             )
             return
 
@@ -237,16 +275,19 @@ class BasePostprocessor(ABC):
             attribute.type_annotation.replace_child(reference, Type.DictStrAny)
             self.logger.debug(
                 f"Deep replaced {reference.name} with {replacement.render()} in"
-                f" {parent.name}.{attribute.name}"
+                f" {parent.name}.{attribute.name}",
             )
             return
 
         raise BuildEnvError(
-            f"Cannot replace child {reference.name} in {parent.name}.{attribute.name}"
+            f"Cannot replace child {reference.name} in {parent.name}.{attribute.name}",
         )
 
     def _replace_typed_dict_references(
-        self, typed_dict: TypeTypedDict, reference: TypeTypedDict, depth: int
+        self,
+        typed_dict: TypeTypedDict,
+        reference: TypeTypedDict,
+        depth: int,
     ) -> None:
         """
         Replace self references with `Dict[str, Any]` to avoid circular dependencies.

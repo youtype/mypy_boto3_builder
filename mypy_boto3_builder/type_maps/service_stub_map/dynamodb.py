@@ -1,5 +1,7 @@
 """
 DynamoDB service injected methods.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from boto3.dynamodb.table import BatchWriter

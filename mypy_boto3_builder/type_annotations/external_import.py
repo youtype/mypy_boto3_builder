@@ -1,5 +1,7 @@
 """
 Wrapper for type annotations imported from 3rd party libraries, like `boto3.service.Service`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import inspect

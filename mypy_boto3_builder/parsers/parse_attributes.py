@@ -1,5 +1,7 @@
 """
 Parser for Boto3 ServiceResource attributes, produces `structures.Attribute`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource

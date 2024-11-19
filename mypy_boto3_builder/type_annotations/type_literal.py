@@ -1,5 +1,7 @@
 """
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable

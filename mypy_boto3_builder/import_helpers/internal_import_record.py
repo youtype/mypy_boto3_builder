@@ -1,5 +1,7 @@
 """
 Helper for Python import strings with not set master module name.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -18,7 +20,10 @@ class InternalImportRecord(ImportRecord):
     """
 
     def __init__(
-        self, service_module_name: ServiceModuleName, name: str = "", alias: str = ""
+        self,
+        service_module_name: ServiceModuleName,
+        name: str = "",
+        alias: str = "",
     ) -> None:
         self._local_source = ImportString(service_module_name.name)
         source = ImportString("", *self._local_source.parts)

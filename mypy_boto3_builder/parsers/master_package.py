@@ -1,5 +1,7 @@
 """
 Parser that produces `structures.MasterPackage`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -28,7 +30,7 @@ def parse_master_package(session: Session, service_names: Iterable[ServiceName])
     result = MasterPackage(service_names=service_names)
     for service_name in result.service_names:
         result.service_packages.append(
-            parse_fake_service_package(session, service_name, Boto3StubsPackageData)
+            parse_fake_service_package(session, service_name, Boto3StubsPackageData),
         )
 
     if service_names:
@@ -37,7 +39,7 @@ def parse_master_package(session: Session, service_names: Iterable[ServiceName])
     resource_service_names = [i for i in service_names if get_boto3_resource(session, i)]
     if resource_service_names:
         result.literals.append(
-            TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names])
+            TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names]),
         )
 
     return result

@@ -1,5 +1,7 @@
 """
 Boto3 ServiceResource.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterator
@@ -76,7 +78,7 @@ class ServiceResource(ClassRecord):
                         source=ImportString("", ServiceModuleName.client.value),
                         name=Client.get_class_name(service_name),
                     ),
-                )
+                ),
             ],
         )
 

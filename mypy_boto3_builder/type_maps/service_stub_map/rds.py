@@ -1,5 +1,7 @@
 """
 RDS service injected methods.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.structures.argument import Argument

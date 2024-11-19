@@ -1,5 +1,7 @@
 """
 Getters for boto3 client and resource from session.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -67,7 +69,8 @@ def get_boto3_resource(session: Session, service_name: ServiceName) -> Boto3Serv
 
 
 def get_region_name_literal(
-    session: Session, service_names: Iterable[ServiceName]
+    session: Session,
+    service_names: Iterable[ServiceName],
 ) -> TypeLiteral | None:
     """
     Get Literal with all regions.

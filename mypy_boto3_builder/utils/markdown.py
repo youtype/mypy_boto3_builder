@@ -1,5 +1,7 @@
 """
 Utils for markdown rendering.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable

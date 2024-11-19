@@ -1,5 +1,7 @@
 """
 Parser that produces `structures.wrapper_package.WrapperPackage`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from typing import Final

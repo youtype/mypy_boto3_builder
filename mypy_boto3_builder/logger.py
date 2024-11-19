@@ -1,5 +1,7 @@
 """
 Logging utils.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import logging
@@ -23,7 +25,8 @@ def get_logger(level: int | None = None, name: str = LOGGER_NAME) -> logging.Log
     if not logger.handlers:
         stream_handler = logging.StreamHandler()
         formatter = logging.Formatter(
-            "%(asctime)s %(name)s: %(levelname)-7s %(message)s", datefmt="%H:%M:%S"
+            "%(asctime)s %(name)s: %(levelname)-7s %(message)s",
+            datefmt="%H:%M:%S",
         )
         stream_handler.setFormatter(formatter)
         stream_handler.setLevel(level or logging.NOTSET)

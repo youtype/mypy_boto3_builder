@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """
 Pull static stubs from GitHub to local directories.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import logging

@@ -1,5 +1,7 @@
 """
 Processors for parsing and writing `aiobotocore` modules.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -46,13 +48,17 @@ def process_types_aiobotocore(
     """
     logger = get_logger()
     types_aiobotocore_package = parse_aiobotocore_stubs_package(
-        session, service_names, TypesAioBotocorePackageData
+        session,
+        service_names,
+        TypesAioBotocorePackageData,
     )
     types_aiobotocore_package.version = version
     logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
-        output_path=output_path, generate_setup=generate_setup, cleanup=True
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
     )
     package_writer.write_package(
         types_aiobotocore_package,
@@ -87,7 +93,9 @@ def process_types_aiobotocore_lite(
     """
     logger = get_logger()
     types_aiobotocore_package = parse_aiobotocore_stubs_package(
-        session, service_names, TypesAioBotocoreLitePackageData
+        session,
+        service_names,
+        TypesAioBotocoreLitePackageData,
     )
     types_aiobotocore_package.version = version
     logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
@@ -124,7 +132,9 @@ def process_types_aiobotocore_docs(
     """
     logger = get_logger()
     types_aiobotocore_package = parse_aiobotocore_stubs_package(
-        session, service_names, TypesAioBotocorePackageData
+        session,
+        service_names,
+        TypesAioBotocorePackageData,
     )
 
     logger.debug(f"Writing {types_aiobotocore_package.pypi_name} to {print_path(output_path)}")
@@ -172,7 +182,9 @@ def process_types_aiobotocore_full(
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
-        output_path=output_path, generate_setup=generate_setup, cleanup=True
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
     )
     package_writer.write_package(
         types_aiobotocore_package,

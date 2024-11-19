@@ -1,5 +1,7 @@
 """
 Parent class for all type annotation wrappers.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import copy

@@ -1,5 +1,7 @@
 """
 Path utils.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Generator, Iterable

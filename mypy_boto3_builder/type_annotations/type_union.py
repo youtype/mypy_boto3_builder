@@ -1,5 +1,7 @@
 """
 Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Iterator

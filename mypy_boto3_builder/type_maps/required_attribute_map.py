@@ -1,5 +1,7 @@
 """
 String to type annotation map to replace overriden botocore literals.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Mapping
@@ -22,12 +24,12 @@ REQUIRED_ATTRIBUTE_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, boo
             "Contents": False,
             "Item": False,
             "CommonPrefixes": False,
-        }
+        },
     },
     ServiceNameCatalog.dynamodb: {
         ALL: {
             "LastEvaluatedKey": False,
-        }
+        },
     },
     ServiceNameCatalog.stepfunctions: {
         "DescribeExecutionOutputTypeDef": {
@@ -42,12 +44,12 @@ REQUIRED_ATTRIBUTE_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, boo
             "redriveDate": False,
             "stateMachineAliasArn": False,
             "stateMachineVersionArn": False,
-        }
+        },
     },
 }
 
 _LOOKUP: LookupDict[bool] = LookupDict(
-    {ServiceNameCatalog.to_str(k): v for k, v in REQUIRED_ATTRIBUTE_MAP.items()}
+    {ServiceNameCatalog.to_str(k): v for k, v in REQUIRED_ATTRIBUTE_MAP.items()},
 )
 
 

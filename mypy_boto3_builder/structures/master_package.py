@@ -1,5 +1,7 @@
 """
 Structure for boto3-stubs module.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable

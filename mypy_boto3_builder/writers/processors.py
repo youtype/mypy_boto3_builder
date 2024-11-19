@@ -1,5 +1,7 @@
 """
 Processors for parsing and writing `boto3` modules.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -58,7 +60,9 @@ def process_boto3_stubs(
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
-        output_path=output_path, generate_setup=generate_setup, cleanup=True
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
     )
     package_writer.write_package(
         package=boto3_stubs_package,
@@ -104,7 +108,9 @@ def process_boto3_stubs_lite(
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
-        output_path=output_path, generate_setup=generate_setup, cleanup=True
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
     )
     package_writer.write_package(
         package=boto3_stubs_package,
@@ -146,7 +152,9 @@ def process_master(
     logger.debug(f"Writing master to {print_path(output_path)}")
 
     package_writer = PackageWriter(
-        output_path=output_path, generate_setup=generate_setup, cleanup=True
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
     )
     package_writer.write_package(
         master_package,
@@ -219,7 +227,9 @@ def process_boto3_stubs_full(
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
     package_writer = PackageWriter(
-        output_path=output_path, generate_setup=generate_setup, cleanup=True
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
     )
     package_writer.write_package(
         package=boto3_stubs_package,

@@ -1,5 +1,7 @@
 """
 Types for botocore shape files.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from typing import Any, NotRequired, TypedDict

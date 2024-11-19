@@ -1,5 +1,7 @@
 """
 Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import inspect
@@ -75,7 +77,7 @@ def parse_resource(
                 collection.attribute_name,
                 InternalImport(collection.name, service_name, stringify=False),
                 is_collection=True,
-            )
+            ),
         )
 
     return result

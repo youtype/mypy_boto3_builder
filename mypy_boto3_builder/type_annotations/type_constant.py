@@ -1,5 +1,7 @@
 """
 Wrapper for constant like `False` or `"test"`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from typing import Final, Self

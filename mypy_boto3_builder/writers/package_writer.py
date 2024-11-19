@@ -1,5 +1,7 @@
 """
 Writer for package static and template files.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Sequence
@@ -87,7 +89,9 @@ class PackageWriter:
         return result
 
     def _get_setup_template_paths(
-        self, package: Package, templates_path: Path | None
+        self,
+        package: Package,
+        templates_path: Path | None,
     ) -> list[TemplateRender]:
         if not templates_path or not self.generate_setup:
             return []
@@ -106,7 +110,9 @@ class PackageWriter:
         return result
 
     def _get_package_template_paths(
-        self, package: Package, templates_path: Path | None
+        self,
+        package: Package,
+        templates_path: Path | None,
     ) -> list[TemplateRender]:
         if not templates_path or not self.generate_setup or not package.has_main_package():
             return []
@@ -253,7 +259,9 @@ class PackageWriter:
         self._render_docs_templates(package, template_renders)
 
     def _get_service_package_template_paths(
-        self, package: ServicePackage, templates_path: Path
+        self,
+        package: ServicePackage,
+        templates_path: Path,
     ) -> list[TemplateRender]:
         module_templates_path = templates_path / "service"
         package_path = self._get_service_package_path(package)
@@ -290,7 +298,7 @@ class PackageWriter:
                         package_path / ServiceModuleName.service_resource.stub_file_name,
                         package_path / ServiceModuleName.service_resource.file_name,
                     ),
-                )
+                ),
             )
         if package.paginators:
             file_paths.append(
@@ -300,7 +308,7 @@ class PackageWriter:
                         package_path / ServiceModuleName.paginator.stub_file_name,
                         package_path / ServiceModuleName.paginator.file_name,
                     ),
-                )
+                ),
             )
         if package.waiters:
             file_paths.append(
@@ -310,7 +318,7 @@ class PackageWriter:
                         package_path / ServiceModuleName.waiter.stub_file_name,
                         package_path / ServiceModuleName.waiter.file_name,
                     ),
-                )
+                ),
             )
         if package.literals:
             file_paths.append(
@@ -320,7 +328,7 @@ class PackageWriter:
                         package_path / ServiceModuleName.literals.stub_file_name,
                         package_path / ServiceModuleName.literals.file_name,
                     ),
-                )
+                ),
             )
         if package.type_defs:
             file_paths.append(
@@ -330,7 +338,7 @@ class PackageWriter:
                         package_path / ServiceModuleName.type_defs.stub_file_name,
                         package_path / ServiceModuleName.type_defs.file_name,
                     ),
-                )
+                ),
             )
         return file_paths
 
@@ -376,22 +384,24 @@ class PackageWriter:
 
         if package.literals:
             template_renders.append(
-                TemplateRender(templates_path / "literals.md.jinja2", docs_path / "literals.md")
+                TemplateRender(templates_path / "literals.md.jinja2", docs_path / "literals.md"),
             )
 
         if package.type_defs:
             template_renders.append(
-                TemplateRender(templates_path / "type_defs.md.jinja2", docs_path / "type_defs.md")
+                TemplateRender(templates_path / "type_defs.md.jinja2", docs_path / "type_defs.md"),
             )
 
         if package.waiters:
             template_renders.append(
-                TemplateRender(templates_path / "waiters.md.jinja2", docs_path / "waiters.md")
+                TemplateRender(templates_path / "waiters.md.jinja2", docs_path / "waiters.md"),
             )
 
         if package.paginators:
             template_renders.append(
-                TemplateRender(templates_path / "paginators.md.jinja2", docs_path / "paginators.md")
+                TemplateRender(
+                    templates_path / "paginators.md.jinja2", docs_path / "paginators.md"
+                ),
             )
 
         if package.service_resource:
@@ -399,7 +409,7 @@ class PackageWriter:
                 TemplateRender(
                     templates_path / "service_resource.md.jinja2",
                     docs_path / "service_resource.md",
-                )
+                ),
             )
 
         self._render_docs_templates(package, template_renders)

@@ -1,5 +1,7 @@
 """
 Postprocessor for aiobotocore classes and methods.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Iterator, Mapping
@@ -52,34 +54,48 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
     EXTERNAL_IMPORTS_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
         ExternalImport.from_class(StreamingBody): ExternalImport(
-            ImportString("aiobotocore", "response"), "StreamingBody"
+            ImportString("aiobotocore", "response"),
+            "StreamingBody",
         ),
         ExternalImport.from_class(EventStream): ExternalImport(
-            ImportString("aiobotocore", "eventstream"), "AioEventStream"
+            ImportString("aiobotocore", "eventstream"),
+            "AioEventStream",
         ),
         ExternalImport.from_class(Config): ExternalImport(
-            ImportString("aiobotocore", "config"), "AioConfig"
+            ImportString("aiobotocore", "config"),
+            "AioConfig",
         ),
         ExternalImport.from_class(Waiter): ExternalImport(
-            ImportString("aiobotocore", "waiter"), "AIOWaiter"
+            ImportString("aiobotocore", "waiter"),
+            "AIOWaiter",
         ),
         ExternalImport.from_class(Paginator): ExternalImport(
-            ImportString("aiobotocore", "paginate"), "AioPaginator"
+            ImportString("aiobotocore", "paginate"),
+            "AioPaginator",
         ),
         ExternalImport.from_class(BaseClient): ExternalImport(
-            ImportString("aiobotocore", "client"), "AioBaseClient"
+            ImportString("aiobotocore", "client"),
+            "AioBaseClient",
         ),
         ExternalImport.from_class(ServiceResource): ExternalImport(
-            ImportString("aioboto3", "resources", "base"), "AIOBoto3ServiceResource", safe=True
+            ImportString("aioboto3", "resources", "base"),
+            "AIOBoto3ServiceResource",
+            safe=True,
         ),
         ExternalImport.from_class(ResourceCollection): ExternalImport(
-            ImportString("aioboto3", "resources", "collection"), "AIOResourceCollection", safe=True
+            ImportString("aioboto3", "resources", "collection"),
+            "AIOResourceCollection",
+            safe=True,
         ),
         ExternalImport.from_class(BatchWriter): ExternalImport(
-            ImportString("aioboto3", "dynamodb", "table"), "BatchWriter", safe=True
+            ImportString("aioboto3", "dynamodb", "table"),
+            "BatchWriter",
+            safe=True,
         ),
         ExternalImport.from_class(TableResource): ExternalImport(
-            ImportString("aioboto3", "dynamodb", "table"), "CustomTableResource", safe=True
+            ImportString("aioboto3", "dynamodb", "table"),
+            "CustomTableResource",
+            safe=True,
         ),
     }
 
@@ -112,7 +128,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         if not isinstance(pages_method.return_type, TypeSubscript):
             raise TypeError(
                 f"{collection.name}.pages method return type is not TypeSubscript:"
-                f" {pages_method.return_type.render()}"
+                f" {pages_method.return_type.render()}",
             )
         pages_method.return_type.parent = Type.AsyncIterator
 
@@ -121,7 +137,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         if not isinstance(aiter_method.return_type, TypeSubscript):
             raise TypeError(
                 f"{collection.name}.__aiter__ method return type is not TypeSubscript:"
-                f" {aiter_method.return_type.render()}"
+                f" {aiter_method.return_type.render()}",
             )
         aiter_method.return_type.parent = Type.AsyncIterator
         collection.methods.append(aiter_method)
@@ -141,7 +157,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
             if not isinstance(paginate_method.return_type, TypeSubscript):
                 raise TypeError(
                     f"{paginator.name}.paginate method return type is not TypeSubscript:"
-                    f" {paginate_method.return_type.render()}"
+                    f" {paginate_method.return_type.render()}",
                 )
             paginate_method.return_type.parent = Type.AsyncIterator
 
@@ -162,7 +178,9 @@ class AioBotocorePostprocessor(BasePostprocessor):
         for sub_resource in self.package.service_resource.sub_resources:
             for method in sub_resource.methods:
                 method_stub = get_aio_resource_method(
-                    self.package.service_name, sub_resource.name, method.name
+                    self.package.service_name,
+                    sub_resource.name,
+                    method.name,
                 )
                 if method_stub:
                     method.arguments = method_stub.arguments
@@ -176,7 +194,8 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 if not attribute.is_autoload_property():
                     continue
                 attribute.type_annotation = TypeSubscript(
-                    Type.Awaitable, [attribute.type_annotation]
+                    Type.Awaitable,
+                    [attribute.type_annotation],
                 )
 
     def _add_contextmanager_methods(self) -> None:
@@ -203,7 +222,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
                     docstring=self.package.client.docstring,
                     boto3_doc_link=self.package.client.boto3_doc_link,
                 ),
-            )
+            ),
         )
 
     def _iterate_types_shallow(self) -> Iterator[FakeAnnotation]:

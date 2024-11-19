@@ -23,7 +23,7 @@ class TestTypeChecks:
         assert not is_type_def(TypeUnion([Type.str, Type.bool]))
         assert is_type_def(TypeUnion([Type.str, Type.bool], name="MyUnion"))
         assert is_type_def(
-            TypeTypedDict("MyTypedDict", [TypedDictAttribute("key", Type.str, True)])
+            TypeTypedDict("MyTypedDict", [TypedDictAttribute("key", Type.str, required=True)]),
         )
 
     def test_is_typed_dict(self) -> None:
@@ -31,7 +31,7 @@ class TestTypeChecks:
         assert not is_typed_dict(Type.ListAny)
         assert not is_typed_dict(TypeUnion([Type.str, Type.bool]))
         assert is_typed_dict(
-            TypeTypedDict("MyTypedDict", [TypedDictAttribute("key", Type.str, True)])
+            TypeTypedDict("MyTypedDict", [TypedDictAttribute("key", Type.str, required=True)]),
         )
 
     def test_is_union(self) -> None:
@@ -52,5 +52,8 @@ class TestTypeChecks:
         assert is_type_parent(TypeUnion([Type.str, Type.bool]))
         assert is_type_parent(TypeUnion([Type.str, Type.bool], name="MyUnion"))
         assert is_type_parent(
-            TypeTypedDict("MyTypedDict", [TypedDictAttribute("key", Type.str, True)])
+            TypeTypedDict(
+                "MyTypedDict",
+                [TypedDictAttribute("key", Type.str, required=True)],
+            ),
         )

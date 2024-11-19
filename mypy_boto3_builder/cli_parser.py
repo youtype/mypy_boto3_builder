@@ -1,5 +1,7 @@
 """
 CLI parser.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import argparse
@@ -103,7 +105,8 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
     version = get_builder_version()
 
     parser = argparse.ArgumentParser(
-        PROG_NAME, description="Builder for boto3-stubs and types-aiobotocore."
+        PROG_NAME,
+        description="Builder for boto3-stubs and types-aiobotocore.",
     )
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(
@@ -123,7 +126,9 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         help="Package to generate (default: boto3 boto3-stubs)",
     )
     parser.add_argument(
-        "--skip-published", action="store_true", help="Skip packages that are already on PyPI"
+        "--skip-published",
+        action="store_true",
+        help="Skip packages that are already on PyPI",
     )
     parser.add_argument(
         "--no-smart-version",
@@ -145,7 +150,10 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         help="Raise exception on logger warning and above",
     )
     parser.add_argument(
-        "output_path", metavar="OUTPUT_PATH", help="Output path", type=get_absolute_path
+        "output_path",
+        metavar="OUTPUT_PATH",
+        help="Output path",
+        type=get_absolute_path,
     )
     parser.add_argument(
         "-s",

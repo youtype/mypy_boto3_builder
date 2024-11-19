@@ -1,5 +1,7 @@
 """
 Parser for boto3 changelog.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import re
@@ -26,7 +28,7 @@ class BotocoreChangelog:
         response = requests.get(cls.URL, timeout=REQUEST_TIMEOUT)
         if not response.ok:
             raise BuildEnvError(
-                f"Cannot retrieve {cls.URL}: {response.status_code} {response.text}"
+                f"Cannot retrieve {cls.URL}: {response.status_code} {response.text}",
             ) from None
 
         return response.text

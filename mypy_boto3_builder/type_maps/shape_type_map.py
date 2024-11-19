@@ -1,5 +1,7 @@
 """
 String to type annotation map to replace overriden botocore shapes.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Mapping
@@ -37,7 +39,7 @@ SHAPE_TYPE_MAP: Final[ShapeTypeMap] = {
             "timestamp": TimestampTypeDef,
             "blob": BlobTypeDef,
             "blob_streaming": BlobTypeDef,
-        }
+        },
     },
     ServiceNameCatalog.dynamodb: {
         ALL: {
@@ -54,7 +56,7 @@ SHAPE_TYPE_MAP: Final[ShapeTypeMap] = {
 }
 
 _SHAPE_TYPE_MAP_LOOKUP: LookupDict[FakeAnnotation] = LookupDict(
-    {ServiceNameCatalog.to_str(k): v for k, v in SHAPE_TYPE_MAP.items()}
+    {ServiceNameCatalog.to_str(k): v for k, v in SHAPE_TYPE_MAP.items()},
 )
 
 OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
@@ -90,7 +92,7 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
 }
 
 _OUTPUT_SHAPE_TYPE_MAP_LOOKUP: LookupDict[FakeAnnotation] = LookupDict(
-    {ServiceNameCatalog.to_str(k): v for k, v in OUTPUT_SHAPE_TYPE_MAP.items()}
+    {ServiceNameCatalog.to_str(k): v for k, v in OUTPUT_SHAPE_TYPE_MAP.items()},
 )
 
 
@@ -131,7 +133,9 @@ def get_output_shape_type_stub(
         Type annotation or None.
     """
     type_annotation = _OUTPUT_SHAPE_TYPE_MAP_LOOKUP.get(
-        service_name.name, resource_name, shape_name
+        service_name.name,
+        resource_name,
+        shape_name,
     )
     if type_annotation:
         return type_annotation

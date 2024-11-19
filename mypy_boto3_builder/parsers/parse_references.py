@@ -1,5 +1,7 @@
 """
 Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from typing import TYPE_CHECKING

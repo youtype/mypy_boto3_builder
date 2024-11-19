@@ -1,5 +1,7 @@
 """
 Boto3 client Waiter.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import functools

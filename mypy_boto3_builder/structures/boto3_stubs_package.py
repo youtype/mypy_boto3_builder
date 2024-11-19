@@ -1,5 +1,7 @@
 """
 Structure for boto3-stubs module.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.structures.wrapper_package import WrapperPackage

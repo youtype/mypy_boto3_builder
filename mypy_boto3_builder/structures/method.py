@@ -1,5 +1,7 @@
 """
 Class method.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterator

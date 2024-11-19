@@ -5,7 +5,7 @@ from mypy_boto3_builder.utils.lookup_dict import LookupDict
 class TestLookupDict:
     def test_get(self) -> None:
         lookup_dict: LookupDict[int] = LookupDict(
-            {"test": {"one": {"child1": 1}, ALL: {"child2": 10}}, ALL: {"two": {"child3": 12}}}
+            {"test": {"one": {"child1": 1}, ALL: {"child2": 10}}, ALL: {"two": {"child3": 12}}},
         )
         assert lookup_dict.get("test", "one", "child1") == 1
         assert lookup_dict.get("test", "one", "child2") == 10
@@ -17,7 +17,7 @@ class TestLookupDict:
 
     def test_static(self) -> None:
         lookup_dict: LookupDict[int] = LookupDict(
-            {"test": {"one": {"child1": 1}, "two": {"child2": 10}}}
+            {"test": {"one": {"child1": 1}, "two": {"child2": 10}}},
         )
         assert lookup_dict.get("test", "one", "child1") == 1
         assert lookup_dict.get("test", "one", "child2") is None

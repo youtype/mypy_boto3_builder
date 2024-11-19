@@ -1,5 +1,7 @@
 """
 Enum for service modules.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from enum import Enum

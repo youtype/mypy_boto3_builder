@@ -1,5 +1,7 @@
 """
 Wrapper for subscript type annotations, like `List[str]`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Iterator

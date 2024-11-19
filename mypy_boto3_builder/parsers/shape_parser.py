@@ -1,5 +1,7 @@
 """
 Parser for botocore shape files.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import contextlib
@@ -104,13 +106,15 @@ class ShapeParser:
         self._paginators_shape: PaginatorsShape | None = None
         with contextlib.suppress(UnknownServiceError):
             self._paginators_shape = loader.load_service_model(
-                service_name.boto3_name, "paginators-1"
+                service_name.boto3_name,
+                "paginators-1",
             )
 
         self._resources_shape: ResourcesShape | None = None
         with contextlib.suppress(UnknownServiceError):
             self._resources_shape = loader.load_service_model(
-                service_name.boto3_name, "resources-1"
+                service_name.boto3_name,
+                "resources-1",
             )
 
         self.logger = get_logger()
@@ -191,7 +195,10 @@ class ShapeParser:
                 continue
 
             argument_type_stub = get_method_type_stub(
-                self.service_name, class_name, method_name, argument_name
+                self.service_name,
+                class_name,
+                method_name,
+                argument_name,
             )
             if argument_type_stub is Type.RemoveArgument:
                 continue
@@ -203,7 +210,10 @@ class ShapeParser:
             if argument_name not in required:
                 argument.default = Type.Ellipsis
             default_value_stub = get_default_value_stub(
-                self.service_name, class_name, method_name, argument_name
+                self.service_name,
+                class_name,
+                method_name,
+                argument_name,
             )
             if default_value_stub is not None:
                 argument.default = default_value_stub
@@ -220,10 +230,16 @@ class ShapeParser:
         return result
 
     def _parse_return_type(
-        self, class_name: str, method_name: str, shape: Shape | None
+        self,
+        class_name: str,
+        method_name: str,
+        shape: Shape | None,
     ) -> FakeAnnotation:
         argument_type_stub = get_method_type_stub(
-            self.service_name, class_name, method_name, "return"
+            self.service_name,
+            class_name,
+            method_name,
+            "return",
         )
         if argument_type_stub is not None:
             return argument_type_stub
@@ -287,7 +303,9 @@ class ShapeParser:
                 arguments.extend(shape_arguments)
 
             return_type = self._parse_return_type(
-                self._resource_name, method_name, operation_model.output_shape
+                self._resource_name,
+                method_name,
+                operation_model.output_shape,
             )
             if return_type is Type.none:
                 return_type = EmptyResponseMetadataTypeDef
@@ -295,7 +313,7 @@ class ShapeParser:
             method = Method(name=method_name, arguments=arguments, return_type=return_type)
             if operation_model.input_shape:
                 method.create_request_type_annotation(
-                    self._get_typed_dict_name(operation_model.input_shape, postfix="Request")
+                    self._get_typed_dict_name(operation_model.input_shape, postfix="Request"),
                 )
             result[method.name] = method
         return result
@@ -324,7 +342,7 @@ class ShapeParser:
                 if not type_literal.is_same(old_type_literal):
                     raise ShapeParserError(
                         f"Literal {literal_name} has different values:"
-                        f" {old_type_literal.children} vs {type_literal.children}"
+                        f" {old_type_literal.children} vs {type_literal.children}",
                     )
                 return old_type_literal
 
@@ -356,16 +374,20 @@ class ShapeParser:
         if shape.key:
             type_subscript.add_child(
                 self.parse_shape(
-                    shape.key, is_output_child=is_output_child, is_streaming=is_streaming
-                )
+                    shape.key,
+                    is_output_child=is_output_child,
+                    is_streaming=is_streaming,
+                ),
             )
         else:
             type_subscript.add_child(Type.str)
         if shape.value:
             type_subscript.add_child(
                 self.parse_shape(
-                    shape.value, is_output_child=is_output_child, is_streaming=is_streaming
-                )
+                    shape.value,
+                    is_output_child=is_output_child,
+                    is_streaming=is_streaming,
+                ),
             )
         else:
             type_subscript.add_child(Type.Any)
@@ -420,7 +442,7 @@ class ShapeParser:
 
         if found_typed_dict and not typed_dict.is_same(found_typed_dict):
             self.logger.debug(
-                f"Renaming conflicting {typed_dict.name} to {resource_typed_dict_name}"
+                f"Renaming conflicting {typed_dict.name} to {resource_typed_dict_name}",
             )
             typed_dict.name = resource_typed_dict_name
         typed_dict_map[typed_dict.name] = typed_dict
@@ -433,7 +455,7 @@ class ShapeParser:
             else:
                 self.logger.debug(
                     f"Leaving output {typed_dict.name}.{attribute.name}"
-                    f" as {attribute.get_type_annotation().render()}"
+                    f" as {attribute.get_type_annotation().render()}",
                 )
 
     def _add_response_metadata(self, typed_dict: TypeTypedDict) -> None:
@@ -451,7 +473,7 @@ class ShapeParser:
         )
         if shape.member:
             type_subscript.add_child(
-                self.parse_shape(shape.member, is_output_child=is_output_child)
+                self.parse_shape(shape.member, is_output_child=is_output_child),
             )
         else:
             type_subscript.add_child(Type.Any)
@@ -543,7 +565,7 @@ class ShapeParser:
                         is_output=is_output,
                         is_output_child=is_output_child,
                         is_streaming=is_streaming,
-                    )
+                    ),
                 ],
                 stringify=True,
             )
@@ -575,7 +597,7 @@ class ShapeParser:
             mutated_parents = result.replace_self_references(replacement)
             for mutated_parent in sorted(mutated_parents):
                 self.logger.debug(
-                    f"Replaced self reference for {result.render()} in {mutated_parent.render()}"
+                    f"Replaced self reference for {result.render()} in {mutated_parent.render()}",
                 )
 
         return result
@@ -614,7 +636,7 @@ class ShapeParser:
                 exclude_names=skip_argument_names,
             )
             shape_arguments.append(
-                Argument("PaginationConfig", PaginatorConfigTypeDef, Type.Ellipsis)
+                Argument("PaginationConfig", PaginatorConfigTypeDef, Type.Ellipsis),
             )
             arguments.extend(self._get_kw_flags("paginate", shape_arguments))
             arguments.extend(shape_arguments)
@@ -623,7 +645,9 @@ class ShapeParser:
         if operation_shape.output_shape is not None:
             page_iterator_import = InternalImport("_PageIterator", stringify=False)
             return_item = self._parse_return_type(
-                "Paginator", "paginate", operation_shape.output_shape
+                "Paginator",
+                "paginate",
+                operation_shape.output_shape,
             )
             return_type = TypeSubscript(page_iterator_import, [return_item])
 
@@ -631,8 +655,9 @@ class ShapeParser:
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
-                    operation_shape.input_shape, postfix=f"{paginator_name}Paginate"
-                )
+                    operation_shape.input_shape,
+                    postfix=f"{paginator_name}Paginate",
+                ),
             )
         return method
 
@@ -668,7 +693,9 @@ class ShapeParser:
         method = Method(name="wait", arguments=arguments, return_type=Type.none)
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
-                self._get_typed_dict_name(operation_shape.input_shape, postfix=f"{waiter_name}Wait")
+                self._get_typed_dict_name(
+                    operation_shape.input_shape, postfix=f"{waiter_name}Wait"
+                ),
             )
         return method
 
@@ -680,14 +707,19 @@ class ShapeParser:
         identifier: IdentifierShape,
     ) -> FakeAnnotation:
         argument_type_stub = get_method_type_stub(
-            self.service_name, resource_name, method_name, identifier_name
+            self.service_name,
+            resource_name,
+            method_name,
+            identifier_name,
         )
         if argument_type_stub:
             return argument_type_stub
         identifier_type = identifier.get("type")
         if identifier_type:
             argument_type_stub = get_shape_type_stub(
-                self.service_name, resource_name, identifier_type
+                self.service_name,
+                resource_name,
+                identifier_type,
             )
             if argument_type_stub:
                 return argument_type_stub
@@ -699,20 +731,31 @@ class ShapeParser:
         return xform_name(identifier.get("name") or identifier.get("target") or "unknown")
 
     def _get_identifier_argument(
-        self, resource_name: str, method_name: str, identifier: IdentifierShape
+        self,
+        resource_name: str,
+        method_name: str,
+        identifier: IdentifierShape,
     ) -> Argument:
         argument_name = self._get_identifier_xform_name(identifier)
         argument_type = self._get_identifier_type(
-            resource_name, method_name, argument_name, identifier
+            resource_name,
+            method_name,
+            argument_name,
+            identifier,
         )
         return Argument(argument_name, argument_type)
 
     def _get_identifier_attribute(
-        self, resource_name: str, identifier: IdentifierShape
+        self,
+        resource_name: str,
+        identifier: IdentifierShape,
     ) -> Attribute:
         attribute_name = self._get_identifier_xform_name(identifier)
         attribute_type = self._get_identifier_type(
-            resource_name, ATTRIBUTES, attribute_name, identifier
+            resource_name,
+            ATTRIBUTES,
+            attribute_name,
+            identifier,
         )
         return Attribute(name=attribute_name, type_annotation=attribute_type, is_identifier=True)
 
@@ -742,7 +785,9 @@ class ShapeParser:
             identifiers = resource_shape.get("identifiers", [])
             for identifier in identifiers:
                 argument = self._get_identifier_argument(
-                    self._resource_name, sub_resource_name, identifier
+                    self._resource_name,
+                    sub_resource_name,
+                    identifier,
                 )
                 arguments.append(argument)
             method = Method(
@@ -818,7 +863,9 @@ class ShapeParser:
                     if identifier.get("source") != "input":
                         continue
                     argument = self._get_identifier_argument(
-                        resource_name, sub_resource_name, identifier
+                        resource_name,
+                        sub_resource_name,
+                        identifier,
                     )
                     arguments.append(argument)
 
@@ -855,7 +902,9 @@ class ShapeParser:
         return result
 
     def _enrich_arguments_defaults(
-        self, arguments: list[Argument], action_shape: ActionShape
+        self,
+        arguments: list[Argument],
+        action_shape: ActionShape,
     ) -> None:
         request = action_shape["request"]
         arguments_map = {a.name: a for a in arguments}
@@ -872,7 +921,9 @@ class ShapeParser:
         arguments: list[Argument] = [Argument.self()]
         if "resource" in action_shape:
             return_type = self._parse_return_type(
-                self.resource_name, method_name, Shape("resource", action_shape["resource"])
+                self.resource_name,
+                method_name,
+                Shape("resource", action_shape["resource"]),
             )
             path = action_shape["resource"].get("path", "")
             if path.endswith("[]"):
@@ -899,7 +950,8 @@ class ShapeParser:
 
             if operation_shape.output_shape is not None and return_type is Type.none:
                 operation_return_type = self.parse_shape(
-                    operation_shape.output_shape, is_output=True
+                    operation_shape.output_shape,
+                    is_output=True,
                 )
                 return_type = operation_return_type
 
@@ -907,13 +959,17 @@ class ShapeParser:
         if operation_shape and operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
-                    operation_shape.input_shape, postfix=f"{self.resource_name}{action_name}"
-                )
+                    operation_shape.input_shape,
+                    postfix=f"{self.resource_name}{action_name}",
+                ),
             )
         return method
 
     def get_collection_filter_method(
-        self, name: str, collection: Collection, self_type: FakeAnnotation
+        self,
+        name: str,
+        collection: Collection,
+        self_type: FakeAnnotation,
     ) -> Method:
         """
         Get `filter` classmethod for Resource collection.
@@ -985,7 +1041,8 @@ class ShapeParser:
                     method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
                     item_return_type = self.parse_shape(
-                        operation_model.output_shape, is_output=True
+                        operation_model.output_shape,
+                        is_output=True,
                     )
                     return_type = TypeSubscript(Type.List, [item_return_type])
                     method.return_type = return_type
@@ -1002,7 +1059,9 @@ class ShapeParser:
         raise ShapeParserError(f"Unknown typed dict name format: {name}")
 
     def _get_typed_dict(
-        self, name: str, maps: Sequence[dict[str, TypeTypedDict]]
+        self,
+        name: str,
+        maps: Sequence[dict[str, TypeTypedDict]],
     ) -> TypeTypedDict | None:
         for typed_dict_map in maps:
             if name in typed_dict_map:
@@ -1011,7 +1070,8 @@ class ShapeParser:
 
     def _get_non_clashing_typed_dict_name(self, typed_dict: TypeTypedDict, postfix: str) -> str:
         new_typed_dict_name = get_type_def_name(
-            self._get_typed_dict_name_prefix(typed_dict.name), postfix
+            self._get_typed_dict_name_prefix(typed_dict.name),
+            postfix,
         )
         clashing_typed_dict = self._get_typed_dict(
             new_typed_dict_name,
@@ -1051,12 +1111,13 @@ class ShapeParser:
 
                 old_typed_dict_name = output_typed_dict.name
                 new_typed_dict_name = self._get_non_clashing_typed_dict_name(
-                    output_typed_dict, "Output"
+                    output_typed_dict,
+                    "Output",
                 )
                 self._fixed_typed_dict_map[typed_dict] = output_typed_dict
                 self.logger.debug(
                     "Fixing output TypedDict name clash"
-                    f" {old_typed_dict_name} -> {new_typed_dict_name}"
+                    f" {old_typed_dict_name} -> {new_typed_dict_name}",
                 )
 
                 self._output_typed_dict_map.rename(output_typed_dict, new_typed_dict_name)
@@ -1083,11 +1144,12 @@ class ShapeParser:
 
                 old_typed_dict_name = response_typed_dict.name
                 new_typed_dict_name = self._get_non_clashing_typed_dict_name(
-                    response_typed_dict, "Response"
+                    response_typed_dict,
+                    "Response",
                 )
                 self.logger.debug(
                     "Fixing response TypedDict name clash"
-                    f" {old_typed_dict_name} -> {new_typed_dict_name}"
+                    f" {old_typed_dict_name} -> {new_typed_dict_name}",
                 )
 
                 self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)
@@ -1124,6 +1186,6 @@ class ShapeParser:
                         continue
                     self.logger.debug(
                         f"Adding output shape to {parent.render()} type:"
-                        f" {input_typed_dict.name} | {output_typed_dict.name}"
+                        f" {input_typed_dict.name} | {output_typed_dict.name}",
                     )
                     parent.replace_child(input_typed_dict, union_type_annotation)

@@ -1,5 +1,7 @@
 """
 Parsers that produces `structures.wrapper_package.WrapperPackage`.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
@@ -15,7 +17,9 @@ from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBoto
 
 
 def parse_boto3_stubs_package(
-    session: Session, service_names: Iterable[ServiceName], package_data: type[BasePackageData]
+    session: Session,
+    service_names: Iterable[ServiceName],
+    package_data: type[BasePackageData],
 ) -> Boto3StubsPackage:
     """
     Parse data for boto3-stubs package.
@@ -38,7 +42,9 @@ def parse_boto3_stubs_package(
 
 
 def parse_aiobotocore_stubs_package(
-    session: Session, service_names: Iterable[ServiceName], package_data: type[BasePackageData]
+    session: Session,
+    service_names: Iterable[ServiceName],
+    package_data: type[BasePackageData],
 ) -> TypesAioBotocorePackage:
     """
     Parse data for types-aiobotocore package.
@@ -58,7 +64,9 @@ def parse_aiobotocore_stubs_package(
 
 
 def parse_types_aioboto3_package(
-    session: Session, service_names: Iterable[ServiceName], package_data: type[BasePackageData]
+    session: Session,
+    service_names: Iterable[ServiceName],
+    package_data: type[BasePackageData],
 ) -> TypesAioBoto3Package:
     """
     Parse data for types-aioboto3 package.

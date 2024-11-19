@@ -1,5 +1,7 @@
 """
 Version manager for PyPI packages.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import requests
@@ -72,7 +74,7 @@ class PyPIManager:
             return set()
         if not response.ok:
             raise BuildEnvError(
-                f"Cannot retrieve {self.json_url}: {response.status_code} {response.text}"
+                f"Cannot retrieve {self.json_url}: {response.status_code} {response.text}",
             ) from None
 
         data = response.json()

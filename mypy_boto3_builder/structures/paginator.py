@@ -1,5 +1,7 @@
 """
 Boto3 client Paginator.
+
+Copyright 2024 Vlad Emelianov
 """
 
 import functools

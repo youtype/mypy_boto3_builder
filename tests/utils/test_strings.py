@@ -56,7 +56,7 @@ class TestStrings:
                 for the part storage, you should call the `ListParts
                 <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html>`
                 __ action and ensure that the parts list is empty.
-                """
+                """,
             )
             == "This action aborts a multipart upload."
         )
@@ -77,7 +77,7 @@ class TestStrings:
         assert textwrap("te  stwords new", 6) == "te\nstwords\nnew"
         assert textwrap(
             "Get all items from the collection, optionally"
-            " with a custom page size and item count limit."
+            " with a custom page size and item count limit.",
         ) == (
             "Get all items from the collection, optionally with a custom page size and item"
             "\ncount limit."

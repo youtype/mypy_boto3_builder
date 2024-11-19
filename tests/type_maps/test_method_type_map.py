@@ -16,11 +16,17 @@ class TestMethodTypeMap:
             is None
         )
         assert get_method_type_stub(
-            ServiceNameCatalog.sqs, "SomeResource", "receive_messages", "AttributeNames"
+            ServiceNameCatalog.sqs,
+            "SomeResource",
+            "receive_messages",
+            "AttributeNames",
         )
         assert (
             get_method_type_stub(
-                ServiceNameCatalog.sqs, "SomeResource", "receive_messages", "Attribute"
+                ServiceNameCatalog.sqs,
+                "SomeResource",
+                "receive_messages",
+                "Attribute",
             )
             is None
         )

@@ -1,5 +1,7 @@
 """
 Wrapper for simple type annotations from this module.
+
+Copyright 2024 Vlad Emelianov
 """
 
 from typing import Self
