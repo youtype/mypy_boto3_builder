@@ -50,6 +50,7 @@ copy_method = Method(
         config_arg,
     ),
     return_type=Type.none,
+    docstring="Copy an object from one S3 location to another.",
 )
 
 download_file_method = Method(
@@ -64,6 +65,7 @@ download_file_method = Method(
         config_arg,
     ),
     return_type=Type.none,
+    docstring="Download an object from S3 to a file.",
 )
 
 download_fileobj_method = Method(
@@ -78,6 +80,7 @@ download_fileobj_method = Method(
         config_arg,
     ),
     return_type=Type.none,
+    docstring="Download an object from S3 to a file-like object.",
 )
 
 generate_presigned_post_method = Method(
@@ -91,6 +94,7 @@ generate_presigned_post_method = Method(
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
     ),
     return_type=Type.DictStrAny,
+    docstring="Generate a presigned URL for POST requests.",
 )
 
 upload_file_method = Method(
@@ -105,6 +109,7 @@ upload_file_method = Method(
         config_arg,
     ),
     return_type=Type.none,
+    docstring="Upload a file to S3.",
 )
 
 upload_fileobj_method = Method(
@@ -119,6 +124,7 @@ upload_fileobj_method = Method(
         config_arg,
     ),
     return_type=Type.none,
+    docstring="Upload a file-like object to S3.",
 )
 
 

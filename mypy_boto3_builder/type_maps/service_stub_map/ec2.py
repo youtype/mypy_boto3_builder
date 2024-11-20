@@ -20,6 +20,10 @@ create_tags_method = Method(
         Argument("DryRun", Type.bool, Type.Ellipsis),
     ),
     return_type=Type.none,
+    docstring=(
+        "Adds or overwrites only the specified tags for"
+        " the specified Amazon EC2 resource or resources."
+    ),
 )
 
 delete_tags_method = Method(
@@ -32,6 +36,7 @@ delete_tags_method = Method(
         Argument("DryRun", Type.bool, Type.Ellipsis),
     ),
     return_type=Type.none,
+    docstring="Deletes the specified set of tags from the specified set of resources.",
 )
 
 CLIENT_METHODS = (

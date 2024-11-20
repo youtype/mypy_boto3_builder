@@ -70,7 +70,13 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     WaiterConfigTypeDef,
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
-from mypy_boto3_builder.utils.strings import capitalize, get_type_def_name, xform_name
+from mypy_boto3_builder.utils.strings import (
+    capitalize,
+    extract_docstring_from_html,
+    get_short_docstring,
+    get_type_def_name,
+    xform_name,
+)
 
 if TYPE_CHECKING:
     from botocore.loaders import Loader
@@ -323,7 +329,14 @@ class ShapeParser:
             if return_type is Type.none:
                 return_type = EmptyResponseMetadataTypeDef
 
-            method = Method(name=method_name, arguments=arguments, return_type=return_type)
+            method = Method(
+                name=method_name,
+                arguments=arguments,
+                return_type=return_type,
+                docstring=get_short_docstring(
+                    extract_docstring_from_html(operation_model.documentation)
+                ),
+            )
             if operation_model.input_shape:
                 method.create_request_type_annotation(
                     self._get_typed_dict_name(operation_model.input_shape, postfix="Request"),

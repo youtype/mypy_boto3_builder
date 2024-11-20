@@ -19,6 +19,7 @@ generate_db_auth_token_method = Method(
         Argument("Region", get_optional(Type.str), Type.Ellipsis),
     ),
     return_type=Type.str,
+    docstring="Generates an auth token used to connect to a db with IAM credentials.",
 )
 
 CLIENT_METHODS = (generate_db_auth_token_method,)

@@ -22,6 +22,7 @@ batch_writer_method = Method(
         ),
     ),
     return_type=ExternalImport.from_class(BatchWriter),
+    docstring="Create a batch writer object.",
 )
 
 TABLE_METHODS = (batch_writer_method,)

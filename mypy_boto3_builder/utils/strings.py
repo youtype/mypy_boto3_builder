@@ -207,3 +207,16 @@ def get_copyright() -> str:
     """
     now = datetime.datetime.now(datetime.timezone.utc)
     return f"Copyright {now.year} Vlad Emelianov"
+
+
+def extract_docstring_from_html(html: str) -> str:
+    """
+    Extract docstring from HTML.
+    """
+    start_index = html.find("<p>")
+    if start_index < 0:
+        return html
+    end_index = html.find("</p>", start_index)
+    if end_index < 0:
+        return html
+    return html[start_index + 3 : end_index].strip()
