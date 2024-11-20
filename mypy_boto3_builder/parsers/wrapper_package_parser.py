@@ -6,7 +6,6 @@ Copyright 2024 Vlad Emelianov
 
 from typing import Final
 
-from boto3.session import Session
 from botocore.config import Config
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -52,8 +51,7 @@ class WrapperPackageParser:
         ),
     )
 
-    def __init__(self, session: Session, package: WrapperPackage) -> None:
-        self.session = session
+    def __init__(self, package: WrapperPackage) -> None:
         self.package = package
         self._logger = get_logger()
 
@@ -81,7 +79,7 @@ class WrapperPackageParser:
         """
         result: list[ServiceName] = []
         for service_name in self.package.service_names:
-            boto3_resource = get_boto3_resource(self.session, service_name)
+            boto3_resource = get_boto3_resource(service_name)
             if boto3_resource is not None:
                 result.append(service_name)
         return result

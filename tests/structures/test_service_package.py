@@ -39,7 +39,7 @@ class TestServicePackage:
     def test_client(self) -> None:
         assert self.service_package.client.name == "Client"
 
-        self.service_package._client = None  # type: ignore
+        self.service_package._client = None  # type: ignore[attr-defined]
         with pytest.raises(StructureError):
             _ = self.service_package.client
 

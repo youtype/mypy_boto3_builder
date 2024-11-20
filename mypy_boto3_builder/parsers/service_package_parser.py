@@ -6,8 +6,6 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterable
 
-from boto3.session import Session
-
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.client import parse_client
@@ -31,7 +29,6 @@ class ServicePackageParser:
     Parser that produces `structures.ServicePackage`.
 
     Arguments:
-        session -- boto3 session.
         service_name -- Target service name.
         package_data -- Package data.
         version -- Package version.
@@ -42,16 +39,14 @@ class ServicePackageParser:
 
     def __init__(
         self,
-        session: Session,
         service_name: ServiceName,
         package_data: type[BasePackageData],
         version: str,
     ) -> None:
-        self.session = session
         self.service_name = service_name
         self.package_data = package_data
         self.version = version
-        self.shape_parser = ShapeParser(self.session, self.service_name)
+        self.shape_parser = ShapeParser(self.service_name)
         self._logger = get_logger()
 
     def parse(self) -> ServicePackage:
@@ -116,9 +111,8 @@ class ServicePackageParser:
                 continue
 
     def _parse_service_package(self) -> ServicePackage:
-        client = parse_client(self.session, self.service_name, self.shape_parser)
+        client = parse_client(self.service_name, self.shape_parser)
         service_resource_parser = ServiceResourceParser(
-            self.session,
             self.service_name,
             self.shape_parser,
         )

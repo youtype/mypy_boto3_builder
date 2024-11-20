@@ -39,7 +39,7 @@ class JinjaManager:
         """
         if cls._singleton is None:
             cls._singleton = cls()
-        return cls._singleton  # type: ignore
+        return cls._singleton  # type: ignore[no-any-return]
 
     @classmethod
     def update_globals(cls, **kwargs: Any) -> None:  # noqa: ANN401

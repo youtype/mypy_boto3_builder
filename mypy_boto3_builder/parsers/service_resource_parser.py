@@ -9,7 +9,6 @@ from typing import TYPE_CHECKING
 
 from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
-from boto3.session import Session
 from boto3.utils import ServiceContext
 from botocore.exceptions import UnknownServiceError
 
@@ -36,6 +35,7 @@ from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
 from mypy_boto3_builder.utils.boto3_utils import (
     get_boto3_client,
     get_boto3_resource,
+    get_boto3_session,
     get_botocore_session,
 )
 from mypy_boto3_builder.utils.strings import get_short_docstring
@@ -57,15 +57,14 @@ class ServiceResourceParser:
 
     def __init__(
         self,
-        session: Session,
         service_name: ServiceName,
         shape_parser: ShapeParser,
     ) -> None:
-        self.session = session
+        self.session = get_boto3_session()
         self.service_name = service_name
         self.shape_parser = shape_parser
-        self._boto3_resource = get_boto3_resource(session, service_name)
-        self.botocore_session = get_botocore_session(session)
+        self._boto3_resource = get_boto3_resource(service_name)
+        self.botocore_session = get_botocore_session()
         self._logger = get_logger()
         self._resource_meta_class = self._get_resource_meta_class()
 
@@ -224,7 +223,7 @@ class ServiceResourceParser:
         except UnknownServiceError:
             service_waiter_model = None
 
-        boto3_client = get_boto3_client(self.session, self.service_name)
+        boto3_client = get_boto3_client(self.service_name)
         for name in json_resource_model["resources"]:
             resource_model = json_resource_model["resources"][name]
             resource_class = self.session.resource_factory.load_from_definition(

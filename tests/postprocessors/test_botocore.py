@@ -39,7 +39,6 @@ class TestBotocorePostprocessor:
 
         package.type_defs = [self_ref_typed_dict]
         postprocessor = BotocorePostprocessor(
-            session=Mock(),
             package=package,
             service_names=[ServiceNameCatalog.s3],
         )

@@ -1,7 +1,5 @@
 from unittest.mock import MagicMock, Mock, patch
 
-from botocore.exceptions import UnknownServiceError
-
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser, TypedDictMap
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.type import Type
@@ -10,52 +8,42 @@ from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribu
 
 class TestShapeParser:
     shape_parser: ShapeParser
-    session_mock: MagicMock
     service_name: ServiceName
+    loader: MagicMock
 
     def setup_method(self) -> None:
-        session_mock = MagicMock()
-        self.session_mock = session_mock
         self.service_name = ServiceNameCatalog.s3
-        self.shape_parser = ShapeParser(session_mock, ServiceNameCatalog.s3)
+        self.shape_parser = ShapeParser(self.service_name)
+        self.loader = self.shape_parser._loader
 
     def test_init(self) -> None:
         assert self.shape_parser.service_name == self.service_name
-
-        self.session_mock._loader.load_service_model.side_effect = UnknownServiceError(
-            service_name="service_name",
-            known_service_names="known_service_names",
-        )
-        ShapeParser(self.session_mock, self.service_name)
+        ShapeParser(self.service_name)
 
     def test_get_paginator_names(self) -> None:
-        self.session_mock._loader.load_service_model.return_value = {"pagination": ["c", "a", "b"]}
-        shape_parser = ShapeParser(self.session_mock, self.service_name)
-        assert shape_parser.get_paginator_names() == ["a", "b", "c"]
+        self.loader.load_service_model.return_value = {"pagination": ["c", "a", "b"]}
+        assert self.shape_parser.get_paginator_names() == ["a", "b", "c"]
 
-        self.session_mock._loader.load_service_model.return_value = {"paginations": ["c", "a", "b"]}
-        shape_parser = ShapeParser(self.session_mock, self.service_name)
-        assert shape_parser.get_paginator_names() == []
+        self.loader.load_service_model.return_value = {"paginations": ["c", "a", "b"]}
+        assert ShapeParser(self.service_name).get_paginator_names() == []
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
     def test_get_client_method_map(self, ServiceModelMock: MagicMock) -> None:
-        session_mock = MagicMock()
         service_name_mock = MagicMock()
         operation_model_mock = MagicMock()
         operation_model_mock.output_shape.serialization = {}
         ServiceModelMock().operation_names = ["my_operation"]
         ServiceModelMock().operation_model.return_value = operation_model_mock
-        session_mock._loader.load_service_model.return_value = {
+        self.loader.load_service_model.return_value = {
             "resources": {"c": None, "a": None, "b": None},
         }
-        shape_parser = ShapeParser(session_mock, service_name_mock)
+        shape_parser = ShapeParser(service_name_mock)
         result = shape_parser.get_client_method_map()
         assert "can_paginate" in result
         assert "generate_presigned_url" in result
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
     def test_get_paginate_method(self, ServiceModelMock: MagicMock) -> None:
-        session_mock = MagicMock()
         service_name_mock = MagicMock()
         operation_model_mock = MagicMock()
         required_arg_shape_mock = MagicMock()
@@ -84,11 +72,11 @@ class TestShapeParser:
         ]
         ServiceModelMock().operation_names = ["my_paginator"]
         ServiceModelMock().operation_model.return_value = operation_model_mock
-        session_mock._loader.load_service_model.return_value = {
+        self.loader.load_service_model.return_value = {
             "pagination": {"my_paginator": {"input_token": "InputToken", "limit_key": "skip_arg"}},
             "resources": {},
         }
-        shape_parser = ShapeParser(session_mock, service_name_mock)
+        shape_parser = ShapeParser(service_name_mock)
         result = shape_parser.get_paginate_method("my_paginator")
         assert result.name == "paginate"
         assert len(result.arguments) == 5
@@ -100,7 +88,6 @@ class TestShapeParser:
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
     def test_get_collection_filter_method(self, ServiceModelMock: MagicMock) -> None:
-        session_mock = MagicMock()
         service_name_mock = MagicMock()
         operation_model_mock = MagicMock()
         required_arg_shape_mock = MagicMock()
@@ -128,7 +115,7 @@ class TestShapeParser:
         ServiceModelMock().operation_model.return_value = operation_model_mock
         collection_mock = MagicMock()
         collection_mock.request.operation = "my_operation"
-        shape_parser = ShapeParser(session_mock, service_name_mock)
+        shape_parser = ShapeParser(service_name_mock)
         result = shape_parser.get_collection_filter_method(
             "MyCollection",
             collection_mock,
@@ -143,9 +130,8 @@ class TestShapeParser:
         assert result.arguments[3].name == "InputToken"
 
     def test_fix_typed_dict_names(self) -> None:
-        session_mock = MagicMock()
         service_name_mock = MagicMock()
-        shape_parser = ShapeParser(session_mock, service_name_mock)
+        shape_parser = ShapeParser(service_name_mock)
         shape_parser._typed_dict_map = TypedDictMap(
             {
                 "TestTypeDef": TypeTypedDict(
@@ -206,9 +192,7 @@ class TestShapeParser:
         )
 
     def test_get_literal_name(self) -> None:
-        session_mock = MagicMock()
-        service_name_mock = MagicMock()
-        shape_parser = ShapeParser(session_mock, service_name_mock)
+        shape_parser = self.shape_parser
 
         shape = MagicMock()
         shape.enum = ["as", "b"]
@@ -231,7 +215,7 @@ class TestShapeParser:
         assert shape_parser._get_literal_name(shape) == "OtherType"
 
     def test_parse_shape_string(self) -> None:
-        shape_parser = ShapeParser(Mock(), Mock())
+        shape_parser = self.shape_parser
         shape = Mock()
         shape.name = "MyShape"
         shape.enum = []
@@ -244,7 +228,7 @@ class TestShapeParser:
         assert shape_parser._parse_shape_string(shape).children == {"a", "b"}
 
     def test_get_resource_method_map(self) -> None:
-        self.session_mock._loader.load_service_model.return_value = {
+        self.loader.load_service_model.return_value = {
             "resources": {
                 "c": {
                     "actions": {
@@ -285,6 +269,6 @@ class TestShapeParser:
                 },
             },
         }
-        shape_parser = ShapeParser(self.session_mock, self.service_name)
+        shape_parser = ShapeParser(self.service_name)
         result = shape_parser.get_resource_method_map("c")
         assert len(result.keys()) == 6

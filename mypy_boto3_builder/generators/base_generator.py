@@ -21,7 +21,6 @@ from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_session
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.writers.package_writer import PackageWriter
@@ -55,7 +54,6 @@ class BaseGenerator(ABC):
         *,
         cleanup: bool,
     ) -> None:
-        self.session = get_boto3_session()
         self.service_names = service_names
         self.master_service_names = master_service_names
         self.config = config
@@ -189,7 +187,7 @@ class BaseGenerator(ABC):
         package_data: type[BasePackageData],
     ) -> ServicePackage:
         self.logger.debug(f"Parsing {service_name.boto3_name}")
-        parser = ServicePackageParser(self.session, service_name, package_data, version)
+        parser = ServicePackageParser(service_name, package_data, version)
         service_package = parser.parse()
 
         postprocessor = self.get_postprocessor(service_package)

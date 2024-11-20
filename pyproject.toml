@@ -46,6 +46,7 @@ dev-dependencies = [
     "mypy",
     "pyright",
     "pytest-cov",
+    "pytest-mock",
     "pytest",
     "requests-mock",
     "twine",
@@ -147,85 +148,35 @@ target-version = "py310"
 
 [tool.ruff.lint]
 preview = true
-select = [
-    "F",     # Pyflakes
-    "E",     # pycodestyle
-    "W",     # pycodestyle
-    "C90",   # mccabe
-    "I",     # isort
-    "N",     # pep8-naming
-    "D",     # pydocstyle
-    "UP",    # pyupgrade
-    "YTT",   # flake8-2020
-    "ANN",   # flake8-annotations
-    "ASYNC", # flake8-async
-    "S",     # flake8-bandit
-    "BLE",   # flake8-blind-except
-    "FBT",   # flake8-boolean-trap
-    "B",     # flake8-bugbear
-    "A",     # flake8-builtins
-    "COM",   # flake8-commas
-    "CPY",   # flake8-copyright
-    "C4",    # flake8-comprehensions
-    "DTZ",   # flake8-datetimez
-    "T10",   # flake8-debugger
-    # "EM",    # flake8-errmsg
-    "FA",  # flake8-future-annotations
-    "ISC", # flake8-implicit-str-concat
-    "ICN", # flake8-import-conventions
-    "LOG", # flake8-logging
-    # "G",    # flake8-logging-format
-    # "INP",  # flake8-no-pep420
-    "PIE",  # flake8-pie
-    "T20",  # flake8-print
-    "PYI",  # flake8-pyi
-    "PT",   # flake8-pytest-style
-    "Q",    # flake8-quotes
-    "RSE",  # flake8-raise
-    "RET",  # flake8-return
-    "SLF",  # flake8-self
-    "SLOT", # flake8-slots
-    "SIM",  # flake8-simplify
-    "TID",  # flake8-tidy-imports
-    "TCH",  # flake8-type-checking
-    "INT",  # flake8-gettext
-    "ARG",  # flake8-unused-arguments
-    "PTH",  # flake8-use-pathlib
-    # "TD",    # flake8-todos
-    # "FIX",   # flake8-fixme
-    # "ERA",   # eradicate
-    "PL",   # pylint
-    "TRY",  # tryceratops
-    "FLY",  # flynt
-    "PERF", # Perflint
-    "FURB", # refurb
-    # "DOC",  # pydoclint
-    "RUF", # Ruff-specific rules
-]
+select = ["ALL"]
 ignore = [
-    "D107",   # undocumented-public-init
-    "D200",   # fits-on-one-line
-    "D203",   # one-blank-line-before-class
-    "D212",   # multi-line-summary-first-line
-    "D406",   # new-line-after-section-name
-    "D407",   # dashed-underline-after-section
-    "D413",   # blank-line-after-last-section
-    "D417",   # undocumented-param
-    "S310",   # suspicious-url-open-usage
-    "S404",   # suspicious-subprocess-import
-    "S603",   # subprocess-without-shell-equals-true
-    "ANN101", # missing-type-self
-    "ANN102", # missing-type-cls
-    # "ANN401",  # any-type
-    "TRY003",  # raise-vanilla-args
-    "PERF203", # try-except-in-loop
-    "PLR0913", # too-many-arguments
-    "PLR0904", # too-many-public-methods
-    "PLR6301", # no-self-use
-    "FBT003",  # boolean-identity
-    "SLF001",  # private-member-access
+    "ANN101",  # missing-type-self
+    "ANN102",  # missing-type-cls
     "ARG002",  # unused-argument
+    "COM812",  # missing-trailing-comma
+    "D107",    # undocumented-public-init
+    "D200",    # fits-on-one-line
+    "D203",    # one-blank-line-before-class
+    "D212",    # multi-line-summary-first-line
+    "D406",    # new-line-after-section-name
+    "D407",    # dashed-underline-after-section
+    "D413",    # blank-line-after-last-section
+    "D417",    # undocumented-param
+    "DOC",     # pydoclint
+    "EM",      # flake8-errmsg
+    "ERA001",  # commented-out-code
+    "FIX001",  # line-contains-fixme
+    "G004",    # logging-f-string
+    "INP001",  # implicit-namespace-package
     "ISC001",  # implicit-str-concat
+    "PERF203", # try-except-in-loop
+    "PLR0904", # too-many-public-methods
+    "PLR0913", # too-many-arguments
+    "PLR6301", # no-self-use
+    "S404",    # suspicious-subprocess-import
+    "S603",    # subprocess-without-shell-equals-true
+    "TD",      # flake8-todos
+    "TRY003",  # raise-vanilla-args
 ]
 fixable = ["ALL"]
 unfixable = ["B"]
@@ -240,6 +191,15 @@ allowed-confusables = ["’", "–"]
     "N803",    # argument-name-does-not-match
     "PLR2004", # constant-comparison
     "CPY001",  # missing-copyright
+    "SLF001",  # private-member-access
+]
+"conftest.py" = [
+    "D",       # missing-docstring
+    "S101",    # use-of-assert
+    "N803",    # argument-name-does-not-match
+    "PLR2004", # constant-comparison
+    "CPY001",  # missing-copyright
+    "SLF001",  # private-member-access
 ]
 
 [tool.ruff.format]

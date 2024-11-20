@@ -7,8 +7,6 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterable
 from pathlib import Path
 
-from boto3.session import Session
-
 from mypy_boto3_builder.constants import TemplatePath
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
@@ -21,7 +19,6 @@ from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 def process_types_aioboto3(
     *,
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
@@ -32,7 +29,6 @@ def process_types_aioboto3(
     Parse and write stubs package `types-aioboto3`.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
@@ -44,7 +40,6 @@ def process_types_aioboto3(
     """
     logger = get_logger()
     package = parse_types_aioboto3_package(
-        session,
         service_names,
         TypesAioBoto3PackageData,
         version,
@@ -66,7 +61,6 @@ def process_types_aioboto3(
 
 def process_types_aioboto3_lite(
     *,
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
@@ -77,7 +71,6 @@ def process_types_aioboto3_lite(
     Parse and write stubs package `types-aioboto3-lite`.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
@@ -89,7 +82,6 @@ def process_types_aioboto3_lite(
     """
     logger = get_logger()
     package = parse_types_aioboto3_package(
-        session,
         service_names,
         TypesAioBoto3LitePackageData,
         version,
@@ -111,7 +103,6 @@ def process_types_aioboto3_lite(
 
 
 def process_types_aioboto3_docs(
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     version: str,
@@ -120,7 +111,6 @@ def process_types_aioboto3_docs(
     Parse and write master package docs.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         version -- Package version
@@ -130,7 +120,6 @@ def process_types_aioboto3_docs(
     """
     logger = get_logger()
     package = parse_types_aioboto3_package(
-        session,
         service_names,
         TypesAioBoto3PackageData,
         version,

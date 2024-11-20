@@ -21,7 +21,7 @@ from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
+from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name, get_copyright
 from mypy_boto3_builder.utils.type_checks import (
@@ -179,10 +179,9 @@ def run(args: CLINamespace) -> None:
     logger = get_logger(level=args.log_level)
 
     initialize_jinja_manager()
-    session = get_boto3_session()
 
     args.output_path.mkdir(exist_ok=True, parents=True)
-    available_service_names = get_available_service_names(get_botocore_session(session))
+    available_service_names = get_available_service_names(get_botocore_session())
 
     logger.info(f"{len(available_service_names)} supported botocore services discovered")
     if args.list_services:

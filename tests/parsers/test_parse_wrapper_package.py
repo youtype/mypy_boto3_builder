@@ -5,18 +5,16 @@ from mypy_boto3_builder.parsers.parse_wrapper_package import parse_boto3_stubs_p
 
 
 class TestParseWrapperPackage:
-    def test_parse_boto3_stubs_package(self) -> None:
-        session_mock = MagicMock()
+    def test_parse_boto3_stubs_package(self, boto3_session_mock: MagicMock) -> None:
         service_name_mock = MagicMock()
         service_name_mock.underscore_name = "service_name"
         service_name2_mock = MagicMock()
         service_name2_mock.underscore_name = "service_name2"
+        boto3_session_mock().resource.return_value = None
 
-        session_mock.resource.return_value = None
         result = parse_boto3_stubs_package(
-            session_mock,
             [service_name_mock, service_name2_mock],
-            Boto3StubsPackageData,
+            package_data=Boto3StubsPackageData,
             version="1.2.3",
         )
         assert result.essential_service_names == [service_name_mock, service_name2_mock]

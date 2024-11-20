@@ -6,31 +6,35 @@ Copyright 2024 Vlad Emelianov
 
 import functools
 
-from mypy_boto3_builder.exceptions import BuildEnvError
+from boto3 import __version__ as boto3_version
+from botocore import __version__ as botocore_version
+
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+
+try:
+    from aiobotocore import __version__ as aiobotocore_version  # type: ignore[import]
+except ImportError:
+    aiobotocore_version = ""
+
+try:
+    from aioboto3 import __version__ as aioboto3_version  # type: ignore[import]
+except ImportError:
+    aioboto3_version = ""
 
 
 def get_botocore_version() -> str:
     """
     Get botocore package version.
     """
-    try:
-        from botocore import __version__ as version  # noqa: PLC0415
-    except ImportError as e:
-        raise BuildEnvError("botocore is not installed") from e
-    return f"{version}"
+    return f"{botocore_version}"
 
 
 def get_boto3_version() -> str:
     """
     Get boto3 package version.
     """
-    try:
-        from boto3 import __version__ as version  # noqa: PLC0415
-    except ImportError as e:
-        raise BuildEnvError("boto3 is not installed") from e
-    return f"{version}"
+    return f"{boto3_version}"
 
 
 @functools.cache
@@ -38,15 +42,10 @@ def get_aiobotocore_version() -> str:
     """
     Get aiobotocore package version.
     """
-    try:
-        from aiobotocore import __version__ as version  # type: ignore  # noqa: PLC0415
-    except ImportError:
-        pass
-    else:
-        return f"{version}"
+    if aiobotocore_version:
+        return f"{aiobotocore_version}"
 
-    logger = get_logger()
-    logger.warning("aiobotocore is not installed, using latest version from PyPI")
+    get_logger().warning("aiobotocore is not installed, using latest version from PyPI")
     pypi_manager = PyPIManager("aiobotocore")
     return pypi_manager.get_latest_stable_version()
 
@@ -56,14 +55,9 @@ def get_aioboto3_version() -> str:
     """
     Get aioboto3 package version.
     """
-    try:
-        from aioboto3 import __version__ as version  # type: ignore  # noqa: PLC0415
-    except ImportError:
-        pass
-    else:
-        return f"{version}"
+    if aioboto3_version:
+        return f"{aioboto3_version}"
 
-    logger = get_logger()
-    logger.warning("aioboto3 is not installed, using latest version from PyPI")
+    get_logger().warning("aioboto3 is not installed, using latest version from PyPI")
     pypi_manager = PyPIManager("aioboto3")
     return pypi_manager.get_latest_stable_version()

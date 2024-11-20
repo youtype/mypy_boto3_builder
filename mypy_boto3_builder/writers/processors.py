@@ -7,8 +7,6 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterable
 from pathlib import Path
 
-from boto3.session import Session
-
 from mypy_boto3_builder.constants import TemplatePath
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import (
@@ -27,7 +25,6 @@ from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 def process_boto3_stubs(
     *,
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
@@ -38,7 +35,6 @@ def process_boto3_stubs(
     Parse and write stubs package `boto3_stubs`.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
@@ -52,7 +48,6 @@ def process_boto3_stubs(
     package_data = Boto3StubsPackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
     package = parse_boto3_stubs_package(
-        session=session,
         service_names=service_names,
         package_data=package_data,
         version=version,
@@ -75,7 +70,6 @@ def process_boto3_stubs(
 
 def process_boto3_stubs_lite(
     *,
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
@@ -86,7 +80,6 @@ def process_boto3_stubs_lite(
     Parse and write stubs package `boto3-stubs-lite`.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         generate_setup -- Generate ready-to-install or to-use package
@@ -100,7 +93,6 @@ def process_boto3_stubs_lite(
     package_data = Boto3StubsLitePackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
     package = parse_boto3_stubs_package(
-        session=session,
         service_names=service_names,
         package_data=package_data,
         version=version,
@@ -126,7 +118,6 @@ def process_boto3_stubs_lite(
 
 
 def process_master(
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     version: str,
@@ -137,7 +128,6 @@ def process_master(
     Parse and write master package `mypy_boto3`.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         version -- Package version
@@ -148,7 +138,7 @@ def process_master(
     """
     logger = get_logger()
     logger.debug("Parsing master")
-    package = parse_master_package(session=session, service_names=service_names, version=version)
+    package = parse_master_package(service_names=service_names, version=version)
     logger.debug(f"Writing master to {print_path(output_path)}")
 
     package_writer = PackageWriter(
@@ -165,7 +155,6 @@ def process_master(
 
 
 def process_boto3_stubs_docs(
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     version: str,
@@ -174,7 +163,6 @@ def process_boto3_stubs_docs(
     Parse and write master package docs.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         version -- Package version
@@ -186,7 +174,6 @@ def process_boto3_stubs_docs(
     package_data = Boto3StubsPackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
     package = parse_boto3_stubs_package(
-        session=session,
         service_names=service_names,
         package_data=package_data,
         version=version,
@@ -203,7 +190,6 @@ def process_boto3_stubs_docs(
 
 
 def process_boto3_stubs_full(
-    session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
     version: str,
@@ -214,7 +200,6 @@ def process_boto3_stubs_full(
     Parse and write stubs package `boto3-stubs-full`.
 
     Arguments:
-        session -- boto3 session
         output_path -- Package output path
         service_names -- List of known service names
         version -- Package version
@@ -227,7 +212,6 @@ def process_boto3_stubs_full(
     logger = get_logger()
     logger.debug(f"Parsing {package_data.PYPI_FULL_NAME}")
     package = parse_boto3_stubs_package(
-        session=session,
         service_names=service_names,
         package_data=package_data,
         version=version,

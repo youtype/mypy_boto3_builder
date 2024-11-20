@@ -9,7 +9,6 @@ from collections.abc import Iterable, Sequence
 from typing import TYPE_CHECKING
 
 from boto3.resources.model import Collection
-from boto3.session import Session
 from botocore.eventstream import EventStream
 from botocore.exceptions import UnknownServiceError
 from botocore.model import (
@@ -74,7 +73,7 @@ from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.strings import capitalize, get_type_def_name, xform_name
 
 if TYPE_CHECKING:
-    from botocore.session import Session as BotocoreSession
+    from botocore.loaders import Loader
 
 
 class ShapeParser:
@@ -86,9 +85,9 @@ class ShapeParser:
         service_name -- ServiceName.
     """
 
-    def __init__(self, session: Session, service_name: ServiceName) -> None:
-        loader = session._loader
-        botocore_session: BotocoreSession = get_botocore_session(session)
+    def __init__(self, service_name: ServiceName) -> None:
+        botocore_session = get_botocore_session()
+        self._loader: Loader = botocore_session.get_component("data_loader")
         service_data = botocore_session.get_service_data(service_name.boto3_name)
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
@@ -99,25 +98,39 @@ class ShapeParser:
         self._response_typed_dict_map = TypedDictMap()
         self._fixed_typed_dict_map: dict[TypeTypedDict, TypeTypedDict] = {}
 
-        self._waiters_shape: WaitersShape | None = None
-        with contextlib.suppress(UnknownServiceError):
-            self._waiters_shape = loader.load_service_model(service_name.boto3_name, "waiters-2")
-
-        self._paginators_shape: PaginatorsShape | None = None
-        with contextlib.suppress(UnknownServiceError):
-            self._paginators_shape = loader.load_service_model(
-                service_name.boto3_name,
-                "paginators-1",
-            )
-
-        self._resources_shape: ResourcesShape | None = None
-        with contextlib.suppress(UnknownServiceError):
-            self._resources_shape = loader.load_service_model(
-                service_name.boto3_name,
-                "resources-1",
-            )
-
+        self.__waiters_shape: WaitersShape | None = None
+        self.__paginators_shape: PaginatorsShape | None = None
+        self.__resources_shape: ResourcesShape | None = None
         self.logger = get_logger()
+
+    @property
+    def _waiters_shape(self) -> WaitersShape | None:
+        if not self.__waiters_shape:
+            with contextlib.suppress(UnknownServiceError):
+                self.__waiters_shape = self._loader.load_service_model(
+                    self.service_name.boto3_name, "waiters-2"
+                )
+        return self.__waiters_shape
+
+    @property
+    def _paginators_shape(self) -> PaginatorsShape | None:
+        if not self.__paginators_shape:
+            with contextlib.suppress(UnknownServiceError):
+                self.__paginators_shape = self._loader.load_service_model(
+                    self.service_name.boto3_name,
+                    "paginators-1",
+                )
+        return self.__paginators_shape
+
+    @property
+    def _resources_shape(self) -> ResourcesShape | None:
+        if not self.__resources_shape:
+            with contextlib.suppress(UnknownServiceError):
+                self.__resources_shape = self._loader.load_service_model(
+                    self.service_name.boto3_name,
+                    "resources-1",
+                )
+        return self.__resources_shape
 
     @property
     def resource_name(self) -> str:

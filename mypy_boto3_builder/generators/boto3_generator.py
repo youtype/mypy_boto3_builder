@@ -49,7 +49,7 @@ class Boto3Generator(BaseGenerator):
         """
         Get postprocessor for service package.
         """
-        return BotocorePostprocessor(self.session, service_package, self.master_service_names)
+        return BotocorePostprocessor(service_package, self.master_service_names)
 
     def _generate_master(self) -> None:
         """
@@ -64,7 +64,6 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_master(
-            session=self.session,
             output_path=self.output_path,
             service_names=self.master_service_names,
             version=version,
@@ -87,7 +86,6 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_boto3_stubs(
-            session=self.session,
             output_path=self.output_path,
             service_names=self.master_service_names,
             generate_setup=self.generate_setup,
@@ -105,7 +103,6 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_boto3_stubs_lite(
-            session=self.session,
             output_path=self.output_path,
             service_names=self.master_service_names,
             generate_setup=self.generate_setup,
@@ -132,7 +129,6 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.NAME} module docs")
         process_boto3_stubs_docs(
-            self.session,
             self.output_path,
             self.service_names,
             self.version,
@@ -162,7 +158,6 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         boto3_stubs_package = process_boto3_stubs_full(
-            self.session,
             self.output_path,
             self.service_names,
             version=version,

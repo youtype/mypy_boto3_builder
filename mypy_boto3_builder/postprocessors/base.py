@@ -7,8 +7,6 @@ Copyright 2024 Vlad Emelianov
 from abc import ABC, abstractmethod
 from collections.abc import Sequence
 
-from boto3.session import Session
-
 from mypy_boto3_builder.exceptions import BuildEnvError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
@@ -17,7 +15,10 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource, get_region_name_literal
+from mypy_boto3_builder.utils.boto3_utils import (
+    get_boto3_resource,
+    get_region_name_literal,
+)
 from mypy_boto3_builder.utils.strings import textwrap
 
 
@@ -26,25 +27,22 @@ class BasePostprocessor(ABC):
     Base postprocessor for classes and methods.
 
     Arguments:
-        session -- Boto3 session
         package -- Service package
         service_names -- Available service names
     """
 
     def __init__(
         self,
-        session: Session,
         package: ServicePackage,
         service_names: Sequence[ServiceName],
     ) -> None:
-        self.session = session
         self.package = package
         self.service_names = service_names
         self.docs_package_name = self.package.data.PYPI_NAME
         self.logger = get_logger()
 
     def _has_service_resource(self, service_name: ServiceName) -> bool:
-        return bool(get_boto3_resource(self.session, service_name))
+        return bool(get_boto3_resource(service_name))
 
     def generate_docstrings(self) -> None:
         """
@@ -252,7 +250,7 @@ class BasePostprocessor(ABC):
         if waiter_names:
             self.package.literals.append(TypeLiteral("WaiterName", waiter_names))
 
-        region_name_literal = get_region_name_literal(self.session, [self.package.service_name])
+        region_name_literal = get_region_name_literal([self.package.service_name])
         if region_name_literal:
             self.package.literals.append(region_name_literal)
 

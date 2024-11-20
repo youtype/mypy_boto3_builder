@@ -6,7 +6,6 @@ Copyright 2024 Vlad Emelianov
 
 import inspect
 
-from boto3.session import Session
 from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
 
@@ -26,20 +25,20 @@ from mypy_boto3_builder.utils.boto3_utils import get_boto3_client
 from mypy_boto3_builder.utils.strings import get_short_docstring
 
 
-def parse_client(session: Session, service_name: ServiceName, shape_parser: ShapeParser) -> Client:
+def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client:
     """
     Parse boto3 client to a structure.
 
     Arguments:
-        session -- boto3 session.
         service_name -- Target service name.
+        shape_parser -- ShapeParser instance.
 
     Returns:
         Client structure.
     """
     logger = get_logger()
     logger.debug("Parsing Client")
-    client = get_boto3_client(session, service_name)
+    client = get_boto3_client(service_name)
     public_methods = get_public_methods(client)
 
     # remove methods that will be overriden

@@ -24,12 +24,10 @@ class TestProcessors:
         PackageWriterMock: MagicMock,
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
-        session_mock = MagicMock()
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         package_mock = MagicMock()
         parse_boto3_stubs_package_mock.return_value = package_mock
         result = process_boto3_stubs(
-            session=session_mock,
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
             generate_setup=True,
@@ -42,7 +40,6 @@ class TestProcessors:
             static_files_path=ANY,
         )
         parse_boto3_stubs_package_mock.assert_called_once_with(
-            session=session_mock,
             service_names=[ServiceNameCatalog.ec2],
             package_data=Boto3StubsPackageData,
             version="1.2.3",
@@ -56,12 +53,10 @@ class TestProcessors:
         PackageWriterMock: MagicMock,
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
-        session_mock = MagicMock()
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         package_mock = MagicMock()
         parse_boto3_stubs_package_mock.return_value = package_mock
         result = process_boto3_stubs_lite(
-            session=session_mock,
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
             generate_setup=True,
@@ -78,7 +73,6 @@ class TestProcessors:
             ],
         )
         parse_boto3_stubs_package_mock.assert_called_once_with(
-            session=session_mock,
             service_names=[ServiceNameCatalog.ec2],
             package_data=Boto3StubsLitePackageData,
             version="1.2.3",
@@ -93,10 +87,8 @@ class TestProcessors:
         parse_master_package_mock: MagicMock,
     ) -> None:
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
-        session_mock = MagicMock()
         service_name_mock = MagicMock()
         result = process_master(
-            session=session_mock,
             output_path=Path("my_path"),
             service_names=[service_name_mock],
             version="1.2.3",
@@ -104,7 +96,6 @@ class TestProcessors:
         )
         PackageWriterMock().write_package.assert_called()
         parse_master_package_mock.assert_called_with(
-            session=session_mock,
             service_names=[service_name_mock],
             version="1.2.3",
         )
@@ -117,17 +108,14 @@ class TestProcessors:
         PackageWriterMock: MagicMock,
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
-        session_mock = MagicMock()
         service_name_mock = MagicMock()
         result = process_boto3_stubs_docs(
-            session=session_mock,
             output_path=Path("my_path"),
             service_names=[service_name_mock],
             version="1.2.3",
         )
         PackageWriterMock().write_docs.assert_called()
         parse_boto3_stubs_package_mock.assert_called_with(
-            session=session_mock,
             service_names=[service_name_mock],
             package_data=Boto3StubsPackageData,
             version="1.2.3",
@@ -141,12 +129,10 @@ class TestProcessors:
         PackageWriterMock: MagicMock,
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
-        session_mock = MagicMock()
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         package_mock = MagicMock()
         parse_boto3_stubs_package_mock.return_value = package_mock
         result = process_boto3_stubs_full(
-            session=session_mock,
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
             version="1.2.3",
@@ -157,7 +143,6 @@ class TestProcessors:
             templates_path=ANY,
         )
         parse_boto3_stubs_package_mock.assert_called_once_with(
-            session=session_mock,
             service_names=[ServiceNameCatalog.ec2],
             package_data=Boto3StubsFullPackageData,
             version="1.2.3",

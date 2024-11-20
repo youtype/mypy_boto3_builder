@@ -61,7 +61,7 @@ def format_md(text: str) -> str:
     """
     Format MarkDown with mdformat.
     """
-    return mdformat.text(  # type: ignore
+    return mdformat.text(  # type: ignore[partially-unknown]
         text,
         options={
             "wrap": 79,
