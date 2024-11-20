@@ -15,10 +15,10 @@ Install `{{ package.data.PYPI_NAME }}` to add type annotations for `{{ package.l
 
 ```bash
 # install type annotations
-python -m pip install {{ package.data.PYPI_NAME }}
+python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
 
 # or install annotations in sync with {{ package.library_name }} version
-python -m pip install '{{ package.data.PYPI_NAME }}[{{ package.library_name }}]'
+python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full,{{ package.library_name }}]'
 ```
 
 {% if package.data.IS_CONDA_FORGE_SUPPORTED -%}
@@ -35,19 +35,19 @@ Once the `conda-forge` channel has been enabled, `{{ package.data.PYPI_NAME }}`
 can be installed with:
 
 ```bash
-conda install {{ package.data.PYPI_NAME }}
+conda install {{ package.data.PYPI_STUBS_NAME }}
 ```
 
 It is possible to list all of the versions of `{{ package.data.PYPI_NAME }}` available on your platform with:
 
 ```bash
-conda search {{ package.data.PYPI_NAME }} --channel conda-forge
+conda search {{ package.data.PYPI_STUBS_NAME }} --channel conda-forge
 ```
 {%- endif %}
 
 ## How to uninstall
 
 ```bash
-# uninstall {{ package.data.PYPI_NAME }}
-python -m pip uninstall -y {{ package.data.PYPI_NAME }}
+# uninstall {{ package.data.PYPI_STUBS_NAME }}
+python -m pip uninstall -y {{ package.data.PYPI_NAME }} {{ package.data.PYPI_STUBS_NAME }}
 ```
