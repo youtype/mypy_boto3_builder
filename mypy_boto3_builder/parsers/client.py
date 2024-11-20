@@ -50,7 +50,6 @@ def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client
     result = Client(
         name=Client.get_class_name(service_name),
         service_name=service_name,
-        boto3_client=client,
     )
 
     parent_name = CLIENT

@@ -44,6 +44,7 @@ def parse_resource(
         name=name,
         service_name=service_name,
     )
+    resource_model = resource.meta.resource_model
 
     shape_method_map = shape_parser.get_resource_method_map(name)
     stub_method_map = get_stub_method_map(service_name, name)
@@ -61,15 +62,15 @@ def parse_resource(
         method.docstring = docstring
         result.methods.append(method)
 
-    attributes = parse_attributes(service_name, name, resource, shape_parser)
+    attributes = parse_attributes(service_name, name, resource_model, shape_parser)
     result.attributes.extend(attributes)
 
     result.attributes.extend(shape_parser.get_resource_identifier_attributes(name))
 
-    references = parse_references(resource)
+    references = parse_references(resource_model)
     result.attributes.extend(references)
 
-    collections = parse_collections(service_name, name, resource, shape_parser)
+    collections = parse_collections(service_name, name, resource_model, shape_parser)
     for collection in collections:
         result.collections.append(collection)
         result.attributes.append(

@@ -6,7 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 from typing import TYPE_CHECKING
 
-from boto3.resources.base import ServiceResource as Boto3ServiceResource
+from boto3.resources.model import ResourceModel
 
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
@@ -16,19 +16,18 @@ if TYPE_CHECKING:
     from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
-def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
+def parse_references(resource_model: ResourceModel) -> list[Attribute]:
     """
     Extract references from boto3 resource.
 
     Arguments:
-        resource -- boto3 service resource.
+        resource_model -- boto3 ResourceModel.
 
     Returns:
         A list of Attribute structures.
     """
     result: list[Attribute] = []
-    references = resource.meta.resource_model.references
-    for reference in references:
+    for reference in resource_model.references:
         if not reference.resource:
             continue
         type_annotation: FakeAnnotation = InternalImport(reference.resource.type)

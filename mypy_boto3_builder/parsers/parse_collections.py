@@ -4,8 +4,8 @@ Boto3 ServiceResource collections parser, produces `structures.Collection`.
 Copyright 2024 Vlad Emelianov
 """
 
-from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.resources.model import Collection as Boto3Collection
+from boto3.resources.model import ResourceModel
 
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
@@ -112,7 +112,7 @@ def parse_collection(
 def parse_collections(
     service_name: ServiceName,
     resource_name: str,
-    resource: Boto3ServiceResource,
+    resource_model: ResourceModel,
     shape_parser: ShapeParser,
 ) -> list[Collection]:
     """
@@ -125,7 +125,7 @@ def parse_collections(
         shape_parser -- Shape parser.
     """
     result: list[Collection] = []
-    for collection in resource.meta.resource_model.collections:
+    for collection in resource_model.collections:
         if not collection.resource:
             continue
         collection_record = parse_collection(collection, service_name, resource_name, shape_parser)

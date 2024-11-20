@@ -688,6 +688,15 @@ class ShapeParser:
             )
         return method
 
+    def get_waiter_names(self) -> list[str]:
+        """
+        Get Waiter class names.
+        """
+        if not self._waiters_shape:
+            raise ShapeParserError("Waiter shape is not defined")
+
+        return list(self._waiters_shape["waiters"].keys())
+
     def get_wait_method(self, waiter_name: str) -> Method:
         """
         Get Waiter `wait` method.

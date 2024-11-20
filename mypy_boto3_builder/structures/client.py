@@ -33,10 +33,9 @@ class Client(ClassRecord):
         "exceptions",
     }
 
-    def __init__(self, name: str, service_name: ServiceName, boto3_client: BaseClient) -> None:
+    def __init__(self, name: str, service_name: ServiceName) -> None:
         super().__init__(name=name)
         self.service_name = service_name
-        self.boto3_client = boto3_client
         self.exceptions_class = ClassRecord(name="Exceptions")
         self.bases = [ExternalImport.from_class(BaseClient)]
         self.client_error_class = ClassRecord(

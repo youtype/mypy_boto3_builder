@@ -12,7 +12,6 @@ from mypy_boto3_builder.parsers.client import parse_client
 from mypy_boto3_builder.parsers.service_resource_parser import ServiceResourceParser
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
@@ -54,10 +53,10 @@ class ServicePackageParser:
         Extract all data from boto3 service package.
         """
         result = self._parse_service_package()
-        result.waiters.extend(self._parse_waiters(result.client))
+        result.waiters.extend(self._parse_waiters())
         result.waiters.sort()
 
-        result.paginators.extend(self._parse_paginators(result.client))
+        result.paginators.extend(self._parse_paginators())
         result.paginators.sort()
 
         result.client.methods.extend(
@@ -126,31 +125,27 @@ class ServicePackageParser:
             version=self.version,
         )
 
-    def _parse_waiters(self, client: Client) -> list[Waiter]:
+    def _parse_waiters(self) -> list[Waiter]:
         waiters: list[Waiter] = []
-        waiter_attribute_names: list[str] = client.boto3_client.waiter_names
-        for waiter_attribute_name in waiter_attribute_names:
-            self._logger.debug(f"Parsing Waiter {waiter_attribute_name}")
-            waiter = client.boto3_client.get_waiter(waiter_attribute_name)
-            waiter_record = Waiter(
-                name=f"{waiter.name}Waiter",
-                waiter_name=waiter.name,
-                attribute_name=waiter_attribute_name,
+        for waiter_name in self.shape_parser.get_waiter_names():
+            self._logger.debug(f"Parsing Waiter {waiter_name}")
+            waiter = Waiter(
+                name=f"{waiter_name}Waiter",
+                waiter_name=waiter_name,
+                attribute_name=xform_name(waiter_name),
                 service_name=self.service_name,
             )
-
-            wait_method = self.shape_parser.get_wait_method(waiter.name)
-            waiter_record.methods.append(wait_method)
-            waiters.append(waiter_record)
+            wait_method = self.shape_parser.get_wait_method(waiter_name)
+            waiter.methods.append(wait_method)
+            waiters.append(waiter)
 
         return waiters
 
-    def _parse_paginators(self, client: Client) -> list[Paginator]:
+    def _parse_paginators(self) -> list[Paginator]:
         result: list[Paginator] = []
         for paginator_name in self.shape_parser.get_paginator_names():
             self._logger.debug(f"Parsing Paginator {paginator_name}")
             operation_name = xform_name(paginator_name)
-            # boto3_paginator = client.boto3_client.get_paginator(operation_name)
             paginator_record = Paginator(
                 name=f"{paginator_name}Paginator",
                 paginator_name=paginator_name,

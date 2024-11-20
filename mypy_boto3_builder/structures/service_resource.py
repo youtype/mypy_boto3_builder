@@ -35,7 +35,6 @@ class ServiceResource(ClassRecord):
         self,
         name: str,
         service_name: ServiceName,
-        boto3_service_resource: Boto3ServiceResource,
     ) -> None:
         self.resource_meta_class = self._get_resource_meta_class(service_name)
         super().__init__(
@@ -43,7 +42,6 @@ class ServiceResource(ClassRecord):
             bases=[ExternalImport.from_class(Boto3ServiceResource)],
         )
         self.service_name = service_name
-        self.boto3_service_resource = boto3_service_resource
         self.collections: list[Collection] = []
         self.sub_resources: list[ResourceRecord] = []
 
