@@ -42,6 +42,7 @@ SERVICE_STUB_MAP: Final[ServiceStubMap] = {
         CLIENT: s3.CLIENT_METHODS,
         "Bucket": s3.BUCKET_METHODS,
         "Object": s3.OBJECT_METHODS,
+        "ObjectSummary": s3.OBJECT_SUMMARY_METHODS,
     },
 }
 

@@ -127,6 +127,20 @@ upload_fileobj_method = Method(
     docstring="Upload a file-like object to S3.",
 )
 
+bucket_load_method = Method(
+    name="load",
+    arguments=[Argument.self()],
+    return_type=Type.none,
+    docstring="Calls s3.Client.list_buckets() to update the attributes of the Bucket resource.",
+)
+
+object_summary_load_method = Method(
+    name="load",
+    arguments=[Argument.self()],
+    return_type=Type.none,
+    docstring="Calls s3.Client.head_object to update the attributes of the ObjectSummary resource.",
+)
+
 
 CLIENT_METHODS = (
     copy_method,
@@ -137,6 +151,7 @@ CLIENT_METHODS = (
     upload_fileobj_method,
 )
 BUCKET_METHODS = (
+    bucket_load_method,
     copy_method.copy().remove_argument("Bucket"),
     download_file_method.copy().remove_argument("Bucket"),
     download_fileobj_method.copy().remove_argument("Bucket"),
@@ -150,3 +165,4 @@ OBJECT_METHODS = (
     upload_file_method.copy().remove_argument("Bucket", "Key"),
     upload_fileobj_method.copy().remove_argument("Bucket", "Key"),
 )
+OBJECT_SUMMARY_METHODS = (object_summary_load_method,)
