@@ -6,7 +6,6 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterable, Sequence
 
-from boto3.resources.model import Collection
 from botocore.eventstream import EventStream
 from botocore.model import (
     ListShape,
@@ -18,6 +17,7 @@ from botocore.model import (
     StructureShape,
 )
 
+from mypy_boto3_builder.boto3_ports.model import Collection as Boto3Collection
 from mypy_boto3_builder.constants import (
     ATTRIBUTES,
     CLIENT,
@@ -1076,7 +1076,7 @@ class ShapeParser:
     def get_collection_filter_method(
         self,
         name: str,
-        collection: Collection,
+        collection: Boto3Collection,
         self_type: FakeAnnotation,
     ) -> Method:
         """
@@ -1114,7 +1114,7 @@ class ShapeParser:
 
         return result
 
-    def get_collection_batch_methods(self, name: str, collection: Collection) -> list[Method]:
+    def get_collection_batch_methods(self, name: str, collection: Boto3Collection) -> list[Method]:
         """
         Get batch operations for Resource collection.
 

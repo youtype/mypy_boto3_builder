@@ -4,8 +4,7 @@ Parser for Boto3 ServiceResource attributes, produces `structures.Attribute`.
 Copyright 2024 Vlad Emelianov
 """
 
-from boto3.resources.model import ResourceModel
-
+from mypy_boto3_builder.boto3_ports.model import ResourceModel
 from mypy_boto3_builder.constants import ATTRIBUTES
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName

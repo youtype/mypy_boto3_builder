@@ -4,9 +4,8 @@ Boto3 ServiceResource collections parser, produces `structures.Collection`.
 Copyright 2024 Vlad Emelianov
 """
 
-from boto3.resources.model import Collection as Boto3Collection
-from boto3.resources.model import ResourceModel
-
+from mypy_boto3_builder.boto3_ports.model import Collection as Boto3Collection
+from mypy_boto3_builder.boto3_ports.model import ResourceModel
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument

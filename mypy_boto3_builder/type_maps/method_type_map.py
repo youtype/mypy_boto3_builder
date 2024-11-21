@@ -7,9 +7,8 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Mapping
 from typing import Final, TypeVar
 
-from boto3.dynamodb.table import BatchWriter
-
 from mypy_boto3_builder.constants import ALL, CLIENT
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -73,7 +72,9 @@ TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
     },
     ServiceNameCatalog.dynamodb: {
         "Table": {
-            "batch_writer": {"return": ExternalImport.from_class(BatchWriter)},
+            "batch_writer": {
+                "return": ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter")
+            },
             "query": {
                 "KeyConditionExpression": ConditionBaseImportTypeDef,
                 "FilterExpression": ConditionBaseImportTypeDef,

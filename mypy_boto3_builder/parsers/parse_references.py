@@ -6,8 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 from typing import TYPE_CHECKING
 
-from boto3.resources.model import ResourceModel
-
+from mypy_boto3_builder.boto3_ports.model import ResourceModel
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type

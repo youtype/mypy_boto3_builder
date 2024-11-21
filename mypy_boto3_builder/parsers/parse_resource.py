@@ -4,8 +4,7 @@ Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
 Copyright 2024 Vlad Emelianov
 """
 
-from boto3.resources.model import ResourceModel
-
+from mypy_boto3_builder.boto3_ports.model import ResourceModel
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_references import parse_references

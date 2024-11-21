@@ -1,11 +1,10 @@
 """
-Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
+Parser for Boto3 ServiceResource, produces `structures.ServiceResource`.
 
 Copyright 2024 Vlad Emelianov
 """
 
-from boto3.resources.model import ResourceModel
-
+from mypy_boto3_builder.boto3_ports.model import ResourceModel
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import BuildInternalError
@@ -74,8 +73,8 @@ class ServiceResourceParser:
 
         resource_model = ResourceModel(
             name=self.service_name.boto3_name,
-            definition=self.shape_parser.get_service_resource(),
-            resource_defs=self.shape_parser.get_subresources(),  # type: ignore[arg-type]
+            definition=dict(self.shape_parser.get_service_resource()),
+            resource_defs=self.shape_parser.get_subresources(),
         )
 
         self._logger.debug("Parsing ServiceResource methods")
@@ -158,8 +157,8 @@ class ServiceResourceParser:
             raise BuildInternalError(f"Resource {name} not found in subresources")
         return ResourceModel(
             name=name,
-            definition=resource_defs[name],
-            resource_defs=resource_defs,  # type: ignore[arg-type]
+            definition=dict(resource_defs[name]),
+            resource_defs=resource_defs,
         )
 
     def _get_sub_resource_models(self) -> list[ResourceModel]:
