@@ -26,7 +26,6 @@ def parse_fake_service_package(
     Used by stubs and master package.
 
     Arguments:
-        session -- boto3 session.
         service_name -- Target service name.
         package_data -- Package data.
         version -- Package version.

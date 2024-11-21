@@ -83,11 +83,8 @@ class ShapeParser:
     Parser for botocore shape files.
 
     Arguments:
-        session -- Boto3 session.
         service_name -- ServiceName.
     """
-
-    SERVICE_RESOURCE_KEY = "service"
 
     def __init__(self, service_name: ServiceName) -> None:
         botocore_session = get_botocore_session()
@@ -146,9 +143,9 @@ class ShapeParser:
         """
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
-        if self.SERVICE_RESOURCE_KEY not in self._resources_shape:
+        if "service" not in self._resources_shape:
             raise ShapeParserError("Service resource shape not found")
-        return self._resources_shape[self.SERVICE_RESOURCE_KEY]
+        return self._resources_shape["service"]
 
     def get_subresource_names(self) -> list[str]:
         """

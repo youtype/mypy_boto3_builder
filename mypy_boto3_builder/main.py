@@ -89,7 +89,7 @@ def get_available_service_names(session: BotocoreSession) -> list[ServiceName]:
     Get a list of boto3 supported service names.
 
     Arguments:
-        session -- Boto3 session
+        session -- Botocore session
 
     Returns:
         A list of supported services.

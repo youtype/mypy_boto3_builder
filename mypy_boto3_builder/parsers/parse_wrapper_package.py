@@ -23,7 +23,6 @@ def parse_boto3_stubs_package(
     Parse data for boto3-stubs package.
 
     Arguments:
-        session -- boto3 session
         service_names -- All available service names
         package_data -- Package data
         version -- Package version

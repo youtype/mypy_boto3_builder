@@ -4,13 +4,10 @@ Backport of `boto3.resources.model`.
 Copyright 2024 Vlad Emelianov
 """
 
-import logging
 from typing import Any
 
 from botocore import xform_name
 from botocore.model import Shape, StructureShape
-
-logger = logging.getLogger(__name__)
 
 
 class Identifier:
@@ -58,8 +55,6 @@ class DefinitionWithParams:
     def params(self) -> "list[Parameter]":
         """
         Get a list of auto-filled parameters for this request.
-
-        :type: list(:py:class:`Parameter`)
         """
         params: list[Parameter] = []
 
@@ -88,17 +83,10 @@ class Parameter:
         self.path = path
         self.value = value
 
-        # Complain if we encounter any unknown values.
-        if kwargs:
-            logger.warning("Unknown parameter options found: %s", kwargs)
-
 
 class Request(DefinitionWithParams):
     """
     A service operation action request.
-
-    :type definition: dict
-    :param definition: The JSON definition
     """
 
     def __init__(self, definition: dict[str, Any]) -> None:
@@ -109,11 +97,6 @@ class Request(DefinitionWithParams):
 class Waiter(DefinitionWithParams):
     """
     An event waiter specification.
-
-    :type name: string
-    :param name: Name of the waiter
-    :type definition: dict
-    :param definition: The JSON definition
     """
 
     PREFIX = "WaitUntil"
@@ -127,11 +110,6 @@ class Waiter(DefinitionWithParams):
 class ResponseResource:
     """
     A resource response to create after performing an action.
-
-    :type definition: dict
-    :param definition: The JSON definition
-    :type resource_defs: dict
-    :param resource_defs: All resources defined in the service
     """
 
     def __init__(
@@ -191,72 +169,6 @@ class ResourceModel:
         self.name = name
         self.shape: str | None = definition.get("shape")
 
-    def load_rename_map(self, shape: StructureShape | None = None) -> None:  # noqa: C901
-        """
-        Load a name translation map given a shape.
-        """
-        # Meta is a reserved name for resources
-        names = {"meta"}
-        self._renamed = {}
-
-        if self._definition.get("load"):
-            names.add("load")
-
-        for item in self._definition.get("identifiers", []):
-            self._load_name_with_category(names, item["name"], "identifier")
-
-        for name in self._definition.get("actions", {}):
-            self._load_name_with_category(names, name, "action")
-
-        for name, ref in self._get_has_definition().items():
-            # Subresources require no data members, just typically
-            # identifiers and user input.
-            data_required = False
-            for identifier in ref["resource"]["identifiers"]:
-                if identifier["source"] == "data":
-                    data_required = True
-                    break
-
-            if not data_required:
-                self._load_name_with_category(names, name, "subresource", snake_case=False)
-            else:
-                self._load_name_with_category(names, name, "reference")
-
-        for name in self._definition.get("hasMany", {}):
-            self._load_name_with_category(names, name, "collection")
-
-        for name in self._definition.get("waiters", {}):
-            self._load_name_with_category(names, Waiter.PREFIX + name, "waiter")
-
-        if shape is not None:
-            for name in shape.members:
-                self._load_name_with_category(names, name, "attribute")
-
-    def _load_name_with_category(
-        self,
-        names: set[str],
-        name: str,
-        category: str,
-        snake_case: bool = True,  # noqa: FBT001, FBT002
-    ) -> None:
-        """
-        Load a name with a given category, possibly renaming it.
-        """
-        if snake_case:
-            name = xform_name(name)
-
-        if name in names:
-            logger.debug(f"Renaming {self.name} {category} {name}")
-            self._renamed[category, name] = name + "_" + category
-            name += "_" + category
-
-            if name in names:
-                # This isn't good, let's raise instead of trying to keep
-                # renaming this value.
-                raise ValueError(f"Problem renaming {self.name} {category} to {name}!")
-
-        names.add(name)
-
     def _get_name(self, category: str, name: str, snake_case: bool = True) -> str:  # noqa: FBT001, FBT002
         """
         Get a possibly renamed value given a category and name.
@@ -305,19 +217,17 @@ class ResourceModel:
         """
         Get the load action for this resource, if it is defined.
         """
-        action = self._definition.get("load")
+        definition = self._definition.get("load")
 
-        if action is not None:
-            action = Action("load", action, self._resource_defs)
+        if definition is None:
+            return None
 
-        return action
+        return Action("load", definition, self._resource_defs)
 
     @property
     def actions(self) -> list[Action]:
         """
         Get a list of actions for this resource.
-
-        :type: list(:py:class:`Action`)
         """
         actions: list[Action] = []
 

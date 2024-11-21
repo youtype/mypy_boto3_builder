@@ -31,7 +31,6 @@ class WrapperPackageParser:
     Parser for boto3-stubs/types-aiobotocore/types-aioboto3 package.
 
     Arguments:
-        session -- boto3 session
         package -- Prepared wrapper package with data
     """
 

@@ -14,18 +14,19 @@ class TestShapeParser:
     def setup_method(self) -> None:
         self.service_name = ServiceNameCatalog.s3
         self.shape_parser = ShapeParser(self.service_name)
-        self.loader = self.shape_parser._loader
+        self.shape_parser._resource_loader = MagicMock()
+        self.loader = self.shape_parser._resource_loader
 
     def test_init(self) -> None:
         assert self.shape_parser.service_name == self.service_name
         ShapeParser(self.service_name)
 
     def test_get_paginator_names(self) -> None:
-        self.loader.load_service_model.return_value = {"pagination": ["c", "a", "b"]}
+        self.loader.load_paginators.return_value = {"pagination": ["c", "a", "b"]}
         assert self.shape_parser.get_paginator_names() == ["a", "b", "c"]
 
-        self.loader.load_service_model.return_value = {"paginations": ["c", "a", "b"]}
-        assert ShapeParser(self.service_name).get_paginator_names() == []
+        self.loader.load_paginators.return_value = {"paginations": ["c", "a", "b"]}
+        assert self.shape_parser.get_paginator_names() == []
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
     def test_get_client_method_map(self, ServiceModelMock: MagicMock) -> None:
@@ -42,9 +43,7 @@ class TestShapeParser:
         assert "can_paginate" in result
         assert "generate_presigned_url" in result
 
-    @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
-    def test_get_paginate_method(self, ServiceModelMock: MagicMock) -> None:
-        service_name_mock = MagicMock()
+    def test_get_paginate_method(self) -> None:
         operation_model_mock = MagicMock()
         required_arg_shape_mock = MagicMock()
         optional_arg_shape_mock = MagicMock()
@@ -70,13 +69,15 @@ class TestShapeParser:
                 optional_arg_shape_mock,
             ),
         ]
-        ServiceModelMock().operation_names = ["my_paginator"]
-        ServiceModelMock().operation_model.return_value = operation_model_mock
-        self.loader.load_service_model.return_value = {
+        service_model_mock = MagicMock()
+        service_model_mock.operation_names = ["my_paginator"]
+        service_model_mock.operation_model.return_value = operation_model_mock
+        self.loader.load_paginators.return_value = {
             "pagination": {"my_paginator": {"input_token": "InputToken", "limit_key": "skip_arg"}},
             "resources": {},
         }
-        shape_parser = ShapeParser(service_name_mock)
+        shape_parser = self.shape_parser
+        self.shape_parser.service_model = service_model_mock
         result = shape_parser.get_paginate_method("my_paginator")
         assert result.name == "paginate"
         assert len(result.arguments) == 5
@@ -228,7 +229,7 @@ class TestShapeParser:
         assert shape_parser._parse_shape_string(shape).children == {"a", "b"}
 
     def test_get_resource_method_map(self) -> None:
-        self.loader.load_service_model.return_value = {
+        self.loader.load_resources.return_value = {
             "resources": {
                 "c": {
                     "actions": {
@@ -269,6 +270,5 @@ class TestShapeParser:
                 },
             },
         }
-        shape_parser = ShapeParser(self.service_name)
-        result = shape_parser.get_resource_method_map("c")
+        result = self.shape_parser.get_resource_method_map("c")
         assert len(result.keys()) == 4
