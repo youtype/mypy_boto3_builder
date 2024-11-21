@@ -4,7 +4,6 @@ Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 Copyright 2024 Vlad Emelianov
 """
 
-from boto3.resources.base import ResourceMeta
 from boto3.resources.model import ResourceModel
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
@@ -143,7 +142,7 @@ class ServiceResourceParser:
     def _get_resource_meta_class(self) -> ClassRecord:
         return ClassRecord(
             name=f"{self.service_name.class_name}ResourceMeta",
-            bases=[ExternalImport.from_class(ResourceMeta)],
+            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta")],
             attributes=[
                 Attribute(
                     "client",

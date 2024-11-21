@@ -4,9 +4,9 @@ S3 service injected methods.
 Copyright 2024 Vlad Emelianov
 """
 
-from boto3.s3.transfer import TransferConfig
 from botocore.client import BaseClient
 
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -25,7 +25,7 @@ callback_arg = Argument(
 
 config_arg = Argument(
     "Config",
-    get_optional(ExternalImport.from_class(TransferConfig)),
+    get_optional(ExternalImport(ImportString("boto3", "s3", "transfer"), "TransferConfig")),
     Type.Ellipsis,
 )
 

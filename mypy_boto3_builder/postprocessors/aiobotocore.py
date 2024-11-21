@@ -7,9 +7,6 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterable, Iterator, Mapping
 from typing import Final
 
-from boto3.dynamodb.table import BatchWriter, TableResource
-from boto3.resources.base import ServiceResource
-from boto3.resources.collection import ResourceCollection
 from botocore.client import BaseClient
 from botocore.config import Config
 from botocore.eventstream import EventStream
@@ -77,22 +74,26 @@ class AioBotocorePostprocessor(BasePostprocessor):
             ImportString("aiobotocore", "client"),
             "AioBaseClient",
         ),
-        ExternalImport.from_class(ServiceResource): ExternalImport(
+        ExternalImport(
+            ImportString("boto3", "resources", "base"), "ServiceResource"
+        ): ExternalImport(
             ImportString("aioboto3", "resources", "base"),
             "AIOBoto3ServiceResource",
             safe=True,
         ),
-        ExternalImport.from_class(ResourceCollection): ExternalImport(
+        ExternalImport(
+            ImportString("boto3", "resources", "collection"), "ResourceCollection"
+        ): ExternalImport(
             ImportString("aioboto3", "resources", "collection"),
             "AIOResourceCollection",
             safe=True,
         ),
-        ExternalImport.from_class(BatchWriter): ExternalImport(
+        ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"),
             "BatchWriter",
             safe=True,
         ),
-        ExternalImport.from_class(TableResource): ExternalImport(
+        ExternalImport(ImportString("boto3", "dynamodb", "table"), "TableResource"): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"),
             "CustomTableResource",
             safe=True,

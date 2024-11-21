@@ -6,9 +6,8 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterator
 
-from boto3.resources.collection import ResourceCollection
-
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -33,7 +32,12 @@ class Collection(ClassRecord):
         super().__init__(
             name=name,
             use_alias=True,
-            bases=[ExternalImport.from_class(ResourceCollection)],
+            bases=[
+                ExternalImport(
+                    ImportString("boto3", "resources", "collection"),
+                    "ResourceCollection",
+                )
+            ],
         )
         self.service_name = service_name
         self.attribute_name = attribute_name

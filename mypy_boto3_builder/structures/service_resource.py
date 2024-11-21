@@ -7,9 +7,6 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterator
 from typing import TYPE_CHECKING
 
-from boto3.resources.base import ResourceMeta
-from boto3.resources.base import ServiceResource as Boto3ServiceResource
-
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -39,7 +36,7 @@ class ServiceResource(ClassRecord):
         self.resource_meta_class = self._get_resource_meta_class(service_name)
         super().__init__(
             name=name,
-            bases=[ExternalImport.from_class(Boto3ServiceResource)],
+            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ServiceResource")],
         )
         self.service_name = service_name
         self.collections: list[Collection] = []
@@ -68,7 +65,7 @@ class ServiceResource(ClassRecord):
     def _get_resource_meta_class(self, service_name: ServiceName) -> ClassRecord:
         return ClassRecord(
             name=f"{service_name.class_name}ResourceMeta",
-            bases=[ExternalImport.from_class(ResourceMeta)],
+            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta")],
             attributes=[
                 Attribute(
                     "client",
