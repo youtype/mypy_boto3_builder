@@ -100,7 +100,6 @@ class BaseGenerator(ABC):
         Get postprocessor for service package.
         """
 
-    @abstractmethod
     def get_library_version(self) -> str:
         """
         Get underlying library version.
