@@ -6,8 +6,6 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterable
 
-from packaging.version import InvalidVersion, Version
-
 from mypy_boto3_builder.constants import SUPPORTED_PY_VERSIONS
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.logger import get_logger
@@ -17,6 +15,7 @@ from mypy_boto3_builder.structures.package_url import PackageURL
 from mypy_boto3_builder.utils.version import (
     get_max_build_version,
     get_min_build_version,
+    is_valid_version,
 )
 
 
@@ -65,9 +64,7 @@ class Package:
 
     @version.setter
     def version(self, value: str) -> None:
-        try:
-            Version(value)
-        except InvalidVersion:
+        if not is_valid_version(value):
             raise StructureError(f"Invalid version: {value}") from None
         self._version = value
 

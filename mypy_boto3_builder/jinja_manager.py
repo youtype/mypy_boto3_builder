@@ -5,7 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 from pathlib import Path
-from typing import Any, Self
+from typing import Any, ClassVar
 
 from jinja2.environment import Environment, Template
 from jinja2.loaders import FileSystemLoader
@@ -22,24 +22,14 @@ class JinjaManager:
     Jinja2 `Environment` manager.
     """
 
-    _environment = Environment(
+    _environment: ClassVar = Environment(
         loader=FileSystemLoader(TEMPLATES_PATH.as_posix()),
         undefined=StrictUndefined,
     )
-    _singleton: Self | None = None
+    _template_cache: ClassVar[dict[Path, Template]] = {}
 
     def __init__(self) -> None:
         self._environment.filters["escape_md"] = self.escape_md
-        self._template_cache: dict[Path, Template] = {}
-
-    @classmethod
-    def singleton(cls) -> Self:
-        """
-        Get singleton instance.
-        """
-        if cls._singleton is None:
-            cls._singleton = cls()
-        return cls._singleton  # type: ignore[no-any-return]
 
     @classmethod
     def update_globals(cls, **kwargs: Any) -> None:  # noqa: ANN401
@@ -73,7 +63,7 @@ class JinjaManager:
         if not template_full_path.exists():
             raise JinjaManagerError(f"Template {template_full_path} not found")
 
-        template = self._environment.get_template(template_path.as_posix())
+        template: Template = self._environment.get_template(template_path.as_posix())
         self._template_cache[template_path] = template
 
         return template

@@ -150,7 +150,7 @@ def initialize_jinja_manager() -> None:
     """
     Initialize Jinja manager with globals.
     """
-    jinja_manager = JinjaManager.singleton()
+    jinja_manager = JinjaManager()
     jinja_manager.update_globals(
         builder_version=get_builder_version(),
         current_year=str(datetime.datetime.now(datetime.timezone.utc).year),

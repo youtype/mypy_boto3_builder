@@ -22,14 +22,7 @@ classifiers = [
     "Typing :: Typed",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = [
-    "jinja2",
-    "mdformat",
-    "packaging",
-    "requests",
-    "ruff",
-    "setuptools",
-]
+dependencies = ["jinja2", "mdformat", "packaging", "requests", "ruff"]
 
 [project.optional-dependencies]
 build = ["setuptools"]

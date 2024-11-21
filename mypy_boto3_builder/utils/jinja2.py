@@ -22,5 +22,5 @@ def render_jinja2_template(template_path: Path, context: Mapping[str, Any]) -> s
     Returns:
         A rendered template.
     """
-    template = JinjaManager.singleton().get_template(template_path)
+    template = JinjaManager().get_template(template_path)
     return template.render(context)

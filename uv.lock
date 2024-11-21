@@ -611,7 +611,6 @@ dependencies = [
     { name = "packaging" },
     { name = "requests" },
     { name = "ruff" },
-    { name = "setuptools" },
 ]
 
 [package.optional-dependencies]
@@ -658,7 +657,6 @@ requires-dist = [
     { name = "packaging" },
     { name = "requests" },
     { name = "ruff" },
-    { name = "setuptools" },
     { name = "setuptools", marker = "extra == 'build'" },
     { name = "types-aioboto3", marker = "extra == 'check'" },
     { name = "types-aiobotocore", marker = "extra == 'check'" },

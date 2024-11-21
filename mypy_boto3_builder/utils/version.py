@@ -8,7 +8,7 @@ import contextlib
 import importlib.metadata
 from collections.abc import Iterable
 
-from packaging.version import Version
+from packaging.version import InvalidVersion, Version
 
 from mypy_boto3_builder.constants import PACKAGE_NAME
 
@@ -61,3 +61,14 @@ def sort_versions(version_list: Iterable[str]) -> list[str]:
     Sort version list.
     """
     return sorted(version_list, key=Version)
+
+
+def is_valid_version(version: str) -> bool:
+    """
+    Check if version is valid.
+    """
+    try:
+        Version(version)
+    except InvalidVersion:
+        return False
+    return True
