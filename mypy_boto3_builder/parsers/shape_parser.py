@@ -4,13 +4,10 @@ Parser for botocore shape files.
 Copyright 2024 Vlad Emelianov
 """
 
-import contextlib
 from collections.abc import Iterable, Sequence
-from typing import TYPE_CHECKING
 
 from boto3.resources.model import Collection
 from botocore.eventstream import EventStream
-from botocore.exceptions import UnknownServiceError
 from botocore.model import (
     ListShape,
     MapShape,
@@ -28,6 +25,7 @@ from mypy_boto3_builder.constants import (
 )
 from mypy_boto3_builder.exceptions import ShapeParserError
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.parsers.shape_parser_types import (
     ActionShape,
     IdentifierShape,
@@ -70,7 +68,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     ResponseMetadataTypeDef,
     WaiterConfigTypeDef,
 )
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
+from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.strings import (
     capitalize,
     extract_docstring_from_html,
@@ -78,9 +76,6 @@ from mypy_boto3_builder.utils.strings import (
     get_type_def_name,
     xform_name,
 )
-
-if TYPE_CHECKING:
-    from botocore.loaders import Loader
 
 
 class ShapeParser:
@@ -95,10 +90,8 @@ class ShapeParser:
     SERVICE_RESOURCE_KEY = "service"
 
     def __init__(self, service_name: ServiceName) -> None:
-        # FIXME: side-load boto3 resources
-        _boto3_session = get_boto3_session()
         botocore_session = get_botocore_session()
-        self._loader: Loader = botocore_session.get_component("data_loader")
+        self._resource_loader = ResourceLoader()
         service_data = botocore_session.get_service_data(service_name.boto3_name)
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
@@ -109,39 +102,19 @@ class ShapeParser:
         self._response_typed_dict_map = TypedDictMap()
         self._fixed_typed_dict_map: dict[TypeTypedDict, TypeTypedDict] = {}
 
-        self.__waiters_shape: WaitersShape | None = None
-        self.__paginators_shape: PaginatorsShape | None = None
-        self.__resources_shape: ResourcesShape | None = None
         self.logger = get_logger()
 
     @property
     def _waiters_shape(self) -> WaitersShape | None:
-        if not self.__waiters_shape:
-            with contextlib.suppress(UnknownServiceError):
-                self.__waiters_shape = self._loader.load_service_model(
-                    self.service_name.boto3_name, "waiters-2"
-                )
-        return self.__waiters_shape
+        return self._resource_loader.load_waiters(self.service_name)
 
     @property
     def _paginators_shape(self) -> PaginatorsShape | None:
-        if not self.__paginators_shape:
-            with contextlib.suppress(UnknownServiceError):
-                self.__paginators_shape = self._loader.load_service_model(
-                    self.service_name.boto3_name,
-                    "paginators-1",
-                )
-        return self.__paginators_shape
+        return self._resource_loader.load_paginators(self.service_name)
 
     @property
     def _resources_shape(self) -> ResourcesShape | None:
-        if not self.__resources_shape:
-            with contextlib.suppress(UnknownServiceError):
-                self.__resources_shape = self._loader.load_service_model(
-                    self.service_name.boto3_name,
-                    "resources-1",
-                )
-        return self.__resources_shape
+        return self._resource_loader.load_resources(self.service_name)
 
     @property
     def resource_name(self) -> str:
@@ -165,9 +138,7 @@ class ShapeParser:
         """
         Check if service has ServiceResource.
         """
-        if not self._resources_shape:
-            raise ShapeParserError("Resource shape not found")
-        return self.SERVICE_RESOURCE_KEY in self._resources_shape
+        return self._resource_loader.has_service_resource(self.service_name)
 
     def get_service_resource(self) -> ResourceShape:
         """
