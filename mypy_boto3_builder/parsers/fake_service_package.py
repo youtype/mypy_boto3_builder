@@ -12,7 +12,6 @@ from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.structures.waiter import Waiter
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
 from mypy_boto3_builder.utils.strings import xform_name
 
 
@@ -36,7 +35,6 @@ def parse_fake_service_package(
         ServiceModule structure.
     """
     shape_parser = ShapeParser(service_name)
-    boto3_resource = get_boto3_resource(service_name)
 
     result = ServicePackage(
         data=package_data,
@@ -48,7 +46,7 @@ def parse_fake_service_package(
         version=version,
     )
 
-    if boto3_resource is not None:
+    if shape_parser.has_service_resource():
         result.service_resource = ServiceResource(
             name=ServiceResource.get_class_name(service_name),
             service_name=service_name,

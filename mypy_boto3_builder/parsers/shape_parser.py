@@ -92,6 +92,8 @@ class ShapeParser:
         service_name -- ServiceName.
     """
 
+    SERVICE_RESOURCE_KEY = "service"
+
     def __init__(self, service_name: ServiceName) -> None:
         # FIXME: side-load boto3 resources
         _boto3_session = get_boto3_session()
@@ -159,15 +161,23 @@ class ShapeParser:
         except KeyError as e:
             raise ShapeParserError(f"Unknown paginator: {name}") from e
 
+    def has_service_resource(self) -> bool:
+        """
+        Check if service has ServiceResource.
+        """
+        if not self._resources_shape:
+            raise ShapeParserError("Resource shape not found")
+        return self.SERVICE_RESOURCE_KEY in self._resources_shape
+
     def get_service_resource(self) -> ResourceShape:
         """
         Get service resource shape.
         """
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
-        if "service" not in self._resources_shape:
+        if self.SERVICE_RESOURCE_KEY not in self._resources_shape:
             raise ShapeParserError("Service resource shape not found")
-        return self._resources_shape["service"]
+        return self._resources_shape[self.SERVICE_RESOURCE_KEY]
 
     def get_subresource_names(self) -> list[str]:
         """

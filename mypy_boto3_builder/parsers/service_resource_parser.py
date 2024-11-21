@@ -8,7 +8,7 @@ from boto3.resources.model import ResourceModel
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.exceptions import BuildInternalError, ShapeParserError
+from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
@@ -61,9 +61,7 @@ class ServiceResourceParser:
         """
         Parse main boto3 ServiceResource.
         """
-        try:
-            service_resource_shape = self.shape_parser.get_service_resource()
-        except ShapeParserError:
+        if not self.shape_parser.has_service_resource():
             return None
 
         self._logger.debug("Parsing ServiceResource")
@@ -76,7 +74,7 @@ class ServiceResourceParser:
 
         resource_model = ResourceModel(
             name=self.service_name.name,
-            definition=service_resource_shape,
+            definition=self.shape_parser.get_service_resource(),
             resource_defs=self.shape_parser.get_subresources(),  # type: ignore[arg-type]
         )
 
