@@ -7,8 +7,6 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterable
 from functools import cache
 
-from boto3.exceptions import ResourceNotExistsError
-from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.session import Session
 from botocore.session import Session as BotocoreSession
 from botocore.session import get_session
@@ -35,24 +33,6 @@ def get_botocore_session() -> BotocoreSession:
     session = get_session()
     session.set_credentials("access_key", "secret_key", "token")
     return session
-
-
-@cache
-def get_boto3_resource(service_name: ServiceName) -> Boto3ServiceResource | None:
-    """
-    Get boto3 resource from `session`.
-
-    Arguments:
-        service_name -- ServiceName instance.
-
-    Returns:
-        Boto3 resource or None.
-    """
-    session = get_boto3_session()
-    try:
-        return session.resource(service_name.boto3_name)  # type: ignore[no-any-return,call-overload]
-    except ResourceNotExistsError:
-        return None
 
 
 def get_region_name_literal(

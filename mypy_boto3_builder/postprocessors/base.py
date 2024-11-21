@@ -9,16 +9,14 @@ from collections.abc import Sequence
 
 from mypy_boto3_builder.exceptions import BuildEnvError
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
-from mypy_boto3_builder.utils.boto3_utils import (
-    get_boto3_resource,
-    get_region_name_literal,
-)
+from mypy_boto3_builder.utils.boto3_utils import get_region_name_literal
 from mypy_boto3_builder.utils.strings import textwrap
 
 
@@ -42,7 +40,7 @@ class BasePostprocessor(ABC):
         self.logger = get_logger()
 
     def _has_service_resource(self, service_name: ServiceName) -> bool:
-        return bool(get_boto3_resource(service_name))
+        return ResourceLoader().has_service_resource(service_name)
 
     def generate_docstrings(self) -> None:
         """

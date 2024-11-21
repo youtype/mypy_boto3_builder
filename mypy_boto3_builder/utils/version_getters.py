@@ -6,11 +6,15 @@ Copyright 2024 Vlad Emelianov
 
 import functools
 
-from boto3 import __version__ as boto3_version
 from botocore import __version__ as botocore_version
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+
+try:
+    from boto3 import __version__ as boto3_version  # type: ignore[import]
+except ImportError:
+    boto3_version = ""
 
 try:
     from aiobotocore import __version__ as aiobotocore_version  # type: ignore[import]
@@ -34,7 +38,11 @@ def get_boto3_version() -> str:
     """
     Get boto3 package version.
     """
-    return f"{boto3_version}"
+    if boto3_version:
+        return f"{boto3_version}"
+
+    get_logger().warning("boto3 is not installed, using botocore version instead")
+    return get_botocore_version()
 
 
 @functools.cache

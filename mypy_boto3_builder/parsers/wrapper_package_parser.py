@@ -11,6 +11,7 @@ from botocore.config import Config
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.client import Client
@@ -22,7 +23,6 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_maps.named_unions import VerifyTypeDef
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
 from mypy_boto3_builder.utils.type_checks import get_optional
 
 
@@ -77,12 +77,7 @@ class WrapperPackageParser:
         """
         Get service names that have a ServiceResource.
         """
-        result: list[ServiceName] = []
-        for service_name in self.package.service_names:
-            boto3_resource = get_boto3_resource(service_name)
-            if boto3_resource is not None:
-                result.append(service_name)
-        return result
+        return ResourceLoader().get_resource_service_names(self.package.service_names)
 
     def get_init_client_functions(self, name: str = "client") -> list[Function]:
         """

@@ -73,7 +73,7 @@ class ServiceResourceParser:
         result.attributes.append(self._get_meta_attribute())
 
         resource_model = ResourceModel(
-            name=self.service_name.name,
+            name=self.service_name.boto3_name,
             definition=self.shape_parser.get_service_resource(),
             resource_defs=self.shape_parser.get_subresources(),  # type: ignore[arg-type]
         )

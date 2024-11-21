@@ -8,10 +8,10 @@ from collections.abc import Iterable
 
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.parsers.fake_service_package import parse_fake_service_package
+from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
 
 
 def parse_master_package(
@@ -37,7 +37,7 @@ def parse_master_package(
     if service_names:
         result.literals.append(TypeLiteral("ServiceName", [i.boto3_name for i in service_names]))
 
-    resource_service_names = [i for i in service_names if get_boto3_resource(i)]
+    resource_service_names = ResourceLoader().get_resource_service_names(service_names)
     if resource_service_names:
         result.literals.append(
             TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names]),
