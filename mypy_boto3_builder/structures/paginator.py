@@ -87,7 +87,7 @@ class Paginator(ClassRecord):
         return Method(
             name="get_paginator",
             decorators=[Type.overload],
-            docstring=self.docstring,
+            docstring="Create a paginator for an operation.",
             arguments=[
                 Argument.self(),
                 Argument(

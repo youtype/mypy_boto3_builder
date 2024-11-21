@@ -4,20 +4,15 @@ Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 Copyright 2024 Vlad Emelianov
 """
 
-import inspect
-from typing import TYPE_CHECKING
-
 from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
-from boto3.utils import ServiceContext
-from botocore.exceptions import UnknownServiceError
+from boto3.resources.model import ResourceModel
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.parsers.helpers import get_dummy_method, get_public_methods
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_references import parse_references
@@ -33,16 +28,10 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
 from mypy_boto3_builder.utils.boto3_utils import (
-    get_boto3_client,
     get_boto3_resource,
     get_boto3_session,
     get_botocore_session,
 )
-from mypy_boto3_builder.utils.strings import get_short_docstring
-
-if TYPE_CHECKING:
-    from botocore.loaders import Loader
-    from botocore.waiter import WaiterModel
 
 
 class ServiceResourceParser:
@@ -144,12 +133,12 @@ class ServiceResourceParser:
                 ),
             )
 
-        for boto3_sub_resource in self._get_boto3_sub_resources():
-            sub_resource_name = boto3_sub_resource.__class__.__name__.split(".", 1)[-1]
+        for sub_resource_model in self._get_sub_resource_models():
+            sub_resource_name = sub_resource_model.name
             self._logger.debug(f"Parsing {sub_resource_name} sub resource")
             sub_resource = parse_resource(
                 sub_resource_name,
-                boto3_sub_resource,
+                sub_resource_model,
                 self.service_name,
                 self.shape_parser,
             )
@@ -159,25 +148,10 @@ class ServiceResourceParser:
         return result
 
     def _parse_methods(self) -> list[Method]:
-        public_methods = get_public_methods(self.boto3_resource)
         shape_method_map = self.shape_parser.get_service_resource_method_map()
         stub_method_map = get_stub_method_map(self.service_name, SERVICE_RESOURCE)
         method_map = {**shape_method_map, **stub_method_map}
-        result: list[Method] = []
-
-        for method_name, public_method in public_methods.items():
-            method = method_map.get(method_name)
-
-            if method is None:
-                self._logger.warning(
-                    f"Unknown method {SERVICE_RESOURCE}.{method_name}, replaced with a dummy",
-                )
-                method = get_dummy_method(method_name)
-
-            docstring = get_short_docstring(inspect.getdoc(public_method) or "")
-            method.docstring = docstring
-            result.append(method)
-        return result
+        return list(method_map.values())
 
     def _get_resource_meta_class(self) -> ClassRecord:
         return ClassRecord(
@@ -194,51 +168,21 @@ class ServiceResourceParser:
             ],
         )
 
-    def _get_boto3_sub_resources(self) -> list[Boto3ServiceResource]:
+    def _get_sub_resource_models(self) -> list[ResourceModel]:
         """
-        Parse ServiceResource sub-resources with fake data.
+        Parse ServiceResource sub-resources.
 
         Returns:
-            A list of initialized `Boto3ServiceResource`.
+            A list of `ResourceModel`.
         """
-        result: list[Boto3ServiceResource] = []
-
-        loader: Loader = self.botocore_session.get_component("data_loader")
-        if self.boto3_resource.meta.service_name != self.service_name.boto3_name:
-            raise BuildInternalError(
-                "Resource name mismatch:"
-                f" {self.boto3_resource.meta.service_name} != {self.service_name.boto3_name}",
+        result: list[ResourceModel] = []
+        resource_defs = self.shape_parser.get_subresources()
+        for name in self.shape_parser.get_subresource_names():
+            resource_model = ResourceModel(
+                name=name,
+                definition=resource_defs[name],
+                resource_defs=resource_defs,  # type: ignore[arg-type]
             )
-        json_resource_model = loader.load_service_model(self.service_name.boto3_name, "resources-1")
-        service_model = self.boto3_resource.meta.client.meta.service_model
-        if service_model.service_name != self.service_name.boto3_name:
-            raise BuildInternalError(
-                "Service model name mismatch:"
-                f" {service_model.service_name} != {self.service_name.boto3_name}",
-            )
-        service_waiter_model: WaiterModel | None
-        try:
-            service_waiter_model = self.botocore_session.get_waiter_model(
-                self.service_name.boto3_name,
-            )
-        except UnknownServiceError:
-            service_waiter_model = None
-
-        boto3_client = get_boto3_client(self.service_name)
-        for name in json_resource_model["resources"]:
-            resource_model = json_resource_model["resources"][name]
-            resource_class = self.session.resource_factory.load_from_definition(
-                resource_name=name,
-                single_resource_json_definition=resource_model,
-                service_context=ServiceContext(
-                    service_name=self.service_name.boto3_name,
-                    resource_json_definitions=json_resource_model["resources"],
-                    service_model=service_model,
-                    service_waiter_model=service_waiter_model,
-                ),
-            )
-            identifiers = resource_class.meta.resource_model.identifiers
-            args = ["foo"] * len(identifiers)
-            result.append(resource_class(*args, client=boto3_client))
+            result.append(resource_model)
 
         return result

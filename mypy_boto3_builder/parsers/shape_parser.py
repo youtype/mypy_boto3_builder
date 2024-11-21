@@ -35,6 +35,7 @@ from mypy_boto3_builder.parsers.shape_parser_types import (
     PaginatorsShape,
     ResourceShape,
     ResourcesShape,
+    SubResourceShape,
     WaitersShape,
 )
 from mypy_boto3_builder.parsers.typed_dict_map import TypedDictMap
@@ -161,13 +162,22 @@ class ShapeParser:
             raise ShapeParserError("Resource shape not found")
         return self._resources_shape["service"]
 
-    def _get_resource_names(self) -> list[str]:
-        if not self._resources_shape:
-            return []
-        if "resources" not in self._resources_shape:
-            return []
+    def get_subresource_names(self) -> list[str]:
+        """
+        Get available subresource names.
+        """
+        return list(self.get_subresources().keys())
 
-        return list(self._resources_shape["resources"].keys())
+    def get_subresources(self) -> dict[str, ResourceShape]:
+        """
+        Get available subresources.
+        """
+        if not self._resources_shape:
+            return {}
+        if "resources" not in self._resources_shape:
+            return {}
+
+        return self._resources_shape["resources"]
 
     def _get_resource_shape(self, name: str) -> ResourceShape:
         if name == SERVICE_RESOURCE:
@@ -564,7 +574,7 @@ class ShapeParser:
             case _:
                 pass
 
-        if shape.type_name in self._get_resource_names():
+        if shape.type_name in self.get_subresource_names():
             return InternalImport(shape.type_name, use_alias=True)
 
         self.logger.warning(f"Unknown shape: {shape} {shape.type_name}")
@@ -706,7 +716,7 @@ class ShapeParser:
         Get Waiter class names.
         """
         if not self._waiters_shape:
-            raise ShapeParserError("Waiter shape is not defined")
+            return []
 
         return list(self._waiters_shape["waiters"].keys())
 
@@ -722,7 +732,7 @@ class ShapeParser:
         """
         self._resource_name = "Waiter"
         if not self._waiters_shape:
-            raise ShapeParserError("Waiter not found")
+            raise ShapeParserError("Waiter shape is not defined")
         operation_name = self._waiters_shape["waiters"][waiter_name]["operation"]
         operation_shape = self._get_operation(operation_name)
 
@@ -809,6 +819,24 @@ class ShapeParser:
         )
         return Attribute(name=attribute_name, type_annotation=attribute_type, is_identifier=True)
 
+    def _get_exisiting_sub_resource_names(
+        self, service_resource_shape: ResourceShape, names: Iterable[str]
+    ) -> set[str]:
+        result: set[str] = set()
+        has_map = service_resource_shape.get("has", {})
+        has_rename_map: dict[str, str] = {}
+        for has_name, has_def in has_map.items():
+            old_name = has_def.get("resource", {}).get("type")
+            if old_name:
+                has_rename_map[old_name] = has_name
+        for name in names:
+            if name not in has_rename_map:
+                result.add(name)
+            else:
+                result.add(has_rename_map[name])
+
+        return result
+
     def get_service_resource_method_map(self) -> dict[str, Method]:
         """
         Get methods for ServiceResource.
@@ -821,6 +849,7 @@ class ShapeParser:
                 name="get_available_subresources",
                 arguments=[Argument.self()],
                 return_type=TypeSubscript(Type.Sequence, [Type.str]),
+                docstring="Returns a list of all the available sub-resources for this resource.",
             ),
         }
         self._resource_name = SERVICE_RESOURCE
@@ -829,10 +858,22 @@ class ShapeParser:
             method = self._get_resource_method(action_name, action_shape)
             result[method.name] = method
 
-        for sub_resource_name in self._get_resource_names():
-            resource_shape = self._get_resource_shape(sub_resource_name)
+        sub_resource_names = self.get_subresource_names()
+        existing_sub_resource_names = self._get_exisiting_sub_resource_names(
+            service_resource_shape, sub_resource_names
+        )
+        for sub_resource_name in sub_resource_names:
+            # FIXME: hack for ec2: KeyPairInfo is not registered, but present in docs
+            if sub_resource_name not in existing_sub_resource_names:
+                self.logger.warning(
+                    f"Skipping {sub_resource_name} sub resource, because it is not present in has"
+                )
+                continue
+            sub_resource_shape = self._get_resource_shape(sub_resource_name)
+            if not self._is_subresource(sub_resource_shape):
+                continue
             arguments = [Argument.self()]
-            identifiers = resource_shape.get("identifiers", [])
+            identifiers = sub_resource_shape.get("identifiers", [])
             for identifier in identifiers:
                 argument = self._get_identifier_argument(
                     self._resource_name,
@@ -844,6 +885,7 @@ class ShapeParser:
                 name=sub_resource_name,
                 arguments=arguments,
                 return_type=InternalImport(sub_resource_name, use_alias=True),
+                docstring=f"Creates a {sub_resource_name} resource.",
             )
             result[method.name] = method
 
@@ -866,6 +908,20 @@ class ShapeParser:
             self._get_identifier_attribute(resource_name, identifier) for identifier in identifiers
         ]
 
+    def get_resource_load_method(self, method_name: str = "load") -> Method:
+        """
+        Get Resource `load` or `reload` method.
+        """
+        return Method(name=method_name, arguments=[Argument.self()], return_type=Type.none)
+
+    @staticmethod
+    def _is_subresource(subresource_shape: ResourceShape | SubResourceShape) -> bool:
+        for identifier in subresource_shape.get("identifiers", []):
+            if identifier.get("source") == "data":
+                return False
+
+        return True
+
     def get_resource_method_map(self, resource_name: str) -> dict[str, Method]:
         """
         Get methods for Resource.
@@ -883,9 +939,10 @@ class ShapeParser:
                 name="get_available_subresources",
                 arguments=[Argument.self()],
                 return_type=TypeSubscript(Type.Sequence, [Type.str]),
+                docstring=(
+                    f"Returns a list of all the available sub-resources for this {resource_name}."
+                ),
             ),
-            "load": Method(name="load", arguments=[Argument.self()], return_type=Type.none),
-            "reload": Method(name="reload", arguments=[Argument.self()], return_type=Type.none),
         }
 
         if "actions" in resource_shape:
@@ -895,36 +952,41 @@ class ShapeParser:
 
         if "waiters" in resource_shape:
             for waiter_name in resource_shape["waiters"]:
+                state_name = xform_name(waiter_name)
                 method = Method(
-                    name=f"wait_until_{xform_name(waiter_name)}",
+                    name=f"wait_until_{state_name}",
                     arguments=[Argument.self()],
                     return_type=Type.none,
+                    docstring=f"Waits until {resource_name} is {state_name}.",
                 )
                 result[method.name] = method
 
-        if "has" in resource_shape:
-            for sub_resource_name, sub_resource in resource_shape["has"].items():
-                if "resource" not in sub_resource:
+        for method_name, sub_resource in resource_shape.get("has", {}).items():
+            if "resource" not in sub_resource:
+                continue
+            data = sub_resource["resource"]
+            if not self._is_subresource(data):
+                continue
+            arguments = [Argument.self()]
+            identifiers = data.get("identifiers", [])
+            for identifier in identifiers:
+                if identifier.get("source") != "input":
                     continue
-                data = sub_resource["resource"]
-                arguments = [Argument.self()]
-                identifiers = data.get("identifiers", [])
-                for identifier in identifiers:
-                    if identifier.get("source") != "input":
-                        continue
-                    argument = self._get_identifier_argument(
-                        resource_name,
-                        sub_resource_name,
-                        identifier,
-                    )
-                    arguments.append(argument)
-
-                method = Method(
-                    name=sub_resource_name,
-                    arguments=arguments,
-                    return_type=InternalImport(data["type"], use_alias=True),
+                argument = self._get_identifier_argument(
+                    resource_name,
+                    method_name,
+                    identifier,
                 )
-                result[method.name] = method
+                arguments.append(argument)
+
+            sub_resource_name = data["type"]
+            method = Method(
+                name=method_name,
+                arguments=arguments,
+                return_type=InternalImport(sub_resource_name, use_alias=True),
+                docstring=f"Creates a {sub_resource_name} resource.",
+            )
+            result[method.name] = method
 
         return result
 
@@ -979,17 +1041,17 @@ class ShapeParser:
             if path.endswith("[]"):
                 return_type = TypeSubscript(Type.List, [return_type])
 
-        operation_shape = None
+        operation_model = None
         if "request" in action_shape:
             operation_name = action_shape["request"]["operation"]
-            operation_shape = self._get_operation(operation_name)
+            operation_model = self._get_operation(operation_name)
             skip_argument_names = self._get_skip_argument_names(action_shape)
-            if operation_shape.input_shape is not None:
+            if operation_model.input_shape is not None:
                 shape_arguments = self._parse_arguments(
                     class_name=self.resource_name,
                     method_name=method_name,
                     operation_name=operation_name,
-                    shape=operation_shape.input_shape,
+                    shape=operation_model.input_shape,
                     exclude_names=skip_argument_names,
                 )
                 arguments.extend(self._get_kw_flags(method_name, shape_arguments))
@@ -998,18 +1060,25 @@ class ShapeParser:
             self._enrich_arguments_defaults(arguments, action_shape)
             arguments.sort(key=lambda x: not x.required)
 
-            if operation_shape.output_shape is not None and return_type is Type.none:
+            if operation_model.output_shape is not None and return_type is Type.none:
                 operation_return_type = self.parse_shape(
-                    operation_shape.output_shape,
+                    operation_model.output_shape,
                     is_output=True,
                 )
                 return_type = operation_return_type
 
-        method = Method(name=method_name, arguments=arguments, return_type=return_type)
-        if operation_shape and operation_shape.input_shape is not None:
+        method = Method(
+            name=method_name,
+            arguments=arguments,
+            return_type=return_type,
+            docstring=get_short_docstring(
+                extract_docstring_from_html(operation_model.documentation),
+            ),
+        )
+        if operation_model and operation_model.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
-                    operation_shape.input_shape,
+                    operation_model.input_shape,
                     postfix=f"{self.resource_name}{action_name}",
                 ),
             )

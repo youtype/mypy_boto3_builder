@@ -102,6 +102,7 @@ class ResourceShape(TypedDict):
     Resource shape.
     """
 
+    shape: NotRequired[str]
     identifiers: NotRequired[list[IdentifierShape]]
     actions: NotRequired[dict[str, Any]]
     waiters: NotRequired[dict[str, WaiterShape]]

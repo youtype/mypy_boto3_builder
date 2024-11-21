@@ -213,10 +213,11 @@ def extract_docstring_from_html(html: str) -> str:
     """
     Extract docstring from HTML.
     """
-    start_index = html.find("<p>")
+    text = str(html)
+    start_index = text.find("<p>")
     if start_index < 0:
-        return html
-    end_index = html.find("</p>", start_index)
+        return text
+    end_index = text.find("</p>", start_index)
     if end_index < 0:
-        return html
-    return html[start_index + 3 : end_index].strip()
+        return text
+    return text[start_index + 3 : end_index].strip()

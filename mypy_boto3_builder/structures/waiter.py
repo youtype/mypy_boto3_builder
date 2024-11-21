@@ -87,7 +87,7 @@ class Waiter(ClassRecord):
         return Method(
             name="get_waiter",
             decorators=[Type.overload],
-            docstring=self.docstring,
+            docstring="Returns an object that can wait for some condition.",
             arguments=(
                 Argument.self(),
                 Argument("waiter_name", TypeLiteral(f"{self.name}Name", [self.attribute_name])),

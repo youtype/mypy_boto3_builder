@@ -271,4 +271,4 @@ class TestShapeParser:
         }
         shape_parser = ShapeParser(self.service_name)
         result = shape_parser.get_resource_method_map("c")
-        assert len(result.keys()) == 6
+        assert len(result.keys()) == 4

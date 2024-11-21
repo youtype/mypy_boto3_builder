@@ -10,7 +10,6 @@ from functools import cache
 from boto3.exceptions import ResourceNotExistsError
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.session import Session
-from botocore.client import BaseClient
 from botocore.session import Session as BotocoreSession
 from botocore.session import get_session
 
@@ -36,21 +35,6 @@ def get_botocore_session() -> BotocoreSession:
     session = get_session()
     session.set_credentials("access_key", "secret_key", "token")
     return session
-
-
-@cache
-def get_boto3_client(service_name: ServiceName) -> BaseClient:
-    """
-    Get boto3 client from `session`.
-
-    Arguments:
-        service_name -- ServiceName instance.
-
-    Returns:
-        Boto3 client.
-    """
-    session = get_boto3_session()
-    return session.client(service_name.boto3_name)  # type: ignore[no-any-return,call-overload]
 
 
 @cache
