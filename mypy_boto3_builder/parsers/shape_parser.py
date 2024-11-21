@@ -70,7 +70,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     ResponseMetadataTypeDef,
     WaiterConfigTypeDef,
 )
-from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
+from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
 from mypy_boto3_builder.utils.strings import (
     capitalize,
     extract_docstring_from_html,
@@ -93,6 +93,8 @@ class ShapeParser:
     """
 
     def __init__(self, service_name: ServiceName) -> None:
+        # FIXME: side-load boto3 resources
+        _boto3_session = get_boto3_session()
         botocore_session = get_botocore_session()
         self._loader: Loader = botocore_session.get_component("data_loader")
         service_data = botocore_session.get_service_data(service_name.boto3_name)
@@ -157,9 +159,14 @@ class ShapeParser:
         except KeyError as e:
             raise ShapeParserError(f"Unknown paginator: {name}") from e
 
-    def _get_service_resource(self) -> ResourceShape:
+    def get_service_resource(self) -> ResourceShape:
+        """
+        Get service resource shape.
+        """
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
+        if "service" not in self._resources_shape:
+            raise ShapeParserError("Service resource shape not found")
         return self._resources_shape["service"]
 
     def get_subresource_names(self) -> list[str]:
@@ -181,7 +188,7 @@ class ShapeParser:
 
     def _get_resource_shape(self, name: str) -> ResourceShape:
         if name == SERVICE_RESOURCE:
-            return self._get_service_resource()
+            return self.get_service_resource()
 
         if not self._resources_shape or "resources" not in self._resources_shape:
             raise ShapeParserError("Resource shape not found")
@@ -866,7 +873,8 @@ class ShapeParser:
             # FIXME: hack for ec2: KeyPairInfo is not registered, but present in docs
             if sub_resource_name not in existing_sub_resource_names:
                 self.logger.warning(
-                    f"Skipping {sub_resource_name} sub resource, because it is not present in has"
+                    f"Skipping {sub_resource_name} sub resource"
+                    " because it is not present in ServiceResource.has"
                 )
                 continue
             sub_resource_shape = self._get_resource_shape(sub_resource_name)

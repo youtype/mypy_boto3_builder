@@ -5,12 +5,11 @@ Copyright 2024 Vlad Emelianov
 """
 
 from boto3.resources.base import ResourceMeta
-from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.resources.model import ResourceModel
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.exceptions import BuildInternalError
+from mypy_boto3_builder.exceptions import BuildInternalError, ShapeParserError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
@@ -27,11 +26,6 @@ from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
-from mypy_boto3_builder.utils.boto3_utils import (
-    get_boto3_resource,
-    get_boto3_session,
-    get_botocore_session,
-)
 
 
 class ServiceResourceParser:
@@ -39,7 +33,6 @@ class ServiceResourceParser:
     Parser for boto3 ServiceResource data.
 
     Arguments:
-        session -- boto3 session.
         service_name -- Target service name.
         shape_parser - ShapeParser instance.
     """
@@ -49,11 +42,8 @@ class ServiceResourceParser:
         service_name: ServiceName,
         shape_parser: ShapeParser,
     ) -> None:
-        self.session = get_boto3_session()
         self.service_name = service_name
         self.shape_parser = shape_parser
-        self._boto3_resource = get_boto3_resource(service_name)
-        self.botocore_session = get_botocore_session()
         self._logger = get_logger()
         self._resource_meta_class = self._get_resource_meta_class()
 
@@ -68,20 +58,13 @@ class ServiceResourceParser:
             type_ignore=True,
         )
 
-    @property
-    def boto3_resource(self) -> Boto3ServiceResource:
-        """
-        Get boto3 resource for service.
-        """
-        if self._boto3_resource is None:
-            raise BuildInternalError(f"No resource for {self.service_name.boto3_name}")
-        return self._boto3_resource
-
     def parse(self) -> ServiceResource | None:
         """
         Parse main boto3 ServiceResource.
         """
-        if self._boto3_resource is None:
+        try:
+            service_resource_shape = self.shape_parser.get_service_resource()
+        except ShapeParserError:
             return None
 
         self._logger.debug("Parsing ServiceResource")
@@ -92,7 +75,11 @@ class ServiceResourceParser:
 
         result.attributes.append(self._get_meta_attribute())
 
-        resource_model = self.boto3_resource.meta.resource_model
+        resource_model = ResourceModel(
+            name=self.service_name.name,
+            definition=service_resource_shape,
+            resource_defs=self.shape_parser.get_subresources(),  # type: ignore[arg-type]
+        )
 
         self._logger.debug("Parsing ServiceResource methods")
         result.methods.extend(self._parse_methods())
@@ -168,6 +155,16 @@ class ServiceResourceParser:
             ],
         )
 
+    def _get_resource_model(self, name: str) -> ResourceModel:
+        resource_defs = self.shape_parser.get_subresources()
+        if name not in resource_defs:
+            raise BuildInternalError(f"Resource {name} not found in subresources")
+        return ResourceModel(
+            name=name,
+            definition=resource_defs[name],
+            resource_defs=resource_defs,  # type: ignore[arg-type]
+        )
+
     def _get_sub_resource_models(self) -> list[ResourceModel]:
         """
         Parse ServiceResource sub-resources.
@@ -175,14 +172,5 @@ class ServiceResourceParser:
         Returns:
             A list of `ResourceModel`.
         """
-        result: list[ResourceModel] = []
-        resource_defs = self.shape_parser.get_subresources()
-        for name in self.shape_parser.get_subresource_names():
-            resource_model = ResourceModel(
-                name=name,
-                definition=resource_defs[name],
-                resource_defs=resource_defs,  # type: ignore[arg-type]
-            )
-            result.append(resource_model)
-
-        return result
+        subresource_names = self.shape_parser.get_subresource_names()
+        return [self._get_resource_model(name) for name in subresource_names]
