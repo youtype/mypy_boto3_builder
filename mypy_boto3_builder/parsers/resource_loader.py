@@ -5,19 +5,22 @@ Copyright 2024 Vlad Emelianov
 """
 
 import contextlib
+import importlib
 from collections.abc import Iterable, Mapping
+from pathlib import Path
 from typing import Any, ClassVar, TypeVar, cast
 
 from botocore.exceptions import UnknownServiceError
 from botocore.loaders import Loader
 
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.shape_parser_types import (
     PaginatorsShape,
     ResourcesShape,
     WaitersShape,
 )
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
+from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 
 _T = TypeVar("_T")
 
@@ -38,12 +41,33 @@ class ResourceLoader:
     def _get_loader(cls) -> Loader:
         if cls._loader:
             return cls._loader
-        # FIXME: side-load boto3 resources
-        get_boto3_session()
         botocore_session = get_botocore_session()
         loader: Loader = botocore_session.get_component("data_loader")
         cls._loader = loader
+        cls._inject_boto3_path(loader)
         return loader
+
+    @staticmethod
+    def _inject_boto3_path(loader: Loader) -> None:
+        """
+        Backport of `boto3/session.py` `Session._setup_loader` method.
+        """
+        boto3_module = None
+        with contextlib.suppress(ModuleNotFoundError):
+            boto3_module = importlib.import_module("boto3")
+
+        if not boto3_module:
+            get_logger().debug("boto3 module not found, skipping resources injection")
+            return
+
+        if not boto3_module.__file__:
+            get_logger().warning(
+                "boto3 module __file__ is not defined, skipping resources injection"
+            )
+            return
+
+        path = Path(boto3_module.__file__).parent / "data"
+        loader.search_paths.append(path.as_posix())
 
     def _load_resource(
         self, service_name: ServiceName, type_name: str, _response_type: type[_T]

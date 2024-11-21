@@ -23,7 +23,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "boto3",
     "jinja2",
     "mdformat",
     "packaging",
@@ -40,6 +39,7 @@ check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 dev-dependencies = [
     "aiohttp",
     "boto3-stubs",
+    "boto3",
     "botocore-stubs",
     "cryptography",
     "istub",

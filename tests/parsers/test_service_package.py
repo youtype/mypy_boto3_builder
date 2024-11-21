@@ -9,10 +9,10 @@ class TestBoto3StubsPackage:
     def test_parse_boto3_stubs_package(
         self,
         ClientExceptionsFactoryMock: MagicMock,
-        boto3_session_mock: MagicMock,
+        botocore_session_mock: MagicMock,
     ) -> None:
         service_name_mock = MagicMock()
-        boto3_session_mock().resource.return_value = None
+        botocore_session_mock().resource.return_value = None
         service_name_mock.boto3_name = "s3"
         ClientExceptionsFactoryMock.create_client_exceptions.return_value = []
 

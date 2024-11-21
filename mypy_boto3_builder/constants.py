@@ -7,9 +7,6 @@ Copyright 2024 Vlad Emelianov
 from pathlib import Path
 from typing import Final
 
-# Random region to initialize services
-DUMMY_REGION: Final = "us-west-2"
-
 # Root path for the project
 ROOT_PATH: Final = Path(__file__).parent
 

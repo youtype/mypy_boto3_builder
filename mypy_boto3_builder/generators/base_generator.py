@@ -105,7 +105,7 @@ class BaseGenerator(ABC):
         """
         Get underlying library version.
         """
-        raise NotImplementedError("Method should be implemented in child class")
+        return self.service_package_data.get_library_version()
 
     def _get_package_version(self, pypi_name: str, version: str) -> str:
         if self.config.disable_smart_version:

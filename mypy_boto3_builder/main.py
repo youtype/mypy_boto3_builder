@@ -183,7 +183,7 @@ def run(args: CLINamespace) -> None:
     args.output_path.mkdir(exist_ok=True, parents=True)
     available_service_names = get_available_service_names(get_botocore_session())
 
-    logger.info(f"{len(available_service_names)} supported botocore services discovered")
+    logger.debug(f"{len(available_service_names)} supported botocore services discovered")
     if args.list_services:
         for service_name in available_service_names:
             sys.stdout.write(
@@ -199,7 +199,7 @@ def run(args: CLINamespace) -> None:
         logger.info(f"Generating {product} product")
         generate_product(product, args, service_names, master_service_names)
 
-    logger.info("Completed")
+    logger.debug("Done!")
 
 
 def main() -> None:

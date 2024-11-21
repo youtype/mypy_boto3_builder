@@ -7,22 +7,11 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterable
 from functools import cache
 
-from boto3.session import Session
 from botocore.session import Session as BotocoreSession
 from botocore.session import get_session
 
-from mypy_boto3_builder.constants import DUMMY_REGION
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-
-
-@cache
-def get_boto3_session() -> Session:
-    """
-    Create and cache boto3 session.
-    """
-    botocore_session = get_botocore_session()
-    return Session(region_name=DUMMY_REGION, botocore_session=botocore_session)
 
 
 @cache
