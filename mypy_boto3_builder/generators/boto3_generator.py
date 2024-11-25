@@ -60,7 +60,7 @@ class Boto3Generator(BaseGenerator):
             output_path=self.output_path,
             service_names=self.master_service_names,
             version=version,
-            generate_setup=self.generate_setup,
+            generate_package=self.generate_package,
         )
 
     def _get_static_files_path(self) -> Path:
@@ -81,7 +81,7 @@ class Boto3Generator(BaseGenerator):
         process_boto3_stubs(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_setup=self.generate_setup,
+            generate_package=self.generate_package,
             version=version,
             static_files_path=self._get_static_files_path(),
         )
@@ -98,7 +98,7 @@ class Boto3Generator(BaseGenerator):
         process_boto3_stubs_lite(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_setup=self.generate_setup,
+            generate_package=self.generate_package,
             version=version,
             static_files_path=self._get_static_files_path(),
         )
@@ -107,7 +107,7 @@ class Boto3Generator(BaseGenerator):
         """
         Generate main stubs.
         """
-        if self.generate_setup:
+        if self.generate_package:
             self._generate_master()
 
         self._generate_boto3_stubs()
@@ -154,6 +154,6 @@ class Boto3Generator(BaseGenerator):
             self.output_path,
             self.service_names,
             version=version,
-            generate_setup=self.generate_setup,
+            generate_setup=self.generate_package,
         )
         self._generate_full_stubs_services(boto3_stubs_package)

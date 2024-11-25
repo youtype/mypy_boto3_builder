@@ -29,6 +29,7 @@ build = ["setuptools"]
 check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 
 [tool.uv]
+config-settings = { editable-mode = "strict" }
 dev-dependencies = [
     "aiohttp",
     "boto3-stubs",

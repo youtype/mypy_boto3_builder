@@ -67,7 +67,7 @@ class AioBotocoreGenerator(BaseGenerator):
         process_types_aiobotocore(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_setup=self.generate_setup,
+            generate_package=self.generate_package,
             version=version,
             static_files_path=self._get_static_files_path(),
         )
@@ -84,7 +84,7 @@ class AioBotocoreGenerator(BaseGenerator):
         process_types_aiobotocore_lite(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_setup=self.generate_setup,
+            generate_package=self.generate_package,
             version=version,
             static_files_path=self._get_static_files_path(),
         )
@@ -129,7 +129,7 @@ class AioBotocoreGenerator(BaseGenerator):
         package = process_types_aiobotocore_full(
             output_path=self.output_path,
             service_names=self.service_names,
-            generate_setup=self.generate_setup,
+            generate_package=self.generate_package,
             package_data=package_data,
             version=version,
         )

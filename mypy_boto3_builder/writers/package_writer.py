@@ -51,20 +51,20 @@ class PackageWriter:
     _PY_EXTENSIONS: Final = {".py", ".pyi"}
     _MD_EXTENSIONS: Final = {".md"}
 
-    def __init__(self, output_path: Path, *, generate_setup: bool, cleanup: bool) -> None:
+    def __init__(self, output_path: Path, *, generate_package: bool, cleanup: bool) -> None:
         self.output_path = output_path
-        self.generate_setup = generate_setup
+        self.generate_package = generate_package
         self.cleanup = cleanup
         self.logger = get_logger()
 
     def _get_package_path(self, package: Package) -> Path:
-        if self.generate_setup:
+        if self.generate_package:
             return self.output_path / package.directory_name / package.name
 
         return self.output_path / package.library_name
 
     def _get_service_package_path(self, package: ServicePackage) -> Path:
-        if self.generate_setup:
+        if self.generate_package:
             return self.output_path / package.directory_name / package.name
 
         return self.output_path / package.name
@@ -93,7 +93,7 @@ class PackageWriter:
         package: Package,
         templates_path: Path | None,
     ) -> list[TemplateRender]:
-        if not templates_path or not self.generate_setup:
+        if not templates_path or not self.generate_package:
             return []
 
         result: list[TemplateRender] = []
@@ -114,7 +114,7 @@ class PackageWriter:
         package: Package,
         templates_path: Path | None,
     ) -> list[TemplateRender]:
-        if not templates_path or not self.generate_setup or not package.has_main_package():
+        if not templates_path or not self.generate_package or not package.has_main_package():
             return []
 
         result: list[TemplateRender] = []
@@ -211,7 +211,7 @@ class PackageWriter:
             self._cleanup(valid_paths, cleanup_path)
 
     def _get_cleanup_path(self, package: Package) -> Path | None:
-        if self.generate_setup:
+        if self.generate_package:
             return self._get_setup_path(package)
 
         if package.has_main_package():
@@ -361,7 +361,7 @@ class PackageWriter:
 
         output_path = (
             self._get_setup_path(package)
-            if self.generate_setup
+            if self.generate_package
             else self._get_service_package_path(package)
         )
         self._cleanup(valid_paths, output_path)

@@ -61,7 +61,7 @@ class AioBoto3Generator(BaseGenerator):
         process_types_aioboto3(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_setup=self.generate_setup,
+            generate_setup=self.generate_package,
             version=version,
             static_files_path=self._get_static_files_path(),
         )
@@ -78,7 +78,7 @@ class AioBoto3Generator(BaseGenerator):
         process_types_aioboto3_lite(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_setup=self.generate_setup,
+            generate_setup=self.generate_package,
             version=version,
             static_files_path=self._get_static_files_path(),
         )

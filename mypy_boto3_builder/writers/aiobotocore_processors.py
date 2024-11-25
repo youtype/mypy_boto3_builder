@@ -25,7 +25,7 @@ def process_types_aiobotocore(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
+    generate_package: bool,
     version: str,
     static_files_path: Path,
 ) -> TypesAioBotocorePackage:
@@ -35,7 +35,7 @@ def process_types_aiobotocore(
     Arguments:
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
         version -- Package version
         static_files_path -- Path to static files
 
@@ -52,7 +52,7 @@ def process_types_aiobotocore(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_setup=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(
@@ -67,7 +67,7 @@ def process_types_aiobotocore_lite(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
+    generate_package: bool,
     version: str,
     static_files_path: Path,
 ) -> TypesAioBotocorePackage:
@@ -77,7 +77,7 @@ def process_types_aiobotocore_lite(
     Arguments:
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
         version -- Package version
         static_files_path -- Path to static files
 
@@ -94,7 +94,7 @@ def process_types_aiobotocore_lite(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_setup=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(
@@ -131,7 +131,7 @@ def process_types_aiobotocore_docs(
 
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
+    package_writer = PackageWriter(output_path=output_path, generate_package=False, cleanup=True)
     package_writer.write_docs(
         package,
         templates_path=TemplatePath.types_aiobotocore_docs,
@@ -144,7 +144,7 @@ def process_types_aiobotocore_full(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
+    generate_package: bool,
     version: str,
     package_data: type[BasePackageData],
 ) -> TypesAioBotocorePackage:
@@ -154,7 +154,7 @@ def process_types_aiobotocore_full(
     Arguments:
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
         version -- Package version
         package_data -- Package data
 
@@ -172,7 +172,7 @@ def process_types_aiobotocore_full(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_setup=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(

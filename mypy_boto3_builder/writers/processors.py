@@ -27,7 +27,7 @@ def process_boto3_stubs(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
+    generate_package: bool,
     version: str,
     static_files_path: Path,
 ) -> Boto3StubsPackage:
@@ -37,7 +37,7 @@ def process_boto3_stubs(
     Arguments:
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
         version -- Package version
         static_files_path -- Path to static files
 
@@ -56,7 +56,7 @@ def process_boto3_stubs(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_setup=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(
@@ -72,7 +72,7 @@ def process_boto3_stubs_lite(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
+    generate_package: bool,
     version: str,
     static_files_path: Path,
 ) -> Boto3StubsPackage:
@@ -82,7 +82,7 @@ def process_boto3_stubs_lite(
     Arguments:
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
         version -- Package version
         static_files_path -- Path to static files
 
@@ -101,7 +101,7 @@ def process_boto3_stubs_lite(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_setup=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(
@@ -122,7 +122,7 @@ def process_master(
     service_names: Iterable[ServiceName],
     version: str,
     *,
-    generate_setup: bool,
+    generate_package: bool,
 ) -> MasterPackage:
     """
     Parse and write master package `mypy_boto3`.
@@ -131,7 +131,7 @@ def process_master(
         output_path -- Package output path
         service_names -- List of known service names
         version -- Package version
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
 
     Return:
         Parsed MasterPackage.
@@ -143,7 +143,7 @@ def process_master(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_setup=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(
@@ -180,7 +180,7 @@ def process_boto3_stubs_docs(
     )
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
+    package_writer = PackageWriter(output_path=output_path, generate_package=False, cleanup=True)
     package_writer.write_docs(
         package=package,
         templates_path=TemplatePath.boto3_stubs_docs,
@@ -220,7 +220,7 @@ def process_boto3_stubs_full(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_setup=generate_setup,
+        generate_package=generate_setup,
         cleanup=True,
     )
     package_writer.write_package(

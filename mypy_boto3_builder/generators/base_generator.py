@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import ClassVar
 
 from mypy_boto3_builder.cli_parser import CLINamespace
-from mypy_boto3_builder.enums.product import ProductType
+from mypy_boto3_builder.enums.product import OutputType, ProductType
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
@@ -33,11 +33,7 @@ class BaseGenerator(ABC):
     Arguments:
         service_names -- Selected service names
         master_service_names -- Service names included in master
-        output_path -- Path to write generated files
-        generate_setup -- Whether to create package or installed module
-        skip_published -- Whether to skip packages that are already published
-        disable_smart_version -- Whether to create a new postrelease based on latest PyPI version
-        download_static_stubs -- Whether to download static stubs from GitHub repositories
+        config -- CLI configuration
         version -- Package build version
         cleanup -- Whether to cleanup generated files
     """
@@ -57,18 +53,30 @@ class BaseGenerator(ABC):
         self.service_names = service_names
         self.master_service_names = master_service_names
         self.config = config
-        self.output_path = config.output_path
         self.logger = get_logger()
-        self.generate_setup = not config.installed
         self.version = version or self.get_library_version()
         self.cleanup = cleanup
         self.package_writer = PackageWriter(
-            output_path=self.config.output_path,
-            generate_setup=self.generate_setup,
+            output_path=self.output_path,
+            generate_package=self.generate_package,
             cleanup=cleanup,
         )
         self._downloaded_static_files_path: Path | None = None
         self._cleanup_dirs: list[Path] = []
+
+    @property
+    def generate_package(self) -> bool:
+        """
+        Whether to generate package or installed package.
+        """
+        return self.config.output_type != OutputType.installed
+
+    @property
+    def output_path(self) -> Path:
+        """
+        Output path.
+        """
+        return self.config.output_path
 
     def _get_or_download_static_files_path(
         self,
@@ -135,7 +143,7 @@ class BaseGenerator(ABC):
     def _generate_full_stubs_services(self, package: Package) -> None:
         package_writer = PackageWriter(
             output_path=self.output_path / package.directory_name,
-            generate_setup=False,
+            generate_package=False,
             cleanup=False,
         )
         total_str = f"{len(self.service_names)}"

@@ -28,6 +28,17 @@ class ProductType(Enum):
     full = "full"
 
 
+class OutputType(Enum):
+    """
+    Output type for Generator.
+    """
+
+    package = "package"
+    wheel = "wheel"
+    sdist = "sdist"
+    installed = "installed"
+
+
 class Product(Enum):
     """
     Product choice for CLI.

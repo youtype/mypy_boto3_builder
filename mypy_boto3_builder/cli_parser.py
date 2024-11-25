@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from mypy_boto3_builder.constants import PROG_NAME
-from mypy_boto3_builder.enums.product import Product
+from mypy_boto3_builder.enums.product import OutputType, Product
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.version import get_builder_version
 
@@ -38,22 +38,35 @@ class EnumListAction(argparse.Action):
 
     def __init__(
         self,
+        *,
         type: type[enum.Enum],  # noqa: A002
         option_strings: Sequence[str],
         dest: str,
+        help: str,  # noqa: A002
         default: Sequence[enum.Enum] | None = None,
-        *,
+        nargs: str | None = None,
         required: bool = False,
         **kwargs: str | None,
     ) -> None:
-        self._enum_class = type
+        self._enum_type = type
+        self.nargs = nargs or "?"
+        choices = tuple(e.value for e in self._enum_type)
+        help_str = f"{help}\nChoices: {', '.join(choices)}."
+
+        if default:
+            if isinstance(default, enum.Enum):
+                help_str += f"\nDefault: {default.value}."
+            else:
+                help_str += f"\nDefault: {', '.join(e.value for e in default)}."
 
         super().__init__(
-            choices=tuple(e.value for e in self._enum_class),
+            choices=choices,
             option_strings=option_strings,
             default=default,
             dest=dest,
+            nargs=self.nargs,
             type=None,
+            help=help_str,
             required=required,
             **kwargs,
         )
@@ -73,8 +86,9 @@ class EnumListAction(argparse.Action):
             value_list.append(value)
         if isinstance(value, list):
             value_list.extend([i for i in value if isinstance(i, str)])
-        enum_values = [self._enum_class(i) for i in value_list]
-        setattr(namespace, self.dest, enum_values)
+        enum_values = [self._enum_type(i) for i in value_list]
+        result = enum_values if self.nargs != "?" else enum_values[0]
+        setattr(namespace, self.dest, result)
 
 
 @dataclass(kw_only=True, slots=True)
@@ -87,7 +101,7 @@ class CLINamespace:
     output_path: Path
     service_names: list[str]
     build_version: str
-    installed: bool
+    output_type: OutputType
     products: list[Product]
     list_services: bool
     partial_overload: bool
@@ -124,12 +138,12 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         metavar="PRODUCT",
         nargs="+",
         default=(Product.boto3, Product.boto3_services),
-        help="Package to generate (default: boto3 boto3-stubs)",
+        help="Package to generate.",
     )
     parser.add_argument(
         "--skip-published",
         action="store_true",
-        help="Skip packages that are already on PyPI",
+        help="Skip packages that are already on PyPI.",
     )
     parser.add_argument(
         "--no-smart-version",
@@ -178,7 +192,19 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
     parser.add_argument(
         "--installed",
         action="store_true",
-        help="Generate already installed packages for typings directory.",
+        help=(
+            "Generate already installed packages for typings directory."
+            " Deprecated, use --output-type=installed instead."
+        ),
+        deprecated=True,
+    )
+    parser.add_argument(
+        "--output-type",
+        type=OutputType,
+        action=EnumListAction,
+        metavar="OUTPUT_TYPE",
+        default=OutputType.package,
+        help="Product output type.",
     )
     parser.add_argument(
         "--list-services",
@@ -187,13 +213,16 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
     )
     result = parser.parse_args(args)
 
+    if result.installed:
+        result.output_type = OutputType.installed
+
     return CLINamespace(
         log_level=logging.DEBUG if result.debug else logging.INFO,
         output_path=result.output_path,
         service_names=result.service_names,
         products=result.products,
         build_version=result.build_version,
-        installed=result.installed,
+        output_type=result.output_type,
         list_services=result.list_services,
         partial_overload=result.partial_overload,
         skip_published=result.skip_published,
