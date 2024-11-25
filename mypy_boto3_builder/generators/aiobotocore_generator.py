@@ -20,6 +20,8 @@ from mypy_boto3_builder.package_data import (
 )
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBotocorePackage
+from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
 from mypy_boto3_builder.writers.aiobotocore_processors import (
     process_types_aiobotocore,
     process_types_aiobotocore_docs,
@@ -48,43 +50,46 @@ class AioBotocoreGenerator(BaseGenerator):
         """
         return AioBotocorePostprocessor(service_package, self.master_service_names)
 
-    def generate_stubs(self) -> None:
+    def generate_stubs(self) -> list[TypesAioBotocorePackage]:
         """
         Generate `aiobotocore-stubs` package.
         """
-        self._generate_stubs()
-        self._generate_stubs_lite()
+        packages = (
+            self._generate_stubs(),
+            self._generate_stubs_lite(),
+        )
+        return [package for package in packages if package]
 
-    def _generate_stubs(self) -> None:
+    def _generate_stubs(self) -> TypesAioBotocorePackage | None:
         package_data = TypesAioBotocorePackageData
         try:
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
         except AlreadyPublishedError:
             self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
-            return
+            return None
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        process_types_aiobotocore(
+        return process_types_aiobotocore(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_package=self.generate_package,
+            generate_package=self.is_package(),
             version=version,
             static_files_path=self._get_static_files_path(),
         )
 
-    def _generate_stubs_lite(self) -> None:
+    def _generate_stubs_lite(self) -> TypesAioBotocorePackage | None:
         package_data = TypesAioBotocoreLitePackageData
         try:
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
         except AlreadyPublishedError:
             self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
-            return
+            return None
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        process_types_aiobotocore_lite(
+        return process_types_aiobotocore_lite(
             output_path=self.output_path,
             service_names=self.master_service_names,
-            generate_package=self.generate_package,
+            generate_package=self.is_package(),
             version=version,
             static_files_path=self._get_static_files_path(),
         )
@@ -114,7 +119,7 @@ class AioBotocoreGenerator(BaseGenerator):
                 version=self.version,
             )
 
-    def generate_full_stubs(self) -> None:
+    def generate_full_stubs(self) -> list[TypesAioBotocorePackage]:
         """
         Generate full stubs.
         """
@@ -123,14 +128,21 @@ class AioBotocoreGenerator(BaseGenerator):
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
         except AlreadyPublishedError:
             self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
-            return
+            return []
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         package = process_types_aiobotocore_full(
             output_path=self.output_path,
             service_names=self.service_names,
-            generate_package=self.generate_package,
+            generate_package=self.is_package(),
             package_data=package_data,
             version=version,
         )
         self._generate_full_stubs_services(package)
+        return [package]
+
+    def generate_custom_stubs(self) -> list[WrapperPackage]:
+        """
+        Do nothing.
+        """
+        return []

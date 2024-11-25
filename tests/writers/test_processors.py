@@ -30,7 +30,7 @@ class TestProcessors:
         result = process_boto3_stubs(
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
-            generate_setup=True,
+            generate_package=True,
             version="1.2.3",
             static_files_path=Path("static_files_path"),
         )
@@ -59,7 +59,7 @@ class TestProcessors:
         result = process_boto3_stubs_lite(
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
-            generate_setup=True,
+            generate_package=True,
             version="1.2.3",
             static_files_path=Path("static_files_path"),
         )
@@ -92,7 +92,7 @@ class TestProcessors:
             output_path=Path("my_path"),
             service_names=[service_name_mock],
             version="1.2.3",
-            generate_setup=True,
+            generate_package=True,
         )
         PackageWriterMock().write_package.assert_called()
         parse_master_package_mock.assert_called_with(
@@ -136,7 +136,7 @@ class TestProcessors:
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
             version="1.2.3",
-            generate_setup=True,
+            generate_package=True,
         )
         PackageWriterMock().write_package.assert_called_once_with(
             package=package_mock,

@@ -194,7 +194,7 @@ def process_boto3_stubs_full(
     service_names: Iterable[ServiceName],
     version: str,
     *,
-    generate_setup: bool,
+    generate_package: bool,
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3-stubs-full`.
@@ -203,7 +203,7 @@ def process_boto3_stubs_full(
         output_path -- Package output path
         service_names -- List of known service names
         version -- Package version
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
 
     Return:
         Parsed Boto3StubsPackage.
@@ -220,7 +220,7 @@ def process_boto3_stubs_full(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_package=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(

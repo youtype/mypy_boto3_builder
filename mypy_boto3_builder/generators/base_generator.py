@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import ClassVar
 
 from mypy_boto3_builder.cli_parser import CLINamespace
-from mypy_boto3_builder.enums.product import OutputType, ProductType
+from mypy_boto3_builder.enums.product_type import ProductType
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
@@ -22,6 +22,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.github import download_and_extract
+from mypy_boto3_builder.utils.package_builder import PackageBuilder
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -50,6 +51,10 @@ class BaseGenerator(ABC):
         *,
         cleanup: bool,
     ) -> None:
+        self.__temp_path: Path | None = None
+        self._cleanup_dirs: list[Path] = []
+        self._downloaded_static_files_path: Path | None = None
+
         self.service_names = service_names
         self.master_service_names = master_service_names
         self.config = config
@@ -58,24 +63,42 @@ class BaseGenerator(ABC):
         self.cleanup = cleanup
         self.package_writer = PackageWriter(
             output_path=self.output_path,
-            generate_package=self.generate_package,
+            generate_package=self.is_package(),
             cleanup=cleanup,
         )
-        self._downloaded_static_files_path: Path | None = None
-        self._cleanup_dirs: list[Path] = []
+
+    def is_package(self) -> bool:
+        """
+        Whether to generate ready-to-install package or installed package.
+        """
+        return not any(output_type.is_installed() for output_type in self.config.output_types)
+
+    def is_packaged(self) -> bool:
+        """
+        Whether to build wheel or sdist.
+        """
+        return any(output_type.is_packaged() for output_type in self.config.output_types)
+
+    def is_package_temporary(self) -> bool:
+        """
+        Whether to preserve generated package.
+        """
+        return not any(output_type.is_preserved() for output_type in self.config.output_types)
 
     @property
-    def generate_package(self) -> bool:
-        """
-        Whether to generate package or installed package.
-        """
-        return self.config.output_type != OutputType.installed
+    def _temp_path(self) -> Path:
+        if not self.__temp_path:
+            self.__temp_path = Path(tempfile.TemporaryDirectory(delete=False).name)
+            self._cleanup_dirs.append(self.__temp_path)
+        return self.__temp_path
 
     @property
     def output_path(self) -> Path:
         """
         Output path.
         """
+        if self.is_package_temporary():
+            return self._temp_path
         return self.config.output_path
 
     def _get_or_download_static_files_path(
@@ -93,10 +116,9 @@ class BaseGenerator(ABC):
             return self._downloaded_static_files_path
 
         self.logger.debug(f"Downloading static files from {download_url}")
-        with tempfile.TemporaryDirectory(delete=False) as temp_dir:
-            temp_dir_path = Path(temp_dir)
-            self._cleanup_dirs.append(temp_dir_path)
-            self._downloaded_static_files_path = download_and_extract(download_url, temp_dir_path)
+        temp_dir_path = Path(tempfile.TemporaryDirectory(delete=False).name)
+        self._cleanup_dirs.append(temp_dir_path)
+        self._downloaded_static_files_path = download_and_extract(download_url, temp_dir_path)
 
         self.logger.debug(f"Downloaded static files to {self._downloaded_static_files_path}")
 
@@ -127,16 +149,23 @@ class BaseGenerator(ABC):
         return pypi_manager.get_next_version(version)
 
     @abstractmethod
-    def generate_stubs(self) -> None:
+    def generate_stubs(self) -> Sequence[Package]:
         """
         Generate main stubs.
         """
         raise NotImplementedError("Method should be implemented in child class")
 
     @abstractmethod
-    def generate_full_stubs(self) -> None:
+    def generate_full_stubs(self) -> Sequence[Package]:
         """
         Generate full stubs.
+        """
+        raise NotImplementedError("Method should be implemented in child class")
+
+    @abstractmethod
+    def generate_custom_stubs(self) -> Sequence[Package]:
+        """
+        Generate custom stubs.
         """
         raise NotImplementedError("Method should be implemented in child class")
 
@@ -177,15 +206,26 @@ class BaseGenerator(ABC):
         """
         Run generator for a product type.
         """
+        packages: list[Package] = []
         match product_type:
             case ProductType.stubs:
-                self.generate_stubs()
+                packages.extend(self.generate_stubs())
             case ProductType.service_stubs:
-                self.generate_service_stubs()
+                packages.extend(self.generate_service_stubs())
             case ProductType.docs:
                 self.generate_docs()
             case ProductType.full:
-                self.generate_full_stubs()
+                packages.extend(self.generate_full_stubs())
+            case ProductType.custom:
+                packages.extend(self.generate_custom_stubs())
+
+        if self.is_packaged():
+            package_builder = PackageBuilder(
+                build_path=self.output_path,
+                output_path=self.config.output_path,
+            )
+            for package in packages:
+                package_builder.build(package, self.config.output_types)
 
     def _parse_service_package(
         self,
@@ -246,11 +286,12 @@ class BaseGenerator(ABC):
         )
         return service_package
 
-    def generate_service_stubs(self) -> None:
+    def generate_service_stubs(self) -> list[ServicePackage]:
         """
         Generate service stubs.
         """
         total_str = f"{len(self.service_names)}"
+        packages: list[ServicePackage] = []
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             progress_str = f"[{current_str}/{total_str}]"
@@ -263,12 +304,15 @@ class BaseGenerator(ABC):
                 continue
 
             self.logger.info(f"{progress_str} Generating {pypi_name} {version}")
-            self._process_service(
+            package = self._process_service(
                 service_name=service_name,
                 version=version,
                 package_data=self.service_package_data,
                 templates_path=self.service_template_path,
             )
+            packages.append(package)
+
+        return packages
 
     def cleanup_temporary_files(self) -> None:
         """

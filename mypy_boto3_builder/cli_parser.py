@@ -13,7 +13,8 @@ from pathlib import Path
 from typing import Any
 
 from mypy_boto3_builder.constants import PROG_NAME
-from mypy_boto3_builder.enums.product import OutputType, Product
+from mypy_boto3_builder.enums.output_type import OutputType
+from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.version import get_builder_version
 
@@ -101,7 +102,7 @@ class CLINamespace:
     output_path: Path
     service_names: list[str]
     build_version: str
-    output_type: OutputType
+    output_types: list[OutputType]
     products: list[Product]
     list_services: bool
     partial_overload: bool
@@ -203,7 +204,8 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         type=OutputType,
         action=EnumListAction,
         metavar="OUTPUT_TYPE",
-        default=OutputType.package,
+        nargs="*",
+        default=(OutputType.package,),
         help="Product output type.",
     )
     parser.add_argument(
@@ -214,7 +216,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
     result = parser.parse_args(args)
 
     if result.installed:
-        result.output_type = OutputType.installed
+        result.output_type = [OutputType.installed]
 
     return CLINamespace(
         log_level=logging.DEBUG if result.debug else logging.INFO,
@@ -222,7 +224,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         service_names=result.service_names,
         products=result.products,
         build_version=result.build_version,
-        output_type=result.output_type,
+        output_types=result.output_type,
         list_services=result.list_services,
         partial_overload=result.partial_overload,
         skip_published=result.skip_published,

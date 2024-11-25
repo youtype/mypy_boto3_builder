@@ -6,37 +6,8 @@ Copyright 2024 Vlad Emelianov
 
 from enum import Enum
 
-
-class ProductLibrary(Enum):
-    """
-    Product library for Generator.
-    """
-
-    boto3 = "boto3"
-    aiobotocore = "aiobotocore"
-    aioboto3 = "aioboto3"
-
-
-class ProductType(Enum):
-    """
-    Product type for Generator.
-    """
-
-    stubs = "stubs"
-    service_stubs = "service_stubs"
-    docs = "docs"
-    full = "full"
-
-
-class OutputType(Enum):
-    """
-    Output type for Generator.
-    """
-
-    package = "package"
-    wheel = "wheel"
-    sdist = "sdist"
-    installed = "installed"
+from mypy_boto3_builder.enums.product_library import ProductLibrary
+from mypy_boto3_builder.enums.product_type import ProductType
 
 
 class Product(Enum):

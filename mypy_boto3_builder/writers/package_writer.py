@@ -44,7 +44,7 @@ class PackageWriter:
 
     Arguments:
         output_path -- Output path
-        generate_setup -- Whether to generate setup files
+        generate_package -- Whether to generate setup files
         cleanup -- Whether to remove unknown files
     """
 
@@ -53,18 +53,18 @@ class PackageWriter:
 
     def __init__(self, output_path: Path, *, generate_package: bool, cleanup: bool) -> None:
         self.output_path = output_path
-        self.generate_package = generate_package
+        self.is_package = generate_package
         self.cleanup = cleanup
         self.logger = get_logger()
 
     def _get_package_path(self, package: Package) -> Path:
-        if self.generate_package:
+        if self.is_package:
             return self.output_path / package.directory_name / package.name
 
         return self.output_path / package.library_name
 
     def _get_service_package_path(self, package: ServicePackage) -> Path:
-        if self.generate_package:
+        if self.is_package:
             return self.output_path / package.directory_name / package.name
 
         return self.output_path / package.name
@@ -83,7 +83,11 @@ class PackageWriter:
             result.append(file_path)
             file_path.parent.mkdir(exist_ok=True, parents=True)
             content = static_path.read_text()
-            if not file_path.exists() or file_path.read_text() != content:
+            if not file_path.exists():
+                file_path.write_text(content)
+                self.logger.debug(f"Created {print_path(file_path)}")
+            # FIXME: Use filecmp instead
+            elif file_path.read_text() != content:
                 file_path.write_text(content)
                 self.logger.debug(f"Updated {print_path(file_path)}")
         return result
@@ -93,7 +97,7 @@ class PackageWriter:
         package: Package,
         templates_path: Path | None,
     ) -> list[TemplateRender]:
-        if not templates_path or not self.generate_package:
+        if not templates_path or not self.is_package:
             return []
 
         result: list[TemplateRender] = []
@@ -114,7 +118,7 @@ class PackageWriter:
         package: Package,
         templates_path: Path | None,
     ) -> list[TemplateRender]:
-        if not templates_path or not self.generate_package or not package.has_main_package():
+        if not templates_path or not self.is_package or not package.has_main_package():
             return []
 
         result: list[TemplateRender] = []
@@ -211,7 +215,7 @@ class PackageWriter:
             self._cleanup(valid_paths, cleanup_path)
 
     def _get_cleanup_path(self, package: Package) -> Path | None:
-        if self.generate_package:
+        if self.is_package:
             return self._get_setup_path(package)
 
         if package.has_main_package():
@@ -361,7 +365,7 @@ class PackageWriter:
 
         output_path = (
             self._get_setup_path(package)
-            if self.generate_package
+            if self.is_package
             else self._get_service_package_path(package)
         )
         self._cleanup(valid_paths, output_path)

@@ -21,7 +21,7 @@ def process_types_aioboto3(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
+    generate_package: bool,
     version: str,
     static_files_path: Path,
 ) -> TypesAioBoto3Package:
@@ -31,7 +31,7 @@ def process_types_aioboto3(
     Arguments:
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
         version -- Package version
         static_files_path -- Path to static files
 
@@ -48,7 +48,7 @@ def process_types_aioboto3(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_package=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(
@@ -63,7 +63,7 @@ def process_types_aioboto3_lite(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
-    generate_setup: bool,
+    generate_package: bool,
     version: str,
     static_files_path: Path,
 ) -> TypesAioBoto3Package:
@@ -73,7 +73,7 @@ def process_types_aioboto3_lite(
     Arguments:
         output_path -- Package output path
         service_names -- List of known service names
-        generate_setup -- Generate ready-to-install or to-use package
+        generate_package -- Generate ready-to-install or to-use package
         version -- Package version
         static_files_path -- Path to static files
 
@@ -90,7 +90,7 @@ def process_types_aioboto3_lite(
 
     package_writer = PackageWriter(
         output_path=output_path,
-        generate_package=generate_setup,
+        generate_package=generate_package,
         cleanup=True,
     )
     package_writer.write_package(
