@@ -143,8 +143,6 @@ target-version = "py310"
 preview = true
 select = ["ALL"]
 ignore = [
-    "ANN101",  # missing-type-self
-    "ANN102",  # missing-type-cls
     "ARG002",  # unused-argument
     "COM812",  # missing-trailing-comma
     "D107",    # undocumented-public-init

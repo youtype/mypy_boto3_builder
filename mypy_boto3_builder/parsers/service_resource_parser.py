@@ -4,10 +4,8 @@ Parser for Boto3 ServiceResource, produces `structures.ServiceResource`.
 Copyright 2024 Vlad Emelianov
 """
 
-from mypy_boto3_builder.boto3_ports.model import ResourceModel
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
@@ -71,11 +69,7 @@ class ServiceResourceParser:
 
         result.attributes.append(self._get_meta_attribute())
 
-        resource_model = ResourceModel(
-            name=self.service_name.boto3_name,
-            definition=dict(self.shape_parser.get_service_resource()),
-            resource_defs=self.shape_parser.get_subresources(),
-        )
+        resource_model = self.shape_parser.get_service_resource_model()
 
         self._logger.debug("Parsing ServiceResource methods")
         result.methods.extend(self._parse_methods())
@@ -116,9 +110,9 @@ class ServiceResourceParser:
                 ),
             )
 
-        for sub_resource_model in self._get_sub_resource_models():
-            sub_resource_name = sub_resource_model.name
+        for sub_resource_name in self.shape_parser.get_subresource_names():
             self._logger.debug(f"Parsing {sub_resource_name} sub resource")
+            sub_resource_model = self.shape_parser.get_resource_model(sub_resource_name)
             sub_resource = parse_resource(
                 sub_resource_name,
                 sub_resource_model,
@@ -150,23 +144,3 @@ class ServiceResourceParser:
                 ),
             ],
         )
-
-    def _get_resource_model(self, name: str) -> ResourceModel:
-        resource_defs = self.shape_parser.get_subresources()
-        if name not in resource_defs:
-            raise BuildInternalError(f"Resource {name} not found in subresources")
-        return ResourceModel(
-            name=name,
-            definition=dict(resource_defs[name]),
-            resource_defs=resource_defs,
-        )
-
-    def _get_sub_resource_models(self) -> list[ResourceModel]:
-        """
-        Parse ServiceResource sub-resources.
-
-        Returns:
-            A list of `ResourceModel`.
-        """
-        subresource_names = self.shape_parser.get_subresource_names()
-        return [self._get_resource_model(name) for name in subresource_names]

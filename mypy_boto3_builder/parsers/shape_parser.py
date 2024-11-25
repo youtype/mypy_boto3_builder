@@ -18,6 +18,7 @@ from botocore.model import (
 )
 
 from mypy_boto3_builder.boto3_ports.model import Collection as Boto3Collection
+from mypy_boto3_builder.boto3_ports.model import ResourceModel
 from mypy_boto3_builder.constants import (
     ATTRIBUTES,
     CLIENT,
@@ -137,10 +138,7 @@ class ShapeParser:
         """
         return self._resource_loader.has_service_resource(self.service_name)
 
-    def get_service_resource(self) -> ResourceShape:
-        """
-        Get service resource shape.
-        """
+    def _get_service_resource(self) -> ResourceShape:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         if "service" not in self._resources_shape:
@@ -151,12 +149,9 @@ class ShapeParser:
         """
         Get available subresource names.
         """
-        return list(self.get_subresources().keys())
+        return list(self._get_subresources().keys())
 
-    def get_subresources(self) -> dict[str, ResourceShape]:
-        """
-        Get available subresources.
-        """
+    def _get_subresources(self) -> dict[str, ResourceShape]:
         if not self._resources_shape:
             return {}
         if "resources" not in self._resources_shape:
@@ -164,9 +159,34 @@ class ShapeParser:
 
         return self._resources_shape["resources"]
 
+    def get_service_resource_model(self) -> ResourceModel:
+        """
+        Get service resource model.
+        """
+        if not self.has_service_resource():
+            raise ShapeParserError("Service resource does not exist")
+        return ResourceModel(
+            name=self.service_name.boto3_name,
+            definition=dict(self._get_service_resource()),
+            resource_defs=self._get_subresources(),
+        )
+
+    def get_resource_model(self, resource_name: str) -> ResourceModel:
+        """
+        Get service resource model.
+        """
+        resource_defs = self._get_subresources()
+        if resource_name not in resource_defs:
+            raise ShapeParserError(f"Resource {resource_name} not found in subresources")
+        return ResourceModel(
+            name=resource_name,
+            definition=dict(resource_defs[resource_name]),
+            resource_defs=resource_defs,
+        )
+
     def _get_resource_shape(self, name: str) -> ResourceShape:
         if name == SERVICE_RESOURCE:
-            return self.get_service_resource()
+            return self._get_service_resource()
 
         if not self._resources_shape or "resources" not in self._resources_shape:
             raise ShapeParserError("Resource shape not found")
@@ -804,9 +824,14 @@ class ShapeParser:
         )
         return Attribute(name=attribute_name, type_annotation=attribute_type, is_identifier=True)
 
-    def _get_exisiting_sub_resource_names(
+    def _get_existing_sub_resource_names(
         self, service_resource_shape: ResourceShape, names: Iterable[str]
     ) -> set[str]:
+        """
+        Refer to `boto3.model._get_related_resources` definition.
+
+        Probably it contains a bug that causes the issue with `ec2` package.
+        """
         result: set[str] = set()
         has_map = service_resource_shape.get("has", {})
         has_rename_map: dict[str, str] = {}
@@ -844,13 +869,13 @@ class ShapeParser:
             result[method.name] = method
 
         sub_resource_names = self.get_subresource_names()
-        existing_sub_resource_names = self._get_exisiting_sub_resource_names(
+        existing_sub_resource_names = self._get_existing_sub_resource_names(
             service_resource_shape, sub_resource_names
         )
         for sub_resource_name in sub_resource_names:
             # FIXME: hack for ec2: KeyPairInfo is not registered, but present in docs
             if sub_resource_name not in existing_sub_resource_names:
-                self.logger.warning(
+                self.logger.debug(
                     f"Skipping {sub_resource_name} sub resource"
                     " because it is not present in ServiceResource.has"
                 )
