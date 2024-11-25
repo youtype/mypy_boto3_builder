@@ -12,6 +12,8 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.types_aioboto3_package import TypesAioBoto3Package
 from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBotocorePackage
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 def parse_boto3_stubs_package(
@@ -79,8 +81,11 @@ def parse_types_aioboto3_package(
     """
     package = TypesAioBoto3Package(package_data, service_names, version)
     parser = WrapperPackageParser(package)
-    package.init_functions.extend(parser.get_init_client_functions())
-    package.init_functions.extend(parser.get_init_resource_functions())
     package.session_class.methods.extend(parser.get_session_client_methods())
-    package.session_class.methods.extend(parser.get_session_resource_methods())
+    for method in parser.get_session_resource_methods():
+        method.return_type = TypeSubscript(
+            InternalImport("ResourceCreatorContext", stringify=False),
+            [method.return_type],
+        )
+        package.session_class.methods.append(method)
     return package

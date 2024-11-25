@@ -1,5 +1,5 @@
 from types import TracebackType
-from typing import Any, List, Optional, Type, Union
+from typing import Any, Generic, List, Optional, Type, TypeVar, Union
 
 from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
@@ -70,9 +70,11 @@ class Session:
         aws_secret_access_key: Optional[str] = ...,
         aws_session_token: Optional[str] = ...,
         config: Optional[AioConfig] = ...,
-    ) -> AIOBoto3ServiceResource: ...
+    ) -> ResourceCreatorContext[AIOBoto3ServiceResource]: ...
 
-class ResourceCreatorContext:
+_AIOBoto3ServiceResource = TypeVar("_AIOBoto3ServiceResource", bound=AIOBoto3ServiceResource)
+
+class ResourceCreatorContext(Generic[_AIOBoto3ServiceResource]):
     def __init__(
         self,
         session: Session,
@@ -88,7 +90,7 @@ class ResourceCreatorContext:
         config: AioConfig,
         resource_model: Any,
     ) -> None: ...
-    async def __aenter__(self) -> AIOBoto3ServiceResource: ...
+    async def __aenter__(self) -> _AIOBoto3ServiceResource: ...
     async def __aexit__(
         self,
         exc_type: Optional[Type[BaseException]],

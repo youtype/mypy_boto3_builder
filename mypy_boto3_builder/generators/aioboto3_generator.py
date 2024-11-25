@@ -14,7 +14,7 @@ from mypy_boto3_builder.constants import (
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
-from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
+from mypy_boto3_builder.postprocessors.aioboto3 import AioBoto3Postprocessor
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.writers.aioboto3_processors import (
     process_types_aioboto3,
@@ -36,11 +36,11 @@ class AioBoto3Generator(BaseGenerator):
             StaticStubsPullURL.types_aioboto3,
         )
 
-    def get_postprocessor(self, service_package: ServicePackage) -> AioBotocorePostprocessor:
+    def get_postprocessor(self, service_package: ServicePackage) -> AioBoto3Postprocessor:
         """
         Get postprocessor for service package.
         """
-        return AioBotocorePostprocessor(service_package, self.master_service_names)
+        return AioBoto3Postprocessor(service_package, self.master_service_names)
 
     def generate_stubs(self) -> None:
         """
