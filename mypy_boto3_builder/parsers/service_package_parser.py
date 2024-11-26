@@ -115,7 +115,7 @@ class ServicePackageParser:
             self.service_name,
             self.shape_parser,
         )
-        service_resource = service_resource_parser.parse()
+        service_resource = service_resource_parser.parse_service_resource()
 
         return ServicePackage(
             data=self.package_data,
