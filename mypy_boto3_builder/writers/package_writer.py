@@ -5,7 +5,9 @@ Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Sequence
+import filecmp
 from pathlib import Path
+import shutil
 from typing import Final
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
@@ -72,7 +74,12 @@ class PackageWriter:
     def _get_setup_path(self, package: Package) -> Path:
         return self.output_path / package.directory_name
 
-    def _write_static_paths(self, static_files_path: Path | None, package: Package) -> list[Path]:
+    def _write_static_paths(
+        self,
+        static_files_path: Path | None,
+        package: Package,
+        exclude_paths: Iterable[Path],
+    ) -> list[Path]:
         if not static_files_path:
             return []
         package_path = self._get_package_path(package)
@@ -80,15 +87,15 @@ class PackageWriter:
         for static_path in static_files_path.glob("**/*.pyi"):
             relative_output_path = static_path.relative_to(static_files_path)
             file_path = package_path / relative_output_path
+            if file_path in exclude_paths:
+                continue
             result.append(file_path)
             file_path.parent.mkdir(exist_ok=True, parents=True)
-            content = static_path.read_text()
             if not file_path.exists():
-                file_path.write_text(content)
+                shutil.copy(static_path, file_path)
                 self.logger.debug(f"Created {print_path(file_path)}")
-            # FIXME: Use filecmp instead
-            elif file_path.read_text() != content:
-                file_path.write_text(content)
+            elif not filecmp.cmp(static_path, file_path):
+                shutil.copy(static_path, file_path)
                 self.logger.debug(f"Updated {print_path(file_path)}")
         return result
 
@@ -113,7 +120,7 @@ class PackageWriter:
             result.append(TemplateRender(template_path, output_file_path))
         return result
 
-    def _get_package_template_paths(
+    def _get_package_template_renders(
         self,
         package: Package,
         templates_path: Path | None,
@@ -195,14 +202,17 @@ class PackageWriter:
             static_files_path -- Path to static files for package
             exclude_template_names -- Do not render templates with these names
         """
-        static_paths = self._write_static_paths(static_files_path, package)
         template_renders: list[TemplateRender] = [
             *self._get_setup_template_paths(package, templates_path),
-            *self._get_package_template_paths(package, templates_path),
+            *self._get_package_template_renders(package, templates_path),
         ]
         template_renders = [
             i for i in template_renders if i.template_path.name not in exclude_template_names
         ]
+        exclude_static_paths: set[Path] = set()
+        for template_render in template_renders:
+            exclude_static_paths.update(template_render.paths)
+        static_paths = self._write_static_paths(static_files_path, package, exclude_static_paths)
         self._render_templates(package, template_renders)
 
         rendered_paths = [path for t in template_renders for path in t.paths]
