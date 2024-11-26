@@ -5,6 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.boto3_ports.model import ResourceModel
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_references import parse_references
@@ -35,6 +36,7 @@ def parse_resource(
         name=name,
         service_name=service_name,
     )
+    logger = get_logger()
 
     shape_method_map = shape_parser.get_resource_method_map(name)
     stub_method_map = get_stub_method_map(service_name, name)
@@ -52,7 +54,10 @@ def parse_resource(
     existing_attribute_names = {a.name for a in identifier_attributes}
     for attribute in references:
         if attribute.name in existing_attribute_names:
-            raise ValueError(f"Duplicate attribute name {name}.{attribute.name} in reference")
+            logger.warning(
+                f"Duplicate attribute name {name}.{attribute.name} in reference, renaming"
+            )
+            attribute.name = f"{attribute.name}_reference"
         existing_attribute_names.add(attribute.name)
     for attribute in attributes:
         if attribute.name in existing_attribute_names:

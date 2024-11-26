@@ -54,6 +54,37 @@ class ServiceResourceParser:
             type_ignore=True,
         )
 
+    def _parse_attributes(self) -> list[Attribute]:
+        resource_model = self.shape_parser.get_service_resource_model()
+        identifier_attributes = self.shape_parser.get_identifier_attributes(SERVICE_RESOURCE)
+        references = parse_references(resource_model)
+        attributes = parse_attributes(
+            self.service_name,
+            SERVICE_RESOURCE,
+            resource_model,
+            self.shape_parser,
+        )
+
+        existing_attribute_names = {a.name for a in identifier_attributes}
+        for attribute in references:
+            if attribute.name in existing_attribute_names:
+                self._logger.warning(
+                    f"Duplicate attribute name {SERVICE_RESOURCE}.{attribute.name}"
+                    " in reference, renaming"
+                )
+                attribute.name = f"{attribute.name}_reference"
+            existing_attribute_names.add(attribute.name)
+        for attribute in attributes:
+            if attribute.name in existing_attribute_names:
+                # ResourceModel.load_rename_map logic
+                attribute.name = f"{attribute.name}_attribute"
+
+        return [
+            *attributes,
+            *identifier_attributes,
+            *references,
+        ]
+
     def parse(self) -> ServiceResource | None:
         """
         Parse main boto3 ServiceResource.
@@ -75,30 +106,7 @@ class ServiceResourceParser:
         result.methods.extend(self._parse_methods())
 
         self._logger.debug("Parsing ServiceResource attributes")
-        identifier_attributes = self.shape_parser.get_identifier_attributes(SERVICE_RESOURCE)
-        references = parse_references(resource_model)
-        attributes = parse_attributes(
-            self.service_name,
-            SERVICE_RESOURCE,
-            resource_model,
-            self.shape_parser,
-        )
-
-        existing_attribute_names = {a.name for a in identifier_attributes}
-        for attribute in references:
-            if attribute.name in existing_attribute_names:
-                raise ValueError(
-                    f"Duplicate attribute name {SERVICE_RESOURCE}.{attribute.name} in reference"
-                )
-            existing_attribute_names.add(attribute.name)
-        for attribute in attributes:
-            if attribute.name in existing_attribute_names:
-                # ResourceModel.load_rename_map logic
-                attribute.name = f"{attribute.name}_attribute"
-
-        result.attributes.extend(attributes)
-        result.attributes.extend(identifier_attributes)
-        result.attributes.extend(references)
+        result.attributes.extend(self._parse_attributes())
 
         self._logger.debug("Parsing ServiceResource collections")
         collections = parse_collections(
