@@ -91,7 +91,9 @@ def setup_logging(level: int) -> logging.Logger:
     """
     logger = logging.getLogger(LOGGER_NAME)
     stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S")
+    formatter = logging.Formatter(
+        "%(asctime)s %(name)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S"
+    )
     stream_handler.setFormatter(formatter)
     stream_handler.setLevel(level)
     logger.addHandler(stream_handler)
@@ -189,6 +191,7 @@ def build_packages(
     service_names: list[str],
     output_path: Path,
     output_type: OutputType,
+    log_level: int,
 ) -> None:
     """
     Build and install master stubs.
@@ -202,7 +205,7 @@ def build_packages(
     products = [BuilderProduct(i) for i in (*product.master_build_products, product.build_product)]
     run_builder(
         BuilderCLINamespace(
-            log_level=logging.ERROR,
+            log_level=log_level,
             output_path=output_path,
             service_names=service_names,
             build_version="",
@@ -336,6 +339,7 @@ def main() -> None:
     logger = setup_logging(args.log_level)
     error: Exception | None = None
     service_names = get_service_names(args)
+    logger.debug(f"Running for service names: {service_names}")
 
     if not args.fast:
         logger.info("Building packages...")
@@ -344,11 +348,10 @@ def main() -> None:
             service_names=service_names,
             output_path=args.output_path,
             output_type=OutputType.wheel if args.wheel else OutputType.package,
+            log_level=args.log_level,
         )
 
         for package_path in args.output_path.iterdir():
-            if "lite" in package_path.name:
-                continue
             logger.info(f"Installing {print_path(package_path)}...")
             check_call([sys.executable, "-m", "pip", "install", package_path.as_posix()])
 
