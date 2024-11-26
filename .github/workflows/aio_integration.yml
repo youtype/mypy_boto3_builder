@@ -24,10 +24,11 @@ jobs:
       - name: Install extras
         run: uv pip install aioboto3
       - name: Integration tests
-        run: uv run scripts/integration.py \
-          --product aioboto3 \
-          --output-path=mypy_boto3_output \
-          -d
+        run: |
+          uv run scripts/integration.py \
+            --product aioboto3 \
+            --output-path=mypy_boto3_output \
+            -d
       - name: Store artifacts
         uses: actions/upload-artifact@v4
         with:

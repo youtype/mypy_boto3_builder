@@ -41,6 +41,8 @@ jobs:
         run: |
           uv pip install mypy_boto3_output/*.whl
       - name: Integration tests
-        run: uv run scripts/integration.py -w --product boto3 -fd s3 ec2
+        run: |
+          uv run scripts/integration.py -w --product boto3 -fd s3 ec2
       - name: Aio integration tests
-        run: uv run scripts/integration.py -w --product aioboto3 -fd s3
+        run: |
+          uv run scripts/integration.py -w --product aioboto3 -fd s3
