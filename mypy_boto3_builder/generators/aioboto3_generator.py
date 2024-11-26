@@ -48,11 +48,17 @@ class AioBoto3Generator(BaseGenerator):
         """
         Generate `types-aioboto3` package.
         """
-        packages = (
-            self._generate_stubs(),
-            self._generate_stubs_lite(),
-        )
-        return [package for package in packages if package]
+        packages: list[WrapperPackage] = []
+        package = self._generate_stubs()
+        if package:
+            packages.append(package)
+
+        if not self.config.skip_lite_package:
+            package = self._generate_stubs_lite()
+            if package:
+                packages.append(package)
+
+        return packages
 
     def _generate_stubs(self) -> TypesAioBoto3Package | None:
         package_data = TypesAioBoto3PackageData

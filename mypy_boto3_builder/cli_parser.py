@@ -109,6 +109,7 @@ class CLINamespace:
     skip_published: bool = False
     disable_smart_version: bool = False
     download_static_stubs: bool = True
+    skip_lite_package: bool = False
 
 
 def parse_args(args: Sequence[str]) -> CLINamespace:
@@ -213,6 +214,11 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         action="store_true",
         help="List supported boto3 service names.",
     )
+    parser.add_argument(
+        "--skip-lite",
+        action="store_true",
+        help="Skip generation for *-lite packages.",
+    )
     result = parser.parse_args(args)
 
     if result.installed:
@@ -230,4 +236,5 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         skip_published=result.skip_published,
         disable_smart_version=result.no_smart_version,
         download_static_stubs=result.download_static_stubs,
+        skip_lite_package=result.skip_lite,
     )

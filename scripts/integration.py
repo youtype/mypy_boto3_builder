@@ -31,7 +31,7 @@ EXAMPLES_PATH = ROOT_PATH / "examples"
 AIO_EXAMPLES_PATH = ROOT_PATH / "aio_examples"
 SCRIPTS_PATH = ROOT_PATH / "scripts"
 LOGGER_NAME = "integration"
-OUTPUT_PATH = Path(tempfile.TemporaryDirectory(delete=False).name)
+TEMP_PATH = Path(tempfile.TemporaryDirectory().name)
 
 
 class SnapshotMismatchError(Exception):
@@ -130,6 +130,8 @@ class CLINamespace:
     fast: bool
     update: bool
     services: tuple[str, ...]
+    output_path: Path
+    wheel: bool
 
 
 def parse_args() -> CLINamespace:
@@ -148,6 +150,14 @@ def parse_args() -> CLINamespace:
         help=f"Product to test. Default: {ProductChoices.boto3.name}",
     )
     parser.add_argument("services", nargs="*")
+    parser.add_argument(
+        "-o",
+        "--output-path",
+        type=Path,
+        required=False,
+        help="Packages output path",
+    )
+    parser.add_argument("-w", "--wheel", action="store_true", help="Build wheel packages")
     args = parser.parse_args()
     return CLINamespace(
         log_level=logging.DEBUG if args.debug else logging.INFO,
@@ -155,6 +165,8 @@ def parse_args() -> CLINamespace:
         fast=args.fast,
         update=args.update,
         services=tuple(args.services),
+        output_path=args.output_path or TEMP_PATH,
+        wheel=args.wheel,
     )
 
 
@@ -172,7 +184,12 @@ def check_call(cmd: Sequence[str]) -> None:
         raise
 
 
-def build_packages(product: Product, service_names: list[str]) -> None:
+def build_packages(
+    product: Product,
+    service_names: list[str],
+    output_path: Path,
+    output_type: OutputType,
+) -> None:
     """
     Build and install master stubs.
 
@@ -186,16 +203,17 @@ def build_packages(product: Product, service_names: list[str]) -> None:
     run_builder(
         BuilderCLINamespace(
             log_level=logging.ERROR,
-            output_path=OUTPUT_PATH,
+            output_path=output_path,
             service_names=service_names,
             build_version="",
-            output_types=[OutputType.wheel],
+            output_types=[output_type],
             products=products,
             disable_smart_version=True,
             download_static_stubs=False,
             skip_published=False,
             partial_overload=False,
             list_services=False,
+            skip_lite_package=True,
         )
     )
 
@@ -322,11 +340,13 @@ def main() -> None:
     if not args.fast:
         logger.info("Building packages...")
         build_packages(
-            args.product,
-            service_names,
+            product=args.product,
+            service_names=service_names,
+            output_path=args.output_path,
+            output_type=OutputType.wheel if args.wheel else OutputType.package,
         )
 
-        for package_path in OUTPUT_PATH.iterdir():
+        for package_path in args.output_path.iterdir():
             if "lite" in package_path.name:
                 continue
             logger.info(f"Installing {print_path(package_path)}...")
@@ -348,8 +368,8 @@ def main() -> None:
             logger.warning(f"Snapshot mismatch: {e}")
             error = e
 
-    if OUTPUT_PATH.exists():
-        shutil.rmtree(OUTPUT_PATH)
+    if TEMP_PATH.exists():
+        shutil.rmtree(TEMP_PATH)
 
     if error:
         logger.error(error)

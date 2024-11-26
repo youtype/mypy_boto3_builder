@@ -113,16 +113,20 @@ class Boto3Generator(BaseGenerator):
         """
         result: list[Package] = []
         package: Package | None = None
-        if self.is_package():
-            package = self._generate_master()
 
         package = self._generate_boto3_stubs()
         if package:
             result.append(package)
 
-        package = self._generate_boto3_stubs_lite()
-        if package:
-            result.append(package)
+        if not self.config.skip_lite_package and self.is_package():
+            package = self._generate_master()
+            if package:
+                result.append(package)
+
+        if not self.config.skip_lite_package:
+            package = self._generate_boto3_stubs_lite()
+            if package:
+                result.append(package)
 
         return result
 

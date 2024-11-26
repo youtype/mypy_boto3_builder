@@ -50,15 +50,21 @@ class AioBotocoreGenerator(BaseGenerator):
         """
         return AioBotocorePostprocessor(service_package, self.master_service_names)
 
-    def generate_stubs(self) -> list[TypesAioBotocorePackage]:
+    def generate_stubs(self) -> list[WrapperPackage]:
         """
         Generate `aiobotocore-stubs` package.
         """
-        packages = (
-            self._generate_stubs(),
-            self._generate_stubs_lite(),
-        )
-        return [package for package in packages if package]
+        packages: list[WrapperPackage] = []
+        package = self._generate_stubs()
+        if package:
+            packages.append(package)
+
+        if not self.config.skip_lite_package:
+            package = self._generate_stubs_lite()
+            if package:
+                packages.append(package)
+
+        return packages
 
     def _generate_stubs(self) -> TypesAioBotocorePackage | None:
         package_data = TypesAioBotocorePackageData

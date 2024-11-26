@@ -23,7 +23,10 @@ jobs:
         run: uv sync --extra check --dev
       - name: Integration tests
         run: |
-          uv run scripts/integration.py --product boto3 -d
+          uv run scripts/integration.py \
+            --product boto3 \
+            --output-path=mypy_boto3_output \
+            -d
       - name: Store artifacts
         uses: actions/upload-artifact@v4
         with:
