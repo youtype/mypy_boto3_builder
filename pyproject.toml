@@ -179,7 +179,6 @@ fixable = ["ALL"]
 unfixable = ["B"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 exclude = ["*.pyi", "examples/*", "aio_examples/*"]
-allowed-confusables = ["’", "–"]
 
 [tool.ruff.lint.per-file-ignores]
 "test_*.py" = [

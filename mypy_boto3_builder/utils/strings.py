@@ -25,7 +25,7 @@ RESERVED_NAMES: Final = {
     *keyword.kwlist,
 }
 AWS_LINK_RE: Final = re.compile(r"`([^`]+\S)\s*<https://(\S+)>`\_*")
-REPLACE_DOCSTRING_CHARS: Final = MappingProxyType({"’": "'", "–": "-"})
+REPLACE_DOCSTRING_CHARS: Final = MappingProxyType({"’": "'", "–": "-", " ": " "})  # noqa: RUF001
 
 
 def get_class_prefix(func_name: str) -> str:

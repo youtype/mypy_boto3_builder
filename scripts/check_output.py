@@ -141,7 +141,6 @@ def run_ruff(path: Path) -> None:
         "B",
         "I",
         "N",
-        "D",
         "C4",
         "C90",
         "RUF",
@@ -167,31 +166,18 @@ def run_ruff(path: Path) -> None:
         "FURB",
     ]
     ignore_errors = [
-        "A002",
-        "B014",
-        "D200",
-        "D101",
-        "D102",
-        "D105",
-        "D107",
-        "D203",
-        "D205",
-        "D212",
-        "D400",
-        "D401",
-        "D403",
-        "D404",
-        "D415",
-        "D418",
-        "E203",
-        "E501",
-        "N802",
-        "N803",
-        "N812",
-        "PYI036",
-        "RET503",
-        "UP004",
-        "UP013",
+        "A002",  # builtin-argument-shadowing
+        "B014",  # duplicate-handler-exception
+        "E203",  # whitespace-before-comment
+        "E501",  # line-too-long
+        "E741",  # ambiguous-variable-name
+        "N802",  # invalid-function-name
+        "N803",  # invalid-argument-name
+        "N812",  # lowercase-imported-as-non-lowercase
+        "PYI036",  # bad-exit-annotation
+        "RET503",  # implicit-return
+        "UP004",  # useless-object-inheritance
+        "UP013",  # convert-typed-dict-functional-to-class
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
