@@ -104,11 +104,11 @@ class CLINamespace:
     build_version: str
     output_types: list[OutputType]
     products: list[Product]
-    list_services: bool
-    partial_overload: bool
-    skip_published: bool
-    disable_smart_version: bool
-    download_static_stubs: bool
+    list_services: bool = False
+    partial_overload: bool = False
+    skip_published: bool = False
+    disable_smart_version: bool = False
+    download_static_stubs: bool = True
 
 
 def parse_args(args: Sequence[str]) -> CLINamespace:

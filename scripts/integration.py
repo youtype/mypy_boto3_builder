@@ -15,9 +15,15 @@ import logging
 import shutil
 import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
+
+from mypy_boto3_builder.cli_parser import CLINamespace as BuilderCLINamespace
+from mypy_boto3_builder.enums.output_type import OutputType
+from mypy_boto3_builder.enums.product import Product as BuilderProduct
+from mypy_boto3_builder.main import run as run_builder
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -25,6 +31,7 @@ EXAMPLES_PATH = ROOT_PATH / "examples"
 AIO_EXAMPLES_PATH = ROOT_PATH / "aio_examples"
 SCRIPTS_PATH = ROOT_PATH / "scripts"
 LOGGER_NAME = "integration"
+OUTPUT_PATH = Path(tempfile.TemporaryDirectory(delete=False).name)
 
 
 class SnapshotMismatchError(Exception):
@@ -165,7 +172,7 @@ def check_call(cmd: Sequence[str]) -> None:
         raise
 
 
-def install_master(product: Product) -> None:
+def build_packages(product: Product, service_names: list[str]) -> None:
     """
     Build and install master stubs.
 
@@ -174,35 +181,23 @@ def install_master(product: Product) -> None:
     """
     if product.prerequisites:
         check_call([sys.executable, "-m", "pip", "install", *product.prerequisites])
-    check_call(
-        [
-            print_path(SCRIPTS_PATH / "build.sh"),
-            "--product",
-            *product.master_build_products,
-            "--no-smart-version",
-        ],
+
+    products = [BuilderProduct(i) for i in (*product.master_build_products, product.build_product)]
+    run_builder(
+        BuilderCLINamespace(
+            log_level=logging.ERROR,
+            output_path=OUTPUT_PATH,
+            service_names=service_names,
+            build_version="",
+            output_types=[OutputType.wheel],
+            products=products,
+            disable_smart_version=True,
+            download_static_stubs=False,
+            skip_published=False,
+            partial_overload=False,
+            list_services=False,
+        )
     )
-    check_call([print_path(product.install_script_path), "master"])
-
-
-def install_service(service_name: str, product: Product) -> None:
-    """
-    Build and install a service subpackage.
-
-    - boto3: `mypy-boto3-*`
-    - aioboto3: `types-aiobotocore-*`
-    """
-    check_call(
-        [
-            print_path(SCRIPTS_PATH / "build.sh"),
-            "-s",
-            service_name,
-            "--product",
-            product.build_product,
-            "--no-smart-version",
-        ],
-    )
-    check_call([print_path(product.install_script_path), service_name])
 
 
 def compare(data: str, snapshot_path: Path, *, update: bool) -> None:
@@ -270,7 +265,7 @@ def run_mypy(path: Path, snapshot_path: Path, *, update: bool) -> None:
     """
     try:
         output = subprocess.check_output(
-            [sys.executable, "-m", "mypy", path.as_posix()],
+            [sys.executable, "-m", "mypy", path.as_posix(), "--no-incremental"],
             stderr=subprocess.STDOUT,
             encoding="utf8",
         )
@@ -299,38 +294,63 @@ def run_call(path: Path) -> None:
         raise
 
 
-def main() -> None:
+def get_service_names(args: CLINamespace) -> list[str]:
     """
-    Run main logic.
+    Get service names from config.
     """
-    args = parse_args()
-    logger = setup_logging(args.log_level)
-    if not args.fast:
-        logger.info("Installing master...")
-        install_master(args.product)
-    error: Exception | None = None
+    service_names: list[str] = []
     for file in args.product.examples_path.iterdir():
         if not file.name.endswith("_example.py"):
             continue
         service_name = file.name.replace("_example.py", "")
         if args.services and service_name not in args.services:
             continue
+        service_names.append(service_name)
+
+    return service_names
+
+
+def main() -> None:
+    """
+    Run main logic.
+    """
+    args = parse_args()
+    logger = setup_logging(args.log_level)
+    error: Exception | None = None
+    service_names = get_service_names(args)
+
+    if not args.fast:
+        logger.info("Building packages...")
+        build_packages(
+            args.product,
+            service_names,
+        )
+
+        for package_path in OUTPUT_PATH.iterdir():
+            if "lite" in package_path.name:
+                continue
+            logger.info(f"Installing {print_path(package_path)}...")
+            check_call([sys.executable, "-m", "pip", "install", package_path.as_posix()])
+
+    for service_name in service_names:
+        file_path = args.product.examples_path / f"{service_name}_example.py"
         logger.info(f"Checking {service_name}...")
-        if not args.fast:
-            logger.debug(f"Installing {service_name}...")
-            install_service(service_name, args.product)
         try:
-            logger.debug(f"Running {print_path(file)} ...")
-            run_call(file)
-            logger.debug(f"Running mypy for {print_path(file)} ...")
-            snapshot_path = args.product.examples_path / "mypy" / f"{file.name}.out"
-            run_mypy(file, snapshot_path, update=args.update)
-            logger.debug(f"Running pyright for {print_path(file)} ...")
-            snapshot_path = args.product.examples_path / "pyright" / f"{file.name}.json"
-            run_pyright(file, snapshot_path, update=args.update)
+            logger.debug(f"Running {print_path(file_path)} ...")
+            run_call(file_path)
+            logger.debug(f"Running mypy for {print_path(file_path)} ...")
+            snapshot_path = args.product.examples_path / "mypy" / f"{file_path.name}.out"
+            run_mypy(file_path, snapshot_path, update=args.update)
+            logger.debug(f"Running pyright for {print_path(file_path)} ...")
+            snapshot_path = args.product.examples_path / "pyright" / f"{file_path.name}.json"
+            run_pyright(file_path, snapshot_path, update=args.update)
         except SnapshotMismatchError as e:
             logger.warning(f"Snapshot mismatch: {e}")
             error = e
+
+    if OUTPUT_PATH.exists():
+        shutil.rmtree(OUTPUT_PATH)
+
     if error:
         logger.error(error)
         sys.exit(1)
