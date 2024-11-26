@@ -59,7 +59,12 @@ def parse_aiobotocore_stubs_package(
     """
     package = TypesAioBotocorePackage(package_data, service_names, version)
     parser = WrapperPackageParser(package)
-    package.session_class.methods.extend(parser.get_session_client_methods("create_client"))
+    for method in parser.get_session_client_methods("create_client"):
+        method.return_type = TypeSubscript(
+            InternalImport("ClientCreatorContext", stringify=False),
+            [method.return_type],
+        )
+        package.session_class.methods.append(method)
     return package
 
 

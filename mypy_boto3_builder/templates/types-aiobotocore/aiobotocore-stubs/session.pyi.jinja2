@@ -1,5 +1,5 @@
 from types import TracebackType
-from typing import Any, List, Type, Optional
+from typing import Any, Generic, List, Optional, Type, TypeVar, Union
 
 from aiobotocore.client import AioBaseClient as AioBaseClient
 from aiobotocore.client import AioClientCreator as AioClientCreator
@@ -16,9 +16,11 @@ from botocore.session import Session as BotocoreSession
     {{ import_record -}}{{ "\n" -}}
 {% endfor -%}
 
-class ClientCreatorContext:
+_AioBaseClient = TypeVar("_AioBaseClient", bound="AioBaseClient")
+
+class ClientCreatorContext(Generic[_AioBaseClient]):
     def __init__(self, coro: Any) -> None: ...
-    async def __aenter__(self) -> AioBaseClient: ...
+    async def __aenter__(self) -> _AioBaseClient: ...
     async def __aexit__(
         self, 
         exc_type: Optional[Type[BaseException]],
