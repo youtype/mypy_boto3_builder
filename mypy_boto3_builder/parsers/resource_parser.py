@@ -61,13 +61,12 @@ class ResourceParser:
         return {**shape_method_map, **stub_method_map}
 
     def _parse_attributes(self, collections: Iterable[Collection]) -> list[Attribute]:
-        resource_model = self.shape_parser.get_service_resource_model()
         identifier_attributes = self.shape_parser.get_identifier_attributes(self.name)
-        references = parse_references(resource_model)
+        references = parse_references(self.resource_model)
         attributes = parse_attributes(
             self.service_name,
             self.name,
-            resource_model,
+            self.resource_model,
             self.shape_parser,
         )
 
