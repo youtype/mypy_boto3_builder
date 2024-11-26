@@ -56,7 +56,7 @@ class ResourceParser:
         return self._resource_model
 
     def _parse_method_map(self) -> dict[str, Method]:
-        shape_method_map = self.shape_parser.get_service_resource_method_map()
+        shape_method_map = self.shape_parser.get_resource_method_map(self.name)
         stub_method_map = get_stub_method_map(self.service_name, self.name)
         return {**shape_method_map, **stub_method_map}
 

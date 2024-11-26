@@ -14,10 +14,12 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.client import Client
+from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
 
 
 class ServiceResourceParser(ResourceParser):
@@ -51,6 +53,11 @@ class ServiceResourceParser(ResourceParser):
             ),
             type_ignore=True,
         )
+
+    def _parse_method_map(self) -> dict[str, Method]:
+        shape_method_map = self.shape_parser.get_service_resource_method_map()
+        stub_method_map = get_stub_method_map(self.service_name, self.name)
+        return {**shape_method_map, **stub_method_map}
 
     def _get_resource_model(self) -> ResourceModel:
         return self.shape_parser.get_service_resource_model()
