@@ -45,12 +45,22 @@ def parse_resource(
 
     result.methods.extend(method_map.values())
 
-    attributes = parse_attributes(service_name, name, resource_model, shape_parser)
-    result.attributes.extend(attributes)
-
-    result.attributes.extend(shape_parser.get_resource_identifier_attributes(name))
-
+    identifier_attributes = shape_parser.get_identifier_attributes(name)
     references = parse_references(resource_model)
+    attributes = parse_attributes(service_name, name, resource_model, shape_parser)
+
+    existing_attribute_names = {a.name for a in identifier_attributes}
+    for attribute in references:
+        if attribute.name in existing_attribute_names:
+            raise ValueError(f"Duplicate attribute name {name}.{attribute.name} in reference")
+        existing_attribute_names.add(attribute.name)
+    for attribute in attributes:
+        if attribute.name in existing_attribute_names:
+            # ResourceModel.load_rename_map logic
+            attribute.name = f"{attribute.name}_attribute"
+
+    result.attributes.extend(attributes)
+    result.attributes.extend(identifier_attributes)
     result.attributes.extend(references)
 
     collections = parse_collections(service_name, name, resource_model, shape_parser)

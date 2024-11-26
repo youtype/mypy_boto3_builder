@@ -902,7 +902,7 @@ class ShapeParser:
 
         return result
 
-    def get_resource_identifier_attributes(self, resource_name: str) -> list[Attribute]:
+    def get_identifier_attributes(self, resource_name: str) -> list[Attribute]:
         """
         Get attributes for Resource identifiers.
 
