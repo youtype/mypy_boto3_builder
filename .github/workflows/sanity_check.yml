@@ -65,18 +65,25 @@ jobs:
       - name: Build master packages
         run: |
           rm -rf mypy_boto3_output/*
-          uv run mypy_boto3_builder mypy_boto3_output --product boto3
+          uv run mypy_boto3_builder mypy_boto3_output \
+            --product boto3 \
+            --no-smart-version
       - name: Install master packages
         run: |
           bash ./scripts/install.sh master
       - name: Check s3 output
         run: |
           rm -rf mypy_boto3_output/*
-          uv run mypy_boto3_builder mypy_boto3_output --product boto3-services -s s3
+          uv run mypy_boto3_builder mypy_boto3_output \
+            --product boto3-services \
+            -s s3 \
+            --no-smart-version
           uv run ./scripts/check_output.py -p ./mypy_boto3_output s3
       - name: Build packages
         run: |
-          uv run mypy_boto3_builder mypy_boto3_output --product boto3-services
+          uv run mypy_boto3_builder mypy_boto3_output \
+            --product boto3-services \
+            --no-smart-version
       - name: Check output
         run: |
           uv run ./scripts/check_output.py -p ./mypy_boto3_output
