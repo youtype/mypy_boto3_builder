@@ -4,10 +4,10 @@ Writer for package static and template files.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Sequence
 import filecmp
-from pathlib import Path
 import shutil
+from collections.abc import Iterable, Sequence
+from pathlib import Path
 from typing import Final
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
