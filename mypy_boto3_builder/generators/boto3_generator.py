@@ -24,7 +24,6 @@ from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
@@ -155,7 +154,7 @@ class Boto3Generator(BaseGenerator):
                 version=self.version,
             )
 
-    def generate_full_stubs(self) -> list[WrapperPackage]:
+    def generate_full_stubs(self) -> list[Package]:
         """
         Generate full stubs.
         """
@@ -176,7 +175,7 @@ class Boto3Generator(BaseGenerator):
         self._generate_full_stubs_services(package)
         return [package]
 
-    def generate_custom_stubs(self) -> list[WrapperPackage]:
+    def generate_custom_stubs(self) -> list[Package]:
         """
         Do nothing.
         """

@@ -15,9 +15,9 @@ from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
 from mypy_boto3_builder.postprocessors.aioboto3 import AioBoto3Postprocessor
+from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.types_aioboto3_package import TypesAioBoto3Package
-from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
 from mypy_boto3_builder.writers.aioboto3_processors import (
     process_types_aioboto3,
     process_types_aioboto3_docs,
@@ -44,12 +44,12 @@ class AioBoto3Generator(BaseGenerator):
         """
         return AioBoto3Postprocessor(service_package, self.master_service_names)
 
-    def generate_stubs(self) -> list[WrapperPackage]:
+    def generate_stubs(self) -> list[Package]:
         """
         Generate `types-aioboto3` package.
         """
-        packages: list[WrapperPackage] = []
-        package = self._generate_stubs()
+        packages: list[Package] = []
+        package: Package | None = self._generate_stubs()
         if package:
             packages.append(package)
 
@@ -125,13 +125,13 @@ class AioBoto3Generator(BaseGenerator):
         """
         return []
 
-    def generate_full_stubs(self) -> list[WrapperPackage]:
+    def generate_full_stubs(self) -> list[Package]:
         """
         Do nothing.
         """
         return []
 
-    def generate_custom_stubs(self) -> list[WrapperPackage]:
+    def generate_custom_stubs(self) -> list[Package]:
         """
         Do nothing.
         """
