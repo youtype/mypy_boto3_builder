@@ -61,7 +61,7 @@ jobs:
           cache: "pip"
       - name: Install master
         run: |
-          pip install mypy_boto3_output/boto3_stubs_lite_package
+          pip install mypy_boto3_output/boto3_stubs_package
       - name: Install dependencies
         run: |
           python -m pip install mypy ruff pyright boto3 botocore botocore-stubs types-requests
