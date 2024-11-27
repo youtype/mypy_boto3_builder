@@ -54,7 +54,7 @@ setup(
             "{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}",
             {% endfor -%}
         ],
-        "{{ package.library_name }}": ["{{ package.library_name }}=={{ package.library_version }}", "botocore=={{ package.botocore_version }}"],
+        "{{ package.library_name }}": ["{{ package.library_name }}=={{ package.library_version }}"],
         {% for service_name in package.service_names -%}
         "{{ service_name.extras_name }}": ["{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}"],
         {% endfor -%}

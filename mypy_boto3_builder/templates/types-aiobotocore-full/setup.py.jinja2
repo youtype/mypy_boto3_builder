@@ -49,7 +49,7 @@ setup(
         "typing-extensions>=4.1.0; python_version<\"3.12\"",
     ],
     extras_require={
-        "{{ package.library_name }}": ["{{ package.library_name }}=={{ package.library_version }}", "botocore=={{ package.botocore_version }}"],
+        "{{ package.library_name }}": ["{{ package.library_name }}=={{ package.library_version }}"],
     },
     zip_safe=False,
 )
