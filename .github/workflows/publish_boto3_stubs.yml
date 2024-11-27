@@ -227,7 +227,7 @@ jobs:
           echo "Building all packages"
           python -m mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
-            --product boto3 boto3-services \
+            --product boto3 boto3-lite boto3-services \
             ${EXTRA_FLAGS} \
             --download-static-stubs \
             -s all -d

@@ -154,7 +154,7 @@ jobs:
           echo "Building all packages"
           python -m mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
-            --product aiobotocore aiobotocore-services \
+            --product aiobotocore aiobotocore-lite aiobotocore-services \
             ${EXTRA_FLAGS} \
             --download-static-stubs \
             -s all -d
