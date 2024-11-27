@@ -63,11 +63,11 @@ class TemplatePath:
 
     master: Final = TEMPLATES_PATH / "master"
 
-    boto3_stubs: Final = TEMPLATES_PATH / "boto3-stubs"
-    boto3_stubs_docs: Final = TEMPLATES_PATH / "boto3-stubs-docs"
-    boto3_stubs_service: Final = TEMPLATES_PATH / "boto3-stubs-service"
-    boto3_stubs_service_docs: Final = TEMPLATES_PATH / "boto3-stubs-service-docs"
-    boto3_stubs_full: Final = TEMPLATES_PATH / "boto3-stubs-full"
+    types_boto3: Final = TEMPLATES_PATH / "types-boto3"
+    types_boto3_docs: Final = TEMPLATES_PATH / "types-boto3-docs"
+    types_boto3_service: Final = TEMPLATES_PATH / "types-boto3-service"
+    types_boto3_service_docs: Final = TEMPLATES_PATH / "types-boto3-service-docs"
+    types_boto3_full: Final = TEMPLATES_PATH / "types-boto3-full"
 
     types_aioboto3: Final = TEMPLATES_PATH / "types-aioboto3"
     types_aioboto3_docs: Final = TEMPLATES_PATH / "types-aioboto3-docs"
@@ -85,7 +85,7 @@ class StaticStubsPath:
     Static *.pyi files path.
     """
 
-    boto3_stubs: Final = ROOT_PATH / "stubs_static" / "boto3-stubs"
+    types_boto3: Final = ROOT_PATH / "stubs_static" / "types-boto3"
     types_aiobotocore: Final = ROOT_PATH / "stubs_static" / "types-aiobotocore"
     types_aioboto3: Final = ROOT_PATH / "stubs_static" / "types-aioboto3"
 
@@ -95,6 +95,6 @@ class StaticStubsPullURL:
     Static *.pyi files zip download URL.
     """
 
-    boto3_stubs: Final = "https://api.github.com/repos/youtype/boto3-stubs/zipball/main"
+    types_boto3: Final = "https://api.github.com/repos/youtype/boto3-stubs/zipball/main"
     types_aiobotocore: Final = "https://api.github.com/repos/youtype/types-aiobotocore/zipball/main"
     types_aioboto3: Final = "https://api.github.com/repos/youtype/types-aioboto3/zipball/main"

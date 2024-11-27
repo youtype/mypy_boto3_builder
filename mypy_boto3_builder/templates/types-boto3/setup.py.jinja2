@@ -1,0 +1,64 @@
+"""
+Setup script for {{ package.pypi_name }}.
+
+{{ copyright }}
+"""
+from pathlib import Path
+
+from setuptools import setup  # type: ignore
+
+
+LONG_DESCRIPTION = (Path(__file__).parent / "README.md").read_text()
+
+
+setup(
+    name="{{ package.pypi_name }}",
+    version="{{ package.version }}",
+    packages=["{{ package.name }}"],
+    url="{{ builder_repo_url }}",
+    license="MIT License",
+    author="Vlad Emelianov",
+    author_email="vlad.emelianov.nz@gmail.com",
+    description="Type annotations for {{ package.library_name }} {{ package.library_version }} generated with {{ builder_package_name }} {{ builder_version }}",
+    classifiers=[
+
+{% for classifier in package.get_classifiers() -%}
+    {{ "\n        " -}}"{{ classifier -}}",
+{%- endfor %}
+    ],
+    keywords='boto3 type-annotations boto3-stubs mypy typeshed autocomplete',
+    long_description=LONG_DESCRIPTION,
+    long_description_content_type="text/markdown",
+    package_data={"{{ package.name }}": ["py.typed", "*.pyi", "*/*.pyi"]},
+    python_requires='>={{ package.min_python_version }}',
+    project_urls={
+        'Documentation': '{{ package.get_local_doc_link() }}',
+        'Source': '{{ builder_repo_url }}',
+        'Tracker': '{{ builder_repo_url }}/issues',
+    },
+    install_requires=[
+        "botocore-stubs",
+        "types-s3transfer",
+        "typing-extensions>=4.1.0; python_version<\"3.12\"",
+    ],
+    extras_require={
+        "full": [
+            "{{ package.data.PYPI_FULL_NAME }}",
+        ],
+        "all": [
+            {% for service_name in package.service_names -%}
+            "{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}",
+            {% endfor -%}
+        ],
+        "essential": [
+            {% for service_name in package.essential_service_names -%}
+            "{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}",
+            {% endfor -%}
+        ],
+        "{{ package.library_name }}": ["{{ package.library_name }}=={{ package.library_version }}", "botocore=={{ package.botocore_version }}"],
+        {% for service_name in package.service_names -%}
+        "{{ service_name.extras_name }}": ["{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}"],
+        {% endfor -%}
+    },
+    zip_safe=False,
+)

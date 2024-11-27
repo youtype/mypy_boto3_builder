@@ -80,6 +80,8 @@ class TypesBoto3PackageData(BasePackageData):
     PYPI_LITE_NAME = "types-boto3-lite"
     PYPI_FULL_NAME = "types-boto3-full"
     LIBRARY_NAME = "boto3"
+    SERVICE_PREFIX = "types_boto3"
+    SERVICE_PYPI_PREFIX = "types-boto3"
     LOCAL_DOC_LINK = "https://youtype.github.io/types_boto3_docs/"
     IS_VSCODE_SUPPORTED = True
     IS_CONDA_FORGE_SUPPORTED = False

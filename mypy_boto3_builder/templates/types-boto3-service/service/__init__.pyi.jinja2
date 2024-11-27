@@ -1,0 +1,58 @@
+"""
+Main interface for {{ package.service_name.boto3_name }} service.
+
+Usage::
+
+    ```python
+    from {{ package.library_name }}.session import Session
+    from {{ package.name }} import (
+{% for name in package.get_init_all_names() -%}
+        {{ '        ' -}}{{ name -}},
+{% endfor -%}
+    {{ '    ' -}})
+
+    session = Session()
+    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+{% if package.service_resource -%}
+    {{ "\n    " -}}
+    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+{% endif -%}
+{% if package.waiters -%}
+{{ "\n" -}}
+{% for waiter in package.waiters -%}
+    {{ "    " -}}
+    {{ waiter.attribute_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
+{% endfor -%}
+{% endif -%}
+{% if package.paginators -%}
+{{ "\n" -}}
+{% for paginator in package.paginators -%}
+    {{ "    " -}}
+    {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+{% endif -%}
+    {{ '    ' -}}```
+
+{{ copyright }}
+"""
+{% for import_record in package.get_init_import_records() -%}
+    {{ import_record -}}{{ "\n" -}}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+{% if package.client %}
+{{ package.client.alias_name }} = {{ package.client.name }}
+{% endif %}
+{% if package.service_resource %}
+{{ package.service_resource.alias_name }} = {{ package.service_resource.name }}
+{% endif %}
+
+__all__ = (
+{% for name in package.get_init_all_names() -%}
+    {{ '"' -}}
+    {{ name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)

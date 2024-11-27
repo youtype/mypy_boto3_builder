@@ -9,9 +9,9 @@ from collections.abc import Iterable
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.wrapper_package_parser import WrapperPackageParser
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.boto3_stubs_package import TypesBoto3Package
 from mypy_boto3_builder.structures.types_aioboto3_package import TypesAioBoto3Package
 from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBotocorePackage
+from mypy_boto3_builder.structures.types_boto3_package import TypesBoto3Package
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 

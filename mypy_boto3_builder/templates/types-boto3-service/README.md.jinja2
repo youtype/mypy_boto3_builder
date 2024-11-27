@@ -1,0 +1,130 @@
+{% include "common/header.md.jinja2" with context %}
+
+{% include "common/how_to_install_service.md.jinja2" with context %}
+
+{% with extras_name=package.service_name.extras_name %}
+{% include "common/usage.md.jinja2" with context %}
+{% endwith %}
+
+## Explicit type annotations
+
+### Client annotations
+
+`{{ package.client.name }}` provides annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}")`.
+
+```python
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.client.name }}
+
+client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
+
+# now client usage is checked by mypy and IDE should provide code completion
+```
+
+{% if package.paginators -%}
+### Paginators annotations
+
+`{{ package.name }}.paginator` module contains type annotations for all paginators.
+
+```python
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.client.name }}
+from {{ package.name }}.paginator import {% for paginator in package.paginators %}{{ paginator.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
+client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
+
+# Explicit type annotations are optional here
+# Types should be correctly discovered by mypy and IDEs
+{% for paginator in package.paginators -%}
+{{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+```
+{% endif %}
+
+{% if package.waiters -%}
+### Waiters annotations
+
+`{{ package.name }}.waiter` module contains type annotations for all waiters.
+
+```python
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.client.name }}
+from {{ package.name }}.waiter import {% for waiter in package.waiters %}{{ waiter.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
+client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
+
+# Explicit type annotations are optional here
+# Types should be correctly discovered by mypy and IDEs
+{% for waiter in package.waiters -%}
+{{ waiter.attribute_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
+{% endfor -%}
+```
+{% endif %}
+
+{% if package.service_resource -%}
+### Service Resource annotations
+
+`{{ package.service_resource.name }}` provides annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}")`.
+
+```python
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.service_resource.name }}
+
+resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
+
+# now resource usage is checked by mypy and IDE should provide code completion
+```
+
+{% if package.service_resource.sub_resources %}
+### Other resources annotations
+
+`{{ package.name }}.service_resource` module contains type annotations for all resources.
+
+```python
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.service_resource.name }}
+from {{ package.name }}.service_resource import {% for sub_resource in package.service_resource.sub_resources %}{{ sub_resource.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
+resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
+
+# Explicit type annotations are optional here
+# Type should be correctly discovered by mypy and IDEs
+{% for sub_resource in package.service_resource.sub_resources -%}
+my_{{ sub_resource.variable_name }}: {{ sub_resource.name }} = resource.{{ sub_resource.name }}(...)
+{% endfor -%}
+```
+{% endif %}
+
+{% if package.service_resource.collections %}
+### Collections annotations
+
+`{{ package.name }}.service_resource` module contains type annotations
+for all `{{ package.service_resource.name }}` collections.
+
+```python
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.service_resource.name }}
+from {{ package.name }}.service_resource import {% for collection in package.service_resource.collections %}{{ collection.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
+resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
+
+# Explicit type annotations are optional here
+# Type should be correctly discovered by mypy and IDEs
+{% for collection in package.service_resource.collections -%}
+{{ collection.attribute_name }}: {{ service_name.underscore_name }}_resources.{{ collection.name }} = resource.{{ collection.attribute_name }}
+{% endfor -%}
+```
+{% endif %}
+{% endif %}
+
+{% include "common/readme/literals.md.jinja2" with context %}
+
+{% include "common/readme/type_defs.md.jinja2" with context %}
+
+{% include "common/footer.md.jinja2" with context %}

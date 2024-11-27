@@ -1,0 +1,41 @@
+"""
+Main CLI entrypoint.
+
+{{ copyright }}
+"""
+import sys
+
+
+def print_info() -> None:
+    """
+    Print package info to stdout.
+    """
+    print(
+        "Type annotations for {{ package.library_name }} {{ service_name.class_name }} {{ package.library_version }}\n"
+        "Version:         {{ package.version }}\n"
+        "Builder version: {{ builder_version }}\n"
+        "Docs:            {{ package.get_local_doc_link() }}/\n"
+        "Boto3 docs:      {{ service_name.boto3_doc_link }}\n"
+        "Other services:  https://pypi.org/project/boto3-stubs/\n"
+        "Changelog:       {{ builder_repo_url }}/releases"
+    )
+
+
+def print_version() -> None:
+    """
+    Print package version to stdout.
+    """
+    print("{{ package.version }}")
+
+
+def main() -> None:
+    """
+    Main CLI entrypoint.
+    """
+    if "--version" in sys.argv:
+        return print_version()
+    print_info()
+
+
+if __name__ == "__main__":
+    main()

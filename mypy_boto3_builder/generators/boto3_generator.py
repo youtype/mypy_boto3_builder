@@ -20,10 +20,10 @@ from mypy_boto3_builder.package_data import (
     MypyBoto3PackageData,
 )
 from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
-from mypy_boto3_builder.structures.boto3_stubs_package import TypesBoto3Package
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.types_boto3_package import TypesBoto3Package
 from mypy_boto3_builder.writers.processors import (
     process_master,
     process_types_boto3,
@@ -39,7 +39,7 @@ class Boto3Generator(BaseGenerator):
     """
 
     service_package_data = Boto3StubsPackageData
-    service_template_path = TemplatePath.boto3_stubs_service
+    service_template_path = TemplatePath.types_boto3_service
 
     def _get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:
         """
@@ -68,8 +68,8 @@ class Boto3Generator(BaseGenerator):
 
     def _get_static_files_path(self) -> Path:
         return self._get_or_download_static_files_path(
-            StaticStubsPath.boto3_stubs,
-            StaticStubsPullURL.boto3_stubs,
+            StaticStubsPath.types_boto3,
+            StaticStubsPullURL.types_boto3,
         )
 
     def _generate_stubs(self) -> TypesBoto3Package | None:
@@ -157,7 +157,7 @@ class Boto3Generator(BaseGenerator):
             self._process_service_docs(
                 service_name=service_name,
                 package_data=package_data,
-                templates_path=TemplatePath.boto3_stubs_service_docs,
+                templates_path=TemplatePath.types_boto3_service_docs,
                 version=self.version,
             )
 

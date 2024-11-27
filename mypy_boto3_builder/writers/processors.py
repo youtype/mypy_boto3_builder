@@ -13,8 +13,8 @@ from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_boto3_package
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.boto3_stubs_package import TypesBoto3Package
 from mypy_boto3_builder.structures.master_package import MasterPackage
+from mypy_boto3_builder.structures.types_boto3_package import TypesBoto3Package
 from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -57,7 +57,7 @@ def process_types_boto3(
     )
     package_writer.write_package(
         package=package,
-        templates_path=TemplatePath.boto3_stubs,
+        templates_path=TemplatePath.types_boto3,
         static_files_path=static_files_path,
     )
 
@@ -102,7 +102,7 @@ def process_types_boto3_lite(
     )
     package_writer.write_package(
         package=package,
-        templates_path=TemplatePath.boto3_stubs,
+        templates_path=TemplatePath.types_boto3,
         static_files_path=static_files_path,
         exclude_template_names=[
             "session.pyi.jinja2",
@@ -179,7 +179,7 @@ def process_types_boto3_docs(
     package_writer = PackageWriter(output_path=output_path, generate_package=False, cleanup=True)
     package_writer.write_docs(
         package=package,
-        templates_path=TemplatePath.boto3_stubs_docs,
+        templates_path=TemplatePath.types_boto3_docs,
     )
 
     return package
@@ -221,7 +221,7 @@ def process_types_boto3_full(
     )
     package_writer.write_package(
         package=package,
-        templates_path=TemplatePath.boto3_stubs_full,
+        templates_path=TemplatePath.types_boto3_full,
     )
 
     return package

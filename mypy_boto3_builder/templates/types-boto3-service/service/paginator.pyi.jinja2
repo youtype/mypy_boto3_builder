@@ -1,0 +1,66 @@
+"""
+Type annotations for {{ package.service_name.boto3_name }} service client paginators.
+
+[Open documentation]({{ package.get_doc_link("paginators") }})
+
+Usage::
+
+    ```python
+    from {{ package.library_name }}.session import Session
+
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.paginator import (
+{% for paginator in package.paginators -%}
+        {{ '        ' -}}{{ paginator.name -}},
+{% endfor -%}
+    {{ '    ' -}})
+
+    session = Session()
+    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+
+{% for paginator in package.paginators -%}
+    {{ "    " -}}
+    {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+    {{ '    ' -}}```
+
+{{ copyright }}
+"""
+from typing import TypeVar, Generic, Iterator
+
+from botocore.paginate import PageIterator
+
+{% for import_record in package.get_paginator_required_import_records() -%}
+    {{ import_record -}}{{ "\n" -}}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for paginator in package.paginators -%}
+    {{ '"' -}}
+    {{ paginator.name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+
+_ItemTypeDef = TypeVar("_ItemTypeDef")
+
+
+class _PageIterator(PageIterator, Generic[_ItemTypeDef]):
+    def __iter__(self) -> Iterator[_ItemTypeDef]:
+        """
+        Proxy method to specify iterator item type.
+        """
+
+
+{{ "\n\n" -}}
+
+{% for paginator in package.paginators -%}
+    {% with class=paginator -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}

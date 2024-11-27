@@ -57,8 +57,8 @@ def main() -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_dir_path = Path(temp_dir)
         pull_static(
-            StaticStubsPullURL.boto3_stubs,
-            StaticStubsPath.boto3_stubs,
+            StaticStubsPullURL.types_boto3,
+            StaticStubsPath.types_boto3,
             temp_dir_path,
         )
         pull_static(
