@@ -54,6 +54,7 @@ class Config:
     """
 
     max_retries: int = 10
+    logger: logging.Logger
 
 
 def setup_logging(level: int) -> logging.Logger:
@@ -68,7 +69,9 @@ def setup_logging(level: int) -> logging.Logger:
 
     logger = logging.getLogger(LOGGER_NAME)
     stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S")
+    formatter = logging.Formatter(
+        "%(asctime)s %(name)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S"
+    )
     stream_handler.setFormatter(formatter)
     stream_handler.setLevel(level)
     logger.addHandler(stream_handler)
@@ -131,7 +134,7 @@ def check_call(cmd: Sequence[str], *, print_error: bool = True) -> str:
         return subprocess.check_output(cmd, stderr=subprocess.STDOUT, encoding="utf-8")
     except subprocess.CalledProcessError as e:
         if print_error:
-            logger = logging.getLogger(LOGGER_NAME)
+            logger = Config.logger
             for line in e.output.splitlines():
                 logger.warning(line)
         raise
@@ -172,7 +175,7 @@ def build(path: Path, max_retries: int = 10) -> Path:
     """
     Build package.
     """
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = Config.logger
     attempt = 1
     last_error = Exception("Unknown error")
     while attempt <= max_retries:
@@ -202,7 +205,7 @@ def publish(path: Path) -> Path:
     Publish packages from dist directory to PyPI.
     """
     attempt = 1
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = Config.logger
     last_error = Exception("Unknown error")
     while attempt <= Config.max_retries:
         try:
@@ -298,7 +301,7 @@ def publish_directories(args: CLINamespace) -> None:
     """
     Build and publish packages from directories.
     """
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = Config.logger
     paths = [i for i in args.path.iterdir() if i.is_dir()]
     paths.sort(key=lambda x: x.name)
     if args.filter:
@@ -368,7 +371,8 @@ def main() -> None:
     Run main logic.
     """
     args = parse_args()
-    setup_logging(logging.DEBUG)
+    Config.max_retries = args.retries
+    Config.logger = setup_logging(logging.DEBUG)
     publish_directories(args)
     publish_packages(args)
 
