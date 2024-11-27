@@ -1,5 +1,5 @@
 """
-Product-related enums.
+Product choice for CLI.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -15,11 +15,11 @@ class Product(Enum):
     Product choice for CLI.
     """
 
-    boto3 = "boto3"
-    boto3_lite = "boto3-lite"
-    boto3_services = "boto3-services"
-    boto3_full = "boto3-full"
-    boto3_docs = "boto3-docs"
+    types_boto3 = "types-boto3"
+    types_boto3_lite = "types-boto3-lite"
+    types_boto3_services = "types-boto3-services"
+    types_boto3_full = "types-boto3-full"
+    types_boto3_docs = "types-boto3-docs"
     aiobotocore = "aiobotocore"
     aiobotocore_lite = "aiobotocore-lite"
     aiobotocore_services = "aiobotocore-services"
@@ -28,6 +28,11 @@ class Product(Enum):
     aioboto3 = "aioboto3"
     aioboto3_lite = "aioboto3-lite"
     aioboto3_docs = "aioboto3-docs"
+    boto3 = "boto3"
+    boto3_lite = "boto3-lite"
+    boto3_services = "boto3-services"
+    boto3_full = "boto3-full"
+    boto3_docs = "boto3-docs"
 
     def __str__(self) -> str:
         """
@@ -40,6 +45,14 @@ class Product(Enum):
         Get library name.
         """
         match self:
+            case (
+                Product.types_boto3
+                | Product.types_boto3_lite
+                | Product.types_boto3_services
+                | Product.types_boto3_full
+                | Product.types_boto3_docs
+            ):
+                return ProductLibrary.types_boto3
             case (
                 Product.boto3
                 | Product.boto3_lite
@@ -64,13 +77,27 @@ class Product(Enum):
         Get product type.
         """
         match self:
-            case Product.boto3 | Product.aiobotocore | Product.aioboto3:
+            case Product.types_boto3 | Product.boto3 | Product.aiobotocore | Product.aioboto3:
                 return ProductType.stubs
-            case Product.boto3_lite | Product.aiobotocore_lite | Product.aioboto3_lite:
+            case (
+                Product.types_boto3_lite
+                | Product.boto3_lite
+                | Product.aiobotocore_lite
+                | Product.aioboto3_lite
+            ):
                 return ProductType.stubs_lite
-            case Product.boto3_services | Product.aiobotocore_services:
+            case (
+                Product.types_boto3_services
+                | Product.boto3_services
+                | Product.aiobotocore_services
+            ):
                 return ProductType.service_stubs
-            case Product.boto3_docs | Product.aiobotocore_docs | Product.aioboto3_docs:
+            case (
+                Product.types_boto3_docs
+                | Product.boto3_docs
+                | Product.aiobotocore_docs
+                | Product.aioboto3_docs
+            ):
                 return ProductType.docs
-            case Product.boto3_full | Product.aiobotocore_full:
+            case Product.types_boto3_full | Product.boto3_full | Product.aiobotocore_full:
                 return ProductType.full

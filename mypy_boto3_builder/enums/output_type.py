@@ -1,5 +1,5 @@
 """
-Output type for CLI.
+Output type choice for CLI.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -9,12 +9,12 @@ from enum import Enum
 
 class OutputType(Enum):
     """
-    Output type for CLI.
+    Output type choice for CLI.
     """
 
     package = "package"
     wheel = "wheel"
-    source = "source"
+    sdist = "sdist"
     installed = "installed"
 
     def is_installed(self) -> bool:
@@ -27,7 +27,7 @@ class OutputType(Enum):
         """
         Whether output type is packaged for installation.
         """
-        return self is OutputType.wheel or self is OutputType.source
+        return self is OutputType.wheel or self is OutputType.sdist
 
     def is_preserved(self) -> bool:
         """

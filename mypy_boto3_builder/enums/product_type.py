@@ -1,5 +1,5 @@
 """
-Product type for CLI.
+Product type choice for CLI.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -9,7 +9,7 @@ from enum import Enum
 
 class ProductType(Enum):
     """
-    Product type for CLI.
+    Product type choice for CLI.
     """
 
     stubs = "stubs"

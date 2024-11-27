@@ -57,6 +57,6 @@ class PackageBuilder:
         targets: list[_Target] = []
         if OutputType.wheel in output_types:
             targets.append("bdist_wheel")
-        if OutputType.source in output_types:
+        if OutputType.sdist in output_types:
             targets.append("sdist")
         self._build(package, targets)
