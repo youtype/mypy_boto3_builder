@@ -2,35 +2,36 @@ from pathlib import Path
 from unittest.mock import ANY, MagicMock, patch
 
 from mypy_boto3_builder.package_data import (
-    Boto3StubsFullPackageData,
-    Boto3StubsLitePackageData,
-    Boto3StubsPackageData,
+    TypesBoto3FullPackageData,
+    TypesBoto3LitePackageData,
+    TypesBoto3PackageData,
 )
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.writers.processors import (
-    process_boto3_stubs,
-    process_boto3_stubs_docs,
-    process_boto3_stubs_full,
-    process_boto3_stubs_lite,
     process_master,
+    process_types_boto3,
+    process_types_boto3_docs,
+    process_types_boto3_full,
+    process_types_boto3_lite,
 )
 
 
 class TestProcessors:
-    @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
+    @patch("mypy_boto3_builder.writers.processors.parse_types_boto3_package")
     @patch("mypy_boto3_builder.writers.processors.PackageWriter")
-    def test_process_boto3_stubs(
+    def test_process_types_boto3(
         self,
         PackageWriterMock: MagicMock,
-        parse_boto3_stubs_package_mock: MagicMock,
+        parse_types_boto3_package_mock: MagicMock,
     ) -> None:
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         package_mock = MagicMock()
-        parse_boto3_stubs_package_mock.return_value = package_mock
-        result = process_boto3_stubs(
+        parse_types_boto3_package_mock.return_value = package_mock
+        result = process_types_boto3(
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
             generate_package=True,
+            package_data=TypesBoto3PackageData,
             version="1.2.3",
             static_files_path=Path("static_files_path"),
         )
@@ -39,27 +40,28 @@ class TestProcessors:
             templates_path=ANY,
             static_files_path=ANY,
         )
-        parse_boto3_stubs_package_mock.assert_called_once_with(
+        parse_types_boto3_package_mock.assert_called_once_with(
             service_names=[ServiceNameCatalog.ec2],
-            package_data=Boto3StubsPackageData,
+            package_data=TypesBoto3PackageData,
             version="1.2.3",
         )
         assert result == package_mock
 
-    @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
+    @patch("mypy_boto3_builder.writers.processors.parse_types_boto3_package")
     @patch("mypy_boto3_builder.writers.processors.PackageWriter")
-    def test_process_boto3_stubs_lite(
+    def test_process_types_boto3_lite(
         self,
         PackageWriterMock: MagicMock,
-        parse_boto3_stubs_package_mock: MagicMock,
+        parse_types_boto3_package_mock: MagicMock,
     ) -> None:
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         package_mock = MagicMock()
-        parse_boto3_stubs_package_mock.return_value = package_mock
-        result = process_boto3_stubs_lite(
+        parse_types_boto3_package_mock.return_value = package_mock
+        result = process_types_boto3_lite(
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
             generate_package=True,
+            package_data=TypesBoto3LitePackageData,
             version="1.2.3",
             static_files_path=Path("static_files_path"),
         )
@@ -72,9 +74,9 @@ class TestProcessors:
                 "__init__.pyi.jinja2",
             ],
         )
-        parse_boto3_stubs_package_mock.assert_called_once_with(
+        parse_types_boto3_package_mock.assert_called_once_with(
             service_names=[ServiceNameCatalog.ec2],
-            package_data=Boto3StubsLitePackageData,
+            package_data=TypesBoto3LitePackageData,
             version="1.2.3",
         )
         assert result == package_mock
@@ -101,40 +103,42 @@ class TestProcessors:
         )
         assert result == parse_master_package_mock()
 
-    @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
+    @patch("mypy_boto3_builder.writers.processors.parse_types_boto3_package")
     @patch("mypy_boto3_builder.writers.processors.PackageWriter")
-    def test_process_boto3_stubs_docs(
+    def test_process_types_boto3_docs(
         self,
         PackageWriterMock: MagicMock,
-        parse_boto3_stubs_package_mock: MagicMock,
+        parse_types_boto3_package_mock: MagicMock,
     ) -> None:
         service_name_mock = MagicMock()
-        result = process_boto3_stubs_docs(
+        result = process_types_boto3_docs(
             output_path=Path("my_path"),
             service_names=[service_name_mock],
+            package_data=TypesBoto3PackageData,
             version="1.2.3",
         )
         PackageWriterMock().write_docs.assert_called()
-        parse_boto3_stubs_package_mock.assert_called_with(
+        parse_types_boto3_package_mock.assert_called_with(
             service_names=[service_name_mock],
-            package_data=Boto3StubsPackageData,
+            package_data=TypesBoto3PackageData,
             version="1.2.3",
         )
-        assert result == parse_boto3_stubs_package_mock()
+        assert result == parse_types_boto3_package_mock()
 
-    @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
+    @patch("mypy_boto3_builder.writers.processors.parse_types_boto3_package")
     @patch("mypy_boto3_builder.writers.processors.PackageWriter")
-    def test_process_boto3_stubs_full(
+    def test_process_types_boto3_full(
         self,
         PackageWriterMock: MagicMock,
-        parse_boto3_stubs_package_mock: MagicMock,
+        parse_types_boto3_package_mock: MagicMock,
     ) -> None:
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         package_mock = MagicMock()
-        parse_boto3_stubs_package_mock.return_value = package_mock
-        result = process_boto3_stubs_full(
+        parse_types_boto3_package_mock.return_value = package_mock
+        result = process_types_boto3_full(
             output_path=Path("my_path"),
             service_names=[ServiceNameCatalog.ec2],
+            package_data=TypesBoto3FullPackageData,
             version="1.2.3",
             generate_package=True,
         )
@@ -142,9 +146,9 @@ class TestProcessors:
             package=package_mock,
             templates_path=ANY,
         )
-        parse_boto3_stubs_package_mock.assert_called_once_with(
+        parse_types_boto3_package_mock.assert_called_once_with(
             service_names=[ServiceNameCatalog.ec2],
-            package_data=Boto3StubsFullPackageData,
+            package_data=TypesBoto3FullPackageData,
             version="1.2.3",
         )
         assert result == package_mock

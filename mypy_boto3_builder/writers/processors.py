@@ -9,30 +9,27 @@ from pathlib import Path
 
 from mypy_boto3_builder.constants import TemplatePath
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.package_data import (
-    Boto3StubsFullPackageData,
-    Boto3StubsLitePackageData,
-    Boto3StubsPackageData,
-)
+from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.master_package import parse_master_package
-from mypy_boto3_builder.parsers.parse_wrapper_package import parse_boto3_stubs_package
+from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_boto3_package
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
+from mypy_boto3_builder.structures.boto3_stubs_package import TypesBoto3Package
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
-def process_boto3_stubs(
+def process_types_boto3(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
+    package_data: type[BasePackageData],
     generate_package: bool,
     version: str,
     static_files_path: Path,
-) -> Boto3StubsPackage:
+) -> TypesBoto3Package:
     """
-    Parse and write stubs package `boto3_stubs`.
+    Parse and write stubs package `types-boto3`.
 
     Arguments:
         output_path -- Package output path
@@ -42,12 +39,11 @@ def process_boto3_stubs(
         static_files_path -- Path to static files
 
     Return:
-        Parsed Boto3StubsPackage.
+        Parsed TypesBoto3Package.
     """
     logger = get_logger()
-    package_data = Boto3StubsPackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
-    package = parse_boto3_stubs_package(
+    package = parse_types_boto3_package(
         service_names=service_names,
         package_data=package_data,
         version=version,
@@ -68,16 +64,17 @@ def process_boto3_stubs(
     return package
 
 
-def process_boto3_stubs_lite(
+def process_types_boto3_lite(
     *,
     output_path: Path,
     service_names: Iterable[ServiceName],
+    package_data: type[BasePackageData],
     generate_package: bool,
     version: str,
     static_files_path: Path,
-) -> Boto3StubsPackage:
+) -> TypesBoto3Package:
     """
-    Parse and write stubs package `boto3-stubs-lite`.
+    Parse and write stubs package `types-boto3-lite`.
 
     Arguments:
         output_path -- Package output path
@@ -87,12 +84,11 @@ def process_boto3_stubs_lite(
         static_files_path -- Path to static files
 
     Return:
-        Parsed Boto3StubsPackage.
+        Parsed TypesBoto3Package.
     """
     logger = get_logger()
-    package_data = Boto3StubsLitePackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
-    package = parse_boto3_stubs_package(
+    package = parse_types_boto3_package(
         service_names=service_names,
         package_data=package_data,
         version=version,
@@ -154,11 +150,12 @@ def process_master(
     return package
 
 
-def process_boto3_stubs_docs(
+def process_types_boto3_docs(
     output_path: Path,
     service_names: Iterable[ServiceName],
+    package_data: type[BasePackageData],
     version: str,
-) -> Boto3StubsPackage:
+) -> TypesBoto3Package:
     """
     Parse and write master package docs.
 
@@ -168,12 +165,11 @@ def process_boto3_stubs_docs(
         version -- Package version
 
     Return:
-        Parsed Boto3StubsPackage.
+        Parsed TypesBoto3Package.
     """
     logger = get_logger()
-    package_data = Boto3StubsPackageData
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
-    package = parse_boto3_stubs_package(
+    package = parse_types_boto3_package(
         service_names=service_names,
         package_data=package_data,
         version=version,
@@ -189,15 +185,16 @@ def process_boto3_stubs_docs(
     return package
 
 
-def process_boto3_stubs_full(
+def process_types_boto3_full(
     output_path: Path,
     service_names: Iterable[ServiceName],
+    package_data: type[BasePackageData],
     version: str,
     *,
     generate_package: bool,
-) -> Boto3StubsPackage:
+) -> TypesBoto3Package:
     """
-    Parse and write stubs package `boto3-stubs-full`.
+    Parse and write stubs package `types-boto3-full`.
 
     Arguments:
         output_path -- Package output path
@@ -206,12 +203,11 @@ def process_boto3_stubs_full(
         generate_package -- Generate ready-to-install or to-use package
 
     Return:
-        Parsed Boto3StubsPackage.
+        Parsed TypesBoto3Package.
     """
-    package_data = Boto3StubsFullPackageData
     logger = get_logger()
     logger.debug(f"Parsing {package_data.PYPI_FULL_NAME}")
-    package = parse_boto3_stubs_package(
+    package = parse_types_boto3_package(
         service_names=service_names,
         package_data=package_data,
         version=version,

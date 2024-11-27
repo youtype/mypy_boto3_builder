@@ -1,5 +1,5 @@
 """
-Structure for boto3-stubs module.
+Structure for types-boto3 module.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -7,9 +7,9 @@ Copyright 2024 Vlad Emelianov
 from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
 
 
-class Boto3StubsPackage(WrapperPackage):
+class TypesBoto3Package(WrapperPackage):
     """
-    Structure for boto3-stubs module.
+    Structure for types-boto3 module.
     """
 
     def get_all_names(self) -> list[str]:

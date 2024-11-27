@@ -69,6 +69,49 @@ class BasePackageData:
         return bool(cls.PYPI_LITE_NAME)
 
 
+class TypesBoto3PackageData(BasePackageData):
+    """
+    types-boto3 package data.
+    """
+
+    NAME = "types-boto3"
+    PYPI_NAME = "types-boto3"
+    PYPI_STUBS_NAME = "types-boto3"
+    PYPI_LITE_NAME = "types-boto3-lite"
+    PYPI_FULL_NAME = "types-boto3-full"
+    LIBRARY_NAME = "boto3"
+    LOCAL_DOC_LINK = "https://youtype.github.io/types_boto3_docs/"
+    IS_VSCODE_SUPPORTED = True
+    IS_CONDA_FORGE_SUPPORTED = False
+
+
+class TypesBoto3LitePackageData(TypesBoto3PackageData):
+    """
+    types-boto3-lite package data.
+    """
+
+    PYPI_NAME = TypesBoto3PackageData.PYPI_LITE_NAME
+    PYPI_LITE_NAME = ""
+
+
+class TypesBoto3FullPackageData(TypesBoto3PackageData):
+    """
+    boto3-stubs-full package data.
+    """
+
+    NAME = ""
+    PYPI_NAME = TypesBoto3PackageData.PYPI_FULL_NAME
+    IS_CONDA_FORGE_SUPPORTED = False
+
+    @typing.override
+    @classmethod
+    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package PyPI name.
+        """
+        return cls.PYPI_NAME
+
+
 class TypesAioBotocorePackageData(BasePackageData):
     """
     types-aiobotocore package data.

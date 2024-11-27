@@ -12,6 +12,7 @@ class ProductLibrary(Enum):
     Product library for CLI.
     """
 
+    types_boto3 = "types-boto3"
     boto3 = "boto3"
     aiobotocore = "aiobotocore"
     aioboto3 = "aioboto3"

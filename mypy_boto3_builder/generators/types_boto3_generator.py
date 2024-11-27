@@ -1,5 +1,5 @@
 """
-Generator for boto3-stubs packages.
+Generator for types-boto3 packages.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -14,18 +14,15 @@ from mypy_boto3_builder.constants import (
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
-    Boto3StubsFullPackageData,
-    Boto3StubsLitePackageData,
-    Boto3StubsPackageData,
-    MypyBoto3PackageData,
+    TypesBoto3FullPackageData,
+    TypesBoto3LitePackageData,
+    TypesBoto3PackageData,
 )
 from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
 from mypy_boto3_builder.structures.boto3_stubs_package import TypesBoto3Package
-from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.writers.processors import (
-    process_master,
     process_types_boto3,
     process_types_boto3_docs,
     process_types_boto3_full,
@@ -33,12 +30,12 @@ from mypy_boto3_builder.writers.processors import (
 )
 
 
-class Boto3Generator(BaseGenerator):
+class TypesBoto3Generator(BaseGenerator):
     """
-    Generator for boto3-stubs packages.
+    Generator for types-boto3 packages.
     """
 
-    service_package_data = Boto3StubsPackageData
+    service_package_data = TypesBoto3PackageData
     service_template_path = TemplatePath.boto3_stubs_service
 
     def _get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:
@@ -47,25 +44,6 @@ class Boto3Generator(BaseGenerator):
         """
         return BotocorePostprocessor(service_package, self.master_service_names)
 
-    def _generate_master(self) -> MasterPackage | None:
-        """
-        Generate `mypy-boto3` package.
-        """
-        package_data = MypyBoto3PackageData
-        try:
-            version = self._get_package_version(package_data.PYPI_NAME, self.version)
-        except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
-            return None
-
-        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        return process_master(
-            output_path=self.output_path,
-            service_names=self.master_service_names,
-            version=version,
-            generate_package=self.is_package(),
-        )
-
     def _get_static_files_path(self) -> Path:
         return self._get_or_download_static_files_path(
             StaticStubsPath.boto3_stubs,
@@ -73,7 +51,7 @@ class Boto3Generator(BaseGenerator):
         )
 
     def _generate_stubs(self) -> TypesBoto3Package | None:
-        package_data = Boto3StubsPackageData
+        package_data = TypesBoto3PackageData
         try:
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
         except AlreadyPublishedError:
@@ -91,7 +69,7 @@ class Boto3Generator(BaseGenerator):
         )
 
     def _generate_stubs_lite(self) -> TypesBoto3Package | None:
-        package_data = Boto3StubsLitePackageData
+        package_data = TypesBoto3LitePackageData
         try:
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
         except AlreadyPublishedError:
@@ -110,25 +88,17 @@ class Boto3Generator(BaseGenerator):
 
     def generate_stubs(self) -> list[Package]:
         """
-        Generate `boto3-stubs` package.
+        Generate `types-boto3` package.
         """
-        result: list[Package] = []
-        package: Package | None = None
-
         package = self._generate_stubs()
         if package:
-            result.append(package)
+            return [package]
 
-        if not self.is_package():
-            package = self._generate_master()
-            if package:
-                result.append(package)
-
-        return result
+        return []
 
     def generate_stubs_lite(self) -> list[Package]:
         """
-        Generate `boto3-stubs-lite` package.
+        Generate `types-boto3-lite` package.
         """
         package = self._generate_stubs_lite()
         if package:
@@ -139,7 +109,7 @@ class Boto3Generator(BaseGenerator):
         """
         Generate service and master docs.
         """
-        package_data = Boto3StubsPackageData
+        package_data = TypesBoto3PackageData
         total_str = f"{len(self.service_names)}"
 
         self.logger.info(f"Generating {package_data.NAME} module docs")
@@ -163,9 +133,9 @@ class Boto3Generator(BaseGenerator):
 
     def generate_full_stubs(self) -> list[Package]:
         """
-        Generate `boto3-stubs-full` package.
+        Generate `types-boto3-full` package.
         """
-        package_data = Boto3StubsFullPackageData
+        package_data = TypesBoto3FullPackageData
         try:
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
         except AlreadyPublishedError:

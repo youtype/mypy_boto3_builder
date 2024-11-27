@@ -4,9 +4,9 @@ from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.parsers.service_package_parser import ServicePackageParser
 
 
-class TestBoto3StubsPackage:
+class TestServicePackageParser:
     @patch("mypy_boto3_builder.parsers.client.ClientExceptionsFactory")
-    def test_parse_boto3_stubs_package(
+    def test_parse(
         self,
         ClientExceptionsFactoryMock: MagicMock,
         botocore_session_mock: MagicMock,

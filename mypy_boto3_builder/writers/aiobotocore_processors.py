@@ -14,7 +14,7 @@ from mypy_boto3_builder.package_data import (
     TypesAioBotocoreLitePackageData,
     TypesAioBotocorePackageData,
 )
-from mypy_boto3_builder.parsers.parse_wrapper_package import parse_aiobotocore_stubs_package
+from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_aiobotocore_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBotocorePackage
 from mypy_boto3_builder.utils.path import print_path
@@ -43,7 +43,7 @@ def process_types_aiobotocore(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    package = parse_aiobotocore_stubs_package(
+    package = parse_types_aiobotocore_package(
         service_names,
         TypesAioBotocorePackageData,
         version,
@@ -85,7 +85,7 @@ def process_types_aiobotocore_lite(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    package = parse_aiobotocore_stubs_package(
+    package = parse_types_aiobotocore_package(
         service_names,
         TypesAioBotocoreLitePackageData,
         version,
@@ -123,7 +123,7 @@ def process_types_aiobotocore_docs(
         Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
-    package = parse_aiobotocore_stubs_package(
+    package = parse_types_aiobotocore_package(
         service_names,
         TypesAioBotocorePackageData,
         version,
@@ -163,7 +163,7 @@ def process_types_aiobotocore_full(
     """
     logger = get_logger()
     logger.debug(f"Parsing {package_data.PYPI_FULL_NAME}")
-    package = parse_aiobotocore_stubs_package(
+    package = parse_types_aiobotocore_package(
         service_names=service_names,
         package_data=package_data,
         version=version,
