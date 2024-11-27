@@ -1,5 +1,11 @@
+"""
+Type annotations for aioboto3.resources.action module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 from boto3.resources.action import ServiceAction, WaiterAction
 from boto3.resources.base import ServiceResource
@@ -13,17 +19,17 @@ class AIOServiceAction(ServiceAction):
     def __init__(
         self,
         action_model: Action,
-        factory: Optional[ResourceFactory] = ...,
-        service_context: Optional[ServiceContext] = ...,
+        factory: ResourceFactory | None = ...,
+        service_context: ServiceContext | None = ...,
     ) -> None: ...
     async def __call__(  # type: ignore [override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
-    ) -> Union[ServiceResource, List[ServiceResource], Dict[str, Any]]: ...
+    ) -> ServiceResource | list[ServiceResource] | dict[str, Any]: ...
 
 class AioBatchAction(ServiceAction):
     async def __call__(  # type: ignore [override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
-    ) -> List[Dict[str, Any]]: ...
+    ) -> list[dict[str, Any]]: ...
 
 class AIOWaiterAction(WaiterAction):
     async def __call__(  # type: ignore [override]

@@ -1,7 +1,15 @@
+"""
+Type annotations for boto3.docs.resource module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any
-from .base import BaseDocumenter
+
 from botocore.docs.bcdoc.restdoc import DocumentStructure
 from botocore.session import Session
+
+from .base import BaseDocumenter
 
 class ResourceDocumenter(BaseDocumenter):
     def __init__(self, resource: Any, botocore_session: Session, root_docs_path: str) -> None: ...

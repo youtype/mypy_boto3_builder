@@ -1,9 +1,17 @@
+"""
+Type annotations for boto3.docs.waiter module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any
-from .base import NestedDocumenter
+
+from botocore.docs.bcdoc.restdoc import DocumentStructure
 from botocore.hooks import BaseEventHooks
 from botocore.model import ServiceModel
 from botocore.waiter import WaiterModel
-from botocore.docs.bcdoc.restdoc import DocumentStructure
+
+from .base import NestedDocumenter
 
 class WaiterResourceDocumenter(NestedDocumenter):
     def __init__(

@@ -1,5 +1,11 @@
+"""
+Type annotations for boto3.resources.factory module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
-from typing import Any, Dict, Type
+from typing import Any
 
 from boto3.resources.base import ServiceResource
 from boto3.utils import ServiceContext
@@ -12,6 +18,6 @@ class ResourceFactory:
     def load_from_definition(
         self,
         resource_name: str,
-        single_resource_json_definition: Dict[str, Any],
+        single_resource_json_definition: dict[str, Any],
         service_context: ServiceContext,
-    ) -> Type[ServiceResource]: ...
+    ) -> type[ServiceResource]: ...

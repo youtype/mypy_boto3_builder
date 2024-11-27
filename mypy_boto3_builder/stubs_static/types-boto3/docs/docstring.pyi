@@ -1,3 +1,9 @@
+"""
+Type annotations for boto3.docs.docstring module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from botocore.docs.docstring import LazyLoadedDocstring
 
 class ActionDocstring(LazyLoadedDocstring): ...

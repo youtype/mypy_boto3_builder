@@ -1,11 +1,17 @@
-from typing import Any, Callable, Dict, List, Optional
+"""
+Type annotations for boto3.dynamodb.transform module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any, Callable
 
 from boto3.dynamodb.conditions import ConditionExpressionBuilder
 from boto3.dynamodb.types import TypeDeserializer, TypeSerializer
 from boto3.resources.model import ResourceModel
 from botocore.model import Shape
 
-def register_high_level_interface(base_classes: List[Any], **kwargs: Any) -> None: ...
+def register_high_level_interface(base_classes: list[Any], **kwargs: Any) -> None: ...
 def copy_dynamodb_params(params: Any, **kwargs: Any) -> Any: ...
 
 class DynamoDBHighLevelResource:
@@ -14,27 +20,27 @@ class DynamoDBHighLevelResource:
 class TransformationInjector:
     def __init__(
         self,
-        transformer: Optional[ParameterTransformer] = ...,
-        condition_builder: Optional[ConditionExpressionBuilder] = ...,
-        serializer: Optional[TypeSerializer] = ...,
-        deserializer: Optional[TypeDeserializer] = ...,
+        transformer: ParameterTransformer | None = ...,
+        condition_builder: ConditionExpressionBuilder | None = ...,
+        serializer: TypeSerializer | None = ...,
+        deserializer: TypeDeserializer | None = ...,
     ) -> None: ...
     def inject_condition_expressions(
-        self, params: Dict[str, Any], model: ResourceModel
+        self, params: dict[str, Any], model: ResourceModel
     ) -> None: ...
     def inject_attribute_value_input(
-        self, params: Dict[str, Any], model: ResourceModel
+        self, params: dict[str, Any], model: ResourceModel
     ) -> None: ...
     def inject_attribute_value_output(
-        self, parsed: Dict[str, Any], model: ResourceModel
+        self, parsed: dict[str, Any], model: ResourceModel
     ) -> None: ...
 
 class ConditionExpressionTransformation:
     def __init__(
         self,
         condition_builder: ConditionExpressionBuilder,
-        placeholder_names: List[str],
-        placeholder_values: List[str],
+        placeholder_names: list[str],
+        placeholder_values: list[str],
         is_key_condition: bool = ...,
     ) -> None: ...
     def __call__(self, value: Any) -> Any: ...
@@ -42,7 +48,7 @@ class ConditionExpressionTransformation:
 class ParameterTransformer:
     def transform(
         self,
-        params: Dict[str, Any],
+        params: dict[str, Any],
         model: Shape,
         transformation: Callable[[Any], Any],
         target_shape: str,

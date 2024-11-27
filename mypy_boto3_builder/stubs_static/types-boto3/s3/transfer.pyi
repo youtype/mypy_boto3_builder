@@ -1,6 +1,12 @@
+"""
+Type annotations for boto3.s3.transfer module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
 from types import TracebackType
-from typing import Any, Callable, Dict, List, Mapping, Optional, Type, TypeVar
+from typing import Any, Callable, Mapping, TypeVar
 
 from botocore.client import BaseClient
 from botocore.config import Config
@@ -19,12 +25,12 @@ logger: logging.Logger = ...
 def create_transfer_manager(
     client: BaseClient,
     config: TransferConfig,
-    osutil: Optional[OSUtils] = ...,
+    osutil: OSUtils | None = ...,
 ) -> TransferManager: ...
 def has_minimum_crt_version(minimum_version: str) -> bool: ...
 
 class TransferConfig(S3TransferConfig):
-    ALIAS: Dict[str, str]
+    ALIAS: dict[str, str]
 
     def __init__(
         self,
@@ -35,7 +41,7 @@ class TransferConfig(S3TransferConfig):
         max_io_queue: int = ...,
         io_chunksize: int = ...,
         use_threads: bool = ...,
-        max_bandwidth: Optional[int] = ...,
+        max_bandwidth: int | None = ...,
         preferred_transfer_client: str = ...,
     ) -> None:
         self.use_threads: bool
@@ -43,37 +49,37 @@ class TransferConfig(S3TransferConfig):
     def __setattr__(self, name: str, value: int) -> None: ...
 
 class S3Transfer:
-    ALLOWED_DOWNLOAD_ARGS: List[str]
-    ALLOWED_UPLOAD_ARGS: List[str]
+    ALLOWED_DOWNLOAD_ARGS: list[str]
+    ALLOWED_UPLOAD_ARGS: list[str]
     def __init__(
         self,
-        client: Optional[BaseClient] = ...,
-        config: Optional[Config] = ...,
-        osutil: Optional[OSUtils] = ...,
-        manager: Optional[TransferManager] = ...,
+        client: BaseClient | None = ...,
+        config: Config | None = ...,
+        osutil: OSUtils | None = ...,
+        manager: TransferManager | None = ...,
     ) -> None: ...
     def upload_file(
         self,
         filename: str,
         bucket: str,
         key: str,
-        callback: Optional[Callable[[int], Any]] = ...,
-        extra_args: Optional[Mapping[str, Any]] = ...,
+        callback: Callable[[int], Any] | None = ...,
+        extra_args: Mapping[str, Any] | None = ...,
     ) -> None: ...
     def download_file(
         self,
         bucket: str,
         key: str,
         filename: str,
-        extra_args: Optional[Mapping[str, Any]] = ...,
-        callback: Optional[Callable[[int], Any]] = ...,
+        extra_args: Mapping[str, Any] | None = ...,
+        callback: Callable[[int], Any] | None = ...,
     ) -> None: ...
     def __enter__(self: _R) -> _R: ...
     def __exit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc_value: Optional[BaseException],
-        tb: Optional[TracebackType],
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        tb: TracebackType | None,
     ) -> None: ...
 
 class ProgressCallbackInvoker(BaseSubscriber):

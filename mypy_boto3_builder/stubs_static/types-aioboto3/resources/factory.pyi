@@ -1,3 +1,9 @@
+"""
+Type annotations for aioboto3.resources.factory module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
 from typing import Any
 

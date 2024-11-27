@@ -1,32 +1,23 @@
-import sys
+"""
+Type annotations for boto3.dynamodb.types module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from decimal import Context
-from typing import Any, Mapping, Sequence, Tuple
+from typing import Any, Literal, Mapping, Sequence, TypedDict
 
-if sys.version_info >= (3, 12):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 12):
-    from typing import TypedDict
-else:
-    from typing_extensions import TypedDict
-
-_AttributeValueTypeDef = TypedDict(
-    "_AttributeValueTypeDef",
-    {
-        "S": str,
-        "N": str,
-        "B": bytes,
-        "SS": Sequence[str],
-        "NS": Sequence[str],
-        "BS": Sequence[bytes],
-        "M": Mapping[str, Any],
-        "L": Sequence[Any],
-        "NULL": bool,
-        "BOOL": bool,
-    },
-    total=False,
-)
+class _AttributeValueTypeDef(TypedDict, total=False):
+    S: str
+    N: str
+    B: bytes
+    SS: Sequence[str]
+    NS: Sequence[str]
+    BS: Sequence[bytes]
+    M: Mapping[str, Any]
+    L: Sequence[Any]
+    NULL: bool
+    BOOL: bool
 
 STRING: Literal["S"]
 NUMBER: Literal["N"]
@@ -41,14 +32,12 @@ LIST: Literal["L"]
 
 DYNAMODB_CONTEXT: Context
 
-BINARY_TYPES: Tuple[Any, ...]
+BINARY_TYPES: tuple[Any, ...]
 
 class Binary:
     def __init__(self, value: Any) -> None: ...
-    def __eq__(self, other: Any) -> bool: ...
-    def __ne__(self, other: Any) -> bool: ...
-    def __repr__(self) -> str: ...
-    def __str__(self) -> str: ...
+    def __eq__(self, other: object) -> bool: ...
+    def __ne__(self, other: object) -> bool: ...
     def __bytes__(self) -> str: ...
     def __hash__(self) -> int: ...
 

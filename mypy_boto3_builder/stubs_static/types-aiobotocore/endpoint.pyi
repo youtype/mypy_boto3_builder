@@ -1,4 +1,10 @@
-from typing import Any, Dict, Optional, Type
+"""
+Type annotations for aiobotocore.endpoint module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any
 
 from aiobotocore.httpsession import AIOHTTPSession as AIOHTTPSession
 from aiobotocore.response import StreamingBody as StreamingBody
@@ -8,17 +14,15 @@ from botocore.endpoint import Endpoint, EndpointCreator
 from botocore.model import OperationModel, ServiceModel
 from requests.models import Request, Response
 
-DEFAULT_HTTP_SESSION_CLS: Type[AIOHTTPSession] = ...
+DEFAULT_HTTP_SESSION_CLS: type[AIOHTTPSession] = ...
 
 async def convert_to_response_dict(
     http_response: Response, operation_model: OperationModel
-) -> Dict[str, Any]: ...
+) -> dict[str, Any]: ...
 
 class AioEndpoint(Endpoint):
     async def close(self) -> None: ...  # type: ignore [override]
-    async def create_request(
-        self, params: Any, operation_model: Optional[Any] = ...
-    ) -> Request: ...
+    async def create_request(self, params: Any, operation_model: Any | None = ...) -> Request: ...
 
 class AioEndpointCreator(EndpointCreator):
     def create_endpoint(  # type: ignore [override]
@@ -26,14 +30,14 @@ class AioEndpointCreator(EndpointCreator):
         service_model: ServiceModel,
         region_name: str,
         endpoint_url: str,
-        verify: Optional[Any] = ...,
-        response_parser_factory: Optional[Any] = ...,
+        verify: Any | None = ...,
+        response_parser_factory: Any | None = ...,
         timeout: int = ...,
         max_pool_connections: int = ...,
-        http_session_cls: Type[AIOHTTPSession] = ...,
-        proxies: Optional[Any] = ...,
-        socket_options: Optional[Any] = ...,
-        client_cert: Optional[Any] = ...,
-        proxies_config: Optional[Any] = ...,
-        connector_args: Optional[Any] = ...,
+        http_session_cls: type[AIOHTTPSession] = ...,
+        proxies: Any | None = ...,
+        socket_options: Any | None = ...,
+        client_cert: Any | None = ...,
+        proxies_config: Any | None = ...,
+        connector_args: Any | None = ...,
     ) -> AioEndpoint: ...

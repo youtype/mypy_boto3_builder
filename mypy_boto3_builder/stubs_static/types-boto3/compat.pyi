@@ -1,7 +1,12 @@
-import os
-from typing import Type
+"""
+Type annotations for boto3.compat module.
 
-SOCKET_ERROR: Type[ConnectionError]
+Copyright 2024 Vlad Emelianov
+"""
+
+import os
+
+SOCKET_ERROR: type[ConnectionError]
 
 def filter_python_deprecation_warnings() -> None: ...
 

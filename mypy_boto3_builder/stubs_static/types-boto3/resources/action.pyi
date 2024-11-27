@@ -1,5 +1,11 @@
+"""
+Type annotations for boto3.resources.action module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
-from typing import Any, Callable, Dict, List, Optional, Sequence, Union
+from typing import Any, Callable, Sequence
 
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import ResourceCollection
@@ -14,17 +20,17 @@ class ServiceAction:
     def __init__(
         self,
         action_model: Action,
-        factory: Optional[ResourceFactory] = ...,
-        service_context: Optional[ServiceContext] = ...,
+        factory: ResourceFactory | None = ...,
+        service_context: ServiceContext | None = ...,
     ) -> None: ...
     def __call__(
         self, parent: ServiceResource, *args: Any, **kwargs: Any
-    ) -> Union[ServiceResource, List[ServiceResource], Dict[str, Any]]: ...
+    ) -> ServiceResource | list[ServiceResource] | dict[str, Any]: ...
 
 class BatchAction(ServiceAction):
     def __call__(  # type: ignore [override]
         self, parent: ResourceCollection, *args: Any, **kwargs: Any
-    ) -> List[Dict[str, Any]]: ...
+    ) -> list[dict[str, Any]]: ...
 
 class WaiterAction:
     def __init__(self, waiter_model: Waiter, waiter_resource_name: str) -> None: ...
@@ -34,7 +40,7 @@ class CustomModeledAction:
     def __init__(
         self,
         action_name: str,
-        action_model: Dict[str, Any],
+        action_model: dict[str, Any],
         function: Callable[..., Any],
         event_emitter: BaseEventHooks,
     ) -> None: ...

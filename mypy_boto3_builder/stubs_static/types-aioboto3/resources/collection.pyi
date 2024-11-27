@@ -1,5 +1,11 @@
+"""
+Type annotations for aioboto3.resources.collection module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
-from typing import Any, AsyncIterator, List, NoReturn
+from typing import Any, AsyncIterator, NoReturn
 
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import CollectionFactory, CollectionManager, ResourceCollection
@@ -14,7 +20,7 @@ class AIOResourceCollection(ResourceCollection):
     def __anext__(self) -> AsyncIterator[Any]: ...
     def __aiter__(self) -> AsyncIterator[Any]: ...
     def __iter__(self) -> NoReturn: ...
-    def pages(self) -> AsyncIterator[List[Any]]: ...  # type: ignore [override]
+    def pages(self) -> AsyncIterator[list[Any]]: ...  # type: ignore [override]
 
 class AIOCollectionManager(CollectionManager):
     def __init__(

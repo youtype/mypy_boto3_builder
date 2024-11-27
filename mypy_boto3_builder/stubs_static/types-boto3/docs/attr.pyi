@@ -1,8 +1,14 @@
+"""
+Type annotations for boto3.docs.attr module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from boto3.resources.model import Identifier
+from botocore.docs.bcdoc.restdoc import DocumentStructure
 from botocore.docs.params import ResponseParamsDocumenter
 from botocore.hooks import BaseEventHooks
-from botocore.docs.bcdoc.restdoc import DocumentStructure
 from botocore.model import Shape
-from boto3.resources.model import Identifier
 
 class ResourceShapeDocumenter(ResponseParamsDocumenter):
     EVENT_NAME: str

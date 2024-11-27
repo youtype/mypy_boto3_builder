@@ -1,9 +1,15 @@
-from .base import NestedDocumenter
-from botocore.hooks import BaseEventHooks
+"""
+Type annotations for boto3.docs.collection module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from boto3.resources.model import Action, Collection
 from botocore.docs.bcdoc.restdoc import DocumentStructure
+from botocore.hooks import BaseEventHooks
 from botocore.model import ServiceModel
-from boto3.resources.model import Collection
-from boto3.resources.model import Action
+
+from .base import NestedDocumenter
 
 class CollectionDocumenter(NestedDocumenter):
     def document_collections(self, section: DocumentStructure) -> None: ...

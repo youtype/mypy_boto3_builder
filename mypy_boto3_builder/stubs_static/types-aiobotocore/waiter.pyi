@@ -1,3 +1,9 @@
+"""
+Type annotations for aiobotocore.waiter module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any
 
 from botocore.client import BaseClient

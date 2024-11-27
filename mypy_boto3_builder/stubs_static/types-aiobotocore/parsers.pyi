@@ -1,3 +1,9 @@
+"""
+Type annotations for aiobotocore.parsers module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any
 
 from aiobotocore.eventstream import AioEventStream as AioEventStream

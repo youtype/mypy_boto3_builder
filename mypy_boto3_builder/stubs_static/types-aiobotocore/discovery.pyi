@@ -1,3 +1,9 @@
+"""
+Type annotations for aiobotocore.discovery module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any
 
 from botocore.discovery import EndpointDiscoveryHandler, EndpointDiscoveryManager

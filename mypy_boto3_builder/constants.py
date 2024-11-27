@@ -95,6 +95,6 @@ class StaticStubsPullURL:
     Static *.pyi files zip download URL.
     """
 
-    types_boto3: Final = "https://api.github.com/repos/youtype/boto3-stubs/zipball/main"
+    types_boto3: Final = "https://api.github.com/repos/youtype/types-boto3/zipball/main"
     types_aiobotocore: Final = "https://api.github.com/repos/youtype/types-aiobotocore/zipball/main"
     types_aioboto3: Final = "https://api.github.com/repos/youtype/types-aioboto3/zipball/main"

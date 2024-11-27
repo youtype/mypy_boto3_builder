@@ -1,6 +1,12 @@
+"""
+Type annotations for aioboto3.dynamodb.table module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
 from types import TracebackType
-from typing import Any, Dict, List, Optional, Type, TypeVar
+from typing import Any, TypeVar
 
 from boto3.dynamodb.table import TableResource
 from botocore.client import BaseClient
@@ -9,16 +15,16 @@ logger: logging.Logger
 
 _R = TypeVar("_R")
 
-def register_table_methods(base_classes: List[Any], **kwargs: Any) -> None: ...
+def register_table_methods(base_classes: list[Any], **kwargs: Any) -> None: ...
 
 class CustomTableResource(TableResource):
     # FIXME: Signature of "batch_writer" incompatible with supertype "TableResource"
     def batch_writer(  # type: ignore [override]
         self,
-        overwrite_by_pkeys: Optional[List[str]] = ...,
+        overwrite_by_pkeys: list[str] | None = ...,
         flush_amount: int = ...,
         on_exit_loop_sleep: int = ...,
-    ) -> "BatchWriter": ...
+    ) -> BatchWriter: ...
 
 class BatchWriter:
     def __init__(
@@ -26,15 +32,15 @@ class BatchWriter:
         table_name: str,
         client: BaseClient,
         flush_amount: int = ...,
-        overwrite_by_pkeys: Optional[List[str]] = ...,
+        overwrite_by_pkeys: list[str] | None = ...,
         on_exit_loop_sleep: int = ...,
     ) -> None: ...
-    async def put_item(self, Item: Dict[str, Any]) -> None: ...
-    async def delete_item(self, Key: Dict[str, Any]) -> None: ...
+    async def put_item(self, Item: dict[str, Any]) -> None: ...
+    async def delete_item(self, Key: dict[str, Any]) -> None: ...
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc_value: Optional[BaseException],
-        tb: Optional[TracebackType],
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        tb: TracebackType | None,
     ) -> None: ...

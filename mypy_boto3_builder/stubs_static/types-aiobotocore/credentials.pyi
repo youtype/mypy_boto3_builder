@@ -1,5 +1,11 @@
+"""
+Type annotations for aiobotocore.credentials module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
-from typing import Any, Optional, TypeVar
+from typing import Any
 
 from aiobotocore.client import AioBaseClient
 from aiobotocore.config import AioConfig as AioConfig
@@ -35,25 +41,19 @@ logger: logging.Logger
 
 def create_credential_resolver(
     session: AioSession,
-    cache: Optional[Any] = ...,
-    region_name: Optional[str] = ...,
+    cache: Any | None = ...,
+    region_name: str | None = ...,
 ) -> AioCredentialResolver: ...
 
 class AioProfileProviderBuilder(ProfileProviderBuilder): ...
 
-async def get_credentials(session: AioSession) -> Optional[AioCredentials]: ...
+async def get_credentials(session: AioSession) -> AioCredentials | None: ...
 def create_assume_role_refresher(client: AioBaseClient, params: Any) -> Any: ...
 def create_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
 def create_aio_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
 
-_R = TypeVar("_R")
-
 class AioCredentials(Credentials):
     async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore [override]
-
-_AioRefreshableCredentials = TypeVar(
-    "_AioRefreshableCredentials", bound="AioRefreshableCredentials"
-)
 
 class AioRefreshableCredentials(RefreshableCredentials):
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
@@ -74,7 +74,7 @@ class AioRefreshableCredentials(RefreshableCredentials):
 class AioDeferredRefreshableCredentials(AioRefreshableCredentials):
     method: Any
     def __init__(self, refresh_using: Any, method: Any, time_fetcher: Any = ...) -> None: ...
-    def refresh_needed(self, refresh_in: Optional[Any] = ...) -> bool: ...
+    def refresh_needed(self, refresh_in: Any | None = ...) -> bool: ...
 
 class AioCachedCredentialFetcher(CachedCredentialFetcher):
     async def fetch_credentials(self) -> Any: ...  # type: ignore [override]
@@ -92,9 +92,9 @@ class AioAssumeRoleWithWebIdentityCredentialFetcher(AioBaseAssumeRoleCredentialF
         client_creator: Any,
         web_identity_token_loader: Any,
         role_arn: str,
-        extra_args: Optional[Any] = ...,
-        cache: Optional[Any] = ...,
-        expiry_window_seconds: Optional[Any] = ...,
+        extra_args: Any | None = ...,
+        cache: Any | None = ...,
+        expiry_window_seconds: Any | None = ...,
     ) -> None: ...
 
 class AioProcessProvider(ProcessProvider):
@@ -143,11 +143,11 @@ class AioSSOCredentialFetcher(AioCachedCredentialFetcher):
         role_name: str,
         account_id: str,
         client_creator: Any,
-        token_loader: Optional[SSOTokenLoader] = ...,
-        cache: Optional[Any] = ...,
-        expiry_window_seconds: Optional[Any] = ...,
-        token_provider: Optional[SSOTokenProvider] = ...,
-        sso_session_name: Optional[str] = ...,
+        token_loader: SSOTokenLoader | None = ...,
+        cache: Any | None = ...,
+        expiry_window_seconds: Any | None = ...,
+        token_provider: SSOTokenProvider | None = ...,
+        sso_session_name: str | None = ...,
     ) -> None: ...
 
 class AioSSOProvider(SSOProvider):

@@ -1,4 +1,10 @@
-from typing import Any, AsyncIterator, Iterator, Type
+"""
+Type annotations for aiobotocore.paginate module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any, AsyncIterator, Iterator
 
 from botocore.paginate import PageIterator, Paginator
 
@@ -11,7 +17,7 @@ class AioPageIterator(PageIterator):
     async def search(self, expression: str) -> Iterator[Any]: ...  # type: ignore [override]
 
 class AioPaginator(Paginator):
-    PAGE_ITERATOR_CLS: Type[AioPageIterator]
+    PAGE_ITERATOR_CLS: type[AioPageIterator]
 
 class ResultKeyIterator:
     result_key: str

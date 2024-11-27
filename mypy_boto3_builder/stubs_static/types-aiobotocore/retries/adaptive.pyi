@@ -1,4 +1,8 @@
-"""An async reimplementation of the blocking elements from botocore.retries.adaptive."""
+"""
+Type annotations for aiobotocore.retries.adaptive module.
+
+Copyright 2024 Vlad Emelianov
+"""
 
 import logging
 from typing import Any
@@ -11,7 +15,7 @@ from botocore.retries.throttling import CubicCalculator
 
 logger: logging.Logger = ...
 
-def register_retry_handler(client: AioBaseClient) -> "AsyncClientRateLimiter": ...
+def register_retry_handler(client: AioBaseClient) -> AsyncClientRateLimiter: ...
 
 class AsyncClientRateLimiter:
     def __init__(

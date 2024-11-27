@@ -1,4 +1,10 @@
-from typing import Any, Mapping, Optional
+"""
+Type annotations for aiobotocore.stub module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any, Mapping
 
 from botocore.stub import Stubber
 
@@ -9,8 +15,8 @@ class AioStubber(Stubber):
         service_error_code: str = ...,
         service_message: str = ...,
         http_status_code: int = ...,
-        service_error_meta: Optional[Mapping[str, Any]] = ...,
-        expected_params: Optional[Mapping[str, Any]] = ...,
-        response_meta: Optional[Mapping[str, Any]] = ...,
-        modeled_fields: Optional[Mapping[str, Any]] = ...,
+        service_error_meta: Mapping[str, Any] | None = ...,
+        expected_params: Mapping[str, Any] | None = ...,
+        response_meta: Mapping[str, Any] | None = ...,
+        modeled_fields: Mapping[str, Any] | None = ...,
     ) -> None: ...

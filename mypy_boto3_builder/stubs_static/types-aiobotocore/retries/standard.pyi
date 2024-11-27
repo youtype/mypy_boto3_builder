@@ -1,4 +1,10 @@
-from typing import Any, Optional
+"""
+Type annotations for aiobotocore.retries.standard module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any
 
 from botocore.client import BaseClient
 from botocore.retries.standard import (
@@ -9,10 +15,10 @@ from botocore.retries.standard import (
     StandardRetryConditions,
 )
 
-def register_retry_handler(client: BaseClient, max_attempts: int = ...) -> "AioRetryHandler": ...
+def register_retry_handler(client: BaseClient, max_attempts: int = ...) -> AioRetryHandler: ...
 
 class AioRetryHandler(RetryHandler):
-    async def needs_retry(self, **kwargs: Any) -> Optional[float]: ...  # type: ignore
+    async def needs_retry(self, **kwargs: Any) -> float | None: ...  # type: ignore
 
 class AioRetryPolicy(RetryPolicy):
     async def should_retry(self, context: RetryContext) -> bool: ...

@@ -1,3 +1,9 @@
+"""
+Type annotations for boto3.ec2.deletetags module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any
 
 from botocore.hooks import BaseEventHooks

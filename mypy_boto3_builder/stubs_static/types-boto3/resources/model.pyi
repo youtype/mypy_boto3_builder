@@ -1,69 +1,71 @@
+"""
+Type annotations for boto3.resources.model module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
-import sys
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Literal, TypedDict
 
 from botocore.model import Shape
 
-if sys.version_info >= (3, 12):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 12):
-    from typing import TypedDict
-else:
-    from typing_extensions import TypedDict
-
 logger: logging.Logger
 
-_ActionDefinition = TypedDict(
-    "_ActionDefinition",
-    {"request": Dict[str, Any], "resource": Dict[str, Any], "path": str},
-    total=False,
-)
-_DefinitionWithParamsDefinition = TypedDict(
-    "_DefinitionWithParamsDefinition", {"params": List[Dict[str, Any]]}, total=False
-)
-_RequestDefinition = TypedDict("_RequestDefinition", {"operation": str}, total=False)
-_WaiterDefinition = TypedDict("_WaiterDefinition", {"waiterName": str}, total=False)
-_ResponseResourceDefinition = TypedDict(
-    "_ResponseResourceDefinition", {"type": str, "path": str}, total=False
-)
-_ResourceModelDefinition = TypedDict("_ResourceModelDefinition", {"shape": str}, total=False)
+class _ActionDefinition(TypedDict, total=False):
+    request: dict[str, Any]
+    resource: dict[str, Any]
+    path: str
+
+class _DefinitionWithParamsDefinition(TypedDict, total=False):
+    params: list[dict[str, Any]]
+
+class _RequestDefinition(TypedDict, total=False):
+    operation: str
+
+class _WaiterDefinition(TypedDict, total=False):
+    waiterName: str
+
+class _ResponseResourceDefinition(TypedDict, total=False):
+    type: str
+    path: str
+
+class _ResourceModelDefinition(TypedDict, total=False):
+    shape: str
 
 class Identifier:
-    def __init__(self, name: str, member_name: Optional[str] = ...) -> None:
+    def __init__(self, name: str, member_name: str | None = ...) -> None:
         self.name: str
         self.member_name: str
 
 class Action:
     def __init__(
-        self, name: str, definition: _ActionDefinition, resource_defs: Dict[str, Dict[str, Any]]
+        self, name: str, definition: _ActionDefinition, resource_defs: dict[str, dict[str, Any]]
     ) -> None:
         self.name: str
-        self.request: Optional[Request]
-        self.resource: Optional[ResponseResource]
-        self.path: Optional[str]
+        self.request: Request | None
+        self.resource: ResponseResource | None
+        self.path: str | None
 
 class DefinitionWithParams:
     def __init__(self, definition: _DefinitionWithParamsDefinition) -> None: ...
     @property
-    def params(self) -> List[Parameter]: ...
+    def params(self) -> list[Parameter]: ...
 
 class Parameter:
     def __init__(
         self,
         target: str,
         source: str,
-        name: Optional[str] = ...,
-        path: Optional[str] = ...,
-        value: Union[str, int, float, bool, None] = ...,
+        name: str | None = ...,
+        path: str | None = ...,
+        value: str | float | bool | None = ...,
         **kwargs: Any,
     ) -> None:
         self.target: str
         self.source: str
-        self.name: Optional[str]
-        self.path: Optional[str]
-        self.value: Union[str, int, float, bool, None]
+        self.name: str | None
+        self.path: str | None
+        self.value: str | int | float | bool | None
 
 class Request(DefinitionWithParams):
     def __init__(self, definition: _RequestDefinition) -> None:
@@ -77,45 +79,45 @@ class Waiter(DefinitionWithParams):
 
 class ResponseResource:
     def __init__(
-        self, definition: _ResponseResourceDefinition, resource_defs: Dict[str, Dict[str, Any]]
+        self, definition: _ResponseResourceDefinition, resource_defs: dict[str, dict[str, Any]]
     ) -> None:
         self.type: str
         self.path: str
 
     @property
-    def identifiers(self) -> List[Identifier]: ...
+    def identifiers(self) -> list[Identifier]: ...
     @property
-    def model(self) -> "ResourceModel": ...
+    def model(self) -> ResourceModel: ...
 
 class Collection(Action):
     @property
-    def batch_actions(self) -> List[Action]: ...
+    def batch_actions(self) -> list[Action]: ...
 
 class ResourceModel:
     def __init__(
         self,
         name: str,
         definition: _ResourceModelDefinition,
-        resource_defs: Dict[str, Dict[str, Any]],
+        resource_defs: dict[str, dict[str, Any]],
     ) -> None:
         self.name: str
-        self.shape: Optional[str]
+        self.shape: str | None
 
-    def load_rename_map(self, shape: Optional[Shape] = ...) -> None: ...
-    def get_attributes(self, shape: Shape) -> Dict[str, Tuple[str, Shape]]: ...
+    def load_rename_map(self, shape: Shape | None = ...) -> None: ...
+    def get_attributes(self, shape: Shape) -> dict[str, tuple[str, Shape]]: ...
     @property
-    def identifiers(self) -> List[Identifier]: ...
+    def identifiers(self) -> list[Identifier]: ...
     @property
-    def load(self) -> Optional[Action]: ...
+    def load(self) -> Action | None: ...
     @property
-    def actions(self) -> List[Action]: ...
+    def actions(self) -> list[Action]: ...
     @property
-    def batch_actions(self) -> List[Action]: ...
+    def batch_actions(self) -> list[Action]: ...
     @property
-    def subresources(self) -> List[ResponseResource]: ...
+    def subresources(self) -> list[ResponseResource]: ...
     @property
-    def references(self) -> List[Action]: ...
+    def references(self) -> list[Action]: ...
     @property
-    def collections(self) -> List[Collection]: ...
+    def collections(self) -> list[Collection]: ...
     @property
-    def waiters(self) -> List[Waiter]: ...
+    def waiters(self) -> list[Waiter]: ...

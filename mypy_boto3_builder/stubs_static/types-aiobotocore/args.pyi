@@ -1,5 +1,10 @@
-import sys
-from typing import Any, Dict, Optional, Union
+"""
+Type annotations for aiobotocore.args module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any, TypedDict
 
 from aiobotocore.endpoint import AioEndpoint
 from botocore.args import ClientArgsCreator
@@ -13,11 +18,6 @@ from botocore.parsers import ResponseParser
 from botocore.serialize import BaseRestSerializer
 from botocore.signers import RequestSigner
 
-if sys.version_info >= (3, 12):
-    from typing import TypedDict
-else:
-    from typing_extensions import TypedDict
-
 class _GetClientArgsTypeDef(TypedDict):
     serializer: BaseRestSerializer
     endpoint: AioEndpoint
@@ -27,7 +27,7 @@ class _GetClientArgsTypeDef(TypedDict):
     service_model: ServiceModel
     loader: Loader
     client_config: Config
-    partition: Optional[str]
+    partition: str | None
     exceptions_factory: Any
 
 class AioClientArgsCreator(ClientArgsCreator):
@@ -37,12 +37,12 @@ class AioClientArgsCreator(ClientArgsCreator):
         region_name: str,
         is_secure: bool,
         endpoint_url: str,
-        verify: Optional[Union[str, bool]],
+        verify: str | bool | None,
         credentials: Credentials,
-        scoped_config: Optional[Dict[str, Any]],
-        client_config: Optional[Config],
+        scoped_config: dict[str, Any] | None,
+        client_config: Config | None,
         endpoint_bridge: ClientEndpointBridge,
-        auth_token: Optional[str] = ...,
-        endpoints_ruleset_data: Optional[Dict[str, Any]] = ...,
-        partition_data: Optional[Dict[str, Any]] = ...,
+        auth_token: str | None = ...,
+        endpoints_ruleset_data: dict[str, Any] | None = ...,
+        partition_data: dict[str, Any] | None = ...,
     ) -> _GetClientArgsTypeDef: ...

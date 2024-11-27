@@ -1,14 +1,20 @@
-from typing import Any, Dict, List, Union
+"""
+Type annotations for aioboto3.resources.response module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any
 
 from boto3.resources.base import ServiceResource
 from boto3.resources.response import RawHandler, ResourceHandler
 
 class AIOResourceHandler(ResourceHandler):
     async def __call__(  # type: ignore [override]
-        self, parent: ServiceResource, params: Dict[str, Any], response: Dict[str, Any]
-    ) -> Union[ServiceResource, List[ServiceResource]]: ...
+        self, parent: ServiceResource, params: dict[str, Any], response: dict[str, Any]
+    ) -> ServiceResource | list[ServiceResource]: ...
 
 class AIORawHandler(RawHandler):
     async def __call__(  # type: ignore [override]
-        self, parent: ServiceResource, params: Dict[str, Any], response: Dict[str, Any]
-    ) -> Dict[str, Any]: ...
+        self, parent: ServiceResource, params: dict[str, Any], response: dict[str, Any]
+    ) -> dict[str, Any]: ...

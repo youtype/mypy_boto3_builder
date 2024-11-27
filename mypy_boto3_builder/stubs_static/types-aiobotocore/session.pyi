@@ -1,5 +1,11 @@
+"""
+Type annotations for aiobotocore.session module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from types import TracebackType
-from typing import Any, Generic, List, Optional, Type, TypeVar, Union
+from typing import Any, Generic, TypeVar
 
 from aiobotocore.client import AioBaseClient as AioBaseClient
 from aiobotocore.client import AioClientCreator as AioClientCreator
@@ -12,58 +18,56 @@ from botocore.model import ServiceModel
 from botocore.session import EVENT_ALIASES as EVENT_ALIASES
 from botocore.session import Session
 
-_AioBaseClient = TypeVar("_AioBaseClient", bound="AioBaseClient")
+_AioBaseClient = TypeVar("_AioBaseClient", bound=AioBaseClient)
 
 class ClientCreatorContext(Generic[_AioBaseClient]):
     def __init__(self, coro: Any) -> None: ...
     async def __aenter__(self) -> _AioBaseClient: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc_val: Optional[BaseException],
-        tb: Optional[TracebackType],
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        tb: TracebackType | None,
     ) -> None: ...
 
 class AioSession(Session):
     def __init__(
         self,
-        session_vars: Optional[Any] = ...,
-        event_hooks: Optional[Any] = ...,
+        session_vars: Any | None = ...,
+        event_hooks: Any | None = ...,
         include_builtin_handlers: bool = ...,
-        profile: Optional[Any] = ...,
+        profile: Any | None = ...,
     ) -> None: ...
     def register(
         self,
         event_name: str,
         handler: Any,
-        unique_id: Optional[Any] = ...,
+        unique_id: Any | None = ...,
         unique_id_uses_count: bool = ...,
     ) -> None: ...
     def create_client(  # type: ignore [override]
         self,
         service_name: str,
-        region_name: Optional[str] = ...,
-        api_version: Optional[str] = ...,
-        use_ssl: Optional[bool] = ...,
-        verify: Union[bool, str, None] = ...,
-        endpoint_url: Optional[str] = ...,
-        aws_access_key_id: Optional[str] = ...,
-        aws_secret_access_key: Optional[str] = ...,
-        aws_session_token: Optional[str] = ...,
-        config: Optional[Config] = ...,
+        region_name: str | None = ...,
+        api_version: str | None = ...,
+        use_ssl: bool | None = ...,
+        verify: bool | str | None = ...,
+        endpoint_url: str | None = ...,
+        aws_access_key_id: str | None = ...,
+        aws_secret_access_key: str | None = ...,
+        aws_session_token: str | None = ...,
+        config: Config | None = ...,
     ) -> ClientCreatorContext[AioBaseClient]: ...
-    async def get_credentials(self) -> Optional[AioCredentials]: ...  # type: ignore [override]
+    async def get_credentials(self) -> AioCredentials | None: ...  # type: ignore [override]
     def set_credentials(
-        self, access_key: str, secret_key: str, token: Optional[Any] = ...
+        self, access_key: str, secret_key: str, token: Any | None = ...
     ) -> None: ...
     async def get_service_model(  # type: ignore [override]
-        self, service_name: str, api_version: Optional[Any] = ...
+        self, service_name: str, api_version: Any | None = ...
     ) -> ServiceModel: ...
-    async def get_service_data(
-        self, service_name: str, api_version: Optional[Any] = ...
-    ) -> Any: ...
+    async def get_service_data(self, service_name: str, api_version: Any | None = ...) -> Any: ...
     async def get_available_regions(  # type: ignore [override]
         self, service_name: str, partition_name: str = ..., allow_non_regional: bool = ...
-    ) -> List[str]: ...
+    ) -> list[str]: ...
 
-def get_session(env_vars: Optional[Any] = ...) -> AioSession: ...
+def get_session(env_vars: Any | None = ...) -> AioSession: ...

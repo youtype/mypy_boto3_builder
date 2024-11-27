@@ -1,4 +1,10 @@
-from typing import Any, Dict, Mapping, Optional, TypeVar
+"""
+Type annotations for aiobotocore.httpchecksum module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any, Mapping, TypeVar
 
 from aiobotocore.response import StreamingBody
 from aiohttp import StreamReader
@@ -21,11 +27,11 @@ class StreamingChecksumBody(StreamingBody):
         checksum: BaseChecksum,
         expected: BaseChecksum,
     ) -> None: ...
-    async def read(self, amt: Optional[int] = ...) -> bytes: ...
+    async def read(self, amt: int | None = ...) -> bytes: ...
 
 async def handle_checksum_body(
     http_response: AWSHTTPResponse,
-    response: Dict[str, Any],
+    response: dict[str, Any],
     context: Mapping[str, Any],
     operation_model: OperationModel,
 ) -> None: ...

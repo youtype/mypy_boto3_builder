@@ -1,3 +1,9 @@
+"""
+Type annotations for aioboto3 module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import logging
 from typing import Any
 

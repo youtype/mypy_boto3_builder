@@ -1,7 +1,13 @@
-from typing import Any, Dict
+"""
+Type annotations for boto3.docs.base module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
+from typing import Any
 
 class BaseDocumenter:
-    member_map: Dict[str, Any]
+    member_map: dict[str, Any]
     represents_service_resource: Any
     def __init__(self, resource: Any) -> None: ...
     @property

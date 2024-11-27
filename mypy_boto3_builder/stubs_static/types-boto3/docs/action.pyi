@@ -1,13 +1,19 @@
-from typing import Dict, List
-from .base import NestedDocumenter
-from botocore.hooks import BaseEventHooks
-from botocore.docs.bcdoc.restdoc import DocumentStructure
-from botocore.model import ServiceModel
+"""
+Type annotations for boto3.docs.action module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from boto3.resources.model import Action
+from botocore.docs.bcdoc.restdoc import DocumentStructure
+from botocore.hooks import BaseEventHooks
+from botocore.model import ServiceModel
+
+from .base import NestedDocumenter
 
 PUT_DATA_WARNING_MESSAGE: str
-WARNING_MESSAGES: Dict[str, Dict[str, str]]
-IGNORE_PARAMS: Dict[str, Dict[str, List[str]]]
+WARNING_MESSAGES: dict[str, dict[str, str]]
+IGNORE_PARAMS: dict[str, dict[str, list[str]]]
 
 class ActionDocumenter(NestedDocumenter):
     def document_actions(self, section: DocumentStructure) -> None: ...

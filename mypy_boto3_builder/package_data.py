@@ -185,7 +185,7 @@ class Boto3StubsLitePackageData(Boto3StubsPackageData):
     boto3-stubs-lite package data.
     """
 
-    PYPI_NAME = "boto3-stubs-lite"
+    PYPI_NAME = Boto3StubsPackageData.PYPI_LITE_NAME
     PYPI_LITE_NAME = ""
 
 
@@ -195,7 +195,7 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
     """
 
     NAME = ""
-    PYPI_NAME = "boto3-stubs-full"
+    PYPI_NAME = Boto3StubsPackageData.PYPI_FULL_NAME
     IS_CONDA_FORGE_SUPPORTED = False
 
     @typing.override
@@ -248,4 +248,4 @@ class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
 
     PYPI_NAME = "types-aioboto3-lite"
     PYPI_LITE_NAME = ""
-    AIOBOTOCORE_NAME = "types-aiobotocore-lite"
+    AIOBOTOCORE_NAME = TypesAioBoto3PackageData.PYPI_LITE_NAME

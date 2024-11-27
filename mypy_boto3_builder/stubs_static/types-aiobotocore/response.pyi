@@ -1,6 +1,12 @@
+"""
+Type annotations for aiobotocore.response module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 import asyncio
 from types import TracebackType
-from typing import IO, Any, AsyncIterator, List, Optional, Tuple, Type, TypeVar
+from typing import IO, Any, AsyncIterator, TypeVar
 
 import wrapt  # type: ignore
 from aiobotocore import parsers as parsers
@@ -17,14 +23,14 @@ class StreamingBody(wrapt.ObjectProxy):  # type: ignore
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc_val: Optional[BaseException],
-        tb: Optional[TracebackType],
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        tb: TracebackType | None,
     ) -> None: ...
     def tell(self) -> int: ...
     def readable(self) -> bool: ...
-    async def read(self, amt: Optional[int] = ...) -> bytes: ...
-    async def readlines(self) -> List[bytes]: ...
+    async def read(self, amt: int | None = ...) -> bytes: ...
+    async def readlines(self) -> list[bytes]: ...
     def __aiter__(self) -> AsyncIterator[bytes]: ...
     async def __anext__(self) -> bytes: ...
     anext: Any
@@ -33,4 +39,4 @@ class StreamingBody(wrapt.ObjectProxy):  # type: ignore
 
 async def get_response(
     operation_model: OperationModel, http_response: Response
-) -> Tuple[Response, Any]: ...
+) -> tuple[Response, Any]: ...

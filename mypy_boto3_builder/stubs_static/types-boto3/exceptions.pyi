@@ -1,3 +1,9 @@
+"""
+Type annotations for boto3.exceptions module.
+
+Copyright 2024 Vlad Emelianov
+"""
+
 from typing import Any, Iterable
 
 import botocore.exceptions
