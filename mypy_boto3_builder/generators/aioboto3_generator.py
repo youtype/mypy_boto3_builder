@@ -1,5 +1,5 @@
 """
-AioBoto3 stubs generator.
+Generator for types-aioboto3 packages.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -27,7 +27,7 @@ from mypy_boto3_builder.writers.aioboto3_processors import (
 
 class AioBoto3Generator(BaseGenerator):
     """
-    AioBoto3 stubs generator.
+    Generator for types-aioboto3 packages.
     """
 
     service_package_data = TypesAioBoto3PackageData
@@ -38,7 +38,7 @@ class AioBoto3Generator(BaseGenerator):
             StaticStubsPullURL.types_aioboto3,
         )
 
-    def get_postprocessor(self, service_package: ServicePackage) -> AioBoto3Postprocessor:
+    def _get_postprocessor(self, service_package: ServicePackage) -> AioBoto3Postprocessor:
         """
         Get postprocessor for service package.
         """
@@ -48,17 +48,20 @@ class AioBoto3Generator(BaseGenerator):
         """
         Generate `types-aioboto3` package.
         """
-        packages: list[Package] = []
-        package: Package | None = self._generate_stubs()
+        package = self._generate_stubs()
         if package:
-            packages.append(package)
+            return [package]
 
-        if not self.config.skip_lite_package:
-            package = self._generate_stubs_lite()
-            if package:
-                packages.append(package)
+        return []
 
-        return packages
+    def generate_stubs_lite(self) -> list[Package]:
+        """
+        Generate `types-aioboto3-lite` package.
+        """
+        package = self._generate_stubs_lite()
+        if package:
+            return [package]
+        return []
 
     def _generate_stubs(self) -> TypesAioBoto3Package | None:
         package_data = TypesAioBoto3PackageData

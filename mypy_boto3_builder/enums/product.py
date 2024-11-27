@@ -16,14 +16,17 @@ class Product(Enum):
     """
 
     boto3 = "boto3"
+    boto3_lite = "boto3-lite"
     boto3_services = "boto3-services"
     boto3_full = "boto3-full"
     boto3_docs = "boto3-docs"
     aiobotocore = "aiobotocore"
+    aiobotocore_lite = "aiobotocore-lite"
     aiobotocore_services = "aiobotocore-services"
     aiobotocore_docs = "aiobotocore-docs"
     aiobotocore_full = "aiobotocore-full"
     aioboto3 = "aioboto3"
+    aioboto3_lite = "aioboto3-lite"
     aioboto3_docs = "aioboto3-docs"
 
     def __str__(self) -> str:
@@ -37,16 +40,23 @@ class Product(Enum):
         Get library name.
         """
         match self:
-            case Product.boto3 | Product.boto3_services | Product.boto3_full | Product.boto3_docs:
+            case (
+                Product.boto3
+                | Product.boto3_lite
+                | Product.boto3_services
+                | Product.boto3_full
+                | Product.boto3_docs
+            ):
                 return ProductLibrary.boto3
             case (
                 Product.aiobotocore
+                | Product.aiobotocore_lite
                 | Product.aiobotocore_services
                 | Product.aiobotocore_full
                 | Product.aiobotocore_docs
             ):
                 return ProductLibrary.aiobotocore
-            case Product.aioboto3 | Product.aioboto3_docs:
+            case Product.aioboto3 | Product.aioboto3_lite | Product.aioboto3_docs:
                 return ProductLibrary.aioboto3
 
     def get_type(self) -> ProductType:
@@ -56,6 +66,8 @@ class Product(Enum):
         match self:
             case Product.boto3 | Product.aiobotocore | Product.aioboto3:
                 return ProductType.stubs
+            case Product.boto3_lite | Product.aiobotocore_lite | Product.aioboto3_lite:
+                return ProductType.stubs_lite
             case Product.boto3_services | Product.aiobotocore_services:
                 return ProductType.service_stubs
             case Product.boto3_docs | Product.aiobotocore_docs | Product.aioboto3_docs:

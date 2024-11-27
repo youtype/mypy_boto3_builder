@@ -59,7 +59,7 @@ class BaseGenerator(ABC):
         self.master_service_names = master_service_names
         self.config = config
         self.logger = get_logger()
-        self.version = version or self.get_library_version()
+        self.version = version or self._get_library_version()
         self.cleanup = cleanup
         self.package_writer = PackageWriter(
             output_path=self.output_path,
@@ -125,12 +125,12 @@ class BaseGenerator(ABC):
         return self._downloaded_static_files_path
 
     @abstractmethod
-    def get_postprocessor(self, service_package: ServicePackage) -> BasePostprocessor:
+    def _get_postprocessor(self, service_package: ServicePackage) -> BasePostprocessor:
         """
         Get postprocessor for service package.
         """
 
-    def get_library_version(self) -> str:
+    def _get_library_version(self) -> str:
         """
         Get underlying library version.
         """
@@ -153,14 +153,18 @@ class BaseGenerator(ABC):
         """
         Generate main stubs.
         """
-        raise NotImplementedError("Method should be implemented in child class")
+
+    @abstractmethod
+    def generate_stubs_lite(self) -> Sequence[Package]:
+        """
+        Generate main stubs.
+        """
 
     @abstractmethod
     def generate_full_stubs(self) -> Sequence[Package]:
         """
         Generate full stubs.
         """
-        raise NotImplementedError("Method should be implemented in child class")
 
     @abstractmethod
     def generate_custom_stubs(self) -> Sequence[Package]:
@@ -210,6 +214,8 @@ class BaseGenerator(ABC):
         match product_type:
             case ProductType.stubs:
                 packages.extend(self.generate_stubs())
+            case ProductType.stubs_lite:
+                packages.extend(self.generate_stubs_lite())
             case ProductType.service_stubs:
                 packages.extend(self.generate_service_stubs())
             case ProductType.docs:
@@ -237,7 +243,7 @@ class BaseGenerator(ABC):
         parser = ServicePackageParser(service_name, package_data, version)
         service_package = parser.parse()
 
-        postprocessor = self.get_postprocessor(service_package)
+        postprocessor = self._get_postprocessor(service_package)
         postprocessor.generate_docstrings()
         postprocessor.process_package()
 

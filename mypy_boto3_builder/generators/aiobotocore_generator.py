@@ -1,5 +1,5 @@
 """
-AioBotocore stubs/docs generator.
+Generator for types-aiobotocore packages.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -32,7 +32,7 @@ from mypy_boto3_builder.writers.aiobotocore_processors import (
 
 class AioBotocoreGenerator(BaseGenerator):
     """
-    AioBotocore stubs/docs generator.
+    Generator for types-aiobotocore packages.
     """
 
     service_package_data = TypesAioBotocorePackageData
@@ -44,7 +44,7 @@ class AioBotocoreGenerator(BaseGenerator):
             StaticStubsPullURL.types_aiobotocore,
         )
 
-    def get_postprocessor(self, service_package: ServicePackage) -> AioBotocorePostprocessor:
+    def _get_postprocessor(self, service_package: ServicePackage) -> AioBotocorePostprocessor:
         """
         Get postprocessor for service package.
         """
@@ -52,19 +52,22 @@ class AioBotocoreGenerator(BaseGenerator):
 
     def generate_stubs(self) -> list[Package]:
         """
-        Generate `aiobotocore-stubs` package.
+        Generate `types-aiobotocore` package.
         """
-        packages: list[Package] = []
-        package: Package | None = self._generate_stubs()
+        package = self._generate_stubs()
         if package:
-            packages.append(package)
+            return [package]
 
-        if not self.config.skip_lite_package:
-            package = self._generate_stubs_lite()
-            if package:
-                packages.append(package)
+        return []
 
-        return packages
+    def generate_stubs_lite(self) -> list[Package]:
+        """
+        Generate `types-aiobotocore-lite` package.
+        """
+        package = self._generate_stubs_lite()
+        if package:
+            return [package]
+        return []
 
     def _generate_stubs(self) -> TypesAioBotocorePackage | None:
         package_data = TypesAioBotocorePackageData
@@ -127,7 +130,7 @@ class AioBotocoreGenerator(BaseGenerator):
 
     def generate_full_stubs(self) -> list[Package]:
         """
-        Generate full stubs.
+        Generate `types-aiobotocore-full` package.
         """
         package_data = TypesAioBotocoreFullPackageData
         try:

@@ -1,5 +1,5 @@
 """
-Boto3 stubs/docs generator.
+Generator for boto3-stubs packages.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -35,13 +35,13 @@ from mypy_boto3_builder.writers.processors import (
 
 class Boto3Generator(BaseGenerator):
     """
-    Boto3 stubs/docs generator.
+    Generator for boto3-stubs packages.
     """
 
     service_package_data = Boto3StubsPackageData
     service_template_path = TemplatePath.boto3_stubs_service
 
-    def get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:
+    def _get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:
         """
         Get postprocessor for service package.
         """
@@ -72,7 +72,7 @@ class Boto3Generator(BaseGenerator):
             StaticStubsPullURL.boto3_stubs,
         )
 
-    def _generate_boto3_stubs(self) -> Boto3StubsPackage | None:
+    def _generate_stubs(self) -> Boto3StubsPackage | None:
         package_data = Boto3StubsPackageData
         try:
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
@@ -89,7 +89,7 @@ class Boto3Generator(BaseGenerator):
             static_files_path=self._get_static_files_path(),
         )
 
-    def _generate_boto3_stubs_lite(self) -> Boto3StubsPackage | None:
+    def _generate_stubs_lite(self) -> Boto3StubsPackage | None:
         package_data = Boto3StubsLitePackageData
         try:
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
@@ -108,26 +108,30 @@ class Boto3Generator(BaseGenerator):
 
     def generate_stubs(self) -> list[Package]:
         """
-        Generate main stubs.
+        Generate `boto3-stubs` package.
         """
         result: list[Package] = []
         package: Package | None = None
 
-        package = self._generate_boto3_stubs()
+        package = self._generate_stubs()
         if package:
             result.append(package)
 
-        if not self.config.skip_lite_package and self.is_package():
+        if not self.is_package():
             package = self._generate_master()
             if package:
                 result.append(package)
 
-        if not self.config.skip_lite_package:
-            package = self._generate_boto3_stubs_lite()
-            if package:
-                result.append(package)
-
         return result
+
+    def generate_stubs_lite(self) -> list[Package]:
+        """
+        Generate `boto3-stubs-lite` package.
+        """
+        package = self._generate_stubs_lite()
+        if package:
+            return [package]
+        return []
 
     def generate_docs(self) -> None:
         """
@@ -156,7 +160,7 @@ class Boto3Generator(BaseGenerator):
 
     def generate_full_stubs(self) -> list[Package]:
         """
-        Generate full stubs.
+        Generate `boto3-stubs-full` package.
         """
         package_data = Boto3StubsFullPackageData
         try:

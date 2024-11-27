@@ -216,7 +216,6 @@ def build_packages(
             skip_published=False,
             partial_overload=False,
             list_services=False,
-            skip_lite_package=True,
         )
     )
 

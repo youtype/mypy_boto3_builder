@@ -13,6 +13,7 @@ class ProductType(Enum):
     """
 
     stubs = "stubs"
+    stubs_lite = "stubs_lite"
     service_stubs = "service_stubs"
     docs = "docs"
     full = "full"

@@ -29,13 +29,11 @@ jobs:
             --product boto3 boto3-full \
             -s s3 ec2 \
             --no-smart-version \
-            --skip-lite \
             --output-type=wheel
           uv run mypy_boto3_builder mypy_boto3_output \
             --product aioboto3 aiobotocore aiobotocore-full \
             -s s3 \
             --no-smart-version \
-            --skip-lite \
             --output-type=wheel
       - name: Install full packages
         run: |

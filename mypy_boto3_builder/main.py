@@ -21,6 +21,7 @@ from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.type_defs import GeneratorKwargs
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name, get_copyright
@@ -105,18 +106,18 @@ def get_available_service_names(session: BotocoreSession) -> list[ServiceName]:
     return result
 
 
-def get_generator_cls(product: Product) -> type[BaseGenerator]:
+def get_generator(product: Product, kwargs: GeneratorKwargs) -> BaseGenerator:
     """
     Get Generator class for a product.
     """
     library = product.get_library()
     match library:
         case ProductLibrary.boto3:
-            return Boto3Generator
+            return Boto3Generator(**kwargs)
         case ProductLibrary.aiobotocore:
-            return AioBotocoreGenerator
+            return AioBotocoreGenerator(**kwargs)
         case ProductLibrary.aioboto3:
-            return AioBoto3Generator
+            return AioBoto3Generator(**kwargs)
 
 
 def generate_product(
@@ -134,13 +135,15 @@ def generate_product(
         service_names -- Selected service names
         master_service_names -- Service names included in master
     """
-    generator_cls = get_generator_cls(product)
-    generator = generator_cls(
-        service_names=service_names,
-        master_service_names=master_service_names,
-        config=args,
-        version=args.build_version,
-        cleanup=True,
+    generator = get_generator(
+        product,
+        {
+            "service_names": service_names,
+            "master_service_names": master_service_names,
+            "config": args,
+            "version": args.build_version,
+            "cleanup": True,
+        },
     )
     generator.generate_product(product.get_type())
     generator.cleanup_temporary_files()
