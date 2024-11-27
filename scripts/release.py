@@ -200,13 +200,14 @@ def build(path: Path, max_retries: int = 10) -> Path:
     raise last_error
 
 
-def publish(path: Path) -> Path:
+def publish(paths: Sequence[Path]) -> Sequence[Path]:
     """
     Publish packages from dist directory to PyPI.
     """
     attempt = 1
     logger = Config.logger
     last_error = Exception("Unknown error")
+    path_names = " ".join(path.name for path in paths)
     while attempt <= Config.max_retries:
         try:
             with patch("twine.repository.print"), patch("twine.commands.upload.print"):
@@ -218,30 +219,30 @@ def publish(path: Path) -> Path:
                         disable_progress_bar=True,
                         skip_existing=True,
                     ),
-                    [path.as_posix()],
+                    [path.as_posix() for path in paths],
                 )
 
         except TwineException:
-            logger.warning(f"Configuration error while publishing {path.name}")
+            logger.warning(f"Configuration error while publishing {path_names}")
             raise
         except HTTPError as e:
             attempt += 1
             last_error = e
             response = e.response.text
             if "File already exists" in response:
-                logger.info(f"Already published {path.name}")
-                return path
+                logger.info(f"Already published {path_names}")
+                return paths
 
-            logger.warning(f"Error while publishing {path.name}: {e}")
+            logger.warning(f"Error while publishing {path_names}: {e}")
             logger.warning(f"Response: {response}")
-            logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+            logger.info(f"Retrying {path_names} {attempt} time in 10 seconds")
         except RequestsConnectionError as e:
             attempt += 1
             last_error = e
-            logger.warning(f"Error while publishing {path.name}: {e}")
-            logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+            logger.warning(f"Error while publishing {path_names}: {e}")
+            logger.info(f"Retrying {path_names} {attempt} time in 10 seconds")
         else:
-            return path
+            return paths
 
     raise last_error
 
@@ -279,7 +280,7 @@ def get_version(path: Path) -> str:
     return ""
 
 
-def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Path]]) -> None:
+def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Sequence[Path]]]) -> None:
     """
     Publish packages in batches.
     """
@@ -289,10 +290,11 @@ def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Path]]) 
     for path_batch in path_batches:
         with ThreadPool(processes=args.publish_threads) as pool:
             publish_args = [(i,) for i in path_batch]
-            for index, path in enumerate(pool.starmap(publish, publish_args)):
+            for index, paths in enumerate(pool.starmap(publish, publish_args)):
                 current_index = current_total + index
+                path_names = " ".join(path.name for path in paths)
                 logger.info(
-                    f"{get_progress_str(current_index, total)} Published {path.name}",
+                    f"{get_progress_str(current_index, total)} Published {path_names}",
                 )
         current_total += len(path_batch)
 
@@ -308,10 +310,10 @@ def publish_directories(args: CLINamespace) -> None:
         filters = tuple(i.name for i in args.filter)
         paths = list(filter(lambda path: any(i in path.name for i in filters), paths))
 
-    master_paths = [p for p in paths if p.name in MAIN_DIRECTORIES]
-    master_paths.sort(key=lambda x: MAIN_DIRECTORIES.index(x.name))
+    main_paths = [p for p in paths if p.name in MAIN_DIRECTORIES]
+    main_paths.sort(key=lambda x: MAIN_DIRECTORIES.index(x.name))
 
-    service_paths = [p for p in paths if p not in master_paths]
+    service_paths = [p for p in paths if p not in main_paths]
     service_paths.sort(key=lambda x: x.name)
 
     if not args.skip_build:
@@ -324,16 +326,23 @@ def publish_directories(args: CLINamespace) -> None:
                 f"{get_progress_str(index, total)} Built {package_name} {version}",
             )
 
-    if not args.skip_publish:
-        publish_batches(
-            args,
-            (
-                tuple(itertools.chain(*[i.glob("dist/*.whl") for i in service_paths])),
-                tuple(itertools.chain(*[i.glob("dist/*.tar.gz") for i in service_paths])),
-                tuple(itertools.chain(*[i.glob("dist/*.whl") for i in master_paths])),
-                tuple(itertools.chain(*[i.glob("dist/*.tar.gz") for i in master_paths])),
-            ),
+    service_paths_batch = tuple(
+        tuple(filter(None, i))
+        for i in itertools.zip_longest(
+            sorted(itertools.chain(*[i.glob("dist/*.whl") for i in service_paths])),
+            sorted(itertools.chain(*[i.glob("dist/*.tar.gz") for i in service_paths])),
         )
+    )
+    main_paths_batch = tuple(
+        tuple(filter(None, i))
+        for i in itertools.zip_longest(
+            sorted(itertools.chain(*[i.glob("dist/*.whl") for i in main_paths])),
+            sorted(itertools.chain(*[i.glob("dist/*.tar.gz") for i in main_paths])),
+        )
+    )
+
+    if not args.skip_publish:
+        publish_batches(args, (service_paths_batch, main_paths_batch))
 
 
 def publish_packages(args: CLINamespace) -> None:
@@ -354,16 +363,23 @@ def publish_packages(args: CLINamespace) -> None:
     service_paths = [p for p in package_paths if p not in master_paths]
     service_paths.sort(key=lambda x: x.name)
 
-    if not args.skip_publish:
-        publish_batches(
-            args,
-            (
-                tuple(p for p in service_paths if p.suffix == ".whl"),
-                tuple(p for p in service_paths if p.suffix == ".gz"),
-                tuple(p for p in master_paths if p.suffix == ".whl"),
-                tuple(p for p in master_paths if p.suffix == ".gz"),
-            ),
+    service_paths_batch = tuple(
+        tuple(filter(None, i))
+        for i in itertools.zip_longest(
+            tuple(p for p in service_paths if p.suffix == ".whl"),
+            tuple(p for p in service_paths if p.suffix == ".gz"),
         )
+    )
+    main_paths_batch = tuple(
+        tuple(filter(None, i))
+        for i in itertools.zip_longest(
+            tuple(p for p in master_paths if p.suffix == ".whl"),
+            tuple(p for p in master_paths if p.suffix == ".gz"),
+        )
+    )
+
+    if not args.skip_publish:
+        publish_batches(args, (service_paths_batch, main_paths_batch))
 
 
 def main() -> None:
