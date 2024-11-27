@@ -1,6 +1,6 @@
 [project]
 name = "mypy-boto3-builder"
-version = "8.4.0"
+version = "8.4.1"
 requires-python = ">=3.12"
 description = "Builder for boto3-stubs and types-aiobotocore"
 authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
