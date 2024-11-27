@@ -83,5 +83,5 @@ class PyPIManager:
             return set()
 
         version_strs = set(data["releases"].keys())
-        self._versions = {i for i in version_strs}
+        self._versions = version_strs
         return self._versions

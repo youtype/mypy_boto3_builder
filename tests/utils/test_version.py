@@ -7,6 +7,7 @@ from mypy_boto3_builder.utils.version import (
     get_min_build_version,
     get_release_version,
     is_valid_version,
+    sort_versions,
 )
 
 
@@ -41,3 +42,6 @@ class TestStrings:
         assert is_valid_version("1.2.3")
         assert is_valid_version("1.2.3.post1")
         assert not is_valid_version("1.2.3dev3.4")
+
+    def test_sort_versions(self) -> None:
+        assert sort_versions(["1.2.3.post1", "1.2.3", "1.2.3dev3.4"]) == ["1.2.3", "1.2.3.post1"]

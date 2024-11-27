@@ -60,7 +60,9 @@ def sort_versions(version_list: Iterable[str]) -> list[str]:
     """
     Sort version list.
     """
-    return sorted(version_list, key=Version)
+    valid_versions = [i for i in version_list if is_valid_version(i)]
+    valid_versions.sort(key=Version)
+    return valid_versions
 
 
 def is_valid_version(version: str) -> bool:
