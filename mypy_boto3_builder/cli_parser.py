@@ -197,7 +197,6 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
             "Generate already installed packages for typings directory."
             " Deprecated, use --output-type=installed instead."
         ),
-        deprecated=True,
     )
     parser.add_argument(
         "--output-type",
