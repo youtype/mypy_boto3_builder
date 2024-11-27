@@ -214,7 +214,7 @@ jobs:
             -b ${VERSION} \
             --product types-boto3 types-boto3-lite types-boto3-services \
             ${EXTRA_FLAGS} \
-            --product-type wheel sdist \
+            --output-type wheel sdist \
             --download-static-stubs \
             -s updated -d
       - name: Build all packages
@@ -230,7 +230,7 @@ jobs:
             -b ${VERSION} \
             --product types-boto3 types-boto3-lite types-boto3-services \
             ${EXTRA_FLAGS} \
-            --product-type wheel sdist \
+            --output-type wheel sdist \
             --download-static-stubs \
             -s all -d
       - name: Install dependencies for publishing
