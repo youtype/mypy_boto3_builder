@@ -8,6 +8,7 @@ Copyright 2024 Vlad Emelianov
 from __future__ import annotations
 
 import argparse
+import itertools
 import logging
 import os
 import shutil
@@ -29,18 +30,30 @@ from twine.settings import Settings
 if TYPE_CHECKING:
     from collections.abc import Iterator
 
-MASTER_PACKAGES = [
-    "types_aiobotocore_package",
-    "types_aiobotocore_lite_package",
-    "types_aiobotocore_full_package",
-    "mypy_boto3_package",
-    "boto3_stubs_package",
-    "boto3_stubs_lite_package",
-    "boto3_stubs_full_package",
-    "types_aioboto3_package",
-    "types_aioboto3_lite_package",
+MAIN_PACKAGES = [
+    "types_aiobotocore",
+    "types_aiobotocore_lite",
+    "types_aiobotocore_full",
+    "mypy_boto3",
+    "types_boto3",
+    "types_boto3_lite",
+    "types_boto3_full",
+    "boto3_stubs",
+    "boto3_stubs_lite",
+    "boto3_stubs_full",
+    "types_aioboto3",
+    "types_aioboto3_lite",
 ]
+MAIN_DIRECTORIES = [f"{i}_package" for i in MAIN_PACKAGES]
 LOGGER_NAME = "release"
+
+
+class Config:
+    """
+    Global configuration to access from ThreadPool.
+    """
+
+    max_retries: int = 10
 
 
 def setup_logging(level: int) -> logging.Logger:
@@ -184,16 +197,14 @@ def build(path: Path, max_retries: int = 10) -> Path:
     raise last_error
 
 
-def publish(path: Path, max_retries: int = 10) -> Path:
+def publish(path: Path) -> Path:
     """
-    Publish to PyPI.
+    Publish packages from dist directory to PyPI.
     """
     attempt = 1
-    dist_path = path / "dist"
-    packages = [i.as_posix() for i in dist_path.glob("*")]
     logger = logging.getLogger(LOGGER_NAME)
     last_error = Exception("Unknown error")
-    while attempt <= max_retries:
+    while attempt <= Config.max_retries:
         try:
             with patch("twine.repository.print"), patch("twine.commands.upload.print"):
                 upload(
@@ -204,7 +215,7 @@ def publish(path: Path, max_retries: int = 10) -> Path:
                         disable_progress_bar=True,
                         skip_existing=True,
                     ),
-                    packages,
+                    [path.as_posix()],
                 )
 
         except TwineException:
@@ -265,57 +276,101 @@ def get_version(path: Path) -> str:
     return ""
 
 
+def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Path]]) -> None:
+    """
+    Publish packages in batches.
+    """
+    total = sum(len(i) for i in path_batches)
+    current_total = 0
+    logger = logging.getLogger(LOGGER_NAME)
+    for path_batch in path_batches:
+        with ThreadPool(processes=args.publish_threads) as pool:
+            publish_args = [(i,) for i in path_batch]
+            for index, path in enumerate(pool.starmap(publish, publish_args)):
+                current_index = current_total + index
+                logger.info(
+                    f"{get_progress_str(current_index, total)} Published {path.name}",
+                )
+        current_total += len(path_batch)
+
+
+def publish_directories(args: CLINamespace) -> None:
+    """
+    Build and publish packages from directories.
+    """
+    logger = logging.getLogger(LOGGER_NAME)
+    paths = [i for i in args.path.iterdir() if i.is_dir()]
+    paths.sort(key=lambda x: x.name)
+    if args.filter:
+        filters = tuple(i.name for i in args.filter)
+        paths = list(filter(lambda path: any(i in path.name for i in filters), paths))
+
+    master_paths = [p for p in paths if p.name in MAIN_DIRECTORIES]
+    master_paths.sort(key=lambda x: MAIN_DIRECTORIES.index(x.name))
+
+    service_paths = [p for p in paths if p not in master_paths]
+    service_paths.sort(key=lambda x: x.name)
+
+    if not args.skip_build:
+        total = len(paths)
+        for index, path in enumerate(paths):
+            build(path, args.retries)
+            package_name = get_package_name(path)
+            version = get_version(path)
+            logger.info(
+                f"{get_progress_str(index, total)} Built {package_name} {version}",
+            )
+
+    if not args.skip_publish:
+        publish_batches(
+            args,
+            (
+                tuple(itertools.chain(*[i.glob("dist/*.whl") for i in service_paths])),
+                tuple(itertools.chain(*[i.glob("dist/*.tar.gz") for i in service_paths])),
+                tuple(itertools.chain(*[i.glob("dist/*.whl") for i in master_paths])),
+                tuple(itertools.chain(*[i.glob("dist/*.tar.gz") for i in master_paths])),
+            ),
+        )
+
+
+def publish_packages(args: CLINamespace) -> None:
+    """
+    Publish pre-built packages.
+    """
+    package_paths = [i for i in args.path.iterdir() if i.is_file() and i.suffix in {".whl", ".gz"}]
+    package_paths.sort(key=lambda x: x.name)
+    if args.filter:
+        filters = tuple(i.name for i in args.filter)
+        package_paths = list(
+            filter(lambda path: any(i in path.name for i in filters), package_paths)
+        )
+
+    master_paths = [p for p in package_paths if p.stem.split("-", 1)[0] in MAIN_PACKAGES]
+    master_paths.sort(key=lambda p: MAIN_PACKAGES.index(p.stem.split("-", 1)[0]))
+
+    service_paths = [p for p in package_paths if p not in master_paths]
+    service_paths.sort(key=lambda x: x.name)
+
+    if not args.skip_publish:
+        publish_batches(
+            args,
+            (
+                tuple(p for p in service_paths if p.suffix == ".whl"),
+                tuple(p for p in service_paths if p.suffix == ".gz"),
+                tuple(p for p in master_paths if p.suffix == ".whl"),
+                tuple(p for p in master_paths if p.suffix == ".gz"),
+            ),
+        )
+
+
 def main() -> None:
     """
     Run main logic.
     """
     args = parse_args()
     setup_logging(logging.DEBUG)
-    logger = logging.getLogger(LOGGER_NAME)
-    paths = [i for i in args.path.absolute().iterdir() if i.is_dir()]
-    paths.sort(key=lambda x: x.name)
-    if args.filter:
-        filters = tuple(i.name for i in args.filter)
-        paths = filter(lambda path: any(i in path.name for i in filters), paths)
-
-    master_paths = [p for p in paths if p.name in MASTER_PACKAGES]
-    master_paths.sort(key=lambda x: MASTER_PACKAGES.index(x.name))
-
-    service_paths = [p for p in paths if p.name not in MASTER_PACKAGES]
-    build_paths = [
-        *master_paths,
-        *service_paths,
-    ]
-
-    if not args.skip_build:
-        for index, path in enumerate(build_paths):
-            build(path, args.retries)
-            package_name = get_package_name(path)
-            version = get_version(path)
-            logger.info(
-                f"{get_progress_str(index, len(build_paths))} Built {package_name} {version}",
-            )
-
-    if not args.skip_publish:
-        with ThreadPool(processes=args.publish_threads) as pool:
-            service_paths_with_retries = [(i, args.retries) for i in service_paths]
-            for index, path in enumerate(pool.starmap(publish, service_paths_with_retries)):
-                package_name = get_package_name(path)
-                version = get_version(path)
-                logger.info(
-                    f"{get_progress_str(index, len(build_paths))} Published"
-                    f" {package_name} {version}",
-                )
-
-        for index, path in enumerate(master_paths):
-            publish(path, args.retries)
-            total_index = len(service_paths) + index
-            package_name = get_package_name(path)
-            version = get_version(path)
-            logger.info(
-                f"{get_progress_str(total_index, len(build_paths))} Published"
-                f" {package_name} {version}",
-            )
+    publish_directories(args)
+    publish_packages(args)
 
 
 if __name__ == "__main__":
