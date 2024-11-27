@@ -59,10 +59,10 @@ class PyPIManager:
         Get latest stable package version from PyPI.
         """
         versions = self._get_versions()
+        sorted_versions = sort_versions(versions)
         if not versions:
             raise BuildEnvError(f"No versions found for {self.package}")
 
-        sorted_versions = sort_versions(versions)
         return get_release_version(sorted_versions[-1])
 
     def _get_versions(self) -> set[str]:
