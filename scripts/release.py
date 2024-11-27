@@ -204,45 +204,45 @@ def publish(paths: Sequence[Path]) -> Sequence[Path]:
     """
     Publish packages from dist directory to PyPI.
     """
-    attempt = 1
     logger = Config.logger
     last_error = Exception("Unknown error")
-    path_names = " ".join(path.name for path in paths)
-    while attempt <= Config.max_retries:
-        try:
-            with patch("twine.repository.print"), patch("twine.commands.upload.print"):
-                upload(
-                    Settings(
-                        username=os.getenv("PYPI_USERNAME"),
-                        password=os.getenv("PYPI_PASSWORD"),
-                        non_interactive=True,
-                        disable_progress_bar=True,
-                        skip_existing=True,
-                    ),
-                    [path.as_posix() for path in paths],
-                )
+    for path in paths:
+        attempt = 1
+        while attempt <= Config.max_retries:
+            try:
+                with patch("twine.repository.print"), patch("twine.commands.upload.print"):
+                    upload(
+                        Settings(
+                            username=os.getenv("PYPI_USERNAME"),
+                            password=os.getenv("PYPI_PASSWORD"),
+                            non_interactive=True,
+                            disable_progress_bar=True,
+                            skip_existing=True,
+                        ),
+                        [path.as_posix()],
+                    )
 
-        except TwineException:
-            logger.warning(f"Configuration error while publishing {path_names}")
-            raise
-        except HTTPError as e:
-            attempt += 1
-            last_error = e
-            response = e.response.text
-            if "File already exists" in response:
-                logger.info(f"Already published {path_names}")
+            except TwineException:
+                logger.warning(f"Configuration error while publishing {path.name}")
+                raise
+            except HTTPError as e:
+                attempt += 1
+                last_error = e
+                response = e.response.text
+                if "File already exists" in response:
+                    logger.info(f"Already published {path.name}")
+                    return paths
+
+                logger.warning(f"Error while publishing {path.name}: {e}")
+                logger.warning(f"Response: {response}")
+                logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+            except RequestsConnectionError as e:
+                attempt += 1
+                last_error = e
+                logger.warning(f"Error while publishing {path.name}: {e}")
+                logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+            else:
                 return paths
-
-            logger.warning(f"Error while publishing {path_names}: {e}")
-            logger.warning(f"Response: {response}")
-            logger.info(f"Retrying {path_names} {attempt} time in 10 seconds")
-        except RequestsConnectionError as e:
-            attempt += 1
-            last_error = e
-            logger.warning(f"Error while publishing {path_names}: {e}")
-            logger.info(f"Retrying {path_names} {attempt} time in 10 seconds")
-        else:
-            return paths
 
     raise last_error
 
