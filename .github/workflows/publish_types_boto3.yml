@@ -249,7 +249,7 @@ jobs:
             --output-type wheel sdist \
             --skip-published \
             --no-smart-version \
-            -s all -d
+            -s all
       - name: Install dependencies for publishing
         run: |
           python -m pip install setuptools wheel twine
