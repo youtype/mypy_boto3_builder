@@ -61,7 +61,7 @@ class TemplatePath:
     Template paths.
     """
 
-    master: Final = TEMPLATES_PATH / "master"
+    mypy_boto3: Final = TEMPLATES_PATH / "mypy-boto3"
 
     types_boto3: Final = TEMPLATES_PATH / "types-boto3"
     types_boto3_docs: Final = TEMPLATES_PATH / "types-boto3-docs"

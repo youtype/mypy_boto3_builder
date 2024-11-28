@@ -127,7 +127,7 @@ def generate_product(
     product: Product,
     args: CLINamespace,
     service_names: Sequence[ServiceName],
-    master_service_names: Sequence[ServiceName],
+    main_service_names: Sequence[ServiceName],
 ) -> None:
     """
     Generate a selected product.
@@ -136,13 +136,13 @@ def generate_product(
         product -- Product to generate
         args -- CLI namespace
         service_names -- Selected service names
-        master_service_names -- Service names included in master
+        main_service_names -- Service names included in main
     """
     generator = get_generator(
         product,
         {
             "service_names": service_names,
-            "master_service_names": master_service_names,
+            "main_service_names": main_service_names,
             "config": args,
             "version": args.build_version,
             "cleanup": True,
@@ -199,11 +199,11 @@ def run(args: CLINamespace) -> None:
         return
 
     service_names = get_selected_service_names(args.service_names, available_service_names)
-    master_service_names = service_names if args.partial_overload else available_service_names
+    main_service_names = service_names if args.partial_overload else available_service_names
 
     for product in args.products:
         logger.info(f"Generating {product} product")
-        generate_product(product, args, service_names, master_service_names)
+        generate_product(product, args, service_names, main_service_names)
 
     logger.debug("Done!")
 

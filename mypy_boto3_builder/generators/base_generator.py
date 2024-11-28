@@ -33,7 +33,7 @@ class BaseGenerator(ABC):
 
     Arguments:
         service_names -- Selected service names
-        master_service_names -- Service names included in master
+        main_service_names -- Service names included in main
         config -- CLI configuration
         version -- Package build version
         cleanup -- Whether to cleanup generated files
@@ -45,7 +45,7 @@ class BaseGenerator(ABC):
     def __init__(
         self,
         service_names: Sequence[ServiceName],
-        master_service_names: Sequence[ServiceName],
+        main_service_names: Sequence[ServiceName],
         config: CLINamespace,
         version: str,
         *,
@@ -56,7 +56,7 @@ class BaseGenerator(ABC):
         self._downloaded_static_files_path: Path | None = None
 
         self.service_names = service_names
-        self.master_service_names = master_service_names
+        self.main_service_names = main_service_names
         self.config = config
         self.logger = get_logger()
         self.version = version or self._get_library_version()
@@ -203,7 +203,7 @@ class BaseGenerator(ABC):
     @abstractmethod
     def generate_docs(self) -> None:
         """
-        Generate service and master docs.
+        Generate service and main docs.
         """
 
     def generate_product(self, product_type: ProductType) -> None:

@@ -18,7 +18,7 @@ class ImportString:
     Wrapper for Python import strings.
 
     Arguments:
-        master -- Master module name
+        parent -- Parent module name
         parts -- Other import parts
 
     Examples::

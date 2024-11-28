@@ -54,7 +54,7 @@ class Product:
     install_script_path: Path
     build_product: str
     prerequisites: tuple[str, ...] = ()
-    master_build_products: tuple[str, ...] = ()
+    main_build_products: tuple[str, ...] = ()
 
 
 class ProductChoices(enum.Enum):
@@ -67,7 +67,7 @@ class ProductChoices(enum.Enum):
         examples_path=EXAMPLES_PATH,
         install_script_path=SCRIPTS_PATH / "install.sh",
         build_product="boto3-services",
-        master_build_products=("boto3",),
+        main_build_products=("boto3",),
     )
     aioboto3 = Product(
         name="aioboto3",
@@ -75,7 +75,7 @@ class ProductChoices(enum.Enum):
         examples_path=AIO_EXAMPLES_PATH,
         install_script_path=SCRIPTS_PATH / "install_aiobotocore.sh",
         build_product="aiobotocore-services",
-        master_build_products=("aioboto3", "aiobotocore"),
+        main_build_products=("aioboto3", "aiobotocore"),
     )
 
 
@@ -194,7 +194,7 @@ def build_packages(
     log_level: int,
 ) -> None:
     """
-    Build and install master stubs.
+    Build and install stubs.
 
     - boto3: `boto3-stubs`
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
@@ -202,7 +202,7 @@ def build_packages(
     if product.prerequisites:
         check_call([sys.executable, "-m", "pip", "install", *product.prerequisites])
 
-    products = [BuilderProduct(i) for i in (*product.master_build_products, product.build_product)]
+    products = [BuilderProduct(i) for i in (*product.main_build_products, product.build_product)]
     run_builder(
         BuilderCLINamespace(
             log_level=log_level,

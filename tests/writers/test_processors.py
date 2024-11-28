@@ -8,7 +8,7 @@ from mypy_boto3_builder.package_data import (
 )
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.writers.processors import (
-    process_master,
+    process_mypy_boto3,
     process_types_boto3,
     process_types_boto3_docs,
     process_types_boto3_full,
@@ -81,27 +81,27 @@ class TestProcessors:
         )
         assert result == package_mock
 
-    @patch("mypy_boto3_builder.writers.processors.parse_master_package")
+    @patch("mypy_boto3_builder.writers.processors.parse_mypy_boto3_package")
     @patch("mypy_boto3_builder.writers.processors.PackageWriter")
-    def test_process_master(
+    def test_process_mypy_boto3(
         self,
         PackageWriterMock: MagicMock,
-        parse_master_package_mock: MagicMock,
+        parse_mypy_boto3_package_mock: MagicMock,
     ) -> None:
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         service_name_mock = MagicMock()
-        result = process_master(
+        result = process_mypy_boto3(
             output_path=Path("my_path"),
             service_names=[service_name_mock],
             version="1.2.3",
             generate_package=True,
         )
         PackageWriterMock().write_package.assert_called()
-        parse_master_package_mock.assert_called_with(
+        parse_mypy_boto3_package_mock.assert_called_with(
             service_names=[service_name_mock],
             version="1.2.3",
         )
-        assert result == parse_master_package_mock()
+        assert result == parse_mypy_boto3_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_types_boto3_package")
     @patch("mypy_boto3_builder.writers.processors.PackageWriter")

@@ -42,7 +42,7 @@ class AioBoto3Generator(BaseGenerator):
         """
         Get postprocessor for service package.
         """
-        return AioBoto3Postprocessor(service_package, self.master_service_names)
+        return AioBoto3Postprocessor(service_package, self.main_service_names)
 
     def generate_stubs(self) -> list[Package]:
         """
@@ -74,7 +74,7 @@ class AioBoto3Generator(BaseGenerator):
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         return process_types_aioboto3(
             output_path=self.output_path,
-            service_names=self.master_service_names,
+            service_names=self.main_service_names,
             generate_package=self.is_package(),
             version=version,
             static_files_path=self._get_static_files_path(),
@@ -91,7 +91,7 @@ class AioBoto3Generator(BaseGenerator):
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         return process_types_aioboto3_lite(
             output_path=self.output_path,
-            service_names=self.master_service_names,
+            service_names=self.main_service_names,
             generate_package=self.is_package(),
             version=version,
             static_files_path=self._get_static_files_path(),
@@ -99,7 +99,7 @@ class AioBoto3Generator(BaseGenerator):
 
     def generate_docs(self) -> None:
         """
-        Generate service and master docs.
+        Generate service and main docs.
         """
         package_data = TypesAioBoto3PackageData
         total_str = f"{len(self.service_names)}"

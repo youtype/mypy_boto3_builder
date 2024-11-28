@@ -32,18 +32,18 @@ if TYPE_CHECKING:
     from collections.abc import Iterator
 
 MAIN_PACKAGES = [
-    "types_aiobotocore",
     "types_aiobotocore_lite",
     "types_aiobotocore_full",
+    "types_aiobotocore",
     "mypy_boto3",
-    "types_boto3",
     "types_boto3_lite",
+    "types_boto3",
     "types_boto3_full",
-    "boto3_stubs",
     "boto3_stubs_lite",
     "boto3_stubs_full",
-    "types_aioboto3",
+    "boto3_stubs",
     "types_aioboto3_lite",
+    "types_aioboto3",
 ]
 MAIN_DIRECTORIES = [f"{i}_package" for i in MAIN_PACKAGES]
 LOGGER_NAME = "release"
@@ -367,10 +367,10 @@ def publish_packages(args: CLINamespace) -> None:
             filter(lambda path: any(i in path.name for i in filters), package_paths)
         )
 
-    master_paths = [p for p in package_paths if p.stem.split("-", 1)[0] in MAIN_PACKAGES]
-    master_paths.sort(key=lambda p: MAIN_PACKAGES.index(p.stem.split("-", 1)[0]))
+    main_paths = [p for p in package_paths if p.stem.split("-", 1)[0] in MAIN_PACKAGES]
+    main_paths.sort(key=lambda p: MAIN_PACKAGES.index(p.stem.split("-", 1)[0]))
 
-    service_paths = [p for p in package_paths if p not in master_paths]
+    service_paths = [p for p in package_paths if p not in main_paths]
     service_paths.sort(key=lambda x: x.name)
 
     service_paths_batch = tuple(
@@ -383,8 +383,8 @@ def publish_packages(args: CLINamespace) -> None:
     main_paths_batch = tuple(
         tuple(filter(None, i))
         for i in itertools.zip_longest(
-            tuple(p for p in master_paths if p.suffix == ".whl"),
-            tuple(p for p in master_paths if p.suffix == ".gz"),
+            tuple(p for p in main_paths if p.suffix == ".whl"),
+            tuple(p for p in main_paths if p.suffix == ".gz"),
         )
     )
 

@@ -20,12 +20,12 @@ from mypy_boto3_builder.package_data import (
     MypyBoto3PackageData,
 )
 from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
-from mypy_boto3_builder.structures.master_package import MasterPackage
+from mypy_boto3_builder.structures.mypy_boto3_package import MypyBoto3Package
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.types_boto3_package import TypesBoto3Package
 from mypy_boto3_builder.writers.processors import (
-    process_master,
+    process_mypy_boto3,
     process_types_boto3,
     process_types_boto3_docs,
     process_types_boto3_full,
@@ -45,9 +45,9 @@ class Boto3Generator(BaseGenerator):
         """
         Get postprocessor for service package.
         """
-        return BotocorePostprocessor(service_package, self.master_service_names)
+        return BotocorePostprocessor(service_package, self.main_service_names)
 
-    def _generate_master(self) -> MasterPackage | None:
+    def _generate_mypy_boto3(self) -> MypyBoto3Package | None:
         """
         Generate `mypy-boto3` package.
         """
@@ -59,9 +59,9 @@ class Boto3Generator(BaseGenerator):
             return None
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        return process_master(
+        return process_mypy_boto3(
             output_path=self.output_path,
-            service_names=self.master_service_names,
+            service_names=self.main_service_names,
             version=version,
             generate_package=self.is_package(),
         )
@@ -83,7 +83,7 @@ class Boto3Generator(BaseGenerator):
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         return process_types_boto3(
             output_path=self.output_path,
-            service_names=self.master_service_names,
+            service_names=self.main_service_names,
             generate_package=self.is_package(),
             package_data=package_data,
             version=version,
@@ -101,7 +101,7 @@ class Boto3Generator(BaseGenerator):
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         return process_types_boto3_lite(
             output_path=self.output_path,
-            service_names=self.master_service_names,
+            service_names=self.main_service_names,
             generate_package=self.is_package(),
             package_data=package_data,
             version=version,
@@ -120,7 +120,7 @@ class Boto3Generator(BaseGenerator):
             result.append(package)
 
         if not self.is_package():
-            package = self._generate_master()
+            package = self._generate_mypy_boto3()
             if package:
                 result.append(package)
 
@@ -137,7 +137,7 @@ class Boto3Generator(BaseGenerator):
 
     def generate_docs(self) -> None:
         """
-        Generate service and master docs.
+        Generate service and docs.
         """
         package_data = Boto3StubsPackageData
         total_str = f"{len(self.service_names)}"

@@ -42,7 +42,7 @@ class TypesBoto3Generator(BaseGenerator):
         """
         Get postprocessor for service package.
         """
-        return BotocorePostprocessor(service_package, self.master_service_names)
+        return BotocorePostprocessor(service_package, self.main_service_names)
 
     def _get_static_files_path(self) -> Path:
         return self._get_or_download_static_files_path(
@@ -61,7 +61,7 @@ class TypesBoto3Generator(BaseGenerator):
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         return process_types_boto3(
             output_path=self.output_path,
-            service_names=self.master_service_names,
+            service_names=self.main_service_names,
             generate_package=self.is_package(),
             package_data=package_data,
             version=version,
@@ -79,7 +79,7 @@ class TypesBoto3Generator(BaseGenerator):
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         return process_types_boto3_lite(
             output_path=self.output_path,
-            service_names=self.master_service_names,
+            service_names=self.main_service_names,
             generate_package=self.is_package(),
             package_data=package_data,
             version=version,
@@ -107,7 +107,7 @@ class TypesBoto3Generator(BaseGenerator):
 
     def generate_docs(self) -> None:
         """
-        Generate service and master docs.
+        Generate service and main docs.
         """
         package_data = TypesBoto3PackageData
         total_str = f"{len(self.service_names)}"

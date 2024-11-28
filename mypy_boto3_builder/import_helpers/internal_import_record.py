@@ -1,5 +1,5 @@
 """
-Helper for Python import strings with not set master module name.
+Helper for Python import strings without parent module name.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -11,7 +11,7 @@ from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 class InternalImportRecord(ImportRecord):
     """
-    Helper for Python import strings with not set master module name.
+    Helper for Python import strings without parent module name.
 
     Arguments:
         service_module_name -- Service module name.

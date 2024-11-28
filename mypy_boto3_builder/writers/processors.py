@@ -10,10 +10,10 @@ from pathlib import Path
 from mypy_boto3_builder.constants import TemplatePath
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
-from mypy_boto3_builder.parsers.master_package import parse_master_package
+from mypy_boto3_builder.parsers.mypy_boto3_package import parse_mypy_boto3_package
 from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_boto3_package
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.master_package import MasterPackage
+from mypy_boto3_builder.structures.mypy_boto3_package import MypyBoto3Package
 from mypy_boto3_builder.structures.types_boto3_package import TypesBoto3Package
 from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.writers.package_writer import PackageWriter
@@ -113,15 +113,15 @@ def process_types_boto3_lite(
     return package
 
 
-def process_master(
+def process_mypy_boto3(
     output_path: Path,
     service_names: Iterable[ServiceName],
     version: str,
     *,
     generate_package: bool,
-) -> MasterPackage:
+) -> MypyBoto3Package:
     """
-    Parse and write master package `mypy_boto3`.
+    Parse and write package `mypy_boto3`.
 
     Arguments:
         output_path -- Package output path
@@ -130,12 +130,12 @@ def process_master(
         generate_package -- Generate ready-to-install or to-use package
 
     Return:
-        Parsed MasterPackage.
+        Parsed MypyBoto3Package.
     """
     logger = get_logger()
-    logger.debug("Parsing master")
-    package = parse_master_package(service_names=service_names, version=version)
-    logger.debug(f"Writing master to {print_path(output_path)}")
+    logger.debug("Parsing mypy_boto3")
+    package = parse_mypy_boto3_package(service_names=service_names, version=version)
+    logger.debug(f"Writing mypy_boto3 to {print_path(output_path)}")
 
     package_writer = PackageWriter(
         output_path=output_path,
@@ -144,7 +144,7 @@ def process_master(
     )
     package_writer.write_package(
         package,
-        templates_path=TemplatePath.master,
+        templates_path=TemplatePath.mypy_boto3,
     )
 
     return package
@@ -157,7 +157,7 @@ def process_types_boto3_docs(
     version: str,
 ) -> TypesBoto3Package:
     """
-    Parse and write master package docs.
+    Parse and write package docs.
 
     Arguments:
         output_path -- Package output path

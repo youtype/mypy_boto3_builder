@@ -59,7 +59,7 @@ jobs:
           python-version: ${{ matrix.version }}
           allow-prereleases: true
           cache: "pip"
-      - name: Install master
+      - name: Install main packages
         run: |
           pip install mypy_boto3_output/boto3_stubs_package
       - name: Install dependencies

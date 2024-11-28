@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
-class MasterPackage(Package):
+class MypyBoto3Package(Package):
     """
     Structure for mypy-boto3 package.
 

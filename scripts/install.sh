@@ -8,7 +8,7 @@ if [[ "$1" == "" ]]; then
     PACKAGES=${OUTPUT_PATH}/*_package
 fi
 
-if [[ "$1" == "master" ]]; then
+if [[ "$1" == "main" ]]; then
     echo Installing boto3-stubs package
     uv pip install ${OUTPUT_PATH}/boto3_stubs_package
     exit

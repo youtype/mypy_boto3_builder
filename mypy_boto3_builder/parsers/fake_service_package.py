@@ -1,5 +1,5 @@
 """
-Fake parser that produces `structures.ServiceModule` for master module and stubs.
+Fake parser that produces `structures.ServiceModule` for main module and stubs.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -23,7 +23,7 @@ def parse_fake_service_package(
     """
     Create fake boto3 service module structure.
 
-    Used by stubs and master package.
+    Used by stubs and main package.
 
     Arguments:
         service_name -- Target service name.

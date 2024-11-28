@@ -62,15 +62,15 @@ jobs:
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
           uv pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
-      - name: Build master packages
+      - name: Build main packages
         run: |
           rm -rf mypy_boto3_output/*
           uv run mypy_boto3_builder mypy_boto3_output \
             --product boto3 \
             --no-smart-version
-      - name: Install master packages
+      - name: Install main packages
         run: |
-          bash ./scripts/install.sh master
+          bash ./scripts/install.sh main
       - name: Check s3 output
         run: |
           rm -rf mypy_boto3_output/*

@@ -112,7 +112,7 @@ def process_types_aiobotocore_docs(
     version: str,
 ) -> TypesAioBotocorePackage:
     """
-    Parse and write master package docs.
+    Parse and write package docs.
 
     Arguments:
         output_path -- Package output path

@@ -61,7 +61,7 @@ jobs:
           python-version: ${{ matrix.version }}
           allow-prereleases: true
           cache: "pip"
-      - name: Install master
+      - name: Install main packages
         run: |
           pip install mypy_boto3_output/types_aiobotocore_package
           pip install mypy_boto3_output/types_aioboto3_package
