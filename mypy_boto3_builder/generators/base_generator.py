@@ -306,7 +306,9 @@ class BaseGenerator(ABC):
             try:
                 version = self._get_package_version(pypi_name, self.version)
             except AlreadyPublishedError:
-                self.logger.info(f"Skipping {pypi_name} {self.version}, already on PyPI")
+                self.logger.info(
+                    f"{progress_str} Skipping {pypi_name} {self.version}, already on PyPI"
+                )
                 continue
 
             self.logger.info(f"{progress_str} Generating {pypi_name} {version}")
