@@ -607,7 +607,7 @@ wheels = [
 
 [[package]]
 name = "mypy-boto3-builder"
-version = "8.4.0"
+version = "8.4.1"
 source = { editable = "." }
 dependencies = [
     { name = "jinja2" },

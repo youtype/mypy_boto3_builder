@@ -2,8 +2,8 @@ name: Publish types-boto3
 concurrency: publish_types_boto3
 
 on:
-  # schedule:
-  #   - cron: "*/15 * * * *"
+  schedule:
+    - cron: "0 * * * *"
   workflow_dispatch:
     inputs:
       boto3_version:
@@ -201,24 +201,40 @@ jobs:
         run: |
           rm -rf mypy_boto3_builder
           python -m pip install mypy_boto3_builder
-      - name: Build updated packages only
-        if: needs.versions.outputs.build-all == 'false'
-        env:
-          VERSION: ${{ needs.versions.outputs.version }}
-          EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
-        run: |
-          rm -rf mypy_boto3_output/*
+      # - name: Build updated packages only
+      #   if: needs.versions.outputs.build-all == 'false'
+      #   env:
+      #     VERSION: ${{ needs.versions.outputs.version }}
+      #     EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
+      #   run: |
+      #     rm -rf mypy_boto3_output/*
 
-          echo "Building updated packages"
-          python -m mypy_boto3_builder mypy_boto3_output \
-            -b ${VERSION} \
-            --product types-boto3 types-boto3-lite types-boto3-services \
-            ${EXTRA_FLAGS} \
-            --output-type wheel sdist \
-            --download-static-stubs \
-            -s updated -d
-      - name: Build all packages
-        if: needs.versions.outputs.build-all == 'true'
+      #     echo "Building updated packages"
+      #     python -m mypy_boto3_builder mypy_boto3_output \
+      #       -b ${VERSION} \
+      #       --product types-boto3 types-boto3-lite types-boto3-services \
+      #       ${EXTRA_FLAGS} \
+      #       --output-type wheel sdist \
+      #       --download-static-stubs \
+      #       -s updated -d
+      # - name: Build all packages
+      #   if: needs.versions.outputs.build-all == 'true'
+      #   env:
+      #     VERSION: ${{ needs.versions.outputs.version }}
+      #     EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
+      #   run: |
+      #     rm -rf mypy_boto3_output/*
+
+      #     echo "Building all packages"
+      #     python -m mypy_boto3_builder mypy_boto3_output \
+      #       -b ${VERSION} \
+      #       --product types-boto3 types-boto3-lite types-boto3-services \
+      #       ${EXTRA_FLAGS} \
+      #       --output-type wheel sdist \
+      #       --download-static-stubs \
+      #       -s all -d
+      # FIXME: Delete tomorrow
+      - name: Temp initial release all packages
         env:
           VERSION: ${{ needs.versions.outputs.version }}
           EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
@@ -231,7 +247,8 @@ jobs:
             --product types-boto3 types-boto3-lite types-boto3-services \
             ${EXTRA_FLAGS} \
             --output-type wheel sdist \
-            --download-static-stubs \
+            --skip-published \
+            --no-smart-version \
             -s all -d
       - name: Install dependencies for publishing
         run: |
@@ -241,4 +258,4 @@ jobs:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          python ./scripts/release.py
+          python ./scripts/release.py --publish-threads 1 --retries 1

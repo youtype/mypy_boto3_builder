@@ -14,6 +14,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from contextlib import contextmanager
 from dataclasses import dataclass
 from multiprocessing.pool import ThreadPool
@@ -86,7 +87,6 @@ class CLINamespace:
     """
 
     path: Path
-    threads: int
     publish_threads: int
     filter: tuple[Path, ...]
     skip_build: bool
@@ -105,8 +105,7 @@ def parse_args() -> CLINamespace:
         type=Path,
         default=Path().parent.parent / "mypy_boto3_output",
     )
-    parser.add_argument("-t", "--threads", type=int, default=10)
-    parser.add_argument("--publish-threads", type=int, default=3)
+    parser.add_argument("--publish-threads", type=int, default=1)
     parser.add_argument("-f", "--filter", nargs="+", type=Path, default=[])
     parser.add_argument("--skip-build", action="store_true")
     parser.add_argument("--skip-publish", action="store_true")
@@ -114,7 +113,6 @@ def parse_args() -> CLINamespace:
     args = parser.parse_args()
     return CLINamespace(
         path=args.path,
-        threads=args.threads,
         publish_threads=args.publish_threads,
         filter=tuple(args.filter),
         skip_build=args.skip_build,
@@ -221,7 +219,6 @@ def publish(paths: Sequence[Path]) -> Sequence[Path]:
                         ),
                         [path.as_posix()],
                     )
-
             except TwineException:
                 logger.warning(f"Configuration error while publishing {path.name}")
                 raise
@@ -236,11 +233,13 @@ def publish(paths: Sequence[Path]) -> Sequence[Path]:
                 logger.warning(f"Error while publishing {path.name}: {e}")
                 logger.warning(f"Response: {response}")
                 logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+                time.sleep(10)
             except RequestsConnectionError as e:
                 attempt += 1
                 last_error = e
                 logger.warning(f"Error while publishing {path.name}: {e}")
                 logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+                time.sleep(10)
             else:
                 return paths
 
@@ -288,14 +287,21 @@ def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Sequence
     current_total = 0
     logger = logging.getLogger(LOGGER_NAME)
     for path_batch in path_batches:
-        with ThreadPool(processes=args.publish_threads) as pool:
-            publish_args = [(i,) for i in path_batch]
-            for index, paths in enumerate(pool.starmap(publish, publish_args)):
+        if args.publish_threads == 1:
+            for index, paths in enumerate(map(publish, path_batch)):
                 current_index = current_total + index
                 path_names = " ".join(path.name for path in paths)
                 logger.info(
                     f"{get_progress_str(current_index, total)} Published {path_names}",
                 )
+        else:
+            with ThreadPool(processes=args.publish_threads) as pool:
+                for index, paths in enumerate(pool.map(publish, path_batch)):
+                    current_index = current_total + index
+                    path_names = " ".join(path.name for path in paths)
+                    logger.info(
+                        f"{get_progress_str(current_index, total)} Published {path_names}",
+                    )
         current_total += len(path_batch)
 
 
