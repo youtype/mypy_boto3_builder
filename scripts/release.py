@@ -113,7 +113,7 @@ def parse_args() -> CLINamespace:
     args = parser.parse_args()
     return CLINamespace(
         path=args.path,
-        publish_threads=args.publish_threads,
+        publish_threads=args.threads,
         filter=tuple(args.filter),
         skip_build=args.skip_build,
         skip_publish=args.skip_publish,
