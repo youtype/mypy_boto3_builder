@@ -245,10 +245,8 @@ jobs:
           python -m mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
             --product types-boto3 types-boto3-lite types-boto3-services \
-            ${EXTRA_FLAGS} \
             --output-type wheel sdist \
             --skip-published \
-            --no-smart-version \
             -s all
       - name: Install dependencies for publishing
         run: |
