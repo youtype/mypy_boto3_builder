@@ -258,4 +258,4 @@ jobs:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          python ./scripts/release.py --publish-threads 1 --retries 1
+          python ./scripts/release.py --threads 1 --retries 1

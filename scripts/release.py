@@ -105,7 +105,7 @@ def parse_args() -> CLINamespace:
         type=Path,
         default=Path().parent.parent / "mypy_boto3_output",
     )
-    parser.add_argument("--publish-threads", type=int, default=3)
+    parser.add_argument("-t", "--threads", type=int, default=3)
     parser.add_argument("-f", "--filter", nargs="+", type=Path, default=[])
     parser.add_argument("--skip-build", action="store_true")
     parser.add_argument("--skip-publish", action="store_true")
