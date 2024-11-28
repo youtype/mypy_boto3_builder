@@ -105,7 +105,7 @@ def parse_args() -> CLINamespace:
         type=Path,
         default=Path().parent.parent / "mypy_boto3_output",
     )
-    parser.add_argument("--publish-threads", type=int, default=1)
+    parser.add_argument("--publish-threads", type=int, default=3)
     parser.add_argument("-f", "--filter", nargs="+", type=Path, default=[])
     parser.add_argument("--skip-build", action="store_true")
     parser.add_argument("--skip-publish", action="store_true")
@@ -232,18 +232,22 @@ def publish(paths: Sequence[Path]) -> Sequence[Path]:
 
                 logger.warning(f"Error while publishing {path.name}: {e}")
                 logger.warning(f"Response: {response}")
+                if attempt >= Config.max_retries:
+                    break
                 logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
                 time.sleep(10)
             except RequestsConnectionError as e:
                 attempt += 1
                 last_error = e
                 logger.warning(f"Error while publishing {path.name}: {e}")
+                if attempt >= Config.max_retries:
+                    break
                 logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
                 time.sleep(10)
             else:
                 return paths
 
-    raise last_error
+    raise last_error from None
 
 
 def get_progress_str(index: int, total: int) -> str:
