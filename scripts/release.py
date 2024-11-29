@@ -203,7 +203,6 @@ def publish(paths: Sequence[Path]) -> Sequence[Path]:
     Publish packages from dist directory to PyPI.
     """
     logger = Config.logger
-    last_error = Exception("Unknown error")
     for path in paths:
         attempt = 1
         while attempt <= Config.max_retries:
@@ -219,35 +218,33 @@ def publish(paths: Sequence[Path]) -> Sequence[Path]:
                         ),
                         [path.as_posix()],
                     )
-            except TwineException:
+            except TwineException as e:
                 logger.warning(f"Configuration error while publishing {path.name}")
-                raise
+                raise e from None
             except HTTPError as e:
                 attempt += 1
-                last_error = e
                 response = e.response.text
                 if "File already exists" in response:
                     logger.info(f"Already published {path.name}")
-                    return paths
+                    continue
 
                 logger.warning(f"Error while publishing {path.name}: {e}")
                 logger.warning(f"Response: {response}")
                 if attempt >= Config.max_retries:
-                    break
+                    raise e from None
                 logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
                 time.sleep(10)
             except RequestsConnectionError as e:
                 attempt += 1
-                last_error = e
                 logger.warning(f"Error while publishing {path.name}: {e}")
                 if attempt >= Config.max_retries:
-                    break
+                    raise e from None
                 logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
                 time.sleep(10)
             else:
-                return paths
+                break
 
-    raise last_error from None
+    return paths
 
 
 def get_progress_str(index: int, total: int) -> str:
