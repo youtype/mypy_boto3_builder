@@ -1,8 +1,8 @@
 """
-Usage example for `mypy-boto3-s3` package.
+Usage example for `types-boto3-s3` package.
 
 ```bash
-pip install `boto3-stubs[s3]`
+pip install `types-boto3[s3]`
 mypy myproject
 pyright myproject
 ```
@@ -14,9 +14,9 @@ import boto3
 from boto3.session import Session
 
 if TYPE_CHECKING:
-    from mypy_boto3_s3.client import S3Client
-    from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
-    from mypy_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
+    from types_boto3_s3.client import S3Client
+    from types_boto3_s3.service_resource import Bucket, S3ServiceResource
+    from types_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
 
 
 def s3_resource_example() -> None:

@@ -1,8 +1,8 @@
 """
-Usage example for `mypy-boto3-iam` package.
+Usage example for `types-boto3-iam` package.
 
 ```bash
-pip install `boto3-stubs[iam]`
+pip install `types-boto3[iam]`
 mypy myproject
 pyright myproject
 ```

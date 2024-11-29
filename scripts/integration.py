@@ -52,9 +52,9 @@ class Product:
     name: str
     examples_path: Path
     install_script_path: Path
-    build_product: str
+    build_product: BuilderProduct
     prerequisites: tuple[str, ...] = ()
-    main_build_products: tuple[str, ...] = ()
+    main_build_products: tuple[BuilderProduct, ...] = ()
 
 
 class ProductChoices(enum.Enum):
@@ -66,16 +66,16 @@ class ProductChoices(enum.Enum):
         name="boto3",
         examples_path=EXAMPLES_PATH,
         install_script_path=SCRIPTS_PATH / "install.sh",
-        build_product="boto3-services",
-        main_build_products=("boto3",),
+        build_product=BuilderProduct.types_boto3_services,
+        main_build_products=(BuilderProduct.types_boto3,),
     )
     aioboto3 = Product(
         name="aioboto3",
         prerequisites=("aioboto3",),
         examples_path=AIO_EXAMPLES_PATH,
         install_script_path=SCRIPTS_PATH / "install_aiobotocore.sh",
-        build_product="aiobotocore-services",
-        main_build_products=("aioboto3", "aiobotocore"),
+        build_product=BuilderProduct.aiobotocore_services,
+        main_build_products=(BuilderProduct.aioboto3, BuilderProduct.aiobotocore),
     )
 
 
@@ -196,13 +196,13 @@ def build_packages(
     """
     Build and install stubs.
 
-    - boto3: `boto3-stubs`
+    - boto3: `types-boto3`
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
     if product.prerequisites:
         check_call([sys.executable, "-m", "pip", "install", *product.prerequisites])
 
-    products = [BuilderProduct(i) for i in (*product.main_build_products, product.build_product)]
+    products = [*product.main_build_products, product.build_product]
     run_builder(
         BuilderCLINamespace(
             log_level=log_level,
@@ -350,9 +350,17 @@ def main() -> None:
             log_level=args.log_level,
         )
 
-        for package_path in args.output_path.iterdir():
-            logger.info(f"Installing {print_path(package_path)}...")
-            check_call([sys.executable, "-m", "pip", "install", package_path.as_posix()])
+        install_paths = list(args.output_path.iterdir())
+        logger.info(f"Installing {' '.join(print_path(path) for path in install_paths)}...")
+        check_call(
+            [
+                sys.executable,
+                "-m",
+                "pip",
+                "install",
+                *(path.as_posix() for path in install_paths),
+            ]
+        )
 
     for service_name in service_names:
         file_path = args.product.examples_path / f"{service_name}_example.py"

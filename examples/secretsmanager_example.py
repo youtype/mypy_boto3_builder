@@ -1,8 +1,8 @@
 """
-Usage example for `mypy-boto3-secretsmanager` package.
+Usage example for `types-boto3-secretsmanager` package.
 
 ```bash
-pip install `boto3-stubs[secretsmanager]`
+pip install `types-boto3[secretsmanager]`
 mypy myproject
 pyright myproject
 ```

@@ -1,8 +1,8 @@
 """
-Usage example for `mypy-boto3-sqs` package.
+Usage example for `types-boto3-sqs` package.
 
 ```bash
-pip install `boto3-stubs[sqs]`
+pip install `types-boto3[sqs]`
 mypy myproject
 pyright myproject
 ```
@@ -15,7 +15,7 @@ def sqs_resource_example() -> None:
     """
     Usage example for SQSClient.
     """
-    resource = boto3.resource("sqs")
+    resource = boto3.resource(service_name="sqs")
 
     queue = resource.Queue("my_queue")
     message_list = queue.receive_messages()

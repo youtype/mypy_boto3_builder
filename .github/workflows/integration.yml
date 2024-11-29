@@ -1,4 +1,4 @@
-name: boto3-stubs integration
+name: types-boto3 integration
 
 on:
   schedule:
@@ -61,7 +61,7 @@ jobs:
           cache: "pip"
       - name: Install main packages
         run: |
-          pip install mypy_boto3_output/boto3_stubs_package
+          pip install mypy_boto3_output/types_boto3_package
       - name: Install dependencies
         run: |
           python -m pip install mypy ruff pyright boto3 botocore botocore-stubs types-requests

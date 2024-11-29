@@ -1,8 +1,8 @@
 """
-Usage example for `mypy-boto3-dynamodb` package.
+Usage example for `types-boto3-dynamodb` package.
 
 ```bash
-pip install `boto3-stubs[dynamodb]`
+pip install `types-boto3[dynamodb]`
 mypy myproject
 pyright myproject
 ```
