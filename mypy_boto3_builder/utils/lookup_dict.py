@@ -72,10 +72,10 @@ class LookupDict(Generic[_V]):
             for key, value in current_map.items():
                 new_keys = (*current_keys, key)
                 if isinstance(value, Mapping):
-                    value_t = cast(Mapping[str, _T], value)
+                    value_t = cast("Mapping[str, _T]", value)
                     stack.append((value_t, new_keys))
                 else:
-                    value_v = cast(_V, value)
+                    value_v = cast("_V", value)
                     result[new_keys] = value_v
 
         return result

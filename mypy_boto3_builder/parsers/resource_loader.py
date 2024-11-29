@@ -74,14 +74,14 @@ class ResourceLoader:
     ) -> _T | None:
         cache_key = f"{service_name.boto3_name}.{type_name}"
         if cache_key in self._cache:
-            return cast(_T | None, self._cache[cache_key])
+            return cast("_T | None", self._cache[cache_key])
         loader = self._get_loader()
         data: dict[str, Any] | None = None
         with contextlib.suppress(UnknownServiceError):
             data = loader.load_service_model(service_name.boto3_name, type_name)
 
         self._cache[cache_key] = data
-        return cast(_T | None, data)
+        return cast("_T | None", data)
 
     def load_waiters(self, service_name: ServiceName) -> WaitersShape | None:
         """
