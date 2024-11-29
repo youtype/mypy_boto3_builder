@@ -1,9 +1,9 @@
 name: Publish boto3-stubs
-concurrency: update_boto3_stubs
+concurrency: publish_boto3_stubs
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/20 * * * *"
   workflow_dispatch:
     inputs:
       boto3_version:
