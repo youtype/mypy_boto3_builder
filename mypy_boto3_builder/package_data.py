@@ -74,7 +74,7 @@ class TypesBoto3PackageData(BasePackageData):
     types-boto3 package data.
     """
 
-    NAME = "types-boto3"
+    NAME = "boto3-stubs"
     PYPI_NAME = "types-boto3"
     PYPI_STUBS_NAME = "types-boto3"
     PYPI_LITE_NAME = "types-boto3-lite"
