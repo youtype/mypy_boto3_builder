@@ -68,6 +68,7 @@ class TemplatePath:
     types_boto3_service: Final = TEMPLATES_PATH / "types-boto3-service"
     types_boto3_service_docs: Final = TEMPLATES_PATH / "types-boto3-service-docs"
     types_boto3_full: Final = TEMPLATES_PATH / "types-boto3-full"
+    types_boto3_custom: Final = TEMPLATES_PATH / "types-boto3-custom"
 
     types_aioboto3: Final = TEMPLATES_PATH / "types-aioboto3"
     types_aioboto3_docs: Final = TEMPLATES_PATH / "types-aioboto3-docs"

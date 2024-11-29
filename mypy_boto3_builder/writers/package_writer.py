@@ -189,7 +189,7 @@ class PackageWriter:
     def write_package(
         self,
         package: Package,
-        templates_path: Path | None = None,
+        template_path: Path | None = None,
         static_files_path: Path | None = None,
         exclude_template_names: Sequence[str] = (),
     ) -> None:
@@ -198,13 +198,13 @@ class PackageWriter:
 
         Arguments:
             package -- Package to render
-            templates_path -- Path to Jinja templates for package
+            template_path -- Path to Jinja templates for package
             static_files_path -- Path to static files for package
             exclude_template_names -- Do not render templates with these names
         """
         template_renders: list[TemplateRender] = [
-            *self._get_setup_template_paths(package, templates_path),
-            *self._get_package_template_renders(package, templates_path),
+            *self._get_setup_template_paths(package, template_path),
+            *self._get_package_template_renders(package, template_path),
         ]
         template_renders = [
             i for i in template_renders if i.template_path.name not in exclude_template_names

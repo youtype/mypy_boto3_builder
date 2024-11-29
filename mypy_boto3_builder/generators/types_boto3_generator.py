@@ -14,6 +14,7 @@ from mypy_boto3_builder.constants import (
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
+    TypesBoto3CustomPackageData,
     TypesBoto3FullPackageData,
     TypesBoto3LitePackageData,
     TypesBoto3PackageData,
@@ -25,7 +26,6 @@ from mypy_boto3_builder.structures.types_boto3_package import TypesBoto3Package
 from mypy_boto3_builder.writers.processors import (
     process_types_boto3,
     process_types_boto3_docs,
-    process_types_boto3_full,
     process_types_boto3_lite,
 )
 
@@ -65,6 +65,7 @@ class TypesBoto3Generator(BaseGenerator):
             generate_package=self.is_package(),
             package_data=package_data,
             version=version,
+            template_path=TemplatePath.types_boto3,
             static_files_path=self._get_static_files_path(),
         )
 
@@ -143,12 +144,14 @@ class TypesBoto3Generator(BaseGenerator):
             return []
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        package = process_types_boto3_full(
+        package = process_types_boto3(
             output_path=self.output_path,
             service_names=self.service_names,
             package_data=package_data,
             version=version,
             generate_package=self.is_package(),
+            template_path=TemplatePath.types_boto3,
+            static_files_path=None,
         )
         self._generate_full_stubs_services(package)
         return [package]
@@ -157,4 +160,25 @@ class TypesBoto3Generator(BaseGenerator):
         """
         Do nothing.
         """
-        return []
+        """
+        Generate `types-boto3-custom` package.
+        """
+        package_data = TypesBoto3CustomPackageData
+        self.main_service_names = self.service_names
+
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {self.version}")
+        package = process_types_boto3(
+            output_path=self.output_path,
+            service_names=self.service_names,
+            generate_package=self.is_package(),
+            package_data=package_data,
+            version=self.version,
+            template_path=TemplatePath.types_boto3_custom,
+            static_files_path=self._get_static_files_path(),
+        )
+
+        if not package:
+            return []
+
+        self._generate_full_stubs_services(package)
+        return [package]

@@ -1,0 +1,41 @@
+"""
+Type annotations for {{ package.library_name }}.__init__ module.
+
+{{ copyright }}
+"""
+import logging
+from typing import Any
+from boto3 import session as session
+from boto3.session import Session as Session
+from botocore.session import Session as BotocoreSession
+
+{% for import_record in package.get_init_required_import_records() -%}
+    {{ import_record -}}{{ "\n" -}}
+{% endfor -%}
+
+__author__: str
+__version__: str
+
+DEFAULT_SESSION: Optional[Session]
+
+def setup_default_session(
+    *,
+    aws_access_key_id: Optional[str] = ...,
+    aws_secret_access_key: Optional[str] = ...,
+    aws_session_token: Optional[str] = ...,
+    region_name: Optional[str] = ...,
+    botocore_session: Optional[BotocoreSession] = ...,
+    profile_name: Optional[str] = ...,
+) -> None: ...
+def set_stream_logger(
+    name: str = ..., level: int = ..., format_string: Optional[str] = ...
+) -> None: ...
+def _get_default_session() -> Session: ...
+
+class NullHandler(logging.Handler):
+    def emit(self, record: Any) -> Any: ...
+
+{% for function in package.init_functions -%}
+    {% include "common/function.py.jinja2" with context -%}
+    {{ '\n' -}}
+{% endfor -%}

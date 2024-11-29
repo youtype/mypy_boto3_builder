@@ -49,12 +49,9 @@ class Product:
     Product to test.
     """
 
-    name: str
     examples_path: Path
-    install_script_path: Path
-    build_product: BuilderProduct
     prerequisites: tuple[str, ...] = ()
-    main_build_products: tuple[BuilderProduct, ...] = ()
+    build_products: tuple[BuilderProduct, ...] = ()
 
 
 class ProductChoices(enum.Enum):
@@ -63,19 +60,21 @@ class ProductChoices(enum.Enum):
     """
 
     boto3 = Product(
-        name="boto3",
         examples_path=EXAMPLES_PATH,
-        install_script_path=SCRIPTS_PATH / "install.sh",
-        build_product=BuilderProduct.types_boto3_services,
-        main_build_products=(BuilderProduct.types_boto3,),
+        build_products=(BuilderProduct.types_boto3, BuilderProduct.types_boto3_services),
     )
     aioboto3 = Product(
-        name="aioboto3",
         prerequisites=("aioboto3",),
         examples_path=AIO_EXAMPLES_PATH,
-        install_script_path=SCRIPTS_PATH / "install_aiobotocore.sh",
-        build_product=BuilderProduct.aiobotocore_services,
-        main_build_products=(BuilderProduct.aioboto3, BuilderProduct.aiobotocore),
+        build_products=(
+            BuilderProduct.aioboto3,
+            BuilderProduct.aiobotocore,
+            BuilderProduct.aiobotocore_services,
+        ),
+    )
+    boto3_custom = Product(
+        examples_path=EXAMPLES_PATH,
+        build_products=(BuilderProduct.types_boto3_custom,),
     )
 
 
@@ -192,7 +191,7 @@ def build_packages(
     output_path: Path,
     output_type: OutputType,
     log_level: int,
-) -> None:
+) -> list[Path]:
     """
     Build and install stubs.
 
@@ -202,7 +201,6 @@ def build_packages(
     if product.prerequisites:
         check_call([sys.executable, "-m", "pip", "install", *product.prerequisites])
 
-    products = [*product.main_build_products, product.build_product]
     run_builder(
         BuilderCLINamespace(
             log_level=log_level,
@@ -210,7 +208,7 @@ def build_packages(
             service_names=service_names,
             build_version="",
             output_types=[output_type],
-            products=products,
+            products=list(product.build_products),
             disable_smart_version=True,
             download_static_stubs=False,
             skip_published=False,
@@ -218,6 +216,7 @@ def build_packages(
             list_services=False,
         )
     )
+    return list(output_path.iterdir())
 
 
 def compare(data: str, snapshot_path: Path, *, update: bool) -> None:
@@ -342,7 +341,7 @@ def main() -> None:
 
     if not args.fast:
         logger.info("Building packages...")
-        build_packages(
+        install_paths = build_packages(
             product=args.product,
             service_names=service_names,
             output_path=args.output_path,
@@ -350,7 +349,6 @@ def main() -> None:
             log_level=args.log_level,
         )
 
-        install_paths = list(args.output_path.iterdir())
         logger.info(f"Installing {' '.join(print_path(path) for path in install_paths)}...")
         check_call(
             [

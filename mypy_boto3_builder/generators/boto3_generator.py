@@ -28,7 +28,6 @@ from mypy_boto3_builder.writers.processors import (
     process_mypy_boto3,
     process_types_boto3,
     process_types_boto3_docs,
-    process_types_boto3_full,
     process_types_boto3_lite,
 )
 
@@ -87,6 +86,7 @@ class Boto3Generator(BaseGenerator):
             generate_package=self.is_package(),
             package_data=package_data,
             version=version,
+            template_path=TemplatePath.types_boto3,
             static_files_path=self._get_static_files_path(),
         )
 
@@ -173,12 +173,14 @@ class Boto3Generator(BaseGenerator):
             return []
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        package = process_types_boto3_full(
+        package = process_types_boto3(
             output_path=self.output_path,
             service_names=self.service_names,
             package_data=package_data,
             version=version,
             generate_package=self.is_package(),
+            template_path=TemplatePath.types_boto3_full,
+            static_files_path=None,
         )
         self._generate_full_stubs_services(package)
         return [package]

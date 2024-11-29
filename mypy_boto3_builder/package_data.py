@@ -114,6 +114,23 @@ class TypesBoto3FullPackageData(TypesBoto3PackageData):
         return cls.PYPI_NAME
 
 
+class TypesBoto3CustomPackageData(TypesBoto3PackageData):
+    """
+    boto3-stubs-custom package data.
+    """
+
+    PYPI_NAME = "types-boto3-custom"
+    IS_CONDA_FORGE_SUPPORTED = False
+
+    @typing.override
+    @classmethod
+    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package PyPI name.
+        """
+        return cls.PYPI_NAME
+
+
 class TypesAioBotocorePackageData(BasePackageData):
     """
     types-aiobotocore package data.

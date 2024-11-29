@@ -57,7 +57,7 @@ def process_types_aiobotocore(
     )
     package_writer.write_package(
         package,
-        templates_path=TemplatePath.types_aiobotocore,
+        template_path=TemplatePath.types_aiobotocore,
         static_files_path=static_files_path,
     )
     return package
@@ -99,7 +99,7 @@ def process_types_aiobotocore_lite(
     )
     package_writer.write_package(
         package,
-        templates_path=TemplatePath.types_aiobotocore,
+        template_path=TemplatePath.types_aiobotocore,
         static_files_path=static_files_path,
         exclude_template_names=["session.pyi.jinja2"],
     )
@@ -177,7 +177,7 @@ def process_types_aiobotocore_full(
     )
     package_writer.write_package(
         package,
-        templates_path=TemplatePath.types_aiobotocore_full,
+        template_path=TemplatePath.types_aiobotocore_full,
     )
 
     return package

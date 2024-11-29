@@ -20,6 +20,7 @@ class Product(Enum):
     types_boto3_services = "types-boto3-services"
     types_boto3_full = "types-boto3-full"
     types_boto3_docs = "types-boto3-docs"
+    types_boto3_custom = "types-boto3-custom"
     aiobotocore = "aiobotocore"
     aiobotocore_lite = "aiobotocore-lite"
     aiobotocore_services = "aiobotocore-services"
@@ -51,6 +52,7 @@ class Product(Enum):
                 | Product.types_boto3_services
                 | Product.types_boto3_full
                 | Product.types_boto3_docs
+                | Product.types_boto3_custom
             ):
                 return ProductLibrary.types_boto3
             case (
@@ -101,3 +103,5 @@ class Product(Enum):
                 return ProductType.docs
             case Product.types_boto3_full | Product.boto3_full | Product.aiobotocore_full:
                 return ProductType.full
+            case Product.types_boto3_custom:
+                return ProductType.custom

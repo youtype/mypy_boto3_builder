@@ -26,7 +26,8 @@ def process_types_boto3(
     package_data: type[BasePackageData],
     generate_package: bool,
     version: str,
-    static_files_path: Path,
+    template_path: Path,
+    static_files_path: Path | None,
 ) -> TypesBoto3Package:
     """
     Parse and write stubs package `types-boto3`.
@@ -57,7 +58,7 @@ def process_types_boto3(
     )
     package_writer.write_package(
         package=package,
-        templates_path=TemplatePath.types_boto3,
+        template_path=template_path,
         static_files_path=static_files_path,
     )
 
@@ -102,7 +103,7 @@ def process_types_boto3_lite(
     )
     package_writer.write_package(
         package=package,
-        templates_path=TemplatePath.types_boto3,
+        template_path=TemplatePath.types_boto3,
         static_files_path=static_files_path,
         exclude_template_names=[
             "session.pyi.jinja2",
@@ -144,7 +145,7 @@ def process_mypy_boto3(
     )
     package_writer.write_package(
         package,
-        templates_path=TemplatePath.mypy_boto3,
+        template_path=TemplatePath.mypy_boto3,
     )
 
     return package
@@ -180,48 +181,6 @@ def process_types_boto3_docs(
     package_writer.write_docs(
         package=package,
         templates_path=TemplatePath.types_boto3_docs,
-    )
-
-    return package
-
-
-def process_types_boto3_full(
-    output_path: Path,
-    service_names: Iterable[ServiceName],
-    package_data: type[BasePackageData],
-    version: str,
-    *,
-    generate_package: bool,
-) -> TypesBoto3Package:
-    """
-    Parse and write stubs package `types-boto3-full`.
-
-    Arguments:
-        output_path -- Package output path
-        service_names -- List of known service names
-        version -- Package version
-        generate_package -- Generate ready-to-install or to-use package
-
-    Return:
-        Parsed TypesBoto3Package.
-    """
-    logger = get_logger()
-    logger.debug(f"Parsing {package_data.PYPI_FULL_NAME}")
-    package = parse_types_boto3_package(
-        service_names=service_names,
-        package_data=package_data,
-        version=version,
-    )
-    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
-
-    package_writer = PackageWriter(
-        output_path=output_path,
-        generate_package=generate_package,
-        cleanup=True,
-    )
-    package_writer.write_package(
-        package=package,
-        templates_path=TemplatePath.types_boto3_full,
     )
 
     return package

@@ -53,7 +53,7 @@ def process_types_aioboto3(
     )
     package_writer.write_package(
         package,
-        templates_path=TemplatePath.types_aioboto3,
+        template_path=TemplatePath.types_aioboto3,
         static_files_path=static_files_path,
     )
     return package
@@ -95,7 +95,7 @@ def process_types_aioboto3_lite(
     )
     package_writer.write_package(
         package,
-        templates_path=TemplatePath.types_aioboto3,
+        template_path=TemplatePath.types_aioboto3,
         static_files_path=static_files_path,
         exclude_template_names=["session.pyi.jinja2"],
     )
