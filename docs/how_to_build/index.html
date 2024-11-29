@@ -489,22 +489,19 @@
 <h1 id="how-to-build-type-annotations">How to build type annotations<a class="headerlink" href="#how-to-build-type-annotations" title="Permanent link">#</a></h1>
 <h2 id="locally">Locally<a class="headerlink" href="#locally" title="Permanent link">#</a></h2>
 <pre class="highlight"><code class="language-bash"># Install preferred version of `boto3`
-python -m pip install boto3==1.16.25 botocore==1.19.25
+python -m pip install boto3==1.35.71 botocore==1.35.71
 
 # Install `mypy-boto3-builder`
 python -m pip install mypy-boto3-builder
 
-# Build all packages in mypy_boto3_output directory
-python -m mypy_boto3_builder mypy_boto3_output
+# Build all packages in typings directory
+python -m mypy_boto3_builder ./typings --product types-boto3 types-boto3-services --output-type wheel
 
 # Or specify required services explicitly
-python -m mypy_boto3_builder mypy_boto3_output -s ec2 s3
+python -m mypy_boto3_builder ./typings --product types-boto3 types-boto3-services --output-type wheel -s ec2 s3
 
-# Install custom `boto3-stubs` packages
-cd mypy_boto3_output
-python -m pip install -e ./mypy_boto3_ec2_package
-python -m pip install -e ./mypy_boto3_s3_package
-python -m pip install -e ./boto3_stubs_package</code></pre>
+# Install custom `types-boto3` packages
+python -m pip install ./typings/*.whl</code></pre>
 <h2 id="with-docker-image">With Docker image<a class="headerlink" href="#with-docker-image" title="Permanent link">#</a></h2>
 <ul>
 <li>Install <a href="https://docs.docker.com/install/">Docker</a></li>
@@ -524,7 +521,7 @@ docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable
 docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable -s s3
 
 # generate stubs for a specific boto3 version
-docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/output -ti mypy_boto3_builder_stable</code></pre>
+docker run -e BOTO3_VERSION=1.35.71 BOTOCORE_VERSION=1.35.71 -v `pwd`/output:/output -ti mypy_boto3_builder_stable</code></pre>
 <ul>
 <li>Install packages from <code>output</code> directory as described above</li>
 </ul>
