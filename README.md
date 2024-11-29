@@ -39,7 +39,7 @@ and other tools.
 
 See how it helps to find and fix potential bugs:
 
-![boto3-stubs demo](https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/demo.gif)
+![types-boto3 demo](https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/demo.gif)
 
 Do you want more? Check the [documentation](https://youtype.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
 
@@ -51,7 +51,7 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 
 ## Quickstart
 
-- If you use `boto3` or `botocore`, follow [boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/)
+- If you use `boto3` or `botocore`, follow [types-boto3 documentation](https://youtype.github.io/types_boto3_docs/)
 - For `aiobotocore` follow [types-aiobotocore documentation](https://youtype.github.io/types_aiobotocore_docs/)
 - For `aioboto3` follow [types-aioboto3 documentation](https://youtype.github.io/types_aioboto3_docs/)
 

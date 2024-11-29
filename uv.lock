@@ -607,7 +607,7 @@ wheels = [
 
 [[package]]
 name = "mypy-boto3-builder"
-version = "8.4.1"
+version = "8.4.2"
 source = { editable = "." }
 dependencies = [
     { name = "jinja2" },
@@ -632,7 +632,6 @@ check = [
 dev = [
     { name = "aiohttp" },
     { name = "boto3" },
-    { name = "boto3-stubs" },
     { name = "botocore-stubs" },
     { name = "cryptography" },
     { name = "istub" },
@@ -643,6 +642,7 @@ dev = [
     { name = "pytest-mock" },
     { name = "requests-mock" },
     { name = "twine" },
+    { name = "types-boto3" },
     { name = "types-certifi" },
     { name = "types-python-dateutil" },
     { name = "types-requests" },
@@ -672,7 +672,6 @@ requires-dist = [
 dev = [
     { name = "aiohttp" },
     { name = "boto3" },
-    { name = "boto3-stubs" },
     { name = "botocore-stubs" },
     { name = "cryptography" },
     { name = "istub" },
@@ -683,6 +682,7 @@ dev = [
     { name = "pytest-mock" },
     { name = "requests-mock" },
     { name = "twine" },
+    { name = "types-boto3" },
     { name = "types-certifi" },
     { name = "types-python-dateutil" },
     { name = "types-requests" },
@@ -1133,6 +1133,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/5d/9a/534fdab439cc6c6d3a9756dd5883b71cb3cb0f7359c6119be79770db1210/types_awscrt-0.23.1.tar.gz", hash = "sha256:a20b425dabb258bc3d07a5e7de503fd9558dd1542d72de796e74e402c6d493b2", size = 14942 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/85/34/ab41dec9a871665330daf279d3fb5eb0eb0b2bd9e6a8ad8faac10496fed3/types_awscrt-0.23.1-py3-none-any.whl", hash = "sha256:0d362a5d62d68ca4216f458172f41c1123ec04791d68364de8ee8b61b528b262", size = 18452 },
+]
+
+[[package]]
+name = "types-boto3"
+version = "1.35.71.post1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "botocore-stubs" },
+    { name = "types-s3transfer" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/34/3d/39215c184ada4cad878fe3204ab50caa87d9311189861f041563155d92fd/types_boto3-1.35.71.post1-py3-none-any.whl", hash = "sha256:f1660e024c61df682d075c32db29799123282482fce04a853ef7a2c820476af6", size = 64267 },
 ]
 
 [[package]]

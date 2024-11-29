@@ -38,7 +38,6 @@ check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 [tool.uv]
 dev-dependencies = [
     "aiohttp",
-    "boto3-stubs",
     "boto3",
     "botocore-stubs",
     "cryptography",
@@ -50,6 +49,7 @@ dev-dependencies = [
     "pytest",
     "requests-mock",
     "twine",
+    "types-boto3",
     "types-certifi",
     "types-python-dateutil",
     "types-requests",
