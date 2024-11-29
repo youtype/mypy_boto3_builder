@@ -364,6 +364,8 @@ def main() -> None:
     logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
     has_errors = False
     for directory in sorted(args.path.iterdir()):
+        if not directory.is_dir():
+            continue
         if not directory.name.endswith("_package"):
             continue
 

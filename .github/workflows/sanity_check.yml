@@ -1,4 +1,4 @@
-name: boto3-stubs sanity
+name: types-boto3 sanity
 
 on:
   schedule:
@@ -66,23 +66,22 @@ jobs:
         run: |
           rm -rf mypy_boto3_output/*
           uv run mypy_boto3_builder mypy_boto3_output \
-            --product boto3 \
-            --no-smart-version
-      - name: Install main packages
-        run: |
-          bash ./scripts/install.sh main
+            --product types-boto3 \
+            --no-smart-version \
+            --output-type wheel
+          python -m pip install mypy_boto3_output/*.whl
       - name: Check s3 output
         run: |
           rm -rf mypy_boto3_output/*
           uv run mypy_boto3_builder mypy_boto3_output \
-            --product boto3-services \
-            -s s3 \
+            --product types-boto3-services \
             --no-smart-version
+            -s s3
           uv run ./scripts/check_output.py -p ./mypy_boto3_output s3
       - name: Build packages
         run: |
           uv run mypy_boto3_builder mypy_boto3_output \
-            --product boto3-services \
+            --product types-boto3-services \
             --no-smart-version
       - name: Check output
         run: |
