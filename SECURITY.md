@@ -1,5 +1,12 @@
 # Security Policy
 
+## Supported `types-boto3` versions
+
+| Version   | Supported          |
+| -------   | ------------------ |
+| 1.24.x    | :white_check_mark: |
+| <= 1.23.x | :x:                |
+
 ## Supported `boto3-stubs` versions
 
 | Version   | Supported          |

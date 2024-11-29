@@ -14,10 +14,10 @@ To speed up type checking and code completion, you can set types explicitly.
 import boto3
 from boto3.session import Session
 
-from mypy_boto3_ec2.client import EC2Client
-from mypy_boto3_ec2.service_resource import EC2ServiceResource
-from mypy_boto3_ec2.waiter import BundleTaskCompleteWaiter
-from mypy_boto3_ec2.paginator import DescribeVolumesPaginator
+from {{ package.data.SERVICE_PREFIX }}_ec2.client import EC2Client
+from {{ package.data.SERVICE_PREFIX }}_ec2.service_resource import EC2ServiceResource
+from {{ package.data.SERVICE_PREFIX }}_ec2.waiter import BundleTaskCompleteWaiter
+from {{ package.data.SERVICE_PREFIX }}_ec2.paginator import DescribeVolumesPaginator
 
 session = Session(region_name="us-west-1")
 
@@ -30,7 +30,7 @@ describe_volumes_paginator: DescribeVolumesPaginator = ec2_client.get_paginator(
 
 ### Pylint compatibility
 
-It is totally safe to use `TYPE_CHECKING` flag in order to avoid `boto3-stubs`
+It is totally safe to use `TYPE_CHECKING` flag in order to avoid `{{ package.pypi_name }}`
 dependency in production.
 However, there is an issue in `pylint` that it complains about undefined
 variables. To fix it, set all types to `object` in non-`TYPE_CHECKING` mode.
@@ -40,9 +40,9 @@ import boto3
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from mypy_boto3_ec2 import EC2Client, EC2ServiceResource
-    from mypy_boto3_ec2.waiters import BundleTaskCompleteWaiter
-    from mypy_boto3_ec2.paginators import DescribeVolumesPaginator
+    from {{ package.data.SERVICE_PREFIX }}_ec2 import EC2Client, EC2ServiceResource
+    from {{ package.data.SERVICE_PREFIX }}_ec2.waiters import BundleTaskCompleteWaiter
+    from {{ package.data.SERVICE_PREFIX }}_ec2.paginators import DescribeVolumesPaginator
 else:
     EC2Client = object
     EC2ServiceResource = object

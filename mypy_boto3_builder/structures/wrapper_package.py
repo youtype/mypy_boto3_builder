@@ -22,7 +22,7 @@ if TYPE_CHECKING:
 
 class WrapperPackage(Package, ABC):
     """
-    Structure for boto3-stubs/types-aiobotocore/types-aioboto3 module.
+    Main package module data.
     """
 
     def __init__(

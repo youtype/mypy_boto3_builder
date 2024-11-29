@@ -79,6 +79,10 @@ async function getStubsVersions(boto3Version) {
     return await getPackageVersions('boto3-stubs', boto3Version)
 }
 
+async function getTypesBoto3Versions(boto3Version) {
+    return await getPackageVersions('types-boto3', boto3Version)
+}
+
 async function getPackageVersions(packageName, version) {
     const allVersions = await getReleaseVersions(packageName)
     const versions = allVersions.filter(v => v === version || v.startsWith(`${version}.`))
@@ -300,6 +304,7 @@ module.exports = {
     getBoto3Version,
     getPackageVersions,
     getStubsVersions,
+    getTypesBoto3Versions,
     getBotocoreVersion,
     extractVersions,
     extractDownloadLinks,

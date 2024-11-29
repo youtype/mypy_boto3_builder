@@ -122,7 +122,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
 
     parser = argparse.ArgumentParser(
         PROG_NAME,
-        description="Builder for boto3-stubs and types-aiobotocore.",
+        description="Type annotations generator for boto3, aiobotocore and aioboto3.",
     )
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(
@@ -188,7 +188,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
     parser.add_argument(
         "--partial-overload",
         action="store_true",
-        help="Build boto3-stubs client/service overload only for selected services",
+        help="Build client/service overload only for selected services",
     )
     parser.add_argument(
         "--installed",

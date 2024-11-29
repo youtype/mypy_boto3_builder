@@ -26,7 +26,7 @@ setup(
     {{ "\n        " -}}"{{ classifier -}}",
 {%- endfor %}
     ],
-    keywords='boto3 type-annotations boto3-stubs mypy typeshed autocomplete',
+    keywords='{{ package.library_name }} {{ package.library_name }}-stubs type-annotations typeshed autocomplete',
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     package_data={"{{ package.name }}": ["py.typed", "*.pyi", "*/*.pyi"]},

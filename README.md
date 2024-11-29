@@ -24,7 +24,11 @@
 
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
 
-Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/), [types-aiobotocore](https://pypi.org/project/types-aiobotocore/), and [types-aioboto3](https://pypi.org/project/types-aioboto3/) projects. Compatible with
+Type annotations generator for [types-boto3](https://pypi.org/project/types-boto3/),
+[boto3-stubs](https://pypi.org/project/boto3-stubs/),
+[types-aiobotocore](https://pypi.org/project/types-aiobotocore/),
+and [types-aioboto3](https://pypi.org/project/types-aioboto3/) projects.
+Compatible with
 [VSCode](https://code.visualstudio.com/),
 [PyCharm](https://www.jetbrains.com/pycharm/),
 [Emacs](https://www.gnu.org/software/emacs/),

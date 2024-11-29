@@ -10,7 +10,7 @@ from typing import Final
 # Root path for the project
 ROOT_PATH: Final = Path(__file__).parent
 
-# Jinja2 templates for boto3-stubs
+# Jinja2 templates
 TEMPLATES_PATH: Final = ROOT_PATH / "templates"
 
 # Max line length for formatting

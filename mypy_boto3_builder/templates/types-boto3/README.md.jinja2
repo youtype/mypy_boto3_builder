@@ -30,7 +30,7 @@ describe_volumes_paginator: DescribeVolumesPaginator = ec2_client.get_paginator(
 
 ### Pylint compatibility
 
-It is totally safe to use `TYPE_CHECKING` flag in order to avoid `boto3-stubs`
+It is totally safe to use `TYPE_CHECKING` flag in order to avoid `{{ package.pypi_name }}`
 dependency in production.
 However, there is an issue in `pylint` that it complains about undefined
 variables. To fix it, set all types to `object` in non-`TYPE_CHECKING` mode.

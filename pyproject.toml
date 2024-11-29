@@ -2,7 +2,7 @@
 name = "mypy-boto3-builder"
 version = "8.4.1"
 requires-python = ">=3.12"
-description = "Builder for boto3-stubs and types-aiobotocore"
+description = "Type annotations generator for types-boto3, boto3-stubs, types-aiobotocore, and types-aioboto3."
 authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
 license = { file = "LICENSE" }
 readme = "README.md"

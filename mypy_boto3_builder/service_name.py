@@ -96,7 +96,7 @@ class ServiceName:
 
     def is_essential(self) -> bool:
         """
-        Whether service is included to `boto3-stubs[essential]`.
+        Whether service is included to `types-library[essential]`.
         """
         return self.name in self.ESSENTIAL_NAMES
 

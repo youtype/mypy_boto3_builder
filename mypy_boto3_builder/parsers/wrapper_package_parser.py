@@ -28,7 +28,7 @@ from mypy_boto3_builder.utils.type_checks import get_optional
 
 class WrapperPackageParser:
     """
-    Parser for boto3-stubs/types-aiobotocore/types-aioboto3 package.
+    Parser for types-boto3/types-aiobotocore/types-aioboto3 package.
 
     Arguments:
         package -- Prepared wrapper package with data

@@ -13,4 +13,4 @@ A clear and concise description of what is needed.
 Provide a code sample to test the feature implementation.
 
 **Additional context**
-Your OS, `boto3-stubs` installation method, `boto3` version, etc.
+Your OS, `types-boto3` installation method, `boto3` version, etc.

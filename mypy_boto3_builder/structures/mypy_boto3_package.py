@@ -1,5 +1,5 @@
 """
-Structure for boto3-stubs module.
+Structure for mypy-boto3 package.
 
 Copyright 2024 Vlad Emelianov
 """

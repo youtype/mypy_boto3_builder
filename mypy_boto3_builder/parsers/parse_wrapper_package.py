@@ -22,7 +22,7 @@ def parse_types_boto3_package(
     version: str,
 ) -> TypesBoto3Package:
     """
-    Parse data for boto3-stubs package.
+    Parse data for types-boto3 package.
 
     Arguments:
         service_names -- All available service names

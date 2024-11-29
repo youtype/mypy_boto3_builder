@@ -12,7 +12,7 @@ A clear and concise description of what the bug is.
 **To Reproduce**
 Steps to reproduce the behavior:
 
-1. Install `boto3-stubs[...]`
+1. Install `types-boto3[...]`
 2. Run `mypy`/`pyright` on the following code sample
 
 ```python
@@ -34,4 +34,4 @@ import boto3
 ```
 
 **Additional context**
-Your OS, `boto3-stubs` installation method, `boto3` version, etc.
+Your OS, `types-boto3` installation method, `boto3` version, etc.
