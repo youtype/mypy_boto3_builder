@@ -1,4 +1,4 @@
-name: boto3-stubs-full integration
+name: types-boto3-full integration
 
 on:
   schedule:
@@ -26,7 +26,7 @@ jobs:
       - name: Build full packages
         run: |
           uv run mypy_boto3_builder mypy_boto3_output \
-            --product boto3 boto3-full \
+            --product types-boto3 types-boto3-full \
             -s s3 ec2 \
             --no-smart-version \
             --output-type=wheel
