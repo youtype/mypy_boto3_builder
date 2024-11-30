@@ -183,7 +183,6 @@ class AioBoto3Generator(BaseGenerator):
             package_data=aiobotocore_package_data,
             version=aiobotocore_package_data.get_library_version(),
         )
-        # raise ValueError(self.output_path / aiobotocore_package_data.NAME)
         aiobotocore_package_writer = PackageWriter(
             output_path=self.output_path / package.directory_name,
             generate_package=False,

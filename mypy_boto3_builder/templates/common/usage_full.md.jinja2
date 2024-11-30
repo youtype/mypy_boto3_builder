@@ -115,3 +115,26 @@ Optionally, you can install `{{ package.data.PYPI_NAME }}` to `typings` director
 
 Type checking should now work.
 No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### Pylint compatibility
+
+It is totally safe to use `TYPE_CHECKING` flag in order to avoid `{{ package.pypi_name }}`
+dependency in production.
+However, there is an issue in `pylint` that it complains about undefined
+variables. To fix it, set all types to `object` in non-`TYPE_CHECKING` mode.
+
+```python
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from {{ package.data.SERVICE_PREFIX }}_ec2 import EC2Client, EC2ServiceResource
+    from {{ package.data.SERVICE_PREFIX }}_ec2.waiters import BundleTaskCompleteWaiter
+    from {{ package.data.SERVICE_PREFIX }}_ec2.paginators import DescribeVolumesPaginator
+else:
+    EC2Client = object
+    EC2ServiceResource = object
+    BundleTaskCompleteWaiter = object
+    DescribeVolumesPaginator = object
+
+...
+```

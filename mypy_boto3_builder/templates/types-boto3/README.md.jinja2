@@ -28,30 +28,6 @@ bundle_task_complete_waiter: BundleTaskCompleteWaiter = ec2_client.get_waiter("b
 describe_volumes_paginator: DescribeVolumesPaginator = ec2_client.get_paginator("describe_volumes")
 ```
 
-### Pylint compatibility
-
-It is totally safe to use `TYPE_CHECKING` flag in order to avoid `{{ package.pypi_name }}`
-dependency in production.
-However, there is an issue in `pylint` that it complains about undefined
-variables. To fix it, set all types to `object` in non-`TYPE_CHECKING` mode.
-
-```python
-import boto3
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from {{ package.data.SERVICE_PREFIX }}_ec2 import EC2Client, EC2ServiceResource
-    from {{ package.data.SERVICE_PREFIX }}_ec2.waiters import BundleTaskCompleteWaiter
-    from {{ package.data.SERVICE_PREFIX }}_ec2.paginators import DescribeVolumesPaginator
-else:
-    EC2Client = object
-    EC2ServiceResource = object
-    BundleTaskCompleteWaiter = object
-    DescribeVolumesPaginator = object
-
-...
-```
-
 {% include "common/footer.md.jinja2" with context %}
 
 {% include "common/submodules.md.jinja2" with context %}

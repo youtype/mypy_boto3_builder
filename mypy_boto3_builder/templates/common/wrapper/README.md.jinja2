@@ -1,0 +1,11 @@
+{% include "common/header.md.jinja2" with context %}
+
+{% include "common/how_to_install.md.jinja2" with context %}
+
+{% with extras_name="essential" %}
+{% include "common/usage.md.jinja2" with context %}
+{% endwith %}
+
+{% include "common/footer.md.jinja2" with context %}
+
+{% include "common/submodules.md.jinja2" with context %}
