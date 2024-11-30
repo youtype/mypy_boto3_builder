@@ -19,11 +19,9 @@ jobs:
         uses: astral-sh/setup-uv@v3
         with:
           version: "latest"
-      - name: Install the project
-        run: uv sync --extra check --dev
       - name: Integration tests
         run: |
-          uv run scripts/integration.py -w --product boto3_full -d s3 ec2
+          uv run scripts/integration.py -w --product boto3_custom -d s3 ec2
       - name: Aio integration tests
         run: |
-          uv run scripts/integration.py -w --product aioboto3_full -fd s3
+          uv run scripts/integration.py -w --product aioboto3_custom -fd s3

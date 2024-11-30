@@ -83,6 +83,7 @@ class AioBoto3Generator(BaseGenerator):
             package_data=package_data,
             version=version,
         )
+        package.set_description(package.get_short_description("Lite type annotations"))
         self.package_writer.write_package(
             package,
             template_path=TemplatePath.types_aioboto3,

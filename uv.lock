@@ -610,6 +610,7 @@ name = "mypy-boto3-builder"
 version = "8.4.2"
 source = { editable = "." }
 dependencies = [
+    { name = "botocore" },
     { name = "jinja2" },
     { name = "mdformat" },
     { name = "packaging" },
@@ -657,6 +658,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "boto3-stubs", marker = "extra == 'check'" },
+    { name = "botocore" },
     { name = "jinja2" },
     { name = "mdformat" },
     { name = "packaging" },
@@ -707,6 +709,7 @@ wheels = [
 name = "nh3"
 version = "0.2.19"
 source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/1d/32/3b8d8471d006333bac3175ad37402414d985ed3f8650a01a33e0e86b9824/nh3-0.2.19.tar.gz", hash = "sha256:790056b54c068ff8dceb443eaefb696b84beff58cca6c07afd754d17692a4804", size = 17327 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e8/1d/cbd75a2313d96cd3903111667d3d07548fb45c8ecf5c315f37a8f6c202fa/nh3-0.2.19-cp313-cp313t-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:ec9c8bf86e397cb88c560361f60fdce478b5edb8b93f04ead419b72fbe937ea6", size = 1205181 },
     { url = "https://files.pythonhosted.org/packages/f0/30/8e9ec472ce575fa6b98935920c91df637bf9342862bd943745441aec99eb/nh3-0.2.19-cp313-cp313t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d0adf00e2b2026fa10a42537b60d161e516f206781c7515e4e97e09f72a8c5d0", size = 739174 },
@@ -1102,28 +1105,28 @@ wheels = [
 
 [[package]]
 name = "types-aioboto3"
-version = "13.2.0.post1"
+version = "13.2.0.post2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "botocore-stubs" },
     { name = "types-aiobotocore" },
     { name = "types-s3transfer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7a/be/bf10261b9456b0e7138920cf00efcaeafc980c719b5b4227528f0edbcf68/types_aioboto3-13.2.0.post1.tar.gz", hash = "sha256:65dbbbaeb395f872db36a70812c02711fd68842a802b70792779250371747d1c", size = 71451 }
+sdist = { url = "https://files.pythonhosted.org/packages/ba/51/2adbe2c4d09cced31bb0ed55009e973e2aa1122b5e2ec79ce7d0c5f0bccb/types_aioboto3-13.2.0.post2.tar.gz", hash = "sha256:fd68b63346b4712bf9b9af87b167f4b793769db2d11e9f17bf88b5688ac45e34", size = 71500 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/55/4e/a5e5b0b37d9b325b0357cdb032bc8e7af4a0ead0c8d7147f68641d268187/types_aioboto3-13.2.0.post1-py3-none-any.whl", hash = "sha256:138c8addfedd7b5e65918cb5e5293005eb20f32de800c01a84bf388d154ef33b", size = 38002 },
+    { url = "https://files.pythonhosted.org/packages/7a/50/0d20407d5ff25a5423804d2999eacd74ee0f70e0ee0e30901f0d21d0c3ed/types_aioboto3-13.2.0.post2-py3-none-any.whl", hash = "sha256:44de9d252a941b36adfc0511993c67a12c0bfeda8e32159973f7dc6cb1b6a73a", size = 38531 },
 ]
 
 [[package]]
 name = "types-aiobotocore"
-version = "2.15.2.post2"
+version = "2.15.2.post3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "botocore-stubs" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b1/cb/7545be709650550f3c6d38156031ee92df8a9e5e92c9c1965a1016398316/types_aiobotocore-2.15.2.post2.tar.gz", hash = "sha256:be48d7a9882eb9e615a63e2945616b697c6b68ea7a4b4df9ea8df0c4ea50edee", size = 78517 }
+sdist = { url = "https://files.pythonhosted.org/packages/d5/c7/bc57c9b78c9648dcb385a25aeac58772a3e99d6f8bc5a3247197a9cbf7b1/types_aiobotocore-2.15.2.post3.tar.gz", hash = "sha256:43fef0a8f5afa389f0255874bdad39d53f046e37b230a59544805b003232063b", size = 78370 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c8/ec/6b8b1e5c4221eb9408ad78adf498de1b4452e0ad76a469cbe3e73efe6bf5/types_aiobotocore-2.15.2.post2-py3-none-any.whl", hash = "sha256:f6c8b33ee1bb87cbeba6cd6f19f56aee8238cfbf80436e4374848a8ee05bf1ed", size = 46973 },
+    { url = "https://files.pythonhosted.org/packages/ac/b8/4c112ffa1cad4740cb2a80b34f7fd6ca9725787bc56f3668615ab5f4f12f/types_aiobotocore-2.15.2.post3-py3-none-any.whl", hash = "sha256:ae4786c3f3f33ebb0b4deaf021f589eb2e2cb59af7f0a105487fb0eca8e4b551", size = 48166 },
 ]
 
 [[package]]

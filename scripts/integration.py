@@ -20,11 +20,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
 
-from mypy_boto3_builder.cli_parser import CLINamespace as BuilderCLINamespace
-from mypy_boto3_builder.enums.output_type import OutputType
-from mypy_boto3_builder.enums.product import Product as BuilderProduct
-from mypy_boto3_builder.main import run as run_builder
-
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 EXAMPLES_PATH = ROOT_PATH / "examples"
@@ -75,7 +70,7 @@ class Product:
     examples_path: Path
     prerequisites: tuple[str, ...] = ()
     with_libraries: tuple[str, ...] = ()
-    build_products: Sequence[BuilderProduct] = ()
+    build_products: Sequence[str] = ()
 
 
 class ProductChoices(enum.Enum):
@@ -85,35 +80,39 @@ class ProductChoices(enum.Enum):
 
     boto3 = Product(
         examples_path=EXAMPLES_PATH,
+        prerequisites=("boto3",),
         with_libraries=("boto3",),
-        build_products=(BuilderProduct.types_boto3, BuilderProduct.types_boto3_services),
+        build_products=("types-boto3", "types-boto3-services"),
     )
     aioboto3 = Product(
         prerequisites=("aioboto3",),
         examples_path=AIO_EXAMPLES_PATH,
         with_libraries=("aioboto3",),
-        build_products=(
-            BuilderProduct.types_boto3_lite,
-            BuilderProduct.aioboto3,
-            BuilderProduct.aiobotocore,
-            BuilderProduct.aiobotocore_services,
-        ),
+        build_products=("types-boto3-lite", "aioboto3", "aiobotocore", "aiobotocore-services"),
+    )
+    boto3_full = Product(
+        examples_path=EXAMPLES_PATH,
+        prerequisites=("boto3",),
+        with_libraries=("boto3",),
+        build_products=("types-boto3", "types-boto3-full"),
+    )
+    aioboto3_full = Product(
+        examples_path=AIO_EXAMPLES_PATH,
+        prerequisites=("aioboto3",),
+        with_libraries=("aioboto3",),
+        build_products=("types-boto3-lite", "aioboto3", "aiobotocore-full"),
     )
     boto3_custom = Product(
         examples_path=EXAMPLES_PATH,
+        prerequisites=("boto3",),
         with_libraries=("boto3",),
-        build_products=(BuilderProduct.types_boto3_custom,),
+        build_products=("types-boto3-custom",),
     )
     aioboto3_custom = Product(
         examples_path=AIO_EXAMPLES_PATH,
-        with_libraries=(
-            "boto3",
-            "aioboto3",
-        ),
-        build_products=(
-            BuilderProduct.types_boto3_lite,
-            BuilderProduct.aioboto3_custom,
-        ),
+        prerequisites=("aioboto3",),
+        with_libraries=("aioboto3",),
+        build_products=("types-boto3-lite", "aioboto3-custom"),
     )
 
 
@@ -210,14 +209,14 @@ def parse_args() -> CLINamespace:
     )
 
 
-def check_call(cmd: Sequence[str]) -> None:
+def check_call(cmd: Sequence[str]) -> str:
     """
     Check command exit code and output on error.
     """
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = Config.logger
     logger.debug(f"Running process: {' '.join(cmd)}")
     try:
-        subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+        return subprocess.check_output(cmd, stderr=subprocess.STDOUT).decode()
     except subprocess.CalledProcessError as e:
         for line in e.output.decode().splitlines():
             logger.warning(line)
@@ -228,8 +227,7 @@ def build_packages(
     product: Product,
     service_names: list[str],
     output_path: Path,
-    output_type: OutputType,
-    log_level: int,
+    output_type: str,
 ) -> list[Path]:
     """
     Build and install stubs.
@@ -237,24 +235,28 @@ def build_packages(
     - boto3: `types-boto3`
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
-    if product.prerequisites:
-        check_call([sys.executable, "-m", "pip", "install", *product.prerequisites])
-
-    run_builder(
-        BuilderCLINamespace(
-            log_level=log_level,
-            output_path=output_path,
-            service_names=service_names,
-            build_version="",
-            output_types=[output_type],
-            products=list(product.build_products),
-            disable_smart_version=True,
-            download_static_stubs=False,
-            skip_published=False,
-            partial_overload=False,
-            list_services=False,
-        )
-    )
+    logger = Config.logger
+    prerequisites: list[str] = []
+    for prerequisite in product.prerequisites:
+        prerequisites.extend(["--with", prerequisite])
+    cmd = [
+        "uvx",
+        "--no-cache",
+        *prerequisites,
+        "--with",
+        ".",
+        "mypy_boto3_builder",
+        output_path.as_posix(),
+        "--services",
+        *service_names,
+        "--product",
+        *product.build_products,
+        "--no-smart-version",
+        "--output-type",
+        output_type,
+    ]
+    logger.debug(f"Running build process: {' '.join(cmd)}")
+    check_call(cmd)
     return list(output_path.iterdir())
 
 
@@ -369,8 +371,7 @@ def main() -> None:
             product=args.product,
             service_names=service_names,
             output_path=args.output_path,
-            output_type=OutputType.wheel if args.wheel else OutputType.package,
-            log_level=args.log_level,
+            output_type="wheel" if args.wheel else "package",
         )
         Config.install_paths = install_paths
 

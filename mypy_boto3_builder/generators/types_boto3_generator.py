@@ -141,14 +141,14 @@ class TypesBoto3Generator(BaseGenerator):
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         package = parse_types_boto3_package(
-            service_names=self.main_service_names,
+            service_names=self.service_names,
             package_data=package_data,
             version=version,
         )
         package.set_description(package.get_short_description("All-in-one type annotations"))
         self.package_writer.write_package(
             package=package,
-            template_path=TemplatePath.types_boto3,
+            template_path=TemplatePath.types_boto3_full,
             static_files_path=None,
         )
         self._generate_full_stubs_services(package)
