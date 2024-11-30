@@ -1,4 +1,4 @@
-name: types-boto3-full integration
+name: full and custom packages integration
 
 on:
   schedule:
@@ -19,9 +19,15 @@ jobs:
         uses: astral-sh/setup-uv@v3
         with:
           version: "latest"
-      - name: Integration tests
+      - name: types-boto3-full integration tests
         run: |
           uv run scripts/integration.py --product boto3_full s3 ec2 -w -d
-      - name: Aio integration tests
+      - name: types-aiobotocore-full integration tests
         run: |
           uv run scripts/integration.py --product aioboto3_full s3 -w -d
+      - name: types-boto3-custom integration tests
+        run: |
+          uv run scripts/integration.py --product boto3_custom s3 ec2 -w -d
+      - name: types-aioboto3-custom integration tests
+        run: |
+          uv run scripts/integration.py --product aioboto3_custom s3 -w -d
