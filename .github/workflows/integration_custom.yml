@@ -21,7 +21,7 @@ jobs:
           version: "latest"
       - name: Integration tests
         run: |
-          uv run scripts/integration.py -w --product boto3_custom -d s3 ec2
+          uv run scripts/integration.py --product boto3_custom s3 ec2 -w -d
       - name: Aio integration tests
         run: |
-          uv run scripts/integration.py -w --product aioboto3_custom -fd s3
+          uv run scripts/integration.py --product aioboto3_custom s3 -w -d
