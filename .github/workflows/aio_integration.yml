@@ -1,4 +1,4 @@
-name: types-aiobotocore integration
+name: "Integration: types-aioboto3"
 
 on:
   schedule:

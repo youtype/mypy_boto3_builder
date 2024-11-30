@@ -1,4 +1,4 @@
-name: types-boto3 integration
+name: "Integration: types-boto3"
 
 on:
   schedule:
@@ -58,7 +58,6 @@ jobs:
         with:
           python-version: ${{ matrix.version }}
           allow-prereleases: true
-          cache: "pip"
       - name: Set up uv
         uses: astral-sh/setup-uv@v3
         with:

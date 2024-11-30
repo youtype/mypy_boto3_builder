@@ -1,4 +1,4 @@
-name: types-aiobotocore sanity
+name: "Sanity: types-aiobotocore"
 
 on:
   schedule:

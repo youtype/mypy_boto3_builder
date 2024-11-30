@@ -1,4 +1,4 @@
-name: types-boto3 sanity
+name: "Sanity: types-boto3"
 
 on:
   schedule:

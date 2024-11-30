@@ -1,4 +1,4 @@
-name: full and custom packages integration
+name: "Integration: Full and custom"
 
 on:
   schedule:
