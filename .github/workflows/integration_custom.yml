@@ -1,4 +1,4 @@
-name: types-boto3-full integration
+name: types-boto3-custom integration
 
 on:
   schedule:
