@@ -34,6 +34,29 @@ LOGGER_NAME = "integration"
 TEMP_PATH = Path(tempfile.TemporaryDirectory().name)
 
 
+class Config:
+    """
+    Config for integration tests.
+    """
+
+    args: CLINamespace
+    logger: logging.Logger
+    install_paths: Sequence[Path] = ()
+
+    @classmethod
+    def get_uvx_arguments(cls) -> list[str]:
+        """
+        Get `uvx` arguments.
+        """
+        result: list[str] = ["-q"]
+        for library_name in cls.args.product.with_libraries:
+            result.extend(["--with", library_name])
+        for install_path in cls.install_paths:
+            result.extend(["--with", install_path.as_posix()])
+
+        return result
+
+
 class SnapshotMismatchError(Exception):
     """
     Exception for e2e failures.
@@ -51,7 +74,8 @@ class Product:
 
     examples_path: Path
     prerequisites: tuple[str, ...] = ()
-    build_products: tuple[BuilderProduct, ...] = ()
+    with_libraries: tuple[str, ...] = ()
+    build_products: Sequence[BuilderProduct] = ()
 
 
 class ProductChoices(enum.Enum):
@@ -61,12 +85,15 @@ class ProductChoices(enum.Enum):
 
     boto3 = Product(
         examples_path=EXAMPLES_PATH,
+        with_libraries=("boto3",),
         build_products=(BuilderProduct.types_boto3, BuilderProduct.types_boto3_services),
     )
     aioboto3 = Product(
         prerequisites=("aioboto3",),
         examples_path=AIO_EXAMPLES_PATH,
+        with_libraries=("aioboto3",),
         build_products=(
+            BuilderProduct.types_boto3_lite,
             BuilderProduct.aioboto3,
             BuilderProduct.aiobotocore,
             BuilderProduct.aiobotocore_services,
@@ -74,7 +101,19 @@ class ProductChoices(enum.Enum):
     )
     boto3_custom = Product(
         examples_path=EXAMPLES_PATH,
+        with_libraries=("boto3",),
         build_products=(BuilderProduct.types_boto3_custom,),
+    )
+    aioboto3_custom = Product(
+        examples_path=AIO_EXAMPLES_PATH,
+        with_libraries=(
+            "boto3",
+            "aioboto3",
+        ),
+        build_products=(
+            BuilderProduct.types_boto3_lite,
+            BuilderProduct.aioboto3_custom,
+        ),
     )
 
 
@@ -256,12 +295,10 @@ def run_pyright(path: Path, snapshot_path: Path, *, update: bool) -> None:
     """
     config_path = ROOT_PATH / "pyrightconfig.json"
     shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
+    cmd = ["uvx", *Config.get_uvx_arguments(), "pyright", path.as_posix(), "--outputjson"]
+    Config.logger.debug(f"Running process: {' '.join(cmd)}")
     try:
-        output = subprocess.check_output(
-            [sys.executable, "-m", "pyright", path.as_posix(), "--outputjson"],
-            stderr=subprocess.DEVNULL,
-            encoding="utf8",
-        )
+        output = subprocess.check_output(cmd, stderr=subprocess.DEVNULL, encoding="utf8")
     except subprocess.CalledProcessError as e:
         output = e.output
     finally:
@@ -282,12 +319,10 @@ def run_mypy(path: Path, snapshot_path: Path, *, update: bool) -> None:
     """
     Run `mypy` and compare output.
     """
+    cmd = ["uvx", *Config.get_uvx_arguments(), "mypy", path.as_posix(), "--no-incremental"]
+    Config.logger.debug(f"Running process: {' '.join(cmd)}")
     try:
-        output = subprocess.check_output(
-            [sys.executable, "-m", "mypy", path.as_posix(), "--no-incremental"],
-            stderr=subprocess.STDOUT,
-            encoding="utf8",
-        )
+        output = subprocess.check_output(cmd, stderr=subprocess.STDOUT, encoding="utf8")
     except subprocess.CalledProcessError as e:
         output = e.output
 
@@ -298,19 +333,6 @@ def run_mypy(path: Path, snapshot_path: Path, *, update: bool) -> None:
         new_data_lines.append(line)
     new_data = "\n".join(new_data_lines)
     compare(new_data, snapshot_path, update=update)
-
-
-def run_call(path: Path) -> None:
-    """
-    Run submodule for sanity.
-    """
-    logger = logging.getLogger(LOGGER_NAME)
-    try:
-        subprocess.check_output([sys.executable, path.as_posix()])
-    except subprocess.CalledProcessError as e:
-        logger.warning(f"Call output: {e.output.decode()}")
-        logger.warning(f"Call error: {e.stderr.decode()}")
-        raise
 
 
 def get_service_names(args: CLINamespace) -> list[str]:
@@ -335,9 +357,11 @@ def main() -> None:
     """
     args = parse_args()
     logger = setup_logging(args.log_level)
+    Config.args = args
+    Config.logger = logger
     error: Exception | None = None
     service_names = get_service_names(args)
-    logger.debug(f"Running for service names: {service_names}")
+    logger.debug(f"Running for service names: {' '.join(service_names)}")
 
     if not args.fast:
         logger.info("Building packages...")
@@ -348,24 +372,12 @@ def main() -> None:
             output_type=OutputType.wheel if args.wheel else OutputType.package,
             log_level=args.log_level,
         )
-
-        logger.info(f"Installing {' '.join(print_path(path) for path in install_paths)}...")
-        check_call(
-            [
-                sys.executable,
-                "-m",
-                "pip",
-                "install",
-                *(path.as_posix() for path in install_paths),
-            ]
-        )
+        Config.install_paths = install_paths
 
     for service_name in service_names:
         file_path = args.product.examples_path / f"{service_name}_example.py"
         logger.info(f"Checking {service_name}...")
         try:
-            logger.debug(f"Running {print_path(file_path)} ...")
-            run_call(file_path)
             logger.debug(f"Running mypy for {print_path(file_path)} ...")
             snapshot_path = args.product.examples_path / "mypy" / f"{file_path.name}.out"
             run_mypy(file_path, snapshot_path, update=args.update)
@@ -376,12 +388,12 @@ def main() -> None:
             logger.warning(f"Snapshot mismatch: {e}")
             error = e
 
-    if TEMP_PATH.exists():
-        shutil.rmtree(TEMP_PATH)
-
     if error:
         logger.error(error)
         sys.exit(1)
+
+    if TEMP_PATH.exists():
+        shutil.rmtree(TEMP_PATH)
 
 
 if __name__ == "__main__":

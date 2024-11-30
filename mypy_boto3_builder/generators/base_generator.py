@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import ClassVar
 
 from mypy_boto3_builder.cli_parser import CLINamespace
+from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.enums.product_type import ProductType
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.logger import get_logger
@@ -44,6 +45,7 @@ class BaseGenerator(ABC):
 
     def __init__(
         self,
+        product: Product,
         service_names: Sequence[ServiceName],
         main_service_names: Sequence[ServiceName],
         config: CLINamespace,
@@ -55,6 +57,7 @@ class BaseGenerator(ABC):
         self._cleanup_dirs: list[Path] = []
         self._downloaded_static_files_path: Path | None = None
 
+        self.product = product
         self.service_names = service_names
         self.main_service_names = main_service_names
         self.config = config
@@ -71,6 +74,8 @@ class BaseGenerator(ABC):
         """
         Whether to generate ready-to-install package or installed package.
         """
+        if self.product.get_type() == ProductType.docs:
+            return False
         return not any(output_type.is_installed() for output_type in self.config.output_types)
 
     def is_packaged(self) -> bool:
@@ -155,26 +160,26 @@ class BaseGenerator(ABC):
         """
 
     @abstractmethod
-    def generate_stubs_lite(self) -> Sequence[Package]:
+    def generate_stubs_lite(self) -> Package | None:
         """
         Generate main stubs.
         """
 
     @abstractmethod
-    def generate_full_stubs(self) -> Sequence[Package]:
+    def generate_full_stubs(self) -> Package | None:
         """
         Generate full stubs.
         """
 
     @abstractmethod
-    def generate_custom_stubs(self) -> Sequence[Package]:
+    def generate_custom_stubs(self) -> Package | None:
         """
         Generate custom stubs.
         """
         raise NotImplementedError("Method should be implemented in child class")
 
     def _generate_full_stubs_services(self, package: Package) -> None:
-        package_writer = PackageWriter(
+        service_package_writer = PackageWriter(
             output_path=self.output_path / package.directory_name,
             generate_package=False,
             cleanup=False,
@@ -195,7 +200,7 @@ class BaseGenerator(ABC):
             ServicePackageParser.mark_safe_typed_dicts(service_package)
 
             service_package.pypi_name = package.pypi_name
-            package_writer.write_service_package(
+            service_package_writer.write_service_package(
                 package=service_package,
                 templates_path=self.service_template_path,
             )
@@ -210,27 +215,28 @@ class BaseGenerator(ABC):
         """
         Run generator for a product type.
         """
-        packages: list[Package] = []
+        packages: list[Package | None] = []
         match product_type:
             case ProductType.stubs:
                 packages.extend(self.generate_stubs())
             case ProductType.stubs_lite:
-                packages.extend(self.generate_stubs_lite())
+                packages.append(self.generate_stubs_lite())
             case ProductType.service_stubs:
                 packages.extend(self.generate_service_stubs())
             case ProductType.docs:
                 self.generate_docs()
             case ProductType.full:
-                packages.extend(self.generate_full_stubs())
+                packages.append(self.generate_full_stubs())
             case ProductType.custom:
-                packages.extend(self.generate_custom_stubs())
+                packages.append(self.generate_custom_stubs())
 
-        if self.is_packaged():
+        generated_packages = list(filter(None, packages))
+        if self.is_packaged() and generated_packages:
             package_builder = PackageBuilder(
                 build_path=self.output_path,
                 output_path=self.config.output_path,
             )
-            for package in packages:
+            for package in generated_packages:
                 package_builder.build(package, self.config.output_types)
 
     def _parse_service_package(

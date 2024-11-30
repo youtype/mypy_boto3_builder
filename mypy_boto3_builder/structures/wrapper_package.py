@@ -8,11 +8,13 @@ from abc import ABC, abstractmethod
 from collections.abc import Iterable
 from typing import TYPE_CHECKING
 
+from mypy_boto3_builder.constants import PACKAGE_NAME
 from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.package import Package
+from mypy_boto3_builder.utils.version import get_builder_version
 
 if TYPE_CHECKING:
     from mypy_boto3_builder.structures.function import Function
@@ -36,6 +38,23 @@ class WrapperPackage(Package, ABC):
         self.service_packages: list[ServicePackage] = []
         self.init_functions: list[Function] = []
         self.literals: list[TypeLiteral] = []
+        self.setup_package_data: dict[str, tuple[str, ...]] = (
+            {self.data.NAME: ("py.typed", "*.pyi", "*/*.pyi")} if self.data.NAME else {}
+        )
+        self._description = self.get_short_description()
+
+    @property
+    def description(self) -> str:
+        """
+        Package description for setup.py.
+        """
+        return self._description
+
+    def set_description(self, value: str) -> None:
+        """
+        Set package description for setup.py.
+        """
+        self._description = value
 
     @property
     def essential_service_names(self) -> list[ServiceName]:
@@ -66,3 +85,12 @@ class WrapperPackage(Package, ABC):
         Get names for `__all__` directive.
         """
         raise NotImplementedError("Method should be implemented in child class")
+
+    def get_short_description(self, prefix: str = "Type annotations") -> str:
+        """
+        Get short description for the package in setup.py.
+        """
+        return (
+            f"{prefix} for {self.library_name} {self.library_version}"
+            f" generated with {PACKAGE_NAME} {get_builder_version()}"
+        )

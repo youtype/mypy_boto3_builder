@@ -73,12 +73,14 @@ class TemplatePath:
     types_aioboto3: Final = TEMPLATES_PATH / "types-aioboto3"
     types_aioboto3_docs: Final = TEMPLATES_PATH / "types-aioboto3-docs"
     types_aioboto3_service_docs: Final = TEMPLATES_PATH / "types-aioboto3-service-docs"
+    types_aioboto3_custom: Final = TEMPLATES_PATH / "types-aioboto3-custom"
 
     types_aiobotocore: Final = TEMPLATES_PATH / "types-aiobotocore"
     types_aiobotocore_docs: Final = TEMPLATES_PATH / "types-aiobotocore-docs"
     types_aiobotocore_service: Final = TEMPLATES_PATH / "types-aiobotocore-service"
     types_aiobotocore_service_docs: Final = TEMPLATES_PATH / "types-aiobotocore-service-docs"
     types_aiobotocore_full: Final = TEMPLATES_PATH / "types-aiobotocore-full"
+    types_aiobotocore_custom: Final = TEMPLATES_PATH / "types-aiobotocore-custom"
 
 
 class StaticStubsPath:

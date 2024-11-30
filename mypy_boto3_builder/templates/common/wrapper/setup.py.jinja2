@@ -1,0 +1,56 @@
+"""
+Setup script for {{ package.pypi_name }}.
+
+{{ copyright }}
+"""
+from pathlib import Path
+
+from setuptools import setup  # type: ignore
+
+
+LONG_DESCRIPTION = (Path(__file__).parent / "README.md").read_text()
+
+
+setup(
+    name="{{ package.pypi_name }}",
+    version="{{ package.version }}",
+    packages=[
+        {% for package_name in package.setup_package_data -%}
+            "{{ package_name }}"{{ '' if loop.last else ',' }}
+        {% endfor -%}
+    ],
+    url="{{ builder_repo_url }}",
+    license="MIT License",
+    author="Vlad Emelianov",
+    author_email="vlad.emelianov.nz@gmail.com",
+    description="{{ package.description }}",
+    classifiers=[
+        {% for classifier in package.get_classifiers() -%}
+            {{ "\n        " -}}"{{ classifier -}}"{{ '' if loop.last else ',' }}
+        {%- endfor %}
+    ],
+    keywords='{{ package.library_name }} {{ package.library_name }}-stubs type-annotations typeshed autocomplete',
+    long_description=LONG_DESCRIPTION,
+    long_description_content_type="text/markdown",
+    package_data={
+        {% for package_name, package_data_masks in package.setup_package_data.items() if package_data_masks -%}
+            "{{ package_name }}": [
+                {% for mask in package_data_masks -%}
+                    "{{ mask }}"{{ '' if loop.last else ',' }}
+                {% endfor -%}
+            ]{{ '' if loop.last else ',' }}
+        {% endfor -%}
+    },
+    python_requires='>={{ package.min_python_version }}',
+    project_urls={
+        'Documentation': '{{ package.get_local_doc_link() }}',
+        'Source': '{{ builder_repo_url }}',
+        'Tracker': '{{ builder_repo_url }}/issues',
+    },
+    install_requires=[
+        "botocore-stubs",
+        "types-s3transfer",
+        "typing-extensions>=4.1.0; python_version<\"3.12\"",
+    ],
+    zip_safe=False,
+)

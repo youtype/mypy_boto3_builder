@@ -21,19 +21,25 @@ class Product(Enum):
     types_boto3_full = "types-boto3-full"
     types_boto3_docs = "types-boto3-docs"
     types_boto3_custom = "types-boto3-custom"
+
     aiobotocore = "aiobotocore"
     aiobotocore_lite = "aiobotocore-lite"
     aiobotocore_services = "aiobotocore-services"
     aiobotocore_docs = "aiobotocore-docs"
     aiobotocore_full = "aiobotocore-full"
+    aiobotocore_custom = "aiobotocore-custom"
+
     aioboto3 = "aioboto3"
     aioboto3_lite = "aioboto3-lite"
     aioboto3_docs = "aioboto3-docs"
+    aioboto3_custom = "aioboto3-custom"
+
     boto3 = "boto3"
     boto3_lite = "boto3-lite"
     boto3_services = "boto3-services"
     boto3_full = "boto3-full"
     boto3_docs = "boto3-docs"
+    boto3_custom = "boto3-custom"
 
     def __str__(self) -> str:
         """
@@ -61,6 +67,7 @@ class Product(Enum):
                 | Product.boto3_services
                 | Product.boto3_full
                 | Product.boto3_docs
+                | Product.boto3_custom
             ):
                 return ProductLibrary.boto3
             case (
@@ -69,9 +76,15 @@ class Product(Enum):
                 | Product.aiobotocore_services
                 | Product.aiobotocore_full
                 | Product.aiobotocore_docs
+                | Product.aiobotocore_custom
             ):
                 return ProductLibrary.aiobotocore
-            case Product.aioboto3 | Product.aioboto3_lite | Product.aioboto3_docs:
+            case (
+                Product.aioboto3
+                | Product.aioboto3_lite
+                | Product.aioboto3_docs
+                | Product.aioboto3_custom
+            ):
                 return ProductLibrary.aioboto3
 
     def get_type(self) -> ProductType:
@@ -103,5 +116,10 @@ class Product(Enum):
                 return ProductType.docs
             case Product.types_boto3_full | Product.boto3_full | Product.aiobotocore_full:
                 return ProductType.full
-            case Product.types_boto3_custom:
+            case (
+                Product.types_boto3_custom
+                | Product.boto3_custom
+                | Product.aiobotocore_custom
+                | Product.aioboto3_custom
+            ):
                 return ProductType.custom

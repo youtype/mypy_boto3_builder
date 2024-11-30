@@ -141,6 +141,7 @@ def generate_product(
     generator = get_generator(
         product,
         {
+            "product": product,
             "service_names": service_names,
             "main_service_names": main_service_names,
             "config": args,

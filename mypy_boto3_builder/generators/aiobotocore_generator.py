@@ -14,20 +14,16 @@ from mypy_boto3_builder.constants import (
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
+    TypesAioBotocoreCustomPackageData,
     TypesAioBotocoreFullPackageData,
     TypesAioBotocoreLitePackageData,
     TypesAioBotocorePackageData,
 )
+from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_aiobotocore_package
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBotocorePackage
-from mypy_boto3_builder.writers.aiobotocore_processors import (
-    process_types_aiobotocore,
-    process_types_aiobotocore_docs,
-    process_types_aiobotocore_full,
-    process_types_aiobotocore_lite,
-)
 
 
 class AioBotocoreGenerator(BaseGenerator):
@@ -60,14 +56,30 @@ class AioBotocoreGenerator(BaseGenerator):
 
         return []
 
-    def generate_stubs_lite(self) -> list[Package]:
+    def generate_stubs_lite(self) -> Package | None:
         """
         Generate `types-aiobotocore-lite` package.
         """
-        package = self._generate_stubs_lite()
-        if package:
-            return [package]
-        return []
+        package_data = TypesAioBotocoreLitePackageData
+        try:
+            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        except AlreadyPublishedError:
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
+            return None
+
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
+        package = parse_types_aiobotocore_package(
+            service_names=self.main_service_names,
+            package_data=TypesAioBotocoreLitePackageData,
+            version=version,
+        )
+        self.package_writer.write_package(
+            package,
+            template_path=TemplatePath.types_aiobotocore,
+            static_files_path=self._get_static_files_path(),
+            exclude_template_names=["session.pyi.jinja2"],
+        )
+        return package
 
     def _generate_stubs(self) -> TypesAioBotocorePackage | None:
         package_data = TypesAioBotocorePackageData
@@ -78,30 +90,18 @@ class AioBotocoreGenerator(BaseGenerator):
             return None
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        return process_types_aiobotocore(
-            output_path=self.output_path,
+
+        package = parse_types_aiobotocore_package(
             service_names=self.main_service_names,
-            generate_package=self.is_package(),
+            package_data=package_data,
             version=version,
+        )
+        self.package_writer.write_package(
+            package,
+            template_path=TemplatePath.types_aiobotocore,
             static_files_path=self._get_static_files_path(),
         )
-
-    def _generate_stubs_lite(self) -> TypesAioBotocorePackage | None:
-        package_data = TypesAioBotocoreLitePackageData
-        try:
-            version = self._get_package_version(package_data.PYPI_NAME, self.version)
-        except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
-            return None
-
-        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        return process_types_aiobotocore_lite(
-            output_path=self.output_path,
-            service_names=self.main_service_names,
-            generate_package=self.is_package(),
-            version=version,
-            static_files_path=self._get_static_files_path(),
-        )
+        return package
 
     def generate_docs(self) -> None:
         """
@@ -111,10 +111,14 @@ class AioBotocoreGenerator(BaseGenerator):
         total_str = f"{len(self.service_names)}"
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} module docs")
-        process_types_aiobotocore_docs(
-            self.output_path,
-            self.service_names,
-            self.version,
+        package = parse_types_aiobotocore_package(
+            service_names=self.service_names,
+            package_data=package_data,
+            version=self.version,
+        )
+        self.package_writer.write_docs(
+            package,
+            templates_path=TemplatePath.types_aiobotocore_docs,
         )
 
         for index, service_name in enumerate(self.service_names):
@@ -128,7 +132,7 @@ class AioBotocoreGenerator(BaseGenerator):
                 version=self.version,
             )
 
-    def generate_full_stubs(self) -> list[Package]:
+    def generate_full_stubs(self) -> Package | None:
         """
         Generate `types-aiobotocore-full` package.
         """
@@ -137,21 +141,44 @@ class AioBotocoreGenerator(BaseGenerator):
             version = self._get_package_version(package_data.PYPI_NAME, self.version)
         except AlreadyPublishedError:
             self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
-            return []
+            return None
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        package = process_types_aiobotocore_full(
-            output_path=self.output_path,
-            service_names=self.service_names,
-            generate_package=self.is_package(),
+        package = parse_types_aiobotocore_package(
+            service_names=self.main_service_names,
             package_data=package_data,
             version=version,
         )
+        self.package_writer.write_package(
+            package,
+            template_path=TemplatePath.types_aiobotocore_full,
+        )
         self._generate_full_stubs_services(package)
-        return [package]
+        return package
 
-    def generate_custom_stubs(self) -> list[Package]:
+    def generate_custom_stubs(self) -> Package:
         """
-        Do nothing.
+        Generate `types-aiobotocore-custom` package.
         """
-        return []
+        package_data = TypesAioBotocoreCustomPackageData
+
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {self.version}")
+        package = parse_types_aiobotocore_package(
+            service_names=self.service_names,
+            package_data=package_data,
+            version=self.version,
+        )
+        for service_name in self.service_names:
+            package.setup_package_data[package_data.get_service_package_name(service_name)] = (
+                "py.typed",
+                "*.pyi",
+            )
+        package.set_description(package.get_short_description("Custom type annotations"))
+        self.package_writer.write_package(
+            package=package,
+            template_path=TemplatePath.types_aiobotocore_custom,
+            static_files_path=self._get_static_files_path(),
+        )
+
+        self._generate_full_stubs_services(package)
+        return package

@@ -48,14 +48,23 @@ class PackageWriter:
         output_path -- Output path
         generate_package -- Whether to generate setup files
         cleanup -- Whether to remove unknown files
+        is_typings -- Whether to generate typings without `-stubs` suffix
     """
 
     _PY_EXTENSIONS: Final = {".py", ".pyi"}
     _MD_EXTENSIONS: Final = {".md"}
 
-    def __init__(self, output_path: Path, *, generate_package: bool, cleanup: bool) -> None:
+    def __init__(
+        self,
+        output_path: Path,
+        *,
+        generate_package: bool,
+        cleanup: bool,
+        is_typings: bool = True,
+    ) -> None:
         self.output_path = output_path
         self.is_package = generate_package
+        self.is_typings = is_typings
         self.cleanup = cleanup
         self.logger = get_logger()
 
@@ -63,7 +72,10 @@ class PackageWriter:
         if self.is_package:
             return self.output_path / package.directory_name / package.name
 
-        return self.output_path / package.library_name
+        if self.is_typings:
+            return self.output_path / package.library_name
+
+        return self.output_path / package.name
 
     def _get_service_package_path(self, package: ServicePackage) -> Path:
         if self.is_package:
@@ -125,7 +137,7 @@ class PackageWriter:
         package: Package,
         templates_path: Path | None,
     ) -> list[TemplateRender]:
-        if not templates_path or not self.is_package or not package.has_main_package():
+        if not templates_path or not package.has_main_package():
             return []
 
         result: list[TemplateRender] = []
@@ -202,6 +214,7 @@ class PackageWriter:
             static_files_path -- Path to static files for package
             exclude_template_names -- Do not render templates with these names
         """
+        self.logger.debug(f"Writing {package.data.PYPI_NAME} to {print_path(self.output_path)}")
         template_renders: list[TemplateRender] = [
             *self._get_setup_template_paths(package, template_path),
             *self._get_package_template_renders(package, template_path),

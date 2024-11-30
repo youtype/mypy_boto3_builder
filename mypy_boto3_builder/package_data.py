@@ -181,6 +181,23 @@ class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
         return cls.PYPI_NAME
 
 
+class TypesAioBotocoreCustomPackageData(TypesAioBotocorePackageData):
+    """
+    types-aiobotocore-custom package data.
+    """
+
+    PYPI_NAME = "types-aiobotocore-custom"
+    IS_CONDA_FORGE_SUPPORTED = False
+
+    @typing.override
+    @classmethod
+    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package PyPI name.
+        """
+        return cls.PYPI_NAME
+
+
 class Boto3StubsPackageData(BasePackageData):
     """
     boto3-stubs package data.
@@ -213,6 +230,23 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
 
     NAME = ""
     PYPI_NAME = Boto3StubsPackageData.PYPI_FULL_NAME
+    IS_CONDA_FORGE_SUPPORTED = False
+
+    @typing.override
+    @classmethod
+    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package PyPI name.
+        """
+        return cls.PYPI_NAME
+
+
+class Boto3StubsCustomPackageData(Boto3StubsPackageData):
+    """
+    boto3-stubs-custom package data.
+    """
+
+    PYPI_NAME = "boto3-stubs-custom"
     IS_CONDA_FORGE_SUPPORTED = False
 
     @typing.override
@@ -266,3 +300,20 @@ class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
     PYPI_NAME = "types-aioboto3-lite"
     PYPI_LITE_NAME = ""
     AIOBOTOCORE_NAME = TypesAioBoto3PackageData.PYPI_LITE_NAME
+
+
+class TypesAioBoto3CustomPackageData(TypesAioBoto3PackageData):
+    """
+    types-aioboto3-custom package data.
+    """
+
+    PYPI_NAME = "types-aioboto3-custom"
+    IS_CONDA_FORGE_SUPPORTED = False
+
+    @typing.override
+    @classmethod
+    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package PyPI name.
+        """
+        return cls.PYPI_NAME
