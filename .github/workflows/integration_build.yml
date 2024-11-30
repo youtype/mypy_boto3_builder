@@ -1,0 +1,51 @@
+name: Build all products integration
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  integration:
+    name: Integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+      - name: Install prerequisites
+        run: |
+          uv pip install -U aioboto3
+      - name: types-boto3 build
+        run: |
+          uvx --no-cache --with . mypy_boto3_builder mypy_boto3_output \
+            --product types-boto3 types-boto3-lite types-boto3-services types-boto3-full types-boto3-custom types-boto3-docs \
+            --services s3 ec2 \
+            --no-smart-version
+      - name: boto3-stubs build
+        run: |
+          uvx --no-cache --with boto3 --with . mypy_boto3_builder mypy_boto3_output \
+            --product boto3 boto3-lite boto3-services boto3-full boto3-custom boto3-docs \
+            --services s3 ec2 \
+            --no-smart-version
+      - name: types-aiobotocore build
+        run: |
+          uvx --no-cache --with aiobotocore --with . mypy_boto3_builder mypy_boto3_output \
+            --product aiobotocore aiobotocore-lite aiobotocore-services aiobotocore-full aiobotocore-custom aiobotocore-docs  \
+            --services s3 ec2 \
+            --no-smart-version
+      - name: types-aioboto3 build
+        run: |
+          uvx --no-cache --with aioboto3 --with . mypy_boto3_builder mypy_boto3_output \
+            --product aioboto3 aioboto3-lite aioboto3-custom aioboto3-docs  \
+            --services s3 ec2 \
+            --no-smart-version
+      - name: Check output
+        run: |
+          uv run ./scripts/check_output.py -p ./mypy_boto3_output

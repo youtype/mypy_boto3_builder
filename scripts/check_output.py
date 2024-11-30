@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# /// script
+# requires-python = ">=3.8"
+# ///
 """
 Checker of generated packages.
 
@@ -21,7 +24,7 @@ import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -45,6 +48,7 @@ IGNORE_PYRIGHT_ERRORS = (
     "must return value",
     'Import "types_aiobotocore_',
     'Import "mypy_boto3_',
+    'Import "types_boto3_',
     "Argument to class must be a base class",
     'Function with declared type of "NoReturn" cannot return "None"',
     'Function with declared return type "NoReturn" cannot return "None"',
@@ -67,6 +71,60 @@ IGNORE_MYPY_ERRORS = (
     "note:",
     "invalid syntax; you likely need to run mypy using Python 3.12 or newer",
 )
+
+DEPENDENCIES = [
+    "types-boto3-lite",
+    "types-aiobotocore-lite",
+    "types-aioboto3-lite",
+    "aioboto3",
+    "botocore-stubs",
+    "types-s3transfer",
+    "types-requests",
+    "cryptography",
+]
+
+LOCAL_DEPENDENCIES = {
+    "types-aiobotocore-lite": ["types_aiobotocore_lite_package", "types_aiobotocore_package"],
+    "types-aioboto3-lite": ["types_aioboto3_lite_package", "types_aioboto3_package"],
+    "types-boto3-lite": [
+        "types_boto3_lite_package",
+        "types_boto3_package",
+        "boto3_stubs_lite_package",
+        "boto3_stubs_package",
+    ],
+}
+
+
+class Config:
+    """
+    Local configuration.
+    """
+
+    path: Path
+
+
+def _find_existing_local_path(local_package_names: Sequence[str]) -> Path | None:
+    for local_package_name in local_package_names:
+        local_package_path = Config.path / local_package_name
+        if local_package_path.exists():
+            return local_package_path
+    return None
+
+
+def get_with_arguments() -> list[str]:
+    """
+    Get --with arguments for uv command.
+    """
+    result: list[str] = []
+    for name in DEPENDENCIES:
+        local_package_path = _find_existing_local_path(LOCAL_DEPENDENCIES.get(name, []))
+        if local_package_path:
+            result.extend(["--with", local_package_path.as_posix()])
+            continue
+
+        result.extend(["--with", name])
+
+    return result
 
 
 class SnapshotMismatchError(Exception):
@@ -180,21 +238,21 @@ def run_ruff(path: Path) -> None:
         "UP013",  # convert-typed-dict-functional-to-class
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
+        cmd = [
+            "uvx",
+            "ruff",
+            "check",
+            "--target-version",
+            "py38",
+            "--select",
+            ",".join(select_checks),
+            "--ignore",
+            ",".join(ignore_errors),
+            path.as_posix(),
+        ]
         try:
             subprocess.check_call(
-                [
-                    sys.executable,
-                    "-m",
-                    "ruff",
-                    "check",
-                    "--target-version",
-                    "py38",
-                    "--select",
-                    ",".join(select_checks),
-                    "--ignore",
-                    ",".join(ignore_errors),
-                    path.as_posix(),
-                ],
+                cmd,
                 stderr=f,
                 stdout=f,
             )
@@ -210,10 +268,18 @@ def run_pyright(path: Path) -> None:
     """
     config_path = ROOT_PATH / "pyrightconfig.json"
     shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
+    cmd = [
+        "uvx",
+        "-q",
+        *get_with_arguments(),
+        "pyright",
+        path.as_posix(),
+        "--outputjson",
+    ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
-                [sys.executable, "-m", "pyright", path.as_posix(), "--outputjson"],
+                cmd,
                 stderr=subprocess.DEVNULL,
                 stdout=f,
             )
@@ -256,9 +322,10 @@ def run_mypy(path: Path) -> None:
     """
     Check output with mypy.
     """
+    cmd = ["uvx", "-q", *get_with_arguments(), "mypy", path.as_posix()]
     try:
         output = subprocess.check_output(
-            [sys.executable, "-m", "mypy", path.as_posix()],
+            cmd,
             stderr=subprocess.STDOUT,
             encoding="utf8",
         )
@@ -294,18 +361,21 @@ def run_import(path: Path) -> None:
     """
     if not (path / "__main__.py").exists():
         return
+
+    run_cmd = [
+        "uv",
+        "run",
+        "-q",
+        *get_with_arguments(),
+        "--with",
+        path.parent.as_posix(),
+        "python",
+        "-c",
+        f"import {path.name}",
+    ]
     try:
         subprocess.check_call(
-            [sys.executable, "-m", "pip", "install", "--no-input", path.parent.as_posix()],
-            stdout=subprocess.DEVNULL,
-        )
-        if (path / "__main__.py").exists():
-            subprocess.check_call(
-                [sys.executable, "-c", f"import {path.name}"],
-                stdout=subprocess.DEVNULL,
-            )
-        subprocess.check_call(
-            [sys.executable, "-m", "pip", "uninstall", "--no-input", "-y", path.name],
+            run_cmd,
             stdout=subprocess.DEVNULL,
         )
     except subprocess.CalledProcessError as e:
@@ -361,6 +431,7 @@ def main() -> None:
     Run main logic.
     """
     args = parse_args()
+    Config.path = args.path
     logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
     has_errors = False
     for directory in sorted(args.path.iterdir()):

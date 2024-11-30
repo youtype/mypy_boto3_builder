@@ -61,14 +61,10 @@ jobs:
           python-version: ${{ matrix.version }}
           allow-prereleases: true
           cache: "pip"
-      - name: Install main packages
-        run: |
-          pip install mypy_boto3_output/types_aiobotocore_package
-          pip install mypy_boto3_output/types_aioboto3_package
-      - name: Install dependencies
-        run: |
-          python -m pip install mypy ruff pyright boto3 botocore botocore-stubs boto3-stubs-lite types-requests
-          python -m pip install cryptography aioboto3
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
       - name: Check output
         run: |
-          python scripts/check_output.py -d
+          uv run scripts/check_output.py -p ./mypy_boto3_output -d

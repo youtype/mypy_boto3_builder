@@ -19,27 +19,27 @@ class Product(Enum):
     types_boto3_lite = "types-boto3-lite"
     types_boto3_services = "types-boto3-services"
     types_boto3_full = "types-boto3-full"
-    types_boto3_docs = "types-boto3-docs"
     types_boto3_custom = "types-boto3-custom"
+    types_boto3_docs = "types-boto3-docs"
 
     aiobotocore = "aiobotocore"
     aiobotocore_lite = "aiobotocore-lite"
     aiobotocore_services = "aiobotocore-services"
-    aiobotocore_docs = "aiobotocore-docs"
     aiobotocore_full = "aiobotocore-full"
     aiobotocore_custom = "aiobotocore-custom"
+    aiobotocore_docs = "aiobotocore-docs"
 
     aioboto3 = "aioboto3"
     aioboto3_lite = "aioboto3-lite"
-    aioboto3_docs = "aioboto3-docs"
     aioboto3_custom = "aioboto3-custom"
+    aioboto3_docs = "aioboto3-docs"
 
     boto3 = "boto3"
     boto3_lite = "boto3-lite"
     boto3_services = "boto3-services"
     boto3_full = "boto3-full"
-    boto3_docs = "boto3-docs"
     boto3_custom = "boto3-custom"
+    boto3_docs = "boto3-docs"
 
     def __str__(self) -> str:
         """
