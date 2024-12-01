@@ -361,8 +361,8 @@ class ChatBuddy:
         if self.selected_service_names == self.initial_service_names:
             return "Looks good. I use the most popular services."
 
-        services_str = _join_and([i.class_name for i in self.selected_service_names])
-        return f"Yes, I use {services_str} services."
+        services_str = _join_and([_tag(i.class_name) for i in self.selected_service_names])
+        return f"Yes, I use {services_str}."
 
     def run(self, run_builder: Callable[[CLINamespace], None]) -> None:  # noqa: PLR0915
         """
