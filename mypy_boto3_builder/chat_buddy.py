@@ -11,6 +11,7 @@ from pathlib import Path
 
 import questionary
 from colorama import Fore, Style, just_fix_windows_console
+from prompt_toolkit.validation import ValidationError
 
 from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.constants import PROG_NAME
@@ -51,6 +52,14 @@ class PackageManagerChoices:
     unknown = "I dont' know :("
 
 
+def _tag(message: str | float) -> str:
+    return f"{Fore.CYAN}{Style.BRIGHT}{message}{Style.RESET_ALL}"
+
+
+def _quote(message: str, name: str = "Builder") -> str:
+    return f"{Fore.MAGENTA}{Style.BRIGHT}{name}:{Style.RESET_ALL}{Fore.RESET} {message}"
+
+
 class ChatBuddy:
     """
     Interactive chat buddy to help user to select services and generate type annotations.
@@ -73,19 +82,14 @@ class ChatBuddy:
             disable_smart_version=False,
             download_static_stubs=True,
         )
-        self.package_manager = PackageManagerChoices.unknown
+        self.package_manager = PackageManagerChoices.pip
 
     def _get_selected_service_names(self) -> list[ServiceName]:
         return [i for i in self.available_service_names if i.is_essential()]
 
-    def _say(self, message: str) -> None:
-        sys.stdout.write(f"{self._quote(message)}\n\n")
-
-    def _quote(self, message: str) -> str:
-        return f"{Fore.MAGENTA}{Style.BRIGHT}Builder:{Style.RESET_ALL}{Fore.RESET} {message}"
-
-    def _tag(self, message: str | float) -> str:
-        return f"{Fore.CYAN}{Style.BRIGHT}{message}{Style.RESET_ALL}"
+    @staticmethod
+    def _say(message: str) -> None:
+        sys.stdout.write(f"{_quote(message)}\n")
 
     def _select_service_name(
         self, title_suffix: str, service_names: list[ServiceName]
@@ -96,7 +100,9 @@ class ChatBuddy:
         if len(choices) > MAX_SERVICE_SELECTABLE:
 
             def _validate(choice: str) -> bool:
-                return choice.lower() in lower_choices
+                if choice and choice.lower() not in lower_choices:
+                    raise ValidationError(len(choice), f"{choice} service does not exist")
+                return True
 
             selected_choice = questionary.autocomplete(
                 f"Enter service name {title_suffix}",
@@ -106,11 +112,12 @@ class ChatBuddy:
         else:
             selected_choice = questionary.select(
                 f"Select service {title_suffix}",
-                choices=list(choices),
+                choices=["<< Go back", *choices],
             ).unsafe_ask()
         if not selected_choice:
             return None
-        return lower_choices[selected_choice.lower()]
+        key = selected_choice.lower()
+        return lower_choices.get(key)
 
     def _is_all_selected(self) -> bool:
         return len(self.selected_service_names) == len(self.available_service_names)
@@ -118,20 +125,20 @@ class ChatBuddy:
     def _get_services_message(self) -> str:
         selected = self.selected_service_names
         if self._is_all_selected():
-            selected_str = f"{self._tag('ALL')} are selected"
+            selected_str = f"{_tag('ALL')} are selected"
         elif not selected:
-            selected_str = f"{self._tag('NONE')} selected"
+            selected_str = f"{_tag('NONE')} selected"
         else:
             selected_str = ", ".join(
-                self._tag(service_name.class_name)
+                _tag(service_name.class_name)
                 if index < MAX_SERVICE_PRINTED
-                else f"and {self._tag(len(selected) - MAX_SERVICE_PRINTED)} other"
+                else f"and {_tag(len(selected) - MAX_SERVICE_PRINTED)} other"
                 for (index, service_name) in enumerate(selected[: MAX_SERVICE_PRINTED + 1])
             )
             selected_str = f"{selected_str} {'are' if len(selected) > 1 else 'is'} selected"
         return (
-            f"From {self._tag(len(self.available_service_names))} available"
-            f" {self._tag(self.product_library.value)} services {selected_str}."
+            f"From {_tag(len(self.available_service_names))} available"
+            f" {_tag(self.product_library.value)} services {selected_str}."
         )
 
     def _select_library(self) -> ProductLibrary:
@@ -225,7 +232,7 @@ class ChatBuddy:
         return f"pip install {whl_path}"
 
     def _find_last_whl(self) -> Path | None:
-        prefix = self.product.value.replace("-", "_")
+        prefix = self.product_library.get_package_prefix()
         packages = list(self.output_path.glob(f"{prefix}*.whl"))
         if not packages:
             return None
@@ -268,51 +275,22 @@ class ChatBuddy:
 
         return result
 
-    def run(self, run_builder: Callable[[CLINamespace], None]) -> None:
-        """
-        Run chat buddy.
-        """
-        just_fix_windows_console()
-        self._say(f"Hello and welcome to {self._tag(PROG_NAME)}!")
-        self._say_commands()
-        self._say(
-            f"It looks like you want to add {self._tag('type annotations')} to your project,"
-            " but you launched me with no command-line arguments. So I decided to help you a bit!"
-        )
-        self._say(f"Remember, if anything goes wrong, report to {self._tag(REPORT_URL)}!")
-        self._say(f"First of all, what {self._tag('AWS SDK library')} do you use?")
-        self.product_library = self._select_library()
-        self.product = self._select_product()
-        self.library_name = self.product_library.get_library_name()
-        self._say(
-            "Good choice! Hold on, I am fetching all available services for"
-            f" {self._tag(self.library_name)}..."
-        )
-        self.available_service_names = tuple(get_available_service_names())
-        self.selected_service_names = self._get_selected_service_names()
-        self._say(
-            f"Found {self._tag(len(self.available_service_names))} services"
-            f" for {self._tag(self.library_name)}. However, most projects use only"
-            f" {self._tag(len(self.selected_service_names))} of them."
-            " Let me know if want to add or remove some."
-        )
-        self.selected_service_names = self._select_services()
-        self._say(
-            f"Great! Now I am ready to generate type annotations for {self._tag(self.library_name)}"
-            f" with {self._tag(len(self.selected_service_names))} included services."
-        )
-        self._say(
-            f"One more thing, where should I put a generated {self._tag(self.product.value)}?"
-            f" I prefer {self._tag(print_path(self.output_path))} directory, but you can change it."
-        )
-        self.output_path = Path(
+    def _select_output_path(self) -> Path:
+        def _validate(path: Path | None) -> bool:
+            if not path:
+                raise ValidationError(0, "Path should not be empty")
+            return True
+
+        return Path(
             questionary.path(
-                "Path to a directory",
-                default=Path("./vendored").as_posix(),
-            ).ask()
+                "Path to output directory",
+                default=DEFAULT_OUTPUT_PATH.as_posix(),
+                validate=_validate,
+            ).unsafe_ask()
         )
 
-        self.args = CLINamespace(
+    def _get_cli_namespace(self) -> CLINamespace:
+        return CLINamespace(
             log_level=logging.INFO,
             output_path=self.output_path,
             service_names=self._get_service_names_args(),
@@ -323,11 +301,59 @@ class ChatBuddy:
             download_static_stubs=True,
         )
 
-        self._say(f"Got it! I can start building {self._tag(self.product.value)} now if you want.")
-        if not questionary.confirm(f"Start building {self.product.value}?").unsafe_ask():
-            self._say("No worries, you can always build them later!")
+    def _do_start_building(self) -> bool:
+        return questionary.confirm(f"Start building {self.product.value}?").unsafe_ask()
+
+    def run(self, run_builder: Callable[[CLINamespace], None]) -> None:
+        """
+        Run chat buddy.
+        """
+        just_fix_windows_console()
+        self._say(f"Hello and welcome to {_tag(PROG_NAME)}!")
+        self._say(
+            f"It looks like you want to add {_tag('type annotations')} to your project,"
+            " but you launched me with no command-line arguments. So I decided to help you a bit!"
+        )
+        self._say(f"Remember, if anything goes wrong, report to {_tag(REPORT_URL)}")
+        self._say(f"First of all, what {_tag('AWS SDK library')} do you use?")
+        self.product_library = self._select_library()
+
+        self.product = self._select_product()
+
+        self.library_name = self.product_library.get_library_name()
+        self._say(
+            "Good choice! Hold on, I am fetching all available services for"
+            f" {_tag(self.library_name)}..."
+        )
+        self.available_service_names = tuple(get_available_service_names())
+        self.selected_service_names = self._get_selected_service_names()
+        self._say(
+            f"Found {_tag(len(self.available_service_names))} services"
+            f" for {_tag(self.library_name)}. However, most projects use only"
+            f" {_tag(len(self.selected_service_names))} of them."
+            " Let me know if you use any other services or want to remove some."
+        )
+        self.selected_service_names = self._select_services()
+
+        self._say(
+            f"Great! Now I am ready to generate type annotations for {_tag(self.library_name)}"
+            f" with {_tag(len(self.selected_service_names))} included services."
+        )
+        self._say(
+            "One more thing."
+            f" Where should I put a generated {_tag(self.product.value)} package?"
+            f" I prefer to use {_tag(print_path(self.output_path))} directory,"
+            " but you can change it."
+        )
+        self.output_path = self._select_output_path()
+
+        self.args = self._get_cli_namespace()
+
+        self._say(f"Got it! I can start building {_tag(self.product.value)} now if you want.")
+        if not self._do_start_building():
+            self._say(f"No worries, you can always build {_tag(self.product.value)} later!")
             self._say_commands()
-            self._say("Bye-bye! Have a nice day!")
+            self._finish()
             return
 
         run_builder(self.args)
@@ -336,25 +362,28 @@ class ChatBuddy:
         if not found_whl:
             self._say(
                 "All done! But I could not find a built wheel. Something went wrong."
-                f" Please report: {self._tag(REPORT_URL)}"
+                f" Please report: {_tag(REPORT_URL)}"
             )
             self._say_commands()
-            self._say("Bye-bye! Have a nice day!")
+            self._finish()
             return
 
-        self._say(f"All done! I have built {self._tag(print_path(found_whl))}. Let's install it!")
+        self._say(f"All done! I have built {_tag(print_path(found_whl))}. Let's install it!")
 
         self._say(
-            f"Let me know what {self._tag('package manager')} you use."
-            f" I can recommend {self._tag('uv')}, because it is the best."
+            f"Let me know what {_tag('package manager')} you use."
+            f" I can recommend {_tag('uv')}, because it is the best."
             " But you can choose any other."
         )
         self.package_manager = self._select_package_manager()
 
         self._say(
-            f"All done! Use this commands to {self._tag('update')}"
-            f" and {self._tag('install')} {self._tag(self.product.value)}"
-            f" when you bump {self._tag(self.library_name)} version:"
+            f"All done! Use this commands to {_tag('update')}"
+            f" and {_tag('install')} {_tag(self.product.value)}"
+            f" when you bump {_tag(self.library_name)} version:"
         )
         self._say_commands()
+        self._finish()
+
+    def _finish(self) -> None:
         self._say("Bye-bye! Have a nice day!")

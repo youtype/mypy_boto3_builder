@@ -30,3 +30,17 @@ class ProductLibrary(Enum):
                 return "aiobotocore"
             case ProductLibrary.aioboto3:
                 return "aioboto3"
+
+    def get_package_prefix(self) -> str:
+        """
+        Get *.whl package name prefix.
+        """
+        match self:
+            case ProductLibrary.boto3:
+                return "types_boto3"
+            case ProductLibrary.boto3_legacy:
+                return "boto3_stubs"
+            case ProductLibrary.aiobotocore:
+                return "types_aiobotocore"
+            case ProductLibrary.aioboto3:
+                return "types_aioboto3"
