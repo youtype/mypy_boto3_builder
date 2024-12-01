@@ -60,7 +60,7 @@ class Product(Enum):
                 | Product.types_boto3_docs
                 | Product.types_boto3_custom
             ):
-                return ProductLibrary.types_boto3
+                return ProductLibrary.boto3
             case (
                 Product.boto3
                 | Product.boto3_lite
@@ -69,7 +69,7 @@ class Product(Enum):
                 | Product.boto3_docs
                 | Product.boto3_custom
             ):
-                return ProductLibrary.boto3
+                return ProductLibrary.boto3_legacy
             case (
                 Product.aiobotocore
                 | Product.aiobotocore_lite

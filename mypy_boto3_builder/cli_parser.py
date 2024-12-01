@@ -12,10 +12,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from mypy_boto3_builder.constants import PROG_NAME
+from mypy_boto3_builder.constants import OUTPUT_PATH_SENTINEL, PROG_NAME
 from mypy_boto3_builder.enums.output_type import OutputType
 from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.utils.version import get_builder_version
 
 
@@ -110,6 +111,34 @@ class CLINamespace:
     disable_smart_version: bool = False
     download_static_stubs: bool = True
 
+    def to_cmd(self) -> tuple[str, ...]:
+        """
+        Convert namespace to shlex arguments.
+        """
+        return tuple(
+            filter(
+                None,
+                (
+                    PROG_NAME,
+                    print_path(self.output_path),
+                    "--no-smart-version" if self.disable_smart_version else None,
+                    "--skip-published" if self.skip_published else None,
+                    "--partial-overload" if self.partial_overload else None,
+                    "--download-static-stubs" if self.download_static_stubs else None,
+                    "--list-services" if self.list_services else None,
+                    f"--build-version {self.build_version}" if self.build_version else None,
+                    f"--product {' '.join(i.value for i in self.products)}"
+                    if self.products
+                    else None,
+                    f"--output-type {' '.join(i.value for i in self.output_types)}"
+                    if self.output_types
+                    else None,
+                    f"--services {' '.join(self.service_names)}" if self.service_names else None,
+                    "-d" if self.log_level == logging.DEBUG else None,
+                ),
+            )
+        )
+
 
 def parse_args(args: Sequence[str]) -> CLINamespace:
     """
@@ -170,6 +199,8 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         metavar="OUTPUT_PATH",
         help="Output path",
         type=get_absolute_path,
+        default=OUTPUT_PATH_SENTINEL,
+        nargs="?",
     )
     parser.add_argument(
         "-s",

@@ -55,6 +55,9 @@ SUPPORTED_PY_VERSIONS: Final = {
 # default timeout for HTTP requests
 REQUEST_TIMEOUT: Final = 120
 
+# Sentinel value for output path for CLI
+OUTPUT_PATH_SENTINEL = Path("/tmp/output_path_sentinel")  # noqa: S108
+
 
 class TemplatePath:
     """

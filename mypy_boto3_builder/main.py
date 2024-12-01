@@ -9,10 +9,9 @@ import sys
 import warnings
 from collections.abc import Iterable, Sequence
 
-from botocore.session import Session as BotocoreSession
-
+from mypy_boto3_builder.chat_buddy import ChatBuddy
 from mypy_boto3_builder.cli_parser import CLINamespace, parse_args
-from mypy_boto3_builder.constants import BUILDER_REPO_URL, PACKAGE_NAME
+from mypy_boto3_builder.constants import BUILDER_REPO_URL, OUTPUT_PATH_SENTINEL, PACKAGE_NAME
 from mypy_boto3_builder.enums.product import Product, ProductLibrary
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
@@ -21,11 +20,11 @@ from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
 from mypy_boto3_builder.generators.types_boto3_generator import TypesBoto3Generator
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_defs import GeneratorKwargs
-from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
+from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
-from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name, get_copyright
+from mypy_boto3_builder.utils.strings import get_anchor_link, get_copyright
 from mypy_boto3_builder.utils.type_checks import (
     is_literal,
     is_type_def,
@@ -86,36 +85,15 @@ def get_selected_service_names(
     return result
 
 
-def get_available_service_names(session: BotocoreSession) -> list[ServiceName]:
-    """
-    Get a list of boto3 supported service names.
-
-    Arguments:
-        session -- Botocore session
-
-    Returns:
-        A list of supported services.
-    """
-    available_services = session.get_available_services()
-    result: list[ServiceName] = []
-    for name in available_services:
-        service_data = session.get_service_data(name)
-        metadata = service_data["metadata"]
-        class_name = get_botocore_class_name(metadata)
-        service_name = ServiceNameCatalog.add(name, class_name)
-        result.append(service_name)
-    return result
-
-
 def get_generator(product: Product, kwargs: GeneratorKwargs) -> BaseGenerator:
     """
     Get Generator class for a product.
     """
     library = product.get_library()
     match library:
-        case ProductLibrary.types_boto3:
-            return TypesBoto3Generator(**kwargs)
         case ProductLibrary.boto3:
+            return TypesBoto3Generator(**kwargs)
+        case ProductLibrary.boto3_legacy:
             return Boto3Generator(**kwargs)
         case ProductLibrary.aiobotocore:
             return AioBotocoreGenerator(**kwargs)
@@ -183,12 +161,18 @@ def run(args: CLINamespace) -> None:
     # FIXME: suppress botocore endpoint warning
     warnings.filterwarnings("ignore", category=FutureWarning, module="botocore.client")
 
+    if args.output_path == OUTPUT_PATH_SENTINEL:
+        ChatBuddy().run(_run_builder)
+        return
+
+    _run_builder(args)
+
+
+def _run_builder(args: CLINamespace) -> None:
     logger = get_logger(level=args.log_level)
-
+    available_service_names = get_available_service_names()
     initialize_jinja_manager()
-
     args.output_path.mkdir(exist_ok=True, parents=True)
-    available_service_names = get_available_service_names(get_botocore_session())
 
     logger.debug(f"{len(available_service_names)} supported botocore services discovered")
     if args.list_services:
@@ -214,7 +198,12 @@ def main() -> None:
     CLI entrypoint.
     """
     args = parse_args(sys.argv[1:])
-    run(args)
+    try:
+        run(args)
+    except KeyboardInterrupt:
+        logger = get_logger()
+        logger.warning("Interrupted by user")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

@@ -10,8 +10,9 @@ from functools import cache
 from botocore.session import Session as BotocoreSession
 from botocore.session import get_session
 
-from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.utils.strings import get_botocore_class_name
 
 
 @cache
@@ -43,3 +44,22 @@ def get_region_name_literal(
     if not children:
         return None
     return TypeLiteral("RegionName", children)
+
+
+def get_available_service_names() -> list[ServiceName]:
+    """
+    Get a list of boto3 supported service names.
+
+    Returns:
+        A list of supported services.
+    """
+    session = get_botocore_session()
+    available_services = session.get_available_services()
+    result: list[ServiceName] = []
+    for name in available_services:
+        service_data = session.get_service_data(name)
+        metadata = service_data["metadata"]
+        class_name = get_botocore_class_name(metadata)
+        service_name = ServiceNameCatalog.add(name, class_name)
+        result.append(service_name)
+    return result
