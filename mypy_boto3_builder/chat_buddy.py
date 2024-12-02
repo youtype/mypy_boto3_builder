@@ -89,12 +89,6 @@ class ChatBuddy:
     Interactive chat buddy to help user to select services and generate type annotations.
     """
 
-    PACKAGE_DATA_MAP: Final = {
-        ProductLibrary.boto3: TypesBoto3CustomPackageData(),
-        ProductLibrary.boto3_legacy: Boto3StubsCustomPackageData(),
-        ProductLibrary.aiobotocore: TypesAioBotocoreCustomPackageData(),
-        ProductLibrary.aioboto3: TypesAioBoto3CustomPackageData(),
-    }
     PRODUCT_MAP: Final = {
         ProductLibrary.boto3: Product.types_boto3_custom,
         ProductLibrary.boto3_legacy: Product.boto3_custom,

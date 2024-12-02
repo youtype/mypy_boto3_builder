@@ -31,7 +31,7 @@ def parse_mypy_boto3_package(
     result = MypyBoto3Package(service_names=service_names, service_packages=[], version=version)
     for service_name in result.service_names:
         result.service_packages.append(
-            parse_fake_service_package(service_name, Boto3StubsPackageData, version),
+            parse_fake_service_package(service_name, Boto3StubsPackageData(), version),
         )
 
     if service_names:

@@ -32,14 +32,26 @@ class Package:
     ) -> None:
         self.data = data
         self._pypi_name = self.data.pypi_name
-        self.library_version = data.get_library_version()
-        self.botocore_version = data.get_botocore_version()
         self._version: str = ""
         if version:
             self.version = version
         self.service_names = tuple(service_names)
         self.logger = get_logger()
         self.url = PackageURL(self.pypi_name, self.data)
+
+    @property
+    def library_version(self) -> str:
+        """
+        Library version.
+        """
+        return self.data.get_library_version()
+
+    @property
+    def botocore_version(self) -> str:
+        """
+        Botocore version.
+        """
+        return self.data.get_botocore_version()
 
     @property
     def pypi_name(self) -> str:

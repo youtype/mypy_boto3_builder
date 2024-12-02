@@ -13,6 +13,9 @@
 ```bash
 # run builder and chat with him :)
 uvx mypy-boto3-builder
+
+# set library version explicitly for better results
+uvx --with 'boto3==1.35.71' mypy-boto3-builder
 ```
 
 ## With CLI

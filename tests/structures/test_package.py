@@ -24,7 +24,6 @@ class TestPackage:
         assert package.get_module_name(ServiceNameCatalog.s3) == "mypy_boto3_s3"
         assert package.get_service_pypi_name(ServiceNameCatalog.s3) == "mypy-boto3-s3"
         assert package.min_python_version
-        package.library_version = "1.2.3"
         assert str(package) == "boto3-stubs 2.3.4 (boto3 1.2.3)"
 
     def test_service_name(self) -> None:
