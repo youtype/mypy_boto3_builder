@@ -83,7 +83,14 @@ class Package:
         """
         PyPI library package name.
         """
-        return self.data.LIBRARY_NAME
+        return self.data.get_library_name()
+
+    @property
+    def library_chat_choice(self) -> str:
+        """
+        Package library chat choice.
+        """
+        return self.data.get_library_chat_choice()
 
     def has_main_package(self) -> bool:
         """

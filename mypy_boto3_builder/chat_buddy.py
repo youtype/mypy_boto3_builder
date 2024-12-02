@@ -185,10 +185,10 @@ class ChatBuddy:
 
     def _select_library(self) -> ProductLibrary | None:
         library_choices = {
-            "boto3": ProductLibrary.boto3,
-            "aiobotocore": ProductLibrary.aiobotocore,
-            "aioboto3": ProductLibrary.aioboto3,
-            "boto3 (legacy boto3-stubs)": ProductLibrary.boto3_legacy,
+            ProductLibrary.boto3.get_chat_choice(): ProductLibrary.boto3,
+            ProductLibrary.aiobotocore.get_chat_choice(): ProductLibrary.aiobotocore,
+            ProductLibrary.aioboto3.get_chat_choice(): ProductLibrary.aioboto3,
+            ProductLibrary.boto3_legacy.get_chat_choice(): ProductLibrary.boto3_legacy,
             "none of them": None,
         }
         selected = questionary.select(
@@ -388,7 +388,10 @@ class ChatBuddy:
             f"You launched me with no {_tag('OUTPUT_PATH')} command-line argument,"
             f" so I decided to help you a bit."
         )
-        self._say(f"Remember, if anything goes wrong, report to {_tag(REPORT_URL)}")
+        self._say(
+            "By the way, my author did not add any tests for my code."
+            f" So, if anything goes wrong, report to {_tag(REPORT_URL)}"
+        )
         self._say(f"First of all, what {_tag('AWS SDK library')} do you use?")
         product_library = self._select_library()
         if not product_library:

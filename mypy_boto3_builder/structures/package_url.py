@@ -64,7 +64,7 @@ class PackageURL:
         """
         Get link to PyPI underlying library.
         """
-        return get_pypi_link(self.data.LIBRARY_NAME)
+        return get_pypi_link(self.data.get_library_name())
 
     @property
     def stubs_pypi(self) -> str:

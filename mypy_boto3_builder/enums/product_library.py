@@ -44,3 +44,17 @@ class ProductLibrary(Enum):
                 return "types_aiobotocore"
             case ProductLibrary.aioboto3:
                 return "types_aioboto3"
+
+    def get_chat_choice(self) -> str:
+        """
+        Get chat choice.
+        """
+        match self:
+            case ProductLibrary.boto3:
+                return "boto3"
+            case ProductLibrary.boto3_legacy:
+                return "boto3 (legacy boto3-stubs)"
+            case ProductLibrary.aiobotocore:
+                return "aiobotocore"
+            case ProductLibrary.aioboto3:
+                return "aioboto3"

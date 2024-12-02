@@ -7,6 +7,7 @@ Copyright 2024 Vlad Emelianov
 import typing
 from typing import ClassVar
 
+from mypy_boto3_builder.enums.product_library import ProductLibrary
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.version_getters import (
     get_aioboto3_version,
@@ -26,7 +27,7 @@ class BasePackageData:
     PYPI_STUBS_NAME: ClassVar[str] = ""
     PYPI_LITE_NAME: ClassVar[str] = ""
     PYPI_FULL_NAME: ClassVar[str] = ""
-    LIBRARY_NAME: ClassVar[str] = "boto3"
+    LIBRARY: ClassVar[ProductLibrary] = ProductLibrary.boto3
     SERVICE_PREFIX: ClassVar[str] = "mypy_boto3"
     SERVICE_PYPI_PREFIX: ClassVar[str] = "mypy-boto3"
     LOCAL_DOC_LINK: ClassVar[str] = "https://youtype.github.io/boto3_stubs_docs/"
@@ -68,6 +69,20 @@ class BasePackageData:
         """
         return bool(cls.PYPI_LITE_NAME)
 
+    @classmethod
+    def get_library_name(cls) -> str:
+        """
+        Get PyPI library name.
+        """
+        return cls.LIBRARY.get_library_name()
+
+    @classmethod
+    def get_library_chat_choice(cls) -> str:
+        """
+        Get package library chat choice.
+        """
+        return cls.LIBRARY.get_chat_choice()
+
 
 class TypesBoto3PackageData(BasePackageData):
     """
@@ -79,7 +94,7 @@ class TypesBoto3PackageData(BasePackageData):
     PYPI_STUBS_NAME = "types-boto3"
     PYPI_LITE_NAME = "types-boto3-lite"
     PYPI_FULL_NAME = "types-boto3-full"
-    LIBRARY_NAME = "boto3"
+    LIBRARY = ProductLibrary.boto3
     SERVICE_PREFIX = "types_boto3"
     SERVICE_PYPI_PREFIX = "types-boto3"
     LOCAL_DOC_LINK = "https://youtype.github.io/types_boto3_docs/"
@@ -141,7 +156,7 @@ class TypesAioBotocorePackageData(BasePackageData):
     PYPI_STUBS_NAME = "types-aiobotocore"
     PYPI_LITE_NAME = "types-aiobotocore-lite"
     PYPI_FULL_NAME = "types-aiobotocore-full"
-    LIBRARY_NAME = "aiobotocore"
+    LIBRARY = ProductLibrary.aiobotocore
     SERVICE_PREFIX = "types_aiobotocore"
     SERVICE_PYPI_PREFIX = "types-aiobotocore"
     LOCAL_DOC_LINK = "https://youtype.github.io/types_aiobotocore_docs/"
@@ -208,7 +223,7 @@ class Boto3StubsPackageData(BasePackageData):
     PYPI_STUBS_NAME = "boto3-stubs"
     PYPI_LITE_NAME = "boto3-stubs-lite"
     PYPI_FULL_NAME = "boto3-stubs-full"
-    LIBRARY_NAME = "boto3"
+    LIBRARY = ProductLibrary.boto3_legacy
     LOCAL_DOC_LINK = "https://youtype.github.io/boto3_stubs_docs/"
     IS_VSCODE_SUPPORTED = True
     IS_CONDA_FORGE_SUPPORTED = True
@@ -265,7 +280,7 @@ class MypyBoto3PackageData(BasePackageData):
 
     NAME = "mypy_boto3"
     PYPI_NAME = "mypy-boto3"
-    LIBRARY_NAME = "boto3"
+    LIBRARY = ProductLibrary.boto3_legacy
 
 
 class TypesAioBoto3PackageData(BasePackageData):
@@ -278,7 +293,7 @@ class TypesAioBoto3PackageData(BasePackageData):
     PYPI_STUBS_NAME = "types-aioboto3"
     PYPI_LITE_NAME = "types-aioboto3-lite"
     PYPI_FULL_NAME = "types-aiobotocore-full"
-    LIBRARY_NAME = "aioboto3"
+    LIBRARY = ProductLibrary.aioboto3
     SERVICE_PREFIX = "types_aiobotocore"
     SERVICE_PYPI_PREFIX = "types-aiobotocore"
     AIOBOTOCORE_NAME = "types-aiobotocore"
