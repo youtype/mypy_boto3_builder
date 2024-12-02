@@ -21,25 +21,25 @@ Click `Auto-discover services` and select services you use in the current projec
 
 ### From PyPI with pip
 
-Install `{{ package.data.pypi_name }}` to add type annotations for `{{ package.library_name }}` package.
+Install `{{ package.data.pypi_stubs_name }}` to add type annotations for `{{ package.library_name }}` package.
 
 ```bash
 # install type annotations only for {{ package.library_name }}
-python -m pip install {{ package.data.pypi_name }}
+python -m pip install {{ package.data.pypi_stubs_name }}
 
 # install {{ package.library_name }} type annotations
-# for ec2, s3, rds, lambda, sqs, dynamo and cloudformation
-python -m pip install '{{ package.data.pypi_name }}[essential]'
+# for ec2, s3, rds, lambda, sqs, dynamo, and cloudformation
+python -m pip install '{{ package.data.pypi_stubs_name }}[essential]'
 
 # or install annotations for services you use
-python -m pip install '{{ package.data.pypi_name }}[acm,apigateway]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[acm,apigateway]'
 
 # or install annotations in sync with {{ package.library_name }} version
-python -m pip install '{{ package.data.pypi_name }}[{{ package.library_name }}]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[{{ package.library_name }}]'
 
 {% if package.data.pypi_full_name %}
-# or install all-in-one annotations for all services at once
-python -m pip install '{{ package.data.pypi_name }}[full]'
+# or install all-in-one annotations for all services
+python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
 {% endif %}
 
 {% if package.data.pypi_lite_name %}
@@ -59,17 +59,18 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `{{ package.data.pypi_name }}`
-and `{{ package.data.pypi_name }}-essential` can be installed with:
+Once the `conda-forge` channel has been enabled, `{{ package.data.pypi_stubs_name }}`
+and `{{ package.data.pypi_stubs_name }}-essential` can be installed with:
 
 ```bash
-conda install {{ package.data.pypi_name }} {{ package.data.pypi_name }}-essential
+conda install {{ package.data.pypi_stubs_name }} {{ package.data.pypi_stubs_name }}-essential
 ```
 
-It is possible to list all of the versions of `{{ package.data.pypi_name }}` available on your platform with:
+List all available versions of `{{ package.pypi_name }}`
+available on your platform with:
 
 ```bash
-conda search {{ package.data.pypi_name }} --channel conda-forge
+conda search {{ package.data.pypi_stubs_name }} --channel conda-forge
 ```
 {%- endif %}
 
