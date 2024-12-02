@@ -19,6 +19,12 @@ from mypy_boto3_builder.constants import PROG_NAME
 from mypy_boto3_builder.enums.output_type import OutputType
 from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.enums.product_library import ProductLibrary
+from mypy_boto3_builder.package_data import (
+    Boto3StubsCustomPackageData,
+    TypesAioBoto3CustomPackageData,
+    TypesAioBotocoreCustomPackageData,
+    TypesBoto3CustomPackageData,
+)
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
 from mypy_boto3_builder.utils.path import print_path
@@ -157,17 +163,15 @@ class ChatBuddy:
         selected = self.selected_service_names
         if self._is_all_selected():
             return (
-                f"Do you want type annotations for {_tag('ALL')} available services?"
-                f" Building all takes {_tag('10-20 minutes')} and package size is"
+                f"Do you really need type checking for {_tag('ALL')} available services?"
+                f" Building all takes {_tag('10-20 minutes')}, and package size is"
                 f" around {_tag('12 megabytes')}!"
             )
         if not selected:
             return f"Okay, what service do you want to {_tag('add')}?"
 
         if len(selected) == 1:
-            return (
-                f"Should we build type annotations only for {_tag(selected[0].class_name)} service?"
-            )
+            return f"Should I add type checking only for {_tag(selected[0].class_name)} service?"
 
         if len(selected) > MAX_SERVICE_PRINTED:
             selected_strs = [
@@ -397,7 +401,7 @@ class ChatBuddy:
         self.library_name = self.product_library.get_library_name()
         self._respond(
             f"I use {_tag(self.library_name)} in this project."
-            f" Now, how can I add {_tag('type annotations')} and {_tag('code completion')} for it?"
+            f" Now, how can I add {_tag('type checking')} and {_tag('code completion')} for it?"
         )
 
         self.product = self._select_product()
@@ -486,5 +490,22 @@ class ChatBuddy:
         self._say_commands()
         self._finish()
 
+    def _get_documentation_url(self) -> str:
+        match self.product:
+            case Product.types_boto3_custom:
+                return TypesBoto3CustomPackageData.LOCAL_DOC_LINK
+            case Product.boto3_custom:
+                return Boto3StubsCustomPackageData.LOCAL_DOC_LINK
+            case Product.aiobotocore_custom:
+                return TypesAioBotocoreCustomPackageData.LOCAL_DOC_LINK
+            case Product.aioboto3_custom:
+                return TypesAioBoto3CustomPackageData.LOCAL_DOC_LINK
+            case _:
+                return TypesBoto3CustomPackageData.LOCAL_DOC_LINK
+
     def _finish(self) -> None:
+        self._say(
+            f"Check {_tag(self._get_documentation_url())} documentation. It describes all"
+            f" type annotations for {_tag(self.library_name)}."
+        )
         self._say("Bye-bye! Have a nice day!")

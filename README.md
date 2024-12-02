@@ -45,17 +45,25 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 
 - [Mypy Boto3 Builder](#mypy-boto3-builder)
   - [Quickstart](#quickstart)
-  - [Documentation](#documentation)
+  - [Type annotations documentation](#type-annotations-documentation)
+  - [Builder documentation](#builder-documentation)
   - [Versioning](#versioning)
   - [Latest changes](#latest-changes)
 
 ## Quickstart
 
+- Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
+- Run `uvx mypy-boto3-builder`
+- Answer some questions, get your custom package
+- Install a generated package
+
+## Type annotations documentation
+
 - If you use `boto3` or `botocore`, follow [types-boto3 documentation](https://youtype.github.io/types_boto3_docs/)
 - For `aiobotocore` follow [types-aiobotocore documentation](https://youtype.github.io/types_aiobotocore_docs/)
 - For `aioboto3` follow [types-aioboto3 documentation](https://youtype.github.io/types_aioboto3_docs/)
 
-## Documentation
+## Builder documentation
 
 - [How to use pre-built libraries](./docsmd/pre_build.md)
 - [How builder works](./docsmd/how_it_works.md)
