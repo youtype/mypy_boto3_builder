@@ -71,28 +71,30 @@ class RuffFormatter:
         """
         Sort import lines with `ruff`.
         """
+        cmd = [
+            sys.executable,
+            "-m",
+            "ruff",
+            "check",
+            "--target-version",
+            self._target_version,
+            *self._get_config_cli(),
+            "--select",
+            "I",
+            "--fix",
+            "--isolated",
+            *(path.as_posix() for path in paths),
+        ]
         try:
             subprocess.check_output(
-                [
-                    sys.executable,
-                    "-m",
-                    "ruff",
-                    "check",
-                    "--target-version",
-                    self._target_version,
-                    *self._get_config_cli(),
-                    "--select",
-                    "I",
-                    "--fix",
-                    "--isolated",
-                    *(path.as_posix() for path in paths),
-                ],
+                cmd,
                 stderr=subprocess.STDOUT,
             )
         except subprocess.CalledProcessError as e:
             self.logger.warning(
                 f"Sorting imports failed for paths {[print_path(path) for path in paths]}",
             )
+            self.logger.warning(" ".join(cmd))
             self.logger.warning(e.output.decode())
             raise RuffError(f"Sorting imports failed with status {e.returncode}") from None
 
