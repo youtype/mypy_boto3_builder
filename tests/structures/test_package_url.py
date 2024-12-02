@@ -6,11 +6,11 @@ class TestPackageURL:
     package_url: PackageURL
 
     def setup_method(self) -> None:
-        self.package_url = PackageURL("name", Boto3StubsPackageData)
+        self.package_url = PackageURL("name", Boto3StubsPackageData())
 
     def test_init(self) -> None:
         assert self.package_url.pypi_name == "name"
-        assert self.package_url.data == Boto3StubsPackageData
+        assert isinstance(self.package_url.data, Boto3StubsPackageData)
 
         assert self.package_url.pypi_badge == "https://img.shields.io/pypi/v/name.svg?color=blue"
         assert (

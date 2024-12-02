@@ -42,7 +42,7 @@ setup(
     ],
     extras_require={
         "full": [
-            "{{ package.data.PYPI_FULL_NAME }}",
+            "{{ package.data.pypi_full_name }}",
         ],
         "all": [
             {% for service_name in package.service_names -%}

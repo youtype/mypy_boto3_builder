@@ -4,8 +4,8 @@ PyPI package data constants.
 Copyright 2024 Vlad Emelianov
 """
 
-import typing
-from typing import ClassVar
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
 from mypy_boto3_builder.enums.product_library import ProductLibrary
 from mypy_boto3_builder.service_name import ServiceName
@@ -17,43 +17,66 @@ from mypy_boto3_builder.utils.version_getters import (
 )
 
 
-class BasePackageData:
+@dataclass(kw_only=True)
+class BasePackageData(ABC):
     """
     Generic package data.
     """
 
-    NAME: ClassVar[str] = "boto3-stubs"
-    PYPI_NAME: ClassVar[str] = "boto3-stubs"
-    PYPI_STUBS_NAME: ClassVar[str] = ""
-    PYPI_LITE_NAME: ClassVar[str] = ""
-    PYPI_FULL_NAME: ClassVar[str] = ""
-    LIBRARY: ClassVar[ProductLibrary] = ProductLibrary.boto3
-    SERVICE_PREFIX: ClassVar[str] = "mypy_boto3"
-    SERVICE_PYPI_PREFIX: ClassVar[str] = "mypy-boto3"
-    LOCAL_DOC_LINK: ClassVar[str] = "https://youtype.github.io/boto3_stubs_docs/"
-    IS_VSCODE_SUPPORTED: ClassVar[bool] = False
-    IS_CONDA_FORGE_SUPPORTED: ClassVar[bool] = False
+    # package name
+    name: str
 
-    @classmethod
-    def get_service_package_name(cls, service_name: ServiceName) -> str:
+    # package name on PyPI
+    pypi_name: str
+
+    # main stubs package name on PyPI
+    pypi_stubs_name: str
+
+    # lite stubs package name on PyPI
+    pypi_lite_name: str
+
+    # full stubs package name on PyPI
+    pypi_full_name: str
+
+    # underlying library: boto3, aiobotocore, aioboto3
+    library: ProductLibrary
+
+    # service package name prefix
+    service_prefix: str
+
+    # service package name prefix on PyPI
+    service_pypi_prefix: str
+
+    # link to local documentation
+    local_doc_link: str
+
+    # is package installable with VSCode extensions
+    is_vscode_supported: bool = False
+
+    # is the package released to conda-forge
+    is_conda_forge_supported: bool = False
+
+    def get_service_package_name(self, service_name: ServiceName) -> str:
         """
         Get service package name.
         """
-        return f"{cls.SERVICE_PREFIX}_{service_name.underscore_name}"
+        return f"{self.service_prefix}_{service_name.underscore_name}"
 
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return f"{cls.SERVICE_PYPI_PREFIX}-{service_name.name}"
+        return f"{self.service_pypi_prefix}-{service_name.name}"
 
-    @staticmethod
-    def get_library_version() -> str:
+    def get_library_version(self) -> str:
         """
         Get underlying library version.
         """
-        return get_boto3_version()
+        return self._get_library_version()
+
+    @abstractmethod
+    def _get_library_version(self) -> str:
+        raise NotImplementedError("Method not implemented")
 
     @staticmethod
     def get_botocore_version() -> str:
@@ -62,273 +85,274 @@ class BasePackageData:
         """
         return get_botocore_version()
 
-    @classmethod
-    def has_pypi_lite_package(cls) -> bool:
+    def has_pypi_lite_package(self) -> bool:
         """
         Check if package has lite version.
         """
-        return bool(cls.PYPI_LITE_NAME)
+        return bool(self.pypi_lite_name and self.pypi_lite_name != self.pypi_name)
 
-    @classmethod
-    def get_library_name(cls) -> str:
+    def get_library_name(self) -> str:
         """
         Get PyPI library name.
         """
-        return cls.LIBRARY.get_library_name()
+        return self.library.get_library_name()
 
-    @classmethod
-    def get_library_chat_choice(cls) -> str:
+    def get_library_chat_choice(self) -> str:
         """
         Get package library chat choice.
         """
-        return cls.LIBRARY.get_chat_choice()
+        return self.library.get_chat_choice()
 
 
+@dataclass(kw_only=True)
 class TypesBoto3PackageData(BasePackageData):
     """
     types-boto3 package data.
     """
 
-    NAME = "boto3-stubs"
-    PYPI_NAME = "types-boto3"
-    PYPI_STUBS_NAME = "types-boto3"
-    PYPI_LITE_NAME = "types-boto3-lite"
-    PYPI_FULL_NAME = "types-boto3-full"
-    LIBRARY = ProductLibrary.boto3
-    SERVICE_PREFIX = "types_boto3"
-    SERVICE_PYPI_PREFIX = "types-boto3"
-    LOCAL_DOC_LINK = "https://youtype.github.io/types_boto3_docs/"
-    IS_VSCODE_SUPPORTED = True
-    IS_CONDA_FORGE_SUPPORTED = False
+    name: str = "boto3-stubs"
+    pypi_name: str = "types-boto3"
+    pypi_stubs_name: str = "types-boto3"
+    pypi_lite_name: str = "types-boto3-lite"
+    pypi_full_name: str = "types-boto3-full"
+    library: ProductLibrary = ProductLibrary.boto3
+    service_prefix: str = "types_boto3"
+    service_pypi_prefix: str = "types-boto3"
+    local_doc_link: str = "https://youtype.github.io/types_boto3_docs/"
+    is_vscode_supported: bool = True
+    is_conda_forge_supported: bool = False
+
+    def _get_library_version(self) -> str:
+        return get_boto3_version()
 
 
+@dataclass(kw_only=True)
 class TypesBoto3LitePackageData(TypesBoto3PackageData):
     """
     types-boto3-lite package data.
     """
 
-    PYPI_NAME = TypesBoto3PackageData.PYPI_LITE_NAME
-    PYPI_LITE_NAME = ""
+    pypi_name: str = TypesBoto3PackageData.pypi_lite_name
+    pypi_lite_name: str = ""
 
 
+@dataclass(kw_only=True)
 class TypesBoto3FullPackageData(TypesBoto3PackageData):
     """
     boto3-stubs-full package data.
     """
 
-    NAME = ""
-    PYPI_NAME = TypesBoto3PackageData.PYPI_FULL_NAME
-    IS_CONDA_FORGE_SUPPORTED = False
+    name: str = ""
+    pypi_name: str = TypesBoto3PackageData.pypi_full_name
+    is_conda_forge_supported: bool = False
 
-    @typing.override
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return cls.PYPI_NAME
+        return self.pypi_name
 
 
+@dataclass(kw_only=True)
 class TypesBoto3CustomPackageData(TypesBoto3PackageData):
     """
     boto3-stubs-custom package data.
     """
 
-    PYPI_NAME = "types-boto3-custom"
-    IS_CONDA_FORGE_SUPPORTED = False
+    pypi_name: str = "types-boto3-custom"
+    is_conda_forge_supported: bool = False
 
-    @typing.override
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return cls.PYPI_NAME
+        return self.pypi_name
 
 
+@dataclass(kw_only=True)
 class TypesAioBotocorePackageData(BasePackageData):
     """
     types-aiobotocore package data.
     """
 
-    NAME = "aiobotocore-stubs"
-    PYPI_NAME = "types-aiobotocore"
-    PYPI_STUBS_NAME = "types-aiobotocore"
-    PYPI_LITE_NAME = "types-aiobotocore-lite"
-    PYPI_FULL_NAME = "types-aiobotocore-full"
-    LIBRARY = ProductLibrary.aiobotocore
-    SERVICE_PREFIX = "types_aiobotocore"
-    SERVICE_PYPI_PREFIX = "types-aiobotocore"
-    LOCAL_DOC_LINK = "https://youtype.github.io/types_aiobotocore_docs/"
+    name: str = "aiobotocore-stubs"
+    pypi_name: str = "types-aiobotocore"
+    pypi_stubs_name: str = "types-aiobotocore"
+    pypi_lite_name: str = "types-aiobotocore-lite"
+    pypi_full_name: str = "types-aiobotocore-full"
+    library: ProductLibrary = ProductLibrary.aiobotocore
+    service_prefix: str = "types_aiobotocore"
+    service_pypi_prefix: str = "types-aiobotocore"
+    local_doc_link: str = "https://youtype.github.io/types_aiobotocore_docs/"
 
-    @staticmethod
-    def get_library_version() -> str:
-        """
-        Get underlying library version.
-        """
+    def _get_library_version(self) -> str:
         return get_aiobotocore_version()
 
 
+@dataclass(kw_only=True)
 class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData):
     """
     types-aiobotocore-lite package data.
     """
 
-    PYPI_NAME = "types-aiobotocore-lite"
-    PYPI_LITE_NAME = ""
+    pypi_name: str = TypesAioBotocorePackageData.pypi_lite_name
+    pypi_lite_name: str = ""
 
 
+@dataclass(kw_only=True)
 class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
     """
     types-aiobotocore-full package data.
     """
 
-    NAME = ""
-    PYPI_NAME = "types-aiobotocore-full"
-    IS_CONDA_FORGE_SUPPORTED = False
+    name: str = ""
+    pypi_name: str = TypesAioBotocorePackageData.pypi_full_name
+    is_conda_forge_supported: bool = False
 
-    @typing.override
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return cls.PYPI_NAME
+        return self.pypi_name
 
 
+@dataclass(kw_only=True)
 class TypesAioBotocoreCustomPackageData(TypesAioBotocorePackageData):
     """
     types-aiobotocore-custom package data.
     """
 
-    PYPI_NAME = "types-aiobotocore-custom"
-    IS_CONDA_FORGE_SUPPORTED = False
+    pypi_name: str = "types-aiobotocore-custom"
+    is_conda_forge_supported: bool = False
 
-    @typing.override
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return cls.PYPI_NAME
+        return self.pypi_name
 
 
+@dataclass(kw_only=True)
 class Boto3StubsPackageData(BasePackageData):
     """
     boto3-stubs package data.
     """
 
-    NAME = "boto3-stubs"
-    PYPI_NAME = "boto3-stubs"
-    PYPI_STUBS_NAME = "boto3-stubs"
-    PYPI_LITE_NAME = "boto3-stubs-lite"
-    PYPI_FULL_NAME = "boto3-stubs-full"
-    LIBRARY = ProductLibrary.boto3_legacy
-    LOCAL_DOC_LINK = "https://youtype.github.io/boto3_stubs_docs/"
-    IS_VSCODE_SUPPORTED = True
-    IS_CONDA_FORGE_SUPPORTED = True
+    name: str = "boto3-stubs"
+    pypi_name: str = "boto3-stubs"
+    pypi_stubs_name: str = "boto3-stubs"
+    pypi_lite_name: str = "boto3-stubs-lite"
+    pypi_full_name: str = "boto3-stubs-full"
+    service_prefix: str = "mypy_boto3"
+    service_pypi_prefix: str = "mypy-boto3"
+    library: ProductLibrary = ProductLibrary.boto3_legacy
+    local_doc_link: str = "https://youtype.github.io/boto3_stubs_docs/"
+    is_vscode_supported: bool = True
+    is_conda_forge_supported: bool = True
+
+    def _get_library_version(self) -> str:
+        return get_boto3_version()
 
 
+@dataclass(kw_only=True)
 class Boto3StubsLitePackageData(Boto3StubsPackageData):
     """
     boto3-stubs-lite package data.
     """
 
-    PYPI_NAME = Boto3StubsPackageData.PYPI_LITE_NAME
-    PYPI_LITE_NAME = ""
+    pypi_name: str = Boto3StubsPackageData.pypi_lite_name
+    pypi_lite_name: str = ""
 
 
+@dataclass(kw_only=True)
 class Boto3StubsFullPackageData(Boto3StubsPackageData):
     """
     boto3-stubs-full package data.
     """
 
-    NAME = ""
-    PYPI_NAME = Boto3StubsPackageData.PYPI_FULL_NAME
-    IS_CONDA_FORGE_SUPPORTED = False
+    name: str = ""
+    pypi_name: str = Boto3StubsPackageData.pypi_full_name
+    is_conda_forge_supported: bool = False
 
-    @typing.override
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return cls.PYPI_NAME
+        return self.pypi_name
 
 
+@dataclass(kw_only=True)
 class Boto3StubsCustomPackageData(Boto3StubsPackageData):
     """
     boto3-stubs-custom package data.
     """
 
-    PYPI_NAME = "boto3-stubs-custom"
-    IS_CONDA_FORGE_SUPPORTED = False
+    pypi_name: str = "boto3-stubs-custom"
+    is_conda_forge_supported: bool = False
 
-    @typing.override
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return cls.PYPI_NAME
+        return self.pypi_name
 
 
-class MypyBoto3PackageData(BasePackageData):
+@dataclass(kw_only=True)
+class MypyBoto3PackageData(Boto3StubsPackageData):
     """
     mypy-boto3 package data.
     """
 
-    NAME = "mypy_boto3"
-    PYPI_NAME = "mypy-boto3"
-    LIBRARY = ProductLibrary.boto3_legacy
+    name: str = "mypy_boto3"
+    pypi_name: str = "mypy-boto3"
+    library: ProductLibrary = ProductLibrary.boto3_legacy
+    is_vscode_supported: bool = False
+    is_conda_forge_supported: bool = False
 
 
+@dataclass(kw_only=True)
 class TypesAioBoto3PackageData(BasePackageData):
     """
     types-aioboto3 package data.
     """
 
-    NAME = "aioboto3-stubs"
-    PYPI_NAME = "types-aioboto3"
-    PYPI_STUBS_NAME = "types-aioboto3"
-    PYPI_LITE_NAME = "types-aioboto3-lite"
-    PYPI_FULL_NAME = "types-aiobotocore-full"
-    LIBRARY = ProductLibrary.aioboto3
-    SERVICE_PREFIX = "types_aiobotocore"
-    SERVICE_PYPI_PREFIX = "types-aiobotocore"
-    AIOBOTOCORE_NAME = "types-aiobotocore"
-    LOCAL_DOC_LINK = "https://youtype.github.io/types_aioboto3_docs/"
+    name: str = "aioboto3-stubs"
+    pypi_name: str = "types-aioboto3"
+    pypi_stubs_name: str = "types-aioboto3"
+    pypi_lite_name: str = "types-aioboto3-lite"
+    pypi_full_name: str = TypesAioBotocorePackageData.pypi_full_name
+    library: ProductLibrary = ProductLibrary.aioboto3
+    service_prefix: str = "types_aiobotocore"
+    service_pypi_prefix: str = "types-aiobotocore"
+    types_aiobotocore_pypi_name: str = TypesAioBotocorePackageData.pypi_stubs_name
+    local_doc_link: str = "https://youtype.github.io/types_aioboto3_docs/"
 
-    @staticmethod
-    def get_library_version() -> str:
-        """
-        Get underlying library version.
-        """
+    def _get_library_version(self) -> str:
         return get_aioboto3_version()
 
 
+@dataclass(kw_only=True)
 class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
     """
     types-aioboto3-lite package data.
     """
 
-    PYPI_NAME = "types-aioboto3-lite"
-    PYPI_LITE_NAME = ""
-    AIOBOTOCORE_NAME = TypesAioBoto3PackageData.PYPI_LITE_NAME
+    pypi_name: str = TypesAioBoto3PackageData.pypi_lite_name
+    pypi_lite_name: str = ""
+    types_aiobotocore_pypi_name: str = TypesAioBotocorePackageData.pypi_lite_name
 
 
+@dataclass(kw_only=True)
 class TypesAioBoto3CustomPackageData(TypesAioBoto3PackageData):
     """
     types-aioboto3-custom package data.
     """
 
-    PYPI_NAME = "types-aioboto3-custom"
-    IS_CONDA_FORGE_SUPPORTED = False
+    pypi_name: str = "types-aioboto3-custom"
+    is_conda_forge_supported: bool = False
 
-    @typing.override
-    @classmethod
-    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get service package PyPI name.
         """
-        return cls.PYPI_NAME
+        return self.pypi_name

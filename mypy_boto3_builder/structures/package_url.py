@@ -13,7 +13,7 @@ class PackageURL:
     Package links structure.
     """
 
-    def __init__(self, pypi_name: str, data: type[BasePackageData]) -> None:
+    def __init__(self, pypi_name: str, data: BasePackageData) -> None:
         self.pypi_name = pypi_name
         self.data = data
 
@@ -71,21 +71,21 @@ class PackageURL:
         """
         Get link to PyPI lite version of stubs.
         """
-        return get_pypi_link(self.data.PYPI_STUBS_NAME)
+        return get_pypi_link(self.data.pypi_stubs_name)
 
     @property
     def stubs_lite_pypi(self) -> str:
         """
         Get link to PyPI lite version of stubs.
         """
-        return get_pypi_link(self.data.PYPI_LITE_NAME)
+        return get_pypi_link(self.data.pypi_lite_name)
 
     @property
     def stubs_full_pypi(self) -> str:
         """
         Get link to PyPI full version of stubs.
         """
-        return get_pypi_link(self.data.PYPI_FULL_NAME)
+        return get_pypi_link(self.data.pypi_full_name)
 
     @property
     def pepy(self) -> str:
@@ -106,4 +106,4 @@ class PackageURL:
         """
         Documentation link.
         """
-        return self.data.LOCAL_DOC_LINK
+        return self.data.local_doc_link

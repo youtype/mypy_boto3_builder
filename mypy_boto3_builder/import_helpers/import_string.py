@@ -9,7 +9,11 @@ from typing import Final, Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import BuildInternalError, StructureError
-from mypy_boto3_builder.package_data import Boto3StubsPackageData, TypesAioBotocorePackageData
+from mypy_boto3_builder.package_data import (
+    Boto3StubsPackageData,
+    TypesAioBotocorePackageData,
+    TypesBoto3PackageData,
+)
 
 
 @functools.total_ordering
@@ -131,10 +135,13 @@ class ImportString:
         """
         Whether import is from local module.
         """
-        if self.parent.startswith(Boto3StubsPackageData.SERVICE_PREFIX):
+        if self.parent.startswith(TypesBoto3PackageData.service_prefix):
             return True
 
-        if self.parent.startswith(TypesAioBotocorePackageData.SERVICE_PREFIX):
+        if self.parent.startswith(Boto3StubsPackageData.service_prefix):
+            return True
+
+        if self.parent.startswith(TypesAioBotocorePackageData.service_prefix):
             return True
 
         return self.is_type_defs()

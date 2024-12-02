@@ -15,7 +15,8 @@ class TestUtils:
     @patch("mypy_boto3_builder.writers.utils.render_jinja2_template")
     def test_render_jinja2_package_template(self, render_jinja2_template_mock: MagicMock) -> None:
         template_path = Path("template.jinja2")
-        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.ec2, ServiceNameCatalog.s3])
+        package_data = Boto3StubsPackageData()
+        package = Package(package_data, [ServiceNameCatalog.ec2, ServiceNameCatalog.s3])
         result = render_jinja2_package_template(template_path, package)
         render_jinja2_template_mock.assert_called_once_with(
             template_path,
@@ -24,7 +25,7 @@ class TestUtils:
         assert result == render_jinja2_template_mock()
         render_jinja2_template_mock.reset_mock()
 
-        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])
+        package = Package(package_data, [ServiceNameCatalog.s3])
         result = render_jinja2_package_template(template_path, package)
         render_jinja2_template_mock.assert_called_once_with(
             template_path,
@@ -32,7 +33,7 @@ class TestUtils:
         )
         render_jinja2_template_mock.reset_mock()
 
-        package = Package(Boto3StubsPackageData, [])
+        package = Package(package_data, [])
         result = render_jinja2_package_template(template_path, package)
         render_jinja2_template_mock.assert_called_once_with(
             template_path,

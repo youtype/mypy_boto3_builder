@@ -26,12 +26,12 @@ class Package:
 
     def __init__(
         self,
-        data: type[BasePackageData],
+        data: BasePackageData,
         service_names: Iterable[ServiceName] = (),
         version: str = "",
     ) -> None:
         self.data = data
-        self._pypi_name = self.data.PYPI_NAME
+        self._pypi_name = self.data.pypi_name
         self.library_version = data.get_library_version()
         self.botocore_version = data.get_botocore_version()
         self._version: str = ""
@@ -73,10 +73,10 @@ class Package:
         """
         Package name.
         """
-        if not self.data.NAME:
+        if not self.data.name:
             raise StructureError(f"Package name is not set for {self.pypi_name}")
 
-        return self.data.NAME
+        return self.data.name
 
     @property
     def library_name(self) -> str:
@@ -96,7 +96,7 @@ class Package:
         """
         Check if package has main package.
         """
-        return bool(self.data.NAME)
+        return bool(self.data.name)
 
     @property
     def service_name(self) -> ServiceName:
@@ -125,7 +125,7 @@ class Package:
         """
         Get link to local docs.
         """
-        url = self.data.LOCAL_DOC_LINK
+        url = self.data.local_doc_link
         if service_name:
             url = f"{url}{self.get_module_name(service_name)}/"
         return url

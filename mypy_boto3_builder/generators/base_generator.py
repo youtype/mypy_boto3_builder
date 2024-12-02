@@ -40,7 +40,7 @@ class BaseGenerator(ABC):
         cleanup -- Whether to cleanup generated files
     """
 
-    service_package_data: ClassVar[type[BasePackageData]]
+    service_package_data: ClassVar[BasePackageData]
     service_template_path: ClassVar[Path]
 
     def __init__(
@@ -243,7 +243,7 @@ class BaseGenerator(ABC):
         self,
         service_name: ServiceName,
         version: str,
-        package_data: type[BasePackageData],
+        package_data: BasePackageData,
     ) -> ServicePackage:
         self.logger.debug(f"Parsing {service_name.boto3_name}")
         parser = ServicePackageParser(service_name, package_data, version)
@@ -261,7 +261,7 @@ class BaseGenerator(ABC):
         self,
         service_name: ServiceName,
         version: str,
-        package_data: type[BasePackageData],
+        package_data: BasePackageData,
         templates_path: Path,
     ) -> ServicePackage:
         service_package = self._parse_service_package(
@@ -282,7 +282,7 @@ class BaseGenerator(ABC):
         self,
         service_name: ServiceName,
         version: str,
-        package_data: type[BasePackageData],
+        package_data: BasePackageData,
         templates_path: Path,
     ) -> ServicePackage:
         service_package = self._parse_service_package(

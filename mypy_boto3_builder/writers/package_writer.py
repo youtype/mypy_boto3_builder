@@ -214,7 +214,7 @@ class PackageWriter:
             static_files_path -- Path to static files for package
             exclude_template_names -- Do not render templates with these names
         """
-        self.logger.debug(f"Writing {package.data.PYPI_NAME} to {print_path(self.output_path)}")
+        self.logger.debug(f"Writing {package.data.pypi_name} to {print_path(self.output_path)}")
         template_renders: list[TemplateRender] = [
             *self._get_setup_template_paths(package, template_path),
             *self._get_package_template_renders(package, template_path),

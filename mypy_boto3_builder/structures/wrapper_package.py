@@ -29,7 +29,7 @@ class WrapperPackage(Package, ABC):
 
     def __init__(
         self,
-        data: type[BasePackageData],
+        data: BasePackageData,
         service_names: Iterable[ServiceName],
         version: str,
     ) -> None:
@@ -39,7 +39,7 @@ class WrapperPackage(Package, ABC):
         self.init_functions: list[Function] = []
         self.literals: list[TypeLiteral] = []
         self.setup_package_data: dict[str, tuple[str, ...]] = (
-            {self.data.NAME: ("py.typed", "*.pyi", "*/*.pyi")} if self.data.NAME else {}
+            {self.data.name: ("py.typed", "*.pyi", "*/*.pyi")} if self.data.name else {}
         )
         self._description = self.get_short_description()
 

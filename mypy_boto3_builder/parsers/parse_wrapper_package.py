@@ -18,7 +18,7 @@ from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 def parse_types_boto3_package(
     service_names: Iterable[ServiceName],
-    package_data: type[BasePackageData],
+    package_data: BasePackageData,
     version: str,
 ) -> TypesBoto3Package:
     """
@@ -43,7 +43,7 @@ def parse_types_boto3_package(
 
 def parse_types_aiobotocore_package(
     service_names: Iterable[ServiceName],
-    package_data: type[BasePackageData],
+    package_data: BasePackageData,
     version: str,
 ) -> TypesAioBotocorePackage:
     """
@@ -70,7 +70,7 @@ def parse_types_aiobotocore_package(
 
 def parse_types_aioboto3_package(
     service_names: Iterable[ServiceName],
-    package_data: type[BasePackageData],
+    package_data: BasePackageData,
     version: str,
 ) -> TypesAioBoto3Package:
     """

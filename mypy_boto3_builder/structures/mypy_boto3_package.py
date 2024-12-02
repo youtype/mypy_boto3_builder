@@ -32,7 +32,7 @@ class MypyBoto3Package(Package):
         service_packages: Iterable[ServicePackage],
         version: str,
     ) -> None:
-        super().__init__(MypyBoto3PackageData, service_names, version=version)
+        super().__init__(MypyBoto3PackageData(), service_names, version=version)
         self.service_packages = list(service_packages)
         self.literals: list[TypeLiteral] = []
 

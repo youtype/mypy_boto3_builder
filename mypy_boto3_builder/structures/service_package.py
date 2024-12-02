@@ -37,7 +37,7 @@ class ServicePackage(Package):
     def __init__(
         self,
         *,
-        data: type[BasePackageData],
+        data: BasePackageData,
         service_name: ServiceName,
         version: str,
         client: Client | None = None,

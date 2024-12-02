@@ -37,13 +37,13 @@ setup(
     },
     install_requires=[
         "botocore-stubs",
-        "{{ package.data.AIOBOTOCORE_NAME }}",
+        "{{ package.data.types_aiobotocore_pypi_name }}",
         "types-s3transfer",
         "typing-extensions>=4.1.0; python_version<\"3.12\"",
     ],
     extras_require={
         "full": [
-            "{{ package.data.PYPI_FULL_NAME }}",
+            "{{ package.data.pypi_full_name }}",
         ],
         "all": [
             {% for service_name in package.service_names -%}

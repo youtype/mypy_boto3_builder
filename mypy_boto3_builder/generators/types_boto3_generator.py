@@ -30,7 +30,7 @@ class TypesBoto3Generator(BaseGenerator):
     Generator for types-boto3 packages.
     """
 
-    service_package_data = TypesBoto3PackageData
+    service_package_data = TypesBoto3PackageData()
     service_template_path = TemplatePath.types_boto3_service
 
     def _get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:
@@ -49,14 +49,14 @@ class TypesBoto3Generator(BaseGenerator):
         """
         Generate `types-boto3` package.
         """
-        package_data = TypesBoto3PackageData
+        package_data = TypesBoto3PackageData()
         try:
-            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+            version = self._get_package_version(package_data.pypi_name, self.version)
         except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
+            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
             return []
 
-        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
+        self.logger.info(f"Generating {package_data.pypi_name} {version}")
         package = parse_types_boto3_package(
             service_names=self.main_service_names,
             package_data=package_data,
@@ -73,14 +73,14 @@ class TypesBoto3Generator(BaseGenerator):
         """
         Generate `types-boto3-lite` package.
         """
-        package_data = TypesBoto3LitePackageData
+        package_data = TypesBoto3LitePackageData()
         try:
-            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+            version = self._get_package_version(package_data.pypi_name, self.version)
         except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
+            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
             return None
 
-        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
+        self.logger.info(f"Generating {package_data.pypi_name} {version}")
         package = parse_types_boto3_package(
             service_names=self.main_service_names,
             package_data=package_data,
@@ -102,10 +102,10 @@ class TypesBoto3Generator(BaseGenerator):
         """
         Generate service and main docs.
         """
-        package_data = TypesBoto3PackageData
+        package_data = TypesBoto3PackageData()
         total_str = f"{len(self.service_names)}"
 
-        self.logger.info(f"Generating {package_data.NAME} module docs")
+        self.logger.info(f"Generating {package_data.name} module docs")
         package = parse_types_boto3_package(
             service_names=self.service_names,
             package_data=package_data,
@@ -132,14 +132,14 @@ class TypesBoto3Generator(BaseGenerator):
         """
         Generate `types-boto3-full` package.
         """
-        package_data = TypesBoto3FullPackageData
+        package_data = TypesBoto3FullPackageData()
         try:
-            version = self._get_package_version(package_data.PYPI_NAME, self.version)
+            version = self._get_package_version(package_data.pypi_name, self.version)
         except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
+            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
             return None
 
-        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
+        self.logger.info(f"Generating {package_data.pypi_name} {version}")
         package = parse_types_boto3_package(
             service_names=self.service_names,
             package_data=package_data,
@@ -158,9 +158,9 @@ class TypesBoto3Generator(BaseGenerator):
         """
         Generate `types-boto3-custom` package.
         """
-        package_data = TypesBoto3CustomPackageData
+        package_data = TypesBoto3CustomPackageData()
 
-        self.logger.info(f"Generating {package_data.PYPI_NAME} {self.version}")
+        self.logger.info(f"Generating {package_data.pypi_name} {self.version}")
         package = parse_types_boto3_package(
             service_names=self.service_names,
             package_data=package_data,

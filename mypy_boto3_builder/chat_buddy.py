@@ -7,7 +7,9 @@ Copyright 2024 Vlad Emelianov
 import logging
 import sys
 from collections.abc import Callable, Sequence
+from enum import Enum
 from pathlib import Path
+from typing import Final
 
 import questionary
 from colorama import Fore, Style, just_fix_windows_console
@@ -53,16 +55,15 @@ class ServiceActions:
     remove_all = "remove all selected services"
 
 
-class PackageManagerChoices:
+class PackageManager(Enum):
     """
     Available package managers.
     """
 
     pip = "pip"
+    uv = "uv"
     poetry = "poetry"
     pipenv = "pipenv"
-    uv = "uv"
-    unknown = "... I dont' know :("
 
 
 def _tag(message: str | float, color: str = Fore.CYAN) -> str:
@@ -88,6 +89,19 @@ class ChatBuddy:
     Interactive chat buddy to help user to select services and generate type annotations.
     """
 
+    PACKAGE_DATA_MAP: Final = {
+        ProductLibrary.boto3: TypesBoto3CustomPackageData(),
+        ProductLibrary.boto3_legacy: Boto3StubsCustomPackageData(),
+        ProductLibrary.aiobotocore: TypesAioBotocoreCustomPackageData(),
+        ProductLibrary.aioboto3: TypesAioBoto3CustomPackageData(),
+    }
+    PRODUCT_MAP: Final = {
+        ProductLibrary.boto3: Product.types_boto3_custom,
+        ProductLibrary.boto3_legacy: Product.boto3_custom,
+        ProductLibrary.aiobotocore: Product.aiobotocore_custom,
+        ProductLibrary.aioboto3: Product.aioboto3_custom,
+    }
+
     def __init__(self) -> None:
         self.available_service_names: tuple[ServiceName, ...] = ()
         self.selected_service_names: list[ServiceName] = []
@@ -107,7 +121,7 @@ class ChatBuddy:
             disable_smart_version=False,
             download_static_stubs=True,
         )
-        self.package_manager = PackageManagerChoices.pip
+        self.package_manager: PackageManager = PackageManager.pip
 
     def _get_selected_service_names(self) -> list[ServiceName]:
         return [i for i in self.available_service_names if i.is_essential()]
@@ -201,13 +215,7 @@ class ChatBuddy:
         return library_choices[selected]
 
     def _select_product(self) -> Product:
-        product_map = {
-            ProductLibrary.boto3: Product.types_boto3_custom,
-            ProductLibrary.boto3_legacy: Product.boto3_custom,
-            ProductLibrary.aiobotocore: Product.aiobotocore_custom,
-            ProductLibrary.aioboto3: Product.aioboto3_custom,
-        }
-        return product_map[self.product_library]
+        return self.PRODUCT_MAP[self.product_library]
 
     def _select_services(self) -> list[ServiceName]:
         result = self.selected_service_names
@@ -268,16 +276,15 @@ class ChatBuddy:
         return [i.name for i in self.selected_service_names]
 
     def _get_install_cmd(self, whl_path: Path) -> str:
-        if self.package_manager == PackageManagerChoices.uv:
-            return f"uv add --dev {whl_path}"
-        if self.package_manager == PackageManagerChoices.pip:
-            return f"pip install {whl_path}"
-        if self.package_manager == PackageManagerChoices.poetry:
-            return f"poetry add -G dev {whl_path}"
-        if self.package_manager == PackageManagerChoices.pipenv:
-            return f"pipenv install --dev {whl_path}"
-
-        return f"pip install {whl_path}"
+        match self.package_manager:
+            case PackageManager.uv:
+                return f"uv add --dev {whl_path}"
+            case PackageManager.pip:
+                return f"pip install {whl_path}"
+            case PackageManager.poetry:
+                return f"poetry add -G dev {whl_path}"
+            case PackageManager.pipenv:
+                return f"pipenv install --dev {whl_path}"
 
     def _find_last_whl(self) -> Path | None:
         prefix = self.product_library.get_package_prefix()
@@ -306,25 +313,23 @@ class ChatBuddy:
         lines_indent = (f"  {line}" if line else "" for line in lines)
         self._say(f"\n\n{'\n'.join(lines_indent)}\n")
 
-    def _select_package_manager(self) -> str:
+    def _select_package_manager(self) -> PackageManager:
+        choices_map = {i.value: i for i in PackageManager}
         result = questionary.select(
             "My package manager is",
             qmark=QMARK,
             choices=[
-                PackageManagerChoices.uv,
-                PackageManagerChoices.pip,
-                PackageManagerChoices.poetry,
-                PackageManagerChoices.pipenv,
-                PackageManagerChoices.unknown,
+                *choices_map,
+                "... I dont' know :(",
             ],
-            default=PackageManagerChoices.uv,
+            default=PackageManager.uv.value,
         ).unsafe_ask()
         _linebreak()
-        if result == PackageManagerChoices.unknown:
-            self._say("Then let's use pip to install the package.")
-            return PackageManagerChoices.pip
+        if result not in choices_map:
+            self._say(f"I see... Let's use {_tag('pip')} then.")
+            return PackageManager.pip
 
-        return str(result)
+        return choices_map[result]
 
     def _select_output_path(self) -> Path:
         def _validate(path: Path | None) -> bool:
@@ -482,7 +487,7 @@ class ChatBuddy:
         )
         self.package_manager = self._select_package_manager()
         self._respond(
-            f"Sure, I use {_tag(self.package_manager)}. How to install the generated package?"
+            f"Sure, I use {_tag(self.package_manager.value)}. How to install the generated package?"
         )
 
         self._say(
@@ -496,15 +501,15 @@ class ChatBuddy:
     def _get_documentation_url(self) -> str:
         match self.product:
             case Product.types_boto3_custom:
-                return TypesBoto3CustomPackageData.LOCAL_DOC_LINK
+                return TypesBoto3CustomPackageData.local_doc_link
             case Product.boto3_custom:
-                return Boto3StubsCustomPackageData.LOCAL_DOC_LINK
+                return Boto3StubsCustomPackageData.local_doc_link
             case Product.aiobotocore_custom:
-                return TypesAioBotocoreCustomPackageData.LOCAL_DOC_LINK
+                return TypesAioBotocoreCustomPackageData.local_doc_link
             case Product.aioboto3_custom:
-                return TypesAioBoto3CustomPackageData.LOCAL_DOC_LINK
+                return TypesAioBoto3CustomPackageData.local_doc_link
             case _:
-                return TypesBoto3CustomPackageData.LOCAL_DOC_LINK
+                return TypesBoto3CustomPackageData.local_doc_link
 
     def _finish(self) -> None:
         self._say(

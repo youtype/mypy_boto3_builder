@@ -8,7 +8,7 @@
 
 ### Implicit type annotations
 
-Can be used with `{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_name }}]` package installed.
+Can be used with `{{ package.data.pypi_name }}[{{ package.service_name.extras_name }}]` package installed.
 
 Write your `{{ package.service_name.class_name }}` code as usual,
 type checking and code completion should work out of the box.
@@ -74,7 +74,7 @@ async with session.create_client("{{ package.service_name.boto3_name }}") as cli
 
 ### Explicit type annotations
 
-With `{{ package.data.PYPI_LITE_NAME }}[{{ package.service_name.extras_name }}]`
+With `{{ package.data.pypi_lite_name }}[{{ package.service_name.extras_name }}]`
 or a standalone `{{ package.name }}` package, you have to explicitly specify
 `client: {{ package.client.name }}` type annotation.
 

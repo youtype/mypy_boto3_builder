@@ -14,7 +14,7 @@ class TestParseWrapperPackage:
 
         result = parse_types_boto3_package(
             [service_name_mock, service_name2_mock],
-            package_data=Boto3StubsPackageData,
+            package_data=Boto3StubsPackageData(),
             version="1.2.3",
         )
         assert result.essential_service_names == [service_name_mock, service_name2_mock]

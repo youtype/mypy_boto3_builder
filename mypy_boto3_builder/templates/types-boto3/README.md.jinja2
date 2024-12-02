@@ -14,10 +14,10 @@ To speed up type checking and code completion, you can set types explicitly.
 import boto3
 from boto3.session import Session
 
-from {{ package.data.SERVICE_PREFIX }}_ec2.client import EC2Client
-from {{ package.data.SERVICE_PREFIX }}_ec2.service_resource import EC2ServiceResource
-from {{ package.data.SERVICE_PREFIX }}_ec2.waiter import BundleTaskCompleteWaiter
-from {{ package.data.SERVICE_PREFIX }}_ec2.paginator import DescribeVolumesPaginator
+from {{ package.data.service_prefix }}_ec2.client import EC2Client
+from {{ package.data.service_prefix }}_ec2.service_resource import EC2ServiceResource
+from {{ package.data.service_prefix }}_ec2.waiter import BundleTaskCompleteWaiter
+from {{ package.data.service_prefix }}_ec2.paginator import DescribeVolumesPaginator
 
 session = Session(region_name="us-west-1")
 

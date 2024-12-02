@@ -39,7 +39,7 @@ class ServicePackageParser:
     def __init__(
         self,
         service_name: ServiceName,
-        package_data: type[BasePackageData],
+        package_data: BasePackageData,
         version: str,
     ) -> None:
         self.service_name = service_name

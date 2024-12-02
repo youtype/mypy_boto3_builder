@@ -18,7 +18,7 @@ class TestServicePackageParser:
 
         parser = ServicePackageParser(
             service_name_mock,
-            package_data=Boto3StubsPackageData,
+            package_data=Boto3StubsPackageData(),
             version="1.2.3",
         )
         result = parser.parse()

@@ -17,7 +17,7 @@ from mypy_boto3_builder.utils.strings import xform_name
 
 def parse_fake_service_package(
     service_name: ServiceName,
-    package_data: type[BasePackageData],
+    package_data: BasePackageData,
     version: str,
 ) -> ServicePackage:
     """

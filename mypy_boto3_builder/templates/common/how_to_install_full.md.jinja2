@@ -10,7 +10,7 @@ I recommend using [uv](https://docs.astral.sh/uv/getting-started/installation/) 
 1. Add all available services.
 1. Use provided commands to install generated packages.
 
-{% if package.data.IS_VSCODE_SUPPORTED -%}
+{% if package.data.is_vscode_supported -%}
 ### VSCode extension
 
 Add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
@@ -21,17 +21,17 @@ Click `Auto-discover services` and select services you use in the current projec
 
 ### From PyPI with pip
 
-Install `{{ package.data.PYPI_NAME }}` to add type annotations for `{{ package.library_name }}` package.
+Install `{{ package.data.pypi_name }}` to add type annotations for `{{ package.library_name }}` package.
 
 ```bash
 # install type annotations
-python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
 
 # or install annotations in sync with {{ package.library_name }} version
-python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full,{{ package.library_name }}]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[full,{{ package.library_name }}]'
 ```
 
-{% if package.data.IS_CONDA_FORGE_SUPPORTED -%}
+{% if package.data.is_conda_forge_supported -%}
 ### From conda-forge
 
 Add `conda-forge` to your channels with:
@@ -41,23 +41,23 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `{{ package.data.PYPI_NAME }}`
+Once the `conda-forge` channel has been enabled, `{{ package.data.pypi_name }}`
 can be installed with:
 
 ```bash
-conda install {{ package.data.PYPI_STUBS_NAME }}
+conda install {{ package.data.pypi_stubs_name }}
 ```
 
-It is possible to list all of the versions of `{{ package.data.PYPI_NAME }}` available on your platform with:
+It is possible to list all of the versions of `{{ package.data.pypi_name }}` available on your platform with:
 
 ```bash
-conda search {{ package.data.PYPI_STUBS_NAME }} --channel conda-forge
+conda search {{ package.data.pypi_stubs_name }} --channel conda-forge
 ```
 {%- endif %}
 
 ## How to uninstall
 
 ```bash
-# uninstall {{ package.data.PYPI_STUBS_NAME }}
-python -m pip uninstall -y {{ package.data.PYPI_NAME }} {{ package.data.PYPI_STUBS_NAME }}
+# uninstall {{ package.data.pypi_stubs_name }}
+python -m pip uninstall -y {{ package.data.pypi_name }} {{ package.data.pypi_stubs_name }}
 ```

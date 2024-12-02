@@ -36,7 +36,7 @@ class BasePostprocessor(ABC):
     ) -> None:
         self.package = package
         self.service_names = service_names
-        self.docs_package_name = self.package.data.PYPI_NAME
+        self.docs_package_name = self.package.data.pypi_name
         self.logger = get_logger()
 
     def _has_service_resource(self, service_name: ServiceName) -> bool:

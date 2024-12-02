@@ -5,10 +5,10 @@
 - Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - Install [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
 - Set `Pylance` as your Python Language Server
-- Install `{{ package.data.PYPI_NAME }}` in your environment:
+- Install `{{ package.data.pypi_name }}` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
 ```
 
 Both type checking and code completion should now work.
@@ -19,35 +19,35 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 {% if package.data.has_pypi_lite_package() %}
 > ⚠️ Due to slow PyCharm performance on `Literal` overloads
 (issue [PY-40997](https://youtrack.jetbrains.com/issue/PY-40997)),
-it is recommended to use [{{ package.data.PYPI_LITE_NAME }}]({{ package.url.stubs_lite_pypi }})
+it is recommended to use [{{ package.data.pypi_lite_name }}]({{ package.url.stubs_lite_pypi }})
 until the issue is resolved.
 
 > ⚠️ If you experience slow performance and high CPU usage, try to disable `PyCharm` type checker and use
 [mypy](https://github.com/python/mypy) or [pyright](https://github.com/microsoft/pyright) instead.
 
-> ⚠️ To continue using `PyCharm` type checker, you can try to replace `{{ package.data.PYPI_STUBS_NAME }}` with
-[{{ package.data.PYPI_LITE_NAME }}]({{ package.url.stubs_lite_pypi }}):
+> ⚠️ To continue using `PyCharm` type checker, you can try to replace `{{ package.data.pypi_stubs_name }}` with
+[{{ package.data.pypi_lite_name }}]({{ package.url.stubs_lite_pypi }}):
 
 ```bash
-python -m pip uninstall -y {{ package.data.PYPI_STUBS_NAME }}
-python -m pip install '{{ package.data.PYPI_LITE_NAME }}[full]'
+python -m pip uninstall -y {{ package.data.pypi_stubs_name }}
+python -m pip install '{{ package.data.pypi_lite_name }}[full]'
 ```
 {% endif %}
 
-Install `{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}` in your environment:
+Install `{{ package.data.pypi_lite_name or package.data.pypi_name }}` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_LITE_NAME or package.data.PYPI_STUBS_NAME }}[full]'
+python -m pip install '{{ package.data.pypi_lite_name or package.data.pypi_stubs_name }}[full]'
 ```
 
 Both type checking and code completion should now work.
 
 ### Emacs
 
-- Install `{{ package.data.PYPI_NAME }}` in your environment:
+- Install `{{ package.data.pypi_name }}` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
 ```
 
 - Install
@@ -68,17 +68,17 @@ python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
   )
 ```
 
-- Make sure emacs uses the environment where you have installed `{{ package.data.PYPI_NAME }}`
+- Make sure emacs uses the environment where you have installed `{{ package.data.pypi_name }}`
 
 Type checking should now work.
 No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
 
 ### Sublime Text
 
-- Install `{{ package.data.PYPI_NAME }}` in your environment:
+- Install `{{ package.data.pypi_name }}` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
 ```
 
 - Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
@@ -93,10 +93,10 @@ Not tested, but as long as your IDE supports `mypy` or `pyright`, everything sho
 ### mypy
 
 - Install `mypy`: `python -m pip install mypy`
-- Install `{{ package.data.PYPI_NAME }}` in your environment: 
+- Install `{{ package.data.pypi_name }}` in your environment: 
 
 ```bash
-python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
 ```
 
 Type checking should now work.
@@ -105,13 +105,13 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 ### pyright
 
 - Install `pyright`: `npm i -g pyright`
-- Install `{{ package.data.PYPI_NAME }}` in your environment: 
+- Install `{{ package.data.pypi_name }}` in your environment: 
 
 ```bash
-python -m pip install '{{ package.data.PYPI_STUBS_NAME }}[full]'
+python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
 ```
 
-Optionally, you can install `{{ package.data.PYPI_NAME }}` to `typings` directory.
+Optionally, you can install `{{ package.data.pypi_name }}` to `typings` directory.
 
 Type checking should now work.
 No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
@@ -127,9 +127,9 @@ variables. To fix it, set all types to `object` in non-`TYPE_CHECKING` mode.
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from {{ package.data.SERVICE_PREFIX }}_ec2 import EC2Client, EC2ServiceResource
-    from {{ package.data.SERVICE_PREFIX }}_ec2.waiters import BundleTaskCompleteWaiter
-    from {{ package.data.SERVICE_PREFIX }}_ec2.paginators import DescribeVolumesPaginator
+    from {{ package.data.service_prefix }}_ec2 import EC2Client, EC2ServiceResource
+    from {{ package.data.service_prefix }}_ec2.waiters import BundleTaskCompleteWaiter
+    from {{ package.data.service_prefix }}_ec2.paginators import DescribeVolumesPaginator
 else:
     EC2Client = object
     EC2ServiceResource = object
