@@ -316,7 +316,7 @@ class ChatBuddy:
             self._say("Then let's use pip to install the package.")
             return PackageManagerChoices.pip
 
-        return result
+        return str(result)
 
     def _select_output_path(self) -> Path:
         def _validate(path: Path | None) -> bool:
@@ -352,7 +352,7 @@ class ChatBuddy:
             qmark=QMARK,
         ).unsafe_ask()
         _linebreak()
-        return response
+        return bool(response)
 
     def _get_response_services(self) -> str:
         if self._is_all_selected():

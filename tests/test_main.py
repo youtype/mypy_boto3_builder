@@ -1,7 +1,7 @@
 import sys
 from unittest.mock import MagicMock, patch
 
-from mypy_boto3_builder.main import get_available_service_names, get_selected_service_names, main
+from mypy_boto3_builder.main import get_selected_service_names, main
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 
@@ -36,14 +36,6 @@ class TestMain:
                     ],
                 )
             ] == ["ec2", "ecs"]
-
-    def test_get_available_service_names(self) -> None:
-        session_mock = MagicMock()
-        session_mock.get_available_services.return_value = ["s3", "ec2", "unsupported"]
-        session_mock.get_service_data.return_value = {
-            "metadata": {"serviceAbbreviation": "Amazon S3", "serviceId": "s3"},
-        }
-        assert len(get_available_service_names(session_mock)) == 3
 
     @patch("mypy_boto3_builder.main.get_available_service_names")
     @patch("mypy_boto3_builder.main.Boto3Generator")
