@@ -22,15 +22,17 @@ from mypy_boto3_builder.enums.product_library import ProductLibrary
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
 from mypy_boto3_builder.utils.path import print_path
+from mypy_boto3_builder.utils.version_getters import get_botocore_version
 
 MAX_SERVICE_PRINTED = 20
 MAX_SERVICE_SELECTABLE = 20
 DEFAULT_OUTPUT_PATH = Path("./vendored")
 REPORT_URL = "https://github.com/youtype/mypy_boto3_builder/issues"
-QMARK = "Input:  "
-BUILDER_PREFIX = "Builder:"
-YOU_PREFIX = "You:    "
+QMARK = "Input:"
+BUILDER_PREFIX = "NotAI:"
+YOU_PREFIX = "You:  "
 PAIR = 2
+PROJECT_PATH = Path.cwd()
 
 
 class ServiceActions:
@@ -88,6 +90,7 @@ class ChatBuddy:
         self.library_name: str = ""
         self.product: Product = Product.types_boto3_custom
         self.output_path: Path = DEFAULT_OUTPUT_PATH
+        self.project_path = PROJECT_PATH
         self.args = CLINamespace(
             log_level=logging.ERROR,
             output_path=self.output_path,
@@ -155,7 +158,8 @@ class ChatBuddy:
         if self._is_all_selected():
             return (
                 f"Do you want type annotations for {_tag('ALL')} available services?"
-                f" It will take {_tag('10-20 minutes')}!"
+                f" Building all takes {_tag('10-20 minutes')} and package size is"
+                f" around {_tag('12 megabytes')}!"
             )
         if not selected:
             return f"Okay, what service do you want to {_tag('add')}?"
@@ -371,8 +375,10 @@ class ChatBuddy:
         just_fix_windows_console()
         self._say(f"Hello from {_tag(PROG_NAME)}!")
         self._say(
-            f"It looks like you plan to add {_tag('boto3')}, {_tag('aioboto3')},"
-            f" or {_tag('aiobotocore')} type annotations to your project."
+            f"It looks like you plan to add {_tag('type checking')} and {_tag('auto-complete')} for"
+            f" {_tag('boto3')}, {_tag('aioboto3')},"
+            f" or {_tag('aiobotocore')} to your project in"
+            f" {_tag(print_path(self.project_path))} directory."
         )
         self._say(
             f"You launched me with no {_tag('OUTPUT_PATH')} command-line argument,"
@@ -391,13 +397,15 @@ class ChatBuddy:
         self.library_name = self.product_library.get_library_name()
         self._respond(
             f"I use {_tag(self.library_name)} in this project."
-            f" Now, how to build {_tag('type annotations')} for it?"
+            f" Now, how can I add {_tag('type annotations')} and {_tag('code completion')} for it?"
         )
 
         self.product = self._select_product()
 
+        botocore_str = f"botocore {get_botocore_version()}"
         self._say(
-            f"Just a sec! I am fetching all available services for {_tag(self.library_name)}..."
+            f"Oh, it is easy. Just a sec, I am fetching all available services"
+            f" for {_tag(self.library_name)} from {_tag(botocore_str)} shapes..."
         )
         self.available_service_names = tuple(get_available_service_names())
         self.initial_service_names = self._get_selected_service_names()
@@ -419,12 +427,11 @@ class ChatBuddy:
             services_str = f"{_tag(len(self.selected_service_names))} services support"
 
         self._say(
-            f"Great! Now I am ready to generate type annotations for {_tag(self.library_name)}"
+            f"Great! Let's generate type annotations for {_tag(self.library_name)}"
             f" with {services_str}."
         )
-        self._say(
-            f"Almost forgot... Where should I put a generated {_tag(self.product.value)} package?"
-        )
+        package_name = f"{self.product_library.get_package_prefix()}-*.whl"
+        self._say(f"Almost forgot... Where should I put a generated {_tag(package_name)} package?")
         self._say(
             f"I prefer to use {_tag(print_path(self.output_path))} directory,"
             " but it is up to you."
@@ -437,7 +444,7 @@ class ChatBuddy:
 
         self.args = self._get_cli_namespace()
 
-        self._say(f"Got it! I can start building {_tag(self.product.value)} now if you want.")
+        self._say(f"Got it! I can start building {_tag(package_name)} now if you want.")
         if not self._do_start_building():
             self._respond("No, I just want to check how to do it.")
             self._say(f"No worries, you can always build {_tag(self.product.value)} later!")
