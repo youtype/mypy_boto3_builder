@@ -3,7 +3,7 @@
 ### Generate locally (recommended)
 
 You can generate type annotations for `{{ package.library_name }}` package locally with `{{ builder_package_name }}`.
-I recommend using [uv](https://docs.astral.sh/uv/getting-started/installation/) for build isolation.
+Use [uv](https://docs.astral.sh/uv/getting-started/installation/) for build isolation.
 
 1. Run {{ builder_package_name }} in your package root directory: `uvx --with '{{ package.library_name }}=={{ package.library_version }}' {{ builder_package_name }}`
 1. Select `{{ package.library_chat_choice }}` AWS SDK.
@@ -21,15 +21,17 @@ Click `Auto-discover services` and select services you use in the current projec
 
 ### From PyPI with pip
 
-Install `{{ package.data.pypi_stubs_name }}` to add type annotations for `{{ package.library_name }}` package.
+Install `{{ package.data.pypi_stubs_name }}` to add type checking for `{{ package.library_name }}` package.
 
 ```bash
 # install type annotations only for {{ package.library_name }}
 python -m pip install {{ package.data.pypi_stubs_name }}
 
+{%- if package.essential_service_names %}{{ "\n\n" -}}
 # install {{ package.library_name }} type annotations
-# for ec2, s3, rds, lambda, sqs, dynamo, and cloudformation
+# for {% for service_name in package.essential_service_names %}{{ service_name.name }}{{ ", " if not loop.last else "" -}}{% endfor %}
 python -m pip install '{{ package.data.pypi_stubs_name }}[essential]'
+{%- endif %}
 
 # or install annotations for services you use
 python -m pip install '{{ package.data.pypi_stubs_name }}[acm,apigateway]'
@@ -37,16 +39,16 @@ python -m pip install '{{ package.data.pypi_stubs_name }}[acm,apigateway]'
 # or install annotations in sync with {{ package.library_name }} version
 python -m pip install '{{ package.data.pypi_stubs_name }}[{{ package.library_name }}]'
 
-{% if package.data.pypi_full_name %}
+{%- if package.data.pypi_full_name %}{{ "\n\n" -}}
 # or install all-in-one annotations for all services
 python -m pip install '{{ package.data.pypi_stubs_name }}[full]'
-{% endif %}
+{%- endif %}
 
-{% if package.data.pypi_lite_name %}
+{%- if package.data.pypi_lite_name %}{{ "\n\n" -}}
 # Lite version does not provide session.client/resource overloads
 # it is more RAM-friendly, but requires explicit type annotations
 python -m pip install '{{ package.data.pypi_lite_name }}[essential]'
-{% endif %}
+{%- endif %}
 ```
 
 {% if package.data.is_conda_forge_supported -%}

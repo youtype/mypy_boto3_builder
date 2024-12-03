@@ -2,9 +2,11 @@
 
 {% include "common/how_to_install.md.jinja2" with context %}
 
+{% if package.essential_service_names %}
 {% with extras_name="essential" %}
 {% include "common/usage.md.jinja2" with context %}
 {% endwith %}
+{% endif %}
 
 ## Explicit type annotations
 

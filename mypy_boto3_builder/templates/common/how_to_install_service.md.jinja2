@@ -3,7 +3,7 @@
 ### Generate locally (recommended)
 
 You can generate type annotations for `{{ package.library_name }}` package locally with `{{ builder_package_name }}`.
-I recommend using [uv](https://docs.astral.sh/uv/getting-started/installation/) for build isolation.
+Use [uv](https://docs.astral.sh/uv/getting-started/installation/) for build isolation.
 
 1. Run {{ builder_package_name }} in your package root directory: `uvx --with '{{ package.library_name }}=={{ package.library_version }}' {{ builder_package_name }}`
 1. Select `{{ package.library_chat_choice }}` AWS SDK.
@@ -27,11 +27,11 @@ Install `{{ package.data.pypi_stubs_name }}` for `{{ service_name.class_name }}`
 # install with {{ package.library_name }} type annotations
 python -m pip install '{{ package.data.pypi_stubs_name }}[{{ package.service_name.extras_name }}]'
 
-{% if package.data.pypi_lite_name %}
+{%- if package.data.pypi_lite_name %}{{ "\n\n" -}}
 # Lite version does not provide session.client/resource overloads
 # it is more RAM-friendly, but requires explicit type annotations
 python -m pip install '{{ package.data.pypi_lite_name }}[{{ package.service_name.extras_name }}]'
-{% endif %}
+{%- endif %}
 
 # standalone installation
 python -m pip install {{ package.pypi_name }}

@@ -35,10 +35,3 @@ class MypyBoto3Package(Package):
         super().__init__(MypyBoto3PackageData(), service_names, version=version)
         self.service_packages = list(service_packages)
         self.literals: list[TypeLiteral] = []
-
-    @property
-    def essential_service_names(self) -> list[ServiceName]:
-        """
-        List of services maked as essential.
-        """
-        return [service_name for service_name in self.service_names if service_name.is_essential()]

@@ -3,7 +3,7 @@
 ### Generate locally (recommended)
 
 You can generate type annotations for `{{ package.library_name }}` package locally with `{{ builder_package_name }}`.
-I recommend using [uv](https://docs.astral.sh/uv/getting-started/installation/) for build isolation.
+Use [uv](https://docs.astral.sh/uv/getting-started/installation/) for build isolation.
 
 1. Run {{ builder_package_name }} in your package root directory: `uvx --with '{{ package.library_name }}=={{ package.library_version }}' {{ builder_package_name }}`
 1. Select `{{ package.library_chat_choice }}` AWS SDK.
@@ -21,7 +21,7 @@ Click `Auto-discover services` and select services you use in the current projec
 
 ### From PyPI with pip
 
-Install `{{ package.data.pypi_name }}` to add type annotations for `{{ package.library_name }}` package.
+Install `{{ package.data.pypi_name }}` to add type checking for `{{ package.library_name }}` package.
 
 ```bash
 # install type annotations

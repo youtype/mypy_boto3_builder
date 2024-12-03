@@ -56,13 +56,6 @@ class WrapperPackage(Package, ABC):
         """
         self._description = value
 
-    @property
-    def essential_service_names(self) -> list[ServiceName]:
-        """
-        Service names marked as essential.
-        """
-        return [service_name for service_name in self.service_names if service_name.is_essential()]
-
     def get_init_required_import_records(self) -> ImportRecordGroup:
         """
         Get import record group for `__init__.py[i]`.
