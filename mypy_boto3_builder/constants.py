@@ -36,7 +36,6 @@ PACKAGE_NAME: Final = "mypy-boto3-builder"
 
 # universal mask for all resources
 ALL: Final = "*"
-DELETE: Final = "_delete"
 ATTRIBUTES: Final = "_attributes"
 SERVICE_RESOURCE: Final = "ServiceResource"
 CLIENT: Final = "Client"

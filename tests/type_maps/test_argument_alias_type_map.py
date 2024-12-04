@@ -19,7 +19,6 @@ class TestArgumentAliasTypeMap:
         assert get_argument_alias(ServiceNameCatalog.ec2, "MyOperation", "Filter") == "Filters"
         assert get_argument_alias(ServiceNameCatalog.ec2, "MyOperation", "Other") == "Other"
 
-        assert get_argument_alias(ServiceNameCatalog.s3, "PutBucketCors", "ContentMD5") is None
         assert (
             get_argument_alias(ServiceNameCatalog.s3, "PutBucketCors", "ContentSHA256")
             == "ContentSHA256"

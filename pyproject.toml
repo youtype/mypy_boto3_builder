@@ -30,9 +30,9 @@ dependencies = [
     "requests",
     "ruff",
     "setuptools",
-    "questionary",
     "colorama",
     "prompt-toolkit",
+    "questionary",
 ]
 
 [project.optional-dependencies]
