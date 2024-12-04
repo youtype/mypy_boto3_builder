@@ -225,8 +225,6 @@ class ShapeParser:
             if argument_name in exclude_names:
                 continue
             argument_alias = get_argument_alias(self.service_name, operation_name, argument_name)
-            if argument_alias is None:
-                continue
 
             argument_type_stub = get_method_type_stub(
                 self.service_name,

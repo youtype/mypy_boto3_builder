@@ -15,6 +15,7 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.type_maps.literals import QueueAttributeFilterType
 from mypy_boto3_builder.type_maps.named_unions import (
     ConditionBaseImportTypeDef,
@@ -51,6 +52,16 @@ _DEFAULT_VALUE_MAP_LOOKUP: LookupDict[TypeConstant] = LookupDict(
 # Missing value is parsed from botocore shapes.
 TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
     ServiceNameCatalog.s3: {
+        # FIXME: boto3 calculates ...MD5 for some S3 methods.
+        ALL: {
+            ALL: {
+                "SSECustomerKey": TypeUnion([Type.str, Type.bytes]),
+                "CopySourceSSECustomerKey": TypeUnion([Type.str, Type.bytes]),
+                "ContentMD5": Type.RemoveArgument,
+                "SSECustomerKeyMD5": Type.RemoveArgument,
+                "CopySourceSSECustomerKeyMD5": Type.RemoveArgument,
+            },
+        },
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.
         # Types are set according to docs, might be incorrect
         CLIENT: {
