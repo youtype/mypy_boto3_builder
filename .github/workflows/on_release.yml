@@ -63,7 +63,7 @@ jobs:
           rm -rf dist/* || true
           uv build --sdist --wheel --no-sources
           # uv publish
-          uvx twine upload dist/*.whl -u ${PYPI_USERNAME} -p ${PYPI_PASSWORD}
+          uvx twine upload dist/*.whl dist/*.tar.gz -u ${PYPI_USERNAME} -p ${PYPI_PASSWORD} --skip-existing
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
