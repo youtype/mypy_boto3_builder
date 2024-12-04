@@ -56,14 +56,14 @@ jobs:
           git push
       - name: Publish to PyPI
         env:
-          PYPI_USERNAME: __token__
-          PYPI_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: |
           rm -rf dist/* || true
           uv build --sdist --wheel --no-sources
           # uv publish
-          uvx twine upload dist/*.whl dist/*.tar.gz -u ${PYPI_USERNAME} -p ${PYPI_PASSWORD} --skip-existing
+          uvx twine upload --non-interactive dist/*
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
