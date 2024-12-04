@@ -6,6 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 import logging
 import sys
+import time
 from collections.abc import Callable, Sequence
 from enum import Enum
 from pathlib import Path
@@ -34,6 +35,7 @@ from mypy_boto3_builder.utils.version_getters import get_botocore_version
 
 MAX_SERVICE_PRINTED = 20
 MAX_SERVICE_SELECTABLE = 20
+MAX_SERVICE_PYCHARM = 20
 DEFAULT_OUTPUT_PATH = Path("./vendored")
 REPORT_URL = "https://github.com/youtype/mypy_boto3_builder/issues"
 QMARK = "Input:"
@@ -51,6 +53,7 @@ class ServiceActions:
     build = "continue"
     add = "add another service"
     add_all = "add all available services"
+    recommended = "add only recommended services"
     remove = "remove selected service"
     remove_all = "remove all selected services"
 
@@ -66,12 +69,29 @@ class PackageManager(Enum):
     pipenv = "pipenv"
 
 
-def _tag(message: str | float, color: str = Fore.CYAN) -> str:
-    return f"{color}{Style.BRIGHT}{message}{Style.RESET_ALL}"
+def _tag(message: str | float, color: str = Fore.CYAN, style: str = Style.BRIGHT) -> str:
+    return f"{color}{style}{message}{Style.RESET_ALL}{Fore.RESET}"
+
+
+def _gray(message: str | float, color: str = Fore.WHITE) -> str:
+    return _tag(message, color, Style.DIM)
 
 
 def _linebreak() -> None:
     sys.stdout.write("\n")
+
+
+def _typewrite(message: str) -> None:
+    words = message.split(" ")
+    for index, word in enumerate(words):
+        if index == len(words) - 1:
+            sys.stdout.write(word)
+            sys.stdout.flush()
+            break
+
+        sys.stdout.write(f"{word} ")
+        time.sleep(0.03)
+        sys.stdout.flush()
 
 
 def _join_and(items: Sequence[str]) -> str:
@@ -99,7 +119,7 @@ class ChatBuddy:
     def __init__(self) -> None:
         self.available_service_names: tuple[ServiceName, ...] = ()
         self.selected_service_names: list[ServiceName] = []
-        self.initial_service_names: list[ServiceName] = []
+        self.recommended_service_names: list[ServiceName] = []
         self.product_library = ProductLibrary.boto3
         self.library_name: str = ""
         self.product: Product = Product.types_boto3_custom
@@ -121,14 +141,27 @@ class ChatBuddy:
         return [i for i in self.available_service_names if i.is_essential()]
 
     @staticmethod
-    def _say(message: str) -> None:
-        sys.stdout.write(f"{_tag(BUILDER_PREFIX, Fore.MAGENTA)} {message}\n\n")
+    def _say(*messages: str) -> None:
+        for message in messages:
+            sys.stdout.write(_tag(BUILDER_PREFIX, Fore.MAGENTA))
+            sys.stdout.write(" ")
+            _typewrite(message)
+            sys.stdout.write("\n\n")
+            sys.stdout.flush()
 
-    def _respond(self, message: str) -> None:
-        sys.stdout.write(f"{_tag(YOU_PREFIX, Fore.GREEN)} {message}\n\n")
+    def _respond(self, *messages: str) -> None:
+        for message in messages:
+            sys.stdout.write(_tag(YOU_PREFIX, Fore.GREEN))
+            sys.stdout.write(" ")
+            sys.stdout.write(message)
+            sys.stdout.write("\n\n")
+            sys.stdout.flush()
 
     def _select_service_name(
-        self, message: str, service_names: list[ServiceName]
+        self,
+        message: str,
+        service_names: list[ServiceName],
+        go_back_message: str,
     ) -> ServiceName | None:
         choices = {f"{i.class_name} ({i.boto3_name})": i for i in service_names}
         lower_choices = {k.lower(): v for k, v in choices.items()}
@@ -142,7 +175,10 @@ class ChatBuddy:
                     raise ValidationError(len(choice), f"{choice} service does not exist")
                 return True
 
-            self._say("Start typing service name so I can find it in the list.")
+            self._say(
+                f"Start typing {_tag('service name')} so I can find it in the list."
+                f" Leave the input {_tag('empty')} and press {_tag('Enter')} to continue."
+            )
             selected_choice = questionary.autocomplete(
                 message=message,
                 qmark=QMARK,
@@ -152,11 +188,11 @@ class ChatBuddy:
             ).unsafe_ask()
             _linebreak()
         else:
-            self._say("Which one?")
             selected_choice = questionary.select(
                 message=message,
                 qmark=QMARK,
-                choices=["nothing, go back", *choices],
+                default=go_back_message,
+                choices=[go_back_message, *choices],
             ).unsafe_ask()
             _linebreak()
         if not selected_choice:
@@ -164,22 +200,68 @@ class ChatBuddy:
         key = selected_choice.lower()
         return lower_choices.get(key)
 
+    def _add_service_names(self) -> None:
+        selected_set = set(self.selected_service_names)
+        message = "I use"
+        while True:
+            choice_service_names = [
+                i for i in self.available_service_names if i not in selected_set
+            ]
+            selected_service_name = self._select_service_name(
+                message=message,
+                service_names=choice_service_names,
+                go_back_message="all of the above. Continue.",
+            )
+            if not selected_service_name:
+                break
+
+            self.selected_service_names.append(selected_service_name)
+            selected_set.add(selected_service_name)
+            self._say(*self._get_services_messages())
+
+    def _remove_service_names(self) -> None:
+        message = "I do not use"
+        while True:
+            choice_service_names = list(self.selected_service_names)
+            selected_service_name = self._select_service_name(
+                message=message,
+                service_names=choice_service_names,
+                go_back_message="anything else. Continue.",
+            )
+            if not selected_service_name:
+                break
+
+            self.selected_service_names.remove(selected_service_name)
+            self._say(*self._get_services_messages())
+
     def _is_all_selected(self) -> bool:
         return len(self.selected_service_names) == len(self.available_service_names)
 
-    def _get_services_message(self) -> str:
+    def _get_services_messages(self) -> list[str]:
         selected = self.selected_service_names
+        result: list[str] = []
         if self._is_all_selected():
-            return (
-                f"Do you really need type checking for {_tag('ALL')} available services?"
-                f" Building all takes {_tag('10-20 minutes')}, and package size is"
-                f" around {_tag('12 megabytes')}!"
+            result.extend(
+                (
+                    f"Do you really need type checking for {_tag('ALL')} available services?",
+                    f"Building all takes {_tag('10-20 minutes')}, and package size is"
+                    f" around {_tag('12 megabytes')}!",
+                )
+            )
+        if len(self.selected_service_names) > MAX_SERVICE_PYCHARM:
+            result.append(
+                f"If you use {_tag('PyCharm')}, select less than {_tag(MAX_SERVICE_PYCHARM)}"
+                " services. Otherwise, you may have peroformance issues."
             )
         if not selected:
-            return f"Okay, what service do you want to {_tag('add')}?"
+            result.append(f"Okay, what service do you want to {_tag('add')}?")
+            return result
 
         if len(selected) == 1:
-            return f"Should I add type checking only for {_tag(selected[0].class_name)} service?"
+            result.append(
+                f"Should I add type checking only for {_tag(selected[0].class_name)} service?"
+            )
+            return result
 
         if len(selected) > MAX_SERVICE_PRINTED:
             selected_strs = [
@@ -189,7 +271,8 @@ class ChatBuddy:
         else:
             selected_strs = [_tag(i.class_name) for i in selected]
         selected_str = _join_and(selected_strs)
-        return f"Do you use {selected_str} services?"
+        result.append(f"Do you use {selected_str} services?")
+        return result
 
     def _select_library(self) -> ProductLibrary | None:
         library_choices = {
@@ -214,15 +297,18 @@ class ChatBuddy:
     def _select_services(self) -> list[ServiceName]:
         result = self.selected_service_names
         while True:
-            self._say(self._get_services_message())
+            self._say(*self._get_services_messages())
             response_choices = list(
                 filter(
                     None,
                     [
                         ServiceActions.build if result else None,
                         ServiceActions.add if not self._is_all_selected() else None,
-                        ServiceActions.add_all if not self._is_all_selected() else None,
+                        ServiceActions.recommended
+                        if self.selected_service_names != self.recommended_service_names
+                        else None,
                         ServiceActions.remove if result else None,
+                        ServiceActions.add_all if not self._is_all_selected() else None,
                         ServiceActions.remove_all if result else None,
                     ],
                 )
@@ -238,28 +324,21 @@ class ChatBuddy:
                 case ServiceActions.build:
                     return result
                 case ServiceActions.add:
-                    result_set = set(result)
-                    choice_service_names = [
-                        i for i in self.available_service_names if i not in result_set
-                    ]
-                    message = "I use" if not result else "I also use"
-                    service_name = self._select_service_name(message, choice_service_names)
-                    if service_name is None:
-                        continue
-                    result.append(service_name)
+                    self._add_service_names()
                     continue
                 case ServiceActions.add_all:
                     result.clear()
                     result.extend(self.available_service_names)
                     continue
                 case ServiceActions.remove:
-                    service_name = self._select_service_name("I do not use", result)
-                    if service_name is None:
-                        continue
-                    result.remove(service_name)
+                    self._remove_service_names()
                     continue
                 case ServiceActions.remove_all:
                     result.clear()
+                    continue
+                case ServiceActions.recommended:
+                    result.clear()
+                    result.extend(self.recommended_service_names)
                     continue
                 case _:
                     return result
@@ -292,7 +371,9 @@ class ChatBuddy:
     def _say_commands(self) -> None:
         cmd = " ".join(self.args.to_cmd())
         lines = [
-            f"# generate {self.library_name} services",
+            _gray(
+                f"# generate {self.library_name} services",
+            ),
             cmd,
         ]
         found_whl = self._find_last_whl()
@@ -300,7 +381,7 @@ class ChatBuddy:
             lines.extend(
                 (
                     "",
-                    f"# install with {self.package_manager}",
+                    _gray(f"# install with {self.package_manager.value}"),
                     self._get_install_cmd(found_whl),
                 )
             )
@@ -316,7 +397,6 @@ class ChatBuddy:
                 *choices_map,
                 "... I dont' know :(",
             ],
-            default=PackageManager.uv.value,
         ).unsafe_ask()
         _linebreak()
         if result not in choices_map:
@@ -365,7 +445,7 @@ class ChatBuddy:
         if self._is_all_selected():
             return "Let's include all the services. Just in case. I might need them later."
 
-        if self.selected_service_names == self.initial_service_names:
+        if self.selected_service_names == self.recommended_service_names:
             return "Looks good. I use the most popular services."
 
         services_str = _join_and([_tag(i.class_name) for i in self.selected_service_names])
@@ -376,20 +456,16 @@ class ChatBuddy:
         Run chat buddy.
         """
         just_fix_windows_console()
-        self._say(f"Hello from {_tag(PROG_NAME)}!")
         self._say(
+            f"Hello from {_tag(PROG_NAME)}!",
             f"It looks like you plan to add {_tag('type checking')} and {_tag('auto-complete')} for"
             f" {_tag('boto3')}, {_tag('aioboto3')},"
             f" or {_tag('aiobotocore')} to your project in"
-            f" {_tag(print_path(self.project_path))} directory."
-        )
-        self._say(
+            f" {_tag(print_path(self.project_path))} directory.",
             f"You launched me with no {_tag('OUTPUT_PATH')} command-line argument,"
-            f" so I decided to help you a bit."
-        )
-        self._say(
+            f" so I decided to help you a bit.",
             "By the way, my author did not add any tests for my code."
-            f" So, if anything goes wrong, report to {_tag(REPORT_URL)}"
+            f" So, if anything goes wrong, report to {_tag(REPORT_URL)}",
         )
         self._say(f"First of all, what {_tag('AWS SDK library')} do you use?")
         product_library = self._select_library()
@@ -414,15 +490,15 @@ class ChatBuddy:
             f" for {_tag(self.library_name)} from {_tag(botocore_str)} shapes..."
         )
         self.available_service_names = tuple(get_available_service_names())
-        self.initial_service_names = self._get_selected_service_names()
-        self.selected_service_names = list(self.initial_service_names)
-        self._say("Thanks for waiting!")
+        self.recommended_service_names = self._get_selected_service_names()
+        self.selected_service_names = list(self.recommended_service_names)
         self._say(
+            "Thanks for waiting!",
             f"There are {_tag(len(self.available_service_names))} supported services"
-            f" for {_tag(self.library_name)}."
-            " However, most projects use only"
-            f" {_tag(len(self.selected_service_names))} of them."
-            " Let me know if you use any other services."
+            f" for {_tag(self.library_name)}.",
+            "However, most projects use only"
+            f" {_tag(len(self.selected_service_names))},"
+            f" so I {_tag('recommend')} adding only them.",
         )
         self.selected_service_names = self._select_services()
         self._respond(self._get_response_services())
@@ -436,17 +512,7 @@ class ChatBuddy:
             f"Great! Let's generate type annotations for {_tag(self.library_name)}"
             f" with {services_str}."
         )
-        package_name = f"{self.product_library.get_package_prefix()}-*.whl"
-        self._say(f"Almost forgot... Where should I put a generated {_tag(package_name)} package?")
-        self._say(
-            f"I prefer to use {_tag(print_path(self.output_path))} directory,"
-            " but it is up to you."
-        )
-        self.output_path = self._select_output_path()
-        self._respond(
-            f"Save the package in {_tag(print_path(self.output_path))}."
-            f" I might even add it to {_tag('git')}!"
-        )
+        package_name = f"{self.product_library.get_package_prefix()}_*.whl"
 
         self.args = self._get_cli_namespace()
 
@@ -459,6 +525,19 @@ class ChatBuddy:
             return
 
         self._respond("Go for it!")
+
+        self._say(
+            f"Almost forgot... Where should I put a generated {_tag(package_name)} package?",
+            f"I prefer to use {_tag(print_path(self.output_path))} directory,"
+            " but it is up to you.",
+        )
+        self.output_path = self._select_output_path()
+        self._respond(
+            f"Save the package in {_tag(print_path(self.output_path))}."
+            f" I might even add it to {_tag('git')}!"
+        )
+        self._say(f"Good idea! Building to {_tag(print_path(self.output_path))} directory...")
+
         run_builder(self.args)
         _linebreak()
 
@@ -472,12 +551,10 @@ class ChatBuddy:
             self._finish()
             return
 
-        self._say(f"I have built {_tag(print_path(found_whl))}, and it is ready to install.")
-
         self._say(
-            f"Let me know what {_tag('package manager')} you use."
-            f" I can recommend {_tag('uv')}, because it is extremely fast."
-            " But you can choose any other."
+            f"I have built {_tag(print_path(found_whl))}, and it is ready to install.",
+            f"Let me know which {_tag('package manager')} you use."
+            f" I can recommend {_tag('uv')}, because it is extremely fast.",
         )
         self.package_manager = self._select_package_manager()
         self._respond(
@@ -508,6 +585,6 @@ class ChatBuddy:
     def _finish(self) -> None:
         self._say(
             f"Check {_tag(self._get_documentation_url())} documentation. It describes all"
-            f" type annotations for {_tag(self.library_name)}."
+            f" type annotations for {_tag(self.library_name)}.",
+            "Bye-bye! Have a nice day!",
         )
-        self._say("Bye-bye! Have a nice day!")
