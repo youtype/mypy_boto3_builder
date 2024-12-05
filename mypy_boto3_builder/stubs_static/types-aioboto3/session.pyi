@@ -28,7 +28,7 @@ class Session(Boto3Session):
         profile_name: str | None = ...,
     ) -> None:
         self._session: BotocoreSession
-        self.resource_factory: AIOBoto3ResourceFactory
+        self.resource_factory: AIOBoto3ResourceFactory  # type: ignore [override]
         self._loader: Loader
 
     def get_credentials(self) -> AioCredentials | None: ...
