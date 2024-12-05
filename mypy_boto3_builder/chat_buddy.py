@@ -81,6 +81,10 @@ def _linebreak() -> None:
     sys.stdout.write("\n")
 
 
+def _stringify(service_name: ServiceName) -> str:
+    return f"{service_name.class_name} ({service_name.boto3_name})"
+
+
 def _typewrite(message: str) -> None:
     words = message.split(" ")
     for index, word in enumerate(words):
@@ -118,6 +122,7 @@ class ChatBuddy:
 
     def __init__(self) -> None:
         self.available_service_names: tuple[ServiceName, ...] = ()
+        self.available_lookup_map: dict[str, ServiceName] = {}
         self.selected_service_names: list[ServiceName] = []
         self.recommended_service_names: list[ServiceName] = []
         self.product_library = ProductLibrary.boto3
@@ -157,6 +162,13 @@ class ChatBuddy:
             sys.stdout.write("\n\n")
             sys.stdout.flush()
 
+    @staticmethod
+    def _get_service_lookup_map(service_names: Sequence[ServiceName]) -> dict[str, ServiceName]:
+        result = {_stringify(i).lower(): i for i in service_names}
+        result.update({i.class_name.lower(): i for i in service_names})
+        result.update({i.boto3_name.lower(): i for i in service_names})
+        return result
+
     def _select_service_name(
         self,
         message: str,
@@ -164,16 +176,30 @@ class ChatBuddy:
         go_back_message: str,
     ) -> ServiceName | None:
         choices = {f"{i.class_name} ({i.boto3_name})": i for i in service_names}
-        lower_choices = {k.lower(): v for k, v in choices.items()}
-        lower_choices.update({i.class_name.lower(): i for i in service_names})
-        lower_choices.update({i.boto3_name.lower(): i for i in service_names})
+        lookup_choices = self._get_service_lookup_map(service_names)
         selected_choice: str
         if len(choices) > MAX_SERVICE_SELECTABLE:
 
             def _validate(choice: str) -> bool:
-                if choice and choice.lower() not in lower_choices:
+                if not choice:
+                    return True
+                if choice.lower() in lookup_choices:
+                    return True
+
+                available_service_name = self.available_lookup_map.get(choice.lower())
+                if not available_service_name:
                     raise ValidationError(len(choice), f"{choice} service does not exist")
-                return True
+
+                if available_service_name in self.selected_service_names:
+                    raise ValidationError(
+                        len(choice),
+                        f"{_stringify(available_service_name)} service is already selected",
+                    )
+
+                raise ValidationError(
+                    len(choice),
+                    f"{_stringify(available_service_name)} service is already removed",
+                )
 
             self._say(
                 f"Start typing {_tag('service name')} so I can find it in the list."
@@ -198,7 +224,7 @@ class ChatBuddy:
         if not selected_choice:
             return None
         key = selected_choice.lower()
-        return lower_choices.get(key)
+        return lookup_choices.get(key)
 
     def _add_service_names(self) -> None:
         selected_set = set(self.selected_service_names)
@@ -240,6 +266,11 @@ class ChatBuddy:
     def _get_services_messages(self) -> list[str]:
         selected = self.selected_service_names
         result: list[str] = []
+        if len(self.selected_service_names) > MAX_SERVICE_PYCHARM:
+            result.append(
+                f"If you use {_tag('PyCharm')}, select less than {_tag(MAX_SERVICE_PYCHARM)}"
+                " services. Otherwise, you may have peroformance issues."
+            )
         if self._is_all_selected():
             result.extend(
                 (
@@ -248,11 +279,7 @@ class ChatBuddy:
                     f" around {_tag('12 megabytes')}!",
                 )
             )
-        if len(self.selected_service_names) > MAX_SERVICE_PYCHARM:
-            result.append(
-                f"If you use {_tag('PyCharm')}, select less than {_tag(MAX_SERVICE_PYCHARM)}"
-                " services. Otherwise, you may have peroformance issues."
-            )
+            return result
         if not selected:
             result.append(f"Okay, what service do you want to {_tag('add')}?")
             return result
@@ -490,6 +517,7 @@ class ChatBuddy:
             f" for {_tag(self.library_name)} from {_tag(botocore_str)} shapes..."
         )
         self.available_service_names = tuple(get_available_service_names())
+        self.available_lookup_map = self._get_service_lookup_map(self.available_service_names)
         self.recommended_service_names = self._get_selected_service_names()
         self.selected_service_names = list(self.recommended_service_names)
         self._say(
