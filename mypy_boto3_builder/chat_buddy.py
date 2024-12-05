@@ -90,7 +90,7 @@ def _typewrite(message: str) -> None:
             break
 
         sys.stdout.write(f"{word} ")
-        time.sleep(0.03)
+        time.sleep(0.02)
         sys.stdout.flush()
 
 
