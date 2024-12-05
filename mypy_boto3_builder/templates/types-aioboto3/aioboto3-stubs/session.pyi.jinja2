@@ -4,13 +4,12 @@ Type annotations for {{ package.library_name }}.session module.
 {{ copyright }}
 """
 from types import TracebackType
-from typing import Any, Generic, List, Optional, Type, TypeVar, Union
+from typing import Any, Generic, Optional, Type, TypeVar, Union
 
 from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
 from aiobotocore.config import AioConfig
 from aiobotocore.credentials import AioCredentials
-from botocore.hooks import BaseEventHooks
 from botocore.loaders import Loader
 from botocore.session import Session as BotocoreSession
 
@@ -31,27 +30,7 @@ class Session:
         self._session: BotocoreSession
         self.resource_factory: AIOBoto3ResourceFactory
         self._loader: Loader
-    def __repr__(self) -> str: ...
-    @property
-    def profile_name(self) -> str: ...
-    @property
-    def region_name(self) -> str: ...
-    @property
-    def events(self) -> BaseEventHooks: ...
-    @property
-    def available_profiles(self) -> List[str]: ...
-    def _setup_loader(self) -> None: ...
-    def get_available_services(self) -> List[str]: ...
-    def get_available_resources(self) -> List[str]: ...
-    def get_available_partitions(self) -> List[str]: ...
-    def get_available_regions(
-        self,
-        service_name: str,
-        partition_name: str = ...,
-        allow_non_regional: bool = ...,
-    ) -> List[str]: ...
     def get_credentials(self) -> Optional[AioCredentials]: ...
-    def _register_default_handlers(self) -> None: ...
 
 {% filter indent(4, True) -%}
     {% for method in package.session_class.methods -%}

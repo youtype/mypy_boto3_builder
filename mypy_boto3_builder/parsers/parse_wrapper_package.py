@@ -90,7 +90,7 @@ def parse_types_aioboto3_package(
     parser = WrapperPackageParser(package)
     for method in parser.get_session_client_methods():
         method.return_type = TypeSubscript(
-            ExternalImport(ImportString("botocore", "session"), "ClientCreatorContext"),
+            ExternalImport(ImportString("aiobotocore", "session"), "ClientCreatorContext"),
             [method.return_type],
         )
         package.session_class.methods.append(method)
