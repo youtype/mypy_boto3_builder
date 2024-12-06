@@ -5,7 +5,6 @@ Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterator
-from typing import TYPE_CHECKING
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
@@ -18,9 +17,6 @@ from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-
-if TYPE_CHECKING:
-    from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 class ServiceResource(ClassRecord):
@@ -120,33 +116,11 @@ class ServiceResource(ClassRecord):
 
         return result
 
-    def get_sub_resources(self) -> list[ResourceRecord]:
+    def get_sub_resources(self) -> tuple[ResourceRecord, ...]:
         """
-        Get sub-resource in safe order.
+        Get sub-resources.
 
         Returns:
             A list of sub resources.
         """
-        result: list[ResourceRecord] = []
-        all_names: set[str] = {i.name for i in self.sub_resources}
-        added_names: set[str] = set()
-        sub_resources = list(self.sub_resources)
-        sub_resources_list: list[tuple[ResourceRecord, set[InternalImport]]] = []
-        for sub_resource in sub_resources:
-            internal_imports = sub_resource.get_internal_imports()
-            sub_resources_list.append((sub_resource, internal_imports))
-
-        sub_resources_list.sort(key=lambda x: len(x[1]))
-        for sub_resource, internal_imports in sub_resources_list:
-            for internal_import in internal_imports:
-                if internal_import.name not in all_names:
-                    continue
-                if internal_import.name in added_names:
-                    continue
-
-                internal_import.stringify = True
-
-            result.append(sub_resource)
-            added_names.add(sub_resource.name)
-
-        return result
+        return tuple(self.sub_resources)
