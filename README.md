@@ -53,7 +53,7 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 ## Quickstart
 
 - Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
-- Run `uvx mypy-boto3-builder`
+- Run `uvx --from mypy-boto3-builder mypy_boto3_builder`
 - Answer some questions, get your custom package
 - Install a generated package
 
