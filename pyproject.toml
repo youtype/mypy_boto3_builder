@@ -1,6 +1,6 @@
 [project]
 name = "mypy-boto3-builder"
-version = "8.6.0"
+version = "8.6.1"
 requires-python = ">=3.12"
 description = "Type annotations generator for types-boto3, boto3-stubs, types-aiobotocore, and types-aioboto3."
 authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
