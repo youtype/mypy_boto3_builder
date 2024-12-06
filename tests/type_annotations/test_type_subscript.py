@@ -18,9 +18,8 @@ class TestTypeSubscript:
 
     def test_render(self) -> None:
         assert self.result.render() == "Dict[str, int, Any]"
-        assert TypeSubscript(Type.List, [Type.str], stringify=True).render() == '"List[str]"'
+        assert TypeSubscript(Type.List, [Type.str]).render() == "List[str]"
         assert TypeSubscript(Type.Dict).render() == "Dict"
-        assert TypeSubscript(Type.Dict, [], stringify=True).render() == '"Dict"'
 
     def test_get_import_records(self) -> None:
         records = sorted(self.result.get_import_records())

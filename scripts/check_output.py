@@ -236,6 +236,8 @@ def run_ruff(path: Path) -> None:
         "RET503",  # implicit-return
         "UP004",  # useless-object-inheritance
         "UP013",  # convert-typed-dict-functional-to-class
+        "UP006",
+        "UP007",
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         cmd = [

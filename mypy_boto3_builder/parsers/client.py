@@ -58,10 +58,7 @@ def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client
         result.exceptions_class.attributes.append(
             Attribute(
                 exception_class_name,
-                TypeSubscript(
-                    Type.Type,
-                    [InternalImport("BotocoreClientError", stringify=False)],
-                ),
+                TypeSubscript(Type.Type, [InternalImport("BotocoreClientError")]),
             ),
         )
 

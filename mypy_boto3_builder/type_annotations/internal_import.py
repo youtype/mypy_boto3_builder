@@ -29,13 +29,11 @@ class InternalImport(FakeAnnotation):
         service_name: ServiceName | None = None,
         module_name: ServiceModuleName = ServiceModuleName.service_resource,
         *,
-        stringify: bool = True,
         use_alias: bool = False,
     ) -> None:
         self.name: str = name
         self.service_name: ServiceName | None = service_name
         self.module_name: ServiceModuleName = module_name
-        self.stringify: bool = stringify
         self.use_alias: bool = use_alias
 
     @staticmethod
@@ -62,9 +60,6 @@ class InternalImport(FakeAnnotation):
         if self.use_alias:
             result = self.get_alias(self.name)
 
-        if self.stringify:
-            return f'"{result}"'
-
         return result
 
     def __copy__(self) -> Self:
@@ -76,5 +71,4 @@ class InternalImport(FakeAnnotation):
             self.service_name,
             self.module_name,
             use_alias=self.use_alias,
-            stringify=self.stringify,
         )

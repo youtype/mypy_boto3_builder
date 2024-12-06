@@ -120,7 +120,6 @@ class Client(ClassRecord):
                 name=self.exceptions_class.name,
                 module_name=ServiceModuleName.client,
                 service_name=self.service_name,
-                stringify=False,
             ),
             docstring=f"{self.name} exceptions.",
             boto3_doc_link=self.boto3_doc_link,
