@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
@@ -359,9 +359,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#locally" class="md-nav__link">
+  <a href="#with-your-personal-assistant-recommended" class="md-nav__link">
     <span class="md-ellipsis">
-      Locally
+      With your personal assistant (recommended)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#with-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      With CLI
     </span>
   </a>
   
@@ -451,9 +460,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#locally" class="md-nav__link">
+  <a href="#with-your-personal-assistant-recommended" class="md-nav__link">
     <span class="md-ellipsis">
-      Locally
+      With your personal assistant (recommended)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#with-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      With CLI
     </span>
   </a>
   
@@ -487,7 +505,22 @@
 
 
 <h1 id="how-to-build-type-annotations">How to build type annotations<a class="headerlink" href="#how-to-build-type-annotations" title="Permanent link">#</a></h1>
-<h2 id="locally">Locally<a class="headerlink" href="#locally" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="#how-to-build-type-annotations">How to build type annotations</a></li>
+<li><a href="#with-your-personal-assistant-recommended">With your personal assistant (recommended)</a></li>
+<li><a href="#with-cli">With CLI</a></li>
+<li><a href="#with-docker-image">With Docker image</a></li>
+</ul>
+<h2 id="with-your-personal-assistant-recommended">With your personal assistant (recommended)<a class="headerlink" href="#with-your-personal-assistant-recommended" title="Permanent link">#</a></h2>
+<ul>
+<li>Install <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a></li>
+</ul>
+<pre class="highlight"><code class="language-bash"># run builder and chat with him :)
+uvx mypy-boto3-builder
+
+# set library version explicitly for better results
+uvx --with 'boto3==1.35.71' mypy-boto3-builder</code></pre>
+<h2 id="with-cli">With CLI<a class="headerlink" href="#with-cli" title="Permanent link">#</a></h2>
 <pre class="highlight"><code class="language-bash"># Install preferred version of `boto3`
 python -m pip install boto3==1.35.71 botocore==1.35.71
 

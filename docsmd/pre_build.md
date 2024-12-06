@@ -1,5 +1,11 @@
 # How to use pre-built libraries
 
+- [How to use pre-built libraries](#how-to-use-pre-built-libraries)
+  - [boto3 and botocore](#boto3-and-botocore)
+  - [aiobotocore](#aiobotocore)
+  - [aioboto3](#aioboto3)
+
+
 ## boto3 and botocore
 
 Check [types-boto3](https://pypi.org/project/types-boto3/) project for installation
