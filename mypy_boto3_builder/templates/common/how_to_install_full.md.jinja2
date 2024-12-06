@@ -2,10 +2,10 @@
 
 ### Generate locally (recommended)
 
-You can generate type annotations for `{{ package.library_name }}` package locally with `{{ builder_package_name }}`.
+You can generate type annotations for `{{ package.library_name }}` package locally with `{{ builder_prog_name }}`.
 Use [uv](https://docs.astral.sh/uv/getting-started/installation/) for build isolation.
 
-1. Run {{ builder_package_name }} in your package root directory: `uvx --with '{{ package.library_name }}=={{ package.library_version }}' {{ builder_package_name }}`
+1. Run {{ builder_package_name }} in your package root directory: `uvx --with '{{ package.library_name }}=={{ package.library_version }}' {{ builder_prog_name }}`
 1. Select `{{ package.library_chat_choice }}` AWS SDK.
 1. Add all available services.
 1. Use provided commands to install generated packages.
