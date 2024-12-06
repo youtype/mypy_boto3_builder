@@ -193,6 +193,7 @@ class ServicePackage(Package):
         Get import record group for `client.py[i]`.
         """
         result = ImportRecordGroup()
+        result.add(self._get_annotations_import_record())
         result.add(*self.client.get_required_import_records())
         result.add(*self.client.exceptions_class.get_required_import_records())
 
