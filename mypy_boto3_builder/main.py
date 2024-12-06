@@ -168,7 +168,7 @@ def run(args: CLINamespace) -> None:
     warnings.filterwarnings("ignore", category=FutureWarning, module="botocore.client")
 
     if args.output_path == OUTPUT_PATH_SENTINEL:
-        ChatBuddy().run(_run_builder)
+        ChatBuddy(_run_builder).run()
         return
 
     _run_builder(args)

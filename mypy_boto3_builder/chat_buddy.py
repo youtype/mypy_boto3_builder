@@ -98,14 +98,15 @@ def _typewrite(message: str) -> None:
         sys.stdout.flush()
 
 
-def _join_and(items: Sequence[str]) -> str:
+def _join_and(items: Sequence[str], name: str = "") -> str:
+    name_suffix = f" {name}{"" if len(items) == 1 else "s"}" if name else ""
     if not items:
-        return ""
+        return f"no{name_suffix}"
     if len(items) == 1:
-        return f"only {items[0]}"
+        return f"only {items[0]}{name_suffix}"
     if len(items) == PAIR:
-        return f"{items[0]} and {items[1]}"
-    return f"{', '.join(items[:-1])}, and {items[-1]}"
+        return f"{items[0]} and {items[1]}{name_suffix}"
+    return f"{', '.join(items[:-1])}, and {items[-1]}{name_suffix}"
 
 
 class ChatBuddy:
@@ -120,7 +121,7 @@ class ChatBuddy:
         ProductLibrary.aioboto3: Product.aioboto3_custom,
     }
 
-    def __init__(self) -> None:
+    def __init__(self, run_builder: Callable[[CLINamespace], None]) -> None:
         self.available_service_names: tuple[ServiceName, ...] = ()
         self.available_lookup_map: dict[str, ServiceName] = {}
         self.selected_service_names: list[ServiceName] = []
@@ -141,6 +142,7 @@ class ChatBuddy:
             download_static_stubs=True,
         )
         self.package_manager: PackageManager = PackageManager.pip
+        self.run_builder = run_builder
 
     def _get_selected_service_names(self) -> list[ServiceName]:
         return [i for i in self.available_service_names if i.is_essential()]
@@ -263,6 +265,24 @@ class ChatBuddy:
     def _is_all_selected(self) -> bool:
         return len(self.selected_service_names) == len(self.available_service_names)
 
+    def _get_selected_services_str(self, *, use_tags: bool = True) -> str:
+        def tag(x: str | int) -> str:
+            return _tag(x) if use_tags else str(x)
+
+        selected = self.selected_service_names
+        if not selected:
+            return f"{tag('no')} services"
+        if self._is_all_selected():
+            return f"{tag('all')} {tag(len(selected))} available services"
+        if len(selected) > MAX_SERVICE_PRINTED:
+            selected_strs = [
+                *(tag(i.class_name) for i in selected[: MAX_SERVICE_PRINTED - 1]),
+                f"{tag(len(selected) - MAX_SERVICE_PRINTED + 1)} other",
+            ]
+        else:
+            selected_strs = [tag(i.class_name) for i in selected]
+        return _join_and(selected_strs, "service")
+
     def _get_services_messages(self) -> list[str]:
         selected = self.selected_service_names
         result: list[str] = []
@@ -290,15 +310,7 @@ class ChatBuddy:
             )
             return result
 
-        if len(selected) > MAX_SERVICE_PRINTED:
-            selected_strs = [
-                *(_tag(i.class_name) for i in selected[: MAX_SERVICE_PRINTED - 1]),
-                f"{_tag(len(selected) - MAX_SERVICE_PRINTED + 1)} other",
-            ]
-        else:
-            selected_strs = [_tag(i.class_name) for i in selected]
-        selected_str = _join_and(selected_strs)
-        result.append(f"Do you use {selected_str} services?")
+        result.append(f"Do you use {self._get_selected_services_str()}?")
         return result
 
     def _select_library(self) -> ProductLibrary | None:
@@ -396,7 +408,7 @@ class ChatBuddy:
         return packages[-1]
 
     def _say_commands(self) -> None:
-        cmd = " ".join(self.args.to_cmd())
+        cmd = " ".join(("uvx", *self.args.to_cmd()))
         lines = [
             _gray(
                 f"# generate {self.library_name} services",
@@ -475,10 +487,9 @@ class ChatBuddy:
         if self.selected_service_names == self.recommended_service_names:
             return "Looks good. I use the most popular services."
 
-        services_str = _join_and([_tag(i.class_name) for i in self.selected_service_names])
-        return f"Yes, I use {services_str}."
+        return "Yes, I use selected services."
 
-    def run(self, run_builder: Callable[[CLINamespace], None]) -> None:  # noqa: PLR0915
+    def run(self) -> None:
         """
         Run chat buddy.
         """
@@ -544,7 +555,7 @@ class ChatBuddy:
 
         self.args = self._get_cli_namespace()
 
-        self._say(f"Got it! I can start building {_tag(package_name)} now if you want.")
+        self._say(f"I can start building {_tag(package_name)} now if you want.")
         if not self._do_start_building():
             self._respond("No, I just want to check how to do it.")
             self._say(f"No worries, you can always build {_tag(self.product.value)} later!")
@@ -565,8 +576,23 @@ class ChatBuddy:
             f" I might even add it to {_tag('git')}!"
         )
         self._say(f"Good idea! Building to {_tag(print_path(self.output_path))} directory...")
+        self._run_builder()
 
-        run_builder(self.args)
+    def _get_documentation_url(self) -> str:
+        match self.product:
+            case Product.types_boto3_custom:
+                return TypesBoto3CustomPackageData.local_doc_link
+            case Product.boto3_custom:
+                return Boto3StubsCustomPackageData.local_doc_link
+            case Product.aiobotocore_custom:
+                return TypesAioBotocoreCustomPackageData.local_doc_link
+            case Product.aioboto3_custom:
+                return TypesAioBoto3CustomPackageData.local_doc_link
+            case _:
+                return TypesBoto3CustomPackageData.local_doc_link
+
+    def _run_builder(self) -> None:
+        self.run_builder(self.args)
         _linebreak()
 
         found_whl = self._find_last_whl()
@@ -596,19 +622,6 @@ class ChatBuddy:
         )
         self._say_commands()
         self._finish()
-
-    def _get_documentation_url(self) -> str:
-        match self.product:
-            case Product.types_boto3_custom:
-                return TypesBoto3CustomPackageData.local_doc_link
-            case Product.boto3_custom:
-                return Boto3StubsCustomPackageData.local_doc_link
-            case Product.aiobotocore_custom:
-                return TypesAioBotocoreCustomPackageData.local_doc_link
-            case Product.aioboto3_custom:
-                return TypesAioBoto3CustomPackageData.local_doc_link
-            case _:
-                return TypesBoto3CustomPackageData.local_doc_link
 
     def _finish(self) -> None:
         self._say(
