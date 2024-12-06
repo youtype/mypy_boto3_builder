@@ -50,6 +50,9 @@ class BasePackageData(ABC):
     # link to local documentation
     local_doc_link: str
 
+    # install_requires for setup.py
+    install_requires: tuple[str, ...]
+
     # is package installable with VSCode extensions
     is_vscode_supported: bool = False
 
@@ -119,6 +122,11 @@ class TypesBoto3PackageData(BasePackageData):
     service_prefix: str = "types_boto3"
     service_pypi_prefix: str = "types-boto3"
     local_doc_link: str = "https://youtype.github.io/types_boto3_docs/"
+    install_requires: tuple[str, ...] = (
+        "botocore-stubs",
+        "types-s3transfer",
+        'typing-extensions>=4.1.0; python_version<"3.12"',
+    )
     is_vscode_supported: bool = True
     is_conda_forge_supported: bool = False
 
@@ -184,6 +192,10 @@ class TypesAioBotocorePackageData(BasePackageData):
     service_prefix: str = "types_aiobotocore"
     service_pypi_prefix: str = "types-aiobotocore"
     local_doc_link: str = "https://youtype.github.io/types_aiobotocore_docs/"
+    install_requires: tuple[str, ...] = (
+        "botocore-stubs",
+        'typing-extensions>=4.1.0; python_version<"3.12"',
+    )
 
     def _get_library_version(self) -> str:
         return get_aiobotocore_version()
@@ -247,6 +259,11 @@ class Boto3StubsPackageData(BasePackageData):
     service_pypi_prefix: str = "mypy-boto3"
     library: ProductLibrary = ProductLibrary.boto3_legacy
     local_doc_link: str = "https://youtype.github.io/boto3_stubs_docs/"
+    install_requires: tuple[str, ...] = (
+        "botocore-stubs",
+        "types-s3transfer",
+        'typing-extensions>=4.1.0; python_version<"3.12"',
+    )
     is_vscode_supported: bool = True
     is_conda_forge_supported: bool = True
 
@@ -324,8 +341,13 @@ class TypesAioBoto3PackageData(BasePackageData):
     library: ProductLibrary = ProductLibrary.aioboto3
     service_prefix: str = "types_aiobotocore"
     service_pypi_prefix: str = "types-aiobotocore"
-    types_aiobotocore_pypi_name: str = TypesAioBotocorePackageData.pypi_stubs_name
     local_doc_link: str = "https://youtype.github.io/types_aioboto3_docs/"
+    install_requires: tuple[str, ...] = (
+        "botocore-stubs",
+        TypesAioBotocorePackageData.pypi_stubs_name,
+        "types-s3transfer",
+        'typing-extensions>=4.1.0; python_version<"3.12"',
+    )
 
     def _get_library_version(self) -> str:
         return get_aioboto3_version()
@@ -339,7 +361,12 @@ class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
 
     pypi_name: str = TypesAioBoto3PackageData.pypi_lite_name
     pypi_lite_name: str = ""
-    types_aiobotocore_pypi_name: str = TypesAioBotocorePackageData.pypi_lite_name
+    install_requires: tuple[str, ...] = (
+        "botocore-stubs",
+        TypesAioBotocorePackageData.pypi_lite_name,
+        "types-s3transfer",
+        'typing-extensions>=4.1.0; python_version<"3.12"',
+    )
 
 
 @dataclass(kw_only=True)
@@ -350,6 +377,11 @@ class TypesAioBoto3CustomPackageData(TypesAioBoto3PackageData):
 
     pypi_name: str = "types-aioboto3-custom"
     is_conda_forge_supported: bool = False
+    install_requires: tuple[str, ...] = (
+        "botocore-stubs",
+        "types-s3transfer",
+        'typing-extensions>=4.1.0; python_version<"3.12"',
+    )
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """

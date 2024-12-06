@@ -62,6 +62,8 @@ class TypesBoto3Generator(BaseGenerator):
             package_data=package_data,
             version=version,
         )
+        package.extras.extend(self._get_wrapper_package_extras(package))
+        package.set_description(package.get_short_description())
         self.package_writer.write_package(
             package=package,
             template_path=TemplatePath.types_boto3,
@@ -86,6 +88,7 @@ class TypesBoto3Generator(BaseGenerator):
             package_data=package_data,
             version=version,
         )
+        package.extras.extend(self._get_wrapper_package_extras(package))
         package.set_description(package.get_short_description("Lite type annotations"))
         self.package_writer.write_package(
             package=package,
@@ -145,6 +148,12 @@ class TypesBoto3Generator(BaseGenerator):
             package_data=package_data,
             version=version,
         )
+        package.setup_package_data.clear()
+        for service_name in self.service_names:
+            package.setup_package_data[package_data.get_service_package_name(service_name)] = (
+                "py.typed",
+                "*.pyi",
+            )
         package.set_description(package.get_short_description("All-in-one type annotations"))
         self.package_writer.write_package(
             package=package,

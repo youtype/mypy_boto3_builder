@@ -26,7 +26,6 @@ from mypy_boto3_builder.parsers.parse_wrapper_package import (
 from mypy_boto3_builder.postprocessors.aioboto3 import AioBoto3Postprocessor
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.structures.types_aioboto3_package import TypesAioBoto3Package
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
@@ -60,11 +59,27 @@ class AioBoto3Generator(BaseGenerator):
         """
         Generate `types-aioboto3` package.
         """
-        package = self._generate_stubs()
-        if package:
-            return [package]
+        package_data = TypesAioBoto3PackageData()
+        try:
+            version = self._get_package_version(package_data.pypi_name, self.version)
+        except AlreadyPublishedError:
+            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
+            return []
 
-        return []
+        self.logger.info(f"Generating {package_data.pypi_name} {version}")
+        package = parse_types_aioboto3_package(
+            service_names=self.main_service_names,
+            package_data=package_data,
+            version=version,
+        )
+        package.extras.extend(self._get_wrapper_package_extras(package))
+        package.set_description(package.get_short_description())
+        self.package_writer.write_package(
+            package=package,
+            template_path=TemplatePath.types_aioboto3,
+            static_files_path=self._get_static_files_path(),
+        )
+        return [package]
 
     def generate_stubs_lite(self) -> Package | None:
         """
@@ -83,33 +98,13 @@ class AioBoto3Generator(BaseGenerator):
             package_data=package_data,
             version=version,
         )
+        package.extras.extend(self._get_wrapper_package_extras(package))
         package.set_description(package.get_short_description("Lite type annotations"))
         self.package_writer.write_package(
             package,
             template_path=TemplatePath.types_aioboto3,
             static_files_path=self._get_static_files_path(),
             exclude_template_names=["session.pyi.jinja2"],
-        )
-        return package
-
-    def _generate_stubs(self) -> TypesAioBoto3Package | None:
-        package_data = TypesAioBoto3PackageData()
-        try:
-            version = self._get_package_version(package_data.pypi_name, self.version)
-        except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
-            return None
-
-        self.logger.info(f"Generating {package_data.pypi_name} {version}")
-        package = parse_types_aioboto3_package(
-            service_names=self.main_service_names,
-            package_data=package_data,
-            version=version,
-        )
-        self.package_writer.write_package(
-            package=package,
-            template_path=TemplatePath.types_aioboto3,
-            static_files_path=self._get_static_files_path(),
         )
         return package
 

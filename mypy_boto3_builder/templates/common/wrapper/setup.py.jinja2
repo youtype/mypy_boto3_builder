@@ -47,10 +47,19 @@ setup(
         'Source': '{{ builder_repo_url }}',
         'Tracker': '{{ builder_repo_url }}/issues',
     },
+    {% if package.data.install_requires %}
     install_requires=[
-        "botocore-stubs",
-        "types-s3transfer",
-        "typing-extensions>=4.1.0; python_version<\"3.12\"",
+        {% for item in package.data.install_requires %}'{{ item }}'{{ '' if loop.last else ', ' }}{% endfor -%}
     ],
+    {% endif %}
+    {% if package.extras %}
+    extras_require={
+        {% for package_extra in package.extras %}
+        "{{ package_extra.name }}": [
+            {% for extra_package in package_extra.packages %}"{{ extra_package }}"{{ '' if loop.last else ', ' }}{% endfor -%}
+        ],
+        {% endfor %}
+    },
+    {% endif %}
     zip_safe=False,
 )

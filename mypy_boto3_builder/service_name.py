@@ -23,6 +23,7 @@ class ServiceName:
     ALL: Final = "all"
     UPDATED: Final = "updated"
     ESSENTIAL: Final = "essential"
+    FULL: Final = "full"
     LATEST: Final = "latest"
 
     ESSENTIAL_NAMES: Final = {

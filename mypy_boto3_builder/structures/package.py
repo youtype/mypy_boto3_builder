@@ -5,6 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable
+from typing import TYPE_CHECKING
 
 from mypy_boto3_builder.constants import SUPPORTED_PY_VERSIONS
 from mypy_boto3_builder.exceptions import StructureError
@@ -17,6 +18,9 @@ from mypy_boto3_builder.utils.version import (
     get_min_build_version,
     is_valid_version,
 )
+
+if TYPE_CHECKING:
+    from mypy_boto3_builder.structures.package_extra import PackageExtra
 
 
 class Package:
@@ -38,6 +42,7 @@ class Package:
         self.service_names = tuple(service_names)
         self.logger = get_logger()
         self.url = PackageURL(self.pypi_name, self.data)
+        self.extras: list[PackageExtra] = []
 
     @property
     def library_version(self) -> str:

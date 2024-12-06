@@ -595,7 +595,7 @@ wheels = [
 
 [[package]]
 name = "mypy-boto3-builder"
-version = "8.6.0"
+version = "8.6.1"
 source = { editable = "." }
 dependencies = [
     { name = "botocore" },
@@ -1123,16 +1123,16 @@ wheels = [
 
 [[package]]
 name = "types-aioboto3"
-version = "13.2.0.post2"
+version = "13.2.0.post3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "botocore-stubs" },
     { name = "types-aiobotocore" },
     { name = "types-s3transfer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ba/51/2adbe2c4d09cced31bb0ed55009e973e2aa1122b5e2ec79ce7d0c5f0bccb/types_aioboto3-13.2.0.post2.tar.gz", hash = "sha256:fd68b63346b4712bf9b9af87b167f4b793769db2d11e9f17bf88b5688ac45e34", size = 71500 }
+sdist = { url = "https://files.pythonhosted.org/packages/af/53/2c08f0921729a5f65278f3b898c552da3bc2f5c52a66f7cf2ac7a4ae7ed5/types_aioboto3-13.2.0.post3.tar.gz", hash = "sha256:40b1cc670c1cf96c309a100dfcab556b45d812c519dfe61ab8c01a3d70ddce96", size = 72943 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7a/50/0d20407d5ff25a5423804d2999eacd74ee0f70e0ee0e30901f0d21d0c3ed/types_aioboto3-13.2.0.post2-py3-none-any.whl", hash = "sha256:44de9d252a941b36adfc0511993c67a12c0bfeda8e32159973f7dc6cb1b6a73a", size = 38531 },
+    { url = "https://files.pythonhosted.org/packages/e9/38/88abb3f55a59eb7cd9aa71aa6aedf1b7e1a825815a2270cccc068dddd566/types_aioboto3-13.2.0.post3-py3-none-any.whl", hash = "sha256:23c0a21da5ab5bf432fc2a293ef28b9413ca6b51b68133b4db9c8a1658c0dfd8", size = 38910 },
 ]
 
 [[package]]

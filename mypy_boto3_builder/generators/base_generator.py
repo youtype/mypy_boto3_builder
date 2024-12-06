@@ -21,6 +21,7 @@ from mypy_boto3_builder.parsers.service_package_parser import ServicePackagePars
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
+from mypy_boto3_builder.structures.package_extra import PackageExtra
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.package_builder import PackageBuilder
@@ -338,3 +339,59 @@ class BaseGenerator(ABC):
 
             self.logger.debug(f"Removing {dir_path}")
             shutil.rmtree(dir_path)
+
+    def _get_wrapper_package_extras(self, package: Package) -> list[PackageExtra]:
+        result: list[PackageExtra] = []
+        if package.data.pypi_full_name:
+            result.append(
+                PackageExtra(
+                    ServiceName.FULL,
+                    (
+                        f"{package.data.pypi_full_name}"
+                        f">={package.min_library_version}, <{package.max_library_version}",
+                    ),
+                ),
+            )
+        result.append(
+            PackageExtra(
+                package.library_name,
+                (f"{package.library_name}=={package.library_version}",),
+            )
+        )
+        if package.service_names:
+            result.append(
+                PackageExtra(
+                    ServiceName.ALL,
+                    tuple(
+                        (
+                            f"{package.data.get_service_pypi_name(service_name)}"
+                            f">={package.min_library_version}, <{package.max_library_version}"
+                        )
+                        for service_name in package.service_names
+                    ),
+                ),
+            )
+        if package.essential_service_names:
+            result.append(
+                PackageExtra(
+                    ServiceName.ESSENTIAL,
+                    tuple(
+                        (
+                            f"{package.data.get_service_pypi_name(service_name)}"
+                            f">={package.min_library_version}, <{package.max_library_version}"
+                        )
+                        for service_name in package.essential_service_names
+                    ),
+                ),
+            )
+        result.extend(
+            PackageExtra(
+                service_name.extras_name,
+                (
+                    f"{package.data.get_service_pypi_name(service_name)}"
+                    f">={package.min_library_version}, <{package.max_library_version}",
+                ),
+            )
+            for service_name in package.service_names
+        )
+        return result
