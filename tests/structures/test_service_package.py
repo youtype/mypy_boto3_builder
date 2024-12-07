@@ -57,6 +57,7 @@ class TestServicePackage:
 
     def test_get_client_required_import_records(self) -> None:
         assert list(self.service_package.get_client_required_import_records()) == [
+            "from __future__ import annotations",
             "from typing import Any, Dict",
             "from botocore.client import BaseClient",
         ]

@@ -26,7 +26,6 @@ class Type:
     Mapping: Final[TypeAnnotation] = TypeAnnotation("Mapping")
     List: Final[TypeAnnotation] = TypeAnnotation("List")
     Sequence: Final[TypeAnnotation] = TypeAnnotation("Sequence")
-    Optional: Final[TypeAnnotation] = TypeAnnotation("Optional")
     Callable: Final[TypeAnnotation] = TypeAnnotation("Callable")
     Awaitable: Final[TypeAnnotation] = TypeAnnotation("Awaitable")
     TypedDict: Final[TypeAnnotation] = TypeAnnotation("TypedDict")

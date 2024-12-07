@@ -31,7 +31,6 @@ class TypeAnnotation(FakeAnnotation):
         "Dict": _TYPING,  # typing.Dict
         "List": _TYPING,  # typing.List
         "Set": _TYPING,  # typing.Set
-        "Optional": _TYPING,  # typing.Optional
         "IO": _TYPING,  # typing.IO
         "overload": _TYPING,  # typing.overload
         "Type": _TYPING,  # typing.Type

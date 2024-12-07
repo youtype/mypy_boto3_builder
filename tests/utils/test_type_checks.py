@@ -14,8 +14,8 @@ from mypy_boto3_builder.utils.type_checks import (
 
 class TestTypeChecks:
     def test_get_optional(self) -> None:
-        assert get_optional(Type.DictStrAny).render() == "Optional[Dict[str, Any]]"
-        assert get_optional(TypeUnion([Type.str, Type.bool])).render() == "Union[str, bool, None]"
+        assert get_optional(Type.DictStrAny).render() == "Dict[str, Any] | None"
+        assert get_optional(TypeUnion([Type.str, Type.bool])).render() == "str | bool | None"
 
     def test_is_type_def(self) -> None:
         assert not is_type_def(Type.DictStrAny)
