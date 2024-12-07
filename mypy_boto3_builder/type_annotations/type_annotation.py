@@ -31,7 +31,7 @@ class TypeAnnotation(FakeAnnotation):
         "Any": _TYPING,  # typing.Any
         "dict": _BUILTINS,  # builtins.dict
         "list": _BUILTINS,  # builtins.list
-        "set": _BUILTINS,  # builtins.set
+        "Set": _TYPING,  # typing.Set
         "IO": _TYPING,  # typing.IO
         "overload": _TYPING,  # typing.overload
         "type": _BUILTINS,  # builtins.type

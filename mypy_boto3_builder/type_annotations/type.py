@@ -34,7 +34,7 @@ class Type:
     overload: Final[TypeAnnotation] = TypeAnnotation("overload")
     none: Final[TypeConstant] = TypeConstant(None)
     str: Final[ExternalImport] = ExternalImport.from_class(str)
-    Set: Final[TypeAnnotation] = TypeAnnotation("set")
+    Set: Final[TypeAnnotation] = TypeAnnotation("Set")
     bool: Final[ExternalImport] = ExternalImport.from_class(bool)
     bytes: Final[ExternalImport] = ExternalImport.from_class(bytes)
     bytearray: Final[ExternalImport] = ExternalImport.from_class(bytearray)
