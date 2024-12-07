@@ -18,15 +18,11 @@ jobs:
           - "3.14"
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "${{ matrix.version }}"
-          allow-prereleases: true
       - name: Set up uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v4
         with:
           version: "latest"
+          python-version: "${{ matrix.version }}"
       - name: Install the project
         run: uv sync --extra check --dev
       - name: Install extra dependencies

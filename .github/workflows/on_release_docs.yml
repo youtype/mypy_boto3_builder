@@ -39,23 +39,14 @@ jobs:
             echo "gh-pages branch created"
             git checkout ${MAIN_BRANCH}
           fi
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: .python-version
       - name: Set up uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v4
         with:
           version: "latest"
-      - name: Install the project
-        run: uv sync --dev
-      - name: Install handsdown
-        run: |
-          uv run pip install -r requirements.mkdocs.txt
       - name: Build docs
         run: |
           rm -rf docs/*
-          uv run mkdocs build
+          uv run --with-requirements requirements.mkdocs.txt mkdocs build
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
