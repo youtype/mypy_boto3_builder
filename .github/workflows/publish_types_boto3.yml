@@ -169,7 +169,7 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building updated packages"
-          uv run \
+          uvx \
             --with boto3=${BOTO3_VERSION} \
             --with botocore=${BOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
@@ -190,7 +190,7 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building all packages"
-          uv run \
+          uvx \
             --with boto3=${BOTO3_VERSION} \
             --with botocore=${BOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \

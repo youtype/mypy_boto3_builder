@@ -127,7 +127,7 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building all packages"
-          uv run \
+          uvx \
             --with aiobotocore=${AIOBOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \

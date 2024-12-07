@@ -135,7 +135,7 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building"
-          uv run \
+          uvx \
             --with boto3=${BOTO3_VERSION} \
             --with botocore=${BOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
