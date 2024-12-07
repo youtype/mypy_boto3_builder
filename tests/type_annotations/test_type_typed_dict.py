@@ -14,7 +14,7 @@ class TestTypedDictAttribute:
         assert self.result.is_required()
 
     def test_render(self) -> None:
-        assert self.result.render() == '"test": Dict[str, Any]'
+        assert self.result.render() == '"test": dict[str, Any]'
 
     def test_mark_as_required(self) -> None:
         self.result.required = False
@@ -170,7 +170,7 @@ class TestTypeTypedDict:
         assert typed_dict.replace_self_references(Type.DictStrAny)
         assert typed_dict.render_definition() == (
             'MyDict = TypedDict("MyDict",'
-            ' {"required": str, "self_one": Dict[str, Any],'
-            ' "Type": NotRequired[Dict[str, Any]], })'
+            ' {"required": str, "self_one": dict[str, Any],'
+            ' "Type": NotRequired[dict[str, Any]], })'
         )
         assert not self.result.replace_self_references(Type.DictStrAny)

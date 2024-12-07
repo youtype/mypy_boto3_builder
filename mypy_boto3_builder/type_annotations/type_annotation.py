@@ -104,13 +104,13 @@ class TypeAnnotation(FakeAnnotation):
         """
         Whether annotation is a plain Dict.
         """
-        return self._wrapped_type == "Dict"
+        return self._wrapped_type == "dict"
 
     def is_list(self) -> bool:
         """
         Whether annotation is a plain List.
         """
-        return self._wrapped_type == "List"
+        return self._wrapped_type == "list"
 
     def __copy__(self) -> Self:
         """

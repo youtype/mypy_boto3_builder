@@ -67,5 +67,4 @@ class TestClassRecord:
     def test_get_required_import_records(self) -> None:
         assert self.class_record.get_required_import_records() == {
             ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("typing"), "List"),
         }
