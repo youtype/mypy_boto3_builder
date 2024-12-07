@@ -49,11 +49,15 @@ jobs:
         with:
           name: mypy_boto3_output
           path: mypy_boto3_output
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.version }}"
+          allow-prereleases: true
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
           version: "latest"
-          python-version: ${{ matrix.version }}
       - name: Check output
         run: |
           uv run scripts/check_output.py -p ./mypy_boto3_output -d
