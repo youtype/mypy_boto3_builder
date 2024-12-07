@@ -124,6 +124,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version-file: .python-version
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
       - name: Install builder
         run: |
           rm -rf mypy_boto3_builder
@@ -151,12 +155,9 @@ jobs:
             ${EXTRA_FLAGS} \
             --download-static-stubs \
             -s all
-      - name: Install dependencies for publishing
-        run: |
-          python -m pip install setuptools wheel twine
       - name: Publish to PyPI
         env:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          python ./scripts/release.py
+          uv run ./scripts/release.py
