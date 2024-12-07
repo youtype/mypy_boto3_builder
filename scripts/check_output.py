@@ -413,15 +413,13 @@ def check_snapshot(path: Path) -> None:
         run_import(path)
 
 
-def find_package_path(path: Path) -> Path | None:
+def get_package_paths(path: Path) -> list[Path]:
     """
     Find package directory inside `path`.
     """
-    for package_path in path.iterdir():
-        if is_package_dir(package_path):
-            return package_path
-
-    return None
+    result = [package_path for package_path in path.iterdir() if is_package_dir(package_path)]
+    result.sort(key=lambda x: x.name)
+    return result
 
 
 def main() -> None:
@@ -441,17 +439,19 @@ def main() -> None:
         if args.filter and not any(s in directory.as_posix() for s in args.filter):
             continue
 
-        package_path = find_package_path(directory)
-        if not package_path:
-            continue
-        logger.info(f"Checking {directory.name}/{package_path.name} ...")
-        try:
-            check_snapshot(package_path)
-        except SnapshotMismatchError as e:
-            logger.warning(e)
-            has_errors = True
-            if args.exit_on_error:
-                break
+        package_paths = get_package_paths(directory)
+        for package_path in package_paths:
+            logger.info(f"Checking {directory.name}/{package_path.name} ...")
+            try:
+                check_snapshot(package_path)
+            except SnapshotMismatchError as e:
+                logger.warning(e)
+                has_errors = True
+                if args.exit_on_error:
+                    break
+
+        if has_errors and args.exit_on_error:
+            break
 
     if has_errors:
         logger.error("Snapshot mismatch")
