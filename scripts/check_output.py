@@ -231,7 +231,6 @@ def run_ruff(path: Path) -> None:
         "N803",  # invalid-argument-name
         "N812",  # lowercase-imported-as-non-lowercase
         "UP013",  # convert-typed-dict-functional-to-class
-        "UP006",  # non-pep585-annotation
         "TC001",  # typing-only-first-party-import
         "TC002",  # typing-only-third-party-import
         "TC003",  # typing-only-standard-library-import
