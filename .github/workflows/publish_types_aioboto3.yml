@@ -1,5 +1,5 @@
 name: Publish types-aioboto3
-concurrency: update_types_aioboto3
+concurrency: publish_types_aioboto3
 
 on:
   schedule:
@@ -32,7 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       aioboto3: ${{ steps.aioboto3.outputs.result }}
-      aioboto3-url: ${{ steps.aioboto3-url.outputs.result }}
       version: ${{ steps.version.outputs.result }}
       extra-flags: ${{ steps.extra-flags.outputs.result }}
     steps:
@@ -101,19 +100,7 @@ jobs:
 
             core.notice(`Extra flags = ${extraFlags}`)
             return extraFlags.join(' ')
-      - name: Aioboto3 download URL
-        id: aioboto3-url
-        if: steps.version.outputs.result
-        uses: actions/github-script@v7
-        with:
-          result-encoding: string
-          script: |
-            const { getDownloadURL, setupGlobals } = require('./.github/workflows/helpers.js')
-            setupGlobals({ core, context, fetch })
 
-            const url = await getDownloadURL('aioboto3', "${{ steps.aioboto3.outputs.result }}")
-            core.notice(`aioboto3 download URL ${url}`)
-            return url
   publish-types-aioboto3:
     name: Publish types-aioboto3
     runs-on: ubuntu-latest
@@ -129,28 +116,18 @@ jobs:
         uses: astral-sh/setup-uv@v3
         with:
           version: "latest"
-      - name: Install builder
-        run: |
-          rm -rf mypy_boto3_builder
-          python -m pip install mypy_boto3_builder
-      - name: Install aioboto3
-        run: |
-          mkdir installtemp
-          cd installtemp
-          wget ${{ needs.versions.outputs.aioboto3-url }}
-          pip uninstall -y s3transfer
-          pip install aioboto3* s3transfer
-          cd ..
-          rm -rf installtemp
       - name: Build all packages
         env:
           VERSION: ${{ needs.versions.outputs.version }}
           EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
+          AIOBOTO3_VERSION: ${{ needs.versions.outputs.aioboto3 }}
         run: |
           rm -rf mypy_boto3_output/*
 
           echo "Building all packages"
-          python -m mypy_boto3_builder mypy_boto3_output \
+          uv run \
+            --with aioboto3=${AIOBOTO3_VERSION} \
+            mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
             --product aioboto3 aioboto3-lite \
             ${EXTRA_FLAGS} \
