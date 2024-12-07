@@ -46,7 +46,7 @@ jobs:
       - name: Build docs
         run: |
           rm -rf docs/*
-          uv run --with-requirements requirements.mkdocs.txt mkdocs build
+          uvx --with-requirements requirements.mkdocs.txt mkdocs build
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
