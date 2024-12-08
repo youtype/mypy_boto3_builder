@@ -170,8 +170,8 @@ jobs:
 
           echo "Building updated packages"
           uvx \
-            --with boto3=${BOTO3_VERSION} \
-            --with botocore=${BOTOCORE_VERSION} \
+            --with boto3==${BOTO3_VERSION} \
+            --with botocore==${BOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
             --product types-boto3 types-boto3-lite types-boto3-services \
@@ -191,8 +191,8 @@ jobs:
 
           echo "Building all packages"
           uvx \
-            --with boto3=${BOTO3_VERSION} \
-            --with botocore=${BOTOCORE_VERSION} \
+            --with boto3==${BOTO3_VERSION} \
+            --with botocore==${BOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
             --product types-boto3 types-boto3-lite types-boto3-services \

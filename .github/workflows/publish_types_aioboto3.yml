@@ -122,7 +122,7 @@ jobs:
 
           echo "Building all packages"
           uvx \
-            --with aioboto3=${AIOBOTO3_VERSION} \
+            --with aioboto3==${AIOBOTO3_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
             --product aioboto3 aioboto3-lite \

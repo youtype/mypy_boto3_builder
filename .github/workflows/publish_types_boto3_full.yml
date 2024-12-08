@@ -136,8 +136,8 @@ jobs:
 
           echo "Building"
           uvx \
-            --with boto3=${BOTO3_VERSION} \
-            --with botocore=${BOTOCORE_VERSION} \
+            --with boto3==${BOTO3_VERSION} \
+            --with botocore==${BOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
             --product types-boto3-full \
