@@ -1,7 +1,7 @@
 """
-Type annotations for {{ package.service_name.boto3_name }} service client.
+Type annotations for {{ package.service_name.boto3_name }} service Client.
 
-[Open documentation]({{ package.get_doc_link("client") }})
+[Documentation]({{ package.get_doc_link("client") }})
 
 Usage::
 
@@ -29,10 +29,6 @@ __all__ = (
     {{ ",\n" if not loop.last or loop.first else "\n" }}
 {% endfor -%}
 )
-
-{% with class=package.client.client_error_class -%}
-    {% include "common/class.py.jinja2" with context -%}
-{% endwith -%}
 
 {% with class=package.client.exceptions_class -%}
     {% include "common/class.py.jinja2" with context -%}

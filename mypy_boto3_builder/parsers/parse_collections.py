@@ -43,7 +43,7 @@ def parse_collection(
         type_annotation=InternalImport(collection.name),
         object_class_name=object_class_name,
     )
-    self_type = InternalImport(collection_record.name, stringify=True)
+    self_type = InternalImport(collection_record.name)
 
     # FIXME: other collection methods use different anchor format. This will probably change.
     all_method = Method(
