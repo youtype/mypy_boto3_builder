@@ -106,7 +106,6 @@ jobs:
     needs: versions
     if: needs.versions.outputs.version
     steps:
-      - uses: actions/checkout@v4
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
@@ -117,10 +116,15 @@ jobs:
           EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
           AIOBOTOCORE_VERSION: ${{ needs.versions.outputs.aiobotocore }}
         run: |
-          rm -rf mypy_boto3_output/*
+          rm -rf mypy_boto3_output/* || true
+          uvx \
+            --no-cache \
+            --with aiobotocore==${AIOBOTOCORE_VERSION} \
+            mypy_boto3_builder -V
 
           echo "Building"
           uvx \
+            --no-cache \
             --with aiobotocore==${AIOBOTOCORE_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
             -b ${VERSION} \
@@ -128,9 +132,13 @@ jobs:
             ${EXTRA_FLAGS} \
             --download-static-stubs \
             -s all -d
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/release.py
       - name: Publish to PyPI
         env:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          uv run ./scripts/release.py
+          uv run --no-project ./scripts/release.py
