@@ -26,6 +26,7 @@ dependencies = [
     "jinja2",
     "mdformat",
     "packaging",
+    "boto3",
     "botocore",
     "requests",
     "ruff",
