@@ -181,7 +181,7 @@ jobs:
             --product types-boto3-full \
             ${EXTRA_FLAGS} \
             --download-static-stubs \
-            -s all
+            -s all -d
       - name: Install dependencies for publishing
         run: |
           python -m pip install setuptools wheel twine
