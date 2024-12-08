@@ -127,7 +127,7 @@ jobs:
             --product aiobotocore-full \
             ${EXTRA_FLAGS} \
             --download-static-stubs \
-            -s all
+            -s all -d
       - name: Publish to PyPI
         env:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
