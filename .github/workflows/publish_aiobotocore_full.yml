@@ -106,6 +106,15 @@ jobs:
     needs: versions
     if: needs.versions.outputs.version
     steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/release.py
+            .python-version
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
@@ -132,10 +141,6 @@ jobs:
             ${EXTRA_FLAGS} \
             --download-static-stubs \
             -s all -d
-      - uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            scripts/release.py
       - name: Publish to PyPI
         env:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
