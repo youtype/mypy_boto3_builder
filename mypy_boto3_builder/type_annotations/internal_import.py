@@ -19,7 +19,6 @@ class InternalImport(FakeAnnotation):
         name -- Import name.
         service_name -- Service that import belongs to.
         module_name -- Service module name.
-        stringify -- Convert type annotation to string to avoid circular deps.
         use_alias -- Use name alias.
     """
 

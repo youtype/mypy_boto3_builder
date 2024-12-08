@@ -20,7 +20,6 @@ class TypeSubscript(TypeParent):
     Arguments:
         parent -- Parent type annotation.
         children -- Children type annotations.
-        stringify -- Convert type annotation to string.
     """
 
     def __init__(
