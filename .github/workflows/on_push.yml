@@ -8,8 +8,6 @@ jobs:
   unit-tests:
     name: Code style & unit tests
     runs-on: ubuntu-latest
-    env:
-      UV_CACHE_DIR: /tmp/.uv-cache
     strategy:
       matrix:
         version:
@@ -21,12 +19,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "${{ matrix.version }}"
+          python-version: ${{ matrix.version }}
           allow-prereleases: true
       - name: Set up uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v4
         with:
           version: "latest"
+          enable-cache: true
       - name: Install the project
         run: uv sync --extra check --dev
       - name: Install extra dependencies
