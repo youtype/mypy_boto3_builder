@@ -45,7 +45,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: versions
     steps:
-      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:

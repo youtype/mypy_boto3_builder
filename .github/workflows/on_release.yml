@@ -26,6 +26,10 @@ jobs:
               return context.payload.inputs.version
             }
             return context.ref.split('/').pop()
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:

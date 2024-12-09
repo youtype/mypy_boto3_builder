@@ -154,6 +154,14 @@ jobs:
     if: needs.versions.outputs.version
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/release.py
+            .python-version
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
@@ -167,8 +175,6 @@ jobs:
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
           rm -rf mypy_boto3_output/*
-
-          echo "Building updated packages"
           uvx \
             --with boto3==${BOTO3_VERSION} \
             --with botocore==${BOTOCORE_VERSION} \
@@ -186,9 +192,7 @@ jobs:
           BOTO3_VERSION: ${{ needs.versions.outputs.boto3 }}
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
-          rm -rf mypy_boto3_output/*
-
-          echo "Building all packages"
+          rm -rf mypy_boto3_output/* || true
           uvx \
             --with boto3==${BOTO3_VERSION} \
             --with botocore==${BOTOCORE_VERSION} \
@@ -203,4 +207,4 @@ jobs:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          uv run ./scripts/release.py
+          uv run --no-project ./scripts/release.py

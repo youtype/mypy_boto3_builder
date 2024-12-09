@@ -39,6 +39,10 @@ jobs:
             echo "gh-pages branch created"
             git checkout ${MAIN_BRANCH}
           fi
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:

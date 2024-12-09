@@ -108,6 +108,14 @@ jobs:
     if: needs.versions.outputs.version
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/release.py
+            .python-version
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
@@ -119,8 +127,6 @@ jobs:
           AIOBOTO3_VERSION: ${{ needs.versions.outputs.aioboto3 }}
         run: |
           rm -rf mypy_boto3_output/*
-
-          echo "Building all packages"
           uvx \
             --with aioboto3==${AIOBOTO3_VERSION} \
             mypy_boto3_builder mypy_boto3_output \
@@ -137,4 +143,4 @@ jobs:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          uv run ./scripts/release.py
+          uv run --no-project ./scripts/release.py

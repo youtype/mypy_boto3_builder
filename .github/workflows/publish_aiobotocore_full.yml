@@ -125,13 +125,7 @@ jobs:
           EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
           AIOBOTOCORE_VERSION: ${{ needs.versions.outputs.aiobotocore }}
         run: |
-          rm -rf mypy_boto3_output/* || true
-          uvx \
-            --no-cache \
-            --with aiobotocore==${AIOBOTOCORE_VERSION} \
-            mypy_boto3_builder -V
-
-          echo "Building"
+          rm -rf mypy_boto3_output/*
           uvx \
             --no-cache \
             --with aiobotocore==${AIOBOTOCORE_VERSION} \
