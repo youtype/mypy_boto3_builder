@@ -17,7 +17,7 @@ from prompt_toolkit.validation import ValidationError
 
 from mypy_boto3_builder.chat.chat import Chat, Choice
 from mypy_boto3_builder.chat.text_style import TextStyle
-from mypy_boto3_builder.chat.type_defs import Message
+from mypy_boto3_builder.chat.type_defs import Message, MessageToken
 from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.constants import PROG_NAME
 from mypy_boto3_builder.enums.output_type import OutputType
@@ -40,8 +40,6 @@ MAX_SERVICE_PYCHARM = 20
 DEFAULT_OUTPUT_PATH = Path("./vendored")
 REPORT_URL = "https://github.com/youtype/mypy_boto3_builder/issues"
 QMARK = "Input:"
-BUILDER_PREFIX = "NotAI:"
-YOU_PREFIX = "You:  "
 PAIR = 2
 PROJECT_PATH = Path.cwd()
 
@@ -103,7 +101,7 @@ def _stringify(service_name: ServiceName) -> str:
 #         sys.stdout.flush()
 
 
-def _join_and(items: Sequence[tuple[TextStyle, str]], name: str = "") -> Message:
+def _join_and(items: Sequence[MessageToken], name: str = "") -> Message:
     name_suffix = f" {name}{"" if len(items) == 1 else "s"}" if name else ""
     if not items:
         return ("no ", name_suffix)
@@ -112,7 +110,7 @@ def _join_and(items: Sequence[tuple[TextStyle, str]], name: str = "") -> Message
     if len(items) == PAIR:
         return (items[0], " and ", items[1], name_suffix)
 
-    result: Message = []
+    result: list[MessageToken] = []
     for item in items[:-1]:
         result.extend((item, ", "))
 

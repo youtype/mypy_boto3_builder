@@ -14,7 +14,7 @@ from prompt_toolkit.styles import Style
 if TYPE_CHECKING:
     from prompt_toolkit.formatted_text import StyleAndTextTuples
 
-    from mypy_boto3_builder.chat.type_defs import Message
+    from mypy_boto3_builder.chat.type_defs import Message, MessagePair
 
 
 class TextStyle(Enum):
@@ -65,7 +65,7 @@ class TextStyle(Enum):
         """
         return Style([(i.value, i.css) for i in cls])
 
-    def apply(self, message: Message | str) -> list[tuple[TextStyle, str]]:
+    def apply(self, message: Message | str) -> list[MessagePair]:
         """
         Apply styling for internal usage.
         """
@@ -74,7 +74,7 @@ class TextStyle(Enum):
         if isinstance(message, str):
             return [(self, message)]
 
-        result: list[tuple[TextStyle, str]] = []
+        result: list[MessagePair] = []
         for item in message:
             if isinstance(item, str):
                 result.append((self, item))

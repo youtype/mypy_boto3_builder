@@ -11,9 +11,8 @@ from typing import TYPE_CHECKING, Any, Final
 
 import questionary
 from prompt_toolkit import Application, PromptSession, print_formatted_text
-from prompt_toolkit.filters import Condition, IsDone
 from prompt_toolkit.formatted_text import AnyFormattedText, FormattedText, StyleAndTextTuples
-from prompt_toolkit.layout import ConditionalContainer, HSplit, Layout, Window
+from prompt_toolkit.layout import ConditionalContainer, HSplit, Window
 from questionary.prompts.common import InquirerControl
 
 from mypy_boto3_builder.chat.choice import Choice
@@ -21,12 +20,12 @@ from mypy_boto3_builder.chat.choice_map import ChoiceMap
 from mypy_boto3_builder.chat.text_style import TextStyle
 
 if TYPE_CHECKING:
-    from collections.abc import Iterator, Sequence
+    from collections.abc import Sequence
 
     from prompt_toolkit.renderer import Renderer
     from questionary.question import Question
 
-    from mypy_boto3_builder.chat.type_defs import Message, MessagePair
+    from mypy_boto3_builder.chat.type_defs import Message, MessagePair, MessageToken
 
 
 class Chat:
@@ -67,33 +66,33 @@ class Chat:
             raise ValueError("InquirerControl is not set")
         return self._inquirer_control
 
-    def _create_inquirer_layout(
-        self,
-        ic: InquirerControl,
-        get_prompt_tokens: AnyFormattedText,
-    ) -> Layout:
-        """
-        Create a layout combining question and inquirer selection.
-        """
-        ps: PromptSession[Any] = PromptSession(get_prompt_tokens, reserve_space_for_menu=0)
-        # _fix_unecessary_blank_lines(ps)
+    # def _create_inquirer_layout(
+    #     self,
+    #     ic: InquirerControl,
+    #     get_prompt_tokens: AnyFormattedText,
+    # ) -> Layout:
+    #     """
+    #     Create a layout combining question and inquirer selection.
+    #     """
+    #     ps: PromptSession[Any] = PromptSession(get_prompt_tokens, reserve_space_for_menu=0)
+    #     # _fix_unecessary_blank_lines(ps)
 
-        validation_prompt: PromptSession[Any] = PromptSession(
-            bottom_toolbar=lambda: ic.error_message
-        )
+    #     validation_prompt: PromptSession[Any] = PromptSession(
+    #         bottom_toolbar=lambda: ic.error_message
+    #     )
 
-        return Layout(
-            HSplit(
-                [
-                    ps.layout.container,
-                    ConditionalContainer(Window(ic), filter=~IsDone()),
-                    ConditionalContainer(
-                        validation_prompt.layout.container,
-                        filter=Condition(lambda: ic.error_message is not None),
-                    ),
-                ]
-            )
-        )
+    #     return Layout(
+    #         HSplit(
+    #             [
+    #                 ps.layout.container,
+    #                 ConditionalContainer(Window(ic), filter=~IsDone()),
+    #                 ConditionalContainer(
+    #                     validation_prompt.layout.container,
+    #                     filter=Condition(lambda: ic.error_message is not None),
+    #                 ),
+    #             ]
+    #         )
+    #     )
 
     def _patch_question(
         self,
@@ -135,7 +134,7 @@ class Chat:
         if len(selected) == self.PAIR:
             return [" ", selected[0], " and ", selected[1]]
 
-        result: Message = [" "]
+        result: list[MessageToken] = [" "]
         for item in selected[:-1]:
             result.extend((item, ", "))
         result.extend(("and ", selected[-1]))
@@ -174,7 +173,7 @@ class Chat:
 
             select_finish_choice = finish_selected_choice if result else finish_choice
 
-            selected = self.select(
+            selected_str = self.select(
                 message=message,
                 message_end=message_end,
                 choices=(
@@ -185,7 +184,7 @@ class Chat:
                 default=default,
                 erase_when_done=True,
             )
-            selected = choice_map.get(selected)
+            selected = choice_map.get(selected_str)
             if not selected:
                 break
 
@@ -194,15 +193,15 @@ class Chat:
         if not erase_when_done:
             self.respond(
                 (
-                    *self._format_message(message),
+                    *self._as_message(message),
                     *self._format_selected_tokens([i.tag for i in (result or [finish_choice])]),
-                    *self._format_message(message_end),
+                    *self._as_message(message_end),
                 )
             )
 
         return [i.key for i in result]
 
-    def _format_message(self, message: Message | str) -> Message:
+    def _as_message(self, message: Message | str) -> Message:
         if isinstance(message, str):
             return (message,)
 
@@ -235,12 +234,12 @@ class Chat:
         )
 
         def get_tokens() -> StyleAndTextTuples:
-            tokens: Message = [
-                (TextStyle.help, self.HELP_NAME),
+            tokens: list[MessageToken] = [
+                *TextStyle.user.apply(self.HELP_NAME),
                 *TextStyle.dim.apply(instruction or self.SELECT_HELP),
                 "\n\n",
-                (TextStyle.user, self.USER_NAME),
-                *self._format_message(message),
+                *TextStyle.user.apply(self.USER_NAME),
+                *self._as_message(message),
             ]
 
             title = str(self.inquirer_control.get_pointed_at().title)
@@ -250,7 +249,7 @@ class Chat:
                 *((selected.answer,) if selected.text else ()),
             ]
             tokens.extend(self._format_selected_tokens(selected_tokens))
-            tokens.extend(self._format_message(message_end))
+            tokens.extend(self._as_message(message_end))
 
             return TextStyle.text.stylize(tokens)
 
@@ -261,9 +260,9 @@ class Chat:
         if not erase_when_done:
             self.respond(
                 [
-                    *self._format_message(message),
+                    *self._as_message(message),
                     *self._format_selected_tokens([selected.tag]),
-                    *self._format_message(message_end),
+                    *self._as_message(message_end),
                 ]
             )
 
@@ -277,10 +276,6 @@ class Chat:
             [*TextStyle.user.stylize(self.USER_NAME), *TextStyle.text.stylize(message)]
         )
         print_formatted_text(result, style=self.STYLE, end="\n\n")
-
-    def _iterate_tuples(self, message: StyleAndTextTuples) -> Iterator[StyleAndTextTuples]:
-        result: StyleAndTextTuples = []
-        yield result
 
     def say(self, message: Message | str) -> None:
         """

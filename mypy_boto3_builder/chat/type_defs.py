@@ -11,4 +11,5 @@ from collections.abc import MutableSequence
 from mypy_boto3_builder.chat.text_style import TextStyle
 
 MessagePair = tuple[TextStyle, str]
-Message = tuple[MessagePair | str, ...] | MutableSequence[MessagePair | str]
+MessageToken = MessagePair | str
+Message = tuple[MessageToken, ...] | MutableSequence[MessageToken]
