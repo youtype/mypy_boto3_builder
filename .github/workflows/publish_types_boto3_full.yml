@@ -114,8 +114,8 @@ jobs:
             core.notice(`Extra flags = ${extraFlags}`)
             return extraFlags.join(' ')
 
-  publish-types-boto3:
-    name: Publish types-boto3
+  publish:
+    name: Publish types-boto3-full
     runs-on: ubuntu-latest
     needs: versions
     if: needs.versions.outputs.version

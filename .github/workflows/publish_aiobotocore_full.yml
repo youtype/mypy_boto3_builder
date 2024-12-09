@@ -100,8 +100,8 @@ jobs:
             core.notice(`Extra flags = ${extraFlags}`)
             return extraFlags.join(' ')
 
-  publish-types-aiobotocore:
-    name: Publish types-aiobotocore
+  publish:
+    name: Publish types-aiobotocore-full
     runs-on: ubuntu-latest
     needs: versions
     if: needs.versions.outputs.version

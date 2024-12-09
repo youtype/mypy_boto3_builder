@@ -114,8 +114,8 @@ jobs:
             core.notice(`Extra flags = ${extraFlags}`)
             return extraFlags.join(' ')
 
-  publish-boto3-stubs:
-    name: Publish boto3-stubs
+  publish:
+    name: Publish boto3-stubs-full
     runs-on: ubuntu-latest
     needs: versions
     if: needs.versions.outputs.version

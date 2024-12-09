@@ -101,7 +101,7 @@ jobs:
             core.notice(`Extra flags = ${extraFlags}`)
             return extraFlags.join(' ')
 
-  publish-types-aioboto3:
+  publish:
     name: Publish types-aioboto3
     runs-on: ubuntu-latest
     needs: versions
