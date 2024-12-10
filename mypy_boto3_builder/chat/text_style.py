@@ -48,7 +48,7 @@ class TextStyle(Enum):
             case TextStyle.user:
                 return "fg:#39B54A bold"
             case TextStyle.help:
-                return "fg:cyan bold"
+                return "fg:#006FB8 bold"
             case TextStyle.text:
                 return ""
             case TextStyle.tag:

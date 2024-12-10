@@ -41,10 +41,6 @@ class Chat:
 
     STYLE = TextStyle.get_style()
 
-    style = TextStyle
-
-    PAIR: Final = 2
-
     SELECT_HELP: Final[Message] = (
         "Use ",
         TextStyle.tag.wrap("arrow keys"),
@@ -119,12 +115,12 @@ class Chat:
             return []
 
         if len(selected) == 1:
-            return [" ", *selected[0]]
+            return selected[0]
 
-        if len(selected) == self.PAIR:
-            return [" ", *selected[0], " and ", *selected[1]]
+        if len(selected) == 1 + 1:
+            return [*selected[0], " and ", *selected[1]]
 
-        result: list[MessageToken] = [" "]
+        result: list[MessageToken] = []
         for item in selected[:-1]:
             result.extend((*item, ", "))
         result.extend(("and ", *selected[-1]))
@@ -185,6 +181,7 @@ class Chat:
             self.respond(
                 (
                     *self._as_message(message),
+                    " " if message else "",
                     *self._format_selected_tokens([i.tag for i in (result or [finish_choice])]),
                     *self._as_message(message_end),
                 )
@@ -292,11 +289,12 @@ class Chat:
 
         def get_tokens() -> list[tuple[str, str]]:
             tokens: list[MessageToken] = [
-                TextStyle.user.wrap(self.HELP_NAME),
+                TextStyle.help.wrap(self.HELP_NAME),
                 *TextStyle.dim.apply(instruction or self.SELECT_HELP),
                 "\n\n",
                 TextStyle.user.wrap(self.USER_NAME),
                 *self._as_message(message),
+                " " if message else "",
             ]
 
             title = str(self.inquirer_control.get_pointed_at().value)
@@ -318,6 +316,7 @@ class Chat:
             self.respond(
                 [
                     *self._as_message(message),
+                    " " if message else "",
                     *self._format_selected_tokens([selected.tag]),
                     *self._as_message(message_end),
                 ]
@@ -348,6 +347,6 @@ class Chat:
         Say as a Help.
         """
         formatted_text = FormattedText(
-            [*TextStyle.bot.stylize(self.HELP_NAME), *TextStyle.dim.stylize(message)]
+            [*TextStyle.help.stylize(self.HELP_NAME), *TextStyle.dim.stylize(message)]
         )
         print_formatted_text(formatted_text, style=self.STYLE, end="\n\n")

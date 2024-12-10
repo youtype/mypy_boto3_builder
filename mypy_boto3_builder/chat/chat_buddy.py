@@ -11,10 +11,6 @@ from collections.abc import Callable, Sequence
 from pathlib import Path
 from typing import Final
 
-import questionary
-from prompt_toolkit.shortcuts.prompt import CompleteStyle
-from prompt_toolkit.validation import ValidationError
-
 from mypy_boto3_builder.chat.chat import Chat, Choice
 from mypy_boto3_builder.chat.enums import PackageManager, ServiceActions
 from mypy_boto3_builder.chat.text_style import TextStyle
@@ -110,7 +106,7 @@ class ChatBuddy:
         self.selected_service_names: list[ServiceName] = []
         self.recommended_service_names: list[ServiceName] = []
         self.product_library = ProductLibrary.boto3
-        self.library_name: str = ""
+        self.library_name: str = "boto3"
         self.product: Product = Product.types_boto3_custom
         self.output_path: Path = DEFAULT_OUTPUT_PATH
         self.project_path = PROJECT_PATH
@@ -405,23 +401,22 @@ class ChatBuddy:
     def _say_commands(self) -> None:
         cmd = " ".join(("uvx", *self.args.to_cmd()))
         lines = [
-            (
-                TextStyle.dim,
-                f"# generate {self.library_name} services",
-            ),
+            "\n\n",
+            TextStyle.dim.wrap(f"  # generate {self.library_name} services"),
+            "\n  ",
             cmd,
         ]
         found_whl = self._find_last_whl()
         if found_whl:
             lines.extend(
                 (
-                    "",
-                    (TextStyle.dim, f"# install with {self.package_manager.value}"),
+                    "\n\n",
+                    TextStyle.dim.wrap(f"  # install with {self.package_manager.value}"),
+                    "\n  ",
                     self._get_install_cmd(found_whl),
                 )
             )
-        lines_indent = (f"  {line}" if line else "" for line in lines)
-        self._say(f"\n\n{'\n'.join(lines_indent)}\n")
+        self._say(lines)
 
     def _select_package_manager(self) -> PackageManager:
         choices_map = {i.value: i for i in PackageManager}
@@ -432,7 +427,6 @@ class ChatBuddy:
                 "... I dont' know :(",
             ],
         )
-        _linebreak()
         if result not in choices_map:
             self._say(("I see... Let's use ", _tag("pip"), " then."))
             return PackageManager.pip
@@ -440,19 +434,20 @@ class ChatBuddy:
         return choices_map[result]
 
     def _select_output_path(self) -> Path:
-        def _validate(path: Path | None) -> bool:
-            if not path:
-                raise ValidationError(0, "Path should not be empty")
-            return True
-
-        response = questionary.path(
-            message="Save package in",
-            qmark=QMARK,
-            default=DEFAULT_OUTPUT_PATH.as_posix(),
-            complete_style=CompleteStyle.READLINE_LIKE,
-            validate=_validate,
-        ).unsafe_ask()
-        _linebreak()
+        response = self.chat.select_output_path(
+            message="Save the package to",
+            default=DEFAULT_OUTPUT_PATH,
+            erase_when_done=True,
+        )
+        self._respond(
+            (
+                "Save the package to ",
+                _tag(print_path(self.output_path)),
+                ". I might even add it to ",
+                _tag("git"),
+                "!",
+            )
+        )
         return Path(response)
 
     def _get_cli_namespace(self) -> CLINamespace:
@@ -468,12 +463,16 @@ class ChatBuddy:
         )
 
     def _do_start_building(self) -> bool:
-        response = questionary.confirm(
-            message=f"Start building {self.product.value}?",
-            qmark=QMARK,
-        ).unsafe_ask()
-        _linebreak()
-        return bool(response)
+        return self.chat.confirm(
+            message_yes=(
+                "Yes",
+                TextStyle.text.wrap(", start building now."),
+            ),
+            message_no=(
+                "No",
+                TextStyle.text.wrap(", I will build it later myself."),
+            ),
+        )
 
     def _get_response_services(self) -> Message:
         if self._is_all_selected():
@@ -492,21 +491,6 @@ class ChatBuddy:
         """
         Run chat buddy.
         """
-        # self.selected_service_names = [ServiceNameCatalog.ec2]
-        # self.available_service_names = (
-        #     ServiceNameCatalog.ec2,
-        #     ServiceNameCatalog.s3,
-        #     ServiceNameCatalog.sqs,
-        #     ServiceNameCatalog.sns,
-        #     ServiceNameCatalog.dynamodb,
-        #     ServiceNameCatalog.lambda_,
-        #     ServiceNameCatalog.cloudformation,
-        #     ServiceNameCatalog.rds,
-        #     ServiceNameCatalog.iam,
-        #     ServiceNameCatalog.stepfunctions,
-        # )
-        # self._select_services()
-        # self.chat.select_multiple("hello", [f"choice {i}" for i in range(500)])
         self._say(
             ("Hello from ", _tag(PROG_NAME), "!"),
             (
@@ -613,9 +597,7 @@ class ChatBuddy:
         )
         package_name = f"{self.product_library.get_package_prefix()}_*.whl"
 
-        self.args = self._get_cli_namespace()
-
-        self._say(("I can start building ", _tag(package_name), " now if you want."))
+        self._say(("I can start building ", _tag(package_name), " now if you want. Let's start?"))
         if not self._do_start_building():
             self._respond("No, I just want to check how to do it.")
             self._say(("No worries, you can always build ", _tag(self.product.value), " later!"))
@@ -634,16 +616,9 @@ class ChatBuddy:
             ),
         )
         self.output_path = self._select_output_path()
-        self._respond(
-            (
-                "Save the package in ",
-                _tag(print_path(self.output_path)),
-                ". I might even add it to ",
-                _tag("git"),
-                "!",
-            )
-        )
         self._say(("Good idea! Building to ", _tag(print_path(self.output_path)), " directory..."))
+
+        self.args = self._get_cli_namespace()
         self._run_builder()
 
     def _get_documentation_url(self) -> str:
