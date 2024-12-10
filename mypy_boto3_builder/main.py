@@ -9,7 +9,7 @@ import sys
 import warnings
 from collections.abc import Iterable, Sequence
 
-from mypy_boto3_builder.chat_buddy import ChatBuddy
+from mypy_boto3_builder.chat.chat_buddy import ChatBuddy
 from mypy_boto3_builder.cli_parser import CLINamespace, parse_args
 from mypy_boto3_builder.constants import (
     BUILDER_REPO_URL,
