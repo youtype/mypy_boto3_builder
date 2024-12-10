@@ -15,7 +15,7 @@ from mypy_boto3_builder.chat.text_style import TextStyle
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
-    from mypy_boto3_builder.chat.type_defs import Message, MessagePair
+    from mypy_boto3_builder.chat.type_defs import Message
 
 
 class Choice(QuestionaryChoice):
@@ -27,7 +27,7 @@ class Choice(QuestionaryChoice):
         self,
         title: Message | str,
         key: str | None = None,
-        text: str | None = None,
+        text: Message | str | None = None,
         aliases: Sequence[str] = (),
         shortcut_key: str | None = None,
     ) -> None:
@@ -38,7 +38,7 @@ class Choice(QuestionaryChoice):
             value=self.key,
             shortcut_key=shortcut_key or False,
         )
-        self.text = self.key if text is None else text
+        self.text: Message | str = self.key if text is None else text
         self.aliases = aliases or (self.key,)
 
     def __hash__(self) -> int:
@@ -48,15 +48,15 @@ class Choice(QuestionaryChoice):
         return hash(self.value)
 
     @property
-    def tag(self) -> MessagePair:
+    def tag(self) -> Message:
         """
         Previous answers.
         """
-        return (TextStyle.tag, self.text)
+        return TextStyle.tag.apply(self.text)
 
     @property
-    def answer(self) -> MessagePair:
+    def answer(self) -> Message:
         """
         Current answer.
         """
-        return (TextStyle.hilight, self.text)
+        return TextStyle.hilight.apply(self.text)

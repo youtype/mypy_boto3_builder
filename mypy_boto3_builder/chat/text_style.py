@@ -27,6 +27,8 @@ class TextStyle(Enum):
     tag = "tag"
     dim = "dim"
     hilight = "hilight"
+    qmark = "qmark"
+    answer = "answer"
 
     @property
     def style(self) -> str:
@@ -55,6 +57,10 @@ class TextStyle(Enum):
                 return "fg:gray"
             case TextStyle.hilight:
                 return "fg:#FF9D00 bold"
+            case TextStyle.qmark:
+                return "fg:#39B54A bold"
+            case TextStyle.answer:
+                return "fg:#FF9D00 bold"
 
     @classmethod
     def get_style(cls) -> Style:
@@ -63,14 +69,14 @@ class TextStyle(Enum):
         """
         return Style([(i.value, i.css) for i in cls])
 
-    def apply(self, message: Message | str) -> list[MessagePair]:
+    def apply(self, message: Message | str) -> tuple[MessagePair, ...]:
         """
         Apply styling for internal usage.
         """
         if not message:
-            return []
+            return ()
         if isinstance(message, str):
-            return [(self, message)]
+            return ((self, message),)
 
         result: list[MessagePair] = []
         for item in message:
@@ -82,7 +88,7 @@ class TextStyle(Enum):
                 result.append((self.__class__(item_style.replace("class:", "")), item_text))
                 continue
             result.append((item_style, item_text))
-        return result
+        return tuple(result)
 
     def stylize(self, message: Message | str) -> list[tuple[str, str]]:
         """

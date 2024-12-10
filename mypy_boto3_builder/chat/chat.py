@@ -6,6 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any, Final
 
 import questionary
@@ -13,6 +14,8 @@ from prompt_toolkit import PromptSession, print_formatted_text
 from prompt_toolkit.filters.base import Always
 from prompt_toolkit.formatted_text import AnyFormattedText, FormattedText
 from prompt_toolkit.layout import ConditionalContainer, FloatContainer, HSplit, Window
+from prompt_toolkit.shortcuts.prompt import CompleteStyle
+from prompt_toolkit.validation import ValidationError
 from questionary.prompts.common import InquirerControl
 
 from mypy_boto3_builder.chat.choice import Choice
@@ -24,7 +27,7 @@ if TYPE_CHECKING:
 
     from questionary.question import Question
 
-    from mypy_boto3_builder.chat.type_defs import Message, MessagePair, MessageToken
+    from mypy_boto3_builder.chat.type_defs import Message, MessageToken
 
 
 class Chat:
@@ -44,10 +47,15 @@ class Chat:
 
     SELECT_HELP: Final[Message] = (
         "Use ",
-        (TextStyle.tag, "arrow keys"),
+        TextStyle.tag.wrap("arrow keys"),
         " to select an item, then press ",
-        (TextStyle.tag, "Enter"),
+        TextStyle.tag.wrap("Enter"),
         ".",
+    )
+    PATH_HELP: Final[Message] = (
+        "Enter a ",
+        TextStyle.tag.wrap("path"),
+        " to output directory.",
     )
 
     def __init__(self) -> None:
@@ -62,34 +70,6 @@ class Chat:
         if self._inquirer_control is None:
             raise ValueError("InquirerControl is not set")
         return self._inquirer_control
-
-    # def _create_inquirer_layout(
-    #     self,
-    #     ic: InquirerControl,
-    #     get_prompt_tokens: AnyFormattedText,
-    # ) -> Layout:
-    #     """
-    #     Create a layout combining question and inquirer selection.
-    #     """
-    #     ps: PromptSession[Any] = PromptSession(get_prompt_tokens, reserve_space_for_menu=0)
-    #     # _fix_unecessary_blank_lines(ps)
-
-    #     validation_prompt: PromptSession[Any] = PromptSession(
-    #         bottom_toolbar=lambda: ic.error_message
-    #     )
-
-    #     return Layout(
-    #         HSplit(
-    #             [
-    #                 ps.layout.container,
-    #                 ConditionalContainer(Window(ic), filter=~IsDone()),
-    #                 ConditionalContainer(
-    #                     validation_prompt.layout.container,
-    #                     filter=Condition(lambda: ic.error_message is not None),
-    #                 ),
-    #             ]
-    #         )
-    #     )
 
     def _patch_question(
         self,
@@ -133,21 +113,21 @@ class Chat:
             raise TypeError("Unexpected layout")
         return result
 
-    def _format_selected_tokens(self, raw_selected: Sequence[MessagePair]) -> Message:
+    def _format_selected_tokens(self, raw_selected: Sequence[Message]) -> Message:
         selected = [item for item in raw_selected if item]
         if not selected:
             return []
 
         if len(selected) == 1:
-            return [" ", selected[0]]
+            return [" ", *selected[0]]
 
         if len(selected) == self.PAIR:
-            return [" ", selected[0], " and ", selected[1]]
+            return [" ", *selected[0], " and ", *selected[1]]
 
         result: list[MessageToken] = [" "]
         for item in selected[:-1]:
-            result.extend((item, ", "))
-        result.extend(("and ", selected[-1]))
+            result.extend((*item, ", "))
+        result.extend(("and ", *selected[-1]))
         return result
 
     def select_multiple(
@@ -221,6 +201,67 @@ class Chat:
     def _format_choices(self, choices: Sequence[Choice | str]) -> tuple[Choice, ...]:
         return tuple(Choice(choice) if isinstance(choice, str) else choice for choice in choices)
 
+    def select_output_path(
+        self,
+        message: str,
+        default: Path | None = None,
+        *,
+        erase_when_done: bool = False,
+    ) -> Path:
+        """
+        Ask to select an output directory.
+        """
+
+        def _validate(path: Path | None) -> bool:
+            if not path:
+                raise ValidationError(0, "Path should not be empty")
+            path = Path(path)
+            if path.exists() and not path.is_dir():
+                raise ValidationError(0, "Path should be a directory")
+            return True
+
+        question = questionary.path(
+            message=message,
+            qmark=self.USER_NAME[:-1],
+            default=default.as_posix() if default else "",
+            complete_style=CompleteStyle.READLINE_LIKE,
+            style=self.STYLE,
+            validate=_validate,
+            only_directories=True,
+        )
+        question.application.erase_when_done = True
+
+        self.say_help(self.PATH_HELP)
+        result = question.unsafe_ask()
+
+        if not erase_when_done:
+            self.respond((message, " ", TextStyle.tag.wrap(result)))
+        return Path(result)
+
+    def confirm(
+        self,
+        message: Message | str = "",
+        message_end: Message | str = "",
+        message_yes: Message | str = "I agree",
+        message_no: Message | str = "I disagree",
+        *,
+        erase_when_done: bool = False,
+    ) -> bool:
+        """
+        Confirm a message.
+        """
+        choices = [
+            Choice(title="Yes", key="yes", text=message_yes, shortcut_key="y"),
+            Choice(title="No", key="no", text=message_no, shortcut_key="n"),
+        ]
+        response = self.select(
+            message=message,
+            message_end=message_end,
+            choices=choices,
+            erase_when_done=erase_when_done,
+        )
+        return response == "yes"
+
     def select(
         self,
         message: Message | str,
@@ -260,10 +301,10 @@ class Chat:
 
             title = str(self.inquirer_control.get_pointed_at().value)
             selected = choice_map.get(title)
-            selected_tokens = [
+            selected_tokens = (
                 *(i.tag for i in selected_choices),
                 *((selected.answer,) if selected.text else ()),
-            ]
+            )
             tokens.extend(self._format_selected_tokens(selected_tokens))
             tokens.extend(self._as_message(message_end))
 
@@ -299,5 +340,14 @@ class Chat:
         """
         formatted_text = FormattedText(
             [*TextStyle.bot.stylize(self.BOT_NAME), *TextStyle.text.stylize(message)]
+        )
+        print_formatted_text(formatted_text, style=self.STYLE, end="\n\n")
+
+    def say_help(self, message: Message | str) -> None:
+        """
+        Say as a Help.
+        """
+        formatted_text = FormattedText(
+            [*TextStyle.bot.stylize(self.HELP_NAME), *TextStyle.dim.stylize(message)]
         )
         print_formatted_text(formatted_text, style=self.STYLE, end="\n\n")
