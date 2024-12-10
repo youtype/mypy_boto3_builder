@@ -6,8 +6,8 @@ Copyright 2024 Vlad Emelianov
 
 import logging
 import sys
+import time
 from collections.abc import Callable, Sequence
-from enum import Enum
 from pathlib import Path
 from typing import Final
 
@@ -16,6 +16,7 @@ from prompt_toolkit.shortcuts.prompt import CompleteStyle
 from prompt_toolkit.validation import ValidationError
 
 from mypy_boto3_builder.chat.chat import Chat, Choice
+from mypy_boto3_builder.chat.enums import PackageManager, ServiceActions
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message, MessageToken
 from mypy_boto3_builder.cli_parser import CLINamespace
@@ -44,61 +45,25 @@ PAIR = 2
 PROJECT_PATH = Path.cwd()
 
 
-class ServiceActions:
-    """
-    Available service actions.
-    """
+# class ServiceActions:
+#     """
+#     Available service actions.
+#     """
 
-    build = "continue"
-    add = "add another service"
-    add_all = "add all available services"
-    recommended = "add only recommended services"
-    remove = "remove selected service"
-    remove_all = "remove all selected services"
-
-
-class PackageManager(Enum):
-    """
-    Available package managers.
-    """
-
-    pip = "pip"
-    uv = "uv"
-    poetry = "poetry"
-    pipenv = "pipenv"
-
-
-# def _tag(message: str | float, color: str = Fore.CYAN, style: str = Style.BRIGHT) -> str:
-#     return f"{color}{style}{message}{Style.RESET_ALL}{Fore.RESET}"
+#     build = "Continue"
+#     add = "Add another service"
+#     add_all = "Add all available services"
+#     recommended = "Add only recommended services"
+#     remove = "Remove selected service"
+#     remove_all = "Remove all selected services"
 
 
 def _tag(message: str | float) -> tuple[TextStyle, str]:
     return (TextStyle.tag, str(message))
 
 
-# def _gray(message: str | float, color: str = Fore.WHITE) -> str:
-#     return _tag(message, color, Style.DIM)
-
-
 def _linebreak() -> None:
     sys.stdout.write("\n")
-
-
-def _stringify(service_name: ServiceName) -> str:
-    return f"{service_name.class_name} ({service_name.boto3_name})"
-
-
-# def _typewrite(message: str) -> None:
-#     words = message.split(" ")
-#     for index, word in enumerate(words):
-#         if index == len(words) - 1:
-#             sys.stdout.write(word)
-#             sys.stdout.flush()
-#             break
-
-#         sys.stdout.write(f"{word} ")
-#         time.sleep(0.02)
-#         sys.stdout.flush()
 
 
 def _join_and(items: Sequence[MessageToken], name: str = "") -> Message:
@@ -130,9 +95,18 @@ class ChatBuddy:
         ProductLibrary.aioboto3: Product.aioboto3_custom,
     }
 
+    START_SHORTCUT_KEY = "0"
+    SERVICE_SELECT_HELP: Final[Message] = (
+        *Chat.SELECT_HELP,
+        " Type ",
+        TextStyle.tag.wrap("first letter"),
+        " to search, type ",
+        TextStyle.tag.wrap(START_SHORTCUT_KEY),
+        " to return to the beginning and continue.",
+    )
+
     def __init__(self, run_builder: Callable[[CLINamespace], None]) -> None:
         self.available_service_names: tuple[ServiceName, ...] = ()
-        self.available_lookup_map: dict[str, ServiceName] = {}
         self.selected_service_names: list[ServiceName] = []
         self.recommended_service_names: list[ServiceName] = []
         self.product_library = ProductLibrary.boto3
@@ -158,126 +132,80 @@ class ChatBuddy:
         return [i for i in self.available_service_names if i.is_essential()]
 
     def _say(self, *messages: Message | str) -> None:
-        for message in messages:
+        for message in messages[:-1]:
             self.chat.say(message)
+            time.sleep(0.3)
+
+        self.chat.say(messages[-1])
 
     def _respond(self, *messages: Message | str) -> None:
         for message in messages:
             self.chat.respond(message)
 
-    @staticmethod
-    def _get_service_lookup_map(service_names: Sequence[ServiceName]) -> dict[str, ServiceName]:
-        result = {_stringify(i).lower(): i for i in service_names}
-        result.update({i.class_name.lower(): i for i in service_names})
-        result.update({i.boto3_name.lower(): i for i in service_names})
-        return result
-
-    def _select_service_name(
-        self,
-        message: str,
-        service_names: list[ServiceName],
-        go_back_message: str,
-    ) -> ServiceName | None:
-        choices = {f"{i.class_name} ({i.boto3_name})": i for i in service_names}
-        lookup_choices = self._get_service_lookup_map(service_names)
-        selected_choice: str
-        if len(choices) > MAX_SERVICE_SELECTABLE:
-
-            def _validate(choice: str) -> bool:
-                if not choice:
-                    return True
-                if choice.lower() in lookup_choices:
-                    return True
-
-                available_service_name = self.available_lookup_map.get(choice.lower())
-                if not available_service_name:
-                    raise ValidationError(len(choice), f"{choice} service does not exist")
-
-                if available_service_name in self.selected_service_names:
-                    raise ValidationError(
-                        len(choice),
-                        f"{_stringify(available_service_name)} service is already selected",
-                    )
-
-                raise ValidationError(
-                    len(choice),
-                    f"{_stringify(available_service_name)} service is already removed",
-                )
-
-            self._say(
-                (
-                    "Start typing ",
-                    _tag("service name"),
-                    " so I can find it in the list. Leave the input ",
-                    _tag("empty"),
-                    " and press ",
-                    _tag("Enter"),
-                    " to continue.",
+    def _get_service_choices(self, service_names: list[ServiceName]) -> list[Choice]:
+        sorted_service_names = sorted(service_names, key=lambda x: x.class_name)
+        last_shortcut = None
+        result: list[Choice] = []
+        for service_name in sorted_service_names:
+            current_shortcut = service_name.class_name[0].lower()
+            shortcut_key: str | None = None
+            if current_shortcut != last_shortcut:
+                last_shortcut = current_shortcut
+                shortcut_key = current_shortcut
+            result.append(
+                Choice(
+                    title=[
+                        service_name.class_name,
+                        TextStyle.dim.wrap(f" ({service_name.boto3_name})"),
+                    ],
+                    key=service_name.class_name,
+                    shortcut_key=shortcut_key,
                 )
             )
-            selected_choice = questionary.autocomplete(
-                message=message,
-                qmark=QMARK,
-                choices=list(choices),
-                complete_style=CompleteStyle.COLUMN,
-                validate=_validate,
-            ).unsafe_ask()
-            _linebreak()
-        else:
-            selected_choice = questionary.select(
-                message=message,
-                qmark=QMARK,
-                default=go_back_message,
-                choices=[go_back_message, *choices],
-            ).unsafe_ask()
-            _linebreak()
-        if not selected_choice:
-            return None
-        key = selected_choice.lower()
-        return lookup_choices.get(key)
+        return result
 
     def _add_service_names(self) -> None:
         selected_set = set(self.selected_service_names)
-        message = "I use"
-        while True:
-            choice_service_names = [
-                i for i in self.available_service_names if i not in selected_set
-            ]
-            selected_service_name = self._select_service_name(
-                message=message,
-                service_names=choice_service_names,
-                go_back_message="all of the above. Continue.",
-            )
-            if not selected_service_name:
-                break
-
-            self.selected_service_names.append(selected_service_name)
-            selected_set.add(selected_service_name)
-            self._say(*self._get_services_messages())
+        choice_service_names = [i for i in self.available_service_names if i not in selected_set]
+        service_choices = self._get_service_choices(choice_service_names)
+        service_choice_map = {i.class_name: i for i in choice_service_names}
+        selected = self._select_multiple(
+            message="I use",
+            choices=service_choices,
+            finish=Choice(
+                title=["Nothing else", TextStyle.dim.wrap(" (go back)")],
+                text="nothing else",
+                shortcut_key=self.START_SHORTCUT_KEY,
+            ),
+            finish_selected=Choice(
+                title=["Nothing else", TextStyle.dim.wrap(" (go back)")],
+                text="",
+                shortcut_key=self.START_SHORTCUT_KEY,
+            ),
+            erase_when_done=False,
+            instruction=self.SERVICE_SELECT_HELP,
+        )
+        selected_services = [service_choice_map[i] for i in selected]
+        self.selected_service_names.extend(selected_services)
 
     def _remove_service_names(self) -> None:
-        service_choices = [
-            Choice(
-                f"{i.class_name} ({i.boto3_name})",
-                i.class_name,
-                (
-                    f"{i.class_name} ({i.boto3_name})",
-                    i.name.lower(),
-                    i.class_name.lower(),
-                    f"{i.class_name} ({i.boto3_name})".lower(),
-                ),
-            )
-            for i in self.selected_service_names
-        ]
-        service_choice_map = {
-            f"{i.class_name} ({i.boto3_name})": i for i in self.selected_service_names
-        }
+        service_choices = self._get_service_choices(self.selected_service_names)
+        service_choice_map = {i.class_name: i for i in self.selected_service_names}
         selected = self._select_multiple(
             message="I do not use",
             choices=service_choices,
-            finish=Choice("Anything else (go back)", "anything else"),
-            finish_selected=Choice("Anything else (go back)", ""),
+            finish=Choice(
+                title=["Anything else", TextStyle.dim.wrap(" (go back)")],
+                text="anything else",
+                shortcut_key=self.START_SHORTCUT_KEY,
+            ),
+            finish_selected=Choice(
+                title=["Anything else", TextStyle.dim.wrap(" (go back)")],
+                text="",
+                shortcut_key=self.START_SHORTCUT_KEY,
+            ),
             erase_when_done=False,
+            instruction=self.SERVICE_SELECT_HELP,
         )
         selected_services = [service_choice_map[i] for i in selected]
         for selected_service_name in selected_services:
@@ -348,6 +276,7 @@ class ChatBuddy:
         *,
         default: str | None = None,
         message_end: str = ".",
+        instruction: Message | str = "",
         erase_when_done: bool = True,
     ) -> str:
         return self.chat.select(
@@ -356,6 +285,7 @@ class ChatBuddy:
             default=default,
             message_end=message_end,
             erase_when_done=erase_when_done,
+            instruction=instruction,
         )
 
     def _select_multiple(
@@ -365,6 +295,7 @@ class ChatBuddy:
         *,
         default: str | None = None,
         message_end: str = ".",
+        instruction: Message | str = "",
         finish: Choice | str = "",
         finish_selected: Choice | str | None = None,
         erase_when_done: bool = True,
@@ -377,6 +308,7 @@ class ChatBuddy:
             finish_selected=finish_selected,
             message_end=message_end,
             erase_when_done=erase_when_done,
+            instruction=instruction,
         )
 
     def _select_library(self) -> ProductLibrary | None:
@@ -416,28 +348,29 @@ class ChatBuddy:
                     ],
                 )
             )
+            select_choices = [Choice(title=i.value, text=i.value.lower()) for i in response_choices]
             response = self._select(
                 message="I want to",
-                choices=response_choices,
+                choices=select_choices,
                 erase_when_done=False,
             )
             match response:
-                case ServiceActions.build:
+                case ServiceActions.build.value:
                     return result
-                case ServiceActions.add:
+                case ServiceActions.add.value:
                     self._add_service_names()
                     continue
-                case ServiceActions.add_all:
+                case ServiceActions.add_all.value:
                     result.clear()
                     result.extend(self.available_service_names)
                     continue
-                case ServiceActions.remove:
+                case ServiceActions.remove.value:
                     self._remove_service_names()
                     continue
-                case ServiceActions.remove_all:
+                case ServiceActions.remove_all.value:
                     result.clear()
                     continue
-                case ServiceActions.recommended:
+                case ServiceActions.recommended.value:
                     result.clear()
                     result.extend(self.recommended_service_names)
                     continue
@@ -492,14 +425,13 @@ class ChatBuddy:
 
     def _select_package_manager(self) -> PackageManager:
         choices_map = {i.value: i for i in PackageManager}
-        result = questionary.select(
+        result = self._select(
             "My package manager is",
-            qmark=QMARK,
             choices=[
                 *choices_map,
                 "... I dont' know :(",
             ],
-        ).unsafe_ask()
+        )
         _linebreak()
         if result not in choices_map:
             self._say(("I see... Let's use ", _tag("pip"), " then."))
@@ -560,6 +492,21 @@ class ChatBuddy:
         """
         Run chat buddy.
         """
+        # self.selected_service_names = [ServiceNameCatalog.ec2]
+        # self.available_service_names = (
+        #     ServiceNameCatalog.ec2,
+        #     ServiceNameCatalog.s3,
+        #     ServiceNameCatalog.sqs,
+        #     ServiceNameCatalog.sns,
+        #     ServiceNameCatalog.dynamodb,
+        #     ServiceNameCatalog.lambda_,
+        #     ServiceNameCatalog.cloudformation,
+        #     ServiceNameCatalog.rds,
+        #     ServiceNameCatalog.iam,
+        #     ServiceNameCatalog.stepfunctions,
+        # )
+        # self._select_services()
+        # self.chat.select_multiple("hello", [f"choice {i}" for i in range(500)])
         self._say(
             ("Hello from ", _tag(PROG_NAME), "!"),
             (
@@ -628,7 +575,6 @@ class ChatBuddy:
             )
         )
         self.available_service_names = tuple(get_available_service_names())
-        self.available_lookup_map = self._get_service_lookup_map(self.available_service_names)
         self.recommended_service_names = self._get_selected_service_names()
         self.selected_service_names = list(self.recommended_service_names)
         self._say(

@@ -30,3 +30,15 @@ class ChoiceMap:
         Get choice by key.
         """
         return self._choices[alias]
+
+    def has(self, alias: str) -> bool:
+        """
+        Check if choice exists.
+        """
+        return alias in self._choices
+
+    def __iter__(self) -> list[Choice]:
+        """
+        Get all choices.
+        """
+        return list(self._choices.values())

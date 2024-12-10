@@ -6,13 +6,13 @@ Copyright 2024 Vlad Emelianov
 
 from __future__ import annotations
 
-import time
 from typing import TYPE_CHECKING, Any, Final
 
 import questionary
-from prompt_toolkit import Application, PromptSession, print_formatted_text
-from prompt_toolkit.formatted_text import AnyFormattedText, FormattedText, StyleAndTextTuples
-from prompt_toolkit.layout import ConditionalContainer, HSplit, Window
+from prompt_toolkit import PromptSession, print_formatted_text
+from prompt_toolkit.filters.base import Always
+from prompt_toolkit.formatted_text import AnyFormattedText, FormattedText
+from prompt_toolkit.layout import ConditionalContainer, FloatContainer, HSplit, Window
 from questionary.prompts.common import InquirerControl
 
 from mypy_boto3_builder.chat.choice import Choice
@@ -22,7 +22,6 @@ from mypy_boto3_builder.chat.text_style import TextStyle
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
-    from prompt_toolkit.renderer import Renderer
     from questionary.question import Question
 
     from mypy_boto3_builder.chat.type_defs import Message, MessagePair, MessageToken
@@ -46,8 +45,6 @@ class Chat:
     SELECT_HELP: Final[Message] = (
         "Use ",
         (TextStyle.tag, "arrow keys"),
-        " or ",
-        (TextStyle.tag, "j/k"),
         " to select an item, then press ",
         (TextStyle.tag, "Enter"),
         ".",
@@ -99,18 +96,31 @@ class Chat:
         question: Question,
         get_tokens: AnyFormattedText,
     ) -> None:
-        hsplit = question.application.layout.container
-        self.session.message = get_tokens
-        if not isinstance(hsplit, HSplit):
-            raise TypeError("Unexpected layout")
-        hsplit.children[0] = self.session.layout.container
+        self.session = PromptSession(get_tokens, reserve_space_for_menu=0)
         question.application.erase_when_done = True
 
-    def _get_inquirer_control(self, question: Question) -> InquirerControl:
-        hsplit = question.application.layout.container
+        hsplit = question.application.layout.container.get_children()[0]
         if not isinstance(hsplit, HSplit):
             raise TypeError("Unexpected layout")
-        window_container = hsplit.children[1]
+
+        float_container = self.session.layout.container.get_children()[0]
+        if not isinstance(float_container, FloatContainer):
+            raise TypeError("Unexpected layout")
+
+        window_container = float_container.content.get_children()[1]
+        if not isinstance(window_container, ConditionalContainer):
+            raise TypeError("Unexpected layout")
+
+        default_buffer_window = window_container.content
+        if not isinstance(default_buffer_window, Window):
+            raise TypeError("Unexpected layout")
+
+        default_buffer_window.dont_extend_height = Always()
+        default_buffer_window.always_hide_cursor = Always()
+        hsplit.children[0] = self.session.layout.container
+
+    def _get_inquirer_control(self, question: Question) -> InquirerControl:
+        window_container = question.application.layout.container.get_children()[1]
         if not isinstance(window_container, ConditionalContainer):
             raise TypeError("Unexpected layout")
 
@@ -147,6 +157,7 @@ class Chat:
         *,
         default: str | None = None,
         message_end: Message | str = "",
+        instruction: Message | str = "",
         finish: Choice | str = "nothing",
         finish_selected: Choice | str | None = None,
         erase_when_done: bool = False,
@@ -160,7 +171,7 @@ class Chat:
         finish_selected = (
             finish_selected
             if finish_selected is not None
-            else Choice(key=finish_choice.key, text="")
+            else Choice(title=finish_choice.key, text="")
         )
         finish_selected_choice = (
             finish_selected if isinstance(finish_selected, Choice) else Choice(finish_selected)
@@ -176,6 +187,7 @@ class Chat:
             selected_str = self.select(
                 message=message,
                 message_end=message_end,
+                instruction=instruction,
                 choices=(
                     select_finish_choice,
                     *remaining_choices,
@@ -184,10 +196,9 @@ class Chat:
                 default=default,
                 erase_when_done=True,
             )
-            selected = choice_map.get(selected_str)
-            if not selected:
+            if not choice_map.has(selected_str):
                 break
-
+            selected = choice_map.get(selected_str)
             result.append(selected)
 
         if not erase_when_done:
@@ -226,23 +237,28 @@ class Chat:
         """
         select_choices = self._format_choices(choices)
         choice_map = ChoiceMap(select_choices)
+        original_shortcut_keys = list(InquirerControl.SHORTCUT_KEYS)
+        InquirerControl.SHORTCUT_KEYS = original_shortcut_keys * 100
         question = questionary.select(
             message="",
-            choices=[i.key for i in select_choices],
+            choices=select_choices,
             default=default,
             style=self.STYLE,
+            use_shortcuts=True,
+            use_jk_keys=False,
         )
+        InquirerControl.SHORTCUT_KEYS = original_shortcut_keys
 
-        def get_tokens() -> StyleAndTextTuples:
+        def get_tokens() -> list[tuple[str, str]]:
             tokens: list[MessageToken] = [
-                *TextStyle.user.apply(self.HELP_NAME),
+                TextStyle.user.wrap(self.HELP_NAME),
                 *TextStyle.dim.apply(instruction or self.SELECT_HELP),
                 "\n\n",
-                *TextStyle.user.apply(self.USER_NAME),
+                TextStyle.user.wrap(self.USER_NAME),
                 *self._as_message(message),
             ]
 
-            title = str(self.inquirer_control.get_pointed_at().title)
+            title = str(self.inquirer_control.get_pointed_at().value)
             selected = choice_map.get(title)
             selected_tokens = [
                 *(i.tag for i in selected_choices),
@@ -281,10 +297,7 @@ class Chat:
         """
         Say as a Bot.
         """
-        renderer: Renderer = Application().renderer
         formatted_text = FormattedText(
             [*TextStyle.bot.stylize(self.BOT_NAME), *TextStyle.text.stylize(message)]
         )
-        print_formatted_text(formatted_text, style=self.STYLE, end="\n\n", output=renderer.output)
-        time.sleep(0.1)
-        renderer.erase()
+        print_formatted_text(formatted_text, style=self.STYLE, end="\n\n")
