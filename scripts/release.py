@@ -1,4 +1,13 @@
 #!/usr/bin/env python
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#   "requests",
+#   "setuptools",
+#   "twine",
+#   "wheel",
+# ]
+# ///
 """
 Publish packages to PyPI.
 

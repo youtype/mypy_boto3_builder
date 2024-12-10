@@ -598,6 +598,7 @@ name = "mypy-boto3-builder"
 version = "8.6.1"
 source = { editable = "." }
 dependencies = [
+    { name = "boto3" },
     { name = "botocore" },
     { name = "colorama" },
     { name = "jinja2" },
@@ -648,6 +649,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "boto3" },
     { name = "boto3-stubs", marker = "extra == 'check'" },
     { name = "botocore" },
     { name = "colorama" },
