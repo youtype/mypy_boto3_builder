@@ -20,19 +20,15 @@ class TypeSubscript(TypeParent):
     Arguments:
         parent -- Parent type annotation.
         children -- Children type annotations.
-        stringify -- Convert type annotation to string.
     """
 
     def __init__(
         self,
         parent: FakeAnnotation,
         children: Iterable[FakeAnnotation] = (),
-        *,
-        stringify: bool = False,
     ) -> None:
         self.parent: FakeAnnotation = parent
         self.children: list[FakeAnnotation] = list(children)
-        self._stringify = stringify
 
     def render(self) -> str:
         """
@@ -46,8 +42,6 @@ class TypeSubscript(TypeParent):
             children = ", ".join([i.render() for i in self.children])
             result = f"{result}[{children}]"
 
-        if self._stringify:
-            result = f'"{result}"'
         return result
 
     def get_import_records(self) -> set[ImportRecord]:
@@ -93,7 +87,6 @@ class TypeSubscript(TypeParent):
         return self.__class__(
             parent=self.parent,
             children=list(self.children),
-            stringify=self._stringify,
         )
 
     def get_local_types(self) -> list[FakeAnnotation]:

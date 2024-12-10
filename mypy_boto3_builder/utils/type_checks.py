@@ -65,4 +65,5 @@ def get_optional(wrapped: FakeAnnotation) -> TypeSubscript:
         result = wrapped.copy()
         result.add_child(Type.none)
         return result
-    return TypeSubscript(Type.Optional, [wrapped])
+
+    return TypeUnion([wrapped, Type.none])

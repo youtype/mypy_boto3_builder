@@ -21,6 +21,7 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation as a string.
     """
 
+    _BUILTINS: Final = ImportString("builtins")
     _TYPING: Final = ImportString("typing")
     _TYPING_EXTENSIONS: Final = ImportString("typing_extensions")
 
@@ -28,13 +29,12 @@ class TypeAnnotation(FakeAnnotation):
     _SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {
         "Union": _TYPING,  # typing.Union
         "Any": _TYPING,  # typing.Any
-        "Dict": _TYPING,  # typing.Dict
-        "List": _TYPING,  # typing.List
+        "dict": _BUILTINS,  # builtins.dict
+        "list": _BUILTINS,  # builtins.list
         "Set": _TYPING,  # typing.Set
-        "Optional": _TYPING,  # typing.Optional
         "IO": _TYPING,  # typing.IO
         "overload": _TYPING,  # typing.overload
-        "Type": _TYPING,  # typing.Type
+        "type": _BUILTINS,  # builtins.type
         "NoReturn": _TYPING,  # typing.NoReturn
         "TypedDict": _TYPING,  # typing_extensions.TypedDict / typing.TypedDict
         "Literal": _TYPING,  # typing_extensions.Literal / typing.Literal
@@ -83,6 +83,9 @@ class TypeAnnotation(FakeAnnotation):
         """
         name = self.get_import_name()
         source = self._SUPPORTED_TYPES[name]
+        if source == self._BUILTINS:
+            return set()
+
         if name not in self._FALLBACK:
             return {ImportRecord(source=source, name=name)}
 
@@ -101,13 +104,13 @@ class TypeAnnotation(FakeAnnotation):
         """
         Whether annotation is a plain Dict.
         """
-        return self._wrapped_type == "Dict"
+        return self._wrapped_type == "dict"
 
     def is_list(self) -> bool:
         """
         Whether annotation is a plain List.
         """
-        return self._wrapped_type == "List"
+        return self._wrapped_type == "list"
 
     def __copy__(self) -> Self:
         """
