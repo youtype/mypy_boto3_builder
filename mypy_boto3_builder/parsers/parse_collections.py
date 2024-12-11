@@ -93,7 +93,7 @@ def parse_collection(
             arguments=[Argument.self()],
             return_type=TypeSubscript(
                 Type.Iterator,
-                [Type.list(InternalImport(name=object_class_name))],
+                [Type.wrap_list(InternalImport(name=object_class_name))],
             ),
             docstring=f"A generator which yields pages of {object_class_name}s.",
         ),

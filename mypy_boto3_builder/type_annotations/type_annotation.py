@@ -27,11 +27,15 @@ class TypeAnnotation(FakeAnnotation):
 
     # Set of supported type annotations. value is default import module
     _SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {
-        "Union": _TYPING,  # typing.Union
-        "Any": _TYPING,  # typing.Any
         "dict": _BUILTINS,  # builtins.dict
         "list": _BUILTINS,  # builtins.list
+        "set": _BUILTINS,  # builtins.set
+        "Union": _TYPING,  # typing.Union
+        "Any": _TYPING,  # typing.Any
+        "Dict": _TYPING,  # typing.Dict
+        "List": _TYPING,  # typing.List
         "Set": _TYPING,  # typing.Set
+        "Type": _TYPING,  # typing.type
         "IO": _TYPING,  # typing.IO
         "overload": _TYPING,  # typing.overload
         "type": _BUILTINS,  # builtins.type
@@ -104,13 +108,13 @@ class TypeAnnotation(FakeAnnotation):
         """
         Whether annotation is a plain Dict.
         """
-        return self._wrapped_type == "dict"
+        return self._wrapped_type in {"dict", "Dict"}
 
     def is_list(self) -> bool:
         """
         Whether annotation is a plain List.
         """
-        return self._wrapped_type == "list"
+        return self._wrapped_type in {"list", "List"}
 
     def __copy__(self) -> Self:
         """

@@ -59,7 +59,7 @@ def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client
             Attribute(
                 exception_class_name,
                 TypeSubscript(
-                    Type.Type, [ExternalImport.from_class(ClientError, alias="BotocoreClientError")]
+                    Type.type, [ExternalImport.from_class(ClientError, alias="BotocoreClientError")]
                 ),
             ),
         )

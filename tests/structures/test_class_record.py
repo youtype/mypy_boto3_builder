@@ -59,7 +59,7 @@ class TestClassRecord:
         assert set(self.class_record.iterate_types()) == {
             Type.Any,
             Type.none,
-            Type.List,
+            Type.list,
             Type.str,
             TypeConstant("test"),
         }

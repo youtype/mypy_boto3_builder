@@ -98,7 +98,7 @@ class TestFunction:
         assert set(self.function.iterate_types()) == {
             Type.Any,
             Type.none,
-            Type.List,
+            Type.list,
             Type.str,
             TypeConstant("test"),
         }

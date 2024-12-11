@@ -409,7 +409,7 @@ class ShapeParser:
         is_streaming: bool = False,
     ) -> FakeAnnotation:
         type_subscript = (
-            TypeSubscript(Type.Dict) if is_output_child else TypeSubscript(Type.Mapping)
+            TypeSubscript(Type.dict) if is_output_child else TypeSubscript(Type.Mapping)
         )
         if shape.key:
             type_subscript.add_child(
