@@ -117,6 +117,10 @@ class TypeSubscript(TypeParent):
         """
         Replace child type annotation with a new one.
         """
+        if self.parent is child:
+            self.parent = new_child
+            return self
+
         if child not in self.children:
             raise TypeAnnotationError(f"Child not found: {child}")
 
