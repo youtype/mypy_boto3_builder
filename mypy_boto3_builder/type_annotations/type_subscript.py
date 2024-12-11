@@ -129,3 +129,19 @@ class TypeSubscript(TypeParent):
         Iterate over children.
         """
         yield from self.children
+
+    def find_type_annotation_parents(
+        self,
+        type_annotation: FakeAnnotation,
+        skip: Iterable[FakeAnnotation] = (),
+    ) -> set[TypeParent]:
+        """
+        Check recursively if child is present in type def.
+        """
+        skip = set(skip)
+        result: set[TypeParent] = set()
+        if self.parent == type_annotation:
+            result.add(self)
+            skip.add(self)
+        result.update(super().find_type_annotation_parents(type_annotation, skip=skip))
+        return result
