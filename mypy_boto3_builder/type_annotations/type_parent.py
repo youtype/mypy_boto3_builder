@@ -41,26 +41,50 @@ class TypeParent(FakeAnnotation, ABC):
     def find_type_annotation_parents(
         self,
         type_annotation: FakeAnnotation,
-        skip: Iterable[FakeAnnotation] = (),
     ) -> "set[TypeParent]":
         """
         Check recursively if child is present in type def.
         """
-        result: set[TypeParent] = set()
-        for child_type in self.iterate_children_type_annotations():
-            if child_type == type_annotation:
-                result.add(self)
-            if not isinstance(child_type, TypeParent):
-                continue
+        return self.find_type_annotation_parent_map({type_annotation}).get(type_annotation) or set()
 
-            if child_type in skip:
-                continue
+    def find_type_annotation_parent_map(
+        self, type_annotations: Iterable[FakeAnnotation]
+    ) -> "dict[FakeAnnotation, set[TypeParent]]":
+        """
+        Check recursively if children are present in type def.
 
-            parents = child_type.find_type_annotation_parents(
-                type_annotation,
-                skip={*skip, child_type},
-            )
-            result.update(parents)
+        Can be used for non-overlapping type annotations.
+        """
+        result: dict[FakeAnnotation, set[TypeParent]] = {}
+        for parent in self.find_parents():
+            for child_type in parent.iterate_children_type_annotations():
+                if child_type not in type_annotations:
+                    continue
+
+                if child_type not in result:
+                    result[child_type] = set()
+
+                result[child_type].add(parent)
+
+        return result
+
+    def find_parents(self) -> "set[TypeParent]":
+        """
+        Find all parents recursively including self.
+        """
+        result: set[TypeParent] = {self}
+        stack: list[TypeParent] = [self]
+
+        while stack:
+            current = stack.pop()
+            for child_type in current.iterate_children_type_annotations():
+                if not isinstance(child_type, TypeParent):
+                    continue
+                if child_type in result:
+                    continue
+
+                result.add(child_type)
+                stack.append(child_type)
 
         return result
 
