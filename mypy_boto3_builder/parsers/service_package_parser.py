@@ -109,10 +109,11 @@ class ServicePackageParser:
             if not is_union(type_def):
                 continue
 
+            parent_map = type_def.find_type_annotation_parent_map(UNION_TYPE_MAP)
             for old_type_annotation, new_type_annotation in UNION_TYPE_MAP.items():
-                if old_type_annotation in type_def.children:
-                    type_def.replace_child(old_type_annotation, new_type_annotation)
-                parents = type_def.find_type_annotation_parents(old_type_annotation)
+                parents = parent_map.get(old_type_annotation)
+                if not parents:
+                    continue
                 for parent in parents:
                     parent.replace_child(old_type_annotation, new_type_annotation)
 
