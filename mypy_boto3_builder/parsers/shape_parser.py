@@ -77,6 +77,7 @@ from mypy_boto3_builder.utils.strings import (
     get_type_def_name,
     xform_name,
 )
+from mypy_boto3_builder.utils.type_checks import is_union
 
 
 class ShapeParser:
@@ -1308,8 +1309,11 @@ class ShapeParser:
             )
             for type_annotation in parent_type_annotations:
                 parents = type_annotation.find_type_annotation_parents(input_typed_dict)
+                if not parents:
+                    continue
+
                 for parent in sorted(parents):
-                    if parent is union_type_annotation:
+                    if is_union(parent) and parent.name == union_name:
                         continue
                     self.logger.debug(
                         f"Adding output shape to {parent.render()} type:"

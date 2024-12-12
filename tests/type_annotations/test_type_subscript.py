@@ -53,6 +53,13 @@ class TestTypeSubscript:
         assert outer.find_type_annotation_parents(Type.str) == {outer}
         assert outer.find_type_annotation_parents(Type.List) == set()
 
+    def test_find_type_annotation_parent_map(self) -> None:
+        inner = TypeSubscript(Type.List, [Type.int])
+        outer = TypeSubscript(Type.Dict, [Type.str, inner])
+        assert outer.find_type_annotation_parent_map([Type.int]) == {Type.int: {inner}}
+        assert outer.find_type_annotation_parent_map([Type.str]) == {Type.str: {outer}}
+        assert outer.find_type_annotation_parent_map([Type.List]) == {}
+
     def test_replace_child(self) -> None:
         inner = TypeSubscript(Type.list, [Type.int])
         outer = TypeSubscript(Type.dict, [Type.str, inner])
