@@ -98,10 +98,11 @@ class TypeSubscript(TypeParent):
             result.extend(child.get_local_types())
         return result
 
-    def iterate_children_type_annotations(self) -> Iterator[FakeAnnotation]:
+    def iterate_direct_type_annotations(self) -> Iterator[FakeAnnotation]:
         """
-        Extract required type annotations from attributes.
+        Iterate over a parent and then children type annotations.
         """
+        yield self.parent
         yield from self.children
 
     def get_children_types(self) -> set[FakeAnnotation]:
@@ -133,19 +134,3 @@ class TypeSubscript(TypeParent):
         Iterate over children.
         """
         yield from self.children
-
-    def find_type_annotation_parents(
-        self,
-        type_annotation: FakeAnnotation,
-        skip: Iterable[FakeAnnotation] = (),
-    ) -> set[TypeParent]:
-        """
-        Check recursively if child is present in type def.
-        """
-        skip = set(skip)
-        result: set[TypeParent] = set()
-        if self.parent == type_annotation:
-            result.add(self)
-            skip.add(self)
-        result.update(super().find_type_annotation_parents(type_annotation, skip=skip))
-        return result
