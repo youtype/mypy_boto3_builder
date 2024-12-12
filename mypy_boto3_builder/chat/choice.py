@@ -26,20 +26,27 @@ class Choice(QuestionaryChoice):
     def __init__(
         self,
         title: Message | str,
+        *,
         key: str | None = None,
         text: Message | str | None = None,
         aliases: Sequence[str] = (),
         shortcut_key: str | None = None,
+        selected_suffix: Message | str | None = None,
+        disabled: bool = False,
     ) -> None:
+        self._raw_title = title
+        self.selected_suffix = TextStyle.hilight.apply(selected_suffix or " ✓")
         choice_title = TextStyle.text.stylize(title)
         self.key = key or TextStyle.to_str(choice_title) or "(empty)"
         super().__init__(
             title=choice_title,
             value=self.key,
             shortcut_key=shortcut_key or False,
+            disabled="✓" if disabled else None,
         )
         self.text: Message | str = self.key if text is None else text
         self.aliases = aliases or (self.key,)
+        self._is_selected = False
 
     def __hash__(self) -> int:
         """
@@ -60,3 +67,29 @@ class Choice(QuestionaryChoice):
         Current answer.
         """
         return TextStyle.hilight.apply(self.text)
+
+    @property
+    def is_selected(self) -> bool:
+        """
+        Whether choice is selected.
+        """
+        return self._is_selected
+
+    def select(self) -> None:
+        """
+        Select choice.
+        """
+        self.title = TextStyle.dim.stylize(
+            (
+                *TextStyle.to_message(self._raw_title),
+                *self.selected_suffix,
+            )
+        )
+        self._is_selected = True
+
+    def deselect(self) -> None:
+        """
+        Deselect choice.
+        """
+        self.title = TextStyle.text.stylize(self._raw_title)
+        self._is_selected = False

@@ -29,6 +29,7 @@ class TextStyle(Enum):
     hilight = "hilight"
     qmark = "qmark"
     answer = "answer"
+    disabled = "disabled"
 
     @property
     def style(self) -> str:
@@ -38,7 +39,7 @@ class TextStyle(Enum):
         return f"class:{self.value}"
 
     @property
-    def css(self) -> str:  # noqa: PLR0911
+    def css(self) -> str:  # noqa: C901, PLR0911
         """
         CSS properties for class.
         """
@@ -61,6 +62,8 @@ class TextStyle(Enum):
                 return "fg:#39B54A bold"
             case TextStyle.answer:
                 return "fg:#FF9D00 bold"
+            case TextStyle.disabled:
+                return "hidden"
 
     @classmethod
     def get_style(cls) -> Style:
@@ -119,6 +122,16 @@ class TextStyle(Enum):
         if isinstance(message, str):
             return message
         return "".join([i[1] for i in message])
+
+    @staticmethod
+    def to_message(message: Message | str) -> Message:
+        """
+        Convert message or string to Message.
+        """
+        if isinstance(message, str):
+            return (message,)
+
+        return message
 
     def wrap(self, message: str) -> MessagePair:
         """

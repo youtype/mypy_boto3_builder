@@ -7,7 +7,7 @@ Copyright 2024 Vlad Emelianov
 import logging
 import sys
 import time
-from collections.abc import Callable, Sequence
+from collections.abc import Callable, Iterable, Sequence
 from pathlib import Path
 from typing import Final
 
@@ -136,7 +136,12 @@ class ChatBuddy:
         for message in messages:
             self.chat.respond(message)
 
-    def _get_service_choices(self, service_names: list[ServiceName]) -> list[Choice]:
+    def _get_service_choices(
+        self,
+        service_names: Sequence[ServiceName],
+        selected_suffix: str,
+        selected: Iterable[ServiceName] = (),
+    ) -> list[Choice]:
         sorted_service_names = sorted(service_names, key=lambda x: x.class_name)
         last_shortcut = None
         result: list[Choice] = []
@@ -146,22 +151,37 @@ class ChatBuddy:
             if current_shortcut != last_shortcut:
                 last_shortcut = current_shortcut
                 shortcut_key = current_shortcut
-            result.append(
-                Choice(
-                    title=[
-                        service_name.class_name,
-                        TextStyle.dim.wrap(f" ({service_name.boto3_name})"),
-                    ],
-                    key=service_name.class_name,
-                    shortcut_key=shortcut_key,
-                )
+
+            is_selected = service_name in selected
+            choice_selected_suffix = (
+                TextStyle.tag.apply(selected_suffix)
+                if is_selected
+                else TextStyle.hilight.apply(selected_suffix)
             )
+            choice = Choice(
+                title=(
+                    service_name.class_name,
+                    TextStyle.dim.wrap(f" ({service_name.boto3_name})"),
+                ),
+                key=service_name.class_name,
+                shortcut_key=shortcut_key,
+                selected_suffix=choice_selected_suffix,
+                disabled=is_selected,
+            )
+            if is_selected:
+                choice.select()
+            result.append(choice)
         return result
 
     def _add_service_names(self) -> None:
-        selected_set = set(self.selected_service_names)
-        choice_service_names = [i for i in self.available_service_names if i not in selected_set]
-        service_choices = self._get_service_choices(choice_service_names)
+        choice_service_names = [
+            i for i in self.available_service_names if i not in self.selected_service_names
+        ]
+        service_choices = self._get_service_choices(
+            service_names=self.available_service_names,
+            selected=set(self.selected_service_names),
+            selected_suffix=" ✓",
+        )
         service_choice_map = {i.class_name: i for i in choice_service_names}
         selected = self._select_multiple(
             message="I use",
@@ -183,7 +203,10 @@ class ChatBuddy:
         self.selected_service_names.extend(selected_services)
 
     def _remove_service_names(self) -> None:
-        service_choices = self._get_service_choices(self.selected_service_names)
+        service_choices = self._get_service_choices(
+            service_names=self.selected_service_names,
+            selected_suffix=" ✗",
+        )
         service_choice_map = {i.class_name: i for i in self.selected_service_names}
         selected = self._select_multiple(
             message="I do not use",

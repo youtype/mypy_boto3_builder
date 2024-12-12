@@ -95,7 +95,7 @@ class Chat:
         default_buffer_window.always_hide_cursor = Always()
         hsplit.children[0] = self.session.layout.container
 
-    def _get_inquirer_control(self, question: Question) -> InquirerControl:
+    def _get_choices_window(self, question: Question) -> Window:
         window_container = question.application.layout.container.get_children()[1]
         if not isinstance(window_container, ConditionalContainer):
             raise TypeError("Unexpected layout")
@@ -103,6 +103,11 @@ class Chat:
         window = window_container.content
         if not isinstance(window, Window):
             raise TypeError("Unexpected layout")
+
+        return window
+
+    def _get_inquirer_control(self, question: Question) -> InquirerControl:
+        window = self._get_choices_window(question)
 
         result = window.content
         if not isinstance(result, InquirerControl):
@@ -131,7 +136,7 @@ class Chat:
         message: Message | str,
         choices: Sequence[Choice | str],
         *,
-        default: str | None = None,
+        default: Choice | str | None = None,
         message_end: Message | str = "",
         instruction: Message | str = "",
         finish: Choice | str = "nothing",
@@ -153,6 +158,7 @@ class Chat:
             finish_selected if isinstance(finish_selected, Choice) else Choice(finish_selected)
         )
         choice_map = ChoiceMap(select_choices)
+        last_selected_choice: Choice | None = None
         while True:
             remaining_choices = [c for c in select_choices if c not in result]
             if not remaining_choices:
@@ -160,40 +166,42 @@ class Chat:
 
             select_finish_choice = finish_selected_choice if result else finish_choice
 
+            select_default = last_selected_choice or default
             selected_str = self.select(
                 message=message,
                 message_end=message_end,
                 instruction=instruction,
                 choices=(
                     select_finish_choice,
-                    *remaining_choices,
+                    *select_choices,
                 ),
                 selected_choices=result,
-                default=default,
+                default=select_default,
                 erase_when_done=True,
             )
             if not choice_map.has(selected_str):
                 break
-            selected = choice_map.get(selected_str)
-            result.append(selected)
+            selected_choice = choice_map.get(selected_str)
+            last_selected_choice = selected_choice
+            is_selected = selected_choice in result
+            if is_selected:
+                result.remove(selected_choice)
+                selected_choice.deselect()
+            else:
+                result.append(selected_choice)
+                selected_choice.select()
 
         if not erase_when_done:
             self.respond(
                 (
-                    *self._as_message(message),
+                    *TextStyle.to_message(message),
                     " " if message else "",
                     *self._format_selected_tokens([i.tag for i in (result or [finish_choice])]),
-                    *self._as_message(message_end),
+                    *TextStyle.to_message(message_end),
                 )
             )
 
         return [i.key for i in result]
-
-    def _as_message(self, message: Message | str) -> Message:
-        if isinstance(message, str):
-            return (message,)
-
-        return message
 
     def _format_choices(self, choices: Sequence[Choice | str]) -> tuple[Choice, ...]:
         return tuple(Choice(choice) if isinstance(choice, str) else choice for choice in choices)
@@ -265,7 +273,7 @@ class Chat:
         choices: Sequence[Choice | str],
         *,
         selected_choices: Sequence[Choice] = (),
-        default: str | None = None,
+        default: Choice | str | None = None,
         message_end: Message | str = "",
         instruction: Message | str = "",
         erase_when_done: bool = False,
@@ -293,18 +301,22 @@ class Chat:
                 *TextStyle.dim.apply(instruction or self.SELECT_HELP),
                 "\n\n",
                 TextStyle.user.wrap(self.USER_NAME),
-                *self._as_message(message),
+                *TextStyle.to_message(message),
                 " " if message else "",
             ]
 
             title = str(self.inquirer_control.get_pointed_at().value)
-            selected = choice_map.get(title)
+            selected_choice = choice_map.get(title)
             selected_tokens = (
                 *(i.tag for i in selected_choices),
-                *((selected.answer,) if selected.text else ()),
+                *(
+                    (selected_choice.answer,)
+                    if selected_choice.text and not selected_choice.is_selected
+                    else ()
+                ),
             )
             tokens.extend(self._format_selected_tokens(selected_tokens))
-            tokens.extend(self._as_message(message_end))
+            tokens.extend(TextStyle.to_message(message_end))
 
             return TextStyle.text.stylize(tokens)
 
@@ -315,10 +327,10 @@ class Chat:
         if not erase_when_done:
             self.respond(
                 [
-                    *self._as_message(message),
+                    *TextStyle.to_message(message),
                     " " if message else "",
                     *self._format_selected_tokens([selected.tag]),
-                    *self._as_message(message_end),
+                    *TextStyle.to_message(message_end),
                 ]
             )
 
