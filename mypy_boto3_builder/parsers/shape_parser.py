@@ -410,7 +410,7 @@ class ShapeParser:
         is_streaming: bool = False,
     ) -> FakeAnnotation:
         type_subscript = (
-            TypeSubscript(Type.Dict) if is_output_child else TypeSubscript(Type.Mapping)
+            TypeSubscript(Type.dict) if is_output_child else TypeSubscript(Type.Mapping)
         )
         if shape.key:
             type_subscript.add_child(
@@ -616,7 +616,6 @@ class ShapeParser:
                         is_streaming=is_streaming,
                     ),
                 ],
-                stringify=True,
             )
         is_output_or_child = is_output or is_output_child
         if not is_streaming:
@@ -697,7 +696,7 @@ class ShapeParser:
 
         return_type: FakeAnnotation = Type.none
         if operation_shape.output_shape is not None:
-            page_iterator_import = InternalImport("_PageIterator", stringify=False)
+            page_iterator_import = InternalImport("_PageIterator")
             return_item = self._parse_return_type(
                 "Paginator",
                 "paginate",

@@ -27,7 +27,7 @@ AIO_RESOURCE_METHOD_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, Me
                     Argument.self(),
                     Argument(
                         "overwrite_by_pkeys",
-                        get_optional(Type.list(Type.str)),
+                        get_optional(Type.wrap_list(Type.str)),
                         default=Type.Ellipsis,
                     ),
                     Argument("flush_amount", Type.int, default=Type.Ellipsis),

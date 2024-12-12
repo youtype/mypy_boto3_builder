@@ -102,7 +102,7 @@ class WrapperPackageParser:
                 decorators=decorators,
                 arguments=arguments,
                 return_type=return_type,
-                body_lines=["..."],
+                docstring=f"Create client for {service_name.class_name} service.",
             )
             result.append(client_function)
         return result
@@ -132,7 +132,7 @@ class WrapperPackageParser:
                 decorators=decorators,
                 arguments=arguments,
                 return_type=return_type,
-                body_lines=["..."],
+                docstring=f"Create client for {service_name.class_name} service.",
             )
             result.append(method)
         return result
@@ -161,7 +161,7 @@ class WrapperPackageParser:
                 decorators=decorators,
                 arguments=arguments,
                 return_type=return_type,
-                body_lines=["..."],
+                docstring=f"Create ServiceResource for {service_name.class_name} service.",
             )
             result.append(resource_function)
         return result
@@ -191,7 +191,7 @@ class WrapperPackageParser:
                 decorators=decorators,
                 arguments=arguments,
                 return_type=return_type,
-                body_lines=["..."],
+                docstring=f"Create ServiceResource for {service_name.class_name} service.",
             )
             result.append(resource_method)
         return result
