@@ -32,11 +32,9 @@ from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.utils.version_getters import get_botocore_version
 
 MAX_SERVICE_PRINTED = 20
-MAX_SERVICE_SELECTABLE = 20
 MAX_SERVICE_PYCHARM = 20
 DEFAULT_OUTPUT_PATH = Path("./vendored")
 REPORT_URL = "https://github.com/youtype/mypy_boto3_builder/issues"
-QMARK = "Input:"
 PAIR = 2
 PROJECT_PATH = Path.cwd()
 
@@ -400,7 +398,7 @@ class ChatBuddy:
 
     def _say_commands(self) -> None:
         cmd = " ".join(("uvx", *self.args.to_cmd()))
-        lines = [
+        lines: list[MessageToken] = [
             "\n\n",
             TextStyle.dim.wrap(f"  # generate {self.library_name} services"),
             "\n  ",
