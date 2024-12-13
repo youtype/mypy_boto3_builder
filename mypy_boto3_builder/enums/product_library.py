@@ -53,7 +53,7 @@ class ProductLibrary(Enum):
             case ProductLibrary.boto3:
                 return "boto3"
             case ProductLibrary.boto3_legacy:
-                return "boto3 (legacy boto3-stubs)"
+                return "boto3-stubs"
             case ProductLibrary.aiobotocore:
                 return "aiobotocore"
             case ProductLibrary.aioboto3:

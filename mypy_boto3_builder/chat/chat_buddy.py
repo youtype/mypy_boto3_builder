@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Final
 
 from mypy_boto3_builder.chat.chat import Chat, Choice
-from mypy_boto3_builder.chat.enums import PackageManager, ServiceActions
+from mypy_boto3_builder.chat.enums import Library, PackageManager, ServiceActions
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message, MessageToken
 from mypy_boto3_builder.cli_parser import CLINamespace
@@ -321,19 +321,19 @@ class ChatBuddy:
         )
 
     def _select_library(self) -> ProductLibrary | None:
-        library_choices = {
-            ProductLibrary.boto3.get_chat_choice(): ProductLibrary.boto3,
-            ProductLibrary.aiobotocore.get_chat_choice(): ProductLibrary.aiobotocore,
-            ProductLibrary.aioboto3.get_chat_choice(): ProductLibrary.aioboto3,
-            ProductLibrary.boto3_legacy.get_chat_choice(): ProductLibrary.boto3_legacy,
-            "none of them": None,
-        }
+        choices = [
+            Choice(title=[*i.title, TextStyle.dim.wrap(i.title_info)], key=i.value, text=i.text)
+            for i in Library
+        ]
+        choices_map = {i.value: i for i in Library}
         selected = self._select(
             "This project uses",
-            choices=list(library_choices),
-            default=ProductLibrary.boto3.value,
+            choices=[*choices, "none of them"],
+            default=Library.boto3.value,
         )
-        return library_choices[selected]
+        if selected not in choices_map:
+            return None
+        return choices_map[selected].product_library
 
     def _select_product(self) -> Product:
         return self.PRODUCT_MAP[self.product_library]
@@ -391,17 +391,6 @@ class ChatBuddy:
             return ["all"]
         return [i.name for i in self.selected_service_names]
 
-    def _get_install_cmd(self, whl_path: Path) -> str:
-        match self.package_manager:
-            case PackageManager.uv:
-                return f"uv add --dev {whl_path}"
-            case PackageManager.pip:
-                return f"pip install {whl_path}"
-            case PackageManager.poetry:
-                return f"poetry add -G dev {whl_path}"
-            case PackageManager.pipenv:
-                return f"pipenv install --dev {whl_path}"
-
     def _find_last_whl(self) -> Path | None:
         prefix = self.product_library.get_package_prefix()
         packages = list(self.output_path.glob(f"{prefix}*.whl"))
@@ -426,18 +415,22 @@ class ChatBuddy:
                     "\n\n",
                     TextStyle.dim.wrap(f"  # install with {self.package_manager.value}"),
                     "\n  ",
-                    self._get_install_cmd(found_whl),
+                    self.package_manager.get_install_cmd(found_whl),
                 )
             )
         self._say(lines)
 
     def _select_package_manager(self) -> PackageManager:
+        choices = [
+            Choice(title=[f"{i.value:<10}", TextStyle.dim.wrap(i.url)], text=i.value, key=i.value)
+            for i in PackageManager
+        ]
         choices_map = {i.value: i for i in PackageManager}
         result = self._select(
             "My package manager is",
             choices=[
-                *choices_map,
-                "... I dont' know :(",
+                *choices,
+                Choice(title="not sure", text=["... ", TextStyle.dim.wrap("(maybe pip?)")]),
             ],
         )
         if result not in choices_map:
