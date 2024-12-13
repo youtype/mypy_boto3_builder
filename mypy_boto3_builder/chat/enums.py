@@ -91,7 +91,7 @@ class Library(Enum):
                 return ProductLibrary.boto3_legacy
 
     @property
-    def text(self) -> Message | str:
+    def text(self) -> Message:
         """
         Get choice user text.
         """
@@ -103,7 +103,7 @@ class Library(Enum):
                     TextStyle.tag.wrap("boto3-stubs"),
                 ]
             case _:
-                return self.value
+                return [self.value]
 
     @property
     def title(self) -> Message:
