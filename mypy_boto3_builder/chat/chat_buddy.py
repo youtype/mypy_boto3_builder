@@ -19,13 +19,6 @@ from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.constants import PROG_NAME
 from mypy_boto3_builder.enums.output_type import OutputType
 from mypy_boto3_builder.enums.product import Product
-from mypy_boto3_builder.enums.product_library import ProductLibrary
-from mypy_boto3_builder.package_data import (
-    Boto3StubsCustomPackageData,
-    TypesAioBoto3CustomPackageData,
-    TypesAioBotocoreCustomPackageData,
-    TypesBoto3CustomPackageData,
-)
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
 from mypy_boto3_builder.utils.path import print_path
@@ -37,19 +30,6 @@ DEFAULT_OUTPUT_PATH = Path("./vendored")
 REPORT_URL = "https://github.com/youtype/mypy_boto3_builder/issues"
 PAIR = 2
 PROJECT_PATH = Path.cwd()
-
-
-# class ServiceActions:
-#     """
-#     Available service actions.
-#     """
-
-#     build = "Continue"
-#     add = "Add another service"
-#     add_all = "Add all available services"
-#     recommended = "Add only recommended services"
-#     remove = "Remove selected service"
-#     remove_all = "Remove all selected services"
 
 
 def _tag(message: str | float) -> tuple[TextStyle, str]:
@@ -83,10 +63,10 @@ class ChatBuddy:
     """
 
     PRODUCT_MAP: Final = {
-        ProductLibrary.boto3: Product.types_boto3_custom,
-        ProductLibrary.boto3_legacy: Product.boto3_custom,
-        ProductLibrary.aiobotocore: Product.aiobotocore_custom,
-        ProductLibrary.aioboto3: Product.aioboto3_custom,
+        Library.boto3: Product.types_boto3_custom,
+        Library.boto3_legacy: Product.boto3_custom,
+        Library.aiobotocore: Product.aiobotocore_custom,
+        Library.aioboto3: Product.aioboto3_custom,
     }
 
     START_SHORTCUT_KEY = "0"
@@ -103,7 +83,7 @@ class ChatBuddy:
         self.available_service_names: tuple[ServiceName, ...] = ()
         self.selected_service_names: list[ServiceName] = []
         self.recommended_service_names: list[ServiceName] = []
-        self.product_library = ProductLibrary.boto3
+        self.library = Library.boto3
         self.library_name: str = "boto3"
         self.product: Product = Product.types_boto3_custom
         self.output_path: Path = DEFAULT_OUTPUT_PATH
@@ -257,7 +237,7 @@ class ChatBuddy:
                     ("Do you really need type checking for ", _tag("ALL"), " available services?"),
                     (
                         "Building all takes ",
-                        _tag("10-20 minutes"),
+                        _tag("5-10 minutes"),
                         ", and package size is around ",
                         _tag("12 megabytes"),
                         "!",
@@ -320,7 +300,7 @@ class ChatBuddy:
             instruction=instruction,
         )
 
-    def _select_library(self) -> ProductLibrary | None:
+    def _select_library(self) -> Library | None:
         choices = [
             Choice(title=[*i.title, TextStyle.dim.wrap(i.title_info)], key=i.value, text=i.text)
             for i in Library
@@ -333,10 +313,10 @@ class ChatBuddy:
         )
         if selected not in choices_map:
             return None
-        return choices_map[selected].product_library
+        return choices_map[selected]
 
     def _select_product(self) -> Product:
-        return self.PRODUCT_MAP[self.product_library]
+        return self.PRODUCT_MAP[self.library]
 
     def _select_services(self) -> list[ServiceName]:
         result = self.selected_service_names
@@ -392,7 +372,7 @@ class ChatBuddy:
         return [i.name for i in self.selected_service_names]
 
     def _find_last_whl(self) -> Path | None:
-        prefix = self.product_library.get_package_prefix()
+        prefix = self.library.get_package_prefix()
         packages = list(self.output_path.glob(f"{prefix}*.whl"))
         if not packages:
             return None
@@ -530,15 +510,15 @@ class ChatBuddy:
                 " do you use in this project?",
             ),
         )
-        product_library = self._select_library()
-        if not product_library:
+        library = self._select_library()
+        if not library:
             self._respond("No, I do not use any of these libraries.")
             self._say("No worries, you can always run me again if you start using them.")
             self._finish()
             return
 
-        self.product_library = product_library
-        self.library_name = self.product_library.get_library_name()
+        self.library = library
+        self.library_name = self.library.product_library.get_library_name()
         self._respond(
             (
                 "I use ",
@@ -601,7 +581,7 @@ class ChatBuddy:
                 ".",
             )
         )
-        package_name = f"{self.product_library.get_package_prefix()}_*.whl"
+        package_name = f"{self.library.get_package_prefix()}_*.whl"
 
         self._say(("I can start building ", _tag(package_name), " now if you want. Let's start?"))
         if not self._do_start_building():
@@ -626,19 +606,6 @@ class ChatBuddy:
 
         self.args = self._get_cli_namespace()
         self._run_builder()
-
-    def _get_documentation_url(self) -> str:
-        match self.product:
-            case Product.types_boto3_custom:
-                return TypesBoto3CustomPackageData.local_doc_link
-            case Product.boto3_custom:
-                return Boto3StubsCustomPackageData.local_doc_link
-            case Product.aiobotocore_custom:
-                return TypesAioBotocoreCustomPackageData.local_doc_link
-            case Product.aioboto3_custom:
-                return TypesAioBoto3CustomPackageData.local_doc_link
-            case _:
-                return TypesBoto3CustomPackageData.local_doc_link
 
     def _run_builder(self) -> None:
         self.run_builder(self.args)
@@ -700,7 +667,7 @@ class ChatBuddy:
         self._say(
             (
                 "Check ",
-                _tag(self._get_documentation_url()),
+                _tag(self.library.documentation_url),
                 " documentation. It describes all type annotations for ",
                 _tag(self.library_name),
                 ".",

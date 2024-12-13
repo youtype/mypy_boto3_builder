@@ -10,6 +10,12 @@ from pathlib import Path
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message
 from mypy_boto3_builder.enums.product_library import ProductLibrary
+from mypy_boto3_builder.package_data import (
+    Boto3StubsCustomPackageData,
+    TypesAioBoto3CustomPackageData,
+    TypesAioBotocoreCustomPackageData,
+    TypesBoto3CustomPackageData,
+)
 
 
 class ServiceActions(Enum):
@@ -73,7 +79,7 @@ class Library(Enum):
     boto3 = "boto3"
     aiobotocore = "aiobotocore"
     aioboto3 = "aioboto3"
-    boto3_legacy = "boto3 (legacy boto3-stubs)"
+    boto3_legacy = "boto3-stubs"
 
     @property
     def product_library(self) -> ProductLibrary:
@@ -99,7 +105,7 @@ class Library(Enum):
             case Library.boto3_legacy:
                 return [
                     "boto3",
-                    TextStyle.text.wrap(", but I already use "),
+                    TextStyle.text.wrap(", but it also already has "),
                     TextStyle.tag.wrap("boto3-stubs"),
                 ]
             case _:
@@ -110,11 +116,7 @@ class Library(Enum):
         """
         Get choice title.
         """
-        match self:
-            case Library.boto3_legacy:
-                return ["boto3", TextStyle.dim.wrap(f"{'-stubs':<9}")]
-            case _:
-                return [f"{self.value:<14}"]
+        return [f"{self.value:<14}"]
 
     @property
     def title_info(self) -> str:
@@ -122,9 +124,40 @@ class Library(Enum):
         Get choice title.
         """
         match self:
-            case Library.boto3 | Library.boto3_legacy:
-                return "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html"
+            case Library.boto3:
+                return "AWS SDK for Python"
             case Library.aiobotocore:
-                return "https://aiobotocore.aio-libs.org/en/latest/"
+                return "Async client for amazon services using botocore and aiohttp/asyncio."
             case Library.aioboto3:
-                return "https://aioboto3.readthedocs.io/en/latest/"
+                return "Async AWS SDK for Python"
+            case Library.boto3_legacy:
+                return "Legacy type annotations for AWS SDK for Python"
+
+    @property
+    def documentation_url(self) -> str:
+        """
+        Link to documentation.
+        """
+        match self:
+            case Library.boto3:
+                return TypesBoto3CustomPackageData.local_doc_link
+            case Library.boto3_legacy:
+                return Boto3StubsCustomPackageData.local_doc_link
+            case Library.aiobotocore:
+                return TypesAioBotocoreCustomPackageData.local_doc_link
+            case Library.aioboto3:
+                return TypesAioBoto3CustomPackageData.local_doc_link
+
+    def get_package_prefix(self) -> str:
+        """
+        Get *.whl package name prefix.
+        """
+        match self:
+            case Library.boto3:
+                return "types_boto3"
+            case Library.boto3_legacy:
+                return "boto3_stubs"
+            case Library.aiobotocore:
+                return "types_aiobotocore"
+            case Library.aioboto3:
+                return "types_aioboto3"
