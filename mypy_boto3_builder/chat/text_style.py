@@ -128,6 +128,8 @@ class TextStyle(Enum):
         """
         Convert message or string to Message.
         """
+        if not message:
+            return ()
         if isinstance(message, str):
             return (message,)
 

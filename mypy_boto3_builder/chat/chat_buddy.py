@@ -13,6 +13,7 @@ from typing import Final
 
 from mypy_boto3_builder.chat.chat import Chat, Choice
 from mypy_boto3_builder.chat.enums import Library, PackageManager, ServiceActions
+from mypy_boto3_builder.chat.prompts.select_prompt import SelectPrompt
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message, MessageToken
 from mypy_boto3_builder.cli_parser import CLINamespace
@@ -71,7 +72,7 @@ class ChatBuddy:
 
     START_SHORTCUT_KEY = "0"
     SERVICE_SELECT_HELP: Final[Message] = (
-        *Chat.SELECT_HELP,
+        *SelectPrompt.HELP_MESSAGE,
         " Type ",
         TextStyle.tag.wrap("first letter"),
         " to search, type ",
@@ -172,7 +173,6 @@ class ChatBuddy:
                 shortcut_key=self.START_SHORTCUT_KEY,
             ),
             finish_selected_text="",
-            erase_when_done=False,
             instruction=self.SERVICE_SELECT_HELP,
         )
         selected_services = [service_choice_map[i] for i in selected]
@@ -193,7 +193,6 @@ class ChatBuddy:
                 shortcut_key=self.START_SHORTCUT_KEY,
             ),
             finish_selected_text="",
-            erase_when_done=False,
             instruction=self.SERVICE_SELECT_HELP,
         )
         selected_services = [service_choice_map[i] for i in selected]
@@ -266,16 +265,16 @@ class ChatBuddy:
         default: str | None = None,
         message_end: str = ".",
         instruction: Message | str = "",
-        erase_when_done: bool = True,
     ) -> str:
-        return self.chat.select(
+        result = self.chat.select(
             message=message,
             choices=choices,
             default=default,
             message_end=message_end,
-            erase_when_done=erase_when_done,
             instruction=instruction,
         )
+        _linebreak()
+        return result
 
     def _select_multiple(
         self,
@@ -285,20 +284,20 @@ class ChatBuddy:
         default: str | None = None,
         message_end: str = ".",
         instruction: Message | str = "",
-        finish_choice: Choice | str = "",
+        finish_choice: Choice | str = "Go back",
         finish_selected_text: Message | str | None = None,
-        erase_when_done: bool = True,
     ) -> list[str]:
-        return self.chat.select_multiple(
+        result = self.chat.select_multiple(
             message=message,
             choices=choices,
             default=default,
             finish_choice=finish_choice,
             finish_selected_text=finish_selected_text,
             message_end=message_end,
-            erase_when_done=erase_when_done,
             instruction=instruction,
         )
+        _linebreak()
+        return result
 
     def _select_library(self) -> Library | None:
         choices = [
@@ -341,7 +340,6 @@ class ChatBuddy:
             response = self._select(
                 message="I want to",
                 choices=select_choices,
-                erase_when_done=False,
             )
             match response:
                 case ServiceActions.build.value:
@@ -423,13 +421,11 @@ class ChatBuddy:
         response = self.chat.select_output_path(
             message="Save the package to",
             default=DEFAULT_OUTPUT_PATH,
-            erase_when_done=True,
         )
+        _linebreak()
         self._respond(
             (
-                "Save the package to ",
-                _tag(print_path(self.output_path)),
-                ". I might even add it to ",
+                "I might even add it to ",
                 _tag("git"),
                 "!",
             )
@@ -449,7 +445,7 @@ class ChatBuddy:
         )
 
     def _do_start_building(self) -> bool:
-        return self.chat.confirm(
+        result = self.chat.confirm(
             message_yes=(
                 "Yes",
                 TextStyle.text.wrap(", start building now."),
@@ -459,6 +455,8 @@ class ChatBuddy:
                 TextStyle.text.wrap(", I will build it later myself."),
             ),
         )
+        _linebreak()
+        return result
 
     def _get_response_services(self) -> Message:
         if self._is_all_selected():
@@ -477,6 +475,7 @@ class ChatBuddy:
         """
         Run chat buddy.
         """
+        self._select_multiple("Hello", ["a", "b", "c"])
         self._say(
             ("Hello from ", _tag(PROG_NAME), "!"),
             (
@@ -510,9 +509,9 @@ class ChatBuddy:
                 " do you use in this project?",
             ),
         )
+
         library = self._select_library()
         if not library:
-            self._respond("No, I do not use any of these libraries.")
             self._say("No worries, you can always run me again if you start using them.")
             self._finish()
             return
@@ -521,10 +520,7 @@ class ChatBuddy:
         self.library_name = self.library.product_library.get_library_name()
         self._respond(
             (
-                "I use ",
-                _tag(self.library_name),
-                " in this project.",
-                " Now, how can I add ",
+                "Now, how can I add ",
                 _tag("type checking"),
                 " and ",
                 _tag("code completion"),
@@ -585,7 +581,6 @@ class ChatBuddy:
 
         self._say(("I can start building ", _tag(package_name), " now if you want. Let's start?"))
         if not self._do_start_building():
-            self._respond("No, I just want to check how to do it.")
             self._say(("No worries, you can always build ", _tag(self.product.value), " later!"))
             self._say_commands()
             self._finish()
