@@ -20,7 +20,6 @@ from prompt_toolkit.validation import ValidationError
 from questionary.prompts.common import InquirerControl
 
 from mypy_boto3_builder.chat.choice import Choice
-from mypy_boto3_builder.chat.choice_map import ChoiceMap
 from mypy_boto3_builder.chat.text_style import TextStyle
 
 if TYPE_CHECKING:
@@ -198,104 +197,11 @@ class Chat:
         )
         return response == "yes"
 
-    def select_multiple_old(
-        self,
-        message: Message | str,
-        choices: Sequence[Choice | str],
-        *,
-        default: Choice | str | None = None,
-        message_end: Message | str = "",
-        instruction: Message | str = "",
-        finish: Choice | str = "nothing",
-        finish_selected: Choice | str | None = None,
-        erase_when_done: bool = False,
-    ) -> list[str]:
-        """
-        Select multiple items from list.
-        """
-        result: list[Choice] = []
-        select_choices = self._format_choices(choices)
-        finish_choice = finish if isinstance(finish, Choice) else Choice(finish)
-        finish_selected = (
-            finish_selected
-            if finish_selected is not None
-            else Choice(title=finish_choice.key, text="")
-        )
-        finish_selected_choice = (
-            finish_selected if isinstance(finish_selected, Choice) else Choice(finish_selected)
-        )
-        choice_map = ChoiceMap(select_choices)
-        last_selected_choice: Choice | None = None
-        while True:
-            remaining_choices = [c for c in select_choices if c not in result]
-            if not remaining_choices:
-                break
-
-            select_finish_choice = finish_selected_choice if result else finish_choice
-
-            select_default = last_selected_choice or default
-            selected_str = self.select(
-                message=message,
-                message_end=message_end,
-                instruction=instruction,
-                choices=(
-                    select_finish_choice,
-                    *select_choices,
-                ),
-                default=select_default,
-                erase_when_done=True,
-            )
-            if not choice_map.has(selected_str):
-                break
-            selected_choice = choice_map.get(selected_str)
-            last_selected_choice = selected_choice
-            is_selected = selected_choice in result
-            if is_selected:
-                result.remove(selected_choice)
-                selected_choice.deselect()
-            else:
-                result.append(selected_choice)
-                selected_choice.select()
-
-        if not erase_when_done:
-            self.respond(
-                (
-                    *TextStyle.to_message(message),
-                    " " if message else "",
-                    *self._format_selected_tokens([i.tag for i in (result or [finish_choice])]),
-                    *TextStyle.to_message(message_end),
-                )
-            )
-
-        return [i.key for i in result]
-
     def _get_pointed_at(self) -> Choice:
         choice = self.inquirer_control.get_pointed_at()
         if not isinstance(choice, Choice):
             raise TypeError(f"Expected Choice, got {choice}")
         return choice
-
-    def get_select_message(
-        self, message_start: Message, message_end: Message, selected_choices: Sequence[Choice]
-    ) -> Message:
-        """
-        Generate stylized message for select.
-        """
-        tokens: list[MessageToken] = [*message_start]
-
-        selected_choice = self._get_pointed_at()
-        selected_tokens = (
-            *(i.tag for i in selected_choices),
-            *(
-                (selected_choice.answer,)
-                if selected_choice.text and not selected_choice.is_selected
-                else ()
-            ),
-        )
-        tokens.extend(self._format_selected_tokens(selected_tokens))
-        tokens.extend(TextStyle.to_message(message_end))
-
-        return tokens
 
     def _create_select(
         self,
@@ -368,7 +274,6 @@ class Chat:
         Select one item from list.
         """
         select_choices = self._format_choices(choices)
-        choice_map = ChoiceMap(select_choices)
         question = self._create_select(
             message=message,
             choices=select_choices,
@@ -376,19 +281,19 @@ class Chat:
             message_end=message_end,
             instruction=instruction,
         )
-        response = question.unsafe_ask()
-        selected = choice_map.get(response)
+        self._patch_select_answer(question, lambda c: [c])
+        selected_choice: Choice = question.unsafe_ask()[0]
         if not erase_when_done:
             self.respond(
                 [
                     *TextStyle.to_message(message),
                     " " if message else "",
-                    *self._format_selected_tokens([selected.tag]),
+                    *self._format_selected_tokens([selected_choice.tag]),
                     *TextStyle.to_message(message_end),
                 ]
             )
 
-        return selected.key
+        return selected_choice.key
 
     def select_multiple(
         self,
