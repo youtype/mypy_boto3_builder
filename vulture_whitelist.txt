@@ -26,6 +26,7 @@ is_conda_forge_supported  # unused variable (mypy_boto3_builder/package_data.py:
 install_requires  # unused variable (mypy_boto3_builder/package_data.py:380)
 limit_key  # unused variable (mypy_boto3_builder/parsers/shape_parser_types.py:16)
 pagination  # unused variable (mypy_boto3_builder/parsers/shape_parser_types.py:24)
+has  # unused variable (mypy_boto3_builder/parsers/shape_parser_types.py:109)
 service  # unused variable (mypy_boto3_builder/parsers/shape_parser_types.py:117)
 _.boto3_version  # unused attribute (mypy_boto3_builder/service_name.py:51)
 _.import_name  # unused property (mypy_boto3_builder/service_name.py:80)
