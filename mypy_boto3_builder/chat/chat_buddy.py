@@ -96,7 +96,7 @@ class ChatBuddy:
         TextStyle.tag.wrap("first letter"),
         " to search, type ",
         TextStyle.tag.wrap(START_SHORTCUT_KEY),
-        " to return to the beginning and continue.",
+        " to return to the top and continue.",
     )
 
     def __init__(self, run_builder: Callable[[CLINamespace], None]) -> None:
@@ -186,16 +186,12 @@ class ChatBuddy:
         selected = self._select_multiple(
             message="I use",
             choices=service_choices,
-            finish=Choice(
+            finish_choice=Choice(
                 title=["Nothing else", TextStyle.dim.wrap(" (go back)")],
                 text="nothing else",
                 shortcut_key=self.START_SHORTCUT_KEY,
             ),
-            finish_selected=Choice(
-                title=["Nothing else", TextStyle.dim.wrap(" (go back)")],
-                text="",
-                shortcut_key=self.START_SHORTCUT_KEY,
-            ),
+            finish_selected_text="",
             erase_when_done=False,
             instruction=self.SERVICE_SELECT_HELP,
         )
@@ -211,16 +207,12 @@ class ChatBuddy:
         selected = self._select_multiple(
             message="I do not use",
             choices=service_choices,
-            finish=Choice(
+            finish_choice=Choice(
                 title=["Anything else", TextStyle.dim.wrap(" (go back)")],
                 text="anything else",
                 shortcut_key=self.START_SHORTCUT_KEY,
             ),
-            finish_selected=Choice(
-                title=["Anything else", TextStyle.dim.wrap(" (go back)")],
-                text="",
-                shortcut_key=self.START_SHORTCUT_KEY,
-            ),
+            finish_selected_text="",
             erase_when_done=False,
             instruction=self.SERVICE_SELECT_HELP,
         )
@@ -313,16 +305,16 @@ class ChatBuddy:
         default: str | None = None,
         message_end: str = ".",
         instruction: Message | str = "",
-        finish: Choice | str = "",
-        finish_selected: Choice | str | None = None,
+        finish_choice: Choice | str = "",
+        finish_selected_text: Message | str | None = None,
         erase_when_done: bool = True,
     ) -> list[str]:
         return self.chat.select_multiple(
             message=message,
             choices=choices,
             default=default,
-            finish=finish,
-            finish_selected=finish_selected,
+            finish_choice=finish_choice,
+            finish_selected_text=finish_selected_text,
             message_end=message_end,
             erase_when_done=erase_when_done,
             instruction=instruction,

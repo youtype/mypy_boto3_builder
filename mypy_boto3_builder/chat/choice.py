@@ -47,6 +47,7 @@ class Choice(QuestionaryChoice):
         self.text: Message | str = self.key if text is None else text
         self.aliases = aliases or (self.key,)
         self._is_selected = False
+        self.select_index = 0
 
     def __hash__(self) -> int:
         """
@@ -75,7 +76,7 @@ class Choice(QuestionaryChoice):
         """
         return self._is_selected
 
-    def select(self) -> None:
+    def select(self, index: int = 0) -> None:
         """
         Select choice.
         """
@@ -85,6 +86,7 @@ class Choice(QuestionaryChoice):
                 *self.selected_suffix,
             )
         )
+        self.select_index = index
         self._is_selected = True
 
     def deselect(self) -> None:
@@ -92,4 +94,5 @@ class Choice(QuestionaryChoice):
         Deselect choice.
         """
         self.title = TextStyle.text.stylize(self._raw_title)
+        self.select_index = 0
         self._is_selected = False
