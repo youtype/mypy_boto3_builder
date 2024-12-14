@@ -63,13 +63,6 @@ class ChatBuddy:
     Interactive chat buddy to help user to select services and generate type annotations.
     """
 
-    PRODUCT_MAP: Final = {
-        Library.boto3: Product.types_boto3_custom,
-        Library.boto3_legacy: Product.boto3_custom,
-        Library.aiobotocore: Product.aiobotocore_custom,
-        Library.aioboto3: Product.aioboto3_custom,
-    }
-
     START_SHORTCUT_KEY = "0"
     SERVICE_SELECT_HELP: Final[Message] = (
         *SelectPrompt.HELP_MESSAGE,
@@ -314,9 +307,6 @@ class ChatBuddy:
             return None
         return choices_map[selected]
 
-    def _select_product(self) -> Product:
-        return self.PRODUCT_MAP[self.library]
-
     def _select_services(self) -> list[ServiceName]:
         result = self.selected_service_names
         while True:
@@ -336,7 +326,9 @@ class ChatBuddy:
                     ],
                 )
             )
-            select_choices = [Choice(title=i.value, text=i.value.lower()) for i in response_choices]
+            select_choices = [
+                Choice(title=i.value, key=i.value, text=i.value.lower()) for i in response_choices
+            ]
             response = self._select(
                 message="I want to",
                 choices=select_choices,
@@ -469,7 +461,7 @@ class ChatBuddy:
         if self.selected_service_names == self.recommended_service_names:
             return ("I use only ", _tag("recommended"), " services.")
 
-        return ("Yes, I use ", _tag("selected"), " services.")
+        return ("I use ", _tag("selected"), " services.")
 
     def run(self) -> None:
         """
@@ -527,7 +519,7 @@ class ChatBuddy:
             )
         )
 
-        self.product = self._select_product()
+        self.product = self.library.product
 
         botocore_str = f"botocore {get_botocore_version()}"
         self._say(

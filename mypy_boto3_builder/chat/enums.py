@@ -9,6 +9,7 @@ from pathlib import Path
 
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message
+from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.enums.product_library import ProductLibrary
 from mypy_boto3_builder.package_data import (
     Boto3StubsCustomPackageData,
@@ -161,3 +162,18 @@ class Library(Enum):
                 return "types_aiobotocore"
             case Library.aioboto3:
                 return "types_aioboto3"
+
+    @property
+    def product(self) -> Product:
+        """
+        Get product.
+        """
+        match self:
+            case Library.boto3:
+                return Product.types_boto3_custom
+            case Library.boto3_legacy:
+                return Product.boto3_custom
+            case Library.aiobotocore:
+                return Product.aiobotocore_custom
+            case Library.aioboto3:
+                return Product.aioboto3_custom
