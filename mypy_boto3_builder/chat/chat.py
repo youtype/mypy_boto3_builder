@@ -124,7 +124,7 @@ class Chat:
             choices=choices,
             instruction=(
                 TextStyle.help.wrap(self.HELP_NAME),
-                *TextStyle.to_message(instruction),
+                *TextStyle.to_message(instruction or MultiSelectPrompt.HELP_MESSAGE),
                 "\n\n",
             ),
             finish_choice=finish_choice,

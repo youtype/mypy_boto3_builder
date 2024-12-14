@@ -475,7 +475,6 @@ class ChatBuddy:
         """
         Run chat buddy.
         """
-        self._select_multiple("Hello", ["a", "b", "c"])
         self._say(
             ("Hello from ", _tag(PROG_NAME), "!"),
             (
