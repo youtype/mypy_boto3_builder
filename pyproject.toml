@@ -31,7 +31,6 @@ dependencies = [
     "requests",
     "ruff",
     "setuptools",
-    "colorama",
     "prompt-toolkit",
     "questionary>=2.0.1",
 ]

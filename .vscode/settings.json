@@ -23,6 +23,13 @@
     ],
     "files.exclude": {
         ".venv": true,
-        "mypy_boto3_output": true
+        ".mypy_cache": true,
+        ".pytest_cache": true,
+        ".ruff_cache": true,
+        "*.egg-info": true,
+        "build": true,
+        "dist": true,
+        "mypy_boto3_output": true,
+        "**/__pycache__": true
     }
 }

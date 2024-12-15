@@ -1,3 +1,6 @@
+_.dont_extend_height  # unused attribute (mypy_boto3_builder/chat/chat.py:96)
+_.always_hide_cursor  # unused attribute (mypy_boto3_builder/chat/chat.py:97)
+_.is_answered  # unused attribute (mypy_boto3_builder/chat/chat.py:425)
 install_requires  # unused variable (mypy_boto3_builder/package_data.py:54)
 is_vscode_supported  # unused variable (mypy_boto3_builder/package_data.py:57)
 is_conda_forge_supported  # unused variable (mypy_boto3_builder/package_data.py:60)
