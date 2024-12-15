@@ -33,10 +33,6 @@ PAIR = 2
 PROJECT_PATH = Path.cwd()
 
 
-def _tag(message: str | float) -> tuple[TextStyle, str]:
-    return (TextStyle.tag, str(message))
-
-
 def _linebreak() -> None:
     sys.stdout.write("\n")
 
@@ -198,16 +194,21 @@ class ChatBuddy:
     def _get_selected_services_message(self) -> Message:
         selected = self.selected_service_names
         if not selected:
-            return (_tag("no"), " services")
+            return (TextStyle.tag.wrap("no"), " services")
         if self._is_all_selected():
-            return (_tag("all"), " ", _tag(len(selected)), " available services")
+            return (
+                TextStyle.tag.wrap("all"),
+                " ",
+                TextStyle.tag.wrap(len(selected)),
+                " available services",
+            )
         if len(selected) > MAX_SERVICE_PRINTED:
             selected_strs = [
-                *(_tag(i.class_name) for i in selected[: MAX_SERVICE_PRINTED - 1]),
-                _tag(f"{len(selected) - MAX_SERVICE_PRINTED + 1} other"),
+                *(TextStyle.tag.wrap(i.class_name) for i in selected[: MAX_SERVICE_PRINTED - 1]),
+                TextStyle.tag.wrap(f"{len(selected) - MAX_SERVICE_PRINTED + 1} other"),
             ]
         else:
-            selected_strs = [_tag(i.class_name) for i in selected]
+            selected_strs = [TextStyle.tag.wrap(i.class_name) for i in selected]
         return _join_and(selected_strs, "service")
 
     def _get_services_messages(self) -> list[Message]:
@@ -217,33 +218,41 @@ class ChatBuddy:
             result.append(
                 (
                     "If you use ",
-                    _tag("PyCharm"),
+                    TextStyle.tag.wrap("PyCharm"),
                     " select less than ",
-                    _tag(MAX_SERVICE_PYCHARM),
+                    TextStyle.tag.wrap(MAX_SERVICE_PYCHARM),
                     " services. Otherwise, you may have peroformance issues.",
                 )
             )
         if self._is_all_selected():
             result.extend(
                 (
-                    ("Do you really need type checking for ", _tag("ALL"), " available services?"),
+                    (
+                        "Do you really need type checking for ",
+                        TextStyle.tag.wrap("ALL"),
+                        " available services?",
+                    ),
                     (
                         "Building all takes ",
-                        _tag("5-10 minutes"),
+                        TextStyle.tag.wrap("5-10 minutes"),
                         ", and package size is around ",
-                        _tag("12 megabytes"),
+                        TextStyle.tag.wrap("12 megabytes"),
                         "!",
                     ),
                 )
             )
             return result
         if not selected:
-            result.append(("Okay, what service do you want to ", _tag("add"), "?"))
+            result.append(("Okay, what service do you want to ", TextStyle.tag.wrap("add"), "?"))
             return result
 
         if len(selected) == 1:
             result.append(
-                ("Should I add type checking only for ", _tag(selected[0].class_name), " service?")
+                (
+                    "Should I add type checking only for ",
+                    TextStyle.tag.wrap(selected[0].class_name),
+                    " service?",
+                )
             )
             return result
 
@@ -327,7 +336,12 @@ class ChatBuddy:
                 )
             )
             select_choices = [
-                Choice(title=i.value, key=i.value, text=i.value.lower()) for i in response_choices
+                Choice(
+                    title=i.value,
+                    key=i.value,
+                    text=self._get_build_text() if i == ServiceActions.build else i.value.lower(),
+                )
+                for i in response_choices
             ]
             response = self._select(
                 message="I want to",
@@ -404,7 +418,7 @@ class ChatBuddy:
             ],
         )
         if result not in choices_map:
-            self._say(("I see... Let's use ", _tag("pip"), " then."))
+            self._say(("I see... Let's use ", TextStyle.tag.wrap("pip"), " then."))
             return PackageManager.pip
 
         return choices_map[result]
@@ -418,7 +432,7 @@ class ChatBuddy:
         self._respond(
             (
                 "I might even add it to ",
-                _tag("git"),
+                TextStyle.tag.wrap("git"),
                 "!",
             )
         )
@@ -450,53 +464,72 @@ class ChatBuddy:
         _linebreak()
         return result
 
-    def _get_response_services(self) -> Message:
+    def _get_build_text(self) -> Message:
         if self._is_all_selected():
             return (
-                "Let's include ",
-                _tag("all"),
-                " the services. Just in case. I might need them later.",
+                "continue",
+                TextStyle.text.wrap(" with all "),
+                TextStyle.tag.wrap("all"),
+                TextStyle.text.wrap(" the services. Just in case. I might need them later."),
             )
 
         if self.selected_service_names == self.recommended_service_names:
-            return ("I use only ", _tag("recommended"), " services.")
+            return (
+                "continue",
+                TextStyle.text.wrap(" with "),
+                TextStyle.tag.wrap(f"{len(self.selected_service_names)} recommended"),
+                TextStyle.text.wrap(" services."),
+            )
 
-        return ("I use ", _tag("selected"), " services.")
+        if len(self.selected_service_names) == 1:
+            return (
+                "continue",
+                TextStyle.text.wrap(" with "),
+                TextStyle.tag.wrap(self.selected_service_names[0].class_name),
+                TextStyle.text.wrap(" service."),
+            )
+
+        return (
+            "continue",
+            TextStyle.text.wrap(" with "),
+            TextStyle.tag.wrap(f"{len(self.selected_service_names)} selected"),
+            TextStyle.text.wrap(" services."),
+        )
 
     def run(self) -> None:
         """
         Run chat buddy.
         """
         self._say(
-            ("Hello from ", _tag(PROG_NAME), "!"),
+            ("Hello from ", TextStyle.tag.wrap(PROG_NAME), "!"),
             (
                 "It looks like you plan to add ",
-                _tag("type checking"),
+                TextStyle.tag.wrap("type checking"),
                 " and ",
-                _tag("auto-complete"),
+                TextStyle.tag.wrap("auto-complete"),
                 " for ",
-                _tag("boto3"),
+                TextStyle.tag.wrap("boto3"),
                 ", ",
-                _tag("aioboto3"),
+                TextStyle.tag.wrap("aioboto3"),
                 ", or ",
-                _tag("aiobotocore"),
+                TextStyle.tag.wrap("aiobotocore"),
                 " to your project in ",
-                _tag(print_path(self.project_path)),
+                TextStyle.tag.wrap(print_path(self.project_path)),
                 " directory.",
             ),
             (
                 "You launched me with no ",
-                _tag("OUTPUT_PATH"),
+                TextStyle.tag.wrap("OUTPUT_PATH"),
                 " command-line argument, so I decided to help you a bit.",
             ),
             (
                 "By the way, my author did not add any tests for my code.",
                 " So, if anything goes wrong, report to ",
-                _tag(REPORT_URL),
+                TextStyle.tag.wrap(REPORT_URL),
             ),
             (
                 "First of all, what ",
-                _tag("AWS SDK library"),
+                TextStyle.tag.wrap("AWS SDK library"),
                 " do you use in this project?",
             ),
         )
@@ -512,9 +545,9 @@ class ChatBuddy:
         self._respond(
             (
                 "Now, how can I add ",
-                _tag("type checking"),
+                TextStyle.tag.wrap("type checking"),
                 " and ",
-                _tag("code completion"),
+                TextStyle.tag.wrap("code completion"),
                 " for it?",
             )
         )
@@ -525,9 +558,9 @@ class ChatBuddy:
         self._say(
             (
                 "Oh, it is easy. Just a sec, I am fetching all available services for ",
-                _tag(self.library_name),
+                TextStyle.tag.wrap(self.library_name),
                 " from ",
-                _tag(botocore_str),
+                TextStyle.tag.wrap(botocore_str),
                 " shapes...",
             )
         )
@@ -538,31 +571,36 @@ class ChatBuddy:
             ("Thanks for waiting!",),
             (
                 "There are ",
-                _tag(len(self.available_service_names)),
+                TextStyle.tag.wrap(len(self.available_service_names)),
                 " supported services for ",
-                _tag(self.library_name),
+                TextStyle.tag.wrap(self.library_name),
                 ".",
             ),
             (
                 "However, most projects use only ",
-                _tag(len(self.selected_service_names)),
+                TextStyle.tag.wrap(len(self.selected_service_names)),
                 " so I ",
-                _tag("recommend"),
+                TextStyle.tag.wrap("recommend"),
                 " adding only them.",
             ),
         )
         self.selected_service_names = self._select_services()
-        self._respond(self._get_response_services())
 
         if len(self.selected_service_names) == 1:
-            services_str = (_tag(self.selected_service_names[0].class_name), " service support")
+            services_str = (
+                TextStyle.tag.wrap(self.selected_service_names[0].class_name),
+                " service support",
+            )
         else:
-            services_str = (_tag(len(self.selected_service_names)), " services support")
+            services_str = (
+                TextStyle.tag.wrap(len(self.selected_service_names)),
+                " services support",
+            )
 
         self._say(
             (
                 "Great! Let's generate type annotations for ",
-                _tag(self.library_name),
+                TextStyle.tag.wrap(self.library_name),
                 " with ",
                 *services_str,
                 ".",
@@ -570,9 +608,21 @@ class ChatBuddy:
         )
         package_name = f"{self.library.get_package_prefix()}_*.whl"
 
-        self._say(("I can start building ", _tag(package_name), " now if you want. Let's start?"))
+        self._say(
+            (
+                "I can start building ",
+                TextStyle.tag.wrap(package_name),
+                " now if you want. Let's start?",
+            )
+        )
         if not self._do_start_building():
-            self._say(("No worries, you can always build ", _tag(self.product.value), " later!"))
+            self._say(
+                (
+                    "No worries, you can always build ",
+                    TextStyle.tag.wrap(self.product.value),
+                    " later!",
+                )
+            )
             self._say_commands()
             self._finish()
             return
@@ -580,15 +630,25 @@ class ChatBuddy:
         self._respond("Go for it!")
 
         self._say(
-            ("Almost forgot... Where should I put a generated ", _tag(package_name), " package?"),
+            (
+                "Almost forgot... Where should I put a generated ",
+                TextStyle.tag.wrap(package_name),
+                " package?",
+            ),
             (
                 "I prefer to use ",
-                _tag(print_path(self.output_path)),
+                TextStyle.tag.wrap(print_path(self.output_path)),
                 " directory, but it is up to you.",
             ),
         )
         self.output_path = self._select_output_path()
-        self._say(("Good idea! Building to ", _tag(print_path(self.output_path)), " directory..."))
+        self._say(
+            (
+                "Good idea! Building to ",
+                TextStyle.tag.wrap(print_path(self.output_path)),
+                " directory...",
+            )
+        )
 
         self.args = self._get_cli_namespace()
         self._run_builder()
@@ -603,7 +663,7 @@ class ChatBuddy:
                 (
                     "All done! But I could not find a built wheel. Something went wrong.",
                     " Please report: ",
-                    _tag(REPORT_URL),
+                    TextStyle.tag.wrap(REPORT_URL),
                 )
             )
             self._say_commands()
@@ -613,14 +673,14 @@ class ChatBuddy:
         self._say(
             (
                 "I have built ",
-                _tag(print_path(found_whl)),
+                TextStyle.tag.wrap(print_path(found_whl)),
                 ", and it is ready to install.",
             ),
             (
                 "Let me know which ",
-                _tag("package manager"),
+                TextStyle.tag.wrap("package manager"),
                 " you use. I can recommend ",
-                _tag("uv"),
+                TextStyle.tag.wrap("uv"),
                 ", because it is extremely fast.",
             ),
         )
@@ -628,7 +688,7 @@ class ChatBuddy:
         self._respond(
             (
                 "Sure, I use ",
-                _tag(self.package_manager.value),
+                TextStyle.tag.wrap(self.package_manager.value),
                 ". How to install the generated package?",
             )
         )
@@ -636,13 +696,13 @@ class ChatBuddy:
         self._say(
             (
                 "Use these commands to ",
-                _tag("update"),
+                TextStyle.tag.wrap("update"),
                 " and ",
-                _tag("install"),
+                TextStyle.tag.wrap("install"),
                 " ",
-                _tag(self.product.value),
+                TextStyle.tag.wrap(self.product.value),
                 " when you bump ",
-                _tag(self.library_name),
+                TextStyle.tag.wrap(self.library_name),
                 " version:",
             )
         )
@@ -653,9 +713,9 @@ class ChatBuddy:
         self._say(
             (
                 "Check ",
-                _tag(self.library.documentation_url),
+                TextStyle.tag.wrap(self.library.documentation_url),
                 " documentation. It describes all type annotations for ",
-                _tag(self.library_name),
+                TextStyle.tag.wrap(self.library_name),
                 ".",
             ),
             "Bye-bye! Have a nice day!",

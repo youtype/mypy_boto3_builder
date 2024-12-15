@@ -135,8 +135,8 @@ class TextStyle(Enum):
 
         return message
 
-    def wrap(self, message: str) -> MessagePair:
+    def wrap(self, message: str | float) -> MessagePair:
         """
         Wrap message with style.
         """
-        return (self, message)
+        return (self, str(message))
