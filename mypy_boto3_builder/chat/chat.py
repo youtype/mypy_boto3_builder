@@ -62,8 +62,18 @@ class Chat:
         Confirm a message.
         """
         choices = [
-            Choice(title="Yes", key="yes", text=message_yes, shortcut_key="y"),
-            Choice(title="No", key="no", text=message_no, shortcut_key="n"),
+            Choice(
+                title=("Yes ", TextStyle.dim.wrap("(y)")),
+                key="yes",
+                text=message_yes,
+                shortcut_key="y",
+            ),
+            Choice(
+                title=("No ", TextStyle.dim.wrap("(n)")),
+                key="no",
+                text=message_no,
+                shortcut_key="n",
+            ),
         ]
         response = self.select(
             message=message,

@@ -502,6 +502,7 @@ class ChatBuddy:
         """
         Run chat buddy.
         """
+        _linebreak()
         self._say(
             ("Hello from ", TextStyle.tag.wrap(PROG_NAME), "!"),
             (
