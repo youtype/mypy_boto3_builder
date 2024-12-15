@@ -6,7 +6,6 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterator, Sequence
 from contextlib import contextmanager
-from typing import ClassVar
 
 import questionary
 from prompt_toolkit.key_binding.key_processor import KeyPressEvent
@@ -25,12 +24,12 @@ class SelectPrompt(BasePrompt[list[Choice]]):
     """
 
     PROMPT_SESSION_MODULE = "questionary.prompts.common.PromptSession"
-    HELP_MESSAGE: ClassVar[Message] = (
-        "Use ",
+    HELP_MESSAGE = (
+        "Select item using ",
         TextStyle.tag.wrap("arrow keys"),
-        " to select an item, then press ",
+        ", then press ",
         TextStyle.tag.wrap("Enter"),
-        ".",
+        " to continue.",
     )
 
     def __init__(
@@ -46,7 +45,7 @@ class SelectPrompt(BasePrompt[list[Choice]]):
         self.message = TextStyle.to_message(message)
         self.choices = self._format_choices(choices)
         self.message_end = TextStyle.to_message(message_end)
-        self.instruction = TextStyle.to_message(instruction) or self.HELP_MESSAGE
+        self.instruction = TextStyle.to_message(instruction) or self.get_help_message()
         self.default = default
         self._inquirer_control: InquirerControl | None = None
 

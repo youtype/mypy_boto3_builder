@@ -34,7 +34,7 @@ class Choice(QuestionaryChoice):
         selected_suffix: Message | str | None = None,
         disabled: bool = False,
     ) -> None:
-        self._raw_title = title
+        self.raw_title = title
         self.selected_suffix = TextStyle.hilight.apply(selected_suffix or " ✓")
         choice_title = TextStyle.text.stylize(title)
         self.key = key or TextStyle.to_str(choice_title) or "(empty)"
@@ -82,7 +82,7 @@ class Choice(QuestionaryChoice):
         """
         self.title = TextStyle.dim.stylize(
             (
-                *TextStyle.to_message(self._raw_title),
+                *TextStyle.to_message(self.raw_title),
                 *self.selected_suffix,
             )
         )
@@ -93,6 +93,6 @@ class Choice(QuestionaryChoice):
         """
         Deselect choice.
         """
-        self.title = TextStyle.text.stylize(self._raw_title)
+        self.title = TextStyle.text.stylize(self.raw_title)
         self.select_index = 0
         self._is_selected = False

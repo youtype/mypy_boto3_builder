@@ -5,7 +5,6 @@ Copyright 2024 Vlad Emelianov
 """
 
 from pathlib import Path
-from typing import Final
 
 import questionary
 from prompt_toolkit.key_binding.key_processor import KeyPressEvent
@@ -23,7 +22,7 @@ class PathPrompt(BasePrompt[Path]):
     """
 
     PROMPT_SESSION_MODULE = "questionary.prompts.path.PromptSession"
-    HELP_MESSAGE: Final[Message] = (
+    HELP_MESSAGE = (
         "Enter a ",
         TextStyle.tag.wrap("path"),
         " to output directory.",
@@ -37,7 +36,7 @@ class PathPrompt(BasePrompt[Path]):
     ) -> None:
         super().__init__()
         self.message = TextStyle.to_message(message)
-        self.instruction = TextStyle.to_message(instruction) or self.HELP_MESSAGE
+        self.instruction = TextStyle.to_message(instruction) or self.get_help_message()
         self.default = default
         self._result: Path | None = None
 

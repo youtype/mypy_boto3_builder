@@ -13,13 +13,11 @@ from typing import Final
 
 from mypy_boto3_builder.chat.chat import Chat, Choice
 from mypy_boto3_builder.chat.enums import Library, PackageManager, ServiceActions
-from mypy_boto3_builder.chat.prompts.select_prompt import SelectPrompt
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message, MessageToken
 from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.constants import PROG_NAME
 from mypy_boto3_builder.enums.output_type import OutputType
-from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
 from mypy_boto3_builder.utils.path import print_path
@@ -61,12 +59,11 @@ class ChatBuddy:
 
     START_SHORTCUT_KEY = "0"
     SERVICE_SELECT_HELP: Final[Message] = (
-        *SelectPrompt.HELP_MESSAGE,
-        " Type ",
+        "Type ",
         TextStyle.tag.wrap("first letter"),
         " to search, type ",
         TextStyle.tag.wrap(START_SHORTCUT_KEY),
-        " to return to the top and continue.",
+        " to return to the top.",
     )
 
     def __init__(self, run_builder: Callable[[CLINamespace], None]) -> None:
@@ -74,8 +71,6 @@ class ChatBuddy:
         self.selected_service_names: list[ServiceName] = []
         self.recommended_service_names: list[ServiceName] = []
         self.library = Library.boto3
-        self.library_name: str = "boto3"
-        self.product: Product = Product.types_boto3_custom
         self.output_path: Path = DEFAULT_OUTPUT_PATH
         self.project_path = PROJECT_PATH
         self.args = CLINamespace(
@@ -91,6 +86,13 @@ class ChatBuddy:
         self.package_manager: PackageManager = PackageManager.pip
         self.run_builder = run_builder
         self.chat = Chat()
+
+    @property
+    def library_name(self) -> str:
+        """
+        Get library name string.
+        """
+        return self.library.product_library.get_library_name()
 
     def _get_selected_service_names(self) -> list[ServiceName]:
         return [i for i in self.available_service_names if i.is_essential()]
@@ -157,7 +159,7 @@ class ChatBuddy:
             message="I use",
             choices=service_choices,
             finish_choice=Choice(
-                title=["Nothing else", TextStyle.dim.wrap(" (go back)")],
+                title=["Nothing else", TextStyle.dim.wrap(" (continue)")],
                 text="nothing else",
                 shortcut_key=self.START_SHORTCUT_KEY,
             ),
@@ -177,7 +179,7 @@ class ChatBuddy:
             message="I do not use",
             choices=service_choices,
             finish_choice=Choice(
-                title=["Anything else", TextStyle.dim.wrap(" (go back)")],
+                title=["Anything else", TextStyle.dim.wrap(" (continue)")],
                 text="anything else",
                 shortcut_key=self.START_SHORTCUT_KEY,
             ),
@@ -445,7 +447,7 @@ class ChatBuddy:
             service_names=self._get_service_names_args(),
             build_version="",
             output_types=[OutputType.wheel],
-            products=[self.product],
+            products=[self.library.product],
             disable_smart_version=False,
             download_static_stubs=True,
         )
@@ -541,7 +543,6 @@ class ChatBuddy:
             return
 
         self.library = library
-        self.library_name = self.library.product_library.get_library_name()
         self._respond(
             (
                 "Now, how can I add ",
@@ -551,8 +552,6 @@ class ChatBuddy:
                 " for it?",
             )
         )
-
-        self.product = self.library.product
 
         botocore_str = f"botocore {get_botocore_version()}"
         self._say(
@@ -619,7 +618,7 @@ class ChatBuddy:
             self._say(
                 (
                     "No worries, you can always build ",
-                    TextStyle.tag.wrap(self.product.value),
+                    TextStyle.tag.wrap(self.library.product.value),
                     " later!",
                 )
             )
@@ -700,7 +699,7 @@ class ChatBuddy:
                 " and ",
                 TextStyle.tag.wrap("install"),
                 " ",
-                TextStyle.tag.wrap(self.product.value),
+                TextStyle.tag.wrap(self.library.product.value),
                 " when you bump ",
                 TextStyle.tag.wrap(self.library_name),
                 " version:",

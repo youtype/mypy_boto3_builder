@@ -11,6 +11,7 @@ from prompt_toolkit.key_binding.key_processor import KeyPressEvent
 
 from mypy_boto3_builder.chat.choice import Choice
 from mypy_boto3_builder.chat.prompts.select_prompt import SelectPrompt
+from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message
 
 
@@ -18,6 +19,14 @@ class MultiSelectPrompt(SelectPrompt):
     """
     Select multiple prompt based on questionary.path.
     """
+
+    HELP_MESSAGE = (
+        "Select items using ",
+        TextStyle.tag.wrap("arrow keys"),
+        ", press ",
+        TextStyle.tag.wrap("Enter"),
+        " to add or remove item.",
+    )
 
     def __init__(
         self,
@@ -45,6 +54,17 @@ class MultiSelectPrompt(SelectPrompt):
         )
         self._selectable_choices = tuple(
             i for i in self.choices if i != self.finish_choice and not i.disabled
+        )
+
+    def get_help_message(self) -> Message:
+        """
+        Get help message.
+        """
+        return (
+            *super().get_help_message(),
+            " Select ",
+            TextStyle.tag.wrap(TextStyle.to_str(self.finish_choice.raw_title)),
+            " to continue.",
         )
 
     def _is_all_selected(self) -> bool:

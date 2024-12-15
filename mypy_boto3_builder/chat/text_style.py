@@ -115,13 +115,19 @@ class TextStyle(Enum):
         return result
 
     @staticmethod
-    def to_str(message: list[tuple[str, str]] | str) -> str:
+    def to_str(message: Message | list[tuple[str, str]] | str) -> str:
         """
         Convert message to string.
         """
         if isinstance(message, str):
             return message
-        return "".join([i[1] for i in message])
+        result: list[str] = []
+        for item in message:
+            if isinstance(item, str):
+                result.append(item)
+            else:
+                result.append(item[1])
+        return "".join(result)
 
     @staticmethod
     def to_message(message: Message | str) -> Message:

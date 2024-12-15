@@ -115,7 +115,7 @@ class Chat:
         """
         Select multiple items from list.
         """
-        result = MultiSelectPrompt(
+        prompt = MultiSelectPrompt(
             message=(
                 TextStyle.user.wrap(self.USER_NAME),
                 *TextStyle.to_message(message),
@@ -124,14 +124,22 @@ class Chat:
             choices=choices,
             instruction=(
                 TextStyle.help.wrap(self.HELP_NAME),
-                *TextStyle.to_message(instruction or MultiSelectPrompt.HELP_MESSAGE),
+                *MultiSelectPrompt.HELP_MESSAGE,
                 "\n\n",
             ),
             finish_choice=finish_choice,
             finish_selected_text=finish_selected_text,
             message_end=message_end,
             default=default,
-        ).ask()
+        )
+        prompt.instruction = (
+            TextStyle.help.wrap(self.HELP_NAME),
+            *prompt.get_help_message(),
+            " " if instruction else "",
+            *TextStyle.to_message(instruction),
+            "\n\n",
+        )
+        result = prompt.ask()
         return [i.key for i in result]
 
     def respond(self, message: Message | str) -> None:

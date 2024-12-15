@@ -28,10 +28,17 @@ class BasePrompt(ABC, Generic[_R]):
 
     PROMPT_SESSION_MODULE: ClassVar = "questionary.prompts.common.PromptSession"
     STYLE: Final = TextStyle.get_style()
+    HELP_MESSAGE: ClassVar[Message] = ()
 
     def __init__(self) -> None:
         self._question: Question | None = None
         self._result: _R | None = None
+
+    def get_help_message(self) -> Message:
+        """
+        Get help message.
+        """
+        return self.HELP_MESSAGE
 
     @property
     def question(self) -> Question:
