@@ -25,9 +25,9 @@ class TypeParent(FakeAnnotation, ABC):
         ...
 
     @abstractmethod
-    def iterate_children_type_annotations(self) -> Iterator[FakeAnnotation]:
+    def iterate_direct_type_annotations(self) -> Iterator[FakeAnnotation]:
         """
-        Iterate over children type annotations.
+        Iterate over type annotations directly present in parent.
         """
         ...
 
@@ -38,10 +38,7 @@ class TypeParent(FakeAnnotation, ABC):
         """
         ...
 
-    def find_type_annotation_parents(
-        self,
-        type_annotation: FakeAnnotation,
-    ) -> "set[TypeParent]":
+    def find_type_annotation_parents(self, type_annotation: FakeAnnotation) -> "set[TypeParent]":
         """
         Check recursively if child is present in type def.
         """
@@ -57,7 +54,7 @@ class TypeParent(FakeAnnotation, ABC):
         """
         result: dict[FakeAnnotation, set[TypeParent]] = {}
         for parent in self.find_parents():
-            for child_type in parent.iterate_children_type_annotations():
+            for child_type in parent.iterate_direct_type_annotations():
                 if child_type not in type_annotations:
                     continue
 
@@ -77,7 +74,7 @@ class TypeParent(FakeAnnotation, ABC):
 
         while stack:
             current = stack.pop()
-            for child_type in current.iterate_children_type_annotations():
+            for child_type in current.iterate_direct_type_annotations():
                 if not isinstance(child_type, TypeParent):
                     continue
                 if child_type in result:

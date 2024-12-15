@@ -16,7 +16,7 @@ batch_writer_method = Method(
         Argument.self(),
         Argument(
             "overwrite_by_pkeys",
-            Type.list(Type.str),
+            Type.wrap_list(Type.str),
             Type.Ellipsis,
         ),
     ),

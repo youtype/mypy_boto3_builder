@@ -31,6 +31,6 @@ def parse_references(resource_model: ResourceModel) -> list[Attribute]:
             continue
         type_annotation: FakeAnnotation = InternalImport(reference.resource.type)
         if reference.resource.path and "[]" in reference.resource.path:
-            type_annotation = Type.list(type_annotation)
+            type_annotation = Type.wrap_list(type_annotation)
         result.append(Attribute(reference.name, type_annotation=type_annotation, is_reference=True))
     return result

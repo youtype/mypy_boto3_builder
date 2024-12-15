@@ -4,7 +4,7 @@ Type annotations for {{ package.library_name }}.session module.
 {{ copyright }}
 """
 from types import TracebackType
-from typing import Any, Generic, Optional, Type, TypeVar, Union
+from typing import Any, Generic, TypeVar
 
 from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
@@ -20,17 +20,17 @@ from botocore.session import Session as BotocoreSession
 class Session:
     def __init__(
         self,
-        aws_access_key_id: Optional[str] = ...,
-        aws_secret_access_key: Optional[str] = ...,
-        aws_session_token: Optional[str] = ...,
-        region_name: Optional[str] = ...,
-        botocore_session: Optional[BotocoreSession] = ...,
-        profile_name: Optional[str] = ...,
+        aws_access_key_id: str | None = ...,
+        aws_secret_access_key: str | None = ...,
+        aws_session_token: str | None = ...,
+        region_name: str | None = ...,
+        botocore_session: BotocoreSession | None = ...,
+        profile_name: str | None = ...,
     ) -> None:
         self._session: BotocoreSession
         self.resource_factory: AIOBoto3ResourceFactory  # type: ignore [override]
         self._loader: Loader
-    def get_credentials(self) -> Optional[AioCredentials]: ...
+    def get_credentials(self) -> AioCredentials | None: ...
 
 {% filter indent(4, True) -%}
     {% for method in package.session_class.methods -%}
@@ -60,7 +60,7 @@ class ResourceCreatorContext(Generic[_AIOBoto3ServiceResource]):
     async def __aenter__(self) -> _AIOBoto3ServiceResource: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc: Optional[BaseException],
-        tb: Optional[TracebackType],
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        tb: TracebackType | None,
     ) -> None: ...

@@ -7,7 +7,6 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
@@ -60,7 +59,7 @@ class TestClassRecord:
         assert set(self.class_record.iterate_types()) == {
             Type.Any,
             Type.none,
-            Type.List,
+            Type.list,
             Type.str,
             TypeConstant("test"),
         }
@@ -68,12 +67,4 @@ class TestClassRecord:
     def test_get_required_import_records(self) -> None:
         assert self.class_record.get_required_import_records() == {
             ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("typing"), "List"),
         }
-
-    def test_get_internal_imports(self) -> None:
-        assert self.class_record.get_internal_imports() == set()
-
-        internal = InternalImport("MyTypedDict")
-        self.class_record.methods[0].arguments.append(Argument("dct", internal))
-        assert self.class_record.get_internal_imports() == {internal}

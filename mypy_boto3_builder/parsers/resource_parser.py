@@ -84,7 +84,7 @@ class ResourceParser:
         for collection in collections:
             attribute = Attribute(
                 collection.attribute_name,
-                InternalImport(collection.name, self.service_name, stringify=False),
+                InternalImport(collection.name, self.service_name),
                 is_collection=True,
             )
             if attribute.name in existing_attribute_names:

@@ -33,7 +33,7 @@ class TestFunction:
         assert self.function.body == "line1\nline2"
         assert self.function.docstring == "docstring\n\nlong"
         assert self.function.short_docstring == "docstring"
-        assert repr(self.function) == "def name(self, my_str: str = 'test', lst: List[Any]) -> None"
+        assert repr(self.function) == "def name(self, my_str: str = 'test', lst: list[Any]) -> None"
 
         self.function.docstring = ""
         assert not self.function.short_docstring
@@ -98,7 +98,7 @@ class TestFunction:
         assert set(self.function.iterate_types()) == {
             Type.Any,
             Type.none,
-            Type.List,
+            Type.list,
             Type.str,
             TypeConstant("test"),
         }
@@ -106,7 +106,6 @@ class TestFunction:
     def test_get_required_import_records(self) -> None:
         assert self.function.get_required_import_records() == {
             ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("typing"), "List"),
         }
 
     def test_remove_argument(self) -> None:
