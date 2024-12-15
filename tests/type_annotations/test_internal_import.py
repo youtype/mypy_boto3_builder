@@ -9,6 +9,8 @@ class TestInternalImport:
         assert self.result.name == "MyClass"
 
     def test_render(self) -> None:
+        assert self.result.render() == '"MyClass"'
+        self.result.stringify = False
         assert self.result.render() == "MyClass"
         self.result.use_alias = True
         assert self.result.render() == "_MyClass"

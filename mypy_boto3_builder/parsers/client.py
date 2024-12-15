@@ -6,7 +6,6 @@ Copyright 2024 Vlad Emelianov
 
 from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
-from botocore.exceptions import ClientError
 
 from mypy_boto3_builder.constants import CLIENT
 from mypy_boto3_builder.logger import get_logger
@@ -15,6 +14,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
@@ -59,7 +59,8 @@ def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client
             Attribute(
                 exception_class_name,
                 TypeSubscript(
-                    Type.type, [ExternalImport.from_class(ClientError, alias="BotocoreClientError")]
+                    Type.Type,
+                    [InternalImport("BotocoreClientError", stringify=False)],
                 ),
             ),
         )

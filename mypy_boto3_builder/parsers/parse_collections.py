@@ -43,7 +43,7 @@ def parse_collection(
         type_annotation=InternalImport(collection.name),
         object_class_name=object_class_name,
     )
-    self_type = InternalImport(collection_record.name)
+    self_type = InternalImport(collection_record.name, stringify=True)
 
     # FIXME: other collection methods use different anchor format. This will probably change.
     all_method = Method(
@@ -93,7 +93,7 @@ def parse_collection(
             arguments=[Argument.self()],
             return_type=TypeSubscript(
                 Type.Iterator,
-                [Type.wrap_list(InternalImport(name=object_class_name))],
+                [Type.list(InternalImport(name=object_class_name))],
             ),
             docstring=f"A generator which yields pages of {object_class_name}s.",
         ),

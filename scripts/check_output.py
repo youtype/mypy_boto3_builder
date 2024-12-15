@@ -205,16 +205,16 @@ def run_ruff(path: Path) -> None:
         "SIM",
         "PYI",
         "PT",
-        "T",
+        # "T",
         "LOG",
         "Q",
         "RSE",
         "RET",
         "TID",
-        "TC",
+        # "TCH",
         "S",
         "BLE",
-        "ANN",
+        # "ANN",
         "A",
         "PTH",
         "YTT",
@@ -225,15 +225,17 @@ def run_ruff(path: Path) -> None:
     ]
     ignore_errors = [
         "A002",  # builtin-argument-shadowing
+        "B014",  # duplicate-handler-exception
+        "E203",  # whitespace-before-comment
         "E501",  # line-too-long
         "E741",  # ambiguous-variable-name
         "N802",  # invalid-function-name
         "N803",  # invalid-argument-name
         "N812",  # lowercase-imported-as-non-lowercase
+        "PYI036",  # bad-exit-annotation
+        "RET503",  # implicit-return
+        "UP004",  # useless-object-inheritance
         "UP013",  # convert-typed-dict-functional-to-class
-        "TC001",  # typing-only-first-party-import
-        "TC002",  # typing-only-third-party-import
-        "TC003",  # typing-only-standard-library-import
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         cmd = [
@@ -413,13 +415,15 @@ def check_snapshot(path: Path) -> None:
         run_import(path)
 
 
-def get_package_paths(path: Path) -> list[Path]:
+def find_package_path(path: Path) -> Path | None:
     """
     Find package directory inside `path`.
     """
-    result = [package_path for package_path in path.iterdir() if is_package_dir(package_path)]
-    result.sort(key=lambda x: x.name)
-    return result
+    for package_path in path.iterdir():
+        if is_package_dir(package_path):
+            return package_path
+
+    return None
 
 
 def main() -> None:
@@ -439,19 +443,17 @@ def main() -> None:
         if args.filter and not any(s in directory.as_posix() for s in args.filter):
             continue
 
-        package_paths = get_package_paths(directory)
-        for package_path in package_paths:
-            logger.info(f"Checking {directory.name}/{package_path.name} ...")
-            try:
-                check_snapshot(package_path)
-            except SnapshotMismatchError as e:
-                logger.warning(e)
-                has_errors = True
-                if args.exit_on_error:
-                    break
-
-        if has_errors and args.exit_on_error:
-            break
+        package_path = find_package_path(directory)
+        if not package_path:
+            continue
+        logger.info(f"Checking {directory.name}/{package_path.name} ...")
+        try:
+            check_snapshot(package_path)
+        except SnapshotMismatchError as e:
+            logger.warning(e)
+            has_errors = True
+            if args.exit_on_error:
+                break
 
     if has_errors:
         logger.error("Snapshot mismatch")

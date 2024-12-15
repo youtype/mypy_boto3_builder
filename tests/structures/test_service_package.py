@@ -57,15 +57,13 @@ class TestServicePackage:
 
     def test_get_client_required_import_records(self) -> None:
         assert list(self.service_package.get_client_required_import_records()) == [
-            "from __future__ import annotations",
-            "from typing import Any",
+            "from typing import Any, Dict",
             "from botocore.client import BaseClient",
         ]
 
     def test_get_service_resource_required_import_records(self) -> None:
         assert list(self.service_package.get_service_resource_required_import_records()) == [
             "from .client import S3Client",
-            "from __future__ import annotations",
             "from boto3.resources.base import ResourceMeta, ServiceResource",
         ]
 
@@ -74,20 +72,17 @@ class TestServicePackage:
 
     def test_get_paginator_required_import_records(self) -> None:
         assert list(self.service_package.get_paginator_required_import_records()) == [
-            "from __future__ import annotations",
             "from botocore.paginate import Paginator",
         ]
 
     def test_get_waiter_required_import_records(self) -> None:
         assert list(self.service_package.get_waiter_required_import_records()) == [
-            "from __future__ import annotations",
             "from botocore.waiter import Waiter",
         ]
 
     def test_get_type_defs_required_import_records(self) -> None:
         assert list(self.service_package.get_type_defs_required_import_records()) == [
             "import sys",
-            "from __future__ import annotations",
             (
                 "if sys.version_info >= (3, 12):"
                 "\n    from typing import TypedDict"

@@ -77,6 +77,19 @@ class ClassRecord:
 
         return result
 
+    def get_internal_imports(self) -> set[InternalImport]:
+        """
+        Get internal imports from methods.
+        """
+        result: set[InternalImport] = set()
+        for method in self.methods:
+            for type_annotation in method.iterate_types():
+                if not isinstance(type_annotation, InternalImport):
+                    continue
+                result.add(type_annotation)
+
+        return result
+
     @property
     def variable_name(self) -> str:
         """

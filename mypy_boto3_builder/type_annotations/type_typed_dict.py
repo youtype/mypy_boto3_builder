@@ -242,9 +242,9 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
             result.update(child.iterate_types())
         return result
 
-    def iterate_direct_type_annotations(self) -> Iterator[FakeAnnotation]:
+    def iterate_children_type_annotations(self) -> Iterator[FakeAnnotation]:
         """
-        Iterate over children type annotations.
+        Extract required type annotations from attributes.
         """
         for child in self.children:
             yield child.type_annotation

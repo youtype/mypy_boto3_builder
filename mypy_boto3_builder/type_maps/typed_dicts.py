@@ -90,7 +90,7 @@ GetTemplateOutputTypeDef = TypeTypedDict(
         TypedDictAttribute(
             "StagesAvailable",
             TypeSubscript(
-                Type.list,
+                Type.List,
                 [InternalImport(name="TemplateStageType", module_name=ServiceModuleName.literals)],
             ),
             required=True,
@@ -107,13 +107,13 @@ PolicyDocumentStatementTypeDef = TypeTypedDict(
         TypedDictAttribute("Effect", Type.str, required=True),
         TypedDictAttribute(
             "Resource",
-            TypeUnion((Type.str, TypeSubscript(Type.list, [Type.str]))),
+            TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))),
             required=True,
         ),
         TypedDictAttribute("Sid", Type.str, required=True),
         TypedDictAttribute(
             "Action",
-            TypeUnion((Type.str, TypeSubscript(Type.list, [Type.str]))),
+            TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))),
             required=True,
         ),
     ),
@@ -125,7 +125,7 @@ PolicyDocumentDictTypeDef = TypeTypedDict(
         TypedDictAttribute("Version", Type.str, required=True),
         TypedDictAttribute(
             "Statement",
-            TypeSubscript(Type.list, [PolicyDocumentStatementTypeDef]),
+            TypeSubscript(Type.List, [PolicyDocumentStatementTypeDef]),
             required=True,
         ),
     ),
@@ -182,7 +182,7 @@ CloudwatchEventConfigurationTypeDef = TypeTypedDict(
         TypedDictAttribute("description", Type.str, required=False),
         TypedDictAttribute(
             "metrics",
-            TypeSubscript(Type.list, [CloudwatchEventMetricTypeDef]),
+            TypeSubscript(Type.List, [CloudwatchEventMetricTypeDef]),
             required=False,
         ),
         TypedDictAttribute("actionsSuppressor", Type.str, required=False),
@@ -196,11 +196,11 @@ CloudwatchEventConfigurationTypeDef = TypeTypedDict(
         TypedDictAttribute("comparisonOperator", Type.str, required=False),
         TypedDictAttribute("timestamp", Type.str, required=False),
         TypedDictAttribute("actionsEnabled", Type.bool, required=False),
-        TypedDictAttribute("okActions", TypeSubscript(Type.list, [Type.str]), required=False),
-        TypedDictAttribute("alarmActions", TypeSubscript(Type.list, [Type.str]), required=False),
+        TypedDictAttribute("okActions", TypeSubscript(Type.List, [Type.str]), required=False),
+        TypedDictAttribute("alarmActions", TypeSubscript(Type.List, [Type.str]), required=False),
         TypedDictAttribute(
             "insufficientDataActions",
-            TypeSubscript(Type.list, [Type.str]),
+            TypeSubscript(Type.List, [Type.str]),
             required=False,
         ),
     ),
@@ -232,7 +232,7 @@ CloudwatchEventTypeDef = TypeTypedDict(
         TypedDictAttribute("account", Type.str, required=True),
         TypedDictAttribute("time", Type.str, required=True),
         TypedDictAttribute("region", Type.str, required=True),
-        TypedDictAttribute("resources", TypeSubscript(Type.list, [Type.str]), required=True),
+        TypedDictAttribute("resources", TypeSubscript(Type.List, [Type.str]), required=True),
         TypedDictAttribute("detail", CloudwatchEventDetailTypeDef, required=True),
     ),
 )

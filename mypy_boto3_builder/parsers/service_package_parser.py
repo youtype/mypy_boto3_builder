@@ -16,19 +16,11 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.waiter import Waiter
-from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_maps.typed_dicts import CloudwatchEventTypeDef
 from mypy_boto3_builder.utils.strings import RESERVED_NAMES, is_reserved, xform_name
-from mypy_boto3_builder.utils.type_checks import is_typed_dict, is_union
+from mypy_boto3_builder.utils.type_checks import is_typed_dict
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
-
-UNION_TYPE_MAP = {
-    Type.list: Type.List,
-    Type.set: Type.Set,
-    Type.dict: Type.Dict,
-    Type.type: Type.Type,
-}
 
 
 class ServicePackageParser:
@@ -88,34 +80,10 @@ class ServicePackageParser:
             type_defs.add(CloudwatchEventTypeDef)
 
         result.type_defs = self._get_sorted_type_defs(type_defs)
-        self.fix_unions_for_py39(result.type_defs)
         result.literals = result.extract_literals()
         result.validate()
 
         return result
-
-    def fix_unions_for_py39(self, type_defs: Iterable[TypeDefSortable]) -> None:
-        """
-        Fix unions for Python 3.9.
-
-        Python 3.9 does not support new syntax for unions.
-
-        builtins.list -> typing.List
-        builtins.set -> typing.Set
-        builtins.dict -> typing.Dict
-        builtins.type -> typing.Type
-        """
-        for type_def in type_defs:
-            if not is_union(type_def):
-                continue
-
-            parent_map = type_def.find_type_annotation_parent_map(UNION_TYPE_MAP)
-            for old_type_annotation, new_type_annotation in UNION_TYPE_MAP.items():
-                parents = parent_map.get(old_type_annotation)
-                if not parents:
-                    continue
-                for parent in parents:
-                    parent.replace_child(old_type_annotation, new_type_annotation)
 
     @staticmethod
     def mark_safe_typed_dicts(service_package: ServicePackage) -> None:

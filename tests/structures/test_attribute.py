@@ -10,14 +10,14 @@ class TestAttribute:
         assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore=True)
 
     def test_render(self) -> None:
-        assert Attribute("attr", Type.DictStrAny).render() == "attr: dict[str, Any]"
+        assert Attribute("attr", Type.DictStrAny).render() == "attr: Dict[str, Any]"
         assert (
             Attribute("attr", Type.DictStrAny, TypeConstant("abc")).render()
-            == "attr: dict[str, Any]"
+            == "attr: Dict[str, Any]"
         )
         assert (
             Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore=True).render()
-            == "attr: dict[str, Any]  # type: ignore"
+            == "attr: Dict[str, Any]  # type: ignore"
         )
 
     def test_is_autoload_property(self) -> None:

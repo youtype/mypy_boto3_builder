@@ -61,7 +61,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
             A string with a valid type annotation.
         """
         if not self.is_named():
-            return " | ".join([i.render() for i in self.children])
+            return super().render()
 
         result = self.name
 
@@ -115,8 +115,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         Get import record required for using Union.
         """
         result: set[ImportRecord] = set()
-        if self.is_named():
-            result.update(self.parent.get_import_records())
+        result.update(self.parent.get_import_records())
         for child in self.children:
             result.update(child.get_import_records())
         return result
@@ -125,10 +124,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         Get import record required for using type annotation.
         """
-        if self.is_named():
-            return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
-
-        return self.get_definition_import_records()
+        return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
 
     def get_import_records(self) -> set[ImportRecord]:
         """
@@ -144,8 +140,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
             yield self
             return
 
-        for child in self.children:
-            yield from child.iterate_types()
+        yield from super().iterate_types()
 
     def is_type_def(self) -> bool:
         """

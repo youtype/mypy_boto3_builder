@@ -17,6 +17,5 @@ examples/s3_example.py:85: note: Did you mean "Expiration"?
 examples/s3_example.py:92: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
 examples/s3_example.py:92: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
 examples/s3_example.py:99: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
-examples/s3_example.py:101: error: "ClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
-examples/s3_example.py:109: error: "ClientError" has no attribute "operations_names"; maybe "operation_name"?  [attr-defined]
-Found 20 errors in 1 file (checked 1 source file)
+examples/s3_example.py:101: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
+Found 19 errors in 1 file (checked 1 source file)

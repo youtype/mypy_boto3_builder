@@ -193,34 +193,25 @@ class ServicePackage(Package):
         Get import record group for `client.py[i]`.
         """
         result = ImportRecordGroup()
-        result.add(self._get_annotations_import_record())
         result.add(*self.client.get_required_import_records())
         result.add(*self.client.exceptions_class.get_required_import_records())
 
         return result
 
-    @staticmethod
-    def _get_annotations_import_record() -> ImportRecord:
-        return ImportRecord(ImportString("__future__"), "annotations")
-
     def get_service_resource_required_import_records(self) -> ImportRecordGroup:
         """
         Get import record group for `service_resource.py[i]`.
         """
-        result = ImportRecordGroup()
         if self.service_resource is None:
-            return result
+            return ImportRecordGroup()
 
-        result.add(self._get_annotations_import_record())
-        result.add(*self.service_resource.get_required_import_records())
-        return result
+        return ImportRecordGroup(self.service_resource.get_required_import_records())
 
     def get_paginator_required_import_records(self) -> ImportRecordGroup:
         """
         Get import record group for `paginator.py[i]`.
         """
         result = ImportRecordGroup()
-        result.add(self._get_annotations_import_record())
         for paginator in self.paginators:
             result.add(*paginator.get_required_import_records())
 
@@ -231,7 +222,6 @@ class ServicePackage(Package):
         Get import record group for `waiter.py[i]`.
         """
         result = ImportRecordGroup()
-        result.add(self._get_annotations_import_record())
         for waiter in self.waiters:
             result.add(*waiter.get_required_import_records())
 
@@ -245,7 +235,6 @@ class ServicePackage(Package):
         if not self.type_defs:
             return result
 
-        result.add(self._get_annotations_import_record())
         for type_def in self.type_defs:
             for import_record in type_def.get_definition_import_records():
                 if import_record.source.is_type_defs():
