@@ -516,7 +516,7 @@ class ShapeParser:
         is_output_child: bool = False,
     ) -> FakeAnnotation:
         type_subscript = (
-            TypeSubscript(Type.List) if is_output_child else TypeSubscript(Type.Sequence)
+            TypeSubscript(Type.list) if is_output_child else TypeSubscript(Type.Sequence)
         )
         if shape.member:
             type_subscript.add_child(
@@ -1048,7 +1048,7 @@ class ShapeParser:
             )
             path = action_shape["resource"].get("path", "")
             if path.endswith("[]"):
-                return_type = TypeSubscript(Type.List, [return_type])
+                return_type = TypeSubscript(Type.list, [return_type])
 
         operation_model = None
         if "request" in action_shape:
