@@ -26,6 +26,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.aio_resource_method_map import get_aio_resource_method
+from mypy_boto3_builder.utils.type_checks import get_optional
 
 
 class AioBotocorePostprocessor(BasePostprocessor):
@@ -214,11 +215,19 @@ class AioBotocorePostprocessor(BasePostprocessor):
                     name="__aexit__",
                     arguments=(
                         Argument.self(),
-                        Argument("exc_type", Type.Any),
-                        Argument("exc_val", Type.Any),
-                        Argument("exc_tb", Type.Any),
+                        Argument(
+                            "exc_type",
+                            get_optional(
+                                TypeSubscript(Type.type, [ExternalImport.from_class(BaseException)])
+                            ),
+                        ),
+                        Argument("exc_val", get_optional(ExternalImport.from_class(BaseException))),
+                        Argument(
+                            "exc_tb",
+                            get_optional(ExternalImport(ImportString("types"), "TracebackType")),
+                        ),
                     ),
-                    return_type=Type.Any,
+                    return_type=Type.none,
                     is_async=True,
                     docstring=self.package.client.docstring,
                     boto3_doc_link=self.package.client.boto3_doc_link,
