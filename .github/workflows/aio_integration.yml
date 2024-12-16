@@ -7,7 +7,7 @@ on:
 
 jobs:
   integration:
-    name: AIO integration tests
+    name: "Integration: types-aioboto3"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

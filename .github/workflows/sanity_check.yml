@@ -42,6 +42,7 @@ jobs:
             core.notice(`botocore version ${version}`)
             return version
   sanity-check:
+    name: "Sanity: types-boto3"
     runs-on: ubuntu-latest
     needs: versions
     steps:

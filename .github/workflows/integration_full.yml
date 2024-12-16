@@ -7,7 +7,7 @@ on:
 
 jobs:
   integration:
-    name: Integration tests
+    name: "Integration: Full and custom"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
