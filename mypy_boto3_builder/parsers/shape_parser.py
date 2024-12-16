@@ -1172,7 +1172,7 @@ class ShapeParser:
                         operation_model.output_shape,
                         is_output=True,
                     )
-                    return_type = TypeSubscript(Type.List, [item_return_type])
+                    return_type = TypeSubscript(Type.list, [item_return_type])
                     method.return_type = return_type
 
         return result

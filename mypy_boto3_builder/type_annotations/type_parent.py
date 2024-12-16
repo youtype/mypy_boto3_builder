@@ -41,19 +41,32 @@ class TypeParent(FakeAnnotation, ABC):
     def find_type_annotation_parents(self, type_annotation: FakeAnnotation) -> "set[TypeParent]":
         """
         Check recursively if child is present in type def.
+
+        Arguments:
+            type_annotation -- Type annotation to search for.
         """
-        return self.find_type_annotation_parent_map({type_annotation}).get(type_annotation) or set()
+        return (
+            self.find_type_annotation_parent_map(
+                {type_annotation},
+                shallow=False,
+            ).get(type_annotation)
+            or set()
+        )
 
     def find_type_annotation_parent_map(
-        self, type_annotations: Iterable[FakeAnnotation]
+        self, type_annotations: Iterable[FakeAnnotation], *, shallow: bool
     ) -> "dict[FakeAnnotation, set[TypeParent]]":
         """
         Check recursively if children are present in type def.
 
+        Arguments:
+            type_annotations -- Type annotations to search for.
+            shallow -- Skip TypeDefSortable types.
+
         Can be used for non-overlapping type annotations.
         """
         result: dict[FakeAnnotation, set[TypeParent]] = {}
-        for parent in self.find_parents():
+        for parent in self.find_parents(shallow=shallow):
             for child_type in parent.iterate_direct_type_annotations():
                 if child_type not in type_annotations:
                     continue
@@ -65,9 +78,12 @@ class TypeParent(FakeAnnotation, ABC):
 
         return result
 
-    def find_parents(self) -> "set[TypeParent]":
+    def find_parents(self, *, shallow: bool) -> "set[TypeParent]":
         """
         Find all parents recursively including self.
+
+        Arguments:
+            shallow -- Skip TypeDefSortable types.
         """
         result: set[TypeParent] = {self}
         stack: list[TypeParent] = [self]
@@ -78,6 +94,8 @@ class TypeParent(FakeAnnotation, ABC):
                 if not isinstance(child_type, TypeParent):
                     continue
                 if child_type in result:
+                    continue
+                if shallow and isinstance(child_type, TypeDefSortable):
                     continue
 
                 result.add(child_type)

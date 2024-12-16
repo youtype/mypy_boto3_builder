@@ -106,10 +106,10 @@ class ServicePackageParser:
         builtins.type -> typing.Type
         """
         for type_def in type_defs:
-            if not is_union(type_def):
+            if not is_union(type_def) or not type_def.name:
                 continue
 
-            parent_map = type_def.find_type_annotation_parent_map(UNION_TYPE_MAP)
+            parent_map = type_def.find_type_annotation_parent_map(UNION_TYPE_MAP, shallow=True)
             for old_type_annotation, new_type_annotation in UNION_TYPE_MAP.items():
                 parents = parent_map.get(old_type_annotation)
                 if not parents:
