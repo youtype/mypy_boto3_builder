@@ -61,6 +61,7 @@ class Type:
     NotRequired: Final[TypeAnnotation] = TypeAnnotation("NotRequired")
     NoReturn: Final[TypeAnnotation] = TypeAnnotation("NoReturn")
     Unpack: Final[TypeAnnotation] = TypeAnnotation("Unpack")
+    Self: Final[TypeAnnotation] = TypeAnnotation("Self")
 
     @classmethod
     def unpack(cls, wrapped: FakeAnnotation) -> FakeAnnotation:

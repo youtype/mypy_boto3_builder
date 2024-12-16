@@ -21,7 +21,6 @@ from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
@@ -206,7 +205,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 Method(
                     name="__aenter__",
                     arguments=(Argument.self(),),
-                    return_type=InternalImport(self.package.client.name),
+                    return_type=Type.Self,
                     is_async=True,
                     docstring=self.package.client.docstring,
                     boto3_doc_link=self.package.client.boto3_doc_link,

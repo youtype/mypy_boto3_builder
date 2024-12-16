@@ -50,6 +50,7 @@ class TypeAnnotation(FakeAnnotation):
         "AsyncIterator": _TYPING,  # typing.AsyncIterator
         "NotRequired": _TYPING,  # typing_extensions.NotRequired / typing.NotRequired
         "Unpack": _TYPING,  # typing_extensions.Unpack / typing.Unpack
+        "Self": _TYPING,  # typing_extensions.Self / typing.Self
     }
 
     # Set of fallback type annotations
@@ -58,6 +59,7 @@ class TypeAnnotation(FakeAnnotation):
         "TypedDict": ((3, 12), _TYPING_EXTENSIONS),
         "Literal": ((3, 12), _TYPING_EXTENSIONS),
         "Unpack": ((3, 12), _TYPING_EXTENSIONS),
+        "Self": ((3, 12), _TYPING_EXTENSIONS),
     }
 
     def __init__(self, wrapped_type: str) -> None:
