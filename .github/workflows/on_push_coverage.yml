@@ -11,7 +11,7 @@ on:
 
 jobs:
   coverage:
-    name: Coverage
+    name: Send coverage report
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
