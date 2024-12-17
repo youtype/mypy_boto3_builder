@@ -30,46 +30,15 @@ ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 LOGGER_NAME = "check_output"
 PYRIGHT_IGNORED_MESSAGES = (
-    '"get_paginator" is marked as overload, but no implementation is provided',
-    '"get_waiter" is marked as overload, but no implementation is provided',
-    # 'Expected type arguments for generic class "ResourceCollection"',
-    # 'Type "None" cannot be assigned to type',
-    # '"__next__" is not present',
-    # 'Import "boto3.s3.transfer" could not be resolved',
-    # "is partially unknown",
-    'Method "paginate" overrides class "Paginator" in an incompatible manner',
-    'Method "wait" overrides class "Waiter" in an incompatible manner',
-    'Method "get_paginator" overrides class "AioBaseClient" in an incompatible manner',
-    'Method "get_waiter" overrides class "AioBaseClient" in an incompatible manner',
-    'Method "wait" overrides class "AIOWaiter" in an incompatible manner',
-    'Method "create_client" overrides class "Session" in an incompatible manner',
-    'define variable "items" in incompatible way',
-    'define variable "values" in incompatible way',
-    "must return value",
     'Import "types_aiobotocore_',
     'Import "mypy_boto3_',
     'Import "types_boto3_',
-    "Argument to class must be a base class",
-    'Function with declared type of "NoReturn" cannot return "None"',
     'Function with declared return type "NoReturn" cannot return "None"',
-    '"ellipsis" cannot be assigned to ',
+    "is marked as overload, but no implementation is provided",
     '"client" overrides symbol of same name in class "ResourceMeta"',
-    '"meta" overrides symbol of same name in class "ServiceResource"',
+    "must return value on all code paths",
 )
-MYPY_IGNORED_MESSAGES = (
-    'Signature of "create_client" incompatible with supertype "Session"',
-    'Signature of "paginate" incompatible with supertype "Paginator"',
-    'Signature of "wait" incompatible with supertype "Waiter"',
-    'Signature of "get_paginator" incompatible with supertype "AioBaseClient"',
-    'Signature of "get_waiter" incompatible with supertype "AioBaseClient"',
-    'Argument 1 of "get_paginator" is incompatible with supertype "AioBaseClient"',
-    'Argument 1 of "get_waiter" is incompatible with supertype "AioBaseClient"',
-    'Return type "Coroutine[Any, Any, None]" of "close" incompatible with return type "None"',
-    'Signature of "wait" incompatible with supertype "AIOWaiter"',
-    'imported name has type "type[object]", local name has type',
-    'incompatible with return type "Iterator[list[Any]]" in supertype "ResourceCollection"',
-    "note:",
-)
+MYPY_IGNORED_MESSAGES = ("note:",)
 
 DEPENDENCIES = [
     "types-boto3-lite",
@@ -469,12 +438,14 @@ def main() -> None:
         if not directory.name.endswith("_package"):
             continue
 
-        if args.filter and not any(s in directory.as_posix() for s in args.filter):
+        if args.filter and not any(
+            s in directory.relative_to(args.path).as_posix() for s in args.filter
+        ):
             continue
 
         package_paths = get_package_paths(directory)
         for package_path in package_paths:
-            logger.info(f"Checking {directory.name}/{package_path.name} ...")
+            logger.info(f"Checking {package_path.absolute().relative_to(Path.cwd())} ...")
             try:
                 check_snapshot(package_path)
             except SnapshotMismatchError as e:

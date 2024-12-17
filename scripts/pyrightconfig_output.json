@@ -12,5 +12,6 @@
     "reportIncompatibleMethodOverride": "error",
     "reportIncompatibleVariableOverride": "error",
     "reportUnknownParameterType": "error",
+    "reportReturnType": "none",
     "pythonVersion": "3.8"
 }
