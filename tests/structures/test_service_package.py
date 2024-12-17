@@ -56,37 +56,37 @@ class TestServicePackage:
         assert len(self.service_package.get_init_all_names()) == 4
 
     def test_get_client_required_import_records(self) -> None:
-        assert list(self.service_package.get_client_required_import_records()) == [
+        assert sorted(self.service_package.get_client_required_import_records()) == [
             "from __future__ import annotations",
-            "from typing import Any",
             "from botocore.client import BaseClient",
+            "from botocore.errorfactory import BaseClientExceptions",
+            "from typing import Any",
         ]
 
     def test_get_service_resource_required_import_records(self) -> None:
-        assert list(self.service_package.get_service_resource_required_import_records()) == [
+        assert sorted(self.service_package.get_service_resource_required_import_records()) == [
             "from .client import S3Client",
             "from __future__ import annotations",
             "from boto3.resources.base import ResourceMeta, ServiceResource",
         ]
 
         self.service_package.service_resource = None
-        assert list(self.service_package.get_service_resource_required_import_records()) == []
+        assert sorted(self.service_package.get_service_resource_required_import_records()) == []
 
     def test_get_paginator_required_import_records(self) -> None:
-        assert list(self.service_package.get_paginator_required_import_records()) == [
+        assert sorted(self.service_package.get_paginator_required_import_records()) == [
             "from __future__ import annotations",
             "from botocore.paginate import Paginator",
         ]
 
     def test_get_waiter_required_import_records(self) -> None:
-        assert list(self.service_package.get_waiter_required_import_records()) == [
+        assert sorted(self.service_package.get_waiter_required_import_records()) == [
             "from __future__ import annotations",
             "from botocore.waiter import Waiter",
         ]
 
     def test_get_type_defs_required_import_records(self) -> None:
-        assert list(self.service_package.get_type_defs_required_import_records()) == [
-            "import sys",
+        assert sorted(self.service_package.get_type_defs_required_import_records()) == [
             "from __future__ import annotations",
             (
                 "if sys.version_info >= (3, 12):"
@@ -94,20 +94,21 @@ class TestServicePackage:
                 "\nelse:"
                 "\n    from typing_extensions import TypedDict"
             ),
+            "import sys",
         ]
 
         self.service_package.type_defs = []
-        assert list(self.service_package.get_type_defs_required_import_records()) == []
+        assert sorted(self.service_package.get_type_defs_required_import_records()) == []
 
     def test_get_literals_required_import_records(self) -> None:
-        assert list(self.service_package.get_literals_required_import_records()) == [
-            "import sys",
+        assert sorted(self.service_package.get_literals_required_import_records()) == [
             (
                 "if sys.version_info >= (3, 12):"
                 "\n    from typing import Literal"
                 "\nelse:"
                 "\n    from typing_extensions import Literal"
             ),
+            "import sys",
         ]
 
     def test_validate(self) -> None:

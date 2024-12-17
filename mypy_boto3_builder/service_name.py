@@ -127,6 +127,18 @@ class ServiceName:
             f"latest/reference/services/{self.boto3_name}"
         )
 
+    def get_client_name(self) -> str:
+        """
+        Get Client name.
+        """
+        return f"{self.class_name}Client"
+
+    def get_service_resource_name(self) -> str:
+        """
+        Get ServiceResource name.
+        """
+        return f"{self.class_name}ServiceResource"
+
     @staticmethod
     def get_md_doc_link(
         file: Literal[

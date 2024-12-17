@@ -35,7 +35,7 @@ def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client
     logger.debug("Parsing Client")
 
     result = Client(
-        name=Client.get_class_name(service_name),
+        name=service_name.get_client_name(),
         service_name=service_name,
     )
 

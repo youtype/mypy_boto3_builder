@@ -21,6 +21,17 @@ _TypeIgnore = Literal["override"] | None
 class Function:
     """
     Module-level function.
+
+    Arguments:
+        name -- Function name
+        arguments -- Function arguments
+        return_type -- Function return type
+        docstring -- Function docstring
+        decorators -- Function decorators
+        body_lines -- Function body lines
+        type_ignore -- Add type: ignore[<type_ignore>] comment
+        is_async -- Whether function is async
+        boto3_doc_link -- Link to boto3 docs
     """
 
     def __init__(

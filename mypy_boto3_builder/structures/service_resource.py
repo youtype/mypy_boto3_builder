@@ -6,9 +6,11 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterator
 
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource_record import ResourceRecord
@@ -26,7 +28,6 @@ class ServiceResource(ClassRecord):
         name: str,
         service_name: ServiceName,
     ) -> None:
-        self.resource_meta_class: ClassRecord | None = None
         super().__init__(
             name=name,
             bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ServiceResource")],
@@ -34,6 +35,7 @@ class ServiceResource(ClassRecord):
         self.service_name = service_name
         self.collections: list[Collection] = []
         self.sub_resources: list[ResourceRecord] = []
+        self.resource_meta_class = self._get_resource_meta_class()
 
     def __hash__(self) -> int:
         """
@@ -48,13 +50,6 @@ class ServiceResource(ClassRecord):
         """
         return "ServiceResource"
 
-    @staticmethod
-    def get_class_name(service_name: ServiceName) -> str:
-        """
-        Get class name for ServiceName.
-        """
-        return f"{service_name.class_name}ServiceResource"
-
     @property
     def boto3_doc_link(self) -> str:
         """
@@ -67,8 +62,6 @@ class ServiceResource(ClassRecord):
         Iterate over type annotations for collections and sub-resources.
         """
         yield from super().iterate_types()
-        if not self.resource_meta_class:
-            raise StructureError("ResourceMeta class is not set")
         yield from self.resource_meta_class.iterate_types()
         for collection in self.collections:
             yield from collection.iterate_types()
@@ -108,3 +101,19 @@ class ServiceResource(ClassRecord):
             A list of sub resources.
         """
         return tuple(self.sub_resources)
+
+    def _get_resource_meta_class(self) -> ClassRecord:
+        return ClassRecord(
+            name=f"{self.service_name.class_name}ResourceMeta",
+            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta")],
+            attributes=[
+                Attribute(
+                    "client",
+                    ExternalImport(
+                        source=ImportString("", ServiceModuleName.client.value),
+                        name=self.service_name.get_client_name(),
+                    ),
+                    type_ignore="override",
+                ),
+            ],
+        )
