@@ -41,12 +41,12 @@ class TestImportRecordGroup:
             (
                 "try:"
                 "\n    from another import name21\nexcept ImportError:"
-                "\n    from another2 import name213"
+                "\n    from another2 import name213  # type: ignore[assignment]"
             ),
             (
                 "try:"
                 "\n    from source import name as alias, name2\nexcept ImportError:"
-                "\n    from source2 import name as alias, name2"
+                "\n    from source2 import name as alias, name2  # type: ignore[assignment]"
             ),
         ]
 
