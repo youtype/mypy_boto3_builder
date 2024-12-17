@@ -66,6 +66,7 @@ def parse_types_aiobotocore_package(
             InternalImport("ClientCreatorContext"),
             [method.return_type],
         )
+        method.type_ignore = "override"
         package.session_class.methods.append(method)
     return package
 
