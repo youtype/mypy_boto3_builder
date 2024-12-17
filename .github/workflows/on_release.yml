@@ -3,11 +3,6 @@ name: Bump version and dockerize
 on:
   release:
     types: [published]
-  workflow_dispatch:
-    inputs:
-      version:
-        description: Version for publishing
-        required: true
 
 jobs:
   deploy:
@@ -16,16 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.release.target_commitish }}
       - name: Get version
         id: version
         uses: actions/github-script@v7
         with:
           result-encoding: string
           script: |
-            if (context.payload.inputs && context.payload.inputs.version) {
-              return context.payload.inputs.version
-            }
             return context.ref.split('/').pop()
       - name: Set up Python
         uses: actions/setup-python@v5
