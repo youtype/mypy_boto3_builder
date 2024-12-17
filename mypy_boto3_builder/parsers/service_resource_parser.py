@@ -74,6 +74,7 @@ class ServiceResourceParser(ResourceParser):
             name=ServiceResource.get_class_name(self.service_name),
             service_name=self.service_name,
         )
+        result.resource_meta_class = self._resource_meta_class
 
         self._logger.debug("Parsing ServiceResource methods")
         method_map = self._parse_method_map()
@@ -118,6 +119,7 @@ class ServiceResourceParser(ResourceParser):
                         source=ImportString("", ServiceModuleName.client.value),
                         name=Client.get_class_name(self.service_name),
                     ),
+                    type_ignore=True,
                 ),
             ],
         )

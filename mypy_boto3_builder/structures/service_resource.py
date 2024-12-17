@@ -6,13 +6,10 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterator
 
-from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
-from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -29,7 +26,7 @@ class ServiceResource(ClassRecord):
         name: str,
         service_name: ServiceName,
     ) -> None:
-        self.resource_meta_class = self._get_resource_meta_class(service_name)
+        self.resource_meta_class: ClassRecord | None = None
         super().__init__(
             name=name,
             bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ServiceResource")],
@@ -58,21 +55,6 @@ class ServiceResource(ClassRecord):
         """
         return f"{service_name.class_name}ServiceResource"
 
-    def _get_resource_meta_class(self, service_name: ServiceName) -> ClassRecord:
-        return ClassRecord(
-            name=f"{service_name.class_name}ResourceMeta",
-            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta")],
-            attributes=[
-                Attribute(
-                    "client",
-                    ExternalImport(
-                        source=ImportString("", ServiceModuleName.client.value),
-                        name=Client.get_class_name(service_name),
-                    ),
-                ),
-            ],
-        )
-
     @property
     def boto3_doc_link(self) -> str:
         """
@@ -85,6 +67,8 @@ class ServiceResource(ClassRecord):
         Iterate over type annotations for collections and sub-resources.
         """
         yield from super().iterate_types()
+        if not self.resource_meta_class:
+            raise StructureError("ResourceMeta class is not set")
         yield from self.resource_meta_class.iterate_types()
         for collection in self.collections:
             yield from collection.iterate_types()
