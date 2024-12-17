@@ -100,7 +100,6 @@ TYPE_MAP: Final[ServiceTypeMap[FakeAnnotation]] = {
         "Object": {
             "copy": {"CopySource": CopySourceTypeDef},
             "copy_from": {"CopySource": CopySourceOrStrTypeDef},
-            "put": {"ContentMD5": Type.RemoveArgument},
         },
         "ObjectSummary": {"copy_from": {"CopySource": CopySourceOrStrTypeDef}},
         # FIXME: https://github.com/boto/boto3/issues/3501
