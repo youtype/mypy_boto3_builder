@@ -132,6 +132,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 f" {pages_method.return_type.render()}",
             )
         pages_method.return_type.parent = Type.AsyncIterator
+        pages_method.type_ignore = "override"
 
         aiter_method = collection.get_method("__iter__").copy()
         aiter_method.name = "__aiter__"

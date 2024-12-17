@@ -314,11 +314,6 @@ class ShapeParser:
                 ),
                 return_type=Type.str,
             ),
-            "close": Method(
-                name="close",
-                arguments=(Argument.self(),),
-                return_type=Type.none,
-            ),
         }
         for operation_name in self.service_model.operation_names:
             operation_model = self._get_operation(operation_name)
