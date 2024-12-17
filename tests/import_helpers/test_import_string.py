@@ -88,3 +88,8 @@ class TestImportString:
         # other
         assert ImportString("asdf", "test") > ImportString("asd", "test")
         assert ImportString("asdf", "test") < ImportString("asdf", "test2")
+
+    def test_startswith(self) -> None:
+        assert ImportString("boto3", "test").startswith(ImportString("boto3"))
+        assert not ImportString("boto3", "test", "test2").startswith(ImportString("boto3", "test2"))
+        assert not ImportString("boto3", "test").startswith(ImportString("boto33", "test"))

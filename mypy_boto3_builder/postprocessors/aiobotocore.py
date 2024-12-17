@@ -14,7 +14,7 @@ from botocore.paginate import Paginator
 from botocore.response import StreamingBody
 from botocore.waiter import Waiter
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.collection import Collection
@@ -264,6 +264,6 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 type_annotation.copy_from(new_type_annotation)
                 continue
 
-            if type_annotation.source.parent == "boto3":
-                type_annotation.safe = True
+            if type_annotation.source.startswith(Import.boto3):
+                type_annotation.add_fallback()
                 continue

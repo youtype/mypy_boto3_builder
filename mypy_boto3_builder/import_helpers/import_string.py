@@ -36,16 +36,6 @@ class ImportString:
         'my.name'
     """
 
-    BUILTINS: Final[str] = "builtins"
-    _THIRD_PARTY: Final[set[str]] = {
-        "boto3",
-        "botocore",
-        "aioboto3",
-        "aiobotocore",
-        "s3transfer",
-        "awscrt",
-    }
-
     def __init__(self, parent: str, *parts: str) -> None:
         all_parts = (parent, *parts)
         if not parent and not parts:
@@ -103,8 +93,8 @@ class ImportString:
         if self.is_local() != other.is_local():
             return self.is_local() > other.is_local()
 
-        if self.is_third_party() != other.is_third_party():
-            return self.is_third_party() > other.is_third_party()
+        if Import.is_third_party(self) != Import.is_third_party(other):
+            return Import.is_third_party(self) > Import.is_third_party(other)
 
         return self.parts > other.parts
 
@@ -150,7 +140,7 @@ class ImportString:
         """
         Whether import is from Python `builtins` module.
         """
-        return self.parent == self.BUILTINS
+        return Import.is_builtins(self)
 
     def is_type_defs(self) -> bool:
         """
@@ -164,4 +154,49 @@ class ImportString:
         """
         Whether import is from 3rd party module.
         """
-        return self.parent in self._THIRD_PARTY
+        return Import.is_third_party(self)
+
+    def startswith(self, other: "ImportString") -> bool:
+        """
+        Whether import string starts with another import string.
+        """
+        return self.parts[: len(other.parts)] == other.parts
+
+
+class Import:
+    """
+    Common import strings.
+    """
+
+    builtins: Final = ImportString("builtins")
+    boto3: Final = ImportString("boto3")
+    botocore: Final = ImportString("botocore")
+    typing: Final = ImportString("typing")
+    awscrt: Final = ImportString("awscrt")
+    s3transfer: Final = ImportString("s3transfer")
+    aiobotocore: Final = ImportString("aiobotocore")
+    aioboto3: Final = ImportString("aioboto3")
+    typing_extensions: Final = ImportString("typing_extensions")
+
+    _THIRD_PARTY: Final[set[str]] = {
+        boto3.parent,
+        botocore.parent,
+        aioboto3.parent,
+        aiobotocore.parent,
+        s3transfer.parent,
+        awscrt.parent,
+    }
+
+    @classmethod
+    def is_third_party(cls, import_string: ImportString) -> bool:
+        """
+        Whether import is from 3rd party module.
+        """
+        return import_string.parent in cls._THIRD_PARTY
+
+    @classmethod
+    def is_builtins(cls, import_string: ImportString) -> bool:
+        """
+        Whether import is from Python `builtins` module.
+        """
+        return import_string.startswith(cls.builtins)

@@ -9,7 +9,7 @@ from typing import Self
 
 from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
@@ -31,11 +31,14 @@ class ExternalImport(FakeAnnotation):
         alias: str = "",
         *,
         safe: bool = False,
+        fallback: ImportRecord | None = None,
     ) -> None:
         self.source: ImportString = source
         self.name: str = name
         self.alias: str = alias
-        self.safe: bool = safe
+        self.fallback: ImportRecord | None = fallback
+        if safe and not self.fallback:
+            self.add_fallback(ImportRecord(Import.builtins, "object", self.name))
 
     @classmethod
     def from_class(cls, obj: type, alias: str = "", *, safe: bool = False) -> Self:
@@ -64,21 +67,28 @@ class ExternalImport(FakeAnnotation):
         """
         Get import record required for using type annotation.
         """
-        if self.safe:
+        if self.fallback:
+            fallback = self.fallback or ImportRecord(Import.builtins, "object", self.name)
             return ImportRecord(
                 self.source,
                 self.name,
                 self.alias,
                 min_version=None,
-                fallback=ImportRecord(ImportString(ImportString.BUILTINS), "object", self.name),
+                fallback=fallback,
             )
-        return ImportRecord(source=self.source, name=self.name, alias=self.alias)
+        return ImportRecord(
+            source=self.source,
+            name=self.name,
+            alias=self.alias,
+            min_version=None,
+            fallback=self.fallback,
+        )
 
     def __hash__(self) -> int:
         """
         Calcualte hash value based on import record.
         """
-        return hash((self.source, self.name, self.alias, self.safe))
+        return hash((self.source, self.name, self.alias, self.fallback))
 
     def render(self) -> str:
         """
@@ -99,7 +109,7 @@ class ExternalImport(FakeAnnotation):
         """
         Create a copy of type annotation wrapper.
         """
-        return self.__class__(self.source, self.name, self.alias, safe=self.safe)
+        return self.__class__(self.source, self.name, self.alias, fallback=self.fallback)
 
     def copy_from(self: Self, other: Self) -> None:
         """
@@ -107,4 +117,10 @@ class ExternalImport(FakeAnnotation):
         """
         self.source = other.source
         self.name = other.name
-        self.safe = other.safe
+        self.fallback = other.fallback
+
+    def add_fallback(self, fallback: ImportRecord | None = None) -> None:
+        """
+        Add fallback import record.
+        """
+        self.fallback = fallback or ImportRecord(Import.builtins, "object", self.name)
