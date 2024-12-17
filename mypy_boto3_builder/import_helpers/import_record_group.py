@@ -73,7 +73,10 @@ class ImportRecordGroup:
                     "try:",
                     *(f"    {x}" for x in self._render_records(source_records)),
                     "except ImportError:",
-                    *(f"    {x}" for x in self._render_records(fallback_records)),
+                    *(
+                        f"    {x}  # type: ignore[assignment]"
+                        for x in self._render_records(fallback_records)
+                    ),
                 ),
             )
 
