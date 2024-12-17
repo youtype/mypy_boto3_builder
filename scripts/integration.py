@@ -47,6 +47,8 @@ class Config:
         Get `uvx` arguments.
         """
         result: list[str] = ["-q"]
+        if cls.args.python_version:
+            result.extend(["--python", cls.args.python_version])
         for library_name in cls.args.product.with_libraries:
             result.extend(["--with", library_name])
         for install_path in cls.install_paths:
@@ -174,6 +176,7 @@ class CLINamespace:
     services: tuple[str, ...]
     output_path: Path
     wheel: bool
+    python_version: str | None
 
 
 def parse_args() -> CLINamespace:
@@ -190,6 +193,12 @@ def parse_args() -> CLINamespace:
         choices=[i.name for i in ProductChoices],
         default=ProductChoices.boto3.name,
         help=f"Product to test. Default: {ProductChoices.boto3.name}",
+    )
+    parser.add_argument(
+        "--python",
+        type=str,
+        default=None,
+        help="Python version for checkers. Default: None",
     )
     parser.add_argument("services", nargs="*")
     parser.add_argument(
@@ -209,6 +218,7 @@ def parse_args() -> CLINamespace:
         services=tuple(args.services),
         output_path=args.output_path or TEMP_PATH,
         wheel=args.wheel,
+        python_version=args.python,
     )
 
 

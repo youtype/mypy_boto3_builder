@@ -29,7 +29,7 @@ from typing import Any, Sequence
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 LOGGER_NAME = "check_output"
-IGNORE_PYRIGHT_ERRORS = (
+PYRIGHT_IGNORED_MESSAGES = (
     '"get_paginator" is marked as overload, but no implementation is provided',
     '"get_waiter" is marked as overload, but no implementation is provided',
     # 'Expected type arguments for generic class "ResourceCollection"',
@@ -56,7 +56,7 @@ IGNORE_PYRIGHT_ERRORS = (
     '"client" overrides symbol of same name in class "ResourceMeta"',
     '"meta" overrides symbol of same name in class "ServiceResource"',
 )
-IGNORE_MYPY_ERRORS = (
+MYPY_IGNORED_MESSAGES = (
     'Signature of "create_client" incompatible with supertype "Session"',
     'Signature of "paginate" incompatible with supertype "Paginator"',
     'Signature of "wait" incompatible with supertype "Waiter"',
@@ -69,7 +69,6 @@ IGNORE_MYPY_ERRORS = (
     'imported name has type "type[object]", local name has type',
     'incompatible with return type "Iterator[list[Any]]" in supertype "ResourceCollection"',
     "note:",
-    "invalid syntax; you likely need to run mypy using Python 3.12 or newer",
 )
 
 DEPENDENCIES = [
@@ -101,6 +100,18 @@ class Config:
     """
 
     path: Path
+    logger: logging.Logger
+    args: CLINamespace
+
+    @classmethod
+    def get_uvx_cmd(cls) -> tuple[str, ...]:
+        """
+        Get uvx command prefix.
+        """
+        result: list[str] = ["uvx", "-q"]
+        if cls.args.python_version:
+            result.extend(("--python", cls.args.python_version))
+        return tuple(result)
 
 
 def _find_existing_local_path(local_package_names: Sequence[str]) -> Path | None:
@@ -168,6 +179,7 @@ class CLINamespace:
     path: Path
     filter: list[str]
     exit_on_error: bool
+    python_version: str | None
 
 
 def parse_args() -> CLINamespace:
@@ -178,6 +190,12 @@ def parse_args() -> CLINamespace:
     parser.add_argument("-d", "--debug", action="store_true")
     parser.add_argument("-x", "--exit-on-error", action="store_true")
     parser.add_argument("-p", "--path", type=Path, default=ROOT_PATH / "mypy_boto3_output")
+    parser.add_argument(
+        "--python",
+        type=str,
+        default=None,
+        help="Python version for checkers. Default: None",
+    )
     parser.add_argument("filter", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
@@ -185,6 +203,7 @@ def parse_args() -> CLINamespace:
         path=args.path,
         filter=args.filter,
         exit_on_error=args.exit_on_error,
+        python_version=args.python,
     )
 
 
@@ -262,6 +281,16 @@ def run_ruff(path: Path) -> None:
             raise SnapshotMismatchError(path, output) from None
 
 
+def find_ignored_message(message: str, ignored: Sequence[str]) -> str | None:
+    """
+    Find ignored error if it is present in message.
+    """
+    for error in ignored:
+        if error in message:
+            return error
+    return None
+
+
 def run_pyright(path: Path) -> None:
     """
     Check output with pyright.
@@ -269,8 +298,7 @@ def run_pyright(path: Path) -> None:
     config_path = ROOT_PATH / "pyrightconfig.json"
     shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
     cmd = [
-        "uvx",
-        "-q",
+        *Config.get_uvx_cmd(),
         *get_with_arguments(),
         "pyright",
         path.as_posix(),
@@ -298,7 +326,8 @@ def run_pyright(path: Path) -> None:
         errors: list[dict[str, Any]] = []
         for error in data:
             message = error.get("message", "")
-            if any(imsg in message for imsg in IGNORE_PYRIGHT_ERRORS):
+            ignored_message = find_ignored_message(message, PYRIGHT_IGNORED_MESSAGES)
+            if ignored_message:
                 continue
             errors.append(error)
 
@@ -322,7 +351,7 @@ def run_mypy(path: Path) -> None:
     """
     Check output with mypy.
     """
-    cmd = ["uvx", "-q", *get_with_arguments(), "mypy", path.as_posix()]
+    cmd = [*Config.get_uvx_cmd(), *get_with_arguments(), "mypy", path.as_posix()]
     try:
         output = subprocess.check_output(
             cmd,
@@ -335,7 +364,8 @@ def run_mypy(path: Path) -> None:
         for message in output.splitlines():
             if not message or message.startswith("Found"):
                 continue
-            if any(imsg in message for imsg in IGNORE_MYPY_ERRORS):
+            ignored_message = find_ignored_message(message, MYPY_IGNORED_MESSAGES)
+            if ignored_message:
                 continue
             errors.append(f"mypy: {message}")
 
@@ -374,10 +404,7 @@ def run_import(path: Path) -> None:
         f"import {path.name}",
     ]
     try:
-        subprocess.check_call(
-            run_cmd,
-            stdout=subprocess.DEVNULL,
-        )
+        subprocess.check_call(run_cmd, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         raise SnapshotMismatchError(path, f"Cannot be imported: {e}") from None
 
@@ -400,7 +427,7 @@ def check_snapshot(path: Path) -> None:
     Raises:
         SnapshotMismatchError -- If snapshot is not equal to current output.
     """
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = Config.logger
     logger.debug(f"Running ruff for {path.name} ...")
     run_ruff(path)
     logger.debug(f"Running mypy for {path.name} ...")
@@ -430,7 +457,9 @@ def main() -> None:
     """
     args = parse_args()
     Config.path = args.path
-    logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
+    Config.args = args
+    Config.logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
+    logger = Config.logger
     has_errors = False
     for directory in sorted(args.path.iterdir()):
         if not directory.is_dir():
