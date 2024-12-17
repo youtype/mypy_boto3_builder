@@ -8,6 +8,7 @@ from collections.abc import Iterator
 from typing import Final
 
 from botocore.client import BaseClient
+from botocore.errorfactory import BaseClientExceptions
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -35,7 +36,10 @@ class Client(ClassRecord):
     def __init__(self, name: str, service_name: ServiceName) -> None:
         super().__init__(name=name)
         self.service_name = service_name
-        self.exceptions_class = ClassRecord(name="Exceptions")
+        self.exceptions_class = ClassRecord(
+            name="Exceptions",
+            bases=(ExternalImport.from_class(BaseClientExceptions),),
+        )
         self.bases = [ExternalImport.from_class(BaseClient)]
 
     def __hash__(self) -> int:
