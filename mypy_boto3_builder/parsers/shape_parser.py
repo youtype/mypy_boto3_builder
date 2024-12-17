@@ -704,7 +704,12 @@ class ShapeParser:
             )
             return_type = TypeSubscript(page_iterator_import, [return_item])
 
-        method = Method(name="paginate", arguments=arguments, return_type=return_type)
+        method = Method(
+            name="paginate",
+            arguments=arguments,
+            return_type=return_type,
+            type_ignore="override",
+        )
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
@@ -752,7 +757,12 @@ class ShapeParser:
             arguments.extend(self._get_kw_flags("wait", shape_arguments))
             arguments.extend(shape_arguments)
 
-        method = Method(name="wait", arguments=arguments, return_type=Type.none)
+        method = Method(
+            name="wait",
+            arguments=arguments,
+            return_type=Type.none,
+            type_ignore="override",
+        )
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(

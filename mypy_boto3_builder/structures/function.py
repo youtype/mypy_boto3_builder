@@ -6,7 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 import copy
 from collections.abc import Iterable, Iterator
-from typing import Self
+from typing import Literal, Self
 
 from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -14,6 +14,8 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+
+_TypeIgnore = Literal["override"] | None
 
 
 class Function:
@@ -30,7 +32,7 @@ class Function:
         docstring: str = "",
         decorators: Iterable[FakeAnnotation] = (),
         body_lines: Iterable[str] = (),
-        type_ignore: bool = False,
+        type_ignore: _TypeIgnore = None,
         is_async: bool = False,
         boto3_doc_link: str = "",
     ) -> None:
@@ -40,7 +42,7 @@ class Function:
         self.docstring = docstring
         self.decorators = list(decorators)
         self.body_lines = body_lines
-        self.type_ignore = type_ignore
+        self.type_ignore: _TypeIgnore = type_ignore
         self.request_type_annotation: TypeTypedDict | None = None
         self.is_async = is_async
         self._boto3_doc_link = boto3_doc_link

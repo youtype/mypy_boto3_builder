@@ -1,8 +1,12 @@
 {% for decorator in function.decorators -%}
-{{ '@' -}}{{ decorator -}}{{ '\n' -}}
+    {{ '@' -}}{{ decorator -}}
+    {% if loop.first and function.type_ignore -%}
+        {{ '  # type: ignore[' -}}{{ function.type_ignore -}}{{ ']' -}}
+    {% endif -%}
+    {{ '\n' -}}
 {% endfor -%}
 {% if function.is_async -%}{{ 'async ' -}}{% endif -%}{{ 'def ' -}}{{ function.name -}}{{ '(' -}}
-{% if function.type_ignore -%}{{ '  # type: ignore' -}}{% endif -%}
+{% if function.type_ignore and not function.decorators -%}{{ '  # type: ignore[' -}}{{ function.type_ignore -}}{{ ']' -}}{% endif -%}
 {{ '\n' -}}
 {% filter indent(4, True) -%}
     {% for argument in function.iterate_packed_arguments() -%}

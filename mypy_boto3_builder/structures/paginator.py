@@ -99,4 +99,5 @@ class Paginator(ClassRecord):
                 source=ImportString("", ServiceModuleName.paginator.value),
                 name=self.name,
             ),
+            type_ignore="override",
         )

@@ -96,4 +96,5 @@ class Waiter(ClassRecord):
                 source=ImportString("", ServiceModuleName.waiter.value),
                 name=self.name,
             ),
+            type_ignore="override",
         )

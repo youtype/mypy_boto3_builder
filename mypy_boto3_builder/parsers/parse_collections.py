@@ -68,7 +68,7 @@ def parse_collection(
         " as parameters to the underlying service operation, which are"
         " typically used to filter the results."
     )
-    filter_method.type_ignore = True
+    filter_method.type_ignore = "override"
     collection_record.methods.append(filter_method)
     batch_methods = shape_parser.get_collection_batch_methods(collection_record.name, collection)
     for batch_method in batch_methods:

@@ -304,6 +304,7 @@ def run_pyright(path: Path) -> None:
         path.as_posix(),
         "--outputjson",
     ]
+    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
@@ -352,6 +353,7 @@ def run_mypy(path: Path) -> None:
     Check output with mypy.
     """
     cmd = [*Config.get_uvx_cmd(), *get_with_arguments(), "mypy", path.as_posix()]
+    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
     try:
         output = subprocess.check_output(
             cmd,
