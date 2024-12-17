@@ -11,7 +11,7 @@ from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
@@ -155,6 +155,9 @@ class ServicePackage(Package):
                 ImportRecord(
                     ImportString("", ServiceModuleName.service_resource.name),
                     self.service_resource.name,
+                    fallback=ImportRecord(
+                        Import.builtins, "object", alias=self.service_resource.name
+                    ),
                 ),
             )
         for waiter in self.waiters:

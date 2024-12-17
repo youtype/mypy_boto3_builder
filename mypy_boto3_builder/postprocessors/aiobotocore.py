@@ -14,7 +14,7 @@ from botocore.paginate import Paginator
 from botocore.response import StreamingBody
 from botocore.waiter import Waiter
 
-from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.collection import Collection
@@ -79,24 +79,20 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ): ExternalImport(
             ImportString("aioboto3", "resources", "base"),
             "AIOBoto3ServiceResource",
-            safe=True,
         ),
         ExternalImport(
             ImportString("boto3", "resources", "collection"), "ResourceCollection"
         ): ExternalImport(
             ImportString("aioboto3", "resources", "collection"),
             "AIOResourceCollection",
-            safe=True,
         ),
         ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"),
             "BatchWriter",
-            safe=True,
         ),
         ExternalImport(ImportString("boto3", "dynamodb", "table"), "TableResource"): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"),
             "CustomTableResource",
-            safe=True,
         ),
     }
 
@@ -263,8 +259,4 @@ class AioBotocorePostprocessor(BasePostprocessor):
             if type_annotation in self.EXTERNAL_IMPORTS_MAP:
                 new_type_annotation = self.EXTERNAL_IMPORTS_MAP[type_annotation]
                 type_annotation.copy_from(new_type_annotation)
-                continue
-
-            if type_annotation.source.startswith(Import.boto3):
-                type_annotation.add_fallback()
                 continue
