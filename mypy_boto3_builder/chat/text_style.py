@@ -114,33 +114,6 @@ class TextStyle(Enum):
             result.append((item_style.style, item_text))
         return result
 
-    @staticmethod
-    def to_str(message: Message | list[tuple[str, str]] | str) -> str:
-        """
-        Convert message to string.
-        """
-        if isinstance(message, str):
-            return message
-        result: list[str] = []
-        for item in message:
-            if isinstance(item, str):
-                result.append(item)
-            else:
-                result.append(item[1])
-        return "".join(result)
-
-    @staticmethod
-    def to_message(message: Message | str) -> Message:
-        """
-        Convert message or string to Message.
-        """
-        if not message:
-            return ()
-        if isinstance(message, str):
-            return (message,)
-
-        return message
-
     def wrap(self, message: str | float) -> MessagePair:
         """
         Wrap message with style.

@@ -56,12 +56,8 @@ class LookupDict(Generic[_V]):
         shifting_keys_count = static_keys.count(False)
         products = itertools.product((True, False), repeat=shifting_keys_count)
         for product in products:
-            yield self._join_product(static_keys, product)
-
-    @staticmethod
-    def _join_product(static_keys: tuple[bool, ...], product: tuple[bool, ...]) -> tuple[bool, ...]:
-        product_iter = iter(product)
-        return tuple(True if key else next(product_iter) for key in static_keys)
+            product_iter = iter(product)
+            yield tuple(True if key else next(product_iter) for key in static_keys)
 
     def _generate_lookup(self, hash_map: Mapping[str, _T]) -> dict[tuple[str, ...], _V]:
         result: dict[tuple[str, ...], _V] = {}

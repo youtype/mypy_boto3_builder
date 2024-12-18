@@ -16,6 +16,7 @@ from mypy_boto3_builder.chat.choice import Choice
 from mypy_boto3_builder.chat.prompts.base_prompt import BasePrompt
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message, MessageToken
+from mypy_boto3_builder.chat.utils import as_message
 
 
 class SelectPrompt(BasePrompt[list[Choice]]):
@@ -42,10 +43,10 @@ class SelectPrompt(BasePrompt[list[Choice]]):
         instruction: Message | str = "",
     ) -> None:
         super().__init__()
-        self.message = TextStyle.to_message(message)
-        self.choices = self._format_choices(choices)
-        self.message_end = TextStyle.to_message(message_end)
-        self.instruction = TextStyle.to_message(instruction) or self.get_help_message()
+        self.message = as_message(message)
+        self.choices = tuple(Choice.create(choice) for choice in choices)
+        self.message_end = as_message(message_end)
+        self.instruction = as_message(instruction) or self.get_help_message()
         self.default = default
         self._inquirer_control: InquirerControl | None = None
 
@@ -57,10 +58,6 @@ class SelectPrompt(BasePrompt[list[Choice]]):
         if self._inquirer_control is None:
             raise ValueError("InquirerControl is not set")
         return self._inquirer_control
-
-    @staticmethod
-    def _format_choices(choices: Sequence[Choice | str]) -> tuple[Choice, ...]:
-        return tuple(Choice(choice) if isinstance(choice, str) else choice for choice in choices)
 
     def _get_pointed_at(self) -> Choice:
         choice = self.inquirer_control.get_pointed_at()
@@ -100,7 +97,7 @@ class SelectPrompt(BasePrompt[list[Choice]]):
         if not self.inquirer_control.is_answered:
             tokens.extend(TextStyle.dim.apply(self.instruction))
 
-        tokens.extend(TextStyle.to_message(self.message))
+        tokens.extend(as_message(self.message))
 
         selected_choice = self._get_pointed_at()
         selected_tokens = (
@@ -112,7 +109,7 @@ class SelectPrompt(BasePrompt[list[Choice]]):
             ),
         )
         tokens.extend(self._format_selected_tokens(selected_tokens))
-        tokens.extend(TextStyle.to_message(self.message_end))
+        tokens.extend(as_message(self.message_end))
 
         return tokens
 

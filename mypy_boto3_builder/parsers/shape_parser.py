@@ -283,11 +283,13 @@ class ShapeParser:
         return Type.none
 
     @staticmethod
-    def _get_kw_flags(method_name: str, arguments: Sequence[Argument]) -> list[Argument]:
-        if len(arguments) and not method_name[0].isupper():
-            return [Argument.kwflag()]
+    def _get_kw_flags(method_name: str, arguments: Sequence[Argument]) -> tuple[Argument, ...]:
+        if not arguments:
+            return ()
+        if method_name[:1].isupper():
+            return ()
 
-        return []
+        return (Argument.kwflag(),)
 
     def get_client_method_map(self) -> dict[str, Method]:
         """
