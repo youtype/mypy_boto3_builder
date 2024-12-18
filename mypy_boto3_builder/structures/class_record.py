@@ -11,7 +11,6 @@ from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.utils.strings import xform_name
 
 
@@ -54,7 +53,7 @@ class ClassRecord:
         if not self.use_alias:
             raise StructureError(f"Cannot get alias for {self.name} with no alias.")
 
-        return InternalImport.get_alias(self.name)
+        return f"_{self.name}"
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

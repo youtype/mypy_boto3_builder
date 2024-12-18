@@ -4,6 +4,7 @@ Helper for Python import strings.
 Copyright 2024 Vlad Emelianov
 """
 
+import copy
 import functools
 from typing import Self
 
@@ -121,3 +122,21 @@ class ImportRecord:
         Whether ImportString requires `sys` module.
         """
         return bool(self.fallback and self.min_version)
+
+    def __copy__(self) -> Self:
+        """
+        Create a copy of the record.
+        """
+        return self.__class__(
+            source=self.source,
+            name=self.name,
+            alias=self.alias,
+            min_version=self.min_version,
+            fallback=self.fallback.copy() if self.fallback else None,
+        )
+
+    def copy(self) -> Self:
+        """
+        Create a copy of the record.
+        """
+        return copy.copy(self)

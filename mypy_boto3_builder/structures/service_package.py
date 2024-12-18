@@ -25,8 +25,8 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
-from mypy_boto3_builder.utils.type_checks import is_type_def
+from mypy_boto3_builder.utils.strings import RESERVED_NAMES, get_anchor_link, is_reserved
+from mypy_boto3_builder.utils.type_checks import is_type_def, is_typed_dict
 
 
 class ServicePackage(Package):
@@ -57,6 +57,7 @@ class ServicePackage(Package):
         self.type_defs = list(type_defs)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
+        self._annotations_import_record = ImportRecord(Import.future, "annotations")
 
     @property
     def name(self) -> str:
@@ -196,15 +197,11 @@ class ServicePackage(Package):
         Get import record group for `client.py[i]`.
         """
         result = ImportRecordGroup()
-        result.add(self._get_annotations_import_record())
+        result.add(self._annotations_import_record.copy())
         result.add(*self.client.get_required_import_records())
         result.add(*self.client.exceptions_class.get_required_import_records())
 
         return result
-
-    @staticmethod
-    def _get_annotations_import_record() -> ImportRecord:
-        return ImportRecord(Import.future, "annotations")
 
     def get_service_resource_required_import_records(self) -> ImportRecordGroup:
         """
@@ -214,7 +211,7 @@ class ServicePackage(Package):
         if self.service_resource is None:
             return result
 
-        result.add(self._get_annotations_import_record())
+        result.add(self._annotations_import_record.copy())
         result.add(*self.service_resource.get_required_import_records())
         return result
 
@@ -223,7 +220,7 @@ class ServicePackage(Package):
         Get import record group for `paginator.py[i]`.
         """
         result = ImportRecordGroup()
-        result.add(self._get_annotations_import_record())
+        result.add(self._annotations_import_record.copy())
         for paginator in self.paginators:
             result.add(*paginator.get_required_import_records())
 
@@ -234,7 +231,7 @@ class ServicePackage(Package):
         Get import record group for `waiter.py[i]`.
         """
         result = ImportRecordGroup()
-        result.add(self._get_annotations_import_record())
+        result.add(self._annotations_import_record.copy())
         for waiter in self.waiters:
             result.add(*waiter.get_required_import_records())
 
@@ -248,7 +245,7 @@ class ServicePackage(Package):
         if not self.type_defs:
             return result
 
-        result.add(self._get_annotations_import_record())
+        result.add(self._annotations_import_record.copy())
         for type_def in self.type_defs:
             for import_record in type_def.get_definition_import_records():
                 if import_record.source.is_type_defs():
@@ -317,3 +314,26 @@ class ServicePackage(Package):
         Get link to local docs.
         """
         return super().get_local_doc_link(self.service_name)
+
+    def mark_safe_typed_dicts(self) -> None:
+        """
+        Mark TypedDicts that can be rendered as classes safely.
+
+        TypedDict cannot be rendered as class if its name or any attribute is a reserver word,
+        or if any argument is names as another TypeDef.
+        """
+        unsafe_keys = {
+            *RESERVED_NAMES,
+            *(type_def.name for type_def in self.type_defs),
+            *(literal.name for literal in self.literals),
+        }
+        for type_def in self.type_defs:
+            if not is_typed_dict(type_def):
+                continue
+            type_def.is_safe_as_class = True
+            if is_reserved(type_def.name):
+                type_def.is_safe_as_class = False
+                continue
+            if any(attribute.name in unsafe_keys for attribute in type_def.children):
+                type_def.is_safe_as_class = False
+                continue

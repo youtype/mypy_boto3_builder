@@ -198,7 +198,7 @@ class BaseGenerator(ABC):
                 version=package.version,
                 package_data=package.data,
             )
-            ServicePackageParser.mark_safe_typed_dicts(service_package)
+            service_package.mark_safe_typed_dicts()
 
             service_package.pypi_name = package.pypi_name
             service_package_writer.write_service_package(
@@ -270,7 +270,7 @@ class BaseGenerator(ABC):
             version=version,
             package_data=package_data,
         )
-        ServicePackageParser.mark_safe_typed_dicts(service_package)
+        service_package.mark_safe_typed_dicts()
 
         self.logger.debug(f"Writing {service_name.boto3_name}")
         self.package_writer.write_service_package(

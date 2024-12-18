@@ -4,10 +4,10 @@ Description for boto3 service.
 Copyright 2024 Vlad Emelianov
 """
 
-from typing import ClassVar, Final, Literal
+from typing import ClassVar, Final
 
 from mypy_boto3_builder.constants import ALL
-from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
+from mypy_boto3_builder.utils.strings import is_reserved
 
 __all__ = (
     "ServiceName",
@@ -138,31 +138,6 @@ class ServiceName:
         Get ServiceResource name.
         """
         return f"{self.class_name}ServiceResource"
-
-    @staticmethod
-    def get_md_doc_link(
-        file: Literal[
-            "client",
-            "service_resource",
-            "waiters",
-            "paginators",
-            "type_defs",
-            "literals",
-        ],
-        *parts: str,
-    ) -> str:
-        """
-        Get link to MD docs with anchor.
-
-        Arguments:
-            file -- HTML file name
-            parts -- Anchor parts
-        """
-        link = f"./{file}.md"
-        if not parts:
-            return link
-        anchor = "".join([get_anchor_link(part) for part in parts])
-        return f"{link}#{anchor}"
 
 
 class ServiceNameCatalog:

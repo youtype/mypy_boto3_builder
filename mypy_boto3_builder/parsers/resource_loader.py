@@ -44,11 +44,11 @@ class ResourceLoader:
         botocore_session = get_botocore_session()
         loader: Loader = botocore_session.get_component("data_loader")
         cls._loader = loader
-        cls._inject_boto3_path(loader)
+        cls._inject_boto3_path()
         return loader
 
-    @staticmethod
-    def _inject_boto3_path(loader: Loader) -> None:
+    @classmethod
+    def _inject_boto3_path(cls) -> None:
         """
         Backport of `boto3/session.py` `Session._setup_loader` method.
         """
@@ -67,7 +67,9 @@ class ResourceLoader:
             return
 
         path = Path(boto3_module.__file__).parent / "data"
-        loader.search_paths.append(path.as_posix())
+        if not cls._loader:
+            raise ValueError("Loader is not initialized")
+        cls._loader.search_paths.append(path.as_posix())
 
     def _load_resource(
         self, service_name: ServiceName, type_name: str, _response_type: type[_T]

@@ -35,18 +35,12 @@ class InternalImport(FakeAnnotation):
         self.module_name: ServiceModuleName = module_name
         self.use_alias: bool = use_alias
 
-    @staticmethod
-    def get_alias(name: str) -> str:
+    @property
+    def alias_name(self) -> str:
         """
-        Get import name alias.
-
-        Arguments:
-            name -- Original name.
-
-        Returns:
-            Name prefixed with underscore.
+        Import name alias.
         """
-        return f"_{name}"
+        return f"_{self.name}"
 
     def render(self) -> str:
         """
@@ -55,11 +49,10 @@ class InternalImport(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
-        result = self.name
         if self.use_alias:
-            result = self.get_alias(self.name)
+            return self.alias_name
 
-        return result
+        return self.name
 
     def __copy__(self) -> Self:
         """
