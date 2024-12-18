@@ -1,4 +1,4 @@
-name: Bump version and dockerize
+name: "Release: publish"
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    name: "Bump version and dockerize"
+    name: "Release: publish"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

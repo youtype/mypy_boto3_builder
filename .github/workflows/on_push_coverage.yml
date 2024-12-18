@@ -1,4 +1,4 @@
-name: Send coverage report
+name: "Test: coverage report"
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   coverage:
-    name: Send coverage report
+    name: "Test: coverage report"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

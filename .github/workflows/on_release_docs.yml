@@ -1,4 +1,4 @@
-name: Generate docs
+name: "Release: docs"
 concurrency:
   group: generate_docs
   cancel-in-progress: true
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-docs:
-    name: Build docs
+    name: "Release: docs"
     runs-on: ubuntu-latest
     env:
       MAIN_BRANCH: main

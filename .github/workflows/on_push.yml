@@ -1,4 +1,4 @@
-name: Code style & unit tests
+name: "Test: style and tests"
 
 on:
   push: {}
@@ -6,7 +6,7 @@ on:
 
 jobs:
   unit-tests:
-    name: Code style & unit tests
+    name: "Test: style and tests"
     runs-on: ubuntu-latest
     strategy:
       matrix:
