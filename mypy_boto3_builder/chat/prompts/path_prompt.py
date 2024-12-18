@@ -14,6 +14,7 @@ from prompt_toolkit.validation import ValidationError
 from mypy_boto3_builder.chat.prompts.base_prompt import BasePrompt
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message, MessageToken
+from mypy_boto3_builder.chat.utils import as_message
 
 
 class PathPrompt(BasePrompt[Path]):
@@ -35,8 +36,8 @@ class PathPrompt(BasePrompt[Path]):
         instruction: Message | str = "",
     ) -> None:
         super().__init__()
-        self.message = TextStyle.to_message(message)
-        self.instruction = TextStyle.to_message(instruction) or self.get_help_message()
+        self.message = as_message(message)
+        self.instruction = as_message(instruction) or self.get_help_message()
         self.default = default
         self._result: Path | None = None
 
