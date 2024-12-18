@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # /// script
 # requires-python = ">=3.12"
-# dependencies = [
-#   "python-dateutil",
-# ]
 # ///
 """
 CI-related stuff.
@@ -22,8 +19,6 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
-
-from dateutil import relativedelta
 
 ROOT_PATH = Path(__file__).resolve().parent.parent
 WORKFLOW_PATH = ROOT_PATH / ".github" / "workflows"
@@ -64,16 +59,16 @@ class Workflow:
         Time since last update.
         """
         now = datetime.datetime.now(datetime.timezone.utc)
-        delta = relativedelta.relativedelta(now, self.updated_at)
-        if delta.months or delta.years:
-            return "long time ago"
-        if delta.days > 1:
-            return f"{delta.days} days ago"
-        if delta.hours > 1:
-            return f"{delta.hours} hours ago"
-        if delta.minutes > 1:
-            return f"{delta.minutes} minutes ago"
-        if delta.seconds > 1:
+        delta = now - self.started_at
+        if delta.days:
+            return f"{delta.days} day{'s' if delta.days > 1 else '' } ago"
+        if delta.seconds > 60 * 60:
+            hours = delta.seconds // 60 // 60
+            return f"{hours} hour{'s' if hours > 1 else '' } ago"
+        if delta.seconds > 60:  # noqa: PLR2004
+            minutes = delta.seconds // 60
+            return f"{minutes} minute{'s' if minutes > 1 else '' } ago"
+        if delta.seconds > 5:  # noqa: PLR2004
             return f"{delta.seconds} seconds ago"
 
         return "just now"
@@ -84,7 +79,8 @@ class Workflow:
         Duration.
         """
         delta = self.updated_at - self.started_at
-        return f"{(delta.seconds // 60):>02}:{delta.seconds % 60:>02}"
+        minutes = delta.seconds // 60
+        return f"{minutes:>02}:{delta.seconds % 60:>02}"
 
     def __str__(self) -> str:
         """
@@ -129,7 +125,7 @@ def get_workflow_paths() -> tuple[Path, ...]:
     for path in WORKFLOW_PATH.iterdir():
         if path.suffix != ".yml":
             continue
-        result.append(path.relative_to(WORKFLOW_PATH))
+        result.append(path.relative_to(ROOT_PATH))
 
     return tuple(sorted(result))
 
@@ -163,6 +159,18 @@ def get_workflows(paths: Sequence[Path]) -> list[Workflow]:
     return sorted(result, key=lambda x: x.name)
 
 
+def get_workflow_name(path: Path) -> str:
+    """
+    Get workflow name.
+    """
+    data = path.read_text()
+    for line in data.splitlines():
+        if line.startswith("name:"):
+            return line.split(":", 1)[1].strip().replace('"', "")
+
+    raise ValueError(f"Workflow name not found in {path}")
+
+
 def get_workflow(path: Path) -> Workflow | None:
     """
     Get existing workflow paths.
@@ -194,7 +202,7 @@ def get_workflow(path: Path) -> Workflow | None:
         return None
     data = response_json[0]
     return Workflow(
-        name=data["name"],
+        name=get_workflow_name(path),
         status=data["status"],
         started_at=datetime.datetime.fromisoformat(data["startedAt"]),
         updated_at=datetime.datetime.fromisoformat(data["updatedAt"]),
