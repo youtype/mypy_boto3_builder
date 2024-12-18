@@ -22,16 +22,16 @@ class AIOServiceAction(ServiceAction):
         factory: ResourceFactory | None = ...,
         service_context: ServiceContext | None = ...,
     ) -> None: ...
-    async def __call__(  # type: ignore [override]
+    async def __call__(  # type: ignore[override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
     ) -> ServiceResource | list[ServiceResource] | dict[str, Any]: ...
 
 class AioBatchAction(ServiceAction):
-    async def __call__(  # type: ignore [override]
+    async def __call__(  # type: ignore[override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
     ) -> list[dict[str, Any]]: ...
 
 class AIOWaiterAction(WaiterAction):
-    async def __call__(  # type: ignore [override]
+    async def __call__(  # type: ignore[override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
     ) -> None: ...

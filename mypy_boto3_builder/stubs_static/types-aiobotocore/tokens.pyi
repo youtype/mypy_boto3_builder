@@ -27,7 +27,7 @@ class AioDeferredRefreshableToken(DeferredRefreshableToken):
         refresh_using: Callable[[], FrozenAuthToken],
         time_fetcher: Callable[[], datetime.datetime] = ...,
     ) -> None: ...
-    async def get_frozen_token(self) -> FrozenAuthToken: ...  # type: ignore [override]
+    async def get_frozen_token(self) -> FrozenAuthToken: ...  # type: ignore[override]
 
 class AioSSOTokenProvider(SSOTokenProvider):
     def load_token(self) -> AioDeferredRefreshableToken: ...

@@ -15,7 +15,7 @@ class AioRequestSigner(RequestSigner):
     async def handler(
         self, operation_name: Any | None = ..., request: Any | None = ..., **kwargs: Any
     ) -> None: ...
-    async def sign(  # type: ignore [override]
+    async def sign(  # type: ignore[override]
         self,
         operation_name: str,
         request: Request,
@@ -24,7 +24,7 @@ class AioRequestSigner(RequestSigner):
         expires_in: Any | None = ...,
         signing_name: Any | None = ...,
     ) -> None: ...
-    async def get_auth_instance(  # type: ignore [override]
+    async def get_auth_instance(  # type: ignore[override]
         self,
         signing_name: str,
         region_name: str,

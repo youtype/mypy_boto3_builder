@@ -45,13 +45,13 @@ class AioIMDSRegionProvider(IMDSRegionProvider):
     async def provide(self) -> str: ...
 
 class AioInstanceMetadataRegionFetcher(AioIMDSFetcher, InstanceMetadataRegionFetcher):
-    async def retrieve_region(self) -> str | None: ...  # type: ignore [override]
+    async def retrieve_region(self) -> str | None: ...  # type: ignore[override]
 
 class AioIdentityCache(IdentityCache):
-    async def get_credentials(self, **kwargs: Any) -> AioCredentials: ...  # type: ignore [override]
+    async def get_credentials(self, **kwargs: Any) -> AioCredentials: ...  # type: ignore[override]
 
 class AioS3ExpressIdentityCache(AioIdentityCache, S3ExpressIdentityCache):
-    async def get_credentials(self, bucket: str) -> AioCredentials: ...  # type: ignore [override]
+    async def get_credentials(self, bucket: str) -> AioCredentials: ...  # type: ignore[override]
 
 class AioS3ExpressIdentityResolver(S3ExpressIdentityResolver): ...
 

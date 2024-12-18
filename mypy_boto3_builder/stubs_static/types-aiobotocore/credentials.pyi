@@ -53,23 +53,23 @@ def create_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
 def create_aio_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
 
 class AioCredentials(Credentials):
-    async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore [override]
+    async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore[override]
 
 class AioRefreshableCredentials(RefreshableCredentials):
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
-    @property  # type: ignore [override]
-    def access_key(self) -> str: ...  # type: ignore [override]
+    @property  # type: ignore[override]
+    def access_key(self) -> str: ...
     @access_key.setter
     def access_key(self, value: str) -> None: ...
-    @property  # type: ignore [override]
-    def secret_key(self) -> str: ...  # type: ignore [override]
+    @property  # type: ignore[override]
+    def secret_key(self) -> str: ...
     @secret_key.setter
     def secret_key(self, value: str) -> None: ...
-    @property  # type: ignore [override]
-    def token(self) -> str: ...  # type: ignore [override]
+    @property  # type: ignore[override]
+    def token(self) -> str: ...
     @token.setter
     def token(self, value: str) -> None: ...
-    async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore [override]
+    async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore[override]
 
 class AioDeferredRefreshableCredentials(AioRefreshableCredentials):
     method: Any
@@ -77,7 +77,7 @@ class AioDeferredRefreshableCredentials(AioRefreshableCredentials):
     def refresh_needed(self, refresh_in: Any | None = ...) -> bool: ...
 
 class AioCachedCredentialFetcher(CachedCredentialFetcher):
-    async def fetch_credentials(self) -> Any: ...  # type: ignore [override]
+    async def fetch_credentials(self) -> Any: ...  # type: ignore[override]
 
 class AioBaseAssumeRoleCredentialFetcher(
     BaseAssumeRoleCredentialFetcher, AioCachedCredentialFetcher
@@ -99,41 +99,41 @@ class AioAssumeRoleWithWebIdentityCredentialFetcher(AioBaseAssumeRoleCredentialF
 
 class AioProcessProvider(ProcessProvider):
     def __init__(self, *args: Any, popen: Any = ..., **kwargs: Any) -> None: ...
-    async def load(self) -> AioCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioCredentials: ...  # type: ignore[override]
 
 class AioInstanceMetadataProvider(InstanceMetadataProvider):
-    async def load(self) -> AioRefreshableCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioRefreshableCredentials: ...  # type: ignore[override]
 
 class AioEnvProvider(EnvProvider):
-    async def load(self) -> Any: ...  # type: ignore [override]
+    async def load(self) -> Any: ...  # type: ignore[override]
 
 class AioOriginalEC2Provider(OriginalEC2Provider):
-    async def load(self) -> AioCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioCredentials: ...  # type: ignore[override]
 
 class AioSharedCredentialProvider(SharedCredentialProvider):
-    async def load(self) -> AioCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioCredentials: ...  # type: ignore[override]
 
 class AioConfigProvider(ConfigProvider):
-    async def load(self) -> AioCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioCredentials: ...  # type: ignore[override]
 
 class AioBotoProvider(BotoProvider):
-    async def load(self) -> AioCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioCredentials: ...  # type: ignore[override]
 
 class AioAssumeRoleProvider(AssumeRoleProvider):
-    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore[override]
 
 class AioAssumeRoleWithWebIdentityProvider(AssumeRoleWithWebIdentityProvider):
-    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore[override]
 
 class AioCanonicalNameCredentialSourcer(CanonicalNameCredentialSourcer):
-    async def source_credentials(self, source_name: str) -> Any: ...  # type: ignore [override]
+    async def source_credentials(self, source_name: str) -> Any: ...  # type: ignore[override]
 
 class AioContainerProvider(ContainerProvider):
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
-    async def load(self) -> AioRefreshableCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioRefreshableCredentials: ...  # type: ignore[override]
 
 class AioCredentialResolver(CredentialResolver):
-    async def load_credentials(self) -> Any: ...  # type: ignore [override]
+    async def load_credentials(self) -> Any: ...  # type: ignore[override]
 
 class AioSSOCredentialFetcher(AioCachedCredentialFetcher):
     def __init__(
@@ -151,4 +151,4 @@ class AioSSOCredentialFetcher(AioCachedCredentialFetcher):
     ) -> None: ...
 
 class AioSSOProvider(SSOProvider):
-    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore [override]
+    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore[override]

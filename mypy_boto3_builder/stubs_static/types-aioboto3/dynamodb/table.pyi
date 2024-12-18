@@ -18,8 +18,7 @@ _R = TypeVar("_R")
 def register_table_methods(base_classes: list[Any], **kwargs: Any) -> None: ...
 
 class CustomTableResource(TableResource):
-    # FIXME: Signature of "batch_writer" incompatible with supertype "TableResource"
-    def batch_writer(  # type: ignore [override]
+    def batch_writer(  # type: ignore[override]
         self,
         overwrite_by_pkeys: list[str] | None = ...,
         flush_amount: int = ...,

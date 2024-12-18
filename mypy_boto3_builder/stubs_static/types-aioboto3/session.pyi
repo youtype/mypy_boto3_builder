@@ -28,11 +28,11 @@ class Session(Boto3Session):
         profile_name: str | None = ...,
     ) -> None:
         self._session: BotocoreSession
-        self.resource_factory: AIOBoto3ResourceFactory  # type: ignore [override]
+        self.resource_factory: AIOBoto3ResourceFactory  # type: ignore[override]
         self._loader: Loader
 
     def get_credentials(self) -> AioCredentials | None: ...
-    def client(  # type: ignore [override]
+    def client(  # type: ignore[override]
         self,
         service_name: str,
         region_name: str | None = ...,
@@ -45,7 +45,7 @@ class Session(Boto3Session):
         aws_session_token: str | None = ...,
         config: AioConfig | None = ...,
     ) -> ClientCreatorContext[AioBaseClient]: ...
-    def resource(  # type: ignore [override]
+    def resource(  # type: ignore[override]
         self,
         service_name: str,
         region_name: str | None = ...,

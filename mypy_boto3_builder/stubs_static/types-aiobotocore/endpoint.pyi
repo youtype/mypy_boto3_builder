@@ -21,11 +21,11 @@ async def convert_to_response_dict(
 ) -> dict[str, Any]: ...
 
 class AioEndpoint(Endpoint):
-    async def close(self) -> None: ...  # type: ignore [override]
+    async def close(self) -> None: ...  # type: ignore[override]
     async def create_request(self, params: Any, operation_model: Any | None = ...) -> Request: ...
 
 class AioEndpointCreator(EndpointCreator):
-    def create_endpoint(  # type: ignore [override]
+    def create_endpoint(  # type: ignore[override]
         self,
         service_model: ServiceModel,
         region_name: str,

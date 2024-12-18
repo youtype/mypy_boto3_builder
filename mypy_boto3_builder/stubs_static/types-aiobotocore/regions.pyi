@@ -14,7 +14,7 @@ from botocore.regions import EndpointRulesetResolver
 LOG: Logger
 
 class AioEndpointRulesetResolver(EndpointRulesetResolver):
-    async def construct_endpoint(  # type: ignore [override]
+    async def construct_endpoint(  # type: ignore[override]
         self,
         operation_model: OperationModel,
         call_args: Mapping[str, Any] | None,

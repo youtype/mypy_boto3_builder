@@ -31,7 +31,7 @@ class _GetClientArgsTypeDef(TypedDict):
     exceptions_factory: Any
 
 class AioClientArgsCreator(ClientArgsCreator):
-    def get_client_args(  # type: ignore [override]
+    def get_client_args(  # type: ignore[override]
         self,
         service_model: ServiceModel,
         region_name: str,
