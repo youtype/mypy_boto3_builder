@@ -21,11 +21,11 @@ from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.aio_resource_method_map import get_aio_resource_method
+from mypy_boto3_builder.utils.type_checks import get_optional
 
 
 class AioBotocorePostprocessor(BasePostprocessor):
@@ -79,24 +79,20 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ): ExternalImport(
             ImportString("aioboto3", "resources", "base"),
             "AIOBoto3ServiceResource",
-            safe=True,
         ),
         ExternalImport(
             ImportString("boto3", "resources", "collection"), "ResourceCollection"
         ): ExternalImport(
             ImportString("aioboto3", "resources", "collection"),
             "AIOResourceCollection",
-            safe=True,
         ),
         ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"),
             "BatchWriter",
-            safe=True,
         ),
         ExternalImport(ImportString("boto3", "dynamodb", "table"), "TableResource"): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"),
             "CustomTableResource",
-            safe=True,
         ),
     }
 
@@ -132,6 +128,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 f" {pages_method.return_type.render()}",
             )
         pages_method.return_type.parent = Type.AsyncIterator
+        pages_method.type_ignore = "override"
 
         aiter_method = collection.get_method("__iter__").copy()
         aiter_method.name = "__aiter__"
@@ -205,7 +202,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 Method(
                     name="__aenter__",
                     arguments=(Argument.self(),),
-                    return_type=InternalImport(self.package.client.name),
+                    return_type=Type.Self,
                     is_async=True,
                     docstring=self.package.client.docstring,
                     boto3_doc_link=self.package.client.boto3_doc_link,
@@ -214,11 +211,19 @@ class AioBotocorePostprocessor(BasePostprocessor):
                     name="__aexit__",
                     arguments=(
                         Argument.self(),
-                        Argument("exc_type", Type.Any),
-                        Argument("exc_val", Type.Any),
-                        Argument("exc_tb", Type.Any),
+                        Argument(
+                            "exc_type",
+                            get_optional(
+                                TypeSubscript(Type.type, [ExternalImport.from_class(BaseException)])
+                            ),
+                        ),
+                        Argument("exc_val", get_optional(ExternalImport.from_class(BaseException))),
+                        Argument(
+                            "exc_tb",
+                            get_optional(ExternalImport(ImportString("types"), "TracebackType")),
+                        ),
                     ),
-                    return_type=Type.Any,
+                    return_type=Type.none,
                     is_async=True,
                     docstring=self.package.client.docstring,
                     boto3_doc_link=self.package.client.boto3_doc_link,
@@ -254,8 +259,4 @@ class AioBotocorePostprocessor(BasePostprocessor):
             if type_annotation in self.EXTERNAL_IMPORTS_MAP:
                 new_type_annotation = self.EXTERNAL_IMPORTS_MAP[type_annotation]
                 type_annotation.copy_from(new_type_annotation)
-                continue
-
-            if type_annotation.source.parent == "boto3":
-                type_annotation.safe = True
                 continue

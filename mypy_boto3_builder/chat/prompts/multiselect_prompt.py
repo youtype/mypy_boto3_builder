@@ -13,6 +13,7 @@ from mypy_boto3_builder.chat.choice import Choice
 from mypy_boto3_builder.chat.prompts.select_prompt import SelectPrompt
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message
+from mypy_boto3_builder.chat.utils import as_string
 
 
 class MultiSelectPrompt(SelectPrompt):
@@ -39,7 +40,7 @@ class MultiSelectPrompt(SelectPrompt):
         finish_choice: Choice | str = "Go back",
         finish_selected_text: Message | str | None = None,
     ) -> None:
-        self.finish_choice = self._format_choices([finish_choice])[0]
+        self.finish_choice = Choice.create(finish_choice)
         self.finish_text = self.finish_choice.text
         self.finish_selected_text = (
             finish_selected_text if finish_selected_text is not None else self.finish_text
@@ -63,7 +64,7 @@ class MultiSelectPrompt(SelectPrompt):
         return (
             *super().get_help_message(),
             " Select ",
-            TextStyle.tag.wrap(TextStyle.to_str(self.finish_choice.raw_title)),
+            TextStyle.tag.wrap(as_string(self.finish_choice.raw_title)),
             " to continue.",
         )
 

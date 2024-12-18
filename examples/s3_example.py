@@ -103,7 +103,10 @@ def s3_client_example() -> None:
     url_stream = client.get_object(Bucket="bucket", Key="key")["Body"]
     url_stream.iter_chunks()
 
-    client.put_object(Bucket="bucket", Key="key", Body="body")
+    try:
+        client.put_object(Bucket="bucket", Key="key", Body="body")
+    except client.exceptions.NoSuchKey as e:
+        print(e.operations_names)
 
 
 def main() -> None:

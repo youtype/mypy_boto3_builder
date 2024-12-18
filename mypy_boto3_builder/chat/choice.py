@@ -11,6 +11,7 @@ from typing import TYPE_CHECKING
 from questionary.prompts.common import Choice as QuestionaryChoice
 
 from mypy_boto3_builder.chat.text_style import TextStyle
+from mypy_boto3_builder.chat.utils import as_message, as_string
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -37,7 +38,7 @@ class Choice(QuestionaryChoice):
         self.raw_title = title
         self.selected_suffix = TextStyle.hilight.apply(selected_suffix or " ✓")
         choice_title = TextStyle.text.stylize(title)
-        self.key = key or TextStyle.to_str(choice_title) or "(empty)"
+        self.key = key or as_string(choice_title) or "(empty)"
         super().__init__(
             title=choice_title,
             value=self.key,
@@ -54,6 +55,13 @@ class Choice(QuestionaryChoice):
         Hashable by key.
         """
         return hash(self.value)
+
+    @classmethod
+    def create(cls, choice: Choice | str) -> Choice:
+        """
+        Create choice from string.
+        """
+        return cls(choice) if isinstance(choice, str) else choice
 
     @property
     def tag(self) -> Message:
@@ -82,7 +90,7 @@ class Choice(QuestionaryChoice):
         """
         self.title = TextStyle.dim.stylize(
             (
-                *TextStyle.to_message(self.raw_title),
+                *as_message(self.raw_title),
                 *self.selected_suffix,
             )
         )

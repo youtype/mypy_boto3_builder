@@ -74,20 +74,16 @@ class TypeDefSorter:
 
         return result
 
-    @staticmethod
-    def _get_children_names(type_def: TypeDefSortable) -> set[str]:
-        result: set[str] = set()
-        for child in type_def.get_sortable_children():
-            if child.is_stringified():
-                continue
-            result.add(child.name)
-
-        return result
-
     def _create_graph(self) -> dict[str, list[str]]:
         result: dict[str, list[str]] = {}
         for name in sorted(self.typed_def_map):
-            result[name] = sorted(self._get_children_names(self.typed_def_map[name]))
+            type_def = self.typed_def_map[name]
+            children_names = {
+                child.name
+                for child in type_def.get_sortable_children()
+                if not child.is_stringified()
+            }
+            result[name] = sorted(children_names)
 
         return result
 

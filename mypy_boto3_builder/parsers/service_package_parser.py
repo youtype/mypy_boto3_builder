@@ -16,11 +16,19 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.waiter import Waiter
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_maps.typed_dicts import CloudwatchEventTypeDef
-from mypy_boto3_builder.utils.strings import RESERVED_NAMES, is_reserved, xform_name
-from mypy_boto3_builder.utils.type_checks import is_typed_dict
+from mypy_boto3_builder.utils.strings import xform_name
+from mypy_boto3_builder.utils.type_checks import is_union
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
+
+UNION_TYPE_MAP = {
+    Type.list: Type.List,
+    Type.set: Type.Set,
+    Type.dict: Type.Dict,
+    Type.type: Type.Type,
+}
 
 
 class ServicePackageParser:
@@ -80,34 +88,34 @@ class ServicePackageParser:
             type_defs.add(CloudwatchEventTypeDef)
 
         result.type_defs = self._get_sorted_type_defs(type_defs)
+        self.fix_unions_for_py39(result.type_defs)
         result.literals = result.extract_literals()
         result.validate()
 
         return result
 
-    @staticmethod
-    def mark_safe_typed_dicts(service_package: ServicePackage) -> None:
+    def fix_unions_for_py39(self, type_defs: Iterable[TypeDefSortable]) -> None:
         """
-        Mark TypedDicts that can be rendered as classes safely.
+        Fix unions for Python 3.9.
 
-        TypedDict cannot be rendered as class if its name or any attribute is a reserver word,
-        or if any argument is names as another TypeDef.
+        Python 3.9 does not support new syntax for unions.
+
+        builtins.list -> typing.List
+        builtins.set -> typing.Set
+        builtins.dict -> typing.Dict
+        builtins.type -> typing.Type
         """
-        unsafe_keys = {
-            *RESERVED_NAMES,
-            *(type_def.name for type_def in service_package.type_defs),
-            *(literal.name for literal in service_package.literals),
-        }
-        for type_def in service_package.type_defs:
-            if not is_typed_dict(type_def):
+        for type_def in type_defs:
+            if not is_union(type_def) or not type_def.name:
                 continue
-            type_def.is_safe_as_class = True
-            if is_reserved(type_def.name):
-                type_def.is_safe_as_class = False
-                continue
-            if any(attribute.name in unsafe_keys for attribute in type_def.children):
-                type_def.is_safe_as_class = False
-                continue
+
+            parent_map = type_def.find_type_annotation_parent_map(UNION_TYPE_MAP, shallow=True)
+            for old_type_annotation, new_type_annotation in UNION_TYPE_MAP.items():
+                parents = parent_map.get(old_type_annotation)
+                if not parents:
+                    continue
+                for parent in parents:
+                    parent.replace_child(old_type_annotation, new_type_annotation)
 
     def _parse_service_package(self) -> ServicePackage:
         client = parse_client(self.service_name, self.shape_parser)

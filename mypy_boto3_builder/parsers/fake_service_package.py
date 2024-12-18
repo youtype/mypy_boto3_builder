@@ -39,7 +39,7 @@ def parse_fake_service_package(
         data=package_data,
         service_name=service_name,
         client=Client(
-            name=Client.get_class_name(service_name),
+            name=service_name.get_client_name(),
             service_name=service_name,
         ),
         version=version,
@@ -47,7 +47,7 @@ def parse_fake_service_package(
 
     if shape_parser.has_service_resource():
         result.service_resource = ServiceResource(
-            name=ServiceResource.get_class_name(service_name),
+            name=service_name.get_service_resource_name(),
             service_name=service_name,
         )
 

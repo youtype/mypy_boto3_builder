@@ -63,9 +63,10 @@ def parse_types_aiobotocore_package(
     parser = WrapperPackageParser(package)
     for method in parser.get_session_client_methods("create_client"):
         method.return_type = TypeSubscript(
-            InternalImport("ClientCreatorContext", stringify=False),
+            InternalImport("ClientCreatorContext"),
             [method.return_type],
         )
+        method.type_ignore = "override"
         package.session_class.methods.append(method)
     return package
 
@@ -96,7 +97,7 @@ def parse_types_aioboto3_package(
         package.session_class.methods.append(method)
     for method in parser.get_session_resource_methods():
         method.return_type = TypeSubscript(
-            InternalImport("ResourceCreatorContext", stringify=False),
+            InternalImport("ResourceCreatorContext"),
             [method.return_type],
         )
         package.session_class.methods.append(method)

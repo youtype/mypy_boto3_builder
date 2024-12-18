@@ -10,7 +10,7 @@ import keyword
 import re
 import typing
 from types import MappingProxyType
-from typing import Final
+from typing import Final, Literal
 from unittest.mock import MagicMock
 
 from botocore import xform_name as botocore_xform_name
@@ -221,3 +221,35 @@ def extract_docstring_from_html(html: str) -> str:
     if end_index < 0:
         return text
     return text[start_index + 3 : end_index].strip()
+
+
+def get_md_doc_link(
+    file: Literal[
+        "client",
+        "service_resource",
+        "waiters",
+        "paginators",
+        "type_defs",
+        "literals",
+    ],
+    *parts: str,
+) -> str:
+    """
+    Get link to MD docs with anchor.
+
+    Arguments:
+        file -- HTML file name
+        parts -- Anchor parts
+    """
+    link = f"./{file}.md"
+    if not parts:
+        return link
+    anchor = "".join([get_anchor_link(part) for part in parts])
+    return f"{link}#{anchor}"
+
+
+def escape_md(value: str) -> str:
+    """
+    Escape underscore characters.
+    """
+    return value.replace("_", r"\_")

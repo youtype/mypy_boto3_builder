@@ -29,7 +29,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_defs import GeneratorKwargs
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
-from mypy_boto3_builder.utils.strings import get_anchor_link, get_copyright
+from mypy_boto3_builder.utils.strings import get_anchor_link, get_copyright, get_md_doc_link
 from mypy_boto3_builder.utils.type_checks import (
     is_literal,
     is_type_def,
@@ -142,6 +142,7 @@ def initialize_jinja_manager() -> None:
     """
     jinja_manager = JinjaManager()
     jinja_manager.update_globals(
+        get_md_doc_link=get_md_doc_link,
         builder_version=get_builder_version(),
         current_year=str(datetime.datetime.now(datetime.timezone.utc).year),
         get_anchor_link=get_anchor_link,

@@ -283,11 +283,13 @@ class ShapeParser:
         return Type.none
 
     @staticmethod
-    def _get_kw_flags(method_name: str, arguments: Sequence[Argument]) -> list[Argument]:
-        if len(arguments) and not method_name[0].isupper():
-            return [Argument.kwflag()]
+    def _get_kw_flags(method_name: str, arguments: Sequence[Argument]) -> tuple[Argument, ...]:
+        if not arguments:
+            return ()
+        if method_name[:1].isupper():
+            return ()
 
-        return []
+        return (Argument.kwflag(),)
 
     def get_client_method_map(self) -> dict[str, Method]:
         """
@@ -313,11 +315,6 @@ class ShapeParser:
                     Argument("HttpMethod", Type.str, Type.Ellipsis),
                 ),
                 return_type=Type.str,
-            ),
-            "close": Method(
-                name="close",
-                arguments=(Argument.self(),),
-                return_type=Type.none,
             ),
         }
         for operation_name in self.service_model.operation_names:
@@ -410,7 +407,7 @@ class ShapeParser:
         is_streaming: bool = False,
     ) -> FakeAnnotation:
         type_subscript = (
-            TypeSubscript(Type.Dict) if is_output_child else TypeSubscript(Type.Mapping)
+            TypeSubscript(Type.dict) if is_output_child else TypeSubscript(Type.Mapping)
         )
         if shape.key:
             type_subscript.add_child(
@@ -516,7 +513,7 @@ class ShapeParser:
         is_output_child: bool = False,
     ) -> FakeAnnotation:
         type_subscript = (
-            TypeSubscript(Type.List) if is_output_child else TypeSubscript(Type.Sequence)
+            TypeSubscript(Type.list) if is_output_child else TypeSubscript(Type.Sequence)
         )
         if shape.member:
             type_subscript.add_child(
@@ -616,7 +613,6 @@ class ShapeParser:
                         is_streaming=is_streaming,
                     ),
                 ],
-                stringify=True,
             )
         is_output_or_child = is_output or is_output_child
         if not is_streaming:
@@ -697,7 +693,7 @@ class ShapeParser:
 
         return_type: FakeAnnotation = Type.none
         if operation_shape.output_shape is not None:
-            page_iterator_import = InternalImport("_PageIterator", stringify=False)
+            page_iterator_import = InternalImport("_PageIterator")
             return_item = self._parse_return_type(
                 "Paginator",
                 "paginate",
@@ -705,7 +701,12 @@ class ShapeParser:
             )
             return_type = TypeSubscript(page_iterator_import, [return_item])
 
-        method = Method(name="paginate", arguments=arguments, return_type=return_type)
+        method = Method(
+            name="paginate",
+            arguments=arguments,
+            return_type=return_type,
+            type_ignore="override",
+        )
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
@@ -753,7 +754,12 @@ class ShapeParser:
             arguments.extend(self._get_kw_flags("wait", shape_arguments))
             arguments.extend(shape_arguments)
 
-        method = Method(name="wait", arguments=arguments, return_type=Type.none)
+        method = Method(
+            name="wait",
+            arguments=arguments,
+            return_type=Type.none,
+            type_ignore="override",
+        )
         if operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
@@ -1049,7 +1055,7 @@ class ShapeParser:
             )
             path = action_shape["resource"].get("path", "")
             if path.endswith("[]"):
-                return_type = TypeSubscript(Type.List, [return_type])
+                return_type = TypeSubscript(Type.list, [return_type])
 
         operation_model = None
         if "request" in action_shape:
@@ -1173,7 +1179,7 @@ class ShapeParser:
                         operation_model.output_shape,
                         is_output=True,
                     )
-                    return_type = TypeSubscript(Type.List, [item_return_type])
+                    return_type = TypeSubscript(Type.list, [item_return_type])
                     method.return_type = return_type
 
         return result

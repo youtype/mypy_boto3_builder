@@ -13,6 +13,7 @@ from jinja2.runtime import StrictUndefined
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.exceptions import JinjaManagerError
+from mypy_boto3_builder.utils.strings import escape_md
 
 __all__ = ["JinjaManager"]
 
@@ -29,7 +30,7 @@ class JinjaManager:
     _template_cache: ClassVar[dict[Path, Template]] = {}
 
     def __init__(self) -> None:
-        self._environment.filters["escape_md"] = self.escape_md
+        self._environment.filters["escape_md"] = escape_md
 
     @classmethod
     def update_globals(cls, **kwargs: Any) -> None:  # noqa: ANN401
@@ -40,13 +41,6 @@ class JinjaManager:
             kwargs -- Globals to set.
         """
         cls._environment.globals.update(kwargs)
-
-    @staticmethod
-    def escape_md(value: str) -> str:
-        """
-        Escape underscore characters.
-        """
-        return value.replace("_", r"\_")
 
     def get_template(self, template_path: Path) -> Template:
         """

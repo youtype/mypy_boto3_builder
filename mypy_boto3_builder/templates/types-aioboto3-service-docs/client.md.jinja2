@@ -74,7 +74,7 @@ Type annotations and code completion for `#!python session.client("{{ service_na
 Type annotations and code completion for `#!python session.client("{{ service_name.boto3_name }}").get_paginator` method with overloads.
 
 {% for paginator in package.paginators -%}
-- `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+- `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}]({{ get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -84,6 +84,6 @@ Type annotations and code completion for `#!python session.client("{{ service_na
 Type annotations and code completion for `#!python session.client("{{ service_name.boto3_name }}").get_waiter` method with overloads.
 
 {% for waiter in package.waiters -%}
-- `client.get_waiter("{{ waiter.attribute_name }}")` -> [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+- `client.get_waiter("{{ waiter.attribute_name }}")` -> [{{ waiter.name }}]({{ get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}

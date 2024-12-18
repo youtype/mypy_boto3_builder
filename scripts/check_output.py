@@ -29,48 +29,16 @@ from typing import Any, Sequence
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 LOGGER_NAME = "check_output"
-IGNORE_PYRIGHT_ERRORS = (
-    '"get_paginator" is marked as overload, but no implementation is provided',
-    '"get_waiter" is marked as overload, but no implementation is provided',
-    # 'Expected type arguments for generic class "ResourceCollection"',
-    # 'Type "None" cannot be assigned to type',
-    # '"__next__" is not present',
-    # 'Import "boto3.s3.transfer" could not be resolved',
-    # "is partially unknown",
-    'Method "paginate" overrides class "Paginator" in an incompatible manner',
-    'Method "wait" overrides class "Waiter" in an incompatible manner',
-    'Method "get_paginator" overrides class "AioBaseClient" in an incompatible manner',
-    'Method "get_waiter" overrides class "AioBaseClient" in an incompatible manner',
-    'Method "wait" overrides class "AIOWaiter" in an incompatible manner',
-    'Method "create_client" overrides class "Session" in an incompatible manner',
-    'define variable "items" in incompatible way',
-    'define variable "values" in incompatible way',
-    "must return value",
+PYRIGHT_IGNORED_MESSAGES = (
     'Import "types_aiobotocore_',
     'Import "mypy_boto3_',
     'Import "types_boto3_',
-    "Argument to class must be a base class",
-    'Function with declared type of "NoReturn" cannot return "None"',
     'Function with declared return type "NoReturn" cannot return "None"',
-    '"ellipsis" cannot be assigned to ',
+    "is marked as overload, but no implementation is provided",
     '"client" overrides symbol of same name in class "ResourceMeta"',
-    '"meta" overrides symbol of same name in class "ServiceResource"',
+    "must return value on all code paths",
 )
-IGNORE_MYPY_ERRORS = (
-    'Signature of "create_client" incompatible with supertype "Session"',
-    'Signature of "paginate" incompatible with supertype "Paginator"',
-    'Signature of "wait" incompatible with supertype "Waiter"',
-    'Signature of "get_paginator" incompatible with supertype "AioBaseClient"',
-    'Signature of "get_waiter" incompatible with supertype "AioBaseClient"',
-    'Argument 1 of "get_paginator" is incompatible with supertype "AioBaseClient"',
-    'Argument 1 of "get_waiter" is incompatible with supertype "AioBaseClient"',
-    'Return type "Coroutine[Any, Any, None]" of "close" incompatible with return type "None"',
-    'Signature of "wait" incompatible with supertype "AIOWaiter"',
-    'imported name has type "type[object]", local name has type',
-    'incompatible with return type "Iterator[list[Any]]" in supertype "ResourceCollection"',
-    "note:",
-    "invalid syntax; you likely need to run mypy using Python 3.12 or newer",
-)
+MYPY_IGNORED_MESSAGES = ("note:",)
 
 DEPENDENCIES = [
     "types-boto3-lite",
@@ -101,6 +69,18 @@ class Config:
     """
 
     path: Path
+    logger: logging.Logger
+    args: CLINamespace
+
+    @classmethod
+    def get_uvx_cmd(cls) -> tuple[str, ...]:
+        """
+        Get uvx command prefix.
+        """
+        result: list[str] = ["uvx", "-q"]
+        if cls.args.python_version:
+            result.extend(("--python", cls.args.python_version))
+        return tuple(result)
 
 
 def _find_existing_local_path(local_package_names: Sequence[str]) -> Path | None:
@@ -168,6 +148,7 @@ class CLINamespace:
     path: Path
     filter: list[str]
     exit_on_error: bool
+    python_version: str | None
 
 
 def parse_args() -> CLINamespace:
@@ -178,6 +159,12 @@ def parse_args() -> CLINamespace:
     parser.add_argument("-d", "--debug", action="store_true")
     parser.add_argument("-x", "--exit-on-error", action="store_true")
     parser.add_argument("-p", "--path", type=Path, default=ROOT_PATH / "mypy_boto3_output")
+    parser.add_argument(
+        "--python",
+        type=str,
+        default=None,
+        help="Python version for checkers. Default: None",
+    )
     parser.add_argument("filter", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
@@ -185,6 +172,7 @@ def parse_args() -> CLINamespace:
         path=args.path,
         filter=args.filter,
         exit_on_error=args.exit_on_error,
+        python_version=args.python,
     )
 
 
@@ -205,16 +193,16 @@ def run_ruff(path: Path) -> None:
         "SIM",
         "PYI",
         "PT",
-        # "T",
+        "T",
         "LOG",
         "Q",
         "RSE",
         "RET",
         "TID",
-        # "TCH",
+        "TC",
         "S",
         "BLE",
-        # "ANN",
+        "ANN",
         "A",
         "PTH",
         "YTT",
@@ -225,17 +213,17 @@ def run_ruff(path: Path) -> None:
     ]
     ignore_errors = [
         "A002",  # builtin-argument-shadowing
-        "B014",  # duplicate-handler-exception
-        "E203",  # whitespace-before-comment
         "E501",  # line-too-long
         "E741",  # ambiguous-variable-name
         "N802",  # invalid-function-name
         "N803",  # invalid-argument-name
         "N812",  # lowercase-imported-as-non-lowercase
-        "PYI036",  # bad-exit-annotation
-        "RET503",  # implicit-return
-        "UP004",  # useless-object-inheritance
         "UP013",  # convert-typed-dict-functional-to-class
+        "TC001",  # typing-only-first-party-import
+        "TC002",  # typing-only-third-party-import
+        "TC003",  # typing-only-standard-library-import
+        # ruff does not support conditional import syntax for aio libs
+        "UP004",  # useless-object-inheritance
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         cmd = [
@@ -262,6 +250,16 @@ def run_ruff(path: Path) -> None:
             raise SnapshotMismatchError(path, output) from None
 
 
+def find_ignored_message(message: str, ignored: Sequence[str]) -> str | None:
+    """
+    Find ignored error if it is present in message.
+    """
+    for error in ignored:
+        if error in message:
+            return error
+    return None
+
+
 def run_pyright(path: Path) -> None:
     """
     Check output with pyright.
@@ -269,13 +267,13 @@ def run_pyright(path: Path) -> None:
     config_path = ROOT_PATH / "pyrightconfig.json"
     shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
     cmd = [
-        "uvx",
-        "-q",
+        *Config.get_uvx_cmd(),
         *get_with_arguments(),
         "pyright",
         path.as_posix(),
         "--outputjson",
     ]
+    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
@@ -298,7 +296,8 @@ def run_pyright(path: Path) -> None:
         errors: list[dict[str, Any]] = []
         for error in data:
             message = error.get("message", "")
-            if any(imsg in message for imsg in IGNORE_PYRIGHT_ERRORS):
+            ignored_message = find_ignored_message(message, PYRIGHT_IGNORED_MESSAGES)
+            if ignored_message:
                 continue
             errors.append(error)
 
@@ -322,7 +321,8 @@ def run_mypy(path: Path) -> None:
     """
     Check output with mypy.
     """
-    cmd = ["uvx", "-q", *get_with_arguments(), "mypy", path.as_posix()]
+    cmd = [*Config.get_uvx_cmd(), *get_with_arguments(), "mypy", path.as_posix()]
+    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
     try:
         output = subprocess.check_output(
             cmd,
@@ -335,7 +335,8 @@ def run_mypy(path: Path) -> None:
         for message in output.splitlines():
             if not message or message.startswith("Found"):
                 continue
-            if any(imsg in message for imsg in IGNORE_MYPY_ERRORS):
+            ignored_message = find_ignored_message(message, MYPY_IGNORED_MESSAGES)
+            if ignored_message:
                 continue
             errors.append(f"mypy: {message}")
 
@@ -374,10 +375,7 @@ def run_import(path: Path) -> None:
         f"import {path.name}",
     ]
     try:
-        subprocess.check_call(
-            run_cmd,
-            stdout=subprocess.DEVNULL,
-        )
+        subprocess.check_call(run_cmd, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         raise SnapshotMismatchError(path, f"Cannot be imported: {e}") from None
 
@@ -400,7 +398,7 @@ def check_snapshot(path: Path) -> None:
     Raises:
         SnapshotMismatchError -- If snapshot is not equal to current output.
     """
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = Config.logger
     logger.debug(f"Running ruff for {path.name} ...")
     run_ruff(path)
     logger.debug(f"Running mypy for {path.name} ...")
@@ -415,15 +413,13 @@ def check_snapshot(path: Path) -> None:
         run_import(path)
 
 
-def find_package_path(path: Path) -> Path | None:
+def get_package_paths(path: Path) -> list[Path]:
     """
     Find package directory inside `path`.
     """
-    for package_path in path.iterdir():
-        if is_package_dir(package_path):
-            return package_path
-
-    return None
+    result = [package_path for package_path in path.iterdir() if is_package_dir(package_path)]
+    result.sort(key=lambda x: x.name)
+    return result
 
 
 def main() -> None:
@@ -432,7 +428,9 @@ def main() -> None:
     """
     args = parse_args()
     Config.path = args.path
-    logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
+    Config.args = args
+    Config.logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
+    logger = Config.logger
     has_errors = False
     for directory in sorted(args.path.iterdir()):
         if not directory.is_dir():
@@ -440,20 +438,24 @@ def main() -> None:
         if not directory.name.endswith("_package"):
             continue
 
-        if args.filter and not any(s in directory.as_posix() for s in args.filter):
+        if args.filter and not any(
+            s in directory.relative_to(args.path).as_posix() for s in args.filter
+        ):
             continue
 
-        package_path = find_package_path(directory)
-        if not package_path:
-            continue
-        logger.info(f"Checking {directory.name}/{package_path.name} ...")
-        try:
-            check_snapshot(package_path)
-        except SnapshotMismatchError as e:
-            logger.warning(e)
-            has_errors = True
-            if args.exit_on_error:
-                break
+        package_paths = get_package_paths(directory)
+        for package_path in package_paths:
+            logger.info(f"Checking {package_path.absolute().relative_to(Path.cwd())} ...")
+            try:
+                check_snapshot(package_path)
+            except SnapshotMismatchError as e:
+                logger.warning(e)
+                has_errors = True
+                if args.exit_on_error:
+                    break
+
+        if has_errors and args.exit_on_error:
+            break
 
     if has_errors:
         logger.error("Snapshot mismatch")

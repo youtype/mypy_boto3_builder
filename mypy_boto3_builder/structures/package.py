@@ -18,6 +18,7 @@ from mypy_boto3_builder.utils.version import (
     get_min_build_version,
     is_valid_version,
 )
+from mypy_boto3_builder.utils.version_getters import get_botocore_version
 
 if TYPE_CHECKING:
     from mypy_boto3_builder.structures.package_extra import PackageExtra
@@ -56,7 +57,7 @@ class Package:
         """
         Botocore version.
         """
-        return self.data.get_botocore_version()
+        return get_botocore_version()
 
     @property
     def pypi_name(self) -> str:

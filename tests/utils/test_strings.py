@@ -3,10 +3,12 @@ import pytest
 from mypy_boto3_builder.exceptions import BuildInternalError, TypeAnnotationError
 from mypy_boto3_builder.utils.strings import (
     capitalize,
+    escape_md,
     get_anchor_link,
     get_botocore_class_name,
     get_class_prefix,
     get_copyright,
+    get_md_doc_link,
     get_pypi_link,
     get_short_docstring,
     get_type_def_name,
@@ -114,3 +116,12 @@ class TestStrings:
 
     def test_get_copyright(self) -> None:
         assert "Copyright" in get_copyright()
+
+    def test_get_md_doc_link(self) -> None:
+        assert get_md_doc_link("client") == "./client.md"
+        assert get_md_doc_link("client", "test") == "./client.md#test"
+        assert get_md_doc_link("client", "test", "test2") == "./client.md#testtest2"
+
+    def test_escape_md(self) -> None:
+        assert escape_md("test") == "test"
+        assert escape_md("test_ref__123") == "test\\_ref\\_\\_123"

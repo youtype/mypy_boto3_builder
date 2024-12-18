@@ -16,6 +16,7 @@ from mypy_boto3_builder.chat.prompts.path_prompt import PathPrompt
 from mypy_boto3_builder.chat.prompts.select_prompt import SelectPrompt
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message
+from mypy_boto3_builder.chat.utils import as_message
 
 
 class Chat:
@@ -40,7 +41,7 @@ class Chat:
         return PathPrompt(
             message=(
                 TextStyle.user.wrap(self.USER_NAME),
-                *TextStyle.to_message(message),
+                *as_message(message),
                 " " if message else "",
             ),
             instruction=(
@@ -97,13 +98,13 @@ class Chat:
         result = SelectPrompt(
             message=(
                 TextStyle.user.wrap(self.USER_NAME),
-                *TextStyle.to_message(message),
+                *as_message(message),
                 " " if message else "",
             ),
             choices=choices,
             instruction=(
                 TextStyle.help.wrap(self.HELP_NAME),
-                *TextStyle.to_message(instruction or SelectPrompt.HELP_MESSAGE),
+                *as_message(instruction or SelectPrompt.HELP_MESSAGE),
                 "\n\n",
             ),
             message_end=message_end,
@@ -128,7 +129,7 @@ class Chat:
         prompt = MultiSelectPrompt(
             message=(
                 TextStyle.user.wrap(self.USER_NAME),
-                *TextStyle.to_message(message),
+                *as_message(message),
                 " " if message else "",
             ),
             choices=choices,
@@ -146,7 +147,7 @@ class Chat:
             TextStyle.help.wrap(self.HELP_NAME),
             *prompt.get_help_message(),
             " " if instruction else "",
-            *TextStyle.to_message(instruction),
+            *as_message(instruction),
             "\n\n",
         )
         result = prompt.ask()

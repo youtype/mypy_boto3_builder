@@ -13,7 +13,6 @@ from mypy_boto3_builder.utils.version_getters import (
     get_aioboto3_version,
     get_aiobotocore_version,
     get_boto3_version,
-    get_botocore_version,
 )
 
 
@@ -80,13 +79,6 @@ class BasePackageData(ABC):
     @abstractmethod
     def _get_library_version(self) -> str:
         raise NotImplementedError("Method not implemented")
-
-    @staticmethod
-    def get_botocore_version() -> str:
-        """
-        Get underlying botocore version.
-        """
-        return get_botocore_version()
 
     def has_pypi_lite_package(self) -> bool:
         """

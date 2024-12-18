@@ -20,19 +20,15 @@ class TypeSubscript(TypeParent):
     Arguments:
         parent -- Parent type annotation.
         children -- Children type annotations.
-        stringify -- Convert type annotation to string.
     """
 
     def __init__(
         self,
         parent: FakeAnnotation,
         children: Iterable[FakeAnnotation] = (),
-        *,
-        stringify: bool = False,
     ) -> None:
         self.parent: FakeAnnotation = parent
         self.children: list[FakeAnnotation] = list(children)
-        self._stringify = stringify
 
     def render(self) -> str:
         """
@@ -46,8 +42,6 @@ class TypeSubscript(TypeParent):
             children = ", ".join([i.render() for i in self.children])
             result = f"{result}[{children}]"
 
-        if self._stringify:
-            result = f'"{result}"'
         return result
 
     def get_import_records(self) -> set[ImportRecord]:
@@ -93,7 +87,6 @@ class TypeSubscript(TypeParent):
         return self.__class__(
             parent=self.parent,
             children=list(self.children),
-            stringify=self._stringify,
         )
 
     def get_local_types(self) -> list[FakeAnnotation]:
@@ -105,10 +98,11 @@ class TypeSubscript(TypeParent):
             result.extend(child.get_local_types())
         return result
 
-    def iterate_children_type_annotations(self) -> Iterator[FakeAnnotation]:
+    def iterate_direct_type_annotations(self) -> Iterator[FakeAnnotation]:
         """
-        Extract required type annotations from attributes.
+        Iterate over a parent and then children type annotations.
         """
+        yield self.parent
         yield from self.children
 
     def get_children_types(self) -> set[FakeAnnotation]:
@@ -124,6 +118,10 @@ class TypeSubscript(TypeParent):
         """
         Replace child type annotation with a new one.
         """
+        if self.parent is child:
+            self.parent = new_child
+            return self
+
         if child not in self.children:
             raise TypeAnnotationError(f"Child not found: {child}")
 

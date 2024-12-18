@@ -9,7 +9,7 @@ from typing import Final, Self
 
 from mypy_boto3_builder.exceptions import TypeAnnotationError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
@@ -21,39 +21,41 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation as a string.
     """
 
-    _TYPING: Final = ImportString("typing")
-    _TYPING_EXTENSIONS: Final = ImportString("typing_extensions")
-
     # Set of supported type annotations. value is default import module
     _SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {
-        "Union": _TYPING,  # typing.Union
-        "Any": _TYPING,  # typing.Any
-        "Dict": _TYPING,  # typing.Dict
-        "List": _TYPING,  # typing.List
-        "Set": _TYPING,  # typing.Set
-        "Optional": _TYPING,  # typing.Optional
-        "IO": _TYPING,  # typing.IO
-        "overload": _TYPING,  # typing.overload
-        "Type": _TYPING,  # typing.Type
-        "NoReturn": _TYPING,  # typing.NoReturn
-        "TypedDict": _TYPING,  # typing_extensions.TypedDict / typing.TypedDict
-        "Literal": _TYPING,  # typing_extensions.Literal / typing.Literal
-        "Mapping": _TYPING,  # typing.Mapping
-        "Sequence": _TYPING,  # typing.Sequence
-        "Callable": _TYPING,  # typing.Callable
-        "Iterator": _TYPING,  # typing.Iterator
-        "Awaitable": _TYPING,  # typing.Awaitable
-        "AsyncIterator": _TYPING,  # typing.AsyncIterator
-        "NotRequired": _TYPING,  # typing_extensions.NotRequired / typing.NotRequired
-        "Unpack": _TYPING,  # typing_extensions.Unpack / typing.Unpack
+        "dict": Import.builtins,  # builtins.dict
+        "list": Import.builtins,  # builtins.list
+        "set": Import.builtins,  # builtins.set
+        "Union": Import.typing,  # typing.Union
+        "Any": Import.typing,  # typing.Any
+        "Dict": Import.typing,  # typing.Dict
+        "List": Import.typing,  # typing.List
+        "Set": Import.typing,  # typing.Set
+        "Type": Import.typing,  # typing.type
+        "IO": Import.typing,  # typing.IO
+        "overload": Import.typing,  # typing.overload
+        "type": Import.builtins,  # builtins.type
+        "NoReturn": Import.typing,  # typing.NoReturn
+        "TypedDict": Import.typing,  # typing_extensions.TypedDict / typing.TypedDict
+        "Literal": Import.typing,  # typing_extensions.Literal / typing.Literal
+        "Mapping": Import.typing,  # typing.Mapping
+        "Sequence": Import.typing,  # typing.Sequence
+        "Callable": Import.typing,  # typing.Callable
+        "Iterator": Import.typing,  # typing.Iterator
+        "Awaitable": Import.typing,  # typing.Awaitable
+        "AsyncIterator": Import.typing,  # typing.AsyncIterator
+        "NotRequired": Import.typing,  # typing_extensions.NotRequired / typing.NotRequired
+        "Unpack": Import.typing,  # typing_extensions.Unpack / typing.Unpack
+        "Self": Import.typing,  # typing_extensions.Self / typing.Self
     }
 
     # Set of fallback type annotations
     _FALLBACK: Final[Mapping[str, tuple[tuple[int, int] | None, ImportString]]] = {
-        "NotRequired": ((3, 12), _TYPING_EXTENSIONS),
-        "TypedDict": ((3, 12), _TYPING_EXTENSIONS),
-        "Literal": ((3, 12), _TYPING_EXTENSIONS),
-        "Unpack": ((3, 12), _TYPING_EXTENSIONS),
+        "NotRequired": ((3, 12), Import.typing_extensions),
+        "TypedDict": ((3, 12), Import.typing_extensions),
+        "Literal": ((3, 12), Import.typing_extensions),
+        "Unpack": ((3, 12), Import.typing_extensions),
+        "Self": ((3, 12), Import.typing_extensions),
     }
 
     def __init__(self, wrapped_type: str) -> None:
@@ -83,6 +85,9 @@ class TypeAnnotation(FakeAnnotation):
         """
         name = self.get_import_name()
         source = self._SUPPORTED_TYPES[name]
+        if source == Import.builtins:
+            return set()
+
         if name not in self._FALLBACK:
             return {ImportRecord(source=source, name=name)}
 
@@ -101,13 +106,13 @@ class TypeAnnotation(FakeAnnotation):
         """
         Whether annotation is a plain Dict.
         """
-        return self._wrapped_type == "Dict"
+        return self._wrapped_type in {"dict", "Dict"}
 
     def is_list(self) -> bool:
         """
         Whether annotation is a plain List.
         """
-        return self._wrapped_type == "List"
+        return self._wrapped_type in {"list", "List"}
 
     def __copy__(self) -> Self:
         """

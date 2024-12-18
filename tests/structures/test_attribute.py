@@ -7,17 +7,17 @@ class TestAttribute:
     def test_init(self) -> None:
         assert Attribute("attr", Type.DictStrAny)
         assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"))
-        assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore=True)
+        assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore="override")
 
     def test_render(self) -> None:
-        assert Attribute("attr", Type.DictStrAny).render() == "attr: Dict[str, Any]"
+        assert Attribute("attr", Type.DictStrAny).render() == "attr: dict[str, Any]"
         assert (
             Attribute("attr", Type.DictStrAny, TypeConstant("abc")).render()
-            == "attr: Dict[str, Any]"
+            == "attr: dict[str, Any]"
         )
         assert (
-            Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore=True).render()
-            == "attr: Dict[str, Any]  # type: ignore"
+            Attribute("attr", Type.DictStrAny, TypeConstant("abc"), type_ignore="override").render()
+            == "attr: dict[str, Any]  # type: ignore[override]"
         )
 
     def test_is_autoload_property(self) -> None:

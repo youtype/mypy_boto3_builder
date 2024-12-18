@@ -5,7 +5,6 @@ Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterator
-from typing import TYPE_CHECKING
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
@@ -13,14 +12,10 @@ from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
-from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-
-if TYPE_CHECKING:
-    from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 class ServiceResource(ClassRecord):
@@ -33,7 +28,6 @@ class ServiceResource(ClassRecord):
         name: str,
         service_name: ServiceName,
     ) -> None:
-        self.resource_meta_class = self._get_resource_meta_class(service_name)
         super().__init__(
             name=name,
             bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ServiceResource")],
@@ -41,6 +35,7 @@ class ServiceResource(ClassRecord):
         self.service_name = service_name
         self.collections: list[Collection] = []
         self.sub_resources: list[ResourceRecord] = []
+        self.resource_meta_class = self._get_resource_meta_class()
 
     def __hash__(self) -> int:
         """
@@ -54,28 +49,6 @@ class ServiceResource(ClassRecord):
         Class alias name for safe import.
         """
         return "ServiceResource"
-
-    @staticmethod
-    def get_class_name(service_name: ServiceName) -> str:
-        """
-        Get class name for ServiceName.
-        """
-        return f"{service_name.class_name}ServiceResource"
-
-    def _get_resource_meta_class(self, service_name: ServiceName) -> ClassRecord:
-        return ClassRecord(
-            name=f"{service_name.class_name}ResourceMeta",
-            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta")],
-            attributes=[
-                Attribute(
-                    "client",
-                    ExternalImport(
-                        source=ImportString("", ServiceModuleName.client.value),
-                        name=Client.get_class_name(service_name),
-                    ),
-                ),
-            ],
-        )
 
     @property
     def boto3_doc_link(self) -> str:
@@ -120,33 +93,27 @@ class ServiceResource(ClassRecord):
 
         return result
 
-    def get_sub_resources(self) -> list[ResourceRecord]:
+    def get_sub_resources(self) -> tuple[ResourceRecord, ...]:
         """
-        Get sub-resource in safe order.
+        Get sub-resources.
 
         Returns:
             A list of sub resources.
         """
-        result: list[ResourceRecord] = []
-        all_names: set[str] = {i.name for i in self.sub_resources}
-        added_names: set[str] = set()
-        sub_resources = list(self.sub_resources)
-        sub_resources_list: list[tuple[ResourceRecord, set[InternalImport]]] = []
-        for sub_resource in sub_resources:
-            internal_imports = sub_resource.get_internal_imports()
-            sub_resources_list.append((sub_resource, internal_imports))
+        return tuple(self.sub_resources)
 
-        sub_resources_list.sort(key=lambda x: len(x[1]))
-        for sub_resource, internal_imports in sub_resources_list:
-            for internal_import in internal_imports:
-                if internal_import.name not in all_names:
-                    continue
-                if internal_import.name in added_names:
-                    continue
-
-                internal_import.stringify = True
-
-            result.append(sub_resource)
-            added_names.add(sub_resource.name)
-
-        return result
+    def _get_resource_meta_class(self) -> ClassRecord:
+        return ClassRecord(
+            name=f"{self.service_name.class_name}ResourceMeta",
+            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta")],
+            attributes=[
+                Attribute(
+                    "client",
+                    ExternalImport(
+                        source=ImportString("", ServiceModuleName.client.value),
+                        name=self.service_name.get_client_name(),
+                    ),
+                    type_ignore="override",
+                ),
+            ],
+        )

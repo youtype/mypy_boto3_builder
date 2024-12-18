@@ -43,7 +43,7 @@ def parse_collection(
         type_annotation=InternalImport(collection.name),
         object_class_name=object_class_name,
     )
-    self_type = InternalImport(collection_record.name, stringify=True)
+    self_type = InternalImport(collection_record.name)
 
     # FIXME: other collection methods use different anchor format. This will probably change.
     all_method = Method(
@@ -68,7 +68,7 @@ def parse_collection(
         " as parameters to the underlying service operation, which are"
         " typically used to filter the results."
     )
-    filter_method.type_ignore = True
+    filter_method.type_ignore = "override"
     collection_record.methods.append(filter_method)
     batch_methods = shape_parser.get_collection_batch_methods(collection_record.name, collection)
     for batch_method in batch_methods:
@@ -93,7 +93,7 @@ def parse_collection(
             arguments=[Argument.self()],
             return_type=TypeSubscript(
                 Type.Iterator,
-                [Type.list(InternalImport(name=object_class_name))],
+                [Type.wrap_list(InternalImport(name=object_class_name))],
             ),
             docstring=f"A generator which yields pages of {object_class_name}s.",
         ),

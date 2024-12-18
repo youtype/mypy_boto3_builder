@@ -271,7 +271,7 @@
     },
     {
         "severity": "error",
-        "message": "Cannot access attribute \"operations_name\" for class \"BotocoreClientError\"\n\u00a0\u00a0Attribute \"operations_name\" is unknown",
+        "message": "Cannot access attribute \"operations_name\" for class \"ClientError\"\n\u00a0\u00a0Attribute \"operations_name\" is unknown",
         "range": {
             "start": {
                 "line": 105,
