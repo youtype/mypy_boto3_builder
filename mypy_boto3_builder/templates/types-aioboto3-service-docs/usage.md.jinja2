@@ -28,7 +28,7 @@ async with session.client("{{ package.service_name.boto3_name }}") as client:  #
     result = await client.{{ method.name }}()  # (2)
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
 2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -48,8 +48,8 @@ async with session.client("{{ package.service_name.boto3_name }}") as client:  #
         print(item)  # (3)
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
+2. paginator: [{{ paginator.name }}]({{ get_md_doc_link('paginators', paginator.name) }})
 3. item: {% with type_annotation=paginator.methods[0].return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -68,8 +68,8 @@ async with session.client("{{ package.service_name.boto3_name }}") as client:  #
     await waiter.wait()
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
+2. waiter: [{{ waiter.name }}]({{ get_md_doc_link('waiters', waiter.name) }})
 {% endif %}
 
 ### Explicit type annotations
@@ -100,7 +100,7 @@ async with session.client("{{ package.service_name.boto3_name }}") as client:  #
     result: {{ method.return_type.name }} = await client.{{ method.name }}(**kwargs)  # (3)
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
 2. kwargs: {% with type_annotation=method.request_type_annotation %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 3. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
@@ -126,8 +126,8 @@ async with session.client("{{ package.service_name.boto3_name }}") as client:  #
         print(item)  # (3)
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
+2. paginator: [{{ paginator.name }}]({{ get_md_doc_link('paginators', paginator.name) }})
 3. item: {% with type_annotation=paginator.methods[0].return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -148,8 +148,8 @@ async with session.client("{{ package.service_name.boto3_name }}") as client:  #
     await waiter.wait()
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
+2. waiter: [{{ waiter.name }}]({{ get_md_doc_link('waiters', waiter.name) }})
 {% endif %}
 
 {% if package.service_resource %}
@@ -176,7 +176,7 @@ async with session.resource("{{ package.service_name.boto3_name }}") as resource
     result = resource.{{ method.name }}()  # (2)
 ```
 
-1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
+1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
 2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -195,8 +195,8 @@ for item in collection:
     print(item)  # (3)
 ```
 
-1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
-2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', collection.name) }})
+1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
+2. collection: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource', collection.name) }})
 3. item: {{ collection.object_class_name }}
 {% endif %}
 
@@ -227,7 +227,7 @@ async with session.resource("{{ package.service_name.boto3_name }}") as resource
     result: {{ method.name }} = resource.{{ method.name }}() # (2)
 ```
 
-1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
+1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
 2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -252,8 +252,8 @@ async with session.resource("{{ package.service_name.boto3_name }}") as resource
         print(item)  # (3)
 ```
 
-1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
-2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', collection.name) }})
+1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
+2. collection: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource', collection.name) }})
 3. item: {{ collection.object_class_name }}
 {% endif %}
 {% endif %}

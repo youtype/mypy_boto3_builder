@@ -13,7 +13,7 @@ Code samples can be found in [Examples](./usage.md).
 
 ## {{ package.client.name }}
 
-Type annotations and code completion for  `#!python session.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+Type annotations and code completion for  `#!python session.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ get_md_doc_link('client') }})
 [:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
 ```python
@@ -33,7 +33,7 @@ async with session.client("{{ service_name.boto3_name }}") as client:
 ## Paginators
 
 Type annotations and code completion for
-[paginators]({{ service_name.get_md_doc_link('paginators') }})
+[paginators]({{ get_md_doc_link('paginators') }})
 from `#!python session.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
 
 ```python
@@ -46,7 +46,7 @@ def get_{{ package.paginators[0].operation_name }}_paginator() -> {{ package.pag
 ```
 
 {% for paginator in package.paginators -%}
-- [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+- [{{ paginator.name }}]({{ get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -54,7 +54,7 @@ def get_{{ package.paginators[0].operation_name }}_paginator() -> {{ package.pag
 ## Waiters
 
 Type annotations and code completion for
-[waiters]({{ service_name.get_md_doc_link('waiters') }})
+[waiters]({{ get_md_doc_link('waiters') }})
 from `#!python session.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
 
 ```python
@@ -67,7 +67,7 @@ def get_{{ package.waiters[0].attribute_name }}_waiter() -> {{ package.waiters[0
 ```
 
 {% for waiter in package.waiters -%}
-- [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+- [{{ waiter.name }}]({{ get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -75,7 +75,7 @@ def get_{{ package.waiters[0].attribute_name }}_waiter() -> {{ package.waiters[0
 ## {{ package.service_resource.name }}
 
 Type annotations and code completion for `#!python session.resource("{{ package.service_name.boto3_name }}")` as
-[{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
+[{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource', package.service_resource.name) }})
 [:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
 ```python
@@ -100,7 +100,7 @@ def get_collection() -> {{ package.service_resource.collections[0].name }}:
 ```
 
 {% for collection in package.service_resource.collections -%}
-- [{{ collection.name }}]({{ service_name.get_md_doc_link('service_resource', collection.name) }}){{ '\n' -}}
+- [{{ collection.name }}]({{ get_md_doc_link('service_resource', collection.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 

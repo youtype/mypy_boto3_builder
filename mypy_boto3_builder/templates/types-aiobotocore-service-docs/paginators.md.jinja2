@@ -25,8 +25,8 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:  # 
         print(item)  # (3)
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
+2. paginator: [{{ paginator.name }}]({{ get_md_doc_link('paginators', paginator.name) }})
 3. item: {% with type_annotation=paginator.methods[0].return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 
 {% for method in paginator.methods %}

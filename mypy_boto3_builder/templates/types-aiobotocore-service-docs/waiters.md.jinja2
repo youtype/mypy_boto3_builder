@@ -23,8 +23,8 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:  # 
     await waiter.wait()
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
+1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
+2. waiter: [{{ waiter.name }}]({{ get_md_doc_link('waiters', waiter.name) }})
 
 {% for method in waiter.methods %}
 ### {{ method.name|escape_md }}

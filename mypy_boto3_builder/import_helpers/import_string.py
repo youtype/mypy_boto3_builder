@@ -168,6 +168,7 @@ class Import:
     Common import strings.
     """
 
+    future: Final = ImportString("__future__")
     builtins: Final = ImportString("builtins")
     boto3: Final = ImportString("boto3")
     botocore: Final = ImportString("botocore")

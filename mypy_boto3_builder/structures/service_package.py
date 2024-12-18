@@ -204,7 +204,7 @@ class ServicePackage(Package):
 
     @staticmethod
     def _get_annotations_import_record() -> ImportRecord:
-        return ImportRecord(ImportString("__future__"), "annotations")
+        return ImportRecord(Import.future, "annotations")
 
     def get_service_resource_required_import_records(self) -> ImportRecordGroup:
         """
