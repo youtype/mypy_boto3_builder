@@ -41,6 +41,7 @@ class Workflow:
     name: str
     status: str
     path: Path
+    conclusion: str = ""
     branch: str = "-"
     started_at: datetime.datetime | None = None
     updated_at: datetime.datetime | None = None
@@ -51,7 +52,7 @@ class Workflow:
         Checkmark.
         """
         if self.status == "completed":
-            return "✅"
+            return "✅" if self.conclusion == "success" else "❌"
         if self.status == "in_progress":
             return "🕒"
         if self.status == "queued":
@@ -201,6 +202,8 @@ def get_workflow(path: Path) -> Workflow | None:
                 "--json",
                 "status",
                 "--json",
+                "conclusion",
+                "--json",
                 "startedAt",
                 "--json",
                 "updatedAt",
@@ -226,6 +229,7 @@ def get_workflow(path: Path) -> Workflow | None:
     return Workflow(
         name=get_workflow_name(path),
         status=data["status"],
+        conclusion=data["conclusion"],
         started_at=datetime.datetime.fromisoformat(data["startedAt"]),
         updated_at=datetime.datetime.fromisoformat(data["updatedAt"]),
         branch=data["headBranch"],
