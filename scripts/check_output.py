@@ -22,6 +22,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Sequence
@@ -107,13 +108,13 @@ def get_with_arguments() -> list[str]:
     return result
 
 
-class SnapshotMismatchError(Exception):
+class CheckError(Exception):
     """
-    Main snapshot mismatch exception.
+    Main check error.
     """
 
     def __init__(self, path: Path, error: str) -> None:
-        super().__init__(f"Snapshot mismatch for {path}: {error}")
+        super().__init__(f"Check error for {path}: {error}")
         self.path = path
         self.errors = error
 
@@ -149,6 +150,7 @@ class CLINamespace:
     filter: list[str]
     exit_on_error: bool
     python_version: str | None
+    threads: int
 
 
 def parse_args() -> CLINamespace:
@@ -165,6 +167,7 @@ def parse_args() -> CLINamespace:
         default=None,
         help="Python version for checkers. Default: None",
     )
+    parser.add_argument("-t", "--threads", type=int, default=1)
     parser.add_argument("filter", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
@@ -173,6 +176,7 @@ def parse_args() -> CLINamespace:
         filter=args.filter,
         exit_on_error=args.exit_on_error,
         python_version=args.python,
+        threads=args.threads,
     )
 
 
@@ -247,7 +251,7 @@ def run_ruff(path: Path) -> None:
         except subprocess.CalledProcessError:
             temp_path = Path(f.name)
             output = temp_path.read_text()
-            raise SnapshotMismatchError(path, output) from None
+            raise CheckError(path, output) from None
 
 
 def find_ignored_message(message: str, ignored: Sequence[str]) -> str | None:
@@ -314,7 +318,7 @@ def run_pyright(path: Path) -> None:
                     "pyright:"
                     f" {file_path}:{error['range']['start']['line']} {error.get('message', '')}",
                 )
-            raise SnapshotMismatchError(path, "\n".join(messages))
+            raise CheckError(path, "\n".join(messages))
 
 
 def run_mypy(path: Path) -> None:
@@ -341,7 +345,7 @@ def run_mypy(path: Path) -> None:
             errors.append(f"mypy: {message}")
 
         if errors:
-            raise SnapshotMismatchError(path, "\n".join(errors)) from None
+            raise CheckError(path, "\n".join(errors)) from None
 
 
 def run_call(path: Path) -> None:
@@ -353,7 +357,7 @@ def run_call(path: Path) -> None:
     try:
         subprocess.check_call([sys.executable, path.as_posix()], stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
-        raise SnapshotMismatchError(path, f"Cannot be called: {e}") from None
+        raise CheckError(path, f"Cannot be called: {e}") from None
 
 
 def run_import(path: Path) -> None:
@@ -377,7 +381,7 @@ def run_import(path: Path) -> None:
     try:
         subprocess.check_call(run_cmd, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
-        raise SnapshotMismatchError(path, f"Cannot be imported: {e}") from None
+        raise CheckError(path, f"Cannot be imported: {e}") from None
 
 
 def is_package_dir(path: Path) -> bool:
@@ -391,35 +395,64 @@ def is_package_dir(path: Path) -> bool:
     return (path / "__init__.pyi").exists()
 
 
-def check_snapshot(path: Path) -> None:
+def run_checks(path: Path) -> None:
     """
     Check package type checkers snapshot.
 
     Raises:
-        SnapshotMismatchError -- If snapshot is not equal to current output.
+        CheckError -- If snapshot is not equal to current output.
     """
     logger = Config.logger
-    logger.debug(f"Running ruff for {path.name} ...")
+    logger.info(f"Checking {path.absolute().relative_to(Path.cwd())} ...")
+    relative_path = path.relative_to(Path.cwd())
+    logger.debug(f"Running ruff for {relative_path} ...")
     run_ruff(path)
-    logger.debug(f"Running mypy for {path.name} ...")
+    logger.debug(f"Running mypy for {relative_path} ...")
     run_mypy(path)
-    logger.debug(f"Running pyright for {path.name} ...")
+    logger.debug(f"Running pyright for {relative_path} ...")
     run_pyright(path)
 
     if (path / "__main__.py").exists():
-        logger.debug(f"Running call for {path.name} ...")
+        logger.debug(f"Running call for {relative_path} ...")
         run_call(path)
-        logger.debug(f"Running import for {path.name} ...")
+        logger.debug(f"Running import for {relative_path} ...")
         run_import(path)
+    logger.info(f"Finished {path.absolute().relative_to(Path.cwd())} ...")
 
 
-def get_package_paths(path: Path) -> list[Path]:
+def get_package_paths() -> tuple[Path, ...]:
     """
-    Find package directory inside `path`.
+    Find package directories.
     """
-    result = [package_path for package_path in path.iterdir() if is_package_dir(package_path)]
+    result: list[Path] = []
+    for directory in sorted(Config.args.path.iterdir()):
+        if not directory.is_dir():
+            continue
+        if not directory.name.endswith("_package"):
+            continue
+
+        if Config.args.filter and not any(
+            s in directory.relative_to(Config.args.path).as_posix() for s in Config.args.filter
+        ):
+            continue
+
+        result.extend(
+            package_path for package_path in directory.iterdir() if is_package_dir(package_path)
+        )
     result.sort(key=lambda x: x.name)
-    return result
+    return tuple(result)
+
+
+def is_run_checks_passed(path: Path) -> bool:
+    """
+    Run checks and return True if passed.
+    """
+    try:
+        run_checks(path)
+    except CheckError as e:
+        Config.logger.warning(e)
+        return False
+    return True
 
 
 def main() -> None:
@@ -432,34 +465,25 @@ def main() -> None:
     Config.logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
     logger = Config.logger
     has_errors = False
-    for directory in sorted(args.path.iterdir()):
-        if not directory.is_dir():
-            continue
-        if not directory.name.endswith("_package"):
-            continue
+    package_paths = get_package_paths()
 
-        if args.filter and not any(
-            s in directory.relative_to(args.path).as_posix() for s in args.filter
-        ):
-            continue
-
-        package_paths = get_package_paths(directory)
+    if args.threads > 1:
+        with ThreadPoolExecutor(max_workers=args.threads) as executor:
+            results = executor.map(is_run_checks_passed, package_paths)
+        for is_passed in results:
+            has_errors = has_errors or not is_passed
+            if not is_passed and args.exit_on_error:
+                break
+    else:
         for package_path in package_paths:
-            logger.info(f"Checking {package_path.absolute().relative_to(Path.cwd())} ...")
-            try:
-                check_snapshot(package_path)
-            except SnapshotMismatchError as e:
-                logger.warning(e)
-                has_errors = True
-                if args.exit_on_error:
-                    break
+            is_passed = is_run_checks_passed(package_path)
+            has_errors = has_errors or not is_passed
+            if not is_passed and args.exit_on_error:
+                break
 
-        if has_errors and args.exit_on_error:
-            break
-
-    if has_errors:
-        logger.error("Snapshot mismatch")
-        sys.exit(1)
+        if has_errors:
+            logger.error("Snapshot mismatch")
+            sys.exit(1)
 
 
 if __name__ == "__main__":

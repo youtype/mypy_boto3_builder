@@ -64,4 +64,4 @@ jobs:
           version: "latest"
       - name: Check output
         run: |
-          uv run scripts/check_output.py -p ./mypy_boto3_output -d
+          uv run scripts/check_output.py -p ./mypy_boto3_output -d --threads 10

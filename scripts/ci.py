@@ -245,7 +245,7 @@ def run_workflows(paths: Sequence[Path]) -> None:
     Run test workflows.
     """
     with ThreadPoolExecutor() as executor:
-        executor.map(run_workflow, paths)
+        list(executor.map(run_workflow, paths))
 
 
 def main() -> None:
