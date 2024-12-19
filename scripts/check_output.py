@@ -300,8 +300,13 @@ def run_pyright(path: Path) -> None:
 
         temp_path = Path(f.name)
         output = temp_path.read_text()
+        try:
+            output_data = json.loads(output)
+        except json.JSONDecodeError:
+            Config.logger.error("Pyright output is not a valid JSON")
+            return
 
-        data = json.loads(output).get("generalDiagnostics", [])
+        data = output_data.get("generalDiagnostics", [])
         errors: list[dict[str, Any]] = []
         for error in data:
             message = error.get("message", "")
@@ -423,7 +428,6 @@ def run_checks(path: Path) -> None:
         run_call(path)
         logger.debug(f"Running import for {relative_path} ...")
         run_import(path)
-    logger.info(f"Finished {relative_path} ...")
 
 
 def get_package_paths() -> tuple[Path, ...]:
@@ -451,7 +455,7 @@ def get_package_paths() -> tuple[Path, ...]:
     return tuple(result)
 
 
-def is_run_checks_passed(path: Path) -> bool:
+def is_run_checks_passed(path: Path) -> tuple[Path, bool]:
     """
     Run checks and return True if passed.
     """
@@ -459,8 +463,8 @@ def is_run_checks_passed(path: Path) -> bool:
         run_checks(path)
     except CheckError as e:
         Config.logger.warning(e)
-        return False
-    return True
+        return path, False
+    return path, True
 
 
 def main() -> None:
@@ -474,14 +478,22 @@ def main() -> None:
     logger = Config.logger
     has_errors = False
     package_paths = get_package_paths()
+    if not package_paths:
+        logger.error(f"No packages found if {args.path}")
 
     pyright_config_path = ROOT_PATH / "pyrightconfig.json"
     shutil.copyfile(PYRIGHT_CONFIG_PATH, pyright_config_path)
 
     if args.threads > 1:
+        total = len(package_paths)
         with ThreadPoolExecutor(max_workers=args.threads) as executor:
             results = executor.map(is_run_checks_passed, package_paths)
-        for is_passed in results:
+        for index, pair in enumerate(results):
+            path, is_passed = pair
+            logger.info(
+                f"[{index + 1:<03}/{total:<03}] Finished"
+                f" {path.absolute().relative_to(Path.cwd())} ..."
+            )
             has_errors = has_errors or not is_passed
             if not is_passed and args.exit_on_error:
                 break

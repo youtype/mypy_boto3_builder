@@ -593,7 +593,7 @@ wheels = [
 
 [[package]]
 name = "mypy-boto3-builder"
-version = "8.6.4"
+version = "8.7.0"
 source = { editable = "." }
 dependencies = [
     { name = "boto3" },
