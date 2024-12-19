@@ -491,7 +491,7 @@ def main() -> None:
         for index, pair in enumerate(results):
             path, is_passed = pair
             logger.info(
-                f"[{index + 1:<03}/{total:<03}] Finished"
+                f"[{index + 1:>03}/{total:>03}] Finished"
                 f" {path.absolute().relative_to(Path.cwd())} ..."
             )
             has_errors = has_errors or not is_passed
