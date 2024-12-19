@@ -25,6 +25,13 @@ WORKFLOW_PATH = ROOT_PATH / ".github" / "workflows"
 TEST_PATH_NAMES = ["integration"]
 
 
+def get_now() -> datetime.datetime:
+    """
+    Get current time.
+    """
+    return datetime.datetime.now(datetime.timezone.utc)
+
+
 @dataclass
 class Workflow:
     """
@@ -33,10 +40,10 @@ class Workflow:
 
     name: str
     status: str
-    started_at: datetime.datetime
-    updated_at: datetime.datetime
-    branch: str
     path: Path
+    branch: str = "-"
+    started_at: datetime.datetime | None = None
+    updated_at: datetime.datetime | None = None
 
     @property
     def check(self) -> str:
@@ -51,6 +58,8 @@ class Workflow:
             return "🔄"
         if self.status == "failure":
             return "❌"
+        if self.status == "new":
+            return "🆕"
         return self.status
 
     @property
@@ -58,8 +67,9 @@ class Workflow:
         """
         Time since last update.
         """
-        now = datetime.datetime.now(datetime.timezone.utc)
-        delta = now - self.started_at
+        if self.started_at is None:
+            return "never"
+        delta = get_now() - self.started_at
         if delta.days:
             return f"{delta.days} day{'s' if delta.days > 1 else '' } ago"
         if delta.seconds > 60 * 60:
@@ -78,7 +88,11 @@ class Workflow:
         """
         Duration.
         """
+        if self.started_at is None or self.updated_at is None:
+            return "00:00"
         delta = self.updated_at - self.started_at
+        if self.status not in {"completed", "failure"}:
+            delta = get_now() - self.started_at
         minutes = delta.seconds // 60
         return f"{minutes:>02}:{delta.seconds % 60:>02}"
 
@@ -203,7 +217,11 @@ def get_workflow(path: Path) -> Workflow | None:
         return None
     response_json = json.loads(response)
     if not response_json:
-        return None
+        return Workflow(
+            name=get_workflow_name(path),
+            status="new",
+            path=path,
+        )
     data = response_json[0]
     return Workflow(
         name=get_workflow_name(path),
