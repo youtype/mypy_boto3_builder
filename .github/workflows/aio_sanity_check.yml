@@ -85,4 +85,4 @@ jobs:
             --no-smart-version
       - name: Check output
         run: |
-          uv run ./scripts/check_output.py -p ./mypy_boto3_output --threads 4
+          uv run ./scripts/check_output.py -p ./mypy_boto3_output
