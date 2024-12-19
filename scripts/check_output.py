@@ -409,8 +409,8 @@ def run_checks(path: Path) -> None:
         CheckError -- If snapshot is not equal to current output.
     """
     logger = Config.logger
-    logger.info(f"Checking {path.absolute().relative_to(Path.cwd())} ...")
-    relative_path = path.relative_to(Path.cwd())
+    relative_path = path.absolute().relative_to(Path.cwd())
+    logger.info(f"Checking {relative_path} ...")
     logger.debug(f"Running ruff for {relative_path} ...")
     run_ruff(path)
     logger.debug(f"Running mypy for {relative_path} ...")
@@ -423,7 +423,7 @@ def run_checks(path: Path) -> None:
         run_call(path)
         logger.debug(f"Running import for {relative_path} ...")
         run_import(path)
-    logger.info(f"Finished {path.absolute().relative_to(Path.cwd())} ...")
+    logger.info(f"Finished {relative_path} ...")
 
 
 def get_package_paths() -> tuple[Path, ...]:
