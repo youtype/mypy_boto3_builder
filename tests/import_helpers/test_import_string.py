@@ -20,12 +20,6 @@ class TestImportString:
         with pytest.raises(StructureError):
             ImportString("my", "", "test")
 
-    def test_from_str(self) -> None:
-        assert ImportString.from_str("my.module.path").render() == "my.module.path"
-        assert ImportString.from_str(".test").render() == ".test"
-        with pytest.raises(StructureError):
-            assert ImportString.from_str("").render()
-
     def test_operations(self) -> None:
         assert ImportString("my") < ImportString("test")
         assert ImportString("my", "test")
@@ -93,3 +87,15 @@ class TestImportString:
         assert ImportString("boto3", "test").startswith(ImportString("boto3"))
         assert not ImportString("boto3", "test", "test2").startswith(ImportString("boto3", "test2"))
         assert not ImportString("boto3", "test").startswith(ImportString("boto33", "test"))
+
+    def test_add(self) -> None:
+        assert ImportString("boto3") + ImportString("test") == ImportString("boto3", "test")
+        assert ImportString("boto3") + "test" == ImportString("boto3", "test")
+        assert ImportString("boto3") + "test" + "test2" == ImportString("boto3", "test", "test2")
+        assert ImportString("boto3") + ImportString("test") + "test2" == ImportString(
+            "boto3", "test", "test2"
+        )
+        with pytest.raises(StructureError):
+            assert ImportString("boto3") + ""
+        with pytest.raises(StructureError):
+            assert ImportString("boto3") + "test.test2"

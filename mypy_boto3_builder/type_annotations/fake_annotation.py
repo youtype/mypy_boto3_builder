@@ -12,7 +12,6 @@ from typing import Self
 
 from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import Import
 
 
 @functools.total_ordering
@@ -73,7 +72,7 @@ class FakeAnnotation(ABC):
         return {
             import_record
             for import_record in self._get_import_records()
-            if not Import.is_builtins(import_record.source)
+            if not import_record.source.is_builtins()
         }
 
     def iterate_types(self) -> Iterator["FakeAnnotation"]:

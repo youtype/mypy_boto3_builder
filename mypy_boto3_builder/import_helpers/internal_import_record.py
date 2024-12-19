@@ -5,8 +5,8 @@ Copyright 2024 Vlad Emelianov
 """
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
 class InternalImportRecord(ImportRecord):
@@ -25,6 +25,5 @@ class InternalImportRecord(ImportRecord):
         name: str = "",
         alias: str = "",
     ) -> None:
-        self._local_source = ImportString(service_module_name.name)
-        source = ImportString("", *self._local_source.parts)
+        source = Import.local(service_module_name.name)
         super().__init__(source, name=name, alias=alias)

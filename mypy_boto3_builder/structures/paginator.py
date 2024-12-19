@@ -11,7 +11,7 @@ from botocore.paginate import Paginator as BotocorePaginator
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import BuildInternalError
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -96,7 +96,7 @@ class Paginator(ClassRecord):
                 ),
             ],
             return_type=ExternalImport(
-                source=ImportString("", ServiceModuleName.paginator.value),
+                source=Import.local(ServiceModuleName.paginator.value),
                 name=self.name,
             ),
             type_ignore="override",

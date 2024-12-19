@@ -6,7 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 from botocore.response import StreamingBody
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
@@ -23,7 +23,7 @@ ConditionBaseImportTypeDef = TypeUnion(
     name="ConditionBaseImportTypeDef",
     children=(
         Type.str,
-        ExternalImport(ImportString("boto3", "dynamodb", "conditions"), "ConditionBase"),
+        ExternalImport(Import.boto3 + "dynamodb" + "conditions", "ConditionBase"),
     ),
 )
 

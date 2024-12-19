@@ -6,7 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 from collections.abc import Iterable
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.wrapper_package_parser import WrapperPackageParser
 from mypy_boto3_builder.postprocessors.aio_imports import replace_imports_with_aio
@@ -94,7 +94,7 @@ def parse_types_aioboto3_package(
     parser = WrapperPackageParser(package)
     for method in parser.get_session_client_methods():
         method.return_type = TypeSubscript(
-            ExternalImport(ImportString("aiobotocore", "session"), "ClientCreatorContext"),
+            ExternalImport(Import.aiobotocore + "session", "ClientCreatorContext"),
             [method.return_type],
         )
         package.session_class.methods.append(method)

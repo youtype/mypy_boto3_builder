@@ -9,6 +9,7 @@ from typing import Final, Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import BuildInternalError, StructureError
+from mypy_boto3_builder.import_helpers.import_parent import ImportParent
 from mypy_boto3_builder.package_data import (
     Boto3StubsPackageData,
     TypesAioBotocorePackageData,
@@ -53,13 +54,6 @@ class ImportString:
 
         self.parts: Final[tuple[str, ...]] = tuple(all_parts)
 
-    @classmethod
-    def from_str(cls, import_string: str) -> Self:
-        """
-        Create from string.
-        """
-        return cls(*import_string.split("."))
-
     def __str__(self) -> str:
         """
         Render as a part of a valid Python import statement.
@@ -90,11 +84,13 @@ class ImportString:
         if self == other:
             return False
 
-        if self.is_local() != other.is_local():
-            return self.is_local() > other.is_local()
+        self_is_local, other_is_local = self.is_local(), other.is_local()
+        if self_is_local != other_is_local:
+            return self_is_local > other_is_local
 
-        if Import.is_third_party(self) != Import.is_third_party(other):
-            return Import.is_third_party(self) > Import.is_third_party(other)
+        self_is_third_party, other_is_third_party = self.is_third_party(), other.is_third_party()
+        if self_is_third_party != other_is_third_party:
+            return self_is_third_party > other_is_third_party
 
         return self.parts > other.parts
 
@@ -140,7 +136,7 @@ class ImportString:
         """
         Whether import is from Python `builtins` module.
         """
-        return Import.is_builtins(self)
+        return ImportParent.is_builtins(self.parent)
 
     def is_type_defs(self) -> bool:
         """
@@ -154,52 +150,10 @@ class ImportString:
         """
         Whether import is from 3rd party module.
         """
-        return Import.is_third_party(self)
+        return ImportParent.is_third_party(self.parent)
 
     def startswith(self, other: "ImportString") -> bool:
         """
         Whether import string starts with another import string.
         """
         return self.parts[: len(other.parts)] == other.parts
-
-
-class Import:
-    """
-    Common import strings.
-    """
-
-    future: Final = ImportString("__future__")
-    builtins: Final = ImportString("builtins")
-    boto3: Final = ImportString("boto3")
-    botocore: Final = ImportString("botocore")
-    typing: Final = ImportString("typing")
-    awscrt: Final = ImportString("awscrt")
-    s3transfer: Final = ImportString("s3transfer")
-    aiobotocore: Final = ImportString("aiobotocore")
-    aioboto3: Final = ImportString("aioboto3")
-    typing_extensions: Final = ImportString("typing_extensions")
-    types: Final = ImportString("types")
-    sys: Final = ImportString("sys")
-
-    _THIRD_PARTY: Final[set[str]] = {
-        boto3.parent,
-        botocore.parent,
-        aioboto3.parent,
-        aiobotocore.parent,
-        s3transfer.parent,
-        awscrt.parent,
-    }
-
-    @classmethod
-    def is_third_party(cls, import_string: ImportString) -> bool:
-        """
-        Whether import is from 3rd party module.
-        """
-        return import_string.parent in cls._THIRD_PARTY
-
-    @classmethod
-    def is_builtins(cls, import_string: ImportString) -> bool:
-        """
-        Whether import is from Python `builtins` module.
-        """
-        return import_string.startswith(cls.builtins)

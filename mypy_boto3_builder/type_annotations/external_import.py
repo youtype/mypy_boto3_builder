@@ -8,8 +8,9 @@ import inspect
 from typing import Self
 
 from mypy_boto3_builder.exceptions import TypeAnnotationError
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
@@ -56,7 +57,7 @@ class ExternalImport(FakeAnnotation):
 
         module_name = module.__name__
         return cls(
-            source=ImportString.from_str(module_name),
+            source=Import.from_str(module_name),
             name=obj.__name__,
             alias=alias,
             safe=safe,

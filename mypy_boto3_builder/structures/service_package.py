@@ -10,9 +10,9 @@ from typing import Literal
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
-from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
@@ -148,14 +148,14 @@ class ServicePackage(Package):
         result = ImportRecordGroup()
         result.add(
             ImportRecord(
-                ImportString("", ServiceModuleName.client.name),
+                Import.local(ServiceModuleName.client.name),
                 self.client.name,
             ),
         )
         if self.service_resource:
             result.add(
                 ImportRecord(
-                    ImportString("", ServiceModuleName.service_resource.name),
+                    Import.local(ServiceModuleName.service_resource.name),
                     self.service_resource.name,
                     fallback=ImportRecord(
                         Import.builtins, "object", alias=self.service_resource.name
@@ -165,14 +165,14 @@ class ServicePackage(Package):
         for waiter in self.waiters:
             result.add(
                 ImportRecord(
-                    ImportString("", ServiceModuleName.waiter.name),
+                    Import.local(ServiceModuleName.waiter.name),
                     waiter.name,
                 ),
             )
         for paginator in self.paginators:
             result.add(
                 ImportRecord(
-                    ImportString("", ServiceModuleName.paginator.name),
+                    Import.local(ServiceModuleName.paginator.name),
                     paginator.name,
                 ),
             )

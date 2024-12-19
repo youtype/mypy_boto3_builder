@@ -7,7 +7,7 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterator
 from typing import TYPE_CHECKING
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -25,7 +25,7 @@ class ResourceRecord(ClassRecord):
     def __init__(self, name: str, service_name: ServiceName) -> None:
         super().__init__(
             name=name,
-            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ServiceResource")],
+            bases=[ExternalImport(Import.boto3 + "resources" + "base", "ServiceResource")],
             use_alias=True,
         )
         self.service_name: ServiceName = service_name

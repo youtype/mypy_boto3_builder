@@ -8,7 +8,7 @@ from collections.abc import Iterator
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -30,7 +30,7 @@ class ServiceResource(ClassRecord):
     ) -> None:
         super().__init__(
             name=name,
-            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ServiceResource")],
+            bases=[ExternalImport(Import.boto3 + "resources" + "base", "ServiceResource")],
         )
         self.service_name = service_name
         self.collections: list[Collection] = []
@@ -105,12 +105,12 @@ class ServiceResource(ClassRecord):
     def _get_resource_meta_class(self) -> ClassRecord:
         return ClassRecord(
             name=f"{self.service_name.class_name}ResourceMeta",
-            bases=[ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta")],
+            bases=[ExternalImport(Import.boto3 + "resources" + "base", "ResourceMeta")],
             attributes=[
                 Attribute(
                     "client",
                     ExternalImport(
-                        source=ImportString("", ServiceModuleName.client.value),
+                        source=Import.local(ServiceModuleName.client.value),
                         name=self.service_name.get_client_name(),
                     ),
                     type_ignore="override",

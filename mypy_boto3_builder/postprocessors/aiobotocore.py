@@ -7,7 +7,7 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterable, Iterator
 from typing import Final
 
-from mypy_boto3_builder.import_helpers.import_string import Import
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.postprocessors.aio_imports import replace_imports_with_aio
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument

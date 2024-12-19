@@ -11,7 +11,7 @@ from botocore.waiter import Waiter as BotocoreWaiter
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import BuildInternalError
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -93,7 +93,7 @@ class Waiter(ClassRecord):
                 Argument("waiter_name", TypeLiteral(f"{self.name}Name", [self.attribute_name])),
             ),
             return_type=ExternalImport(
-                source=ImportString("", ServiceModuleName.waiter.value),
+                source=Import.local(ServiceModuleName.waiter.value),
                 name=self.name,
             ),
             type_ignore="override",

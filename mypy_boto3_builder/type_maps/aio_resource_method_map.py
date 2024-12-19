@@ -7,7 +7,7 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Mapping
 from typing import Final
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
@@ -34,7 +34,7 @@ AIO_RESOURCE_METHOD_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, Me
                     Argument("on_exit_loop_sleep", Type.int, default=Type.Ellipsis),
                 ],
                 return_type=ExternalImport(
-                    ImportString("aioboto3", "dynamodb", "table"),
+                    Import.aioboto3 + "dynamodb" + "table",
                     "BatchWriter",
                     safe=True,
                 ),

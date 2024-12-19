@@ -9,7 +9,7 @@ from typing import Final
 from botocore.config import Config
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.service_name import ServiceName
@@ -88,7 +88,7 @@ class WrapperPackageParser:
             package_name = self.package.data.get_service_package_name(service_name)
             service_name_argument = self._get_service_name_argument(service_name)
             return_type = ExternalImport(
-                source=ImportString(package_name, ServiceModuleName.client.value),
+                source=Import.from_parts(package_name, ServiceModuleName.client.value),
                 name=service_name.get_client_name(),
             )
             arguments = [
@@ -117,7 +117,7 @@ class WrapperPackageParser:
             package_name = self.package.data.get_service_package_name(service_name)
             service_name_argument = self._get_service_name_argument(service_name)
             return_type = ExternalImport(
-                source=ImportString(package_name, ServiceModuleName.client.value),
+                source=Import.from_parts(package_name, ServiceModuleName.client.value),
                 name=service_name.get_client_name(),
             )
             arguments = [
@@ -147,7 +147,7 @@ class WrapperPackageParser:
             package_name = self.package.data.get_service_package_name(service_name)
             service_name_argument = self._get_service_name_argument(service_name)
             return_type = ExternalImport(
-                source=ImportString(package_name, ServiceModuleName.service_resource.value),
+                source=Import.from_parts(package_name, ServiceModuleName.service_resource.value),
                 name=service_name.get_service_resource_name(),
             )
             arguments = [
@@ -176,7 +176,7 @@ class WrapperPackageParser:
             package_name = self.package.data.get_service_package_name(service_name)
             service_name_argument = self._get_service_name_argument(service_name)
             return_type = ExternalImport(
-                source=ImportString(package_name, ServiceModuleName.service_resource.value),
+                source=Import.from_parts(package_name, ServiceModuleName.service_resource.value),
                 name=service_name.get_service_resource_name(),
             )
             arguments = [

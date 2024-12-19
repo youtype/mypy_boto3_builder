@@ -7,8 +7,8 @@ Copyright 2024 Vlad Emelianov
 from collections.abc import Iterable, Iterator
 from typing import Final
 
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import Import
 
 
 class ImportRecordGroup:
@@ -27,7 +27,7 @@ class ImportRecordGroup:
         Add record to group.
         """
         for record in records:
-            if Import.is_builtins(record.source):
+            if record.source.is_builtins():
                 continue
             if record.needs_sys_fallback():
                 self.add(self._SYS_IMPORT_RECORD)

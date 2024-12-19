@@ -14,7 +14,7 @@ from botocore.paginate import Paginator
 from botocore.response import StreamingBody
 from botocore.waiter import Waiter
 
-from mypy_boto3_builder.import_helpers.import_string import Import
+from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.utils.type_checks import is_external_import
