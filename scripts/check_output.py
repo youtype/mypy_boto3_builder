@@ -53,9 +53,19 @@ DEPENDENCIES = [
 ]
 
 LOCAL_DEPENDENCIES = {
-    "types-aiobotocore-lite": ["types_aiobotocore_lite_package", "types_aiobotocore_package"],
-    "types-aioboto3-lite": ["types_aioboto3_lite_package", "types_aioboto3_package"],
+    "types-aiobotocore-lite": [
+        "types_aioboto3_custom_package",
+        "types_aiobotocore_custom_package",
+        "types_aiobotocore_lite_package",
+        "types_aiobotocore_package",
+    ],
+    "types-aioboto3-lite": [
+        "types_aioboto3_custom_package",
+        "types_aioboto3_lite_package",
+        "types_aioboto3_package",
+    ],
     "types-boto3-lite": [
+        "types_boto3_custom_package",
         "types_boto3_lite_package",
         "types_boto3_package",
         "boto3_stubs_lite_package",
@@ -362,7 +372,7 @@ def run_import(path: Path) -> None:
     if not (path / "__main__.py").exists():
         return
 
-    run_cmd = [
+    cmd = [
         "uv",
         "run",
         "-q",
@@ -373,8 +383,9 @@ def run_import(path: Path) -> None:
         "-c",
         f"import {path.name}",
     ]
+    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
     try:
-        subprocess.check_call(run_cmd, stdout=subprocess.DEVNULL)
+        subprocess.check_call(cmd, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         raise CheckError(path, f"Cannot be imported: {e}") from None
 
@@ -426,14 +437,16 @@ def get_package_paths() -> tuple[Path, ...]:
         if not directory.name.endswith("_package"):
             continue
 
-        if Config.args.filter and not any(
-            s in directory.relative_to(Config.args.path).as_posix() for s in Config.args.filter
-        ):
-            continue
+        for package_path in directory.iterdir():
+            if not is_package_dir(package_path):
+                continue
+            if Config.args.filter and not any(
+                i in package_path.as_posix() for i in Config.args.filter
+            ):
+                continue
 
-        result.extend(
-            package_path for package_path in directory.iterdir() if is_package_dir(package_path)
-        )
+            result.append(package_path)
+
     result.sort(key=lambda x: x.name)
     return tuple(result)
 
