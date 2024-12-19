@@ -268,8 +268,6 @@ def run_pyright(path: Path) -> None:
     """
     Check output with pyright.
     """
-    config_path = ROOT_PATH / "pyrightconfig.json"
-    shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
     cmd = [
         *Config.get_uvx_cmd(),
         *get_with_arguments(),
@@ -289,9 +287,6 @@ def run_pyright(path: Path) -> None:
             pass
         else:
             return
-        finally:
-            if config_path.exists():
-                config_path.unlink()
 
         temp_path = Path(f.name)
         output = temp_path.read_text()
@@ -467,6 +462,9 @@ def main() -> None:
     has_errors = False
     package_paths = get_package_paths()
 
+    pyright_config_path = ROOT_PATH / "pyrightconfig.json"
+    shutil.copyfile(PYRIGHT_CONFIG_PATH, pyright_config_path)
+
     if args.threads > 1:
         with ThreadPoolExecutor(max_workers=args.threads) as executor:
             results = executor.map(is_run_checks_passed, package_paths)
@@ -481,9 +479,12 @@ def main() -> None:
             if not is_passed and args.exit_on_error:
                 break
 
-        if has_errors:
-            logger.error("Snapshot mismatch")
-            sys.exit(1)
+    if pyright_config_path.exists():
+        pyright_config_path.unlink()
+
+    if has_errors:
+        logger.error("Snapshot mismatch")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
