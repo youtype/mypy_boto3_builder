@@ -69,13 +69,10 @@ jobs:
           rm -rf mypy_boto3_output/*
           uv run mypy_boto3_builder mypy_boto3_output \
             --product aioboto3 aiobotocore \
-            --no-smart-version
-      - name: Install main packages
-        run: |
-          bash ./scripts/install_aiobotocore.sh main
+            --no-smart-version \
+            --download-static-stubs
       - name: Check s3 output
         run: |
-          rm -rf mypy_boto3_output/*
           uv run mypy_boto3_builder mypy_boto3_output \
             --product aiobotocore-services \
             -s s3 \

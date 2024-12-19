@@ -25,7 +25,7 @@
         ".venv": true,
         ".mypy_cache": true,
         ".pytest_cache": true,
-        ".ruff_cache": true,
+        "**/.ruff_cache": true,
         "*.egg-info": true,
         "build": true,
         "dist": true,

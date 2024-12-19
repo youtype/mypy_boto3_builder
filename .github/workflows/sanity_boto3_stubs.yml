@@ -1,4 +1,4 @@
-name: "Sanity: types-boto3"
+name: "Sanity: boto3-stubs"
 
 on:
   schedule:
@@ -42,7 +42,7 @@ jobs:
             core.notice(`botocore version ${version}`)
             return version
   sanity-check:
-    name: "Sanity: types-boto3"
+    name: "Sanity: boto3-stubs"
     runs-on: ubuntu-latest
     needs: versions
     steps:
@@ -67,20 +67,20 @@ jobs:
         run: |
           rm -rf mypy_boto3_output/*
           uv run mypy_boto3_builder mypy_boto3_output \
-            --product types-boto3 \
+            --product boto3 \
             --no-smart-version \
             --download-static-stubs
       - name: Check s3 output
         run: |
           uv run mypy_boto3_builder mypy_boto3_output \
-            --product types-boto3-services \
+            --product boto3-services \
             --no-smart-version \
             -s s3
           uv run ./scripts/check_output.py -p ./mypy_boto3_output s3
       - name: Build packages
         run: |
           uv run mypy_boto3_builder mypy_boto3_output \
-            --product types-boto3-services \
+            --product boto3-services \
             --no-smart-version
       - name: Check output
         run: |

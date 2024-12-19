@@ -175,28 +175,32 @@ def get_workflow(path: Path) -> Workflow | None:
     """
     Get existing workflow paths.
     """
-    response = run_gh(
-        [
-            "run",
-            "list",
-            "--workflow",
-            path.as_posix(),
-            "--json",
-            "name",
-            "--json",
-            "status",
-            "--json",
-            "startedAt",
-            "--json",
-            "updatedAt",
-            "--json",
-            "headBranch",
-            "--json",
-            "name",
-            "--limit",
-            "1",
-        ]
-    )
+    try:
+        response = run_gh(
+            [
+                "run",
+                "list",
+                "--workflow",
+                path.as_posix(),
+                "--json",
+                "name",
+                "--json",
+                "status",
+                "--json",
+                "startedAt",
+                "--json",
+                "updatedAt",
+                "--json",
+                "headBranch",
+                "--json",
+                "name",
+                "--limit",
+                "1",
+            ]
+        )
+    except subprocess.CalledProcessError:
+        sys.stderr.write(f"Failed to get workflow {path}\n")
+        return None
     response_json = json.loads(response)
     if not response_json:
         return None
