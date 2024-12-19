@@ -4,17 +4,11 @@ Postprocessor for aiobotocore classes and methods.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Iterator, Mapping
+from collections.abc import Iterable, Iterator
 from typing import Final
 
-from botocore.client import BaseClient
-from botocore.config import Config
-from botocore.eventstream import EventStream
-from botocore.paginate import Paginator
-from botocore.response import StreamingBody
-from botocore.waiter import Waiter
-
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.import_string import Import
+from mypy_boto3_builder.postprocessors.aio_imports import replace_imports_with_aio
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.collection import Collection
@@ -47,53 +41,6 @@ class AioBotocorePostprocessor(BasePostprocessor):
         "get_waiter",
         "get_paginator",
         "can_paginate",
-    }
-
-    EXTERNAL_IMPORTS_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
-        ExternalImport.from_class(StreamingBody): ExternalImport(
-            ImportString("aiobotocore", "response"),
-            "StreamingBody",
-        ),
-        ExternalImport.from_class(EventStream): ExternalImport(
-            ImportString("aiobotocore", "eventstream"),
-            "AioEventStream",
-        ),
-        ExternalImport.from_class(Config): ExternalImport(
-            ImportString("aiobotocore", "config"),
-            "AioConfig",
-        ),
-        ExternalImport.from_class(Waiter): ExternalImport(
-            ImportString("aiobotocore", "waiter"),
-            "AIOWaiter",
-        ),
-        ExternalImport.from_class(Paginator): ExternalImport(
-            ImportString("aiobotocore", "paginate"),
-            "AioPaginator",
-        ),
-        ExternalImport.from_class(BaseClient): ExternalImport(
-            ImportString("aiobotocore", "client"),
-            "AioBaseClient",
-        ),
-        ExternalImport(
-            ImportString("boto3", "resources", "base"), "ServiceResource"
-        ): ExternalImport(
-            ImportString("aioboto3", "resources", "base"),
-            "AIOBoto3ServiceResource",
-        ),
-        ExternalImport(
-            ImportString("boto3", "resources", "collection"), "ResourceCollection"
-        ): ExternalImport(
-            ImportString("aioboto3", "resources", "collection"),
-            "AIOResourceCollection",
-        ),
-        ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"): ExternalImport(
-            ImportString("aioboto3", "dynamodb", "table"),
-            "BatchWriter",
-        ),
-        ExternalImport(ImportString("boto3", "dynamodb", "table"), "TableResource"): ExternalImport(
-            ImportString("aioboto3", "dynamodb", "table"),
-            "CustomTableResource",
-        ),
     }
 
     def process_package(self) -> None:
@@ -220,7 +167,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
                         Argument("exc_val", get_optional(ExternalImport.from_class(BaseException))),
                         Argument(
                             "exc_tb",
-                            get_optional(ExternalImport(ImportString("types"), "TracebackType")),
+                            get_optional(ExternalImport(Import.types, "TracebackType")),
                         ),
                     ),
                     return_type=Type.none,
@@ -252,11 +199,4 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
     def _replace_external_imports(self) -> None:
         shallow_type_annotations = self._iterate_types_shallow()
-        for type_annotation in self._iterate_types(shallow_type_annotations):
-            if not isinstance(type_annotation, ExternalImport):
-                continue
-
-            if type_annotation in self.EXTERNAL_IMPORTS_MAP:
-                new_type_annotation = self.EXTERNAL_IMPORTS_MAP[type_annotation]
-                type_annotation.copy_from(new_type_annotation)
-                continue
+        replace_imports_with_aio(self._iterate_types(shallow_type_annotations))

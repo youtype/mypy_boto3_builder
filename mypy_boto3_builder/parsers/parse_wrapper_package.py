@@ -9,6 +9,7 @@ from collections.abc import Iterable
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.wrapper_package_parser import WrapperPackageParser
+from mypy_boto3_builder.postprocessors.aio_imports import replace_imports_with_aio
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.types_aioboto3_package import TypesAioBoto3Package
 from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBotocorePackage
@@ -68,6 +69,8 @@ def parse_types_aiobotocore_package(
         )
         method.type_ignore = "override"
         package.session_class.methods.append(method)
+
+    replace_imports_with_aio(package.session_class.iterate_types())
     return package
 
 
@@ -101,4 +104,6 @@ def parse_types_aioboto3_package(
             [method.return_type],
         )
         package.session_class.methods.append(method)
+
+    replace_imports_with_aio(package.session_class.iterate_types())
     return package

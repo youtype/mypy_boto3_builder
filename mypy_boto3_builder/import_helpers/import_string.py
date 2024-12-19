@@ -178,6 +178,8 @@ class Import:
     aiobotocore: Final = ImportString("aiobotocore")
     aioboto3: Final = ImportString("aioboto3")
     typing_extensions: Final = ImportString("typing_extensions")
+    types: Final = ImportString("types")
+    sys: Final = ImportString("sys")
 
     _THIRD_PARTY: Final[set[str]] = {
         boto3.parent,

@@ -6,6 +6,7 @@ Copyright 2024 Vlad Emelianov
 
 from typing import TypeGuard
 
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
@@ -55,6 +56,13 @@ def is_type_parent(annotation: FakeAnnotation) -> TypeGuard[TypeParent]:
     Whether type annotation is a TypeParent.
     """
     return isinstance(annotation, TypeParent)
+
+
+def is_external_import(annotation: FakeAnnotation) -> TypeGuard[ExternalImport]:
+    """
+    Whether type annotation is a ExternalImport.
+    """
+    return isinstance(annotation, ExternalImport)
 
 
 def get_optional(wrapped: FakeAnnotation) -> TypeSubscript:

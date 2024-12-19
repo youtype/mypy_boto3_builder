@@ -8,7 +8,7 @@ from collections.abc import Iterable, Iterator
 from typing import Final
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import Import, ImportString
+from mypy_boto3_builder.import_helpers.import_string import Import
 
 
 class ImportRecordGroup:
@@ -16,7 +16,7 @@ class ImportRecordGroup:
     Group tool for ImportRecord sets.
     """
 
-    _SYS_IMPORT_RECORD: Final[ImportRecord] = ImportRecord(ImportString("sys"))
+    _SYS_IMPORT_RECORD: Final[ImportRecord] = ImportRecord(Import.sys)
 
     def __init__(self, records: Iterable[ImportRecord] = ()) -> None:
         self.records: set[ImportRecord] = set()
