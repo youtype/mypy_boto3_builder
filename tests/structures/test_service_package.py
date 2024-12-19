@@ -5,7 +5,9 @@ import pytest
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.service_name import ServiceNameCatalog
+from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.client import Client
+from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.service_resource import ServiceResource
@@ -19,11 +21,15 @@ class TestServicePackage:
 
     def setup_method(self) -> None:
         service_name = ServiceNameCatalog.s3
+        client = Client("Client", service_name)
+        client.methods.append(
+            Method("method", [Argument("self", None)], TypeLiteral("NewLiteral", ["value"]))
+        )
         self.service_package = ServicePackage(
             data=Boto3StubsPackageData(),
             service_name=service_name,
             version="1.2.3",
-            client=Client("Client", service_name),
+            client=client,
             service_resource=ServiceResource("ServiceResource", service_name),
             waiters=[Waiter("waiter", "waiter", "waiter", service_name)],
             paginators=[Paginator("Paginator", "Paginator", "paginate", service_name)],
@@ -44,7 +50,9 @@ class TestServicePackage:
             _ = self.service_package.client
 
     def test_extract_literals(self) -> None:
-        assert self.service_package.extract_literals() == []
+        literals = self.service_package.extract_literals()
+        assert len(literals) == 1
+        assert literals[0].name == "NewLiteral"
 
     def test_extract_type_defs(self) -> None:
         assert self.service_package.extract_type_defs() == set()
@@ -61,6 +69,13 @@ class TestServicePackage:
             "from botocore.client import BaseClient",
             "from botocore.errorfactory import BaseClientExceptions",
             "from typing import Any",
+            (
+                "if sys.version_info >= (3, 12):"
+                "\n    from typing import Literal"
+                "\nelse:"
+                "\n    from typing_extensions import Literal"
+            ),
+            "import sys",
         ]
 
     def test_get_service_resource_required_import_records(self) -> None:

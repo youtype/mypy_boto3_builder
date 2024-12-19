@@ -5,6 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Iterator
+from itertools import chain
 from typing import Literal
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -80,7 +81,7 @@ class ServicePackage(Package):
         Extract literals from children.
         """
         type_literals: set[TypeLiteral] = set()
-        for type_annotation in [*self.iterate_types(), *self.type_defs]:
+        for type_annotation in chain(self.iterate_types(), self.type_defs):
             if isinstance(type_annotation, TypeDefSortable):
                 type_literals.update(type_annotation.get_children_literals())
             if isinstance(type_annotation, TypeLiteral):
