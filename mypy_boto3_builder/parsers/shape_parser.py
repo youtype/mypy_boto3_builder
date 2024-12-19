@@ -16,6 +16,7 @@ from botocore.model import (
     StringShape,
     StructureShape,
 )
+from botocore.paginate import PageIterator
 
 from mypy_boto3_builder.boto3_ports.model import Collection as Boto3Collection
 from mypy_boto3_builder.boto3_ports.model import ResourceModel
@@ -652,6 +653,21 @@ class ShapeParser:
 
         return result
 
+    def get_paginator_subscript(self, paginator_name: str) -> FakeAnnotation:
+        """
+        Get Paginator return class.
+        """
+        operation_name = paginator_name
+        operation_shape = self._get_operation(operation_name)
+        if operation_shape.output_shape is None:
+            return Type.Any
+
+        return self._parse_return_type(
+            "Paginator",
+            "paginate",
+            operation_shape.output_shape,
+        )
+
     def get_paginate_method(self, paginator_name: str) -> Method:
         """
         Get Paginator `paginate` method.
@@ -691,16 +707,8 @@ class ShapeParser:
             arguments.extend(self._get_kw_flags("paginate", shape_arguments))
             arguments.extend(shape_arguments)
 
-        return_type: FakeAnnotation = Type.none
-        if operation_shape.output_shape is not None:
-            page_iterator_import = InternalImport("_PageIterator")
-            return_item = self._parse_return_type(
-                "Paginator",
-                "paginate",
-                operation_shape.output_shape,
-            )
-            return_type = TypeSubscript(page_iterator_import, [return_item])
-
+        subscript = self.get_paginator_subscript(operation_name)
+        return_type = TypeSubscript(ExternalImport.from_class(PageIterator), [subscript])
         method = Method(
             name="paginate",
             arguments=arguments,
@@ -711,7 +719,7 @@ class ShapeParser:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
                     operation_shape.input_shape,
-                    postfix=f"{paginator_name}Paginate",
+                    postfix="Paginate",
                 ),
             )
         return method
@@ -764,7 +772,7 @@ class ShapeParser:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
                     operation_shape.input_shape,
-                    postfix=f"{waiter_name}Wait",
+                    postfix="Wait",
                 ),
             )
         return method

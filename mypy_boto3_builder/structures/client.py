@@ -34,13 +34,12 @@ class Client(ClassRecord):
     }
 
     def __init__(self, name: str, service_name: ServiceName) -> None:
-        super().__init__(name=name)
+        super().__init__(name=name, bases=[ExternalImport.from_class(BaseClient)])
         self.service_name = service_name
         self.exceptions_class = ClassRecord(
             name="Exceptions",
             bases=(ExternalImport.from_class(BaseClientExceptions),),
         )
-        self.bases = [ExternalImport.from_class(BaseClient)]
 
     def __hash__(self) -> int:
         """

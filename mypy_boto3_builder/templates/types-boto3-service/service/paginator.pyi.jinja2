@@ -26,10 +26,6 @@ Usage::
 
 {{ copyright }}
 """
-from typing import TypeVar, Generic, Iterator
-
-from botocore.paginate import PageIterator
-
 {% for import_record in package.get_paginator_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}
 {% endfor -%}
@@ -44,17 +40,6 @@ __all__ = (
     {{ ",\n" if not loop.last or loop.first else "\n" }}
 {% endfor -%}
 )
-
-
-_ItemTypeDef = TypeVar("_ItemTypeDef")
-
-
-class _PageIterator(PageIterator, Generic[_ItemTypeDef]):
-    def __iter__(self) -> Iterator[_ItemTypeDef]:
-        """
-        Proxy method to specify iterator item type.
-        """
-
 
 {{ "\n\n" -}}
 

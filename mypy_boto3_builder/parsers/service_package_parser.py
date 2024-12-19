@@ -159,6 +159,7 @@ class ServicePackageParser:
                 paginator_name=paginator_name,
                 operation_name=operation_name,
                 service_name=self.service_name,
+                return_type=self.shape_parser.get_paginator_subscript(paginator_name),
             )
 
             paginate_method = self.shape_parser.get_paginate_method(paginator_name)

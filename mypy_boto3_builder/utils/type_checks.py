@@ -65,7 +65,14 @@ def is_external_import(annotation: FakeAnnotation) -> TypeGuard[ExternalImport]:
     return isinstance(annotation, ExternalImport)
 
 
-def get_optional(wrapped: FakeAnnotation) -> TypeSubscript:
+def is_type_subscript(annotation: FakeAnnotation) -> TypeGuard[TypeSubscript]:
+    """
+    Whether type annotation is a TypeSubscript.
+    """
+    return isinstance(annotation, TypeSubscript)
+
+
+def get_optional(wrapped: FakeAnnotation) -> TypeUnion:
     """
     Get Optional type annotation.
     """

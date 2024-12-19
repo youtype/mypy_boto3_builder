@@ -17,8 +17,10 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 @functools.total_ordering
@@ -33,10 +35,12 @@ class Paginator(ClassRecord):
         paginator_name: str,
         operation_name: str,
         service_name: ServiceName,
+        return_type: FakeAnnotation | None = None,
     ) -> None:
+        base_class = ExternalImport.from_class(BotocorePaginator)
         super().__init__(
             name=name,
-            bases=[ExternalImport.from_class(BotocorePaginator)],
+            bases=[base_class if not return_type else TypeSubscript(base_class, [return_type])],
         )
         self.operation_name = operation_name
         self.paginator_name = paginator_name

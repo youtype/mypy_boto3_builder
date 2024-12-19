@@ -9,6 +9,7 @@ from collections.abc import Iterable, Iterator
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.attribute import Attribute
+from mypy_boto3_builder.structures.base_class import BaseClass
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.utils.strings import xform_name
@@ -31,7 +32,9 @@ class ClassRecord:
         self.name = name
         self.methods = list(methods)
         self.attributes = list(attributes)
-        self.bases: list[FakeAnnotation] = list(bases)
+        self.bases = tuple(
+            BaseClass(f"_{name}Base{index or ''}", base) for index, base in enumerate(bases)
+        )
         self.use_alias = use_alias
         self.docstring = ""
 

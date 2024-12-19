@@ -48,7 +48,6 @@ class AioBotocorePostprocessor(BasePostprocessor):
         Convert all methods to asynchronous.
         """
         self._make_async_client()
-        self._make_async_paginators()
         self._make_async_waiters()
         self._make_async_service_resource()
         self._make_async_collections()
@@ -95,16 +94,6 @@ class AioBotocorePostprocessor(BasePostprocessor):
             return
         for collection in self.package.service_resource.collections:
             self._make_async_collection(collection)
-
-    def _make_async_paginators(self) -> None:
-        for paginator in self.package.paginators:
-            paginate_method = paginator.get_method("paginate")
-            if not isinstance(paginate_method.return_type, TypeSubscript):
-                raise TypeError(
-                    f"{paginator.name}.paginate method return type is not TypeSubscript:"
-                    f" {paginate_method.return_type.render()}",
-                )
-            paginate_method.return_type.parent = Type.AsyncIterator
 
     def _make_async_waiters(self) -> None:
         for waiter in self.package.waiters:

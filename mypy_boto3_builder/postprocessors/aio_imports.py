@@ -10,7 +10,7 @@ from typing import Final
 from botocore.client import BaseClient
 from botocore.config import Config
 from botocore.eventstream import EventStream
-from botocore.paginate import Paginator
+from botocore.paginate import PageIterator, Paginator
 from botocore.response import StreamingBody
 from botocore.waiter import Waiter
 
@@ -30,6 +30,9 @@ AIO_IMPORT_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
     ExternalImport.from_class(Waiter): ExternalImport(Import.aiobotocore + "waiter", "AIOWaiter"),
     ExternalImport.from_class(Paginator): ExternalImport(
         Import.aiobotocore + "paginate", "AioPaginator"
+    ),
+    ExternalImport.from_class(PageIterator): ExternalImport(
+        Import.aiobotocore + "paginate", "AioPageIterator"
     ),
     ExternalImport.from_class(BaseClient): ExternalImport(
         Import.aiobotocore + "client", "AioBaseClient"

@@ -23,17 +23,17 @@ class TestResource:
         )
 
     def test_iterate_types(self) -> None:
-        assert set(self.resource.iterate_types()) == {self.resource.bases[0]}
+        assert set(self.resource.iterate_types()) == set(self.resource.bases[0].iterate_types())
         collection = Collection(
             name="Collection",
             attribute_name="name",
             parent_name="parent",
             service_name=ServiceNameCatalog.s3,
-            type_annotation=self.resource.bases[0],
+            type_annotation=self.resource.bases[0].annotation,
             object_class_name="Object",
         )
         self.resource.collections.append(collection)
         assert set(self.resource.iterate_types()) == {
-            self.resource.bases[0],
-            collection.bases[0],
+            *self.resource.bases[0].iterate_types(),
+            *collection.bases[0].iterate_types(),
         }
