@@ -105,7 +105,7 @@ ignore = [
     "**/build",
     "typestubs",
     "examples",
-    "aio_examples",
+    "integration",
     "mypy_boto3_builder/stubs_static",
     "**/test_*.py",
 ]

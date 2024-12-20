@@ -1,4 +1,4 @@
-name: "Integration: Full and custom"
+name: "Integration: All products"
 
 on:
   schedule:
@@ -7,27 +7,36 @@ on:
 
 jobs:
   integration:
-    name: "Integration: Full and custom"
+    name: "Integration: All products"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        product:
+          - "types-boto3"
+          - "types-boto3-full"
+          - "types-boto3-custom"
+          - "boto3-stubs"
+          - "boto3-stubs-full"
+          - "boto3-stubs-custom"
+          - "types-aioboto3"
+          - "types-aioboto3-full"
+          - "types-aioboto3-custom"
+          - "types-aiobotocore"
+          - "types-aiobotocore-full"
+          - "types-aiobotocore-custom"
+        python_version:
+          - "3.8"
+          # - "3.10"
+          # - "3.13"
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: .python-version
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
           version: "latest"
       - name: types-boto3-full integration tests
         run: |
-          uv run scripts/integration.py --product boto3_full s3 ec2 -w -d
-      - name: types-aiobotocore-full integration tests
-        run: |
-          uv run scripts/integration.py --product aioboto3_full s3 -w -d
-      - name: types-boto3-custom integration tests
-        run: |
-          uv run scripts/integration.py --product boto3_custom s3 ec2 -w -d
-      - name: types-aioboto3-custom integration tests
-        run: |
-          uv run scripts/integration.py --product aioboto3_custom s3 -w -d
+          uv run scripts/integration.py \
+            --product ${{ matrix.product }} \
+            --python ${{ matrix.python_version }} \
+            -d

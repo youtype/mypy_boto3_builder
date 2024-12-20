@@ -1,0 +1,29 @@
+integration/types_aioboto3/s3_example.py:37: error: Incompatible types in assignment (expression has type "Coroutine[Any, Any, Bucket]", variable has type "Bucket")  [assignment]
+integration/types_aioboto3/s3_example.py:37: note: Maybe you forgot to use "await"?
+integration/types_aioboto3/s3_example.py:38: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"  [call-arg]
+integration/types_aioboto3/s3_example.py:41: error: Argument "Key" to "upload_file" of "Bucket" has incompatible type "int"; expected "str"  [arg-type]
+integration/types_aioboto3/s3_example.py:41: error: Argument "Config" to "upload_file" of "Bucket" has incompatible type "str"; expected "TransferConfig | None"  [arg-type]
+integration/types_aioboto3/s3_example.py:42: error: Missing key "Key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-item]
+integration/types_aioboto3/s3_example.py:42: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-unknown-key]
+integration/types_aioboto3/s3_example.py:46: error: Missing key "Key" for TypedDict "CopySourceTypeDef"  [typeddict-item]
+integration/types_aioboto3/s3_example.py:46: error: Extra key "key" for TypedDict "CopySourceTypeDef"  [typeddict-unknown-key]
+integration/types_aioboto3/s3_example.py:54: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str | CopySourceTypeDef"  [arg-type]
+integration/types_aioboto3/s3_example.py:58: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Literal['requester']"  [arg-type]
+integration/types_aioboto3/s3_example.py:59: error: Argument 1 to "Part" of "MultipartUpload" has incompatible type "str"; expected "int"  [arg-type]
+integration/types_aioboto3/s3_example.py:60: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"  [call-arg]
+integration/types_aioboto3/s3_example.py:60: error: Value of type "Coroutine[Any, Any, None]" must be used  [unused-coroutine]
+integration/types_aioboto3/s3_example.py:60: note: Are you missing an await?
+integration/types_aioboto3/s3_example.py:76: error: Argument 3 to "download_fileobj" of "S3Client" has incompatible type "bytes"; expected "IO[Any] | StreamingBody"  [arg-type]
+integration/types_aioboto3/s3_example.py:77: error: Argument "IfModifiedSince" to "get_object" of "S3Client" has incompatible type "None"; expected "datetime | str"  [arg-type]
+integration/types_aioboto3/s3_example.py:80: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?  [call-arg]
+integration/types_aioboto3/s3_example.py:84: error: Value of type "Coroutine[Any, Any, CreateBucketOutputTypeDef]" is not indexable  [index]
+integration/types_aioboto3/s3_example.py:84: note: Maybe you forgot to use "await"?
+integration/types_aioboto3/s3_example.py:87: error: Missing named argument "Key" for "get_object" of "S3Client"  [call-arg]
+integration/types_aioboto3/s3_example.py:90: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"  [typeddict-item]
+integration/types_aioboto3/s3_example.py:90: note: Did you mean "Expiration"?
+integration/types_aioboto3/s3_example.py:97: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
+integration/types_aioboto3/s3_example.py:97: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
+integration/types_aioboto3/s3_example.py:104: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
+integration/types_aioboto3/s3_example.py:106: error: "ClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
+integration/types_aioboto3/s3_example.py:110: error: "AsyncIterator[bytes]" has no attribute "__iter__"; maybe "__aiter__"? (not iterable)  [attr-defined]
+Found 24 errors in 1 file (checked 1 source file)

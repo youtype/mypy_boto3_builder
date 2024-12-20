@@ -1,0 +1,17 @@
+[
+    {
+        "severity": "error",
+        "message": "No parameter named \"test\"",
+        "range": {
+            "start": {
+                "line": 22,
+                "character": 23
+            },
+            "end": {
+                "line": 22,
+                "character": 27
+            }
+        },
+        "rule": "reportCallIssue"
+    }
+]

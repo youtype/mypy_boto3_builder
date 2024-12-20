@@ -1,0 +1,6 @@
+integration/types_boto3/ec2_example.py:29: error: Missing named argument "Resources" for "create_tags" of "EC2ServiceResource"  [call-arg]
+integration/types_boto3/ec2_example.py:29: error: Argument "Tags" to "create_tags" of "EC2ServiceResource" has incompatible type "int"; expected "Sequence[TagTypeDef]"  [arg-type]
+integration/types_boto3/ec2_example.py:33: error: Argument "DryRun" to "delete" of "Vpc" has incompatible type "str"; expected "bool"  [arg-type]
+integration/types_boto3/ec2_example.py:37: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")  [typeddict-item]
+integration/types_boto3/ec2_example.py:48: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")  [typeddict-item]
+Found 5 errors in 1 file (checked 1 source file)

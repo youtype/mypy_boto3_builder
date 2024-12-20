@@ -1,0 +1,32 @@
+[
+    {
+        "severity": "error",
+        "message": "Argument of type \"dict[str, str | int | Decimal | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, TableAttributeValueTypeDef]\" in function \"put_item\"\n\u00a0\u00a0Type \"ValueError\" is not assignable to type \"TableAttributeValueTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is not assignable to \"bytes\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is not assignable to \"bytearray\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is not assignable to \"str\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is not assignable to \"int\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is not assignable to \"Decimal\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is not assignable to \"bool\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is not assignable to \"Set[int]\"",
+        "range": {
+            "start": {
+                "line": 33,
+                "character": 25
+            },
+            "end": {
+                "line": 33,
+                "character": 43
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"TableName\" of type \"str\" in function \"list_backups\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
+        "range": {
+            "start": {
+                "line": 38,
+                "character": 38
+            },
+            "end": {
+                "line": 38,
+                "character": 41
+            }
+        },
+        "rule": "reportArgumentType"
+    }
+]

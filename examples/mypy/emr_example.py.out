@@ -1,5 +1,0 @@
-examples/emr_example.py:19: error: List item 0 has incompatible type "int"; expected "str"  [list-item]
-examples/emr_example.py:23: error: Too many arguments for "build_full_result" of "PageIterator"  [call-arg]
-examples/emr_example.py:26: error: TypedDict "ListStepsOutputTypeDef" has no key "steps"  [typeddict-item]
-examples/emr_example.py:26: note: Did you mean "Steps"?
-Found 3 errors in 1 file (checked 1 source file)

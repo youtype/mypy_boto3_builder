@@ -1,0 +1,3 @@
+integration/boto3_stubs/dynamodb_example.py:34: error: Dict entry 3 has incompatible type "str": "ValueError"; expected "str": "bytes | bytearray | str | int | Decimal | <7 more items> | None"  [dict-item]
+integration/boto3_stubs/dynamodb_example.py:39: error: Argument "TableName" to "list_backups" of "DynamoDBClient" has incompatible type "int"; expected "str"  [arg-type]
+Found 2 errors in 1 file (checked 1 source file)

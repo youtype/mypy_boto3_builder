@@ -1,0 +1,62 @@
+[
+    {
+        "severity": "error",
+        "message": "Argument missing for parameter \"Resources\"",
+        "range": {
+            "start": {
+                "line": 28,
+                "character": 4
+            },
+            "end": {
+                "line": 28,
+                "character": 34
+            }
+        },
+        "rule": "reportCallIssue"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool\" in function \"delete\"\n\u00a0\u00a0\"Literal['incorrect']\" is not assignable to \"bool\"",
+        "range": {
+            "start": {
+                "line": 32,
+                "character": 40
+            },
+            "end": {
+                "line": 32,
+                "character": 51
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
+        "range": {
+            "start": {
+                "line": 36,
+                "character": 51
+            },
+            "end": {
+                "line": 36,
+                "character": 54
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
+        "range": {
+            "start": {
+                "line": 47,
+                "character": 37
+            },
+            "end": {
+                "line": 47,
+                "character": 40
+            }
+        },
+        "rule": "reportArgumentType"
+    }
+]

@@ -1,0 +1,2 @@
+integration/boto3_stubs/sqs_example.py:23: error: Unexpected keyword argument "test" for "delete" of "Message"  [call-arg]
+Found 1 error in 1 file (checked 1 source file)

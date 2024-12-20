@@ -1,0 +1,47 @@
+[
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"UserName\" of type \"str\" in function \"add_user_to_group\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
+        "range": {
+            "start": {
+                "line": 18,
+                "character": 57
+            },
+            "end": {
+                "line": 18,
+                "character": 60
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"ClusterId\"",
+        "range": {
+            "start": {
+                "line": 21,
+                "character": 42
+            },
+            "end": {
+                "line": 21,
+                "character": 51
+            }
+        },
+        "rule": "reportCallIssue"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"Other\"",
+        "range": {
+            "start": {
+                "line": 34,
+                "character": 39
+            },
+            "end": {
+                "line": 34,
+                "character": 44
+            }
+        },
+        "rule": "reportCallIssue"
+    }
+]
