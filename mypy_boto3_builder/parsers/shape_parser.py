@@ -407,30 +407,26 @@ class ShapeParser:
         is_output_child: bool = False,
         is_streaming: bool = False,
     ) -> FakeAnnotation:
-        type_subscript = (
-            TypeSubscript(Type.dict) if is_output_child else TypeSubscript(Type.Mapping)
+        parent = Type.dict if is_output_child else Type.Mapping
+        key_child = (
+            self.parse_shape(
+                shape.key,
+                is_output_child=is_output_child,
+                is_streaming=is_streaming,
+            )
+            if shape.key
+            else Type.str
         )
-        if shape.key:
-            type_subscript.add_child(
-                self.parse_shape(
-                    shape.key,
-                    is_output_child=is_output_child,
-                    is_streaming=is_streaming,
-                ),
+        value_child = (
+            self.parse_shape(
+                shape.value,
+                is_output_child=is_output_child,
+                is_streaming=is_streaming,
             )
-        else:
-            type_subscript.add_child(Type.str)
-        if shape.value:
-            type_subscript.add_child(
-                self.parse_shape(
-                    shape.value,
-                    is_output_child=is_output_child,
-                    is_streaming=is_streaming,
-                ),
-            )
-        else:
-            type_subscript.add_child(Type.Any)
-        return type_subscript
+            if shape.value
+            else Type.Any
+        )
+        return TypeSubscript(parent, [key_child, value_child])
 
     def _get_typed_dict_map(self, *, output: bool, output_child: bool) -> TypedDictMap:
         if output:
