@@ -1,5 +1,5 @@
 """
-Base class for all structures that can be rendered to a class.
+Base class for ClassRecord.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -14,7 +14,7 @@ from mypy_boto3_builder.utils.type_checks import is_type_subscript
 
 class BaseClass:
     """
-    Base class for CLassRecord.
+    Base class for ClassRecord.
     """
 
     def __init__(self, name: str, annotation: FakeAnnotation) -> None:
