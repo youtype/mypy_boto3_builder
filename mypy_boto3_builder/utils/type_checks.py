@@ -15,6 +15,7 @@ from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
+from mypy_boto3_builder.type_annotations.type_var_annotation import TypeVarAnnotation
 
 
 def is_typed_dict(annotation: FakeAnnotation) -> TypeGuard[TypeTypedDict]:
@@ -70,6 +71,13 @@ def is_type_subscript(annotation: FakeAnnotation) -> TypeGuard[TypeSubscript]:
     Whether type annotation is a TypeSubscript.
     """
     return isinstance(annotation, TypeSubscript)
+
+
+def is_type_var(annotation: FakeAnnotation) -> TypeGuard[TypeVarAnnotation]:
+    """
+    Whether type annotation is a TypeVarAnnotation.
+    """
+    return isinstance(annotation, TypeVarAnnotation)
 
 
 def get_optional(wrapped: FakeAnnotation) -> TypeUnion:

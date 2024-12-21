@@ -62,6 +62,8 @@ class Type:
     NoReturn: Final[TypeAnnotation] = TypeAnnotation("NoReturn")
     Unpack: Final[TypeAnnotation] = TypeAnnotation("Unpack")
     Self: Final[TypeAnnotation] = TypeAnnotation("Self")
+    TypeVar: Final[TypeAnnotation] = TypeAnnotation("TypeVar")
+    Generic: Final[TypeAnnotation] = TypeAnnotation("Generic")
 
     @classmethod
     def unpack(cls, wrapped: FakeAnnotation) -> FakeAnnotation:

@@ -48,6 +48,8 @@ class TypeAnnotation(FakeAnnotation):
         "NotRequired": Import.typing,  # typing_extensions.NotRequired / typing.NotRequired
         "Unpack": Import.typing,  # typing_extensions.Unpack / typing.Unpack
         "Self": Import.typing,  # typing_extensions.Self / typing.Self
+        "TypeVar": Import.typing,  # typing_extensions.TypeVar / typing.TypeVar
+        "Generic": Import.typing,  # typing.Generic
     }
 
     # Set of fallback type annotations
@@ -57,6 +59,7 @@ class TypeAnnotation(FakeAnnotation):
         "Literal": ((3, 12), Import.typing_extensions),
         "Unpack": ((3, 12), Import.typing_extensions),
         "Self": ((3, 12), Import.typing_extensions),
+        "TypeVar": ((3, 13), Import.typing_extensions),
     }
 
     def __init__(self, wrapped_type: str) -> None:
