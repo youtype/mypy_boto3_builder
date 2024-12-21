@@ -94,7 +94,7 @@ class TypeLiteral(FakeAnnotation):
         """
         raise TypeAnnotationError("Use add_literal_child function.")
 
-    def is_same(self: Self, other: Self) -> bool:
+    def is_same(self, other: Self) -> bool:
         """
         Check if literals have the same children.
         """

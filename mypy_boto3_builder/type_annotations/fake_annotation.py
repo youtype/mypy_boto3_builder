@@ -35,7 +35,7 @@ class FakeAnnotation(ABC):
 
         return self.get_sort_key() == other.get_sort_key()
 
-    def __gt__(self: Self, other: "FakeAnnotation") -> bool:
+    def __gt__(self, other: "FakeAnnotation") -> bool:
         """
         Compare two annotations for sorting.
         """
@@ -100,12 +100,12 @@ class FakeAnnotation(ABC):
         return False
 
     @abstractmethod
-    def __copy__(self: Self) -> Self:
+    def __copy__(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
 
-    def copy(self: Self) -> Self:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

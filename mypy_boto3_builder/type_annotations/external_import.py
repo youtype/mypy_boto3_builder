@@ -112,7 +112,7 @@ class ExternalImport(FakeAnnotation):
         """
         return self.__class__(self.source, self.name, self.alias, fallback=self.fallback)
 
-    def copy_from(self: Self, other: Self) -> None:
+    def copy_from(self, other: Self) -> None:
         """
         Copy all fileds from another instance.
         """

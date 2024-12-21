@@ -67,7 +67,7 @@ class Paginator(ClassRecord):
 
         return self.get_sort_key() == other.get_sort_key()
 
-    def __gt__(self: Self, other: Self) -> bool:
+    def __gt__(self, other: Self) -> bool:
         """
         Compare two annotations for sorting.
         """

@@ -91,7 +91,7 @@ class ImportRecord:
 
         return str(self) == str(other)
 
-    def __gt__(self: Self, other: Self) -> bool:
+    def __gt__(self, other: Self) -> bool:
         """
         Compare two import records for sorting.
 

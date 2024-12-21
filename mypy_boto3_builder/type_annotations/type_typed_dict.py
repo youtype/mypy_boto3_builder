@@ -227,7 +227,7 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
             stringify=self.is_stringified(),
         )
 
-    def is_same(self: Self, other: Self) -> bool:
+    def is_same(self, other: Self) -> bool:
         """
         Check whether typed dict attributes are the same as `other`.
         """

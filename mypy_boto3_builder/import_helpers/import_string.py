@@ -94,7 +94,7 @@ class ImportString:
 
         return self.parts > other.parts
 
-    def __add__(self: Self, other: Self | str) -> Self:
+    def __add__(self, other: Self | str) -> Self:
         """
         Create a new import string by adding another import string parts to the end.
         """
