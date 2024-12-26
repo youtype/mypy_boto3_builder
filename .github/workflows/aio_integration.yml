@@ -26,7 +26,7 @@ jobs:
       - name: Integration tests
         run: |
           uv run scripts/integration.py \
-            --product aioboto3 \
+            --product types-aioboto3 \
             --output-path=mypy_boto3_output \
             -d
       - name: Store artifacts
