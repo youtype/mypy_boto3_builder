@@ -1,5 +1,5 @@
 from mypy_boto3_builder.service_name import ServiceNameCatalog
-from mypy_boto3_builder.structures.mypy_boto3_package import MypyBoto3Package
+from mypy_boto3_builder.structures.packages.mypy_boto3_package import MypyBoto3Package
 
 
 class TestMypyBoto3Package:

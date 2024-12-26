@@ -14,7 +14,7 @@ from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.structures.package import Package
-from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 from mypy_boto3_builder.utils.markdown import fix_pypi_headers
 from mypy_boto3_builder.utils.path import print_path, walk_path
 from mypy_boto3_builder.writers.ruff_formatter import RuffFormatter
@@ -203,6 +203,7 @@ class PackageWriter:
         package: Package,
         template_path: Path | None = None,
         static_files_path: Path | None = None,
+        include_template_names: Sequence[str] = (),
         exclude_template_names: Sequence[str] = (),
     ) -> None:
         """
@@ -212,6 +213,7 @@ class PackageWriter:
             package -- Package to render
             template_path -- Path to Jinja templates for package
             static_files_path -- Path to static files for package
+            include_template_names -- Render only templates with these names
             exclude_template_names -- Do not render templates with these names
         """
         self.logger.debug(f"Writing {package.data.pypi_name} to {print_path(self.output_path)}")
@@ -219,9 +221,16 @@ class PackageWriter:
             *self._get_setup_template_paths(package, template_path),
             *self._get_package_template_renders(package, template_path),
         ]
-        template_renders = [
-            i for i in template_renders if i.template_path.name not in exclude_template_names
-        ]
+        if include_template_names:
+            template_renders = list(
+                filter(lambda x: x.template_path.name in include_template_names, template_renders)
+            )
+        if exclude_template_names:
+            template_renders = list(
+                filter(
+                    lambda x: x.template_path.name not in exclude_template_names, template_renders
+                )
+            )
         exclude_static_paths: set[Path] = set()
         for template_render in template_renders:
             exclude_static_paths.update(template_render.paths)

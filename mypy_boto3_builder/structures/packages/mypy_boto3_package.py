@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING
 from mypy_boto3_builder.package_data import MypyBoto3PackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
-from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 
 if TYPE_CHECKING:
     from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral

@@ -338,3 +338,21 @@ class ServicePackage(Package):
             if any(attribute.name in unsafe_keys for attribute in type_def.children):
                 type_def.is_safe_as_class = False
                 continue
+
+    def get_typing_extensions_fallback_version(self) -> tuple[int, ...] | None:
+        """
+        Get max Python version that has fallbacks to typing-extensions.
+        """
+        min_versions: set[tuple[int, ...]] = set()
+        for import_record_group in (
+            self.get_literals_required_import_records(),
+            self.get_client_required_import_records(),
+            self.get_service_resource_required_import_records(),
+            self.get_type_defs_required_import_records(),
+        ):
+            for import_record in import_record_group.records:
+                if import_record.min_version:
+                    min_versions.add(import_record.min_version)
+        if not min_versions:
+            return None
+        return max(min_versions)

@@ -22,7 +22,7 @@ from mypy_boto3_builder.package_data import (
 from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_aiobotocore_package
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
 from mypy_boto3_builder.structures.package import Package
-from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 
 
 class AioBotocoreGenerator(BaseGenerator):
@@ -95,7 +95,7 @@ class AioBotocoreGenerator(BaseGenerator):
             package,
             template_path=TemplatePath.types_aiobotocore,
             static_files_path=self._get_static_files_path(),
-            exclude_template_names=["session.pyi.jinja2"],
+            exclude_template_names=("session.pyi.jinja2",),
         )
         return package
 
@@ -152,11 +152,11 @@ class AioBotocoreGenerator(BaseGenerator):
                 "*.pyi",
             )
         package.set_description(package.get_short_description("All-in-one type annotations"))
+        self._generate_full_stubs_services(package)
         self.package_writer.write_package(
             package,
             template_path=TemplatePath.types_aiobotocore_full,
         )
-        self._generate_full_stubs_services(package)
         return package
 
     def generate_custom_stubs(self) -> Package:
@@ -184,4 +184,9 @@ class AioBotocoreGenerator(BaseGenerator):
         )
 
         self._generate_full_stubs_services(package)
+        self.setup_package_writer.write_package(
+            package,
+            template_path=TemplatePath.types_aiobotocore_custom,
+            include_template_names=("setup.py.jinja2",),
+        )
         return package

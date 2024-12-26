@@ -10,7 +10,7 @@ from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.parsers.fake_service_package import parse_fake_service_package
 from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.mypy_boto3_package import MypyBoto3Package
+from mypy_boto3_builder.structures.packages.mypy_boto3_package import MypyBoto3Package
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 

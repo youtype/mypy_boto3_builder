@@ -4,7 +4,7 @@ Structure for types-boto3 module.
 Copyright 2024 Vlad Emelianov
 """
 
-from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
+from mypy_boto3_builder.structures.packages.wrapper_package import WrapperPackage
 
 
 class TypesBoto3Package(WrapperPackage):

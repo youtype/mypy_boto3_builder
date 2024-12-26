@@ -16,7 +16,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
+from mypy_boto3_builder.structures.packages.wrapper_package import WrapperPackage
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral

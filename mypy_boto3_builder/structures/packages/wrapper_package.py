@@ -14,11 +14,12 @@ from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.package import Package
+from mypy_boto3_builder.utils.install_requires import InstallRequires
 from mypy_boto3_builder.utils.version import get_builder_version
 
 if TYPE_CHECKING:
     from mypy_boto3_builder.structures.function import Function
-    from mypy_boto3_builder.structures.service_package import ServicePackage
+    from mypy_boto3_builder.structures.packages.service_package import ServicePackage
     from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
@@ -42,6 +43,7 @@ class WrapperPackage(Package, ABC):
             {self.data.name: ("py.typed", "*.pyi", "*/*.pyi")} if self.data.name else {}
         )
         self._description = self.get_short_description()
+        self.install_requires = InstallRequires(self.data.install_requires)
 
     @property
     def description(self) -> str:

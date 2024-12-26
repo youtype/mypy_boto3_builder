@@ -22,7 +22,7 @@ from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.package_extra import PackageExtra
-from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.package_builder import PackageBuilder
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
@@ -69,6 +69,11 @@ class BaseGenerator(ABC):
             output_path=self.output_path,
             generate_package=self.is_package(),
             cleanup=cleanup,
+        )
+        self.setup_package_writer = PackageWriter(
+            output_path=self.output_path,
+            generate_package=self.is_package(),
+            cleanup=False,
         )
 
     def is_package(self) -> bool:
@@ -205,6 +210,7 @@ class BaseGenerator(ABC):
                 package=service_package,
                 templates_path=self.service_template_path,
             )
+            package.install_requires.update(service_package.install_requires)
 
     @abstractmethod
     def generate_docs(self) -> None:

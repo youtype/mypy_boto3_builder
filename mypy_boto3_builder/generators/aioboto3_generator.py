@@ -25,7 +25,7 @@ from mypy_boto3_builder.parsers.parse_wrapper_package import (
 )
 from mypy_boto3_builder.postprocessors.aioboto3 import AioBoto3Postprocessor
 from mypy_boto3_builder.structures.package import Package
-from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
@@ -104,7 +104,7 @@ class AioBoto3Generator(BaseGenerator):
             package,
             template_path=TemplatePath.types_aioboto3,
             static_files_path=self._get_static_files_path(),
-            exclude_template_names=["session.pyi.jinja2"],
+            exclude_template_names=("session.pyi.jinja2",),
         )
         return package
 
@@ -192,4 +192,9 @@ class AioBoto3Generator(BaseGenerator):
         )
 
         self._generate_full_stubs_services(package)
+        self.setup_package_writer.write_package(
+            package,
+            template_path=TemplatePath.types_aioboto3_custom,
+            include_template_names=("setup.py.jinja2",),
+        )
         return package

@@ -11,7 +11,7 @@ from mypy_boto3_builder.exceptions import BuildEnvError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript

@@ -22,7 +22,7 @@ from mypy_boto3_builder.package_data import (
 from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_boto3_package
 from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
 from mypy_boto3_builder.structures.package import Package
-from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 
 
 class TypesBoto3Generator(BaseGenerator):
@@ -155,12 +155,12 @@ class TypesBoto3Generator(BaseGenerator):
                 "*.pyi",
             )
         package.set_description(package.get_short_description("All-in-one type annotations"))
+        self._generate_full_stubs_services(package)
         self.package_writer.write_package(
             package=package,
             template_path=TemplatePath.types_boto3_full,
             static_files_path=None,
         )
-        self._generate_full_stubs_services(package)
         return package
 
     def generate_custom_stubs(self) -> Package:
@@ -188,4 +188,9 @@ class TypesBoto3Generator(BaseGenerator):
         )
 
         self._generate_full_stubs_services(package)
+        self.setup_package_writer.write_package(
+            package,
+            template_path=TemplatePath.types_boto3_custom,
+            include_template_names=("setup.py.jinja2",),
+        )
         return package

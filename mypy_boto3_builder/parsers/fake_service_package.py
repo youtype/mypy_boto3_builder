@@ -8,8 +8,8 @@ from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
+from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 from mypy_boto3_builder.structures.paginator import Paginator
-from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.utils.strings import xform_name

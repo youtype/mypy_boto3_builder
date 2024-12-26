@@ -10,7 +10,6 @@ from setuptools import setup  # type: ignore
 
 LONG_DESCRIPTION = (Path(__file__).parent / "README.md").read_text()
 
-
 setup(
     name="{{ package.pypi_name }}",
     version="{{ package.version }}",
@@ -47,9 +46,11 @@ setup(
         'Source': '{{ builder_repo_url }}',
         'Tracker': '{{ builder_repo_url }}/issues',
     },
-    {% if package.data.install_requires %}
+    {% if package.install_requires %}
     install_requires=[
-        {% for item in package.data.install_requires %}'{{ item }}'{{ '' if loop.last else ', ' }}{% endfor -%}
+        {% for item in package.install_requires.iterate_items() %}
+            '{{ item.render() }}'{{ '' if loop.last else ', ' }}
+        {% endfor -%}
     ],
     {% endif %}
     {% if package.extras %}

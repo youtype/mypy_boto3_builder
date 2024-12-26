@@ -145,6 +145,7 @@ class TypesBoto3FullPackageData(TypesBoto3PackageData):
     name: str = ""
     pypi_name: str = TypesBoto3PackageData.pypi_full_name
     is_conda_forge_supported: bool = False
+    install_requires: tuple[str, ...] = ()
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
@@ -212,6 +213,7 @@ class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
     name: str = ""
     pypi_name: str = TypesAioBotocorePackageData.pypi_full_name
     is_conda_forge_supported: bool = False
+    install_requires: tuple[str, ...] = ()
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
@@ -282,6 +284,7 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
     name: str = ""
     pypi_name: str = Boto3StubsPackageData.pypi_full_name
     is_conda_forge_supported: bool = False
+    install_requires: tuple[str, ...] = ()
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """

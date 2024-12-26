@@ -13,6 +13,7 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package_url import PackageURL
+from mypy_boto3_builder.utils.install_requires import InstallRequires
 from mypy_boto3_builder.utils.version import (
     get_max_build_version,
     get_min_build_version,
@@ -44,6 +45,7 @@ class Package:
         self.logger = get_logger()
         self.url = PackageURL(self.pypi_name, self.data)
         self.extras: list[PackageExtra] = []
+        self.install_requires = InstallRequires(self.data.install_requires)
 
     @property
     def library_version(self) -> str:
