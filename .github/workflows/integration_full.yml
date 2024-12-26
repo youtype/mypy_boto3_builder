@@ -1,4 +1,4 @@
-name: "Integration: All products"
+name: "Integration"
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   integration:
-    name: "Integration: All products"
+    name: "Integration"
     runs-on: ubuntu-latest
     strategy:
       matrix:
