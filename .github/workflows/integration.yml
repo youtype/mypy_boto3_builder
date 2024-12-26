@@ -24,7 +24,7 @@ jobs:
       - name: Integration tests
         run: |
           uv run scripts/integration.py \
-            --product boto3 \
+            --product types-boto3 \
             --output-path=mypy_boto3_output \
             -d
       - name: Store artifacts
