@@ -1,4 +1,4 @@
-name: "Integration"
+name: "e2e"
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   integration:
-    name: "Integration"
+    name: "e2e"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,19 +25,22 @@ jobs:
           - "types-aiobotocore-full"
           - "types-aiobotocore-custom"
         python_version:
-          - "3.8"
-          - "3.10"
-          - "3.13"
+          - "3.8" # oldest supported
+          - "3.10" # most popular
+          - "3.13" # latest
     steps:
       - uses: actions/checkout@v4
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
           version: "latest"
-      - name: types-boto3-full integration tests
+      - name: Integration tests
         run: |
           uv run scripts/integration.py \
             --product ${{ matrix.product }} \
             --python ${{ matrix.python_version }} \
-            --wheel \
+            --output-path=mypy_boto3_output \
             -d
+      - name: Lint output
+        run: |
+          uv run scripts/check_output.py -p ./mypy_boto3_output
