@@ -26,8 +26,8 @@ jobs:
           - "types-aiobotocore-custom"
         python_version:
           - "3.8"
-          # - "3.10"
-          # - "3.13"
+          - "3.10"
+          - "3.13"
     steps:
       - uses: actions/checkout@v4
       - name: Set up uv
@@ -39,4 +39,5 @@ jobs:
           uv run scripts/integration.py \
             --product ${{ matrix.product }} \
             --python ${{ matrix.python_version }} \
+            --wheel \
             -d

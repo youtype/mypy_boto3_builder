@@ -152,10 +152,15 @@ class AioBotocoreGenerator(BaseGenerator):
                 "*.pyi",
             )
         package.set_description(package.get_short_description("All-in-one type annotations"))
-        self._generate_full_stubs_services(package)
         self.package_writer.write_package(
             package,
             template_path=TemplatePath.types_aiobotocore_full,
+        )
+        self._generate_full_stubs_services(package)
+        self.setup_package_writer.write_package(
+            package,
+            template_path=TemplatePath.types_aiobotocore_full,
+            include_template_names=("setup.py.jinja2",),
         )
         return package
 
