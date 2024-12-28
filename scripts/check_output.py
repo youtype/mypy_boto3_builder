@@ -38,6 +38,7 @@ PYRIGHT_IGNORED_MESSAGES = (
     "is marked as overload, but no implementation is provided",
     '"client" overrides symbol of same name in class "ResourceMeta"',
     "must return value on all code paths",
+    "Argument to class must be a base class",
 )
 MYPY_IGNORED_MESSAGES = ("note:",)
 

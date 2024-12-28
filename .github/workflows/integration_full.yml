@@ -1,4 +1,4 @@
-name: "e2e"
+name: "E2E"
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   integration:
-    name: "e2e"
+    name: "E2E"
     runs-on: ubuntu-latest
     strategy:
       matrix:
