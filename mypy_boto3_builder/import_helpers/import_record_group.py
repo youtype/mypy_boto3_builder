@@ -39,8 +39,13 @@ class ImportRecordGroup:
         sources = {x.source for x in records}
         for source in sorted(sources):
             source_records = {i for i in records if i.source == source}
-            names = (x.render_name() for x in sorted(source_records))
-            yield f"from {source.render()} import {', '.join(names)}"
+            noalias_source_records = {i for i in source_records if not i.alias}
+            alias_source_records = {i for i in source_records if i.alias}
+            if noalias_source_records:
+                names = (x.render_name() for x in sorted(noalias_source_records))
+                yield f"from {source.render()} import {', '.join(names)}"
+            for record in sorted(alias_source_records):
+                yield f"from {source.render()} import {record.render_name()}"
 
     def _iterate_render_nameless(self) -> Iterator[str]:
         """
@@ -64,9 +69,9 @@ class ImportRecordGroup:
         Iterate over rendered records with fallback but no min version.
         """
         records = {i for i in self.records if i.fallback and not i.min_version}
-        sources = {x.source for x in records}
-        for source in sorted(sources):
-            source_records = {i for i in records if i.source == source}
+        parents = {x.source.parent for x in records}
+        for parent in sorted(parents):
+            source_records = {i for i in records if i.source.parent == parent}
             fallback_records = {i.fallback for i in source_records if i.fallback}
             yield "\n".join(
                 (
