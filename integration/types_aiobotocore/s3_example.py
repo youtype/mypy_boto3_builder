@@ -9,12 +9,10 @@ pyright myproject
 ```
 """
 
-from typing import TYPE_CHECKING
-
 from aiobotocore.session import get_session
 
-if TYPE_CHECKING:
-    from types_aiobotocore_s3.client import S3Client
+from types_aiobotocore_s3.client import S3Client
+from types_aiobotocore_s3.service_resource import S3ServiceResource
 
 
 async def s3_client_example() -> None:

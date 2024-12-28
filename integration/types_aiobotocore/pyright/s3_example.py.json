@@ -4,11 +4,11 @@
         "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" is not assignable to type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"StreamingBody\"",
         "range": {
             "start": {
-                "line": 32,
+                "line": 30,
                 "character": 55
             },
             "end": {
-                "line": 32,
+                "line": 30,
                 "character": 61
             }
         },
@@ -19,11 +19,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" is not assignable to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"str\"",
         "range": {
             "start": {
-                "line": 33,
+                "line": 31,
                 "character": 76
             },
             "end": {
-                "line": 33,
+                "line": 31,
                 "character": 80
             }
         },
@@ -34,11 +34,11 @@
         "message": "Argument missing for parameter \"Bucket\"",
         "range": {
             "start": {
-                "line": 36,
+                "line": 34,
                 "character": 14
             },
             "end": {
-                "line": 36,
+                "line": 34,
                 "character": 56
             }
         },
@@ -49,11 +49,11 @@
         "message": "No parameter named \"bucket\"",
         "range": {
             "start": {
-                "line": 36,
+                "line": 34,
                 "character": 40
             },
             "end": {
-                "line": 36,
+                "line": 34,
                 "character": 46
             }
         },
@@ -64,11 +64,11 @@
         "message": "\"__getitem__\" method not defined on type \"Coroutine[Any, Any, CreateBucketOutputTypeDef]\"",
         "range": {
             "start": {
-                "line": 40,
+                "line": 38,
                 "character": 8
             },
             "end": {
-                "line": 40,
+                "line": 38,
                 "character": 16
             }
         },
@@ -79,11 +79,11 @@
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
-                "line": 43,
+                "line": 41,
                 "character": 26
             },
             "end": {
-                "line": 43,
+                "line": 41,
                 "character": 60
             }
         },
@@ -94,11 +94,11 @@
         "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"Allowedorigins\" is an undefined item in type \"CORSRuleTypeDef\"",
         "range": {
             "start": {
-                "line": 53,
+                "line": 51,
                 "character": 59
             },
             "end": {
-                "line": 53,
+                "line": 51,
                 "character": 75
             }
         },
@@ -109,11 +109,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0\"None\" is not assignable to \"str\"",
         "range": {
             "start": {
-                "line": 60,
+                "line": 58,
                 "character": 57
             },
             "end": {
-                "line": 60,
+                "line": 58,
                 "character": 61
             }
         },
@@ -124,11 +124,11 @@
         "message": "Cannot access attribute \"operations_name\" for class \"ClientError\"\n\u00a0\u00a0Attribute \"operations_name\" is unknown",
         "range": {
             "start": {
-                "line": 62,
+                "line": 60,
                 "character": 20
             },
             "end": {
-                "line": 62,
+                "line": 60,
                 "character": 35
             }
         },
@@ -139,11 +139,11 @@
         "message": "\"AsyncIterator[bytes]\" is not iterable\n\u00a0\u00a0\"__iter__\" method not defined",
         "range": {
             "start": {
-                "line": 66,
+                "line": 64,
                 "character": 21
             },
             "end": {
-                "line": 66,
+                "line": 64,
                 "character": 45
             }
         },
