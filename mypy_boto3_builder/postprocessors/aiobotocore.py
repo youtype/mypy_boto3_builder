@@ -8,6 +8,7 @@ from collections.abc import Iterable, Iterator
 from typing import Final
 
 from mypy_boto3_builder.import_helpers.import_helper import Import
+from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.postprocessors.aio_imports import replace_imports_with_aio
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
@@ -19,7 +20,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.aio_resource_method_map import get_aio_resource_method
-from mypy_boto3_builder.utils.type_checks import get_optional
+from mypy_boto3_builder.utils.type_checks import get_optional, is_external_import
 
 
 class AioBotocorePostprocessor(BasePostprocessor):
@@ -54,6 +55,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         self._make_async_sub_resources()
         self._add_contextmanager_methods()
         self._replace_external_imports()
+        self._add_fallback_for_boto3_imports()
 
     def _make_async_client(self) -> None:
         for method in self.package.client.methods:
@@ -176,16 +178,28 @@ class AioBotocorePostprocessor(BasePostprocessor):
         if self.package.service_resource:
             yield from self.package.service_resource.iterate_types()
 
+    @classmethod
     def _iterate_types(
-        self,
+        cls,
         type_annotations: Iterable[FakeAnnotation],
     ) -> Iterator[FakeAnnotation]:
         for type_annotation in type_annotations:
             if isinstance(type_annotation, TypeDefSortable):
-                yield from self._iterate_types(type_annotation.get_children_types())
+                yield from cls._iterate_types(type_annotation.get_children_types())
             else:
                 yield type_annotation
 
     def _replace_external_imports(self) -> None:
         shallow_type_annotations = self._iterate_types_shallow()
         replace_imports_with_aio(self._iterate_types(shallow_type_annotations))
+
+    def _add_fallback_for_boto3_imports(self) -> None:
+        shallow_type_annotations = self._iterate_types_shallow()
+        for type_annotation in shallow_type_annotations:
+            if not is_external_import(type_annotation):
+                continue
+
+            if type_annotation.source.startswith(Import.boto3):
+                type_annotation.fallback = ImportRecord(
+                    Import.builtins, "object", alias=type_annotation.name
+                )
