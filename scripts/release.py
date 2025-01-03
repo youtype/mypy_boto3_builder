@@ -28,7 +28,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
-from typing import TYPE_CHECKING, Sequence
+from typing import TYPE_CHECKING
 from unittest.mock import patch
 
 from requests.exceptions import ConnectionError as RequestsConnectionError
@@ -38,7 +38,7 @@ from twine.exceptions import TwineException
 from twine.settings import Settings
 
 if TYPE_CHECKING:
-    from collections.abc import Iterator
+    from collections.abc import Iterator, Sequence
 
 MAIN_PACKAGES = [
     "types_aiobotocore_lite",

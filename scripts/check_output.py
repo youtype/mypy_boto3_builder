@@ -25,7 +25,10 @@ import tempfile
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Sequence
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -239,6 +242,8 @@ def run_ruff(path: Path) -> None:
         "TC003",  # typing-only-standard-library-import
         # ruff does not support conditional import syntax for aio libs
         "UP004",  # useless-object-inheritance
+        # until collections.abc.Sequence and collections.abc.Mapping are supported
+        "UP006",  # non-pep585-annotation
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         cmd = [

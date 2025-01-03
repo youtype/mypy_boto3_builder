@@ -18,7 +18,10 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
 
 ROOT_PATH = Path(__file__).resolve().parent.parent
 WORKFLOW_PATH = ROOT_PATH / ".github" / "workflows"
