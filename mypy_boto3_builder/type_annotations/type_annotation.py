@@ -12,6 +12,7 @@ from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.utils.version import VersionParts
 
 
 class TypeAnnotation(FakeAnnotation):
@@ -51,7 +52,7 @@ class TypeAnnotation(FakeAnnotation):
     }
 
     # Set of fallback type annotations
-    _FALLBACK: Final[Mapping[str, tuple[tuple[int, int] | None, ImportString]]] = {
+    _FALLBACK: Final[Mapping[str, tuple[VersionParts, ImportString]]] = {
         "NotRequired": ((3, 12), Import.typing_extensions),
         "TypedDict": ((3, 12), Import.typing_extensions),
         "Literal": ((3, 12), Import.typing_extensions),

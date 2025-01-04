@@ -1,3 +1,4 @@
+import pytest
 from packaging.version import Version
 
 from mypy_boto3_builder.utils.version import (
@@ -8,6 +9,7 @@ from mypy_boto3_builder.utils.version import (
     get_release_version,
     is_valid_version,
     sort_versions,
+    stringify_parts,
 )
 
 
@@ -45,3 +47,10 @@ class TestStrings:
 
     def test_sort_versions(self) -> None:
         assert sort_versions(["1.2.3.post1", "1.2.3", "1.2.3dev3.4"]) == ["1.2.3", "1.2.3.post1"]
+
+    def test_stringify_parts(self) -> None:
+        assert stringify_parts((1, 2, 3)) == "1.2.3"
+        assert stringify_parts((1, 3)) == "1.3"
+        assert stringify_parts((3,)) == "3"
+        with pytest.raises(ValueError, match="Empty version parts"):
+            stringify_parts(())

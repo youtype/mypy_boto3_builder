@@ -19,7 +19,6 @@ from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_maps.typed_dicts import CloudwatchEventTypeDef
-from mypy_boto3_builder.utils.install_requires import InstallRequiresItem
 from mypy_boto3_builder.utils.strings import xform_name
 from mypy_boto3_builder.utils.type_checks import is_union
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
@@ -92,16 +91,7 @@ class ServicePackageParser:
         self.fix_unions_for_py39(result.type_defs)
         result.literals = result.extract_literals()
         result.validate()
-
-        result.install_requires.clear()
-        typing_extensions_version = result.get_typing_extensions_fallback_version()
-        if typing_extensions_version:
-            result.install_requires.add(
-                InstallRequiresItem(
-                    "typing-extensions",
-                    drop_python_version=".".join(str(i) for i in typing_extensions_version),
-                )
-            )
+        result.calculate_install_requires()
 
         return result
 

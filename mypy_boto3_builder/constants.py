@@ -40,6 +40,8 @@ ATTRIBUTES: Final = "_attributes"
 SERVICE_RESOURCE: Final = "ServiceResource"
 CLIENT: Final = "Client"
 
+TYPING_EXTENSIONS_PYPI_NAME: Final = "typing-extensions"
+
 # python versions supported by output stubs
 SUPPORTED_PY_VERSIONS: Final = {
     (3, 8),

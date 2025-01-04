@@ -4,10 +4,11 @@ Parsed Service package.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Iterator
+from collections.abc import Iterable, Iterator, Mapping
 from itertools import chain
-from typing import Literal
+from typing import Final, Literal
 
+from mypy_boto3_builder.constants import TYPING_EXTENSIONS_PYPI_NAME
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_helper import Import
@@ -26,14 +27,20 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.utils.install_requires import InstallRequiresItem
 from mypy_boto3_builder.utils.strings import RESERVED_NAMES, get_anchor_link, is_reserved
 from mypy_boto3_builder.utils.type_checks import is_type_def, is_typed_dict
+from mypy_boto3_builder.utils.version import VersionParts, stringify_parts
 
 
 class ServicePackage(Package):
     """
     Parsed Service package.
     """
+
+    _FALLBACK_IMPORT_MAP: Final[Mapping[str, str]] = {
+        Import.typing_extensions.parent: TYPING_EXTENSIONS_PYPI_NAME,
+    }
 
     def __init__(
         self,
@@ -339,11 +346,11 @@ class ServicePackage(Package):
                 type_def.is_safe_as_class = False
                 continue
 
-    def get_typing_extensions_fallback_version(self) -> tuple[int, ...] | None:
+    def _get_fallback_versions(self) -> tuple[tuple[str, str], ...]:
         """
         Get max Python version that has fallbacks to typing-extensions.
         """
-        min_versions: set[tuple[int, ...]] = set()
+        result: dict[str, VersionParts] = {}
         for import_record_group in (
             self.get_literals_required_import_records(),
             self.get_client_required_import_records(),
@@ -351,8 +358,24 @@ class ServicePackage(Package):
             self.get_type_defs_required_import_records(),
         ):
             for import_record in import_record_group.records:
-                if import_record.min_version:
-                    min_versions.add(import_record.min_version)
-        if not min_versions:
-            return None
-        return max(min_versions)
+                if import_record.min_version and import_record.fallback:
+                    parent = import_record.fallback.source.parent
+                    result[parent] = max((result.get(parent, ()), import_record.min_version))
+
+        return tuple((k, stringify_parts(v)) for k, v in result.items())
+
+    def calculate_install_requires(self) -> None:
+        """
+        Calculate install_requires based on fallback versions.
+        """
+        self.install_requires.clear()
+        for module_name, version in self._get_fallback_versions():
+            if module_name not in self._FALLBACK_IMPORT_MAP:
+                continue
+            requirement_name = self._FALLBACK_IMPORT_MAP[module_name]
+            self.install_requires.add(
+                InstallRequiresItem(
+                    requirement_name,
+                    drop_python_version=version,
+                )
+            )

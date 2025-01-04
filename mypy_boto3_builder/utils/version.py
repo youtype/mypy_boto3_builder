@@ -12,6 +12,8 @@ from packaging.version import InvalidVersion, Version
 
 from mypy_boto3_builder.constants import PACKAGE_NAME
 
+VersionParts = tuple[int, ...]
+
 
 def get_builder_version() -> str:
     """
@@ -74,3 +76,12 @@ def is_valid_version(version: str) -> bool:
     except InvalidVersion:
         return False
     return True
+
+
+def stringify_parts(value: VersionParts) -> str:
+    """
+    Convert stable version tuple to string.
+    """
+    if not value:
+        raise ValueError("Empty version parts")
+    return ".".join(map(str, value))

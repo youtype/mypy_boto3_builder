@@ -10,6 +10,7 @@ from typing import Self
 
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.utils.version import VersionParts
 
 
 @functools.total_ordering
@@ -30,7 +31,7 @@ class ImportRecord:
         source: ImportString,
         name: str = "",
         alias: str = "",
-        min_version: tuple[int, ...] | None = None,
+        min_version: VersionParts = (),
         fallback: Self | None = None,
     ) -> None:
         self.source = source
@@ -101,7 +102,7 @@ class ImportRecord:
             return False
 
         if self.min_version != other.min_version:
-            return (self.min_version or ()) > (other.min_version or ())
+            return self.min_version > other.min_version
 
         if bool(self.fallback) != bool(other.fallback):
             return bool(self.fallback) > bool(other.fallback)
