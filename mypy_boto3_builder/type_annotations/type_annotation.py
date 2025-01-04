@@ -38,17 +38,17 @@ class TypeAnnotation(FakeAnnotation):
         "overload": Import.typing,  # typing.overload
         "type": Import.builtins,  # builtins.type
         "NoReturn": Import.typing,  # typing.NoReturn
-        "TypedDict": Import.typing,  # typing_extensions.TypedDict / typing.TypedDict
-        "Literal": Import.typing,  # typing_extensions.Literal / typing.Literal
-        "Mapping": Import.typing,  # typing.Mapping
-        "Sequence": Import.typing,  # typing.Sequence
-        "Callable": Import.typing,  # typing.Callable
-        "Iterator": Import.typing,  # typing.Iterator
-        "Awaitable": Import.typing,  # typing.Awaitable
-        "AsyncIterator": Import.typing,  # typing.AsyncIterator
-        "NotRequired": Import.typing,  # typing_extensions.NotRequired / typing.NotRequired
-        "Unpack": Import.typing,  # typing_extensions.Unpack / typing.Unpack
-        "Self": Import.typing,  # typing_extensions.Self / typing.Self
+        "TypedDict": Import.typing,  # typing.TypedDict / typing_extensions.TypedDict
+        "Literal": Import.typing,  # typing.Literal / typing_extensions.Literal
+        "Mapping": Import.collections_abc,  # collections.abc.Mapping / typing.Mapping
+        "Sequence": Import.collections_abc,  # collections.abc.Sequence / typing.Sequence
+        "Callable": Import.collections_abc,  # collections.abc.Callable / typing.Callable
+        "Iterator": Import.collections_abc,  # collections.abc.Iterator / typing.Iterator
+        "Awaitable": Import.collections_abc,  # collections.abc.Awaitable / typing.Awaitable
+        "AsyncIterator": Import.collections_abc,  # collections.abc.AsyncIterator / typing
+        "NotRequired": Import.typing,  # typing.NotRequired / typing_extensions.NotRequired
+        "Unpack": Import.typing,  # typing.Unpack / typing_extensions.Unpack
+        "Self": Import.typing,  # typing.Self / typing_extensions.Self
     }
 
     # Set of fallback type annotations
@@ -58,6 +58,12 @@ class TypeAnnotation(FakeAnnotation):
         "Literal": ((3, 12), Import.typing_extensions),
         "Unpack": ((3, 12), Import.typing_extensions),
         "Self": ((3, 12), Import.typing_extensions),
+        "Mapping": ((3, 9), Import.typing),
+        "Sequence": ((3, 9), Import.typing),
+        "Callable": ((3, 9), Import.typing),
+        "Iterator": ((3, 9), Import.typing),
+        "Awaitable": ((3, 9), Import.typing),
+        "AsyncIterator": ((3, 9), Import.typing),
     }
 
     def __init__(self, wrapped_type: str) -> None:

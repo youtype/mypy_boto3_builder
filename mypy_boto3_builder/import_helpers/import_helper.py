@@ -28,6 +28,7 @@ class Import:
     typing_extensions: Final = ImportString(ImportParent.typing_extensions.value)
     types: Final = ImportString(ImportParent.types.value)
     sys: Final = ImportString(ImportParent.sys.value)
+    collections_abc: Final = ImportString(ImportParent.collections.value, "abc")
 
     @classmethod
     def local(cls, module_name: str) -> ImportString:

@@ -44,10 +44,10 @@ class TestTypeAnnotation:
         assert self.any.copy().get_import_name() == "Any"
 
     def test_no_fallback(self) -> None:
-        sample = TypeAnnotation("Awaitable")
+        sample = TypeAnnotation("Type")
         import_records = sorted(sample.get_import_records())
         assert len(import_records) == 1
-        assert import_records[0].render() == "from typing import Awaitable"
+        assert import_records[0].render() == "from typing import Type"
         assert import_records[0].fallback is None
 
     def test_fallback(self) -> None:

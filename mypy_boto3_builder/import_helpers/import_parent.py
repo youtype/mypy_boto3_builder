@@ -25,6 +25,7 @@ class ImportParent(Enum):
     typing_extensions = "typing_extensions"
     types = "types"
     sys = "sys"
+    collections = "collections"
 
     @classmethod
     def is_third_party(cls, parent_name: str) -> bool:

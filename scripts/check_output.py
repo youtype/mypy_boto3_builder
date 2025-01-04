@@ -242,8 +242,6 @@ def run_ruff(path: Path) -> None:
         "TC003",  # typing-only-standard-library-import
         # ruff does not support conditional import syntax for aio libs
         "UP004",  # useless-object-inheritance
-        # until collections.abc.Sequence and collections.abc.Mapping are supported
-        "UP006",  # non-pep585-annotation
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         cmd = [
