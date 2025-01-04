@@ -141,9 +141,15 @@ class Package:
         """
         return f"{self.name} {self._version} ({self.library_name} {self.library_version})"
 
-    def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
+    def get_local_doc_link(self) -> str:
         """
         Get link to local docs.
+        """
+        return self.data.local_doc_link
+
+    def get_service_local_doc_link(self, service_name: ServiceName) -> str:
+        """
+        Get link to service local docs.
         """
         url = self.data.local_doc_link
         if service_name:

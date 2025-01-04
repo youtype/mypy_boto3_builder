@@ -74,14 +74,14 @@ class ExternalImport(FakeAnnotation):
                 self.source,
                 self.name,
                 self.alias,
-                min_version=None,
+                min_version=(),
                 fallback=fallback,
             )
         return ImportRecord(
             source=self.source,
             name=self.name,
             alias=self.alias,
-            min_version=None,
+            min_version=(),
             fallback=self.fallback,
         )
 

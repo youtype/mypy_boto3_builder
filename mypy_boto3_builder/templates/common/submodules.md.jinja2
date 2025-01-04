@@ -18,7 +18,7 @@
         {{ "[" -}}
         {{ service_name.class_name -}}
         {{ "](" -}}
-        {{ package.get_local_doc_link(service_name) -}}
+        {{ package.get_service_local_doc_link(service_name) -}}
         {{ ")" -}}
     {% endfor -%}
     {{ " services" if package.essential_service_names|length > 1 else " service" -}}
@@ -41,7 +41,7 @@
     {{ "]` - Type annotations for [" -}}
     {{ service_name.class_name -}}
     {{ "](" -}}
-    {{ package.get_local_doc_link(service_name) -}}
+    {{ package.get_service_local_doc_link(service_name) -}}
     {{ ") service." -}}
     {{ "" if loop.last else "\n" -}}
 {% endfor -%}

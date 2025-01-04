@@ -4,7 +4,7 @@ Parsed Service package.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Iterator, Mapping
+from collections.abc import Generator, Iterable, Iterator, Mapping
 from itertools import chain
 from typing import Final, Literal
 
@@ -268,6 +268,14 @@ class ServicePackage(Package):
         """
         return ImportRecordGroup(Type.Literal.get_import_records())
 
+    def _iterate_all_class_names(self) -> Generator[str]:
+        yield from (i.name for i in self.type_defs)
+        yield from (i.name for i in self.literals)
+        yield from (i.name for i in self.waiters)
+        yield from (i.name for i in self.paginators)
+        if self.service_resource:
+            yield from self.service_resource.get_all_names()
+
     def validate(self) -> None:
         """
         Validate parsed module.
@@ -276,13 +284,7 @@ class ServicePackage(Package):
         Finds conflicts with reserved Python words.
         """
         names: set[str] = set()
-        for name in (
-            *(i.name for i in self.type_defs),
-            *(i.name for i in self.literals),
-            *(i.name for i in self.waiters),
-            *(i.name for i in self.paginators),
-            *(self.service_resource.get_all_names() if self.service_resource else []),
-        ):
+        for name in self._iterate_all_class_names():
             if is_reserved(name):
                 raise StructureError(f"{name} is a reserved keyword")
             if name in names:
@@ -317,11 +319,11 @@ class ServicePackage(Package):
         anchor = "".join([get_anchor_link(part) for part in parts])
         return f"{link}#{anchor}"
 
-    def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
+    def get_local_doc_link(self) -> str:
         """
         Get link to local docs.
         """
-        return super().get_local_doc_link(self.service_name)
+        return self.get_service_local_doc_link(self.service_name)
 
     def mark_safe_typed_dicts(self) -> None:
         """
@@ -330,7 +332,7 @@ class ServicePackage(Package):
         TypedDict cannot be rendered as class if its name or any attribute is a reserver word,
         or if any argument is names as another TypeDef.
         """
-        unsafe_keys = {
+        unsafe_key_names = {
             *RESERVED_NAMES,
             *(type_def.name for type_def in self.type_defs),
             *(literal.name for literal in self.literals),
@@ -342,7 +344,7 @@ class ServicePackage(Package):
             if is_reserved(type_def.name):
                 type_def.is_safe_as_class = False
                 continue
-            if any(attribute.name in unsafe_keys for attribute in type_def.children):
+            if any(attribute.name in unsafe_key_names for attribute in type_def.children):
                 type_def.is_safe_as_class = False
                 continue
 

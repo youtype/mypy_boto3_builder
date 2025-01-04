@@ -18,7 +18,7 @@ class TestPackage:
         assert package.max_library_version
         assert package.get_local_doc_link() == "https://youtype.github.io/boto3_stubs_docs/"
         assert (
-            package.get_local_doc_link(ServiceNameCatalog.s3)
+            package.get_service_local_doc_link(ServiceNameCatalog.s3)
             == "https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/"
         )
         assert package.get_module_name(ServiceNameCatalog.s3) == "mypy_boto3_s3"
