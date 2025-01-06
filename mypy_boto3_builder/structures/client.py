@@ -11,14 +11,12 @@ from botocore.client import BaseClient
 from botocore.errorfactory import BaseClientExceptions
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
-from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.utils.type_checks import is_typed_dict
 
 
@@ -97,14 +95,6 @@ class Client(ClassRecord):
             docstring=f"{self.name} exceptions.",
             boto3_doc_link=self.boto3_doc_link,
         )
-
-    def get_required_import_records(self) -> set[ImportRecord]:
-        """
-        Extract import records from required type annotations.
-        """
-        result = super().get_required_import_records()
-        result.update(Type.DictStrAny.get_import_records())
-        return result
 
     def get_example_method(self) -> Method | None:
         """
