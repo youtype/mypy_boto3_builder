@@ -8,15 +8,12 @@ pyright myproject
 ```
 """
 
-from typing import TYPE_CHECKING
-
 import boto3
 from boto3.session import Session
 
-if TYPE_CHECKING:
-    from mypy_boto3_s3.client import S3Client
-    from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
-    from mypy_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
+from mypy_boto3_s3.client import S3Client
+from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
+from mypy_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
 
 
 def s3_resource_example() -> None:

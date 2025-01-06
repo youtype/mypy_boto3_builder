@@ -4,11 +4,11 @@
         "message": "No parameter named \"mfa\"",
         "range": {
             "start": {
-                "line": 36,
+                "line": 33,
                 "character": 26
             },
             "end": {
-                "line": 36,
+                "line": 33,
                 "character": 29
             }
         },
@@ -19,11 +19,11 @@
         "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" is not assignable to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is not assignable to \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is not assignable to \"None\"",
         "range": {
             "start": {
-                "line": 39,
+                "line": 36,
                 "character": 63
             },
             "end": {
-                "line": 39,
+                "line": 36,
                 "character": 69
             }
         },
@@ -34,11 +34,11 @@
         "message": "Type \"dict[str, str]\" is not assignable to declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined item in type \"BucketUploadFileRequestTypeDef\"",
         "range": {
             "start": {
-                "line": 40,
+                "line": 37,
                 "character": 66
             },
             "end": {
-                "line": 40,
+                "line": 37,
                 "character": 71
             }
         },
@@ -49,11 +49,11 @@
         "message": "Argument of type \"dict[str, str]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceTypeDef\" in function \"copy\"\n\u00a0\u00a0\"key\" is an undefined item in type \"CopySourceTypeDef\"",
         "range": {
             "start": {
-                "line": 44,
+                "line": 41,
                 "character": 37
             },
             "end": {
-                "line": 44,
+                "line": 41,
                 "character": 42
             }
         },
@@ -64,11 +64,11 @@
         "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceOrStrTypeDef\" in function \"copy_from\"\n\u00a0\u00a0Type \"Literal[123]\" is not assignable to type \"CopySourceOrStrTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is not assignable to \"CopySourceTypeDef\"",
         "range": {
             "start": {
-                "line": 52,
+                "line": 49,
                 "character": 37
             },
             "end": {
-                "line": 52,
+                "line": 49,
                 "character": 40
             }
         },
@@ -79,11 +79,11 @@
         "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" is not assignable to type \"Literal['requester']\"",
         "range": {
             "start": {
-                "line": 56,
+                "line": 53,
                 "character": 48
             },
             "end": {
-                "line": 56,
+                "line": 53,
                 "character": 54
             }
         },
@@ -94,11 +94,11 @@
         "message": "Argument of type \"Literal['1']\" cannot be assigned to parameter \"part_number\" of type \"int\" in function \"Part\"\n\u00a0\u00a0\"Literal['1']\" is not assignable to \"int\"",
         "range": {
             "start": {
-                "line": 57,
+                "line": 54,
                 "character": 34
             },
             "end": {
-                "line": 57,
+                "line": 54,
                 "character": 37
             }
         },
@@ -109,11 +109,11 @@
         "message": "No parameter named \"wrong_arg\"",
         "range": {
             "start": {
-                "line": 58,
+                "line": 55,
                 "character": 22
             },
             "end": {
-                "line": 58,
+                "line": 55,
                 "character": 31
             }
         },
@@ -124,11 +124,11 @@
         "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" is not assignable to type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"StreamingBody\"",
         "range": {
             "start": {
-                "line": 70,
+                "line": 67,
                 "character": 45
             },
             "end": {
-                "line": 70,
+                "line": 67,
                 "character": 51
             }
         },
@@ -139,11 +139,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" is not assignable to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"str\"",
         "range": {
             "start": {
-                "line": 71,
+                "line": 68,
                 "character": 66
             },
             "end": {
-                "line": 71,
+                "line": 68,
                 "character": 70
             }
         },
@@ -154,11 +154,11 @@
         "message": "Argument missing for parameter \"Bucket\"",
         "range": {
             "start": {
-                "line": 74,
+                "line": 71,
                 "character": 4
             },
             "end": {
-                "line": 74,
+                "line": 71,
                 "character": 46
             }
         },
@@ -169,11 +169,11 @@
         "message": "No parameter named \"bucket\"",
         "range": {
             "start": {
-                "line": 74,
+                "line": 71,
                 "character": 30
             },
             "end": {
-                "line": 74,
+                "line": 71,
                 "character": 36
             }
         },
@@ -184,11 +184,11 @@
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
-                "line": 81,
+                "line": 78,
                 "character": 4
             },
             "end": {
-                "line": 81,
+                "line": 78,
                 "character": 38
             }
         },
@@ -199,11 +199,11 @@
         "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
         "range": {
             "start": {
-                "line": 84,
+                "line": 81,
                 "character": 17
             },
             "end": {
-                "line": 84,
+                "line": 81,
                 "character": 76
             }
         },
@@ -214,11 +214,11 @@
         "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"Allowedorigins\" is an undefined item in type \"CORSRuleTypeDef\"",
         "range": {
             "start": {
-                "line": 91,
+                "line": 88,
                 "character": 55
             },
             "end": {
-                "line": 91,
+                "line": 88,
                 "character": 71
             }
         },
@@ -229,11 +229,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0\"None\" is not assignable to \"str\"",
         "range": {
             "start": {
-                "line": 98,
+                "line": 95,
                 "character": 47
             },
             "end": {
-                "line": 98,
+                "line": 95,
                 "character": 51
             }
         },
@@ -244,11 +244,11 @@
         "message": "Cannot access attribute \"operations_name\" for class \"ClientError\"\n\u00a0\u00a0Attribute \"operations_name\" is unknown",
         "range": {
             "start": {
-                "line": 100,
+                "line": 97,
                 "character": 16
             },
             "end": {
-                "line": 100,
+                "line": 97,
                 "character": 31
             }
         },
@@ -259,11 +259,11 @@
         "message": "Cannot access attribute \"operations_names\" for class \"ClientError\"\n\u00a0\u00a0Attribute \"operations_names\" is unknown",
         "range": {
             "start": {
-                "line": 108,
+                "line": 105,
                 "character": 16
             },
             "end": {
-                "line": 108,
+                "line": 105,
                 "character": 32
             }
         },
