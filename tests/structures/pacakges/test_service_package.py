@@ -68,18 +68,11 @@ class TestServicePackage:
             "from __future__ import annotations",
             "from botocore.client import BaseClient",
             "from botocore.errorfactory import BaseClientExceptions",
-            "from typing import Any",
             (
                 "if sys.version_info >= (3, 12):"
                 "\n    from typing import Literal"
                 "\nelse:"
                 "\n    from typing_extensions import Literal"
-            ),
-            (
-                "if sys.version_info >= (3, 9):"
-                "\n    from builtins import dict as Dict"
-                "\nelse:"
-                "\n    from typing import Dict"
             ),
             "import sys",
         ]
