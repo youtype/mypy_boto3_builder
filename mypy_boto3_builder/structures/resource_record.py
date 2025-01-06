@@ -4,7 +4,7 @@ Boto3 ServiceResource sub-Resource.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterator
+from collections.abc import Generator
 from typing import TYPE_CHECKING
 
 from mypy_boto3_builder.import_helpers.import_helper import Import
@@ -41,7 +41,7 @@ class ResourceRecord(ClassRecord):
             f"#{self.service_name.class_name}.{self.name}"
         )
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Iterate over all type annotations from collections.
         """

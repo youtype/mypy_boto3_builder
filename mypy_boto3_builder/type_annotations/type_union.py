@@ -4,7 +4,7 @@ Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Iterator
+from collections.abc import Generator, Iterable
 from pathlib import Path
 from typing import Final, Self
 
@@ -136,7 +136,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return self._get_import_records()
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Extract type annotations from children.
         """

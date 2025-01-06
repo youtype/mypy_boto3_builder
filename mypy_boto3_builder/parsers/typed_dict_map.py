@@ -4,7 +4,7 @@ Wrapper for TypedDict maps.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterator
+from collections.abc import Generator
 
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
@@ -21,7 +21,7 @@ class TypedDictMap(dict[str, TypeTypedDict]):
         """
         self[item.name] = item
 
-    def iterate_by_name(self, name: str) -> Iterator[TypeTypedDict]:
+    def iterate_by_name(self, name: str) -> Generator[TypeTypedDict]:
         """
         Iterate over items matched by real dict name.
         """

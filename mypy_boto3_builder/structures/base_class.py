@@ -4,7 +4,7 @@ Base class for ClassRecord.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterator
+from collections.abc import Generator
 
 from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -50,7 +50,7 @@ class BaseClass:
             "  # type: ignore[assignment]\n"
         )
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Iterate over definition type annotations.
         """

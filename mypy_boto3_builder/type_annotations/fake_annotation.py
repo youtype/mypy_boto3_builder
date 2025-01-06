@@ -7,7 +7,7 @@ Copyright 2024 Vlad Emelianov
 import copy
 import functools
 from abc import ABC, abstractmethod
-from collections.abc import Iterator
+from collections.abc import Generator
 from typing import Self
 
 from mypy_boto3_builder.exceptions import BuildInternalError
@@ -75,7 +75,7 @@ class FakeAnnotation(ABC):
             if not import_record.source.is_builtins()
         }
 
-    def iterate_types(self) -> Iterator["FakeAnnotation"]:
+    def iterate_types(self) -> Generator["FakeAnnotation"]:
         """
         Iterate over all used type annotations recursively including self.
         """

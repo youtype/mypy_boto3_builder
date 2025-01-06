@@ -4,12 +4,12 @@ Postprocessor for aiobotocore classes and methods.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Iterator
+from collections.abc import Generator, Iterable
 from typing import Final
 
 from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.postprocessors.aio_imports import replace_imports_with_aio
+from mypy_boto3_builder.postprocessors.aio_imports import replace_import_with_aio
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.collection import Collection
@@ -17,10 +17,9 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.aio_resource_method_map import get_aio_resource_method
-from mypy_boto3_builder.utils.type_checks import get_optional, is_external_import
+from mypy_boto3_builder.utils.type_checks import get_optional, is_external_import, is_type_parent
 
 
 class AioBotocorePostprocessor(BasePostprocessor):
@@ -54,8 +53,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         self._make_async_collections()
         self._make_async_sub_resources()
         self._add_contextmanager_methods()
-        self._replace_external_imports()
-        self._add_fallback_for_boto3_imports()
+        self._replace_botocore_external_imports()
 
     def _make_async_client(self) -> None:
         for method in self.package.client.methods:
@@ -169,7 +167,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
             ),
         )
 
-    def _iterate_types_shallow(self) -> Iterator[FakeAnnotation]:
+    def _iterate_types_shallow(self) -> Generator[FakeAnnotation]:
         yield from self.package.client.iterate_types()
         for paginator in self.package.paginators:
             yield from paginator.iterate_types()
@@ -179,27 +177,23 @@ class AioBotocorePostprocessor(BasePostprocessor):
             yield from self.package.service_resource.iterate_types()
 
     @classmethod
-    def _iterate_types(
+    def _iterate_external_imports(
         cls,
         type_annotations: Iterable[FakeAnnotation],
-    ) -> Iterator[FakeAnnotation]:
-        for type_annotation in type_annotations:
-            if isinstance(type_annotation, TypeDefSortable):
-                yield from cls._iterate_types(type_annotation.get_children_types())
-            else:
+    ) -> Generator[ExternalImport]:
+        stack = list(type_annotations)
+        while stack:
+            type_annotation = stack.pop()
+            if is_external_import(type_annotation):
                 yield type_annotation
+            if is_type_parent(type_annotation):
+                stack.extend(type_annotation.get_children_types())
 
-    def _replace_external_imports(self) -> None:
+    def _replace_botocore_external_imports(self) -> None:
         shallow_type_annotations = self._iterate_types_shallow()
-        replace_imports_with_aio(self._iterate_types(shallow_type_annotations))
-
-    def _add_fallback_for_boto3_imports(self) -> None:
-        shallow_type_annotations = self._iterate_types_shallow()
-        for type_annotation in shallow_type_annotations:
-            if not is_external_import(type_annotation):
-                continue
-
-            if type_annotation.source.startswith(Import.boto3):
-                type_annotation.fallback = ImportRecord(
-                    Import.builtins, "object", alias=type_annotation.name
+        for external_import in self._iterate_external_imports(shallow_type_annotations):
+            replace_import_with_aio(external_import)
+            if external_import.source.startswith(Import.boto3):
+                external_import.fallback = ImportRecord(
+                    Import.builtins, "object", alias=external_import.name
                 )

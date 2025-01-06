@@ -9,7 +9,7 @@ from collections.abc import Iterable
 from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.wrapper_package_parser import WrapperPackageParser
-from mypy_boto3_builder.postprocessors.aio_imports import replace_imports_with_aio
+from mypy_boto3_builder.postprocessors.aio_imports import replace_import_with_aio
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.packages.types_aioboto3_package import TypesAioBoto3Package
 from mypy_boto3_builder.structures.packages.types_aiobotocore_package import TypesAioBotocorePackage
@@ -17,6 +17,7 @@ from mypy_boto3_builder.structures.packages.types_boto3_package import TypesBoto
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.utils.type_checks import is_external_import
 
 
 def parse_types_boto3_package(
@@ -70,7 +71,9 @@ def parse_types_aiobotocore_package(
         method.type_ignore = "override"
         package.session_class.methods.append(method)
 
-    replace_imports_with_aio(package.session_class.iterate_types())
+    for type_annotation in package.session_class.iterate_types():
+        if is_external_import(type_annotation):
+            replace_import_with_aio(type_annotation)
     return package
 
 
@@ -105,5 +108,7 @@ def parse_types_aioboto3_package(
         )
         package.session_class.methods.append(method)
 
-    replace_imports_with_aio(package.session_class.iterate_types())
+    for type_annotation in package.session_class.iterate_types():
+        if is_external_import(type_annotation):
+            replace_import_with_aio(type_annotation)
     return package

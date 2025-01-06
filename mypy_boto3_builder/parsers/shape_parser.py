@@ -49,7 +49,6 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
@@ -78,7 +77,7 @@ from mypy_boto3_builder.utils.strings import (
     get_type_def_name,
     xform_name,
 )
-from mypy_boto3_builder.utils.type_checks import is_union
+from mypy_boto3_builder.utils.type_checks import is_type_parent, is_union
 
 
 class ShapeParser:
@@ -1293,30 +1292,26 @@ class ShapeParser:
 
                 self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)
 
-    @staticmethod
-    def _get_parent_type_annotations(
-        methods: Sequence[Method],
-    ) -> set[TypeParent]:
-        result: set[TypeParent] = set()
-        for method in methods:
-            for argument in method.arguments:
-                if isinstance(argument.type_annotation, TypeParent):
-                    result.add(argument.type_annotation)
-        return result
-
-    def convert_input_arguments_to_unions(self, methods: Sequence[Method]) -> None:
+    def convert_input_arguments_to_unions(self, methods: Iterable[Method]) -> None:
         """
         Accept both input and output shapes in method arguments.
 
         mypy does not compare TypedDicts, so we need to accept both input and output shapes.
         https://github.com/youtype/mypy_boto3_builder/issues/209
         """
-        parent_type_annotations = list(self._get_parent_type_annotations(methods))
+        parent_type_annotations = sorted(
+            {
+                type_annotation
+                for method in methods
+                for type_annotation in method.iterate_argument_type_annotations()
+                if is_type_parent(type_annotation)
+            }
+        )
         for input_typed_dict, output_typed_dict in self._fixed_typed_dict_map.items():
             union_name = self._get_non_clashing_typed_dict_name(input_typed_dict, "Union")
             union_type_annotation = TypeUnion(
                 name=union_name,
-                children=[input_typed_dict, output_typed_dict],
+                children=(input_typed_dict, output_typed_dict),
             )
             for type_annotation in parent_type_annotations:
                 parents = type_annotation.find_type_annotation_parents(input_typed_dict)

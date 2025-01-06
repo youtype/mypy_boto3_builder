@@ -72,14 +72,7 @@ class ServicePackageParser:
         )
 
         self.shape_parser.fix_typed_dict_names()
-        self.shape_parser.convert_input_arguments_to_unions(
-            [
-                *result.client.methods,
-                *(result.service_resource.methods if result.service_resource else []),
-                *[method for paginator in result.paginators for method in paginator.methods],
-                *[method for waiter in result.waiters for method in waiter.methods],
-            ],
-        )
+        self.shape_parser.convert_input_arguments_to_unions(result.iterate_methods())
 
         type_defs = result.extract_type_defs()
 

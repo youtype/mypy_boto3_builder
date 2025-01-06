@@ -4,7 +4,7 @@ Import replacement map for aio libraries.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterator, Mapping
+from collections.abc import Mapping
 from typing import Final
 
 from botocore.client import BaseClient
@@ -16,8 +16,6 @@ from botocore.waiter import Waiter
 
 from mypy_boto3_builder.import_helpers.import_helper import Import
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.utils.type_checks import is_external_import
 
 AIO_IMPORT_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
     ExternalImport.from_class(StreamingBody): ExternalImport(
@@ -52,15 +50,11 @@ AIO_IMPORT_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
 }
 
 
-def replace_imports_with_aio(type_annotations: Iterator[FakeAnnotation]) -> None:
+def replace_import_with_aio(external_import: ExternalImport) -> None:
     """
-    Replace botocore/boto3 imports in type annotations with aioboto3/aiobotocore.
+    Replace botocore/boto3 import with aioboto3/aiobotocore.
     """
-    for type_annotation in type_annotations:
-        if not is_external_import(type_annotation):
-            continue
-
-        if type_annotation in AIO_IMPORT_MAP:
-            new_type_annotation = AIO_IMPORT_MAP[type_annotation]
-            type_annotation.copy_from(new_type_annotation)
-            continue
+    if external_import not in AIO_IMPORT_MAP:
+        return
+    new_external_import = AIO_IMPORT_MAP[external_import]
+    external_import.copy_from(new_external_import)

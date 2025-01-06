@@ -5,7 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 import copy
-from collections.abc import Iterator
+from collections.abc import Generator
 from typing import Literal, Self
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -47,7 +47,7 @@ class Attribute:
         self.is_identifier = is_identifier
         self.is_collection = is_collection
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Iterate over all type annotations used.
 

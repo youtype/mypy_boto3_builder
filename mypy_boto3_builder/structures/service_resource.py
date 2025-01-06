@@ -4,7 +4,7 @@ Boto3 ServiceResource.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterator
+from collections.abc import Generator
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.exceptions import StructureError
@@ -57,7 +57,7 @@ class ServiceResource(ClassRecord):
         """
         return f"{self.service_name.boto3_doc_link_parent}/service-resource/index.html"
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Iterate over type annotations for collections and sub-resources.
         """

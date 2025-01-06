@@ -4,7 +4,7 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Iterator
+from collections.abc import Generator, Iterable, Iterator
 from pathlib import Path
 from typing import Self
 
@@ -69,7 +69,7 @@ class TypedDictAttribute:
         """
         return f"{self.name}: {self.get_type_annotation().render()}"
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Itera over type annotations.
         """
@@ -264,7 +264,7 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
                 result.update(type_annotation.get_children_literals((self.name, *processed)))
         return result
 
-    def iterate_children(self) -> Iterator[TypedDictAttribute]:
+    def iterate_children(self) -> Generator[TypedDictAttribute]:
         """
         Iterate over children from required to optional.
         """

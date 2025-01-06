@@ -4,7 +4,7 @@ Base class for all structures that can be rendered to a class.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterable, Iterator
+from collections.abc import Generator, Iterable
 
 from mypy_boto3_builder.exceptions import StructureError
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -58,7 +58,7 @@ class ClassRecord:
 
         return f"_{self.name}"
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Iterate over type annotations for methods, attributes and bases.
         """

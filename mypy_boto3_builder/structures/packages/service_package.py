@@ -136,7 +136,7 @@ class ServicePackage(Package):
         """
         return sorted([i.name for i in self.literals])
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Iterate over type annotations from Client, ServiceResource, waiters and paginators.
         """
@@ -381,3 +381,17 @@ class ServicePackage(Package):
                     drop_python_version=version,
                 )
             )
+
+    def iterate_methods(self) -> Generator[Method]:
+        """
+        Iterate over all methods.
+        """
+        yield from self.client.methods
+        if self.service_resource:
+            yield from self.service_resource.methods
+            for resource in self.service_resource.sub_resources:
+                yield from resource.methods
+        for waiter in self.waiters:
+            yield from waiter.methods
+        for paginator in self.paginators:
+            yield from paginator.methods

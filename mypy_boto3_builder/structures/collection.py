@@ -4,7 +4,7 @@ Boto3 ServiceResource or Resource collection.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Iterator
+from collections.abc import Generator
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.import_helpers.import_helper import Import
@@ -68,7 +68,7 @@ class Collection(ClassRecord):
             f"#{self.service_name.class_name}.{self.parent_name}.{self.attribute_name}"
         )
 
-    def iterate_types(self) -> Iterator[FakeAnnotation]:
+    def iterate_types(self) -> Generator[FakeAnnotation]:
         """
         Iterate over all type annotations.
         """
