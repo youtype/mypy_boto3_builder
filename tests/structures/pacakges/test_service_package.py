@@ -75,6 +75,12 @@ class TestServicePackage:
                 "\nelse:"
                 "\n    from typing_extensions import Literal"
             ),
+            (
+                "if sys.version_info >= (3, 9):"
+                "\n    from builtins import dict as Dict"
+                "\nelse:"
+                "\n    from typing import Dict"
+            ),
             "import sys",
         ]
 

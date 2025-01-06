@@ -150,7 +150,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
                         Argument(
                             "exc_type",
                             get_optional(
-                                TypeSubscript(Type.type, [ExternalImport.from_class(BaseException)])
+                                TypeSubscript(Type.Type, [ExternalImport.from_class(BaseException)])
                             ),
                         ),
                         Argument("exc_val", get_optional(ExternalImport.from_class(BaseException))),

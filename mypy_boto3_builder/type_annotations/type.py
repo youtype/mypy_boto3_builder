@@ -22,9 +22,6 @@ class Type:
 
     Union: Final[TypeAnnotation] = TypeAnnotation("Union")
     Any: Final[TypeAnnotation] = TypeAnnotation("Any")
-    dict: Final[TypeAnnotation] = TypeAnnotation("dict")
-    list: Final[TypeAnnotation] = TypeAnnotation("list")
-    set: Final[TypeAnnotation] = TypeAnnotation("set")
     Dict: Final[TypeAnnotation] = TypeAnnotation("Dict")
     List: Final[TypeAnnotation] = TypeAnnotation("List")
     Set: Final[TypeAnnotation] = TypeAnnotation("Set")
@@ -45,7 +42,6 @@ class Type:
     float: Final[ExternalImport] = ExternalImport.from_class(float)
     Ellipsis: Final[TypeConstant] = TypeConstant(TypeConstant.Ellipsis)
     Decimal: Final[ExternalImport] = ExternalImport.from_class(Decimal)
-    type: Final[TypeAnnotation] = TypeAnnotation("type")
     Type: Final[TypeAnnotation] = TypeAnnotation("Type")
     Iterator: Final[TypeAnnotation] = TypeAnnotation("Iterator")
     AsyncIterator: Final[TypeAnnotation] = TypeAnnotation("AsyncIterator")
@@ -53,9 +49,9 @@ class Type:
 
     SequenceAny: Final[TypeSubscript] = TypeSubscript(Sequence, [Any])
     MappingStrAny: Final[TypeSubscript] = TypeSubscript(Mapping, [str, Any])
-    ListAny: Final[TypeSubscript] = TypeSubscript(list, [Any])
-    DictStrAny: Final[TypeSubscript] = TypeSubscript(dict, [str, Any])
-    DictStrStr: Final[TypeSubscript] = TypeSubscript(dict, [str, str])
+    ListAny: Final[TypeSubscript] = TypeSubscript(List, [Any])
+    DictStrAny: Final[TypeSubscript] = TypeSubscript(Dict, [str, Any])
+    DictStrStr: Final[TypeSubscript] = TypeSubscript(Dict, [str, str])
     IOAny: Final[TypeSubscript] = TypeSubscript(IO, [Any])
     RemoveArgument: Final[TypeConstant] = TypeConstant("RemoveArgument")
     NotRequired: Final[TypeAnnotation] = TypeAnnotation("NotRequired")
@@ -75,4 +71,4 @@ class Type:
         """
         Get List type annotation.
         """
-        return TypeSubscript(cls.list, [wrapped])
+        return TypeSubscript(cls.List, [wrapped])

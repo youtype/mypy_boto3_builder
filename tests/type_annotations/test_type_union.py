@@ -68,5 +68,5 @@ class TestTypeLiteral:
     def test_find_type_annotation_parents(self) -> None:
         union = TypeUnion(name="Union", children=(Type.str, Type.ListAny))
         assert sorted(union.find_type_annotation_parents(Type.str)) == [union]
-        assert sorted(union.find_type_annotation_parents(Type.list)) == [union.children[1]]
+        assert sorted(union.find_type_annotation_parents(Type.List)) == [union.children[1]]
         assert sorted(union.find_type_annotation_parents(Type.Any)) == [union.children[1]]

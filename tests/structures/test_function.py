@@ -1,8 +1,6 @@
 import pytest
 
 from mypy_boto3_builder.exceptions import BuildInternalError
-from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.type_annotations.type import Type
@@ -33,7 +31,7 @@ class TestFunction:
         assert self.function.body == "line1\nline2"
         assert self.function.docstring == "docstring\n\nlong"
         assert self.function.short_docstring == "docstring"
-        assert repr(self.function) == "def name(self, my_str: str = 'test', lst: list[Any]) -> None"
+        assert repr(self.function) == "def name(self, my_str: str = 'test', lst: List[Any]) -> None"
 
         self.function.docstring = ""
         assert not self.function.short_docstring
@@ -98,15 +96,17 @@ class TestFunction:
         assert set(self.function.iterate_types()) == {
             Type.Any,
             Type.none,
-            Type.list,
+            Type.List,
             Type.str,
             TypeConstant("test"),
         }
 
     def test_get_required_import_records(self) -> None:
-        assert self.function.get_required_import_records() == {
-            ImportRecord(ImportString("typing"), "Any"),
-        }
+        rendered = [i.render() for i in sorted(self.function.get_required_import_records())]
+        assert rendered == [
+            "from typing import Any",
+            "from builtins import list as List",
+        ]
 
     def test_remove_argument(self) -> None:
         test_function = self.function.copy()

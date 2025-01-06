@@ -27,7 +27,7 @@ class ImportRecordGroup:
         Add record to group.
         """
         for record in records:
-            if record.source.is_builtins():
+            if record.is_implicit():
                 continue
             if record.needs_sys_fallback():
                 self.add(self._SYS_IMPORT_RECORD)

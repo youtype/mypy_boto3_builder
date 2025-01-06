@@ -141,3 +141,9 @@ class ImportRecord:
         Create a copy of the record.
         """
         return copy.copy(self)
+
+    def is_implicit(self) -> bool:
+        """
+        Whether record can be skipped while rendering: builtins with no fallback.
+        """
+        return self.source.is_builtins() and not self.fallback

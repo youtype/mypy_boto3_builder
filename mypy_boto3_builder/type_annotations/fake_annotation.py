@@ -72,7 +72,7 @@ class FakeAnnotation(ABC):
         return {
             import_record
             for import_record in self._get_import_records()
-            if not import_record.source.is_builtins()
+            if not import_record.is_implicit()
         }
 
     def iterate_types(self) -> Generator["FakeAnnotation"]:

@@ -24,31 +24,106 @@ class TypeAnnotation(FakeAnnotation):
     """
 
     # Set of supported type annotations. value is default import module
-    _SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {
-        "dict": Import.builtins,  # builtins.dict
-        "list": Import.builtins,  # builtins.list
-        "set": Import.builtins,  # builtins.set
-        "Union": Import.typing,  # typing.Union
-        "Any": Import.typing,  # typing.Any
-        "Dict": Import.typing,  # typing.Dict
-        "List": Import.typing,  # typing.List
-        "Set": Import.typing,  # typing.Set
-        "Type": Import.typing,  # typing.type
-        "IO": Import.typing,  # typing.IO
-        "overload": Import.typing,  # typing.overload
-        "type": Import.builtins,  # builtins.type
-        "NoReturn": Import.typing,  # typing.NoReturn
-        "TypedDict": Import.typing,  # typing.TypedDict / typing_extensions.TypedDict
-        "Literal": Import.typing,  # typing.Literal / typing_extensions.Literal
-        "Mapping": Import.collections_abc,  # collections.abc.Mapping / typing.Mapping
-        "Sequence": Import.collections_abc,  # collections.abc.Sequence / typing.Sequence
-        "Callable": Import.collections_abc,  # collections.abc.Callable / typing.Callable
-        "Iterator": Import.collections_abc,  # collections.abc.Iterator / typing.Iterator
-        "Awaitable": Import.collections_abc,  # collections.abc.Awaitable / typing.Awaitable
-        "AsyncIterator": Import.collections_abc,  # collections.abc.AsyncIterator / typing
-        "NotRequired": Import.typing,  # typing.NotRequired / typing_extensions.NotRequired
-        "Unpack": Import.typing,  # typing.Unpack / typing_extensions.Unpack
-        "Self": Import.typing,  # typing.Self / typing_extensions.Self
+    _SUPPORTED_TYPES: Final[Mapping[str, ImportRecord]] = {
+        "Union": ImportRecord(Import.typing, "Union"),
+        "Any": ImportRecord(Import.typing, "Any"),
+        "Dict": ImportRecord(
+            Import.builtins,
+            "dict",
+            alias="Dict",
+            fallback=ImportRecord(Import.typing, "Dict"),
+            min_version=(3, 9),
+        ),
+        "List": ImportRecord(
+            Import.builtins,
+            "list",
+            alias="List",
+            fallback=ImportRecord(Import.typing, "List"),
+            min_version=(3, 9),
+        ),
+        "Set": ImportRecord(
+            Import.builtins,
+            "set",
+            alias="Set",
+            fallback=ImportRecord(Import.typing, "Set"),
+            min_version=(3, 9),
+        ),
+        "Type": ImportRecord(
+            Import.builtins,
+            "type",
+            alias="Type",
+            fallback=ImportRecord(Import.typing, "Type"),
+            min_version=(3, 9),
+        ),
+        "IO": ImportRecord(Import.typing, "IO"),
+        "overload": ImportRecord(Import.typing, "overload"),
+        "NoReturn": ImportRecord(Import.typing, "NoReturn"),
+        "TypedDict": ImportRecord(
+            Import.typing,
+            "TypedDict",
+            fallback=ImportRecord(Import.typing_extensions, "TypedDict"),
+            min_version=(3, 12),
+        ),
+        "Literal": ImportRecord(
+            Import.typing,
+            "Literal",
+            fallback=ImportRecord(Import.typing_extensions, "Literal"),
+            min_version=(3, 12),
+        ),
+        "Mapping": ImportRecord(
+            Import.collections_abc,
+            "Mapping",
+            fallback=ImportRecord(Import.typing, "Mapping"),
+            min_version=(3, 9),
+        ),
+        "Sequence": ImportRecord(
+            Import.collections_abc,
+            "Sequence",
+            fallback=ImportRecord(Import.typing, "Sequence"),
+            min_version=(3, 9),
+        ),
+        "Callable": ImportRecord(
+            Import.collections_abc,
+            "Callable",
+            fallback=ImportRecord(Import.typing, "Callable"),
+            min_version=(3, 9),
+        ),
+        "Iterator": ImportRecord(
+            Import.collections_abc,
+            "Iterator",
+            fallback=ImportRecord(Import.typing, "Iterator"),
+            min_version=(3, 9),
+        ),
+        "Awaitable": ImportRecord(
+            Import.collections_abc,
+            "Awaitable",
+            fallback=ImportRecord(Import.typing, "Awaitable"),
+            min_version=(3, 9),
+        ),
+        "AsyncIterator": ImportRecord(
+            Import.collections_abc,
+            "AsyncIterator",
+            fallback=ImportRecord(Import.typing, "AsyncIterator"),
+            min_version=(3, 9),
+        ),
+        "NotRequired": ImportRecord(
+            Import.typing,
+            "NotRequired",
+            fallback=ImportRecord(Import.typing_extensions, "NotRequired"),
+            min_version=(3, 12),
+        ),
+        "Unpack": ImportRecord(
+            Import.typing,
+            "Unpack",
+            fallback=ImportRecord(Import.typing_extensions, "Unpack"),
+            min_version=(3, 12),
+        ),
+        "Self": ImportRecord(
+            Import.typing,
+            "Self",
+            fallback=ImportRecord(Import.typing_extensions, "Self"),
+            min_version=(3, 12),
+        ),
     }
 
     # Set of fallback type annotations
@@ -64,6 +139,10 @@ class TypeAnnotation(FakeAnnotation):
         "Iterator": ((3, 9), Import.typing),
         "Awaitable": ((3, 9), Import.typing),
         "AsyncIterator": ((3, 9), Import.typing),
+        "Dict": ((3, 9), Import.typing),
+        "List": ((3, 9), Import.typing),
+        "Set": ((3, 9), Import.typing),
+        "Type": ((3, 9), Import.typing),
     }
 
     def __init__(self, wrapped_type: str) -> None:
@@ -92,35 +171,22 @@ class TypeAnnotation(FakeAnnotation):
         Create a safe Import Record for annotation.
         """
         name = self.get_import_name()
-        source = self._SUPPORTED_TYPES[name]
-        if source == Import.builtins:
+        import_record = self._SUPPORTED_TYPES[name]
+        if import_record.source == Import.builtins and not import_record.fallback:
             return set()
-
-        if name not in self._FALLBACK:
-            return {ImportRecord(source=source, name=name)}
-
-        fallback_min_version, fallback_source = self._FALLBACK[name]
-
-        return {
-            ImportRecord(
-                source=source,
-                name=name,
-                fallback=ImportRecord(source=fallback_source, name=name),
-                min_version=fallback_min_version,
-            ),
-        }
+        return {self._SUPPORTED_TYPES[name]}
 
     def is_dict(self) -> bool:
         """
         Whether annotation is a plain Dict.
         """
-        return self._wrapped_type in {"dict", "Dict"}
+        return self._wrapped_type == "Dict"
 
     def is_list(self) -> bool:
         """
         Whether annotation is a plain List.
         """
-        return self._wrapped_type in {"list", "List"}
+        return self._wrapped_type == "List"
 
     def __copy__(self) -> Self:
         """

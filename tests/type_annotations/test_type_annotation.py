@@ -37,17 +37,17 @@ class TestTypeAnnotation:
         assert result[0].render() == "from typing import Literal"
 
         result = sorted(Type.DictStrAny.get_import_records())
-        assert len(result) == 1
+        assert len(result) == 2
         assert result[0].render() == "from typing import Any"
 
     def test_copy(self) -> None:
         assert self.any.copy().get_import_name() == "Any"
 
     def test_no_fallback(self) -> None:
-        sample = TypeAnnotation("Type")
+        sample = TypeAnnotation("overload")
         import_records = sorted(sample.get_import_records())
         assert len(import_records) == 1
-        assert import_records[0].render() == "from typing import Type"
+        assert import_records[0].render() == "from typing import overload"
         assert import_records[0].fallback is None
 
     def test_fallback(self) -> None:

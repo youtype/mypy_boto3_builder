@@ -67,3 +67,12 @@ class TestImportRecord:
         assert ImportRecord(source, "name").get_local_name() == "name"
         assert ImportRecord(source, "name", "alias").get_local_name() == "alias"
         assert ImportRecord(source, alias="alias").get_local_name() == "alias"
+
+    def test_is_implicit(self) -> None:
+        assert ImportRecord(ImportString("builtins"), "str").is_implicit()
+        assert not ImportRecord(ImportString("source"), "name").is_implicit()
+        assert not ImportRecord(
+            ImportString("builtins"),
+            "str",
+            fallback=ImportRecord(ImportString("source"), "name"),
+        ).is_implicit()

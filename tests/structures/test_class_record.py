@@ -1,8 +1,6 @@
 import pytest
 
 from mypy_boto3_builder.exceptions import StructureError
-from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -59,12 +57,14 @@ class TestClassRecord:
         assert set(self.class_record.iterate_types()) == {
             Type.Any,
             Type.none,
-            Type.list,
+            Type.List,
             Type.str,
             TypeConstant("test"),
         }
 
     def test_get_required_import_records(self) -> None:
-        assert self.class_record.get_required_import_records() == {
-            ImportRecord(ImportString("typing"), "Any"),
-        }
+        rendered = [i.render() for i in sorted(self.class_record.get_required_import_records())]
+        assert rendered == [
+            "from typing import Any",
+            "from builtins import list as List",
+        ]

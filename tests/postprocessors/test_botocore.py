@@ -48,5 +48,5 @@ class TestBotocorePostprocessor:
         assert self_ref_typed_dict.children[2].type_annotation == other_typed_dict
         assert self_ref_typed_dict.children[3].type_annotation == deep_self_ref_typed_dict
         assert (
-            deep_self_ref_typed_dict.children[1].type_annotation.render() == "dict[str, Any] | str"
+            deep_self_ref_typed_dict.children[1].type_annotation.render() == "Dict[str, Any] | str"
         )
