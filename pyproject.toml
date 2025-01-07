@@ -213,7 +213,7 @@ docstring-code-line-length = "dynamic"
 [tool.ruff.lint.flake8-copyright]
 # author = "Vlad Emelianov"
 min-file-size = 200
-notice-rgx = "(?i)Copyright 2024"
+notice-rgx = "(?i)Copyright \\d{4}"
 
 [tool.vulture]
 make_whitelist = true
