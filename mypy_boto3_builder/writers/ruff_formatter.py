@@ -49,8 +49,8 @@ class RuffFormatter:
         Arguments:
             path -- Target path.
         """
-        self.sort_imports(paths)
-        self.format_code(paths)
+        self._sort_imports(paths)
+        self._run_format(paths)
 
     def _get_config_cli(self) -> list[str]:
         overrides = [
@@ -67,11 +67,8 @@ class RuffFormatter:
 
         return result
 
-    def sort_imports(self, paths: Sequence[Path]) -> None:
-        """
-        Sort import lines with `ruff`.
-        """
-        cmd = [
+    def _run_check(self, paths: Sequence[Path], rules: Sequence[str]) -> None:
+        cmd = (
             sys.executable,
             "-m",
             "ruff",
@@ -80,45 +77,51 @@ class RuffFormatter:
             self._target_version,
             *self._get_config_cli(),
             "--select",
-            "I",
+            ",".join(rules),
             "--fix",
             "--isolated",
             *(path.as_posix() for path in paths),
-        ]
+        )
         try:
-            subprocess.check_output(
-                cmd,
-                stderr=subprocess.STDOUT,
-            )
+            subprocess.check_output(cmd, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
             self.logger.warning(
-                f"Sorting imports failed for paths {[print_path(path) for path in paths]}",
+                f"Ruff check failed for paths {[print_path(path) for path in paths]}",
             )
             self.logger.warning(" ".join(cmd))
             self.logger.warning(e.output.decode())
-            raise RuffError(f"Sorting imports failed with status {e.returncode}") from None
+            raise RuffError(f"Ruff check failed with status {e.returncode}") from None
 
-    def format_code(self, paths: Sequence[Path]) -> None:
+    def _sort_imports(self, paths: Sequence[Path]) -> None:
+        """
+        Sort imports.
+        """
+        self._run_check(paths, ("I",))
+
+    def _run_format(self, paths: Sequence[Path]) -> None:
         """
         Format python code with `ruff`.
         """
+        cmd = (
+            sys.executable,
+            "-m",
+            "ruff",
+            "format",
+            "--target-version",
+            self._target_version,
+            *self._get_config_cli(),
+            "--isolated",
+            *(path.as_posix() for path in paths),
+        )
         try:
-            subprocess.check_output(
-                [
-                    sys.executable,
-                    "-m",
-                    "ruff",
-                    "format",
-                    "--target-version",
-                    self._target_version,
-                    *self._get_config_cli(),
-                    "--isolated",
-                    *(path.as_posix() for path in paths),
-                ],
-                stderr=subprocess.STDOUT,
-            )
+            subprocess.check_output(cmd, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            raise RuffError(f"Formatting failed: {e.output}, paths: {paths}") from None
+            self.logger.warning(
+                f"Ruff format failed for paths {[print_path(path) for path in paths]}",
+            )
+            self.logger.warning(" ".join(cmd))
+            self.logger.warning(e.output.decode())
+            raise RuffError(f"Ruff format failed: {e.output}, paths: {paths}") from None
 
     def format_strings(self, codes: Iterable[str]) -> list[str]:
         """
@@ -131,7 +134,7 @@ class RuffFormatter:
                 file_path.write_text(code)
                 paths.append(file_path)
 
-            self.format_code(paths)
+            self._run_format(paths)
             return [path.read_text().rstrip("\n") for path in paths]
 
     def format_markdown(self, text: str) -> str:
