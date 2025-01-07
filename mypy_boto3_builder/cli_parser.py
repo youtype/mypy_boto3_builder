@@ -110,6 +110,7 @@ class CLINamespace:
     skip_published: bool = False
     disable_smart_version: bool = False
     download_static_stubs: bool = True
+    raise_interrupt: bool = False
 
     def to_cmd(self) -> tuple[str, ...]:
         """
@@ -260,4 +261,5 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         skip_published=result.skip_published,
         disable_smart_version=result.no_smart_version,
         download_static_stubs=result.download_static_stubs,
+        raise_interrupt=result.debug,
     )

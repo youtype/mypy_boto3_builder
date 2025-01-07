@@ -208,6 +208,8 @@ def main() -> None:
     try:
         run(args)
     except KeyboardInterrupt:
+        if args.raise_interrupt:
+            raise
         logger = get_logger()
         logger.warning("Interrupted by user")
         sys.exit(1)
