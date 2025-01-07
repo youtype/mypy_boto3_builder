@@ -78,6 +78,32 @@ LOCAL_DEPENDENCIES = {
 }
 
 
+RUFF_SELECT_CHECKS = ("ALL",)
+RUFF_IGNORE_CHECKS = (
+    "A002",  # builtin-argument-shadowing
+    "COM812",  # missing-trailing-comma
+    "D101",  # undocumented-public-class
+    "D200",  # fits-on-one-line
+    "D203",  # one-blank-line-before-class
+    "D205",  # blank-line-after-summary
+    "D212",  # multi-line-summary-first-line
+    "D400",  # ends-in-period
+    "D401",  # non-imperative-mood
+    "D415",  # ends-in-punctuation
+    "E501",  # line-too-long
+    "E741",  # ambiguous-variable-name
+    "N802",  # invalid-function-name
+    "N803",  # invalid-argument-name
+    "N812",  # lowercase-imported-as-non-lowercase
+    "TC001",  # typing-only-first-party-import
+    "TC002",  # typing-only-third-party-import
+    "TC003",  # typing-only-standard-library-import
+    # ruff does not support conditional import syntax for aio libs
+    "UP004",  # useless-object-inheritance
+    "UP013",  # convert-typed-dict-functional-to-class
+)
+
+
 class Config:
     """
     Local configuration.
@@ -198,53 +224,6 @@ def run_ruff(path: Path) -> None:
     """
     Check output with ruff.
     """
-    select_checks = [
-        "E",
-        "W",
-        "F",
-        "B",
-        "I",
-        "N",
-        "C4",
-        "C90",
-        "RUF",
-        "SIM",
-        "PYI",
-        "PT",
-        "T",
-        "LOG",
-        "Q",
-        "RSE",
-        "RET",
-        "TID",
-        "TC",
-        "S",
-        "BLE",
-        "ANN",
-        "A",
-        "PTH",
-        "YTT",
-        "UP",
-        "TRY",
-        "PERF",
-        "FURB",
-    ]
-    ignore_errors = [
-        "A002",  # builtin-argument-shadowing
-        "E501",  # line-too-long
-        "E741",  # ambiguous-variable-name
-        "N802",  # invalid-function-name
-        "N803",  # invalid-argument-name
-        "N812",  # lowercase-imported-as-non-lowercase
-        "UP013",  # convert-typed-dict-functional-to-class
-        "TC001",  # typing-only-first-party-import
-        "TC002",  # typing-only-third-party-import
-        "TC003",  # typing-only-standard-library-import
-        # ruff does not support conditional import syntax for aio libs
-        "UP004",  # useless-object-inheritance
-        # aliases do not work properly with ruff
-        "UP006",  # non-pep585-annotation
-    ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         cmd = [
             "uvx",
@@ -253,11 +232,14 @@ def run_ruff(path: Path) -> None:
             "--target-version",
             "py38",
             "--select",
-            ",".join(select_checks),
+            ",".join(RUFF_SELECT_CHECKS),
             "--ignore",
-            ",".join(ignore_errors),
+            ",".join(RUFF_IGNORE_CHECKS),
+            "--config",
+            "lint.pyupgrade.keep-runtime-typing=true",
             path.as_posix(),
         ]
+        Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
         try:
             subprocess.check_call(
                 cmd,
