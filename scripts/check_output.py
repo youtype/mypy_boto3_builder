@@ -82,19 +82,13 @@ RUFF_SELECT_CHECKS = ("ALL",)
 RUFF_IGNORE_CHECKS = (
     "A002",  # builtin-argument-shadowing
     "COM812",  # missing-trailing-comma
-    "D101",  # undocumented-public-class
-    "D200",  # fits-on-one-line
-    "D203",  # one-blank-line-before-class
-    "D205",  # blank-line-after-summary
-    "D212",  # multi-line-summary-first-line
-    "D400",  # ends-in-period
-    "D401",  # non-imperative-mood
-    "D415",  # ends-in-punctuation
+    "D",  # pydocstyle
     "E501",  # line-too-long
     "E741",  # ambiguous-variable-name
     "N802",  # invalid-function-name
     "N803",  # invalid-argument-name
     "N812",  # lowercase-imported-as-non-lowercase
+    "PLR",  # pylint-refactor
     "TC001",  # typing-only-first-party-import
     "TC002",  # typing-only-third-party-import
     "TC003",  # typing-only-standard-library-import
