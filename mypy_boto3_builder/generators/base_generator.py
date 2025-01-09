@@ -147,20 +147,20 @@ class BaseGenerator(ABC):
         """
         return self.service_package_data.get_library_version()
 
-    def _get_package_version(self, pypi_name: str, version: str) -> str:
+    def _get_package_build_version(self, pypi_name: str) -> str:
         if self.config.disable_smart_version:
-            return version
+            return self.version
         pypi_manager = PyPIManager(pypi_name)
-        if not pypi_manager.has_version(version):
-            return version
+        if not pypi_manager.has_version(self.version):
+            return self.version
 
         if self.config.skip_published:
-            raise AlreadyPublishedError(f"{pypi_name} {version} is already on PyPI")
+            raise AlreadyPublishedError(f"{pypi_name} {self.version} is already on PyPI")
 
-        return pypi_manager.get_next_version(version)
+        return pypi_manager.get_next_version(self.version)
 
     @abstractmethod
-    def generate_stubs(self) -> Sequence[Package]:
+    def generate_stubs(self) -> Package | None:
         """
         Generate main stubs.
         """
@@ -182,7 +182,6 @@ class BaseGenerator(ABC):
         """
         Generate custom stubs.
         """
-        raise NotImplementedError("Method should be implemented in child class")
 
     def _generate_full_stubs_services(self, package: Package) -> None:
         service_package_writer = PackageWriter(
@@ -225,7 +224,7 @@ class BaseGenerator(ABC):
         packages: list[Package | None] = []
         match product_type:
             case ProductType.stubs:
-                packages.extend(self.generate_stubs())
+                packages.append(self.generate_stubs())
             case ProductType.stubs_lite:
                 packages.append(self.generate_stubs_lite())
             case ProductType.service_stubs:
@@ -317,11 +316,9 @@ class BaseGenerator(ABC):
 
             pypi_name = self.service_package_data.get_service_pypi_name(service_name)
             try:
-                version = self._get_package_version(pypi_name, self.version)
-            except AlreadyPublishedError:
-                self.logger.info(
-                    f"{progress_str} Skipping {pypi_name} {self.version}, already on PyPI"
-                )
+                version = self._get_package_build_version(pypi_name)
+            except AlreadyPublishedError as e:
+                self.logger.info(f"{progress_str} Skipping {pypi_name}: {e}")
                 continue
 
             self.logger.info(f"{progress_str} Generating {pypi_name} {version}")
@@ -346,7 +343,7 @@ class BaseGenerator(ABC):
             self.logger.debug(f"Removing {dir_path}")
             shutil.rmtree(dir_path)
 
-    def _get_wrapper_package_extras(self, package: Package) -> list[PackageExtra]:
+    def _get_wrapper_package_extras(self, package: Package) -> tuple[PackageExtra, ...]:
         result: list[PackageExtra] = []
         if package.data.pypi_full_name:
             result.append(
@@ -400,4 +397,4 @@ class BaseGenerator(ABC):
             )
             for service_name in package.service_names
         )
-        return result
+        return tuple(result)

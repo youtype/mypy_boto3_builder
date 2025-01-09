@@ -41,6 +41,8 @@ class Product(Enum):
     boto3_stubs_custom = "boto3-custom"
     boto3_stubs_docs = "boto3-docs"
 
+    mypy_boto3 = "mypy-boto3"
+
     def __str__(self) -> str:
         """
         Get string representation for debugging.
@@ -86,6 +88,8 @@ class Product(Enum):
                 | Product.types_aioboto3_custom
             ):
                 return ProductLibrary.aioboto3
+            case Product.mypy_boto3:
+                return ProductLibrary.mypy_boto3
 
     def get_type(self) -> ProductType:
         """
@@ -97,6 +101,7 @@ class Product(Enum):
                 | Product.boto3_stubs
                 | Product.types_aiobotocore
                 | Product.types_aioboto3
+                | Product.mypy_boto3
             ):
                 return ProductType.stubs
             case (

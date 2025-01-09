@@ -22,6 +22,7 @@ from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
+from mypy_boto3_builder.generators.mypy_boto3_generator import MypyBoto3Generator
 from mypy_boto3_builder.generators.types_boto3_generator import TypesBoto3Generator
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
@@ -98,6 +99,8 @@ def get_generator(product: Product, kwargs: GeneratorKwargs) -> BaseGenerator:
     match library:
         case ProductLibrary.boto3:
             return TypesBoto3Generator(**kwargs)
+        case ProductLibrary.mypy_boto3:
+            return MypyBoto3Generator(**kwargs)
         case ProductLibrary.boto3_legacy:
             return Boto3Generator(**kwargs)
         case ProductLibrary.aiobotocore:

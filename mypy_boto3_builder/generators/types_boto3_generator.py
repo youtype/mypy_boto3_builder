@@ -21,8 +21,8 @@ from mypy_boto3_builder.package_data import (
 )
 from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_boto3_package
 from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
-from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.packages.service_package import ServicePackage
+from mypy_boto3_builder.structures.packages.types_boto3_package import TypesBoto3Package
 
 
 class TypesBoto3Generator(BaseGenerator):
@@ -45,16 +45,16 @@ class TypesBoto3Generator(BaseGenerator):
             StaticStubsPullURL.types_boto3,
         )
 
-    def generate_stubs(self) -> list[Package]:
+    def generate_stubs(self) -> TypesBoto3Package | None:
         """
         Generate `types-boto3` package.
         """
         package_data = TypesBoto3PackageData()
         try:
-            version = self._get_package_version(package_data.pypi_name, self.version)
-        except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
-            return []
+            version = self._get_package_build_version(package_data.pypi_name)
+        except AlreadyPublishedError as e:
+            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
+            return None
 
         self.logger.info(f"Generating {package_data.pypi_name} {version}")
         package = parse_types_boto3_package(
@@ -69,17 +69,17 @@ class TypesBoto3Generator(BaseGenerator):
             template_path=TemplatePath.types_boto3,
             static_files_path=self._get_static_files_path(),
         )
-        return [package]
+        return package
 
-    def generate_stubs_lite(self) -> Package | None:
+    def generate_stubs_lite(self) -> TypesBoto3Package | None:
         """
         Generate `types-boto3-lite` package.
         """
         package_data = TypesBoto3LitePackageData()
         try:
-            version = self._get_package_version(package_data.pypi_name, self.version)
-        except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
+            version = self._get_package_build_version(package_data.pypi_name)
+        except AlreadyPublishedError as e:
+            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
             return None
 
         self.logger.info(f"Generating {package_data.pypi_name} {version}")
@@ -131,15 +131,15 @@ class TypesBoto3Generator(BaseGenerator):
                 version=self.version,
             )
 
-    def generate_full_stubs(self) -> Package | None:
+    def generate_full_stubs(self) -> TypesBoto3Package | None:
         """
         Generate `types-boto3-full` package.
         """
         package_data = TypesBoto3FullPackageData()
         try:
-            version = self._get_package_version(package_data.pypi_name, self.version)
-        except AlreadyPublishedError:
-            self.logger.info(f"Skipping {package_data.pypi_name} {self.version}, already on PyPI")
+            version = self._get_package_build_version(package_data.pypi_name)
+        except AlreadyPublishedError as e:
+            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
             return None
 
         self.logger.info(f"Generating {package_data.pypi_name} {version}")
@@ -168,7 +168,7 @@ class TypesBoto3Generator(BaseGenerator):
         )
         return package
 
-    def generate_custom_stubs(self) -> Package:
+    def generate_custom_stubs(self) -> TypesBoto3Package:
         """
         Generate `types-boto3-custom` package.
         """
