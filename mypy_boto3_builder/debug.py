@@ -22,7 +22,7 @@ def main() -> None:
         service_names=["acm"],
         build_version="1.0.0",
         output_types=[OutputType.package],
-        products=[Product.boto3_services],
+        products=[Product.boto3_stubs_services],
         list_services=False,
         partial_overload=False,
         skip_published=False,

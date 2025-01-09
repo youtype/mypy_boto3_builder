@@ -172,8 +172,8 @@ class Library(Enum):
             case Library.boto3:
                 return Product.types_boto3_custom
             case Library.boto3_legacy:
-                return Product.boto3_custom
+                return Product.boto3_stubs_custom
             case Library.aiobotocore:
-                return Product.aiobotocore_custom
+                return Product.types_aiobotocore_custom
             case Library.aioboto3:
-                return Product.aioboto3_custom
+                return Product.types_aioboto3_custom
