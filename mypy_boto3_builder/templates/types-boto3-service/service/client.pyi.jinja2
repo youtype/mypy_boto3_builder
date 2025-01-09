@@ -3,6 +3,8 @@ Type annotations for {{ package.service_name.boto3_name }} service Client.
 
 [Documentation]({{ package.get_doc_link("client") }})
 
+{{ copyright }}
+
 Usage::
 
     ```python
@@ -12,8 +14,6 @@ Usage::
     session = Session()
     client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
     ```
-
-{{ copyright }}
 """
 {% for import_record in package.get_client_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

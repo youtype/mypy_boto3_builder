@@ -3,6 +3,8 @@ Type annotations for {{ package.service_name.boto3_name }} service ServiceResour
 
 [Documentation]({{ package.get_doc_link("service_resource") }})
 
+{{ copyright }}
+
 Usage::
 
     ```python
@@ -20,8 +22,6 @@ Usage::
 {% endfor -%}
 {% endif -%}
     ```
-
-{{ copyright }}
 """
 {% for import_record in package.get_service_resource_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

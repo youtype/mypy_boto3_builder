@@ -3,6 +3,8 @@ Type annotations for {{ package.service_name.boto3_name }} service client waiter
 
 [Documentation]({{ package.get_doc_link("waiters") }})
 
+{{ copyright }}
+
 Usage::
 
     ```python
@@ -24,8 +26,6 @@ Usage::
     {{ waiter.attribute_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
 {% endfor -%}
     {{ '    ' -}}```
-
-{{ copyright }}
 """
 {% for import_record in package.get_waiter_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

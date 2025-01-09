@@ -3,6 +3,8 @@ Type annotations for {{ package.service_name.boto3_name }} service client pagina
 
 [Documentation]({{ package.get_doc_link("paginators") }})
 
+{{ copyright }}
+
 Usage::
 
     ```python
@@ -24,8 +26,6 @@ Usage::
     {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
 {% endfor -%}
     {{ '    ' -}}```
-
-{{ copyright }}
 """
 {% for import_record in package.get_paginator_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

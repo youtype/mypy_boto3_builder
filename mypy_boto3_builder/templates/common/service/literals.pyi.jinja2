@@ -3,6 +3,8 @@ Type annotations for {{ package.service_name.boto3_name }} service literal defin
 
 [Documentation]({{ package.get_doc_link("literals") }})
 
+{{ copyright }}
+
 Usage::
 
     ```python
@@ -10,8 +12,6 @@ Usage::
 
     data: {{ package.literals[0].name }} = "{{ package.literals[0].children|min }}"
     ```
-
-{{ copyright }}
 """
 {% for import_record in package.get_literals_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

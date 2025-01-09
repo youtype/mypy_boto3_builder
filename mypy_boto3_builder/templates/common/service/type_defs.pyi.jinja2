@@ -3,6 +3,8 @@ Type annotations for {{ package.service_name.boto3_name }} service type definiti
 
 [Documentation]({{ package.get_doc_link("type_defs") }})
 
+{{ copyright }}
+
 Usage::
 
     ```python
@@ -10,8 +12,6 @@ Usage::
 
     data: {{ package.type_defs[0].name }} = ...
     ```
-
-{{ copyright }}
 """
 {% for import_record in package.get_type_defs_required_import_records() -%}
     {{ import_record -}}{{ "\n" -}}

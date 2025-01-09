@@ -1,6 +1,10 @@
 """
 Main interface for {{ package.service_name.boto3_name }} service.
 
+[Documentation]({{ package.get_local_doc_link() }})
+
+{{ copyright }}
+
 Usage::
 
     ```python
@@ -32,8 +36,6 @@ Usage::
 {% endfor -%}
 {% endif -%}
     {{ '    ' -}}```
-
-{{ copyright }}
 """
 {% for import_record in package.get_init_import_records() -%}
     {{ import_record -}}{{ "\n" -}}
