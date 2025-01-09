@@ -12,7 +12,6 @@ pyright myproject
 from typing import TYPE_CHECKING
 
 import aioboto3
-from aiobotocore.session import get_session
 
 if TYPE_CHECKING:
     from types_aiobotocore_s3.client import S3Client
@@ -64,12 +63,12 @@ async def s3_client_example() -> None:
     """
     Usage example for S3Client.
     """
-    session = get_session()
+    session = aioboto3.Session()
 
     # type annotation is optional here
     client: S3Client
 
-    async with session.create_client("s3", region_name="us-west-1") as client:
+    async with session.client("s3", region_name="us-west-1") as client:
         bucket_exists_waiter = client.get_waiter("bucket_exists")
 
         #  check that injected methods are not kw-only
