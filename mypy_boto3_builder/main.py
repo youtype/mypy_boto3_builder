@@ -25,7 +25,7 @@ from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
 from mypy_boto3_builder.generators.mypy_boto3_generator import MypyBoto3Generator
 from mypy_boto3_builder.generators.types_boto3_generator import TypesBoto3Generator
 from mypy_boto3_builder.jinja_manager import JinjaManager
-from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.logger import get_logger, setup_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_defs import GeneratorKwargs
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
@@ -179,7 +179,8 @@ def run(args: CLINamespace) -> None:
 
 
 def _run_builder(args: CLINamespace) -> None:
-    logger = get_logger(level=args.log_level)
+    setup_logger(level=args.log_level)
+    logger = get_logger()
     available_service_names = get_available_service_names()
     initialize_jinja_manager()
     args.output_path.mkdir(exist_ok=True, parents=True)
@@ -197,7 +198,7 @@ def _run_builder(args: CLINamespace) -> None:
     main_service_names = service_names if args.partial_overload else available_service_names
 
     for product in args.products:
-        logger.info(f"Generating {product} product")
+        logger.info(f"Generating {product} product", tags=(product,))
         generate_product(product, args, service_names, main_service_names)
 
     logger.debug("Done!")

@@ -32,10 +32,11 @@ def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client
         Client structure.
     """
     logger = get_logger()
-    logger.debug("Parsing Client")
+    name = service_name.get_client_name()
+    logger.debug(f"Parsing {name}", tags=(name,))
 
     result = Client(
-        name=service_name.get_client_name(),
+        name=name,
         service_name=service_name,
     )
 

@@ -155,6 +155,10 @@ class BaseGenerator(ABC):
             return self.version
 
         if self.config.skip_published:
+            self.logger.info(
+                f"Skipping {pypi_name}: {self.version} is already on PyPI",
+                tags=(pypi_name,),
+            )
             raise AlreadyPublishedError(f"{pypi_name} {self.version} is already on PyPI")
 
         return pypi_manager.get_next_version(self.version)
@@ -196,6 +200,7 @@ class BaseGenerator(ABC):
 
             self.logger.info(
                 f"{progress_str} Generating {service_name.boto3_name} service directory",
+                tags=(service_name.boto3_name,),
             )
             service_package = self._parse_service_package(
                 service_name=service_name,
@@ -251,7 +256,9 @@ class BaseGenerator(ABC):
         version: str,
         package_data: BasePackageData,
     ) -> ServicePackage:
-        self.logger.debug(f"Parsing {service_name.boto3_name}")
+        self.logger.debug(
+            f"Parsing {service_name.boto3_name} botocore service", tags=(service_name.boto3_name,)
+        )
         parser = ServicePackageParser(service_name, package_data, version)
         service_package = parser.parse()
 
@@ -277,7 +284,10 @@ class BaseGenerator(ABC):
         )
         service_package.mark_safe_typed_dicts()
 
-        self.logger.debug(f"Writing {service_name.boto3_name}")
+        self.logger.debug(
+            f"Writing {service_name.boto3_name} service package",
+            tags=(service_name.boto3_name,),
+        )
         self.package_writer.write_service_package(
             service_package,
             templates_path=templates_path,
@@ -297,7 +307,10 @@ class BaseGenerator(ABC):
             package_data=package_data,
         )
 
-        self.logger.debug(f"Writing {service_name.boto3_name}")
+        self.logger.debug(
+            f"Writing {service_name.boto3_name} service docs",
+            tags=(service_name.boto3_name,),
+        )
         self.package_writer.write_service_docs(
             service_package,
             templates_path=templates_path,
@@ -317,11 +330,10 @@ class BaseGenerator(ABC):
             pypi_name = self.service_package_data.get_service_pypi_name(service_name)
             try:
                 version = self._get_package_build_version(pypi_name)
-            except AlreadyPublishedError as e:
-                self.logger.info(f"{progress_str} Skipping {pypi_name}: {e}")
+            except AlreadyPublishedError:
                 continue
 
-            self.logger.info(f"{progress_str} Generating {pypi_name} {version}")
+            self.logger.info(f"{progress_str} Generating {pypi_name} {version}", tags=(pypi_name,))
             package = self._process_service(
                 service_name=service_name,
                 version=version,
@@ -398,3 +410,10 @@ class BaseGenerator(ABC):
             for service_name in package.service_names
         )
         return tuple(result)
+
+    def _log_generate(self, pypi_name: str, version: str | None = None) -> None:
+        version_str = version or self.version
+        self.logger.info(
+            f"Generating {pypi_name} {version_str}",
+            tags=(pypi_name,),
+        )

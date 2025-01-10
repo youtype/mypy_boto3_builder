@@ -6,6 +6,7 @@
 #   "setuptools",
 #   "twine",
 #   "wheel",
+#   "loguru",
 # ]
 # ///
 """
@@ -31,6 +32,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 from unittest.mock import patch
 
+from loguru import logger
 from requests.exceptions import ConnectionError as RequestsConnectionError
 from requests.exceptions import HTTPError
 from twine.commands.upload import upload
@@ -64,29 +66,6 @@ class Config:
     """
 
     max_retries: int = 10
-    logger: logging.Logger
-
-
-def setup_logging(level: int) -> logging.Logger:
-    """
-    Get Logger instance.
-
-    Returns:
-        Overriden Logger.
-    """
-    logging.getLogger("twine").disabled = True
-    logging.getLogger("twine.commands.upload").disabled = True
-
-    logger = logging.getLogger(LOGGER_NAME)
-    stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter(
-        "%(asctime)s %(name)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S"
-    )
-    stream_handler.setFormatter(formatter)
-    stream_handler.setLevel(level)
-    logger.addHandler(stream_handler)
-    logger.setLevel(level)
-    return logger
 
 
 @dataclass
@@ -141,7 +120,6 @@ def check_call(cmd: Sequence[str], *, print_error: bool = True) -> str:
         return subprocess.check_output(cmd, stderr=subprocess.STDOUT, encoding="utf-8")
     except subprocess.CalledProcessError as e:
         if print_error:
-            logger = Config.logger
             for line in e.output.splitlines():
                 logger.warning(line)
         raise
@@ -182,7 +160,6 @@ def build(path: Path, max_retries: int = 10) -> Path:
     """
     Build package.
     """
-    logger = Config.logger
     attempt = 1
     last_error = Exception("Unknown error")
     while attempt <= max_retries:
@@ -211,7 +188,6 @@ def publish(paths: Sequence[Path]) -> Sequence[Path]:
     """
     Publish packages from dist directory to PyPI.
     """
-    logger = Config.logger
     for path in paths:
         attempt = 1
         while attempt <= Config.max_retries:
@@ -319,7 +295,6 @@ def publish_directories(args: CLINamespace) -> None:
     """
     Build and publish packages from directories.
     """
-    logger = Config.logger
     paths = [i for i in args.path.iterdir() if i.is_dir()]
     paths.sort(key=lambda x: x.name)
     if args.filter:
@@ -404,7 +379,6 @@ def main() -> None:
     """
     args = parse_args()
     Config.max_retries = args.retries
-    Config.logger = setup_logging(logging.DEBUG)
     publish_directories(args)
     publish_packages(args)
 

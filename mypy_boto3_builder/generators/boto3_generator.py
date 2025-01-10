@@ -53,11 +53,10 @@ class Boto3Generator(BaseGenerator):
         package_data = Boto3StubsPackageData()
         try:
             version = self._get_package_build_version(package_data.pypi_name)
-        except AlreadyPublishedError as e:
-            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
+        except AlreadyPublishedError:
             return None
 
-        self.logger.info(f"Generating {package_data.pypi_name} {version}")
+        self._log_generate(package_data.pypi_name, version)
         package = parse_types_boto3_package(
             service_names=self.main_service_names,
             package_data=package_data,
@@ -78,11 +77,10 @@ class Boto3Generator(BaseGenerator):
         package_data = Boto3StubsLitePackageData()
         try:
             version = self._get_package_build_version(package_data.pypi_name)
-        except AlreadyPublishedError as e:
-            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
+        except AlreadyPublishedError:
             return None
 
-        self.logger.info(f"Generating {package_data.pypi_name} {version}")
+        self._log_generate(package_data.pypi_name, version)
         package = parse_types_boto3_package(
             service_names=self.main_service_names,
             package_data=package_data,
@@ -108,7 +106,10 @@ class Boto3Generator(BaseGenerator):
         package_data = Boto3StubsPackageData()
         total_str = f"{len(self.service_names)}"
 
-        self.logger.info(f"Generating {package_data.name} module docs")
+        self.logger.info(
+            f"Generating {package_data.pypi_name} package docs",
+            tags=(package_data.pypi_name,),
+        )
         package = parse_types_boto3_package(
             service_names=self.service_names,
             package_data=package_data,
@@ -138,11 +139,10 @@ class Boto3Generator(BaseGenerator):
         package_data = Boto3StubsFullPackageData()
         try:
             version = self._get_package_build_version(package_data.pypi_name)
-        except AlreadyPublishedError as e:
-            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
+        except AlreadyPublishedError:
             return None
 
-        self.logger.info(f"Generating {package_data.pypi_name} {version}")
+        self._log_generate(package_data.pypi_name, version)
         package = parse_types_boto3_package(
             service_names=self.service_names,
             package_data=package_data,
@@ -174,7 +174,7 @@ class Boto3Generator(BaseGenerator):
         """
         package_data = Boto3StubsCustomPackageData()
 
-        self.logger.info(f"Generating {package_data.pypi_name} {self.version}")
+        self._log_generate(package_data.pypi_name, self.version)
         package = parse_types_boto3_package(
             service_names=self.service_names,
             package_data=package_data,

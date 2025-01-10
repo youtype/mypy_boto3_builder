@@ -478,6 +478,7 @@ class ShapeParser:
         if found_typed_dict and not typed_dict.is_same(found_typed_dict):
             self.logger.debug(
                 f"Renaming conflicting {typed_dict.name} to {resource_typed_dict_name}",
+                tags=(typed_dict.name, resource_typed_dict_name),
             )
             typed_dict.name = resource_typed_dict_name
         typed_dict_map[typed_dict.name] = typed_dict
@@ -488,9 +489,10 @@ class ShapeParser:
             if is_required(self.service_name, typed_dict.name, attribute.name):
                 attribute.mark_as_required()
             else:
+                attribute_rendered = attribute.get_type_annotation().render()
                 self.logger.debug(
-                    f"Leaving output {typed_dict.name}.{attribute.name}"
-                    f" as {attribute.get_type_annotation().render()}",
+                    f"Leaving output {typed_dict.name}.{attribute.name} as {attribute_rendered}",
+                    tags=(typed_dict.name, attribute.name, attribute_rendered),
                 )
 
     def _add_response_metadata(self, typed_dict: TypeTypedDict) -> None:
@@ -885,7 +887,8 @@ class ShapeParser:
             if sub_resource_name not in existing_sub_resource_names:
                 self.logger.debug(
                     f"Skipping {sub_resource_name} sub resource"
-                    " because it is not present in ServiceResource.has"
+                    " because it is not present in ServiceResource.has",
+                    tags=(sub_resource_name,),
                 )
                 continue
             sub_resource_shape = self._get_resource_shape(sub_resource_name)
@@ -1227,7 +1230,10 @@ class ShapeParser:
         if clashing_typed_dict.is_same(temp_typed_dict):
             return new_typed_dict_name
 
-        self.logger.debug(f"Clashing typed dict name found: {new_typed_dict_name}")
+        self.logger.debug(
+            f"Clashing typed dict name found: {new_typed_dict_name}",
+            tags=(new_typed_dict_name,),
+        )
         return self._get_non_clashing_typed_dict_name(typed_dict, "Extra" + postfix)
 
     def fix_typed_dict_names(self) -> None:
@@ -1256,6 +1262,7 @@ class ShapeParser:
                 self.logger.debug(
                     "Fixing output TypedDict name clash"
                     f" {old_typed_dict_name} -> {new_typed_dict_name}",
+                    tags=(old_typed_dict_name, new_typed_dict_name),
                 )
 
                 self._output_typed_dict_map.rename(output_typed_dict, new_typed_dict_name)
@@ -1288,6 +1295,7 @@ class ShapeParser:
                 self.logger.debug(
                     "Fixing response TypedDict name clash"
                     f" {old_typed_dict_name} -> {new_typed_dict_name}",
+                    tags=(old_typed_dict_name, new_typed_dict_name),
                 )
 
                 self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)
@@ -1321,8 +1329,10 @@ class ShapeParser:
                 for parent in sorted(parents):
                     if is_union(parent) and parent.name == union_name:
                         continue
+                    parent_rendered = parent.render()
                     self.logger.debug(
-                        f"Adding output shape to {parent.render()} type:"
+                        f"Adding output shape to {parent_rendered} type:"
                         f" {input_typed_dict.name} | {output_typed_dict.name}",
+                        tags=(parent_rendered,),
                     )
                     parent.replace_child(input_typed_dict, union_type_annotation)

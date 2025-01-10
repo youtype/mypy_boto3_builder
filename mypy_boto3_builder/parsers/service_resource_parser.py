@@ -64,26 +64,24 @@ class ServiceResourceParser(ResourceParser):
         if not self.shape_parser.has_service_resource():
             return None
 
-        self._logger.debug("Parsing ServiceResource")
+        name = self.service_name.get_service_resource_name()
+        self._logger.debug(f"Parsing {name}", tags=(name,))
         result = ServiceResource(
-            name=self.service_name.get_service_resource_name(),
+            name=name,
             service_name=self.service_name,
         )
         meta_attribute = self._get_meta_attribute(result.resource_meta_class.name)
 
-        self._logger.debug("Parsing ServiceResource methods")
+        self._logger.debug(f"Parsing {name} methods", tags=(name,))
         method_map = self._parse_method_map()
         result.methods.extend(list(method_map.values()))
 
-        self._logger.debug("Parsing ServiceResource attributes")
+        self._logger.debug(f"Parsing {name} attributes and collections", tags=(name,))
         collections = self._parse_collections()
         result.attributes.append(meta_attribute)
         result.attributes.extend(self._parse_attributes(collections))
-
-        self._logger.debug("Parsing ServiceResource collections")
         result.collections.extend(collections)
 
-        self._logger.debug("Parsing ServiceResource sub resources")
         sub_resources = self._parse_sub_resources(meta_attribute)
         result.sub_resources.extend(sub_resources)
 
@@ -92,7 +90,10 @@ class ServiceResourceParser(ResourceParser):
     def _parse_sub_resources(self, meta_attribute: Attribute) -> list[ResourceRecord]:
         result: list[ResourceRecord] = []
         for sub_resource_name in self.shape_parser.get_subresource_names():
-            self._logger.debug(f"Parsing {sub_resource_name} sub resource")
+            self._logger.debug(
+                f"Parsing {sub_resource_name} sub resource",
+                tags=(sub_resource_name,),
+            )
             resource_parser = ResourceParser(
                 service_name=self.service_name,
                 name=sub_resource_name,

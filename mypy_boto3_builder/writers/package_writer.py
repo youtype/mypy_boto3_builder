@@ -179,7 +179,7 @@ class PackageWriter:
             path.parent.mkdir(exist_ok=True, parents=True)
 
         path.write_text(content)
-        self.logger.debug(f"Rendered {print_path(path)}")
+        self.logger.debug(f"Rendered {print_path(path)}", tags=(print_path(path),))
 
     def _render_docs_templates(
         self,
@@ -216,7 +216,10 @@ class PackageWriter:
             include_template_names -- Render only templates with these names
             exclude_template_names -- Do not render templates with these names
         """
-        self.logger.debug(f"Writing {package.data.pypi_name} to {print_path(self.output_path)}")
+        self.logger.debug(
+            f"Writing {package.data.pypi_name} to {print_path(self.output_path)}",
+            tags=(package.data.pypi_name, print_path(self.output_path)),
+        )
         template_renders: list[TemplateRender] = [
             *self._get_setup_template_paths(package, template_path),
             *self._get_package_template_renders(package, template_path),

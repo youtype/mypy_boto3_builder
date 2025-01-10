@@ -63,11 +63,10 @@ class AioBoto3Generator(BaseGenerator):
         package_data = TypesAioBoto3PackageData()
         try:
             version = self._get_package_build_version(package_data.pypi_name)
-        except AlreadyPublishedError as e:
-            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
+        except AlreadyPublishedError:
             return None
 
-        self.logger.info(f"Generating {package_data.pypi_name} {version}")
+        self._log_generate(package_data.pypi_name, version)
         package = parse_types_aioboto3_package(
             service_names=self.main_service_names,
             package_data=package_data,
@@ -89,11 +88,10 @@ class AioBoto3Generator(BaseGenerator):
         package_data = TypesAioBoto3LitePackageData()
         try:
             version = self._get_package_build_version(package_data.pypi_name)
-        except AlreadyPublishedError as e:
-            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
+        except AlreadyPublishedError:
             return None
 
-        self.logger.info(f"Generating {package_data.pypi_name} {version}")
+        self._log_generate(package_data.pypi_name, version)
         package = parse_types_aioboto3_package(
             service_names=self.main_service_names,
             package_data=package_data,
@@ -116,7 +114,10 @@ class AioBoto3Generator(BaseGenerator):
         package_data = TypesAioBoto3PackageData()
         total_str = f"{len(self.service_names)}"
 
-        self.logger.info(f"Generating {package_data.pypi_name} module docs")
+        self.logger.info(
+            f"Generating {package_data.pypi_name} module docs",
+            tags=(package_data.pypi_name,),
+        )
         package = parse_types_aioboto3_package(
             service_names=self.service_names,
             package_data=package_data,
@@ -157,7 +158,7 @@ class AioBoto3Generator(BaseGenerator):
         package_data = TypesAioBoto3CustomPackageData()
         aiobotocore_package_data = TypesAioBotocorePackageData()
 
-        self.logger.info(f"Generating {package_data.pypi_name} {self.version}")
+        self._log_generate(package_data.pypi_name, self.version)
         package = parse_types_aioboto3_package(
             service_names=self.service_names,
             package_data=package_data,

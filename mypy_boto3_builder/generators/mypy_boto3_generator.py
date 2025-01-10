@@ -27,11 +27,10 @@ class MypyBoto3Generator(BaseGenerator):
         package_data = MypyBoto3PackageData()
         try:
             version = self._get_package_build_version(package_data.pypi_name)
-        except AlreadyPublishedError as e:
-            self.logger.info(f"Skipping {package_data.pypi_name}: {e}")
+        except AlreadyPublishedError:
             return None
 
-        self.logger.info(f"Generating {package_data.pypi_name} {version}")
+        self._log_generate(package_data.pypi_name, version)
         package = parse_mypy_boto3_package(service_names=self.main_service_names, version=version)
         self.package_writer.write_package(
             package,
