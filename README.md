@@ -74,7 +74,7 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 ## Versioning
 
 `mypy_boto3_builder` version is not related to `boto3` version and follows
-[PEP 440](https://www.python.org/dev/peps/pep-0440/).
+[Python Packaging version specifiers](https://packaging.python.org/en/latest/specifications/version-specifiers/).
 
 ## Latest changes
 

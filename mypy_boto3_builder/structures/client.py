@@ -58,8 +58,7 @@ class Client(ClassRecord):
         List to boto3 docs page.
         """
         return (
-            f"{self.service_name.boto3_doc_link_parent}.html"
-            f"#{self.service_name.class_name}.Client"
+            f"{self.service_name.boto3_doc_link_parent}.html#{self.service_name.class_name}.Client"
         )
 
     def get_all_names(self) -> list[str]:

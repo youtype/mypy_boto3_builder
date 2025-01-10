@@ -75,13 +75,13 @@ class Workflow:
             return "never"
         delta = get_now() - self.started_at
         if delta.days:
-            return f"{delta.days} day{'s' if delta.days > 1 else '' } ago"
+            return f"{delta.days} day{'s' if delta.days > 1 else ''} ago"
         if delta.seconds > 60 * 60:
             hours = delta.seconds // 60 // 60
-            return f"{hours} hour{'s' if hours > 1 else '' } ago"
+            return f"{hours} hour{'s' if hours > 1 else ''} ago"
         if delta.seconds > 60:  # noqa: PLR2004
             minutes = delta.seconds // 60
-            return f"{minutes} minute{'s' if minutes > 1 else '' } ago"
+            return f"{minutes} minute{'s' if minutes > 1 else ''} ago"
         if delta.seconds > 5:  # noqa: PLR2004
             return f"{delta.seconds} seconds ago"
 

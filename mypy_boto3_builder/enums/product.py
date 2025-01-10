@@ -125,9 +125,7 @@ class Product(Enum):
             ):
                 return ProductType.docs
             case (
-                Product.types_boto3_full
-                | Product.boto3_stubs_full
-                | Product.types_aiobotocore_full
+                Product.types_boto3_full | Product.boto3_stubs_full | Product.types_aiobotocore_full
             ):
                 return ProductType.full
             case (

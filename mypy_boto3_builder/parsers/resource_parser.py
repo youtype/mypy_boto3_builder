@@ -74,8 +74,7 @@ class ResourceParser:
         for attribute in references:
             if attribute.name in existing_attribute_names:
                 self._logger.warning(
-                    f"Duplicate attribute name {self.name}.{attribute.name}"
-                    " in reference, renaming"
+                    f"Duplicate attribute name {self.name}.{attribute.name} in reference, renaming"
                 )
                 attribute.name = f"{attribute.name}_reference"
             existing_attribute_names.add(attribute.name)
@@ -89,8 +88,7 @@ class ResourceParser:
             )
             if attribute.name in existing_attribute_names:
                 self._logger.warning(
-                    f"Duplicate attribute name {self.name}.{attribute.name}"
-                    " in collection, renaming"
+                    f"Duplicate attribute name {self.name}.{attribute.name} in collection, renaming"
                 )
                 attribute.name = f"{attribute.name}_collection"
             collection_attributes.append(attribute)

@@ -36,7 +36,7 @@ def _linebreak() -> None:
 
 
 def _join_and(items: Sequence[MessageToken], name: str = "") -> Message:
-    name_suffix = f" {name}{"" if len(items) == 1 else "s"}" if name else ""
+    name_suffix = f" {name}{'' if len(items) == 1 else 's'}" if name else ""
     if not items:
         return ("no ", name_suffix)
     if len(items) == 1:

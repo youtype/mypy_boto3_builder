@@ -7,7 +7,7 @@ Copyright 2024 Vlad Emelianov
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
 from contextlib import contextmanager
-from typing import Any, ClassVar, Final, Generic, NoReturn, TypeVar
+from typing import Any, ClassVar, Final, Generic, TypeVar
 from unittest.mock import patch
 
 from prompt_toolkit import PromptSession
@@ -82,7 +82,7 @@ class BasePrompt(ABC, Generic[_R]):
         return TextStyle.text.stylize(self._get_prompt_tokens())
 
     @abstractmethod
-    def _get_prompt_tokens(self) -> NoReturn:
+    def _get_prompt_tokens(self) -> Message:
         raise NotImplementedError("Method is not implemented")
 
     def _is_answered(self) -> bool:
@@ -100,7 +100,7 @@ class BasePrompt(ABC, Generic[_R]):
         return self._question
 
     @abstractmethod
-    def _create_question(self) -> NoReturn:
+    def _create_question(self) -> Question:
         raise NotImplementedError("Method is not implemented")
 
     def _patch_answer(self) -> None:

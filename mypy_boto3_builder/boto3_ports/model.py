@@ -4,20 +4,21 @@ Backport of `boto3.resources.model`.
 Copyright 2024 Vlad Emelianov
 """
 
+from dataclasses import dataclass
 from typing import Any
 
 from botocore import xform_name
 from botocore.model import Shape, StructureShape
 
 
+@dataclass
 class Identifier:
     """
     A resource identifier, given by its name.
     """
 
-    def __init__(self, name: str, member_name: str | None = None) -> None:
-        self.name = name
-        self.member_name = member_name
+    name: str
+    member_name: str | None = None
 
 
 class Action:
