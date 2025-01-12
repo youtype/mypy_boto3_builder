@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # /// script
 # requires-python = ">=3.8"
+# dependencies = [
+#   "loguru",
+# ]
 # ///
 """
 Checker of generated packages.
@@ -17,7 +20,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import logging
 import shutil
 import subprocess
 import sys
@@ -27,10 +29,13 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
+from loguru import logger
+
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
+DEFAULT_PATH = ROOT_PATH / "mypy_boto3_output"
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 LOGGER_NAME = "check_output"
 PYRIGHT_IGNORED_MESSAGES = (
@@ -103,9 +108,8 @@ class Config:
     Local configuration.
     """
 
-    path: Path
-    logger: logging.Logger
-    args: CLINamespace
+    path: Path = DEFAULT_PATH
+    python_version: str | None = None
 
     @classmethod
     def get_uvx_cmd(cls) -> tuple[str, ...]:
@@ -113,8 +117,8 @@ class Config:
         Get uvx command prefix.
         """
         result: list[str] = ["uvx", "-q"]
-        if cls.args.python_version:
-            result.extend(("--python", cls.args.python_version))
+        if cls.python_version:
+            result.extend(("--python", cls.python_version))
         return tuple(result)
 
 
@@ -153,33 +157,13 @@ class CheckError(Exception):
         self.errors = error
 
 
-def setup_logging(level: int) -> logging.Logger:
-    """
-    Get Logger instance.
-
-    Arguments:
-        level -- Log level
-
-    Returns:
-        Overriden Logger.
-    """
-    logger = logging.getLogger(LOGGER_NAME)
-    stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S")
-    stream_handler.setFormatter(formatter)
-    stream_handler.setLevel(level)
-    logger.addHandler(stream_handler)
-    logger.setLevel(level)
-    return logger
-
-
 @dataclass
 class CLINamespace:
     """
     CLI namespace.
     """
 
-    debug: bool
+    log_level: str
     path: Path
     filter: list[str]
     exit_on_error: bool
@@ -194,7 +178,7 @@ def parse_args() -> CLINamespace:
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("-d", "--debug", action="store_true")
     parser.add_argument("-x", "--exit-on-error", action="store_true")
-    parser.add_argument("-p", "--path", type=Path, default=ROOT_PATH / "mypy_boto3_output")
+    parser.add_argument("-p", "--path", type=Path, default=DEFAULT_PATH)
     parser.add_argument(
         "--python",
         type=str,
@@ -205,7 +189,7 @@ def parse_args() -> CLINamespace:
     parser.add_argument("filter", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
-        debug=args.debug,
+        log_level="DEBUG" if args.debug else "INFO",
         path=args.path,
         filter=args.filter,
         exit_on_error=args.exit_on_error,
@@ -233,7 +217,7 @@ def run_ruff(path: Path) -> None:
             "lint.pyupgrade.keep-runtime-typing=true",
             path.as_posix(),
         ]
-        Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
+        logger.debug(f"Running subprocess: {' '.join(cmd)}")
         try:
             subprocess.check_call(
                 cmd,
@@ -267,7 +251,7 @@ def run_pyright(path: Path) -> None:
         path.as_posix(),
         "--outputjson",
     ]
-    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
+    logger.debug(f"Running subprocess: {' '.join(cmd)}")
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
@@ -285,7 +269,7 @@ def run_pyright(path: Path) -> None:
         try:
             output_data = json.loads(output)
         except json.JSONDecodeError:
-            Config.logger.error("Pyright output is not a valid JSON")
+            logger.error("Pyright output is not a valid JSON")
             return
 
         data = output_data.get("generalDiagnostics", [])
@@ -318,7 +302,7 @@ def run_mypy(path: Path) -> None:
     Check output with mypy.
     """
     cmd = [*Config.get_uvx_cmd(), *get_with_arguments(), "mypy", path.as_posix()]
-    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
+    logger.debug(f"Running subprocess: {' '.join(cmd)}")
     try:
         output = subprocess.check_output(
             cmd,
@@ -370,7 +354,7 @@ def run_import(path: Path) -> None:
         "-c",
         f"import {path.name}",
     ]
-    Config.logger.debug(f"Running subprocess: {' '.join(cmd)}")
+    logger.debug(f"Running subprocess: {' '.join(cmd)}")
     try:
         subprocess.check_call(cmd, stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
@@ -395,7 +379,6 @@ def run_checks(path: Path) -> None:
     Raises:
         CheckError -- If snapshot is not equal to current output.
     """
-    logger = Config.logger
     relative_path = path.absolute().relative_to(Path.cwd())
     logger.info(f"Checking {relative_path} ...")
     logger.debug(f"Running ruff for {relative_path} ...")
@@ -412,12 +395,12 @@ def run_checks(path: Path) -> None:
         run_import(path)
 
 
-def get_package_paths() -> tuple[Path, ...]:
+def get_package_paths(path: Path, filter_names: Sequence[str]) -> tuple[Path, ...]:
     """
     Find package directories.
     """
     result: list[Path] = []
-    for directory in sorted(Config.args.path.iterdir()):
+    for directory in sorted(path.iterdir()):
         if not directory.is_dir():
             continue
         if not directory.name.endswith("_package"):
@@ -426,9 +409,7 @@ def get_package_paths() -> tuple[Path, ...]:
         for package_path in directory.iterdir():
             if not is_package_dir(package_path):
                 continue
-            if Config.args.filter and not any(
-                i in package_path.as_posix() for i in Config.args.filter
-            ):
+            if filter_names and not any(i in package_path.as_posix() for i in filter_names):
                 continue
 
             result.append(package_path)
@@ -444,7 +425,7 @@ def is_run_checks_passed(path: Path) -> tuple[Path, bool]:
     try:
         run_checks(path)
     except CheckError as e:
-        Config.logger.warning(e)
+        logger.warning(e)
         return path, False
     return path, True
 
@@ -455,11 +436,26 @@ def main() -> None:
     """
     args = parse_args()
     Config.path = args.path
-    Config.args = args
-    Config.logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
-    logger = Config.logger
+    Config.python_version = args.python_version
+    logger.configure(
+        handlers=[
+            {
+                "sink": sys.stderr,
+                "level": args.log_level,
+                "format": (
+                    "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
+                    "<level>{level: <8}</level> | "
+                    f"<cyan>{Path(__file__).stem}</cyan> - "
+                    "<white>{message}</white>"
+                ),
+            }
+        ]
+    )
     has_errors = False
-    package_paths = get_package_paths()
+    package_paths = get_package_paths(
+        path=args.path,
+        filter_names=args.filter,
+    )
     if not package_paths:
         logger.error(f"No packages found if {args.path}")
 

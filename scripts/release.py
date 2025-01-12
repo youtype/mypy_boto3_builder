@@ -19,7 +19,6 @@ from __future__ import annotations
 
 import argparse
 import itertools
-import logging
 import os
 import shutil
 import subprocess
@@ -271,7 +270,6 @@ def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Sequence
     """
     total = sum(len(i) for i in path_batches)
     current_total = 0
-    logger = logging.getLogger(LOGGER_NAME)
     for path_batch in path_batches:
         if args.publish_threads == 1:
             for index, paths in enumerate(map(publish, path_batch)):

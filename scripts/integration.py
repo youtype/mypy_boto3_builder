@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # /// script
 # requires-python = ">=3.8"
+# dependencies = [
+#   "loguru",
+# ]
 # ///
 """
 Integration tests.
@@ -14,7 +17,6 @@ import argparse
 import difflib
 import enum
 import json
-import logging
 import shutil
 import subprocess
 import sys
@@ -24,6 +26,8 @@ from itertools import chain
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from loguru import logger
+
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
@@ -32,7 +36,6 @@ PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 TYPES_BOTO3_PATH = ROOT_PATH / "integration" / "types-boto3"
 TYPES_AIOBOTO3_PATH = ROOT_PATH / "integration" / "types-aioboto3"
 SCRIPTS_PATH = ROOT_PATH / "scripts"
-LOGGER_NAME = "integration"
 TEMP_PATH = Path(tempfile.TemporaryDirectory().name)
 
 
@@ -41,8 +44,8 @@ class Config:
     Config for integration tests.
     """
 
-    args: CLINamespace
-    logger: logging.Logger
+    python_version: str | None = None
+    products: tuple[Product, ...] = ()
     install_paths: Sequence[Path] = ()
 
     @classmethod
@@ -51,9 +54,9 @@ class Config:
         Get `uvx` arguments.
         """
         result: list[str] = ["-q"]
-        if cls.args.python_version:
-            result.extend(["--python", cls.args.python_version])
-        with_libraries = list(chain.from_iterable(p.prerequisites for p in cls.args.products))
+        if cls.python_version:
+            result.extend(["--python", cls.python_version])
+        with_libraries = list(chain.from_iterable(p.prerequisites for p in cls.products))
         for library_name in with_libraries:
             result.extend(["--with", library_name])
         for install_path in cls.install_paths:
@@ -195,28 +198,6 @@ class ProductChoices(enum.Enum):
         raise ValueError(f"Unknown product: {name}")
 
 
-def setup_logging(level: int) -> logging.Logger:
-    """
-    Get Logger instance.
-
-    Arguments:
-        level -- Logging level
-
-    Returns:
-        Created Logger.
-    """
-    logger = logging.getLogger(LOGGER_NAME)
-    stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter(
-        "%(asctime)s %(name)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S"
-    )
-    stream_handler.setFormatter(formatter)
-    stream_handler.setLevel(level)
-    logger.addHandler(stream_handler)
-    logger.setLevel(level)
-    return logger
-
-
 def print_path(path: Path) -> str:
     """
     Get path as a string relative to current workdir.
@@ -243,8 +224,8 @@ class CLINamespace:
     CLI namespace.
     """
 
-    log_level: int
-    products: list[Product]
+    log_level: str
+    products: tuple[Product, ...]
     fast: bool
     update: bool
     services: tuple[str, ...]
@@ -287,8 +268,8 @@ def parse_args() -> CLINamespace:
     parser.add_argument("-w", "--wheel", action="store_true", help="Build wheel packages")
     args = parser.parse_args()
     return CLINamespace(
-        log_level=logging.DEBUG if args.debug else logging.INFO,
-        products=[ProductChoices.get(name) for name in args.product],
+        log_level="DEBUG" if args.debug else "INFO",
+        products=tuple(ProductChoices.get(name) for name in args.product),
         fast=args.fast,
         update=args.update,
         services=tuple(args.services),
@@ -302,7 +283,6 @@ def check_call(cmd: Sequence[str]) -> str:
     """
     Check command exit code and output on error.
     """
-    logger = Config.logger
     logger.debug(f"Running process: {' '.join(cmd)}")
     try:
         return subprocess.check_output(cmd, stderr=subprocess.STDOUT).decode()
@@ -316,6 +296,7 @@ def build_packages(
     products: Sequence[Product],
     output_path: Path,
     output_type: str,
+    services: Sequence[str],
 ) -> list[Path]:
     """
     Build and install stubs.
@@ -323,12 +304,11 @@ def build_packages(
     - boto3: `types-boto3`
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
-    logger = Config.logger
     prerequisites: set[str] = set()
     build_products: set[str] = set()
     service_names: set[str] = set()
     for product in products:
-        product.find_service_names(Config.args.services)
+        product.find_service_names(services)
         build_products.update(product.build_products)
         prerequisites.update(product.prerequisites)
         service_names.update(product.service_names)
@@ -360,7 +340,6 @@ def compare(data: str, snapshot_path: Path, *, update: bool) -> None:
     Compare tool output with a snapshot.
     """
     data = data.strip()
-    logger = logging.getLogger(LOGGER_NAME)
     if not snapshot_path.exists():
         snapshot_path.write_text(data)
         logger.info(f"Created {print_path(snapshot_path)}")
@@ -393,7 +372,7 @@ def run_pyright(path: Path, snapshot_path: Path, *, update: bool) -> None:
     config_path = ROOT_PATH / "pyrightconfig.json"
     shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
     cmd = ["uvx", *Config.get_uvx_arguments(), "pyright", path.as_posix(), "--outputjson"]
-    Config.logger.debug(f"Running process: {' '.join(cmd)}")
+    logger.debug(f"Running process: {' '.join(cmd)}")
     try:
         output = subprocess.check_output(cmd, stderr=subprocess.DEVNULL, encoding="utf8")
     except subprocess.CalledProcessError as e:
@@ -417,7 +396,7 @@ def run_mypy(path: Path, snapshot_path: Path, *, update: bool) -> None:
     Run `mypy` and compare output.
     """
     cmd = ["uvx", *Config.get_uvx_arguments(), "mypy", path.as_posix(), "--no-incremental"]
-    Config.logger.debug(f"Running process: {' '.join(cmd)}")
+    logger.debug(f"Running process: {' '.join(cmd)}")
     try:
         output = subprocess.check_output(cmd, stderr=subprocess.STDOUT, encoding="utf8")
     except subprocess.CalledProcessError as e:
@@ -432,7 +411,7 @@ def run_mypy(path: Path, snapshot_path: Path, *, update: bool) -> None:
     compare(new_data, snapshot_path, update=update)
 
 
-def get_service_names(product: Product) -> list[str]:
+def get_service_names(product: Product, services: Sequence[str]) -> list[str]:
     """
     Get service names from config.
     """
@@ -441,7 +420,7 @@ def get_service_names(product: Product) -> list[str]:
         if not file.name.endswith("_example.py"):
             continue
         service_name = file.name.replace("_example.py", "")
-        if Config.args.services and service_name not in Config.args.services:
+        if services and service_name not in services:
             continue
         service_names.append(service_name)
 
@@ -453,9 +432,22 @@ def main() -> None:
     Run main logic.
     """
     args = parse_args()
-    logger = setup_logging(args.log_level)
-    Config.args = args
-    Config.logger = logger
+    logger.configure(
+        handlers=[
+            {
+                "sink": sys.stderr,
+                "level": args.log_level,
+                "format": (
+                    "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
+                    "<level>{level: <8}</level> | "
+                    f"<cyan>{Path(__file__).stem}</cyan> - "
+                    "<white>{message}</white>"
+                ),
+            }
+        ]
+    )
+    Config.python_version = args.python_version
+    Config.products = args.products
     error: Exception | None = None
 
     if not args.fast:
@@ -464,6 +456,7 @@ def main() -> None:
             products=args.products,
             output_path=args.output_path,
             output_type="wheel" if args.wheel else "package",
+            services=args.services,
         )
         Config.install_paths = install_paths
 

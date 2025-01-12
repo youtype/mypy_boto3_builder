@@ -18,6 +18,7 @@ from mypy_boto3_builder.chat.type_defs import Message, MessageToken
 from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.constants import PROG_NAME
 from mypy_boto3_builder.enums.output_type import OutputType
+from mypy_boto3_builder.logger import enable_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
 from mypy_boto3_builder.utils.path import print_path
@@ -654,6 +655,7 @@ class ChatBuddy:
         self._run_builder()
 
     def _run_builder(self) -> None:
+        enable_logger()
         self.run_builder(self.args)
         _linebreak()
 
