@@ -5,17 +5,16 @@ Pull static stubs from GitHub to local directories.
 Copyright 2024 Vlad Emelianov
 """
 
-import logging
 import shutil
 import tempfile
 from pathlib import Path
 
 from mypy_boto3_builder.constants import StaticStubsPath, StaticStubsPullURL
-from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.logger import get_logger, setup_logger
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.path import print_path
 
-logger = get_logger(logging.DEBUG, Path(__file__).stem)
+logger = get_logger()
 
 
 def pull_static(url: str, output_path: Path, temp_path: Path) -> None:
@@ -54,6 +53,7 @@ def main() -> None:
     """
     Run main entrypoint.
     """
+    setup_logger(name="pull_static")
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_dir_path = Path(temp_dir)
         pull_static(
