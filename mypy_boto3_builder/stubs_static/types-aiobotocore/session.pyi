@@ -1,7 +1,7 @@
 """
 Type annotations for aiobotocore.session module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 from types import TracebackType
@@ -57,7 +57,7 @@ class AioSession(Session):
         aws_secret_access_key: str | None = ...,
         aws_session_token: str | None = ...,
         config: Config | None = ...,
-    ) -> ClientCreatorContext[AioBaseClient]: ...
+    ) -> ClientCreatorContext[Any]: ...
     async def get_credentials(self) -> AioCredentials | None: ...  # type: ignore[override]
     def set_credentials(
         self, access_key: str, secret_key: str, token: Any | None = ...

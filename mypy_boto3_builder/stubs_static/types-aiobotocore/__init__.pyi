@@ -1,7 +1,7 @@
 """
 Type annotations for aiobotocore module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 __version__: str

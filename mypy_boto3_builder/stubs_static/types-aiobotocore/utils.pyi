@@ -1,7 +1,7 @@
 """
 Type annotations for aiobotocore.utils module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 from typing import Any, Mapping
@@ -39,7 +39,7 @@ class AioIMDSFetcher(IMDSFetcher):
     ) -> None: ...
 
 class AioInstanceMetadataFetcher(AioIMDSFetcher, InstanceMetadataFetcher):
-    async def retrieve_iam_role_credentials(self) -> dict[str, Any]: ...
+    async def retrieve_iam_role_credentials(self) -> dict[str, Any]: ...  # type: ignore[override]
 
 class AioIMDSRegionProvider(IMDSRegionProvider):
     async def provide(self) -> str: ...

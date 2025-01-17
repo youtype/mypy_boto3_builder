@@ -1,7 +1,7 @@
 """
 Type annotations for aiobotocore.client module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 from types import TracebackType

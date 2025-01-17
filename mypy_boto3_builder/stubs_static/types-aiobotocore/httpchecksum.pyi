@@ -1,7 +1,7 @@
 """
 Type annotations for aiobotocore.httpchecksum module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 from typing import Any, Mapping, TypeVar

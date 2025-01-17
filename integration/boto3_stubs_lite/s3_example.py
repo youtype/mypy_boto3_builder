@@ -1,5 +1,5 @@
 """
-Usage example for `mypy-boto3-s3` package.
+Integration test sample for `mypy-boto3-s3` package.
 
 ```bash
 pip install `boto3-stubs-lite[s3]`
@@ -18,7 +18,7 @@ from mypy_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
 
 def s3_resource_example() -> None:
     """
-    Usage example for S3ServiceResource.
+    Integration test sample for S3ServiceResource.
     """
     # optionally use Session type from botocore
     session = Session(region_name="us-west-1")
@@ -58,7 +58,7 @@ def s3_resource_example() -> None:
 
 def s3_client_example() -> None:
     """
-    Usage example for S3Client.
+    Integration test sample for S3Client.
     """
     client: S3Client = boto3.client("s3")
 

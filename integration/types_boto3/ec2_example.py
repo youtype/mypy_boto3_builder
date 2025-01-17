@@ -1,5 +1,5 @@
 """
-Usage example for `types-boto3-ec2` package.
+Integration test sample for `types-boto3-ec2` package.
 
 ```bash
 pip install `types-boto3[ec2]`
@@ -14,7 +14,7 @@ from boto3.session import Session
 
 def ec2_resource_example() -> None:
     """
-    Usage example for EC2ServiceResource.
+    Integration test sample for EC2ServiceResource.
     """
     session = Session(region_name="us-west-1")
 
@@ -39,7 +39,7 @@ def ec2_resource_example() -> None:
 
 def ec2_client_example() -> None:
     """
-    Usage example for EC2Client.
+    Integration test sample for EC2Client.
     """
     client = boto3.client("ec2")
 

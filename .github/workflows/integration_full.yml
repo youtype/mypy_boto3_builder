@@ -13,6 +13,7 @@ jobs:
       matrix:
         product:
           - "types-boto3"
+          - "types-boto3-lite"
           - "types-boto3-full"
           - "types-boto3-custom"
           - "boto3-stubs"
@@ -20,9 +21,11 @@ jobs:
           - "boto3-stubs-full"
           - "boto3-stubs-custom"
           - "types-aioboto3"
+          - "types-aioboto3-lite"
           - "types-aioboto3-full"
           - "types-aioboto3-custom"
           - "types-aiobotocore"
+          - "types-aiobotocore-lite"
           - "types-aiobotocore-full"
           - "types-aiobotocore-custom"
         python_version:

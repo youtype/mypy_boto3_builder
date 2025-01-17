@@ -1,0 +1,302 @@
+[
+    {
+        "severity": "error",
+        "message": "Type \"Coroutine[Any, Any, _Bucket]\" is not assignable to declared type \"Bucket\"\n\u00a0\u00a0\"Coroutine[Any, Any, _Bucket]\" is not assignable to \"Bucket\"",
+        "range": {
+            "start": {
+                "line": 35,
+                "character": 25
+            },
+            "end": {
+                "line": 35,
+                "character": 50
+            }
+        },
+        "rule": "reportAssignmentType"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"mfa\"",
+        "range": {
+            "start": {
+                "line": 36,
+                "character": 36
+            },
+            "end": {
+                "line": 36,
+                "character": 39
+            }
+        },
+        "rule": "reportCallIssue"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"upload_file\"\n\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"",
+        "range": {
+            "start": {
+                "line": 39,
+                "character": 56
+            },
+            "end": {
+                "line": 39,
+                "character": 59
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" is not assignable to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is not assignable to \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is not assignable to \"None\"",
+        "range": {
+            "start": {
+                "line": 39,
+                "character": 68
+            },
+            "end": {
+                "line": 39,
+                "character": 74
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Type \"dict[str, str]\" is not assignable to declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined item in type \"BucketUploadFileRequestTypeDef\"",
+        "range": {
+            "start": {
+                "line": 40,
+                "character": 70
+            },
+            "end": {
+                "line": 40,
+                "character": 75
+            }
+        },
+        "rule": "reportAssignmentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"dict[str, str]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceTypeDef\" in function \"copy\"\n\u00a0\u00a0\"key\" is an undefined item in type \"CopySourceTypeDef\"",
+        "range": {
+            "start": {
+                "line": 44,
+                "character": 47
+            },
+            "end": {
+                "line": 44,
+                "character": 52
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceOrStrTypeDef\" in function \"copy_from\"\n\u00a0\u00a0Type \"Literal[123]\" is not assignable to type \"CopySourceOrStrTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is not assignable to \"str\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is not assignable to \"CopySourceTypeDef\"",
+        "range": {
+            "start": {
+                "line": 52,
+                "character": 47
+            },
+            "end": {
+                "line": 52,
+                "character": 50
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" is not assignable to type \"Literal['requester']\"",
+        "range": {
+            "start": {
+                "line": 56,
+                "character": 58
+            },
+            "end": {
+                "line": 56,
+                "character": 64
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal['1']\" cannot be assigned to parameter \"part_number\" of type \"int\" in function \"Part\"\n\u00a0\u00a0\"Literal['1']\" is not assignable to \"int\"",
+        "range": {
+            "start": {
+                "line": 57,
+                "character": 44
+            },
+            "end": {
+                "line": 57,
+                "character": 47
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"wrong_arg\"",
+        "range": {
+            "start": {
+                "line": 58,
+                "character": 26
+            },
+            "end": {
+                "line": 58,
+                "character": 35
+            }
+        },
+        "rule": "reportCallIssue"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" is not assignable to type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is not assignable to \"StreamingBody\"",
+        "range": {
+            "start": {
+                "line": 74,
+                "character": 55
+            },
+            "end": {
+                "line": 74,
+                "character": 61
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" is not assignable to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is not assignable to \"str\"",
+        "range": {
+            "start": {
+                "line": 75,
+                "character": 76
+            },
+            "end": {
+                "line": 75,
+                "character": 80
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument missing for parameter \"Bucket\"",
+        "range": {
+            "start": {
+                "line": 78,
+                "character": 14
+            },
+            "end": {
+                "line": 78,
+                "character": 56
+            }
+        },
+        "rule": "reportCallIssue"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"bucket\"",
+        "range": {
+            "start": {
+                "line": 78,
+                "character": 40
+            },
+            "end": {
+                "line": 78,
+                "character": 46
+            }
+        },
+        "rule": "reportCallIssue"
+    },
+    {
+        "severity": "error",
+        "message": "\"__getitem__\" method not defined on type \"Coroutine[Any, Any, CreateBucketOutputTypeDef]\"",
+        "range": {
+            "start": {
+                "line": 82,
+                "character": 8
+            },
+            "end": {
+                "line": 82,
+                "character": 16
+            }
+        },
+        "rule": "reportIndexIssue"
+    },
+    {
+        "severity": "error",
+        "message": "Argument missing for parameter \"Key\"",
+        "range": {
+            "start": {
+                "line": 85,
+                "character": 26
+            },
+            "end": {
+                "line": 85,
+                "character": 60
+            }
+        },
+        "rule": "reportCallIssue"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"Allowedorigins\" is an undefined item in type \"CORSRuleTypeDef\"",
+        "range": {
+            "start": {
+                "line": 95,
+                "character": 59
+            },
+            "end": {
+                "line": 95,
+                "character": 75
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0\"None\" is not assignable to \"str\"",
+        "range": {
+            "start": {
+                "line": 102,
+                "character": 57
+            },
+            "end": {
+                "line": 102,
+                "character": 61
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
+        "message": "Cannot access attribute \"operations_name\" for class \"ClientError\"\n\u00a0\u00a0Attribute \"operations_name\" is unknown",
+        "range": {
+            "start": {
+                "line": 104,
+                "character": 20
+            },
+            "end": {
+                "line": 104,
+                "character": 35
+            }
+        },
+        "rule": "reportAttributeAccessIssue"
+    },
+    {
+        "severity": "error",
+        "message": "\"AsyncIterator[bytes]\" is not iterable\n\u00a0\u00a0\"__iter__\" method not defined",
+        "range": {
+            "start": {
+                "line": 108,
+                "character": 21
+            },
+            "end": {
+                "line": 108,
+                "character": 45
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    }
+]

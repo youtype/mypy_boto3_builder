@@ -1,8 +1,8 @@
 """
-Usage example for `types-boto3-dynamodb` package.
+Integration test sample for `mypy-boto3-dynamodb` package.
 
 ```bash
-pip install `types-boto3[dynamodb]`
+pip install `boto3-stubs[dynamodb]`
 mypy myproject
 pyright myproject
 ```
@@ -16,7 +16,7 @@ from boto3.dynamodb.conditions import Key
 
 def dynamodb_client_example() -> None:
     """
-    Usage example for DynamoDBClient.
+    Integration test sample for DynamoDBClient.
     """
     client = boto3.client("dynamodb")
     resource = boto3.resource("dynamodb")

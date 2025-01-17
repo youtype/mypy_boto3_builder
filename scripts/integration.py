@@ -113,6 +113,12 @@ class ProductChoices(enum.Enum):
         prerequisites=("boto3",),
         build_products=("types-boto3", "types-boto3-services"),
     )
+    types_boto3_lite = Product(
+        name="types-boto3-lite",
+        examples_path=ROOT_PATH / "integration" / "types_boto3_lite",
+        prerequisites=("boto3",),
+        build_products=("types-boto3-lite", "types-boto3-services"),
+    )
     types_boto3_full = Product(
         name="types-boto3-full",
         examples_path=ROOT_PATH / "integration" / "types_boto3",
@@ -155,6 +161,12 @@ class ProductChoices(enum.Enum):
         examples_path=ROOT_PATH / "integration" / "types_aioboto3",
         build_products=("types-boto3-lite", "aioboto3", "aiobotocore", "aiobotocore-services"),
     )
+    types_aioboto3_lite = Product(
+        name="types-aioboto3-lite",
+        prerequisites=("aioboto3",),
+        examples_path=ROOT_PATH / "integration" / "types_aioboto3",
+        build_products=("types-boto3-lite", "aioboto3-lite", "aiobotocore", "aiobotocore-services"),
+    )
     types_aioboto3_full = Product(
         name="types-aioboto3-full",
         examples_path=ROOT_PATH / "integration" / "types_aioboto3",
@@ -172,6 +184,12 @@ class ProductChoices(enum.Enum):
         prerequisites=("aiobotocore",),
         examples_path=ROOT_PATH / "integration" / "types_aiobotocore",
         build_products=("aiobotocore", "aiobotocore-services"),
+    )
+    types_aiobotocore_lite = Product(
+        name="types-aiobotocore-lite",
+        prerequisites=("aiobotocore",),
+        examples_path=ROOT_PATH / "integration" / "types_aiobotocore_lite",
+        build_products=("aiobotocore-lite", "aiobotocore-services"),
     )
     types_aiobotocore_full = Product(
         name="types-aiobotocore-full",

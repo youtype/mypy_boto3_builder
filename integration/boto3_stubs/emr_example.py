@@ -1,8 +1,8 @@
 """
-Usage example for `types-boto3-emr` package.
+Integration test sample for `mypy-boto3-emr` package.
 
 ```bash
-pip install `types-boto3[emr]`
+pip install `boto3-stubs[emr]`
 mypy myproject
 pyright myproject
 ```
@@ -13,7 +13,7 @@ import boto3
 
 def emr_client_example() -> None:
     """
-    Usage example for EMRClient.
+    Integration test sample for EMRClient.
     """
     client = boto3.client("emr")
     client.cancel_steps(ClusterId="cluster_id", StepIds=[123])

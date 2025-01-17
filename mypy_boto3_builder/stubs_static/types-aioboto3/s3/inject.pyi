@@ -1,7 +1,7 @@
 """
 Type annotations for aioboto3.s3.inject module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 import logging

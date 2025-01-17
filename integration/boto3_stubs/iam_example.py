@@ -1,8 +1,8 @@
 """
-Usage example for `types-boto3-iam` package.
+Integration test sample for `mypy-boto3-iam` package.
 
 ```bash
-pip install `types-boto3[iam]`
+pip install `boto3-stubs[iam]`
 mypy myproject
 pyright myproject
 ```
@@ -13,7 +13,7 @@ import boto3
 
 def iam_client_example() -> None:
     """
-    Usage example for IAMClient.
+    Integration test sample for IAMClient.
     """
     client = boto3.client("iam")
     client.add_user_to_group(GroupName="group", UserName=123)
@@ -28,7 +28,7 @@ def iam_client_example() -> None:
 
 def iam_resource_example() -> None:
     """
-    Usage example for IAMServiceResource.
+    Integration test sample for IAMServiceResource.
     """
     resource = boto3.resource("iam")
     group = resource.Group("my")

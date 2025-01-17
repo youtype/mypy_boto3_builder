@@ -1,9 +1,8 @@
 """
-Usage example for `types-aiobotocore-s3` package.
+Integration test sample for `types-aiobotocore-s3` package.
 
 ```bash
-pip install `types-aioboto3[s3]`
-# or pip install `types-aiobotocore[s3]`
+pip install `types-aiobotocore[s3]`
 mypy myproject
 pyright myproject
 ```
@@ -17,7 +16,7 @@ from types_aiobotocore_s3.service_resource import S3ServiceResource
 
 async def s3_client_example() -> None:
     """
-    Usage example for S3Client.
+    Integration test sample for S3Client.
     """
     session = get_session()
 

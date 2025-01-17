@@ -1,7 +1,7 @@
 """
 Type annotations for aioboto3.session module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 from types import TracebackType
@@ -9,7 +9,6 @@ from typing import Any, Generic, TypeVar
 
 from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
-from aiobotocore.client import AioBaseClient
 from aiobotocore.config import AioConfig
 from aiobotocore.credentials import AioCredentials
 from aiobotocore.session import ClientCreatorContext
@@ -44,7 +43,7 @@ class Session(Boto3Session):
         aws_secret_access_key: str | None = ...,
         aws_session_token: str | None = ...,
         config: AioConfig | None = ...,
-    ) -> ClientCreatorContext[AioBaseClient]: ...
+    ) -> ClientCreatorContext[Any]: ...
     def resource(  # type: ignore[override]
         self,
         service_name: str,
@@ -57,7 +56,7 @@ class Session(Boto3Session):
         aws_secret_access_key: str | None = ...,
         aws_session_token: str | None = ...,
         config: AioConfig | None = ...,
-    ) -> ResourceCreatorContext[AIOBoto3ServiceResource]: ...
+    ) -> ResourceCreatorContext[Any]: ...
 
 _AIOBoto3ServiceResource = TypeVar("_AIOBoto3ServiceResource", bound=AIOBoto3ServiceResource)
 

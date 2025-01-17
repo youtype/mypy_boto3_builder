@@ -1,7 +1,7 @@
 """
 Type annotations for aiobotocore.retries.bucket module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
 from botocore.retries.bucket import Clock as Clock

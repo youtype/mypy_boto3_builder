@@ -1,10 +1,10 @@
 """
 Type annotations for aiobotocore.endpoint module.
 
-Copyright 2024 Vlad Emelianov
+Copyright 2025 Vlad Emelianov
 """
 
-from typing import Any
+from typing import Any, Mapping
 
 from aiobotocore.httpsession import AIOHTTPSession as AIOHTTPSession
 from aiobotocore.response import StreamingBody as StreamingBody
@@ -22,7 +22,9 @@ async def convert_to_response_dict(
 
 class AioEndpoint(Endpoint):
     async def close(self) -> None: ...  # type: ignore[override]
-    async def create_request(self, params: Any, operation_model: Any | None = ...) -> Request: ...
+    async def create_request(
+        self, params: Mapping[str, Any], operation_model: OperationModel | None = ...
+    ) -> Request: ...
 
 class AioEndpointCreator(EndpointCreator):
     def create_endpoint(  # type: ignore[override]
@@ -30,7 +32,7 @@ class AioEndpointCreator(EndpointCreator):
         service_model: ServiceModel,
         region_name: str,
         endpoint_url: str,
-        verify: Any | None = ...,
+        verify: str | bool | None = ...,
         response_parser_factory: Any | None = ...,
         timeout: int = ...,
         max_pool_connections: int = ...,

@@ -1,8 +1,8 @@
 """
-Usage example for `types-boto3-secretsmanager` package.
+Integration test sample for `mypy-boto3-secretsmanager` package.
 
 ```bash
-pip install `types-boto3[secretsmanager]`
+pip install `boto3-stubs[secretsmanager]`
 mypy myproject
 pyright myproject
 ```
@@ -13,7 +13,7 @@ import boto3
 
 def secretsmanager_client_example() -> None:
     """
-    Usage example for SecretsManagerClient.
+    Integration test sample for SecretsManagerClient.
     """
     client = boto3.client("secretsmanager")
     secret_value = client.get_secret(SecretId="secret_id")

@@ -1,5 +1,5 @@
 """
-Usage example for `types-boto3-sqs` package.
+Integration test sample for `types-boto3-sqs` package.
 
 ```bash
 pip install `types-boto3[sqs]`
@@ -13,7 +13,7 @@ import boto3
 
 def sqs_resource_example() -> None:
     """
-    Usage example for SQSClient.
+    Integration test sample for SQSClient.
     """
     resource = boto3.resource(service_name="sqs")
 
