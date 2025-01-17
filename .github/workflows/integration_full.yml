@@ -16,6 +16,7 @@ jobs:
           - "types-boto3-full"
           - "types-boto3-custom"
           - "boto3-stubs"
+          - "boto3-stubs-lite"
           - "boto3-stubs-full"
           - "boto3-stubs-custom"
           - "types-aioboto3"

@@ -131,6 +131,12 @@ class ProductChoices(enum.Enum):
         prerequisites=("boto3",),
         build_products=("boto3", "boto3-services"),
     )
+    boto3_stubs_lite = Product(
+        name="boto3-stubs-lite",
+        examples_path=ROOT_PATH / "integration" / "boto3_stubs_lite",
+        prerequisites=("boto3",),
+        build_products=("boto3-lite", "boto3-services"),
+    )
     boto3_stubs_full = Product(
         name="boto3-stubs-full",
         examples_path=ROOT_PATH / "integration" / "boto3_stubs",
