@@ -5,11 +5,10 @@ Copyright 2024 Vlad Emelianov
 """
 
 import logging
+from typing import Any
 
 from boto3 import session as session
-from boto3.resources.base import ServiceResource
 from boto3.session import Session as Session
-from botocore.client import BaseClient
 from botocore.config import Config
 from botocore.session import Session as BotocoreSession
 
@@ -47,7 +46,7 @@ def client(
     aws_secret_access_key: str | None = ...,
     aws_session_token: str | None = ...,
     config: Config | None = ...,
-) -> BaseClient: ...
+) -> Any: ...
 def resource(
     service_name: str,
     region_name: str | None = ...,
@@ -59,4 +58,4 @@ def resource(
     aws_secret_access_key: str | None = ...,
     aws_session_token: str | None = ...,
     config: Config | None = ...,
-) -> ServiceResource: ...
+) -> Any: ...
