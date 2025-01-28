@@ -69,7 +69,6 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     ResponseMetadataTypeDef,
     WaiterConfigTypeDef,
 )
-from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.strings import (
     capitalize,
     extract_docstring_from_html,
@@ -89,9 +88,8 @@ class ShapeParser:
     """
 
     def __init__(self, service_name: ServiceName) -> None:
-        botocore_session = get_botocore_session()
         self._resource_loader = ResourceLoader()
-        service_data = botocore_session.get_service_data(service_name.boto3_name)
+        service_data = self._resource_loader.get_service_data(service_name)
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._resource_name: str = ""

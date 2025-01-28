@@ -12,6 +12,7 @@ from typing import Any, ClassVar, TypeVar, cast
 
 from botocore.exceptions import UnknownServiceError
 from botocore.loaders import Loader
+from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.shape_parser_types import (
@@ -36,12 +37,20 @@ class ResourceLoader:
     RESOURCES_KEY = "resources-1"
     _loader: ClassVar[Loader | None] = None
     _cache: ClassVar[dict[str, Mapping[str, Any] | None]] = {}
+    _botocore_session: ClassVar[BotocoreSession | None] = None
+
+    @classmethod
+    def _get_botocore_session(cls) -> BotocoreSession:
+        if cls._botocore_session:
+            return cls._botocore_session
+        cls._botocore_session = get_botocore_session()
+        return cls._botocore_session
 
     @classmethod
     def _get_loader(cls) -> Loader:
         if cls._loader:
             return cls._loader
-        botocore_session = get_botocore_session()
+        botocore_session = cls._get_botocore_session()
         loader: Loader = botocore_session.get_component("data_loader")
         cls._loader = loader
         cls._inject_boto3_path()
@@ -121,3 +130,12 @@ class ResourceLoader:
             for service_name in service_names
             if self.has_service_resource(service_name)
         ]
+
+    @classmethod
+    def get_service_data(cls, service_name: ServiceName) -> dict[str, Any]:
+        """
+        Get botocore service data.
+        """
+        botocore_session = cls._get_botocore_session()
+        service_data = botocore_session.get_service_data(service_name.boto3_name)
+        return cast("dict[str, Any]", service_data)
