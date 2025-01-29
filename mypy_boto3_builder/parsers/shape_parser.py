@@ -897,7 +897,7 @@ class ShapeParser:
                 self.logger.debug(
                     f"Skipping {sub_resource_name} sub resource"
                     " because it is not present in ServiceResource.has",
-                    tags=(sub_resource_name,),
+                    tags=sub_resource_name,
                 )
                 continue
             sub_resource_shape = self._get_resource_shape(sub_resource_name)
@@ -1246,7 +1246,7 @@ class ShapeParser:
 
         self.logger.debug(
             f"Clashing typed dict name found: {new_typed_dict_name}",
-            tags=(new_typed_dict_name,),
+            tags=new_typed_dict_name,
         )
         return self._get_non_clashing_typed_dict_name(temp_typed_dict, postfix=optional_postfix)
 
@@ -1343,6 +1343,6 @@ class ShapeParser:
                     f"Adding output shape to {method.name}"
                     f" {argument.name} argument:"
                     f" {input_typed_dict.name} | {output_typed_dict.name}",
-                    tags=(f"{method.name} {argument.name}",),
+                    tags=f"{method.name} {argument.name}",
                 )
                 argument.type_annotation = union_type_annotation

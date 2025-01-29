@@ -179,7 +179,7 @@ class PackageWriter:
             path.parent.mkdir(exist_ok=True, parents=True)
 
         path.write_text(content)
-        self.logger.debug(f"Rendered {print_path(path)}", tags=(print_path(path),))
+        self.logger.debug(f"Rendered {print_path(path)}", tags=print_path(path))
 
     def _render_docs_templates(
         self,
@@ -196,7 +196,7 @@ class PackageWriter:
             return
         for unknown_path in walk_path(output_path, valid_paths):
             unknown_path.unlink()
-            self.logger.debug(f"Deleted {print_path(unknown_path)}")
+            self.logger.debug(f"Deleted {print_path(unknown_path)}", tags=print_path(unknown_path))
 
     def write_package(
         self,

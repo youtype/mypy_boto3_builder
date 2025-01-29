@@ -65,18 +65,18 @@ class ServiceResourceParser(ResourceParser):
             return None
 
         name = self.service_name.get_service_resource_name()
-        self._logger.debug(f"Parsing {name}", tags=(name,))
+        self._logger.debug(f"Parsing {name}", tags=name)
         result = ServiceResource(
             name=name,
             service_name=self.service_name,
         )
         meta_attribute = self._get_meta_attribute(result.resource_meta_class.name)
 
-        self._logger.debug(f"Parsing {name} methods", tags=(name,))
+        self._logger.debug(f"Parsing {name} methods", tags=name)
         method_map = self._parse_method_map()
         result.methods.extend(list(method_map.values()))
 
-        self._logger.debug(f"Parsing {name} attributes and collections", tags=(name,))
+        self._logger.debug(f"Parsing {name} attributes and collections", tags=name)
         collections = self._parse_collections()
         result.attributes.append(meta_attribute)
         result.attributes.extend(self._parse_attributes(collections))
@@ -92,7 +92,7 @@ class ServiceResourceParser(ResourceParser):
         for sub_resource_name in self.shape_parser.get_subresource_names():
             self._logger.debug(
                 f"Parsing {sub_resource_name} sub resource",
-                tags=(sub_resource_name,),
+                tags=sub_resource_name,
             )
             resource_parser = ResourceParser(
                 service_name=self.service_name,

@@ -97,7 +97,7 @@ class ServicePackageParser:
     def _parse_waiters(self) -> list[Waiter]:
         waiters: list[Waiter] = []
         for waiter_name in self.shape_parser.get_waiter_names():
-            self._logger.debug(f"Parsing Waiter {waiter_name}", tags=(waiter_name,))
+            self._logger.debug(f"Parsing Waiter {waiter_name}", tags=waiter_name)
             waiter = Waiter(
                 name=f"{waiter_name}Waiter",
                 waiter_name=waiter_name,
@@ -113,7 +113,7 @@ class ServicePackageParser:
     def _parse_paginators(self) -> list[Paginator]:
         result: list[Paginator] = []
         for paginator_name in self.shape_parser.get_paginator_names():
-            self._logger.debug(f"Parsing Paginator {paginator_name}", tags=(paginator_name,))
+            self._logger.debug(f"Parsing Paginator {paginator_name}", tags=paginator_name)
             operation_name = xform_name(paginator_name)
             paginator_record = Paginator(
                 name=f"{paginator_name}Paginator",

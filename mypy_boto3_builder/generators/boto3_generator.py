@@ -108,7 +108,7 @@ class Boto3Generator(BaseGenerator):
 
         self.logger.info(
             f"Generating {package_data.pypi_name} package docs",
-            tags=(package_data.pypi_name,),
+            tags=package_data.pypi_name,
         )
         package = parse_types_boto3_package(
             service_names=self.service_names,

@@ -105,7 +105,7 @@ class AioBotocoreGenerator(BaseGenerator):
 
         self.logger.info(
             f"Generating {package_data.pypi_name} module docs",
-            tags=(package_data.pypi_name,),
+            tags=package_data.pypi_name,
         )
         package = parse_types_aiobotocore_package(
             service_names=self.service_names,

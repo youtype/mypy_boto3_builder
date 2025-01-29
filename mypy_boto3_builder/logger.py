@@ -19,9 +19,11 @@ __all__ = ("get_logger", "setup_logger")
 
 def _formatter(name: str, record: loguru.Record) -> str:
     tags = record["extra"].get("tags") or ()
+    if isinstance(tags, str):
+        tags = (tags,)
     message = record["message"]
     for tag in tags:
-        message = message.replace(f"{tag}", f"<cyan>{tag}</cyan>")
+        message = message.replace(f"{tag}", f"<cyan>{tag}</cyan>", 1)
     return (
         "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
         "<level>{level: <8}</level> | "

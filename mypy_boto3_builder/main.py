@@ -198,7 +198,7 @@ def _run_builder(args: CLINamespace) -> None:
     main_service_names = service_names if args.partial_overload else available_service_names
 
     for product in args.products:
-        logger.info(f"Generating {product} product", tags=(product,))
+        logger.info(f"Generating {product.value} product", tags=product.value)
         generate_product(product, args, service_names, main_service_names)
 
     logger.debug("Done!")
