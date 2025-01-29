@@ -3,7 +3,7 @@ Asynchronous method. Use `await {{ method.name }}(...)` for a synchronous call.
 {% endif %}
 
 {% if method.has_arguments() %}
-{% if method.request_type_annotation %}
+{% if method.has_request_type_annotation() %}
 Arguments mapping described in {% with type_annotation=method.request_type_annotation %}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}.
 {% endif %}
 {% if method.is_kw_only() %}Keyword-only arguments:{% else %}Arguments:{% endif %}

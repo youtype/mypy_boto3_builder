@@ -4,11 +4,10 @@ Class method.
 Copyright 2024 Vlad Emelianov
 """
 
-from collections.abc import Generator, Iterator
+from collections.abc import Iterator
 
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
 class Method(Function):
@@ -43,7 +42,7 @@ class Method(Function):
         Iterate over packed arguments for KW-only methods.
         """
         packed_arguments = super().iterate_packed_arguments()
-        if not self.is_kw_only() or not self.request_type_annotation:
+        if not self.is_kw_only() or not self.has_request_type_annotation():
             yield from packed_arguments
             return
 
@@ -62,9 +61,3 @@ class Method(Function):
             return super().has_arguments()
 
         return len(self.arguments) > 1
-
-    def iterate_argument_type_annotations(self) -> Generator[FakeAnnotation]:
-        """
-        Iterate over argument type annotations.
-        """
-        return (argument.type_annotation for argument in self.arguments if argument.type_annotation)

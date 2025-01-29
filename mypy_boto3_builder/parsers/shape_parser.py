@@ -76,7 +76,6 @@ from mypy_boto3_builder.utils.strings import (
     get_type_def_name,
     xform_name,
 )
-from mypy_boto3_builder.utils.type_checks import is_type_parent, is_union
 
 
 class ShapeParser:
@@ -1305,13 +1304,11 @@ class ShapeParser:
         mypy does not compare TypedDicts, so we need to accept both input and output shapes.
         https://github.com/youtype/mypy_boto3_builder/issues/209
         """
-        parent_type_annotations = sorted(
-            {
-                type_annotation
-                for method in methods
-                for type_annotation in method.iterate_argument_type_annotations()
-                if is_type_parent(type_annotation)
-            }
+        method_arguments = tuple(
+            (method, argument)
+            for method in methods
+            for argument in method.arguments
+            if argument.type_annotation and argument.type_annotation in self._fixed_typed_dict_map
         )
         for input_typed_dict, output_typed_dict in self._fixed_typed_dict_map.items():
             union_name = self._get_non_clashing_typed_dict_name(input_typed_dict, "Union")
@@ -1319,18 +1316,16 @@ class ShapeParser:
                 name=union_name,
                 children=(input_typed_dict, output_typed_dict),
             )
-            for type_annotation in parent_type_annotations:
-                parents = type_annotation.find_type_annotation_parents(input_typed_dict)
-                if not parents:
-                    continue
-
-                for parent in sorted(parents):
-                    if is_union(parent) and parent.name == union_name:
-                        continue
-                    parent_rendered = parent.render()
-                    self.logger.debug(
-                        f"Adding output shape to {parent_rendered} type:"
-                        f" {input_typed_dict.name} | {output_typed_dict.name}",
-                        tags=(parent_rendered,),
-                    )
-                    parent.replace_child(input_typed_dict, union_type_annotation)
+            matching_method_arguments = (
+                (method, argument)
+                for method, argument in method_arguments
+                if argument.type_annotation == input_typed_dict
+            )
+            for method, argument in matching_method_arguments:
+                self.logger.debug(
+                    f"Adding output shape to {method.name}"
+                    f" {argument.name} argument:"
+                    f" {input_typed_dict.name} | {output_typed_dict.name}",
+                    tags=(f"{method.name} {argument.name}",),
+                )
+                argument.type_annotation = union_type_annotation

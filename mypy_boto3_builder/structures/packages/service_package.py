@@ -118,7 +118,7 @@ class ServicePackage(Package):
             result.add(type_annotation)
 
         for method in self._iterate_methods():
-            if not method.request_type_annotation:
+            if not method.has_request_type_annotation():
                 continue
             result.add(method.request_type_annotation)
 

@@ -54,7 +54,7 @@ class Function:
         self.decorators = list(decorators)
         self.body_lines = body_lines
         self.type_ignore: _TypeIgnore = type_ignore
-        self.request_type_annotation: TypeTypedDict | None = None
+        self.request_type_annotation_name: str | None = None
         self.is_async = is_async
         self._boto3_doc_link = boto3_doc_link
 
@@ -102,11 +102,23 @@ class Function:
             return ""
         return short_docstring
 
-    def create_request_type_annotation(self, name: str) -> None:
+    def has_request_type_annotation(self) -> bool:
         """
-        Create and set `request_type_annotation` TypedDict based on function arguments.
+        Whether request_type_annotation is set.
         """
-        result = TypeTypedDict(name)
+        if not self.request_type_annotation_name:
+            return False
+
+        return any(argument.type_annotation for argument in self.arguments)
+
+    @property
+    def request_type_annotation(self) -> TypeTypedDict:
+        """
+        Generate TypedDict for packed request arguments.
+        """
+        if not self.request_type_annotation_name:
+            raise BuildInternalError("request_type_annotation_name is not set")
+        result = TypeTypedDict(self.request_type_annotation_name)
         for argument in self.arguments:
             if argument.is_kwflag():
                 continue
@@ -120,14 +132,20 @@ class Function:
             )
 
         if not result.children:
-            return
-        self.request_type_annotation = result
+            raise BuildInternalError("request_type_annotation has no children")
+        return result
+
+    def create_request_type_annotation(self, name: str) -> None:
+        """
+        Create and set `request_type_annotation` TypedDict based on function arguments.
+        """
+        self.request_type_annotation_name = name
 
     def iterate_packed_arguments(self) -> Iterator[Argument]:
         """
         Iterate over packed arguments for KW-only functions.
         """
-        if not self.is_kw_only() or not self.request_type_annotation:
+        if not self.is_kw_only() or not self.has_request_type_annotation():
             yield from self.arguments
             return
 

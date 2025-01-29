@@ -16,7 +16,7 @@
 {{ '\n' -}}
 {% endfor -%}
 
-{% if method.request_type_annotation -%}
+{% if method.has_request_type_annotation() -%}
 {{ '\n\n' -}}
 ```python
 # {{ method.name }} method usage example with argument unpacking
