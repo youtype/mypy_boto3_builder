@@ -42,6 +42,7 @@ from mypy_boto3_builder.parsers.typed_dict_map import TypedDictMap
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
+from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -1314,7 +1315,9 @@ class ShapeParser:
 
                 self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)
 
-    def convert_input_arguments_to_unions(self, methods: Iterable[Method]) -> None:
+    def convert_input_arguments_to_unions(
+        self, methods: Iterable[tuple[ClassRecord, Method]]
+    ) -> None:
         """
         Accept both input and output shapes in method arguments.
 
@@ -1322,8 +1325,8 @@ class ShapeParser:
         https://github.com/youtype/mypy_boto3_builder/issues/209
         """
         method_arguments = tuple(
-            (method, argument)
-            for method in methods
+            (parent_class, method, argument)
+            for parent_class, method in methods
             for argument in method.arguments
             if argument.type_annotation and argument.type_annotation in self._fixed_typed_dict_map
         )
@@ -1334,15 +1337,15 @@ class ShapeParser:
                 children=(input_typed_dict, output_typed_dict),
             )
             matching_method_arguments = (
-                (method, argument)
-                for method, argument in method_arguments
+                (parent_class, method, argument)
+                for parent_class, method, argument in method_arguments
                 if argument.type_annotation == input_typed_dict
             )
-            for method, argument in matching_method_arguments:
+            for parent_class, method, argument in matching_method_arguments:
                 self.logger.debug(
-                    f"Adding output shape to {method.name}"
+                    f"Adding output shape to {parent_class.name}.{method.name}"
                     f" {argument.name} argument:"
                     f" {input_typed_dict.name} | {output_typed_dict.name}",
-                    tags=f"{method.name} {argument.name}",
+                    tags=(parent_class.name, method.name, argument.name),
                 )
                 argument.type_annotation = union_type_annotation

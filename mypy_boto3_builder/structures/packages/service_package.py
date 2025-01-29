@@ -16,6 +16,7 @@ from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.method import Method
@@ -382,16 +383,21 @@ class ServicePackage(Package):
                 )
             )
 
-    def iterate_methods(self) -> Generator[Method]:
+    def iterate_methods(self) -> Generator[tuple[ClassRecord, Method]]:
         """
-        Iterate over all methods.
+        Iterate over all parent, method pairs.
         """
-        yield from self.client.methods
+        for method in self.client.methods:
+            yield self.client, method
         if self.service_resource:
-            yield from self.service_resource.methods
+            for method in self.service_resource.methods:
+                yield self.service_resource, method
             for resource in self.service_resource.sub_resources:
-                yield from resource.methods
+                for method in resource.methods:
+                    yield resource, method
         for waiter in self.waiters:
-            yield from waiter.methods
+            for method in waiter.methods:
+                yield waiter, method
         for paginator in self.paginators:
-            yield from paginator.methods
+            for method in paginator.methods:
+                yield paginator, method
