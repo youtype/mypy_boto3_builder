@@ -5,6 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 from collections.abc import Iterable, Sequence
+from typing import TYPE_CHECKING
 
 from botocore.eventstream import EventStream
 from botocore.model import (
@@ -77,6 +78,10 @@ from mypy_boto3_builder.utils.strings import (
     get_type_def_name,
     xform_name,
 )
+from mypy_boto3_builder.utils.type_checks import is_type_parent, is_union
+
+if TYPE_CHECKING:
+    from mypy_boto3_builder.type_annotations.type_parent import TypeParent
 
 
 class ShapeParser:
@@ -1324,11 +1329,11 @@ class ShapeParser:
         mypy does not compare TypedDicts, so we need to accept both input and output shapes.
         https://github.com/youtype/mypy_boto3_builder/issues/209
         """
-        method_arguments = tuple(
-            (parent_class, method, argument)
+        method_arguments: tuple[tuple[ClassRecord, Method, Argument, TypeParent], ...] = tuple(
+            (parent_class, method, argument, argument.type_annotation)
             for parent_class, method in methods
             for argument in method.arguments
-            if argument.type_annotation and argument.type_annotation in self._fixed_typed_dict_map
+            if argument.type_annotation and is_type_parent(argument.type_annotation)
         )
         for input_typed_dict, output_typed_dict in self._fixed_typed_dict_map.items():
             union_name = self._get_non_clashing_typed_dict_name(input_typed_dict, postfix="Union")
@@ -1336,16 +1341,41 @@ class ShapeParser:
                 name=union_name,
                 children=(input_typed_dict, output_typed_dict),
             )
-            matching_method_arguments = (
-                (parent_class, method, argument)
-                for parent_class, method, argument in method_arguments
-                if argument.type_annotation == input_typed_dict
-            )
-            for parent_class, method, argument in matching_method_arguments:
-                self.logger.debug(
-                    f"Adding output shape to {parent_class.name}.{method.name}"
-                    f" {argument.name} argument:"
-                    f" {input_typed_dict.name} | {output_typed_dict.name}",
-                    tags=(parent_class.name, method.name, argument.name),
-                )
-                argument.type_annotation = union_type_annotation
+            for parent_class, method, argument, type_annotation in method_arguments:
+                if type_annotation == input_typed_dict:
+                    argument.type_annotation = union_type_annotation
+                    self.logger.debug(
+                        f"Added output shape to {parent_class.name}.{method.name}"
+                        f" {argument.name} argument {input_typed_dict.name} ->"
+                        f" {union_type_annotation.name}",
+                        tags=(
+                            parent_class.name,
+                            method.name,
+                            argument.name,
+                            input_typed_dict.name,
+                            union_type_annotation.name,
+                        ),
+                    )
+
+                if type_annotation in self._fixed_typed_dict_map:
+                    continue
+
+                sub_parents = type_annotation.find_type_annotation_parents(input_typed_dict)
+                for parent in sorted(sub_parents):
+                    if is_union(parent) and parent.name == union_name:
+                        continue
+                    old_parent_render = parent.render()
+                    parent.replace_child(input_typed_dict, union_type_annotation)
+                    new_parent_render = parent.render()
+                    self.logger.debug(
+                        f"Added output shape to {parent_class.name}.{method.name}"
+                        f" {argument.name} argument sub-type {old_parent_render} ->"
+                        f" {new_parent_render}",
+                        tags=(
+                            parent_class.name,
+                            method.name,
+                            argument.name,
+                            old_parent_render,
+                            new_parent_render,
+                        ),
+                    )
