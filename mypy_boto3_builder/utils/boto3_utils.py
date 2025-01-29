@@ -48,7 +48,7 @@ def get_region_name_literal(
 
 def get_available_service_names() -> list[ServiceName]:
     """
-    Get a list of boto3 supported service names.
+    Get a list of botocore supported service names.
 
     Returns:
         A list of supported services.
