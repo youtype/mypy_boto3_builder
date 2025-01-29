@@ -84,22 +84,21 @@ class Product:
     examples_path: Path
     prerequisites: tuple[str, ...] = ()
     build_products: Sequence[str] = ()
-    service_names: Sequence[str] = ()
 
-    def find_service_names(self, filter_names: Sequence[str]) -> None:
+    def get_service_names(self, filter_names: Sequence[str]) -> tuple[str, ...]:
         """
         Find service names from examples.
         """
-        service_names: list[str] = []
+        result: list[str] = []
         for file in self.examples_path.iterdir():
             if not file.name.endswith("_example.py"):
                 continue
             service_name = file.name.replace("_example.py", "")
             if filter_names and service_name not in filter_names:
                 continue
-            service_names.append(service_name)
+            result.append(service_name)
 
-        self.service_names = tuple(service_names)
+        return tuple(result)
 
 
 class ProductChoices(enum.Enum):
@@ -281,7 +280,7 @@ def parse_args() -> CLINamespace:
         default=None,
         help="Python version for checkers. Default: None",
     )
-    parser.add_argument("services", nargs="*")
+    parser.add_argument("--filter", type=str, default=None, help="Filter for services")
     parser.add_argument(
         "-o",
         "--output-path",
@@ -296,7 +295,7 @@ def parse_args() -> CLINamespace:
         products=tuple(ProductChoices.get(name) for name in args.product),
         fast=args.fast,
         update=args.update,
-        services=tuple(args.services),
+        services=tuple(args.filter) if args.filter else (),
         output_path=args.output_path or TEMP_PATH,
         wheel=args.wheel,
         python_version=args.python,
@@ -320,7 +319,7 @@ def build_packages(
     products: Sequence[Product],
     output_path: Path,
     output_type: str,
-    services: Sequence[str],
+    filter_service_names: Sequence[str],
 ) -> list[Path]:
     """
     Build and install stubs.
@@ -332,10 +331,9 @@ def build_packages(
     build_products: set[str] = set()
     service_names: set[str] = set()
     for product in products:
-        product.find_service_names(services)
         build_products.update(product.build_products)
         prerequisites.update(product.prerequisites)
-        service_names.update(product.service_names)
+        service_names.update(product.get_service_names(filter_service_names))
 
     with_prerequisites = list(chain.from_iterable(("--with", i) for i in sorted(prerequisites)))
     cmd = [
@@ -435,22 +433,6 @@ def run_mypy(path: Path, snapshot_path: Path, *, update: bool) -> None:
     compare(new_data, snapshot_path, update=update)
 
 
-def get_service_names(product: Product, services: Sequence[str]) -> list[str]:
-    """
-    Get service names from config.
-    """
-    service_names: list[str] = []
-    for file in product.examples_path.iterdir():
-        if not file.name.endswith("_example.py"):
-            continue
-        service_name = file.name.replace("_example.py", "")
-        if services and service_name not in services:
-            continue
-        service_names.append(service_name)
-
-    return service_names
-
-
 def main() -> None:
     """
     Run main logic.
@@ -480,12 +462,16 @@ def main() -> None:
             products=args.products,
             output_path=args.output_path,
             output_type="wheel" if args.wheel else "package",
-            services=args.services,
+            filter_service_names=args.services,
         )
         Config.install_paths = install_paths
 
     for product in args.products:
-        for service_name in product.service_names:
+        service_names = product.get_service_names(args.services)
+        if not service_names:
+            logger.warning(f"No matching services found for {product.name}")
+
+        for service_name in service_names:
             file_path = product.examples_path / f"{service_name}_example.py"
             logger.info(f"Checking {service_name}...")
             try:
