@@ -100,7 +100,7 @@ class Client(ClassRecord):
         Get a nice method with return TypedDict for documentation.
         """
         for method in self.methods:
-            if not method.request_type_annotation:
+            if not method.has_request_type_annotation():
                 continue
             if not method.return_type:
                 continue

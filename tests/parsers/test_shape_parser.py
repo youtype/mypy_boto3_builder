@@ -188,7 +188,7 @@ class TestShapeParser:
         assert shape_parser._output_typed_dict_map["TestOutputTypeDef"].name == "TestOutputTypeDef"
         assert shape_parser._output_typed_dict_map["TestOutputTypeDef"].has_optional() is False
         assert (
-            shape_parser._response_typed_dict_map["Test2ExtraResponseTypeDef"].has_optional()
+            shape_parser._response_typed_dict_map["Test2ResponseExtraTypeDef"].has_optional()
             is False
         )
 
