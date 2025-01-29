@@ -137,5 +137,4 @@ class ResourceLoader:
         Get botocore service data.
         """
         botocore_session = cls._get_botocore_session()
-        service_data = botocore_session.get_service_data(service_name.boto3_name)
-        return cast("dict[str, Any]", service_data)
+        return botocore_session.get_service_data(service_name.boto3_name)
