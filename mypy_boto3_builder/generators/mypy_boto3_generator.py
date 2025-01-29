@@ -9,7 +9,7 @@ from typing import NoReturn
 from mypy_boto3_builder.constants import TemplatePath
 from mypy_boto3_builder.exceptions import AlreadyPublishedError
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
-from mypy_boto3_builder.package_data import MypyBoto3PackageData
+from mypy_boto3_builder.package_data import Boto3StubsPackageData, MypyBoto3PackageData
 from mypy_boto3_builder.parsers.mypy_boto3_package import parse_mypy_boto3_package
 from mypy_boto3_builder.structures.packages.mypy_boto3_package import MypyBoto3Package
 from mypy_boto3_builder.structures.packages.service_package import ServicePackage
@@ -19,6 +19,8 @@ class MypyBoto3Generator(BaseGenerator):
     """
     Generator for mypy-boto3 package.
     """
+
+    service_package_data = Boto3StubsPackageData()
 
     def generate_stubs(self) -> MypyBoto3Package | None:
         """
