@@ -473,7 +473,7 @@ def main() -> None:
 
         for service_name in service_names:
             file_path = product.examples_path / f"{service_name}_example.py"
-            logger.info(f"Checking {service_name}...")
+            logger.info(f"Checking {product.name} {service_name}...")
             try:
                 logger.debug(f"Running mypy for {print_path(file_path)} ...")
                 snapshot_path = product.examples_path / "mypy" / f"{file_path.name}.out"
