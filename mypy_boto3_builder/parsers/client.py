@@ -18,6 +18,7 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
+from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
 def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client:
@@ -44,6 +45,11 @@ def parse_client(service_name: ServiceName, shape_parser: ShapeParser) -> Client
     shape_method_map = shape_parser.get_client_method_map()
     stub_method_map = get_stub_method_map(service_name, parent_name)
     method_map = {**shape_method_map, **stub_method_map}
+    for method in stub_method_map.values():
+        shape_parser.create_request_type_annotation(
+            method=method,
+            name=f"{parent_name}{get_class_prefix(method.name)}Request",
+        )
 
     result.methods.append(result.get_exceptions_property())
     result.methods.extend(method_map.values())

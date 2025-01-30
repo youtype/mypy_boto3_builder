@@ -19,6 +19,7 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
+from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
 class ResourceParser:
@@ -58,6 +59,11 @@ class ResourceParser:
     def _parse_method_map(self) -> dict[str, Method]:
         shape_method_map = self.shape_parser.get_resource_method_map(self.name)
         stub_method_map = get_stub_method_map(self.service_name, self.name)
+        for method in stub_method_map.values():
+            self.shape_parser.create_request_type_annotation(
+                method=method,
+                name=f"{self.name}{get_class_prefix(method.name)}Request",
+            )
         return {**shape_method_map, **stub_method_map}
 
     def _parse_attributes(self, collections: Iterable[Collection]) -> list[Attribute]:

@@ -11,7 +11,6 @@ from mypy_boto3_builder.constants import CLIENT
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_maps.service_stub_map import dynamodb, ec2, rds, s3
-from mypy_boto3_builder.utils.strings import get_type_def_name
 
 ClassTypeMap = Mapping[str, Sequence[Method]]
 ServiceStubMap = Mapping[ServiceName, ClassTypeMap]
@@ -52,6 +51,4 @@ def get_stub_method_map(service_name: ServiceName, parent: str) -> dict[str, Met
     Get boto3 injected methods.
     """
     methods = SERVICE_STUB_MAP.get(service_name, {}).get(parent, [])
-    for method in methods:
-        method.create_request_type_annotation(get_type_def_name(parent, method.name, "Request"))
     return {method.name: method.copy() for method in methods}

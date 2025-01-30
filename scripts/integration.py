@@ -271,8 +271,8 @@ def parse_args() -> CLINamespace:
         "--product",
         nargs="*",
         choices=product_names,
-        default=[product_names[0]],
-        help=f"Product to test. Default: {product_names[0]}",
+        default=product_names,
+        help="Product to test. Default: all",
     )
     parser.add_argument(
         "--python",
@@ -488,8 +488,8 @@ def main() -> None:
         logger.error(error)
         sys.exit(1)
 
-    # if TEMP_PATH.exists():
-    #     shutil.rmtree(TEMP_PATH)
+    if TEMP_PATH.exists():
+        shutil.rmtree(TEMP_PATH)
 
 
 if __name__ == "__main__":

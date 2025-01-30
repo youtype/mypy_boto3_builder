@@ -353,37 +353,38 @@ class ShapeParser:
                 ),
             )
             if operation_model.input_shape:
-                self._create_request_type_annotation(
+                self.create_request_type_annotation(
                     method=method,
-                    input_shape=operation_model.input_shape,
+                    name=operation_model.input_shape.name,
                     optional_postfix="Request",
                 )
             result[method.name] = method
         return result
 
-    def _create_request_type_annotation(
-        self, method: Method, input_shape: Shape, optional_postfix: str
+    def create_request_type_annotation(
+        self, method: Method, name: str, optional_postfix: str = "Extra"
     ) -> None:
+        """
+        Create a request type annotation for the given method and input shape.
+        """
         method.create_request_type_annotation(
-            self._get_non_clashing_typed_dict_name_for_shape(
-                input_shape,
-                optional_postfix="Request",
+            self._get_non_clashing_typed_dict_name(
+                name,
+                optional_postfix=optional_postfix,
             )
         )
         if method.has_request_type_annotation():
             self._request_typed_dict_map.add(method.request_type_annotation)
 
-    def _get_non_clashing_typed_dict_name_for_shape(
-        self, shape: Shape, optional_postfix: str
-    ) -> str:
-        temp_typed_dict = TypeTypedDict(self._get_typed_dict_name(shape), ())
-        return self._get_non_clashing_typed_dict_name(
+    def _get_non_clashing_typed_dict_name(self, name: str, optional_postfix: str) -> str:
+        temp_typed_dict = TypeTypedDict(get_type_def_name(name), ())
+        return self._get_non_clashing_typed_dict_name_for_existing(
             temp_typed_dict,
             optional_postfix=optional_postfix,
         )
 
     @staticmethod
-    def _get_typed_dict_name(shape: Shape, postfix: str = "") -> str:
+    def _get_typed_dict_name_for_shape(shape: Shape, postfix: str = "") -> str:
         return get_type_def_name(shape.name, postfix)
 
     @staticmethod
@@ -478,7 +479,9 @@ class ShapeParser:
         typed_dict = TypeTypedDict(typed_dict_name)
 
         typed_dict_map = self._get_typed_dict_map(output=output, output_child=output_child)
-        resource_typed_dict_name = self._get_typed_dict_name(shape, postfix=self.resource_name)
+        resource_typed_dict_name = self._get_typed_dict_name_for_shape(
+            shape, postfix=self.resource_name
+        )
         found_typed_dict = typed_dict_map.get(typed_dict.name)
         found_resource_typed_dict = typed_dict_map.get(resource_typed_dict_name)
 
@@ -550,7 +553,7 @@ class ShapeParser:
 
     def _get_shape_type_name(self, shape: Shape) -> str:
         if isinstance(shape, StructureShape):
-            return self._get_typed_dict_name(shape)
+            return self._get_typed_dict_name_for_shape(shape)
 
         if isinstance(shape, StringShape):
             return shape.name
@@ -740,9 +743,9 @@ class ShapeParser:
             type_ignore="override",
         )
         if operation_model.input_shape is not None:
-            self._create_request_type_annotation(
+            self.create_request_type_annotation(
                 method=method,
-                input_shape=operation_model.input_shape,
+                name=operation_model.input_shape.name,
                 optional_postfix="Paginate",
             )
         return method
@@ -792,9 +795,9 @@ class ShapeParser:
             type_ignore="override",
         )
         if operation_model.input_shape is not None:
-            self._create_request_type_annotation(
+            self.create_request_type_annotation(
                 method=method,
-                input_shape=operation_model.input_shape,
+                name=operation_model.input_shape.name,
                 optional_postfix="Wait",
             )
         return method
@@ -1123,9 +1126,9 @@ class ShapeParser:
             ),
         )
         if operation_model.input_shape is not None:
-            self._create_request_type_annotation(
+            self.create_request_type_annotation(
                 method=method,
-                input_shape=operation_model.input_shape,
+                name=operation_model.input_shape.name,
                 optional_postfix=f"{self.resource_name}{action_name}",
             )
         return method
@@ -1233,7 +1236,7 @@ class ShapeParser:
                 return typed_dict_map[name]
         return None
 
-    def _get_non_clashing_typed_dict_name(
+    def _get_non_clashing_typed_dict_name_for_existing(
         self,
         typed_dict: TypeTypedDict,
         postfix: str = "",
@@ -1264,7 +1267,10 @@ class ShapeParser:
             f"Clashing typed dict name found: {new_typed_dict_name}",
             tags=new_typed_dict_name,
         )
-        return self._get_non_clashing_typed_dict_name(temp_typed_dict, postfix=optional_postfix)
+        return self._get_non_clashing_typed_dict_name_for_existing(
+            temp_typed_dict,
+            postfix=optional_postfix,
+        )
 
     def fix_typed_dict_names(self) -> None:
         """
@@ -1284,7 +1290,7 @@ class ShapeParser:
                     continue
 
                 old_typed_dict_name = output_typed_dict.name
-                new_typed_dict_name = self._get_non_clashing_typed_dict_name(
+                new_typed_dict_name = self._get_non_clashing_typed_dict_name_for_existing(
                     output_typed_dict,
                     "Output",
                 )
@@ -1318,7 +1324,7 @@ class ShapeParser:
                     continue
 
                 old_typed_dict_name = response_typed_dict.name
-                new_typed_dict_name = self._get_non_clashing_typed_dict_name(
+                new_typed_dict_name = self._get_non_clashing_typed_dict_name_for_existing(
                     response_typed_dict,
                     postfix="Response",
                 )
@@ -1346,7 +1352,9 @@ class ShapeParser:
             if argument.type_annotation and is_type_parent(argument.type_annotation)
         )
         for input_typed_dict, output_typed_dict in self._fixed_typed_dict_map.items():
-            union_name = self._get_non_clashing_typed_dict_name(input_typed_dict, postfix="Union")
+            union_name = self._get_non_clashing_typed_dict_name_for_existing(
+                input_typed_dict, postfix="Union"
+            )
             union_type_annotation = TypeUnion(
                 name=union_name,
                 children=(input_typed_dict, output_typed_dict),
