@@ -352,7 +352,6 @@ def build_packages(
         "--output-type",
         output_type,
     ]
-    logger.debug(f"Running build process: {' '.join(cmd)}")
     check_call(cmd)
     return list(output_path.iterdir())
 
@@ -489,8 +488,8 @@ def main() -> None:
         logger.error(error)
         sys.exit(1)
 
-    if TEMP_PATH.exists():
-        shutil.rmtree(TEMP_PATH)
+    # if TEMP_PATH.exists():
+    #     shutil.rmtree(TEMP_PATH)
 
 
 if __name__ == "__main__":

@@ -4,4 +4,4 @@ set -e
 ROOT_PATH=$(dirname $(dirname $0))
 cd ${ROOT_PATH}
 
-python -m mypy_boto3_builder mypy_boto3_output $@
+python -m mypy_boto3_builder --no-smart-version mypy_boto3_output $@
