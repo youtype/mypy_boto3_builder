@@ -21,9 +21,8 @@ integration/types_aioboto3/s3_example.py:82: note: Maybe you forgot to use "awai
 integration/types_aioboto3/s3_example.py:85: error: Missing named argument "Key" for "get_object" of "S3Client"  [call-arg]
 integration/types_aioboto3/s3_example.py:88: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"  [typeddict-item]
 integration/types_aioboto3/s3_example.py:88: note: Did you mean "Expiration"?
-integration/types_aioboto3/s3_example.py:95: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
-integration/types_aioboto3/s3_example.py:95: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
+integration/types_aioboto3/s3_example.py:95: error: List item 0 has incompatible type "dict[str, Sequence[str]]"; expected "CORSRuleTypeDef | CORSRuleOutputTypeDef"  [list-item]
 integration/types_aioboto3/s3_example.py:102: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
 integration/types_aioboto3/s3_example.py:104: error: "ClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
 integration/types_aioboto3/s3_example.py:108: error: "AsyncIterator[bytes]" has no attribute "__iter__"; maybe "__aiter__"? (not iterable)  [attr-defined]
-Found 24 errors in 1 file (checked 1 source file)
+Found 23 errors in 1 file (checked 1 source file)

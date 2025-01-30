@@ -14,9 +14,8 @@ integration/boto3_stubs/s3_example.py:72: error: Unexpected keyword argument "bu
 integration/boto3_stubs/s3_example.py:79: error: Missing named argument "Key" for "get_object" of "S3Client"  [call-arg]
 integration/boto3_stubs/s3_example.py:82: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"  [typeddict-item]
 integration/boto3_stubs/s3_example.py:82: note: Did you mean "Expiration"?
-integration/boto3_stubs/s3_example.py:89: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
-integration/boto3_stubs/s3_example.py:89: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
+integration/boto3_stubs/s3_example.py:89: error: List item 0 has incompatible type "dict[str, Sequence[str]]"; expected "CORSRuleTypeDef | CORSRuleOutputTypeDef"  [list-item]
 integration/boto3_stubs/s3_example.py:96: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
 integration/boto3_stubs/s3_example.py:98: error: "ClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
 integration/boto3_stubs/s3_example.py:106: error: "ClientError" has no attribute "operations_names"; maybe "operation_name"?  [attr-defined]
-Found 20 errors in 1 file (checked 1 source file)
+Found 19 errors in 1 file (checked 1 source file)

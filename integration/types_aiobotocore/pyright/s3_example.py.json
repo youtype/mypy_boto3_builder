@@ -91,15 +91,15 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"Allowedorigins\" is an undefined item in type \"CORSRuleTypeDef\"",
+        "message": "Argument of type \"dict[str, list[dict[str, tuple[str] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0Type \"dict[str, tuple[str] | list[str]]\" is not assignable to type \"CORSRuleUnionTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"dict[str, tuple[str] | list[str]]\" is not assignable to \"CORSRuleTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"dict[str, tuple[str] | list[str]]\" is not assignable to \"CORSRuleOutputTypeDef\"",
         "range": {
             "start": {
                 "line": 50,
-                "character": 59
+                "character": 30
             },
             "end": {
                 "line": 50,
-                "character": 75
+                "character": 91
             }
         },
         "rule": "reportArgumentType"
