@@ -28,7 +28,7 @@ jobs:
       - name: boto3-stubs build
         run: |
           uvx --no-cache --with boto3 --with . mypy_boto3_builder mypy_boto3_output \
-            --product boto3 boto3-lite boto3-services boto3-full boto3-custom boto3-docs \
+            --product mypy-boto3 boto3 boto3-lite boto3-services boto3-full boto3-custom boto3-docs \
             --services s3 ec2 \
             --no-smart-version
       - name: types-aiobotocore build
