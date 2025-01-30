@@ -102,6 +102,7 @@ class ShapeParser:
         self._typed_dict_map = TypedDictMap()
         self._output_typed_dict_map = TypedDictMap()
         self._response_typed_dict_map = TypedDictMap()
+        self._request_typed_dict_map = TypedDictMap()
         self._fixed_typed_dict_map: dict[TypeTypedDict, TypeTypedDict] = {}
 
         self.logger = get_logger()
@@ -352,14 +353,25 @@ class ShapeParser:
                 ),
             )
             if operation_model.input_shape:
-                method.create_request_type_annotation(
-                    self._get_non_clashing_typed_dict_name_for_shape(
-                        operation_model.input_shape,
-                        optional_postfix="Request",
-                    )
+                self._create_request_type_annotation(
+                    method=method,
+                    input_shape=operation_model.input_shape,
+                    optional_postfix="Request",
                 )
             result[method.name] = method
         return result
+
+    def _create_request_type_annotation(
+        self, method: Method, input_shape: Shape, optional_postfix: str
+    ) -> None:
+        method.create_request_type_annotation(
+            self._get_non_clashing_typed_dict_name_for_shape(
+                input_shape,
+                optional_postfix="Request",
+            )
+        )
+        if method.has_request_type_annotation():
+            self._request_typed_dict_map.add(method.request_type_annotation)
 
     def _get_non_clashing_typed_dict_name_for_shape(
         self, shape: Shape, optional_postfix: str
@@ -693,7 +705,7 @@ class ShapeParser:
         self._resource_name = "Paginator"
         operation_name = paginator_name
         paginator_shape = self._get_paginator(paginator_name)
-        operation_shape = self._get_operation(operation_name)
+        operation_model = self._get_operation(operation_name)
         skip_argument_names: list[str] = []
         input_token: list[str] | str = paginator_shape["input_token"]
         if isinstance(input_token, list):
@@ -705,12 +717,12 @@ class ShapeParser:
 
         arguments: list[Argument] = [Argument.self()]
 
-        if operation_shape.input_shape is not None:
+        if operation_model.input_shape is not None:
             shape_arguments = self._parse_arguments(
                 class_name="Paginator",
                 method_name="paginate",
                 operation_name=operation_name,
-                shape=operation_shape.input_shape,
+                shape=operation_model.input_shape,
                 exclude_names=skip_argument_names,
             )
             shape_arguments.append(
@@ -727,12 +739,11 @@ class ShapeParser:
             return_type=return_type,
             type_ignore="override",
         )
-        if operation_shape.input_shape is not None:
-            method.create_request_type_annotation(
-                self._get_non_clashing_typed_dict_name_for_shape(
-                    operation_shape.input_shape,
-                    optional_postfix="Paginate",
-                ),
+        if operation_model.input_shape is not None:
+            self._create_request_type_annotation(
+                method=method,
+                input_shape=operation_model.input_shape,
+                optional_postfix="Paginate",
             )
         return method
 
@@ -759,16 +770,16 @@ class ShapeParser:
         if not self._waiters_shape:
             raise ShapeParserError("Waiter shape is not defined")
         operation_name = self._waiters_shape["waiters"][waiter_name]["operation"]
-        operation_shape = self._get_operation(operation_name)
+        operation_model = self._get_operation(operation_name)
 
         arguments: list[Argument] = [Argument.self()]
 
-        if operation_shape.input_shape is not None:
+        if operation_model.input_shape is not None:
             shape_arguments = self._parse_arguments(
                 class_name="Waiter",
                 method_name="wait",
                 operation_name=operation_name,
-                shape=operation_shape.input_shape,
+                shape=operation_model.input_shape,
             )
             shape_arguments.append(Argument("WaiterConfig", WaiterConfigTypeDef, Type.Ellipsis))
             arguments.extend(self._get_kw_flags("wait", shape_arguments))
@@ -780,12 +791,11 @@ class ShapeParser:
             return_type=Type.none,
             type_ignore="override",
         )
-        if operation_shape.input_shape is not None:
-            method.create_request_type_annotation(
-                self._get_non_clashing_typed_dict_name_for_shape(
-                    operation_shape.input_shape,
-                    optional_postfix="Wait",
-                ),
+        if operation_model.input_shape is not None:
+            self._create_request_type_annotation(
+                method=method,
+                input_shape=operation_model.input_shape,
+                optional_postfix="Wait",
             )
         return method
 
@@ -1112,12 +1122,11 @@ class ShapeParser:
                 extract_docstring_from_html(operation_model.documentation),
             ),
         )
-        if operation_model and operation_model.input_shape is not None:
-            method.create_request_type_annotation(
-                self._get_non_clashing_typed_dict_name_for_shape(
-                    operation_model.input_shape,
-                    optional_postfix=f"{self.resource_name}{action_name}",
-                ),
+        if operation_model.input_shape is not None:
+            self._create_request_type_annotation(
+                method=method,
+                input_shape=operation_model.input_shape,
+                optional_postfix=f"{self.resource_name}{action_name}",
             )
         return method
 
@@ -1240,6 +1249,7 @@ class ShapeParser:
                 self._typed_dict_map,
                 self._output_typed_dict_map,
                 self._response_typed_dict_map,
+                self._request_typed_dict_map,
             ),
         )
         if not clashing_typed_dict:
