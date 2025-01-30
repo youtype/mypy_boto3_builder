@@ -1,5 +1,5 @@
 """
-Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
+Parser for botocore ServiceResource sub-resource, produces `structures.Resource`.
 
 Copyright 2024 Vlad Emelianov
 """
@@ -24,12 +24,12 @@ from mypy_boto3_builder.utils.strings import get_class_prefix
 
 class ResourceParser:
     """
-    Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
+    Parser for botocore ServiceResource sub-resource, produces `structures.Resource`.
 
     Arguments:
         name -- Resource name.
         service_name -- Target service name.
-        shape_parser - ShapeParser instance.
+        shape_parser -- ShapeParser instance.
     """
 
     def __init__(
@@ -120,10 +120,7 @@ class ResourceParser:
 
     def parse(self) -> ResourceRecord:
         """
-        Parse boto3 sub Resource data.
-
-        Arguments:
-            resource -- Original boto3 resource.
+        Parse botocore sub Resource data.
 
         Returns:
             Resource structure.

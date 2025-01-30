@@ -8,7 +8,7 @@ from collections.abc import Iterable
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
-from mypy_boto3_builder.parsers.client import parse_client
+from mypy_boto3_builder.parsers.client_parser import ClientParser
 from mypy_boto3_builder.parsers.service_resource_parser import ServiceResourceParser
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -79,11 +79,15 @@ class ServicePackageParser:
         return result
 
     def _parse_service_package(self) -> ServicePackage:
-        client = parse_client(self.service_name, self.shape_parser)
         service_resource_parser = ServiceResourceParser(
             self.service_name,
             self.shape_parser,
         )
+        client_parser = ClientParser(
+            self.service_name,
+            self.shape_parser,
+        )
+        client = client_parser.parse()
         service_resource = service_resource_parser.parse_service_resource()
 
         return ServicePackage(
