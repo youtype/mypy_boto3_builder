@@ -22,4 +22,4 @@ generate_db_auth_token_method = Method(
     docstring="Generates an auth token used to connect to a db with IAM credentials.",
 )
 
-CLIENT_METHODS = (generate_db_auth_token_method,)
+CLIENT_METHODS = (generate_db_auth_token_method.copy(),)

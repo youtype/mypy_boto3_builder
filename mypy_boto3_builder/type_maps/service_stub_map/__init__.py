@@ -54,4 +54,4 @@ def get_stub_method_map(service_name: ServiceName, parent: str) -> dict[str, Met
     methods = SERVICE_STUB_MAP.get(service_name, {}).get(parent, [])
     for method in methods:
         method.create_request_type_annotation(get_type_def_name(parent, method.name, "Request"))
-    return {method.name: method for method in methods}
+    return {method.name: method.copy() for method in methods}

@@ -143,15 +143,15 @@ object_summary_load_method = Method(
 
 
 CLIENT_METHODS = (
-    copy_method,
-    download_file_method,
-    download_fileobj_method,
-    generate_presigned_post_method,
-    upload_file_method,
-    upload_fileobj_method,
+    copy_method.copy(),
+    download_file_method.copy(),
+    download_fileobj_method.copy(),
+    generate_presigned_post_method.copy(),
+    upload_file_method.copy(),
+    upload_fileobj_method.copy(),
 )
 BUCKET_METHODS = (
-    bucket_load_method,
+    bucket_load_method.copy(),
     copy_method.copy().remove_argument("Bucket"),
     download_file_method.copy().remove_argument("Bucket"),
     download_fileobj_method.copy().remove_argument("Bucket"),
@@ -165,4 +165,4 @@ OBJECT_METHODS = (
     upload_file_method.copy().remove_argument("Bucket", "Key"),
     upload_fileobj_method.copy().remove_argument("Bucket", "Key"),
 )
-OBJECT_SUMMARY_METHODS = (object_summary_load_method,)
+OBJECT_SUMMARY_METHODS = (object_summary_load_method.copy(),)
