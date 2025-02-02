@@ -5,6 +5,8 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch: {}
 
+permissions: {}
+
 jobs:
   integration:
     name: "E2E"
@@ -34,6 +36,8 @@ jobs:
           - "3.13" # latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:

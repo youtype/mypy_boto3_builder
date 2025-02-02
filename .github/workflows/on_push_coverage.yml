@@ -9,12 +9,16 @@ on:
       - tests/**
   workflow_dispatch: {}
 
+permissions: {}
+
 jobs:
   coverage:
     name: "Test: coverage report"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

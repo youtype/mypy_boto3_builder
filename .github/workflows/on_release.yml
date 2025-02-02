@@ -4,6 +4,9 @@ on:
   release:
     types: [published]
 
+permissions:
+  packages: write
+
 jobs:
   deploy:
     name: "Release: publish"
@@ -11,6 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          persist-credentials: false
           ref: ${{ github.event.release.target_commitish }}
       - name: Get version
         id: version
