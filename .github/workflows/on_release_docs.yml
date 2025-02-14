@@ -8,6 +8,8 @@ on:
     types: [published]
   workflow_dispatch: {}
 
+permissions: {}
+
 jobs:
   build-docs:
     name: "Release: docs"
@@ -18,6 +20,7 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v4
         with:
+          persist-credentials: false
           ref: ${{ env.MAIN_BRANCH }}
       - name: Set up git
         run: |

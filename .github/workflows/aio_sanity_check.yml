@@ -9,6 +9,8 @@ on:
         description: Target boto3 version
         required: false
 
+permissions: {}
+
 jobs:
   versions:
     runs-on: ubuntu-latest
@@ -17,6 +19,8 @@ jobs:
       botocore: ${{ steps.botocore.outputs.result }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Extract boto3 version
         id: boto3
         uses: actions/github-script@v7
@@ -47,6 +51,8 @@ jobs:
     needs: versions
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
