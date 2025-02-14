@@ -1,7 +1,7 @@
 [
     {
         "severity": "error",
-        "message": "Type \"Coroutine[Any, Any, _Bucket]\" is not assignable to declared type \"Bucket\"\n\u00a0\u00a0\"Coroutine[Any, Any, _Bucket]\" is not assignable to \"Bucket\"",
+        "message": "Type \"CoroutineType[Any, Any, _Bucket]\" is not assignable to declared type \"Bucket\"\n\u00a0\u00a0\"CoroutineType[Any, Any, _Bucket]\" is not assignable to \"Bucket\"",
         "range": {
             "start": {
                 "line": 34,
@@ -211,7 +211,7 @@
     },
     {
         "severity": "error",
-        "message": "\"__getitem__\" method not defined on type \"Coroutine[Any, Any, CreateBucketOutputTypeDef]\"",
+        "message": "\"__getitem__\" method not defined on type \"CoroutineType[Any, Any, CreateBucketOutputTypeDef]\"",
         "range": {
             "start": {
                 "line": 81,

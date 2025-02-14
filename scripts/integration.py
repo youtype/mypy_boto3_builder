@@ -163,7 +163,7 @@ class ProductChoices(enum.Enum):
     types_aioboto3_lite = Product(
         name="types-aioboto3-lite",
         prerequisites=("aioboto3",),
-        examples_path=ROOT_PATH / "integration" / "types_aioboto3",
+        examples_path=ROOT_PATH / "integration" / "types_aioboto3_lite",
         build_products=("types-boto3-lite", "aioboto3-lite", "aiobotocore", "aiobotocore-services"),
     )
     types_aioboto3_full = Product(
