@@ -25,7 +25,7 @@ from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
 from mypy_boto3_builder.generators.mypy_boto3_generator import MypyBoto3Generator
 from mypy_boto3_builder.generators.types_boto3_generator import TypesBoto3Generator
 from mypy_boto3_builder.jinja_manager import JinjaManager
-from mypy_boto3_builder.logger import get_logger, setup_logger
+from mypy_boto3_builder.logger import enable_logger, get_logger, setup_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_defs import GeneratorKwargs
 from mypy_boto3_builder.utils.boto3_utils import get_available_service_names
@@ -208,6 +208,7 @@ def main() -> None:
     """
     CLI entrypoint.
     """
+    enable_logger()
     args = parse_args(sys.argv[1:])
     try:
         run(args)

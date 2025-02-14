@@ -68,6 +68,7 @@ dev-dependencies = [
 package = true
 
 [project.scripts]
+mypy-boto3-builder = 'mypy_boto3_builder.main:main'
 mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 
 [project.urls]
