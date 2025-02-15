@@ -15,7 +15,6 @@ from mypy_boto3_builder.constants import (
     BUILDER_REPO_URL,
     OUTPUT_PATH_SENTINEL,
     PACKAGE_NAME,
-    PROG_NAME,
 )
 from mypy_boto3_builder.enums.product import Product, ProductLibrary
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
@@ -152,7 +151,6 @@ def initialize_jinja_manager() -> None:
         len=len,
         sorted=sorted,
         repr=repr,
-        builder_prog_name=PROG_NAME,
         builder_package_name=PACKAGE_NAME,
         builder_repo_url=BUILDER_REPO_URL,
         copyright=get_copyright(),
