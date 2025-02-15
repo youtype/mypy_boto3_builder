@@ -28,9 +28,11 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.utils.install_requires import InstallRequiresItem
 from mypy_boto3_builder.utils.strings import RESERVED_NAMES, get_anchor_link, is_reserved
-from mypy_boto3_builder.utils.type_checks import is_type_def, is_typed_dict
+from mypy_boto3_builder.utils.type_checks import is_type_def, is_typed_dict, is_union
 from mypy_boto3_builder.utils.version import VersionParts, stringify_parts
 
 
@@ -401,3 +403,19 @@ class ServicePackage(Package):
         for paginator in self.paginators:
             for method in paginator.methods:
                 yield paginator, method
+
+    def iterate_typed_dicts(self) -> Iterator[TypeTypedDict]:
+        """
+        Iterate over all typed dicts.
+        """
+        for type_def in self.type_defs:
+            if is_typed_dict(type_def):
+                yield type_def
+
+    def iterate_named_unions(self) -> Iterator[TypeUnion]:
+        """
+        Iterate over all unions.
+        """
+        for type_def in self.type_defs:
+            if is_union(type_def):
+                yield type_def

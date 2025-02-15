@@ -4,7 +4,7 @@
 
 {% include "common/header_note.md.jinja2" with context %}
 
-{% for named_union in package.type_defs if is_union(named_union) -%}
+{% for named_union in package.iterate_named_unions() -%}
 
 ## {{ named_union.name }}
 
@@ -44,7 +44,7 @@ def get_value() -> {{ named_union.name }}:
 
 {% endfor %}
 
-{% for typed_dict in package.type_defs if is_typed_dict(typed_dict) -%}
+{% for typed_dict in package.iterate_typed_dicts() -%}
 ## {{ typed_dict.name }}
 
 ```python
@@ -55,7 +55,7 @@ from {{ package.name }}.type_defs import {{ typed_dict.name }}
 
 def get_value() -> {{ typed_dict.name }}:
     return {
-        "{{ typed_dict.children[0].name -}}": None,
+        "{{ typed_dict.children[0].name -}}": ...,
     }
 
 
