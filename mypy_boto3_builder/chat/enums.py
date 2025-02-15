@@ -4,6 +4,7 @@ Chat enums.
 Copyright 2024 Vlad Emelianov
 """
 
+from collections.abc import Iterable
 from enum import Enum
 from pathlib import Path
 
@@ -177,3 +178,22 @@ class Library(Enum):
                 return Product.types_aiobotocore_custom
             case Library.aioboto3:
                 return Product.types_aioboto3_custom
+
+    @classmethod
+    def from_products(cls, products: Iterable[Product]) -> "Library | None":
+        """
+        Get library from product.
+        """
+        for product in products:
+            match product:
+                case Product.types_boto3_custom:
+                    return Library.boto3
+                case Product.boto3_stubs_custom:
+                    return Library.boto3_legacy
+                case Product.types_aiobotocore_custom:
+                    return Library.aiobotocore
+                case Product.types_aioboto3_custom:
+                    return Library.aioboto3
+                case _:
+                    pass
+        return None

@@ -67,11 +67,15 @@ class ChatBuddy:
         " to return to the top.",
     )
 
-    def __init__(self, run_builder: Callable[[CLINamespace], None]) -> None:
+    def __init__(
+        self,
+        run_builder: Callable[[CLINamespace], None],
+        external_args: CLINamespace,
+    ) -> None:
         self.available_service_names: tuple[ServiceName, ...] = ()
         self.selected_service_names: list[ServiceName] = []
         self.recommended_service_names: list[ServiceName] = []
-        self.library = Library.boto3
+        self._library: Library | None = Library.from_products(external_args.products)
         self.output_path: Path = DEFAULT_OUTPUT_PATH
         self.project_path = PROJECT_PATH
         self.args = CLINamespace(
@@ -87,6 +91,16 @@ class ChatBuddy:
         self.package_manager: PackageManager = PackageManager.pip
         self.run_builder = run_builder
         self.chat = Chat()
+
+    @property
+    def library(self) -> Library:
+        """
+        Get selected library.
+        """
+        if self._library is None:
+            raise ValueError("Library is not selected")
+
+        return self._library
 
     @property
     def library_name(self) -> str:
@@ -531,27 +545,34 @@ class ChatBuddy:
                 " So, if anything goes wrong, report to ",
                 TextStyle.tag.wrap(REPORT_URL),
             ),
-            (
-                "First of all, what ",
-                TextStyle.tag.wrap("AWS SDK library"),
-                " do you use in this project?",
-            ),
         )
 
-        library = self._select_library()
-        if not library:
-            self._say("No worries, you can always run me again if you start using them.")
-            self._finish()
-            return
+        if not self._library:
+            self._say(
+                (
+                    "First of all, what ",
+                    TextStyle.tag.wrap("AWS SDK library"),
+                    " do you use in this project?",
+                ),
+            )
+            library = self._select_library()
 
-        self.library = library
+            if not library:
+                self._say("No worries, you can always run me again if you start using them.")
+                self._finish()
+                return
+
+            self._library = library
+
         self._respond(
             (
                 "Now, how can I add ",
                 TextStyle.tag.wrap("type checking"),
                 " and ",
                 TextStyle.tag.wrap("code completion"),
-                " for it?",
+                " for ",
+                TextStyle.tag.wrap(self.library_name),
+                "?",
             )
         )
 
