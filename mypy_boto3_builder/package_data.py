@@ -37,6 +37,9 @@ class BasePackageData(ABC):
     # full stubs package name on PyPI
     pypi_full_name: str
 
+    # custom stubs package name on PyPI
+    pypi_custom_name: str
+
     # underlying library: boto3, aiobotocore, aioboto3
     library: ProductLibrary
 
@@ -110,6 +113,7 @@ class TypesBoto3PackageData(BasePackageData):
     pypi_stubs_name: str = "types-boto3"
     pypi_lite_name: str = "types-boto3-lite"
     pypi_full_name: str = "types-boto3-full"
+    pypi_custom_name: str = "types-boto3-custom"
     library: ProductLibrary = ProductLibrary.boto3
     service_prefix: str = "types_boto3"
     service_pypi_prefix: str = "types-boto3"
@@ -181,6 +185,7 @@ class TypesAioBotocorePackageData(BasePackageData):
     pypi_stubs_name: str = "types-aiobotocore"
     pypi_lite_name: str = "types-aiobotocore-lite"
     pypi_full_name: str = "types-aiobotocore-full"
+    pypi_custom_name: str = "types-aiobotocore-custom"
     library: ProductLibrary = ProductLibrary.aiobotocore
     service_prefix: str = "types_aiobotocore"
     service_pypi_prefix: str = "types-aiobotocore"
@@ -228,7 +233,7 @@ class TypesAioBotocoreCustomPackageData(TypesAioBotocorePackageData):
     types-aiobotocore-custom package data.
     """
 
-    pypi_name: str = "types-aiobotocore-custom"
+    pypi_name: str = TypesAioBotocorePackageData.pypi_custom_name
     is_conda_forge_supported: bool = False
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
@@ -249,6 +254,7 @@ class Boto3StubsPackageData(BasePackageData):
     pypi_stubs_name: str = "boto3-stubs"
     pypi_lite_name: str = "boto3-stubs-lite"
     pypi_full_name: str = "boto3-stubs-full"
+    pypi_custom_name: str = "boto3-stubs-custom"
     service_prefix: str = "mypy_boto3"
     service_pypi_prefix: str = "mypy-boto3"
     library: ProductLibrary = ProductLibrary.boto3_legacy
@@ -299,7 +305,7 @@ class Boto3StubsCustomPackageData(Boto3StubsPackageData):
     boto3-stubs-custom package data.
     """
 
-    pypi_name: str = "boto3-stubs-custom"
+    pypi_name: str = Boto3StubsPackageData.pypi_custom_name
     is_conda_forge_supported: bool = False
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
@@ -333,6 +339,7 @@ class TypesAioBoto3PackageData(BasePackageData):
     pypi_stubs_name: str = "types-aioboto3"
     pypi_lite_name: str = "types-aioboto3-lite"
     pypi_full_name: str = TypesAioBotocorePackageData.pypi_full_name
+    pypi_custom_name: str = "types-aioboto3-custom"
     library: ProductLibrary = ProductLibrary.aioboto3
     service_prefix: str = "types_aiobotocore"
     service_pypi_prefix: str = "types-aiobotocore"
@@ -370,7 +377,7 @@ class TypesAioBoto3CustomPackageData(TypesAioBoto3PackageData):
     types-aioboto3-custom package data.
     """
 
-    pypi_name: str = "types-aioboto3-custom"
+    pypi_name: str = TypesAioBoto3PackageData.pypi_custom_name
     is_conda_forge_supported: bool = False
     install_requires: tuple[str, ...] = (
         "botocore-stubs",
