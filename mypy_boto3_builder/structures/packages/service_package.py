@@ -404,18 +404,30 @@ class ServicePackage(Package):
             for method in paginator.methods:
                 yield paginator, method
 
-    def iterate_typed_dicts(self) -> Iterator[TypeTypedDict]:
+    def iterate_typed_dicts(self, limit: int | None = None) -> Iterator[TypeTypedDict]:
         """
         Iterate over all typed dicts.
         """
+        index = 0
         for type_def in self.type_defs:
-            if is_typed_dict(type_def):
-                yield type_def
+            if not is_typed_dict(type_def):
+                continue
 
-    def iterate_named_unions(self) -> Iterator[TypeUnion]:
+            yield type_def
+            index += 1
+            if limit is not None and index >= limit:
+                return
+
+    def iterate_named_unions(self, limit: int | None = None) -> Iterator[TypeUnion]:
         """
         Iterate over all unions.
         """
+        index = 0
         for type_def in self.type_defs:
-            if is_union(type_def):
-                yield type_def
+            if not is_union(type_def):
+                continue
+
+            yield type_def
+            index += 1
+            if limit is not None and index >= limit:
+                return

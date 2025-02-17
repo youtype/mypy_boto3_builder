@@ -6,7 +6,7 @@ to typed dictionaries and unions for additional type checking.
 
 Full list of `{{ service_name.class_name }}` TypeDefs can be found in [docs]({{ package.get_doc_link('type_defs') }}).
 
-{% for typed_dict in package.iterate_typed_dicts()[:1] -%}
+{% for typed_dict in package.iterate_typed_dicts(limit=1) -%}
 ```python
 # TypedDict usage example
 from {{ package.name }}.type_defs import {{ typed_dict.name }}
