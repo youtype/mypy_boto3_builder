@@ -6,25 +6,26 @@ Copyright 2025 Vlad Emelianov
 
 from typing import Any, Mapping
 
+from aiobotocore.awsrequest import AioAWSResponse
 from aiobotocore.httpsession import AIOHTTPSession as AIOHTTPSession
 from aiobotocore.response import StreamingBody as StreamingBody
+from botocore.awsrequest import AWSPreparedRequest
 from botocore.endpoint import DEFAULT_TIMEOUT as DEFAULT_TIMEOUT
 from botocore.endpoint import MAX_POOL_CONNECTIONS as MAX_POOL_CONNECTIONS
 from botocore.endpoint import Endpoint, EndpointCreator
 from botocore.model import OperationModel, ServiceModel
-from requests.models import Request, Response
 
 DEFAULT_HTTP_SESSION_CLS: type[AIOHTTPSession] = ...
 
 async def convert_to_response_dict(
-    http_response: Response, operation_model: OperationModel
+    http_response: AioAWSResponse, operation_model: OperationModel
 ) -> dict[str, Any]: ...
 
 class AioEndpoint(Endpoint):
     async def close(self) -> None: ...  # type: ignore[override]
     async def create_request(
         self, params: Mapping[str, Any], operation_model: OperationModel | None = ...
-    ) -> Request: ...
+    ) -> AWSPreparedRequest: ...
 
 class AioEndpointCreator(EndpointCreator):
     def create_endpoint(  # type: ignore[override]
