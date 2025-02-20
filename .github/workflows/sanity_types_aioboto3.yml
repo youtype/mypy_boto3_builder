@@ -1,0 +1,73 @@
+name: "Sanity: types-aioboto3"
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+    inputs:
+      aioboto3_version:
+        description: Target aioboto3 version
+        required: false
+
+jobs:
+  versions:
+    runs-on: ubuntu-latest
+    outputs:
+      aioboto3: ${{ steps.aioboto3.outputs.result }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract aioboto3 version
+        id: aioboto3
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const { getAioBoto3Version, setupGlobals } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+            const inputAioboto3Version = context.payload.inputs && context.payload.inputs.aioboto3_version
+            const version = inputAioboto3Version ? inputAioboto3Version : await getAioBoto3Version()
+            core.notice(`aioboto3 version ${version}`)
+            return version
+  sanity-check:
+    name: "Sanity: types-aioboto3"
+    runs-on: ubuntu-latest
+    needs: versions
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+      - name: Install the project
+        run: uv sync --extra check --dev
+      - name: Install aioboto3
+        env:
+          AIOBOTO3_VERSION: ${{ needs.versions.outputs.aioboto3 }}
+        run: |
+          uv pip install aioboto3==${AIOBOTO3_VERSION}
+      - name: Build main packages
+        run: |
+          rm -rf mypy_boto3_output/*
+          uv run mypy_boto3_builder mypy_boto3_output \
+            --product aioboto3 aiobotocore \
+            --no-smart-version \
+            --download-static-stubs
+      - name: Check s3 output
+        run: |
+          uv run mypy_boto3_builder mypy_boto3_output \
+            --product aiobotocore-services \
+            -s s3 \
+            --no-smart-version
+          uv run ./scripts/check_output.py -p ./mypy_boto3_output s3
+      - name: Build packages
+        run: |
+          uv run mypy_boto3_builder mypy_boto3_output \
+            --product aiobotocore-services \
+            --no-smart-version
+      - name: Check output
+        run: |
+          uv run ./scripts/check_output.py -p ./mypy_boto3_output
