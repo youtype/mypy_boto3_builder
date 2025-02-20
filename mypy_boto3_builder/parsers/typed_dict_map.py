@@ -4,13 +4,14 @@ Wrapper for TypedDict maps.
 Copyright 2024 Vlad Emelianov
 """
 
+from collections import UserDict
 from collections.abc import Generator
 
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
-class TypedDictMap(dict[str, TypeTypedDict]):
+class TypedDictMap(UserDict[str, TypeTypedDict]):
     """
     Wrapper for TypedDict maps.
     """

@@ -1229,7 +1229,7 @@ class ShapeParser:
     def _get_typed_dict(
         self,
         name: str,
-        maps: Sequence[dict[str, TypeTypedDict]],
+        maps: Sequence[TypedDictMap],
     ) -> TypeTypedDict | None:
         for typed_dict_map in maps:
             if name in typed_dict_map:
