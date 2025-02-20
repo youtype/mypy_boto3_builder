@@ -44,7 +44,7 @@ jobs:
           version: "latest"
       - name: Install the project
         run: uv sync --extra check --dev
-      - name: Install aioboto3
+      - name: Install aiobotocore
         env:
           AIOBOTOCORE_VERSION: ${{ needs.versions.outputs.aiobotocore }}
         run: |
