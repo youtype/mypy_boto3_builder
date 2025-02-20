@@ -280,7 +280,7 @@ def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Sequence
                 )
         else:
             with ThreadPool(processes=args.publish_threads) as pool:
-                for index, paths in enumerate(pool.map(publish, path_batch)):
+                for index, paths in enumerate(pool.imap(publish, path_batch)):
                     current_index = current_total + index
                     path_names = " ".join(path.name for path in paths)
                     logger.info(
