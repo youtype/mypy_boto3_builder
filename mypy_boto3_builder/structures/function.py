@@ -57,6 +57,8 @@ class Function:
         self.request_type_annotation_name: str | None = None
         self.is_async = is_async
         self._boto3_doc_link = boto3_doc_link
+        self._type_hint_annotations: list[FakeAnnotation] | None = None
+        self._type_hint_annotations_hash: int | None = None
 
     @property
     def boto3_doc_link(self) -> str:
@@ -209,13 +211,29 @@ class Function:
     def type_hint_annotations(self) -> list[FakeAnnotation]:
         """
         Type annotations list from arguments and return type with internal types.
+
+        This property is cached.
         """
-        result: list[FakeAnnotation] = []
-        result.extend(
+        if (
+            self._type_hint_annotations is not None
+            and self._type_hint_annotations_hash is not None
+            and self._type_hint_annotations_hash == hash(i.name for i in self.arguments)
+        ):
+            return self._type_hint_annotations
+
+        self._type_hint_annotations_hash = hash(tuple(self.arguments))
+        self._type_hint_annotations = self.get_type_hint_annotations()
+        return self._type_hint_annotations
+
+    def get_type_hint_annotations(self) -> list[FakeAnnotation]:
+        """
+        Get type annotations list from arguments and return type with internal types.
+        """
+        result = [
             argument.type_annotation
             for argument in self.arguments
             if argument.type_annotation and argument.type_annotation.get_local_types()
-        )
+        ]
         if self.return_type and self.return_type.get_local_types():
             result.append(self.return_type)
         return result

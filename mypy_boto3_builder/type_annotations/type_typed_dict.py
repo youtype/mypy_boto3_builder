@@ -112,6 +112,8 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
         self.docstring = docstring
         self._stringify = stringify
         self.is_safe_as_class = True
+        self._type_hint_annotations: list[FakeAnnotation] | None = None
+        self._type_hint_annotations_hash: int | None = None
 
     def is_stringified(self) -> bool:
         """
@@ -281,6 +283,23 @@ class TypeTypedDict(TypeParent, TypeDefSortable):
     def type_hint_annotations(self) -> list[FakeAnnotation]:
         """
         Type annotations list from arguments and return type with internal types.
+
+        This property is cached.
+        """
+        if (
+            self._type_hint_annotations is not None
+            and self._type_hint_annotations_hash is not None
+            and self._type_hint_annotations_hash == hash(i.name for i in self.children)
+        ):
+            return self._type_hint_annotations
+
+        self._type_hint_annotations_hash = hash(tuple(self.children))
+        self._type_hint_annotations = self.get_type_hint_annotations()
+        return self._type_hint_annotations
+
+    def get_type_hint_annotations(self) -> list[FakeAnnotation]:
+        """
+        Get type annotations list from arguments and return type with internal types.
         """
         return [
             child.type_annotation

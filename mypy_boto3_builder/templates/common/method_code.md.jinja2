@@ -1,4 +1,4 @@
-```python
+{{ '```python\n' -}}
 # {{ method.name }} method definition
 
 {% if method.is_async %}await {% endif %}def {{ method.name }}(
@@ -7,18 +7,19 @@
 {% if method.return_type in method.type_hint_annotations -%}
 {{ '  # (' -}}{{ method.type_hint_annotations.index(method.return_type) + 1 -}}{{ ')' -}}
 {% endif -%}
-{{ '\n    ...\n' -}}
-```
-{{ '\n' -}}
+{{ '\n    ...\n```\n\n' -}}
+
+{% if method.type_hint_annotations -%}
 {% for type_annotation in method.type_hint_annotations -%}
 {{ loop.index -}}{{ '. See ' -}}
 {% include "common/type_hint.md.jinja2" with context -%}
 {{ '\n' -}}
 {% endfor -%}
+{{ '\n\n' -}}
+{% endif -%}
 
 {% if method.has_request_type_annotation() -%}
-{{ '\n\n' -}}
-```python
+{{ '```python\n' -}}
 # {{ method.name }} method usage example with argument unpacking
 
 kwargs: {{ method.request_type_annotation.render() }} = {  # (1)

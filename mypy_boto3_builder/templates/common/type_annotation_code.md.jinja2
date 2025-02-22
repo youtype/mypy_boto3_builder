@@ -7,7 +7,12 @@
 {% elif is_external_import(type_annotation) -%}
     {{ type_annotation.render_top_level() -}}
 {% elif is_union(type_annotation) -%}
-    {{ type_annotation.render() -}}
+    {% for child in type_annotation.children -%}
+        {% with type_annotation=child -%}
+            {% include "common/type_annotation_code.md.jinja2" with context -%}
+        {% endwith -%}
+        {{ "" if loop.last else " | " -}}
+    {% endfor -%}
 {% elif is_type_parent(type_annotation) -%}
     {% with type_annotation=type_annotation.parent -%}
         {% include "common/type_annotation_code.md.jinja2" with context -%}

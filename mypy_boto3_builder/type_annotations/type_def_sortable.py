@@ -33,10 +33,16 @@ class TypeDefSortable(FakeAnnotation, ABC):
         """
 
     @property
-    @abstractmethod
     def type_hint_annotations(self) -> list[FakeAnnotation]:
         """
         Type annotations list from arguments and return type with internal types.
+        """
+        return self.get_type_hint_annotations()
+
+    @abstractmethod
+    def get_type_hint_annotations(self) -> list[FakeAnnotation]:
+        """
+        Get type annotations list from arguments and return type with internal types.
         """
 
     @abstractmethod
