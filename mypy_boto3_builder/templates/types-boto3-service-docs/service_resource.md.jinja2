@@ -21,9 +21,9 @@ def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.
 {% if package.service_resource.attributes %}
 ## Attributes
 
-{% for attribute in package.service_resource.attributes %}
-- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith %}
-{% endfor %}
+{% for attribute in package.service_resource.attributes -%}
+- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ '\n' -}}
+{% endfor -%}
 {% endif %}
 
 {% if package.service_resource.collections %}
@@ -80,9 +80,9 @@ def get_resource() -> {{ resource.name }}:
 {% if resource.attributes %}
 ### {{ resource.name }} attributes
 
-{% for attribute in resource.attributes %}
-- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}
-{% endfor %}
+{% for attribute in resource.attributes -%}
+- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ '\n' -}}
+{% endfor -%}
 {% endif %}
 
 {% if resource.collections %}

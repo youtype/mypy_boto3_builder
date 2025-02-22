@@ -172,7 +172,7 @@ from {{ package.library_name }}.session import Session
 session = Session()
 
 resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
-result = resource.{{ method.name }}()  # (2)
+result = resource.{{ method.name }}(...)  # (2)
 ```
 
 1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
@@ -221,13 +221,19 @@ from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.service_resource import {{ package.service_resource.name }}
 from {{ package.name }}.service_resource import {{ method.return_type.name }}
+from {{ package.name }}.type_defs import {{ method.request_type_annotation.name }}
 
 
 session = Session()
 
 resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
-result: {{ method.return_type.name }} = resource.{{ method.name }}()
+kwargs: {{ method.request_type_annotation.name }} = {...}  # (2)
+result: {{ method.return_type.name }} = resource.{{ method.name }}(**kwargs)
 ```
+
+1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
+2. kwargs: {% with type_annotation=method.request_type_annotation %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+3. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
 {% if collection %}
@@ -245,12 +251,16 @@ from {{ package.name }}.service_resource import {{ collection.object_class_name 
 
 session = Session()
 
-resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")  # (1)
 
-collection: {{ collection.name }} = resource.{{ collection.attribute_name }}
+collection: {{ collection.name }} = resource.{{ collection.attribute_name }}  # (2)
 for item in collection:
     item: {{ collection.object_class_name }}
-    print(item)
+    print(item)  # (3)
 ```
+
+1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
+2. collection: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource', collection.name) }})
+3. item: {{ collection.object_class_name }}
 {% endif %}
 {% endif %}

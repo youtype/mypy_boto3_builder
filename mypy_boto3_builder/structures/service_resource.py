@@ -127,6 +127,8 @@ class ServiceResource(ClassRecord):
         for method in self.methods:
             if not method.return_type:
                 continue
+            if not method.has_request_type_annotation():
+                continue
             if not is_internal_import(method.return_type):
                 continue
 
