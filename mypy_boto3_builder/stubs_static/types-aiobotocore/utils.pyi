@@ -4,11 +4,16 @@ Type annotations for aiobotocore.utils module.
 Copyright 2025 Vlad Emelianov
 """
 
+import logging
+from collections.abc import Callable, Coroutine
 from typing import Any, Mapping
 
 from aiobotocore.credentials import AioCredentials
+from botocore.model import OperationModel
+from botocore.session import Session
 from botocore.utils import DEFAULT_METADATA_SERVICE_TIMEOUT as DEFAULT_METADATA_SERVICE_TIMEOUT
 from botocore.utils import METADATA_BASE_URL as METADATA_BASE_URL
+from botocore.utils import RETRYABLE_HTTP_ERRORS as RETRYABLE_HTTP_ERRORS
 from botocore.utils import (
     ContainerMetadataFetcher,
     IdentityCache,
@@ -23,8 +28,7 @@ from botocore.utils import (
 )
 from requests.models import Response
 
-logger: Any
-RETRYABLE_HTTP_ERRORS: Any
+logger: logging.Logger = ...
 
 class AioIMDSFetcher(IMDSFetcher):
     def __init__(
@@ -35,7 +39,7 @@ class AioIMDSFetcher(IMDSFetcher):
         env: str | None = ...,
         user_agent: str | None = ...,
         config: Any | None = ...,
-        session: Any | None = ...,
+        session: Session | None = ...,
     ) -> None: ...
 
 class AioInstanceMetadataFetcher(AioIMDSFetcher, InstanceMetadataFetcher):
@@ -60,18 +64,28 @@ class AioS3RegionRedirectorv2(S3RegionRedirectorv2):
         self,
         request_dict: Mapping[str, Any],
         response: Response,
-        operation: Any,
+        operation: OperationModel,
         **kwargs: Any,
     ) -> None: ...
-    async def get_bucket_region(self, bucket: Any, response: Response) -> Any: ...
+    async def get_bucket_region(self, bucket: Any, response: Response) -> str: ...
 
 class AioS3RegionRedirector(S3RegionRedirector):
     async def redirect_from_error(
-        self, request_dict: Mapping[str, Any], response: Response, operation: Any, **kwargs: Any
+        self,
+        request_dict: Mapping[str, Any],
+        response: Response,
+        operation: OperationModel,
+        **kwargs: Any,
     ) -> int | None: ...
     async def get_bucket_region(self, bucket: str, response: Response) -> str: ...
 
 class AioContainerMetadataFetcher(ContainerMetadataFetcher):
-    def __init__(self, session: Any | None = ..., sleep: Any = ...) -> None: ...
-    async def retrieve_full_uri(self, full_url: str, headers: Any | None = ...) -> str: ...
-    async def retrieve_uri(self, relative_uri: str) -> Any: ...
+    def __init__(
+        self,
+        session: Session | None = ...,
+        sleep: Callable[[float], Coroutine[Any, Any, None]] = ...,
+    ) -> None: ...
+    async def retrieve_full_uri(
+        self, full_url: str, headers: Mapping[str, Any] | None = ...
+    ) -> str: ...
+    async def retrieve_uri(self, relative_uri: str) -> dict[str, Any]: ...

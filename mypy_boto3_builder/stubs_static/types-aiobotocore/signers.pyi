@@ -19,16 +19,16 @@ class AioRequestSigner(RequestSigner):
         self,
         operation_name: str,
         request: Request,
-        region_name: Any | None = ...,
+        region_name: str | None = ...,
         signing_type: str = ...,
-        expires_in: Any | None = ...,
-        signing_name: Any | None = ...,
+        expires_in: int | None = ...,
+        signing_name: str | None = ...,
     ) -> None: ...
     async def get_auth_instance(  # type: ignore[override]
         self,
         signing_name: str,
         region_name: str,
-        signature_version: Any | None = ...,
+        signature_version: str | None = ...,
         request_credentials: AioCredentials | None = ...,
         **kwargs: Any,
     ) -> BaseSigner: ...
@@ -74,7 +74,7 @@ async def generate_presigned_url(
     ExpiresIn: int = ...,
     HttpMethod: str | None = ...,
 ) -> Any: ...
-def add_generate_presigned_post(class_attributes: Any, **kwargs: Any) -> None: ...
+def add_generate_presigned_post(class_attributes: dict[str, Any], **kwargs: Any) -> None: ...
 async def generate_presigned_post(
     self: Any,
     Bucket: str,
