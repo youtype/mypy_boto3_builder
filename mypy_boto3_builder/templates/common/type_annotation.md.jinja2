@@ -10,6 +10,8 @@
     {{ '`' -}}{{ type_annotation.parent.render() }}`{{ '[' }}{% with type_annotation=type_annotation.children[0] -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ ']' -}}
 {% elif is_type_def(type_annotation) -%}
     [{{ type_annotation.name }}{{ '](#' }}{{ get_anchor_link(type_annotation.name) }}{{ ')' -}}
+{% elif is_union(type_annotation) -%}
+    {{ '`' -}}{{ type_annotation.render() }}{{ '`' -}}
 {% elif is_type_parent(type_annotation) -%}
     {{ '`' -}}{{ type_annotation.parent.render() }}`{{ '[' }}{% for child in type_annotation.children %}{% with type_annotation=child -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}{{ "" if loop.last else ", " -}}{% endfor -%}{{ ']' -}}
 {% elif is_external_import(type_annotation) -%}
