@@ -42,6 +42,7 @@ class Paginator(ClassRecord):
             name=name,
             bases=[base_class if not return_type else TypeSubscript(base_class, [return_type])],
         )
+        self.return_type = return_type
         self.operation_name = operation_name
         self.paginator_name = paginator_name
         self.service_name = service_name
@@ -105,9 +106,3 @@ class Paginator(ClassRecord):
             ),
             type_ignore="override",
         )
-
-    def get_paginate_method(self) -> Method:
-        """
-        Get `paginate` method for documentation.
-        """
-        return self.get_method("paginate")

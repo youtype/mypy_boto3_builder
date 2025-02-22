@@ -53,7 +53,7 @@ for item in paginator.paginate(...):
 
 1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
 2. paginator: [{{ paginator.name }}]({{ get_md_doc_link('paginators', paginator.name) }})
-3. item: {% with type_annotation=paginator.get_paginate_method().return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+3. item: {% with type_annotation=paginator.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
 {% set waiter = package.waiters[0] if package.waiters else None -%}
@@ -117,7 +117,7 @@ from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.client import {{ package.client.name }}
 from {{ package.name }}.paginator import {{ paginator.name }}
-from {{ package.name }}.type_defs import {{ paginator.methods[0].return_type.children[0].name }}
+from {{ package.name }}.type_defs import {{ paginator.return_type.name }}
 
 
 session = Session()
@@ -125,7 +125,7 @@ client: {{ package.client.name }} = session.client("{{ package.service_name.boto
 
 paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
 for item in paginator.paginate(...):
-    item: {{ paginator.methods[0].return_type.children[0].name }}
+    item: {{ paginator.return_type.name }}
     print(item)
 ```
 {% endif %}
