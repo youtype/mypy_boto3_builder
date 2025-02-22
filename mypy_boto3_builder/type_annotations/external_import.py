@@ -100,6 +100,14 @@ class ExternalImport(FakeAnnotation):
         """
         return self.import_record.get_local_name()
 
+    def render_top_level(self) -> str:
+        """
+        Get string with local name to imported from top-level module.
+        """
+        if self.source.is_builtins() or self.source.is_local():
+            return self.import_record.get_local_name()
+        return f"{self.source.render()}.{self.import_record.get_local_name()}"
+
     def _get_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using type annotation.

@@ -8,6 +8,7 @@ class TestExternalImport:
     def setup_method(self) -> None:
         self.result = ExternalImport(ImportString("module"), "name")
         self.alias = ExternalImport(ImportString("module"), "name", "alias")
+        self.builtins = ExternalImport(ImportString("builtins"), "str")
 
     def test_init(self) -> None:
         assert self.result.name == "name"
@@ -19,6 +20,11 @@ class TestExternalImport:
     def test_render(self) -> None:
         assert self.result.render() == "name"
         assert self.alias.render() == "alias"
+
+    def test_render_top_level(self) -> None:
+        assert self.result.render_top_level() == "module.name"
+        assert self.alias.render_top_level() == "module.alias"
+        assert self.builtins.render_top_level() == "str"
 
     def test_get_import_records(self) -> None:
         import_records = sorted(self.result.get_import_records())
