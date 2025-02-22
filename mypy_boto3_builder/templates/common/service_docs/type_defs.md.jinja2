@@ -80,5 +80,7 @@ class {{ typed_dict.name }}(TypedDict):
 {% include "common/type_hint.md.jinja2" with context -%}
 {{ '\n' -}}
 {% endfor -%}
+{{ '\n' -}}
+
 
 {% endfor %}
