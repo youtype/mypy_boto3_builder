@@ -20,7 +20,7 @@ from {{ package.name }}.waiter import {{ waiter.name }}
 session = get_session()
 async with session.create_client("{{ service_name.boto3_name }}") as client:  # (1)
     waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")  # (2)
-    await waiter.wait()
+    await waiter.wait(...)
 ```
 
 1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})

@@ -22,7 +22,7 @@ session = Session()
 
 client = session.client("{{ service_name.boto3_name }}")  # (1)
 waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")  # (2)
-await waiter.wait()
+await waiter.wait(...)
 ```
 
 1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})

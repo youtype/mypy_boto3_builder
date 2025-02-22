@@ -32,6 +32,7 @@ from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_copyright, get_md_doc_link
 from mypy_boto3_builder.utils.type_checks import (
     is_external_import,
+    is_internal_import,
     is_literal,
     is_type_def,
     is_type_parent,
@@ -161,6 +162,7 @@ def initialize_jinja_manager() -> None:
         is_type_def=is_type_def,
         is_type_parent=is_type_parent,
         is_external_import=is_external_import,
+        is_internal_import=is_internal_import,
     )
 
 

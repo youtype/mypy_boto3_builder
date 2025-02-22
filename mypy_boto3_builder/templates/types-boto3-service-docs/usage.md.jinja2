@@ -15,6 +15,8 @@ type checking and code completion should work out of the box.
 
 {% set method = package.client.get_example_method() -%}
 {% if method %}
+#### Client method usage example
+
 ```python
 # {{ package.client.name }} usage example
 
@@ -33,6 +35,8 @@ result = client.{{ method.name }}()  # (2)
 
 {% set paginator = package.paginators[0] if package.paginators else None -%}
 {% if paginator %}
+#### Paginator usage example
+
 ```python
 # {{ paginator.name }} usage example
 
@@ -49,11 +53,13 @@ for item in paginator.paginate(...):
 
 1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
 2. paginator: [{{ paginator.name }}]({{ get_md_doc_link('paginators', paginator.name) }})
-3. item: {% with type_annotation=paginator.methods[0].return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+3. item: {% with type_annotation=paginator.get_paginate_method().return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
 {% set waiter = package.waiters[0] if package.waiters else None -%}
 {% if waiter %}
+#### Waiter usage example
+
 ```python
 # {{ waiter.name }} usage example
 
@@ -64,7 +70,7 @@ session = Session()
 client = session.client("{{ package.service_name.boto3_name }}")  # (1)
 
 waiter = client.get_waiter("{{ waiter.attribute_name }}")  # (2)
-waiter.wait()
+waiter.wait(...)
 ```
 
 1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
@@ -80,6 +86,8 @@ All other type annotations are optional, as types should be discovered automatic
 However, these type annotations can be helpful in your functions and methods.
 
 {% if method %}
+#### Client method usage example
+
 ```python
 # {{ package.client.name }} usage example with type annotations
 
@@ -100,6 +108,8 @@ result: {{ method.return_type.name }} = client.{{ method.name }}(**kwargs)
 {% endif %}
 
 {% if paginator %}
+#### Paginator usage example
+
 ```python
 # {{ paginator.name }} usage example with type annotations
 
@@ -121,6 +131,8 @@ for item in paginator.paginate(...):
 {% endif %}
 
 {% if waiter %}
+#### Waiter usage example
+
 ```python
 # {{ waiter.name }} usage example with type annotations
 
@@ -133,7 +145,7 @@ session = Session()
 client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
 
 waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
-waiter.wait()
+waiter.wait(...)
 ```
 {% endif %}
 
@@ -144,11 +156,13 @@ waiter.wait()
 
 Can be used with `{{ package.data.pypi_name }}[{{ package.service_name.extras_name }}]` package installed.
 
-{% set method = package.service_resource.methods[0] if package.service_resource.methods else None -%}
-{% set collection = package.service_resource.collections[0] if package.service_resource.collections else None -%}
+{% set method = package.service_resource.get_example_method() -%}
+{% set collection = package.service_resource.get_example_collection() -%}
 
 
 {% if method %}
+#### ServiceResource method usage example
+
 ```python
 # {{ package.service_resource.name }} usage example
 
@@ -166,6 +180,8 @@ result = resource.{{ method.name }}()  # (2)
 {% endif %}
 
 {% if collection %}
+#### Collection usage example
+
 ```python
 # {{ collection.name }} usage example
 
@@ -181,8 +197,8 @@ for item in collection:
 ```
 
 1. resource: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource') }})
-2. collection: [{{ package.service_resource.name }}]({{ get_md_doc_link('service_resource', collection.name) }})
-3. item: {{ collection.object_class_name }}
+2. collection: [{{ collection.name }}]({{ get_md_doc_link('service_resource', collection.name) }})
+3. item: [{{ collection.object_class_name }}]({{ get_md_doc_link('service_resource', collection.object_class_name) }})
 {% endif %}
 
 ### Explicit type annotations
@@ -196,23 +212,27 @@ However, these type annotations can be helpful in your functions and methods.
 
 
 {% if method %}
+#### ServiceResource method usage example
+
 ```python
 # {{ package.service_resource.name }} usage example with type annotations
 
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.service_resource import {{ package.service_resource.name }}
-from {{ package.name }}.service_resource import {{ method.name }}
+from {{ package.name }}.service_resource import {{ method.return_type.name }}
 
 
 session = Session()
 
 resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
-result: {{ method.name }} = resource.{{ method.name }}()
+result: {{ method.return_type.name }} = resource.{{ method.name }}()
 ```
 {% endif %}
 
 {% if collection %}
+#### Collection usage example
+
 ```python
 # {{ collection.name }} usage example with type annotations
 

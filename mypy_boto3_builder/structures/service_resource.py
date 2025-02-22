@@ -13,9 +13,11 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
+from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.utils.type_checks import is_internal_import
 
 
 class ServiceResource(ClassRecord):
@@ -117,3 +119,26 @@ class ServiceResource(ClassRecord):
                 ),
             ],
         )
+
+    def get_example_method(self) -> Method | None:
+        """
+        Get a nice method with return TypedDict for documentation.
+        """
+        for method in self.methods:
+            if not method.return_type:
+                continue
+            if not is_internal_import(method.return_type):
+                continue
+
+            return method
+
+        return None
+
+    def get_example_collection(self) -> Collection | None:
+        """
+        Get a nice collection for documentation.
+        """
+        for collection in self.collections:
+            return collection
+
+        return None

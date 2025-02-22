@@ -8,6 +8,7 @@ from typing import TypeGuard
 
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
@@ -63,6 +64,13 @@ def is_external_import(annotation: FakeAnnotation) -> TypeGuard[ExternalImport]:
     Whether type annotation is a ExternalImport.
     """
     return isinstance(annotation, ExternalImport)
+
+
+def is_internal_import(annotation: FakeAnnotation) -> TypeGuard[InternalImport]:
+    """
+    Whether type annotation is a InternalImport.
+    """
+    return isinstance(annotation, InternalImport)
 
 
 def is_type_subscript(annotation: FakeAnnotation) -> TypeGuard[TypeSubscript]:

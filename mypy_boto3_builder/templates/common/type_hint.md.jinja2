@@ -1,12 +1,11 @@
-{% for type_annotation in type_annotation.get_local_types() -%}
 {% if is_typed_dict(type_annotation) -%}
     [:material-code-braces: {{ type_annotation.name }}]({{ get_md_doc_link("type_defs", type_annotation.name) }}{{ ')' -}}
 {% elif is_literal(type_annotation) -%}
     [:material-code-brackets: {{ type_annotation.name }}]({{ get_md_doc_link("literals", type_annotation.name) }}{{ ')' -}}
 {% elif is_type_def(type_annotation) -%}
-    [{{ type_annotation.name }}{{ '](#' }}{{ get_anchor_link(type_annotation.name) }}{{ ')' -}}
+    [:material-code-braces: {{ type_annotation.name }}{{ '](#' }}{{ get_anchor_link(type_annotation.name) }}{{ ')' -}}
+{% elif is_internal_import(type_annotation) -%}
+    [{{ type_annotation.name }}]({{ get_md_doc_link(type_annotation.module_name.value, type_annotation.name) }}{{ ')' -}}
 {% else -%}
     {{ '`' -}}{{ type_annotation.render() }}{{ '`' -}}
 {% endif -%}
-{{ ' ' -}}
-{% endfor -%}

@@ -1,9 +1,12 @@
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.utils.type_checks import (
     get_optional,
+    is_external_import,
+    is_internal_import,
     is_literal,
     is_type_def,
     is_type_parent,
@@ -57,3 +60,11 @@ class TestTypeChecks:
                 [TypedDictAttribute("key", Type.str, required=True)],
             ),
         )
+
+    def test_is_external_import(self) -> None:
+        assert not is_external_import(Type.none)
+        assert is_external_import(Type.str)
+
+    def test_is_internal_import(self) -> None:
+        assert not is_internal_import(Type.str)
+        assert is_internal_import(InternalImport("MyClass"))

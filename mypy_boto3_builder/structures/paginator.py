@@ -105,3 +105,9 @@ class Paginator(ClassRecord):
             ),
             type_ignore="override",
         )
+
+    def get_paginate_method(self) -> Method:
+        """
+        Get `paginate` method for documentation.
+        """
+        return self.get_method("paginate")

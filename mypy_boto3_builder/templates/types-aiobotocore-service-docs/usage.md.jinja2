@@ -16,6 +16,8 @@ type checking and code completion should work out of the box.
 
 {% set method = package.client.get_example_method() -%}
 {% if method %}
+#### Client method usage example
+
 ```python
 # {{ package.client.name }} usage example
 
@@ -34,6 +36,8 @@ async with session.create_client("{{ package.service_name.boto3_name }}") as cli
 
 {% set paginator = package.paginators[0] if package.paginators else None -%}
 {% if paginator %}
+#### Paginator usage example
+
 ```python
 # {{ paginator.name }} usage example
 
@@ -55,6 +59,8 @@ async with session.create_client("{{ package.service_name.boto3_name }}") as cli
 
 {% set waiter = package.waiters[0] if package.waiters else None -%}
 {% if waiter %}
+#### Waiter usage example
+
 ```python
 # {{ waiter.name }} usage example
 
@@ -65,7 +71,7 @@ session = get_session()
 
 async with session.create_client("{{ package.service_name.boto3_name }}") as client:  # (1)
     waiter = client.get_waiter("{{ waiter.attribute_name }}")  # (2)
-    await waiter.wait()
+    await waiter.wait(...)
 ```
 
 1. client: [{{ package.client.name }}]({{ get_md_doc_link('client') }})
@@ -82,6 +88,8 @@ All other type annotations are optional, as types should be discovered automatic
 However, these type annotations can be helpful in your functions and methods.
 
 {% if method %}
+#### Client method usage example
+
 ```python
 # {{ package.client.name }} usage example with type annotations
 
@@ -102,6 +110,8 @@ async with session.create_client("{{ package.service_name.boto3_name }}") as cli
 {% endif %}
 
 {% if paginator %}
+#### Paginator usage example
+
 ```python
 # {{ paginator.name }} usage example with type annotations
 
@@ -124,6 +134,8 @@ async with session.create_client("{{ package.service_name.boto3_name }}") as cli
 {% endif %}
 
 {% if waiter %}
+#### Waiter usage example
+
 ```python
 # {{ waiter.name }} usage example with type annotations
 
@@ -138,6 +150,6 @@ session = get_session()
 async with session.create_client("{{ package.service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
     waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.attribute_name }}")
-    await waiter.wait()
+    await waiter.wait(...)
 ```
 {% endif %}
