@@ -26,6 +26,7 @@ class Session:
         region_name: str | None = ...,
         botocore_session: BotocoreSession | None = ...,
         profile_name: str | None = ...,
+        aws_account_id: str | None = ...,
     ) -> None:
         self._session: BotocoreSession
         self.resource_factory: ResourceFactory
@@ -62,6 +63,7 @@ class Session:
         aws_secret_access_key: str | None = ...,
         aws_session_token: str | None = ...,
         config: Config | None = ...,
+        aws_account_id: str | None = ...,
     ) -> Any: ...
     def resource(
         self,
