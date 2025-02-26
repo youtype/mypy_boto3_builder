@@ -11,10 +11,10 @@ from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
 from aiobotocore.config import AioConfig
 from aiobotocore.credentials import AioCredentials
+from aiobotocore.session import AioSession as AioBotocoreSession
 from aiobotocore.session import ClientCreatorContext
 from boto3.session import Session as Boto3Session
 from botocore.loaders import Loader
-from botocore.session import Session as BotocoreSession
 
 class Session(Boto3Session):
     def __init__(
@@ -23,10 +23,10 @@ class Session(Boto3Session):
         aws_secret_access_key: str | None = ...,
         aws_session_token: str | None = ...,
         region_name: str | None = ...,
-        botocore_session: BotocoreSession | None = ...,
+        botocore_session: AioBotocoreSession | None = ...,
         profile_name: str | None = ...,
     ) -> None:
-        self._session: BotocoreSession
+        self._session: AioBotocoreSession
         self.resource_factory: AIOBoto3ResourceFactory  # type: ignore[override]
         self._loader: Loader
 
