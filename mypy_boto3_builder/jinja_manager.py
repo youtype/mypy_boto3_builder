@@ -14,6 +14,7 @@ from jinja2.runtime import StrictUndefined
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.exceptions import JinjaManagerError
 from mypy_boto3_builder.utils.strings import escape_md
+from mypy_boto3_builder.writers.ruff_formatter import format_python
 
 __all__ = ["JinjaManager"]
 
@@ -31,6 +32,7 @@ class JinjaManager:
 
     def __init__(self) -> None:
         self._environment.filters["escape_md"] = escape_md
+        self._environment.filters["format_python"] = format_python
 
     @classmethod
     def update_globals(cls, **kwargs: Any) -> None:  # noqa: ANN401

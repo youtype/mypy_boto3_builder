@@ -154,3 +154,17 @@ class RuffFormatter:
                 block_index = format_block_indices[index]
                 blocks[block_index] = formatted_block
         return "\n```".join(blocks)
+
+
+def format_python(code: str) -> str:
+    """
+    Format python code. Removes duplicated empty lines.
+    """
+    ruff_formatter = RuffFormatter()
+    result = ruff_formatter.format_strings((code,))[0]
+    clean_result: list[str] = []
+    for line in result.splitlines():
+        if not line and (not clean_result or not clean_result[-1]):
+            continue
+        clean_result.append(line)
+    return "\n".join(clean_result)
