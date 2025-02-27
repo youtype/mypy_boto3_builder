@@ -243,7 +243,7 @@ class PackageWriter:
         rendered_paths = [path for t in template_renders for path in t.paths]
         valid_paths = (*rendered_paths, *static_paths)
 
-        self._format_output(package, valid_paths)
+        self.format_output(package, valid_paths)
 
         cleanup_path = self._get_cleanup_path(package)
         if cleanup_path:
@@ -258,7 +258,10 @@ class PackageWriter:
 
         return None
 
-    def _format_output(self, package: Package, paths: Sequence[Path]) -> None:
+    def format_output(self, package: Package, paths: Sequence[Path]) -> None:
+        """
+        Format output with ruff.
+        """
         ruff_formatter = RuffFormatter(
             known_first_party=[package.name] if package.has_main_package() else [],
             known_third_party=[
@@ -396,7 +399,7 @@ class PackageWriter:
 
         valid_paths = [path for t in template_renders for path in t.paths]
 
-        self._format_output(package, valid_paths)
+        self.format_output(package, valid_paths)
 
         output_path = (
             self._get_setup_path(package)

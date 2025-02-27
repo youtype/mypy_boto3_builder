@@ -1,0 +1,15 @@
+
+from boto34.{{ package.library_name }} import get_session
+
+# Wrapper for {{ package.library_name }}.get_session function
+# Returns boto34.Session inherited from {{ package.library_name }}.Session
+session = get_session()
+session: boto34.{{ package.library_name }}.session.Session
+
+{% if package.client %}
+# Type annotated {{ package.library_name }}.AioBaseClient
+# Uses the same arguments as {{ package.library_name }}.create_client method
+# Returns type annotated {{ package.library_name }} {{ package.service_name.class_name }} client
+async with session.{{ package.service_name.import_name }}.create_client() as {{ package.service_name.underscore_name }}_client:
+    {{ package.service_name.underscore_name }}_client: {{ package.name }}.client.{{ package.client.name }}
+{% endif %}

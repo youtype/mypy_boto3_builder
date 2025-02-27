@@ -168,6 +168,7 @@ class ServiceNameCatalog:
     )
     old_ssm_sap = ServiceName("ssm-sap", "SsmSap", "ssmsap")
     sms_voice = ServiceName("sms-voice", "SMSVoice")
+    events = ServiceName("events", "")
 
     ITEMS: ClassVar[dict[str, ServiceName]] = {
         ec2.boto3_name: ec2,
@@ -187,6 +188,7 @@ class ServiceNameCatalog:
         old_redshift_serverless.boto3_name: old_redshift_serverless,
         old_ssm_sap.boto3_name: old_ssm_sap,
         sms_voice.boto3_name: sms_voice,
+        events.boto3_name: events,
     }
 
     @classmethod
@@ -199,7 +201,8 @@ class ServiceNameCatalog:
         """
         if name in cls.ITEMS:
             service_name = cls.ITEMS[name]
-            service_name.class_name = class_name
+            if not service_name.class_name:
+                service_name.class_name = class_name
             return service_name
 
         service_name = ServiceName(name, class_name)

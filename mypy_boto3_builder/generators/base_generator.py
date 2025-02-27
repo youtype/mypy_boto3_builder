@@ -14,7 +14,7 @@ from typing import ClassVar
 from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.enums.product_type import ProductType
-from mypy_boto3_builder.exceptions import AlreadyPublishedError
+from mypy_boto3_builder.exceptions import AlreadyPublishedError, BuildInternalError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.service_package_parser import ServicePackageParser
@@ -26,6 +26,7 @@ from mypy_boto3_builder.structures.packages.service_package import ServicePackag
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.package_builder import PackageBuilder
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+from mypy_boto3_builder.utils.strings import progressify
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
@@ -41,7 +42,7 @@ class BaseGenerator(ABC):
         cleanup -- Whether to cleanup generated files
     """
 
-    service_package_data: ClassVar[BasePackageData]
+    _service_package_data: ClassVar[BasePackageData | None] = None
     service_template_path: ClassVar[Path]
 
     def __init__(
@@ -187,6 +188,15 @@ class BaseGenerator(ABC):
         Generate custom stubs.
         """
 
+    @property
+    def service_package_data(self) -> BasePackageData:
+        """
+        Service package data.
+        """
+        if self._service_package_data is None:
+            raise BuildInternalError("Service package data is not set")
+        return self._service_package_data
+
     def _generate_full_stubs_services(self, package: Package) -> None:
         service_package_writer = PackageWriter(
             output_path=self.output_path / package.directory_name,
@@ -240,6 +250,8 @@ class BaseGenerator(ABC):
                 packages.append(self.generate_full_stubs())
             case ProductType.custom:
                 packages.append(self.generate_custom_stubs())
+            case ProductType.boto34:
+                self.generate_stubs()
 
         generated_packages = list(filter(None, packages))
         if self.is_packaged() and generated_packages:
@@ -322,19 +334,15 @@ class BaseGenerator(ABC):
         """
         Generate service stubs.
         """
-        total_str = f"{len(self.service_names)}"
         packages: list[ServicePackage] = []
-        for index, service_name in enumerate(self.service_names):
-            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            progress_str = f"[{current_str}/{total_str}]"
-
+        for log_prefix, service_name in progressify(self.service_names):
             pypi_name = self.service_package_data.get_service_pypi_name(service_name)
             try:
                 version = self._get_package_build_version(pypi_name)
             except AlreadyPublishedError:
                 continue
 
-            self.logger.info(f"{progress_str} Generating {pypi_name} {version}", tags=pypi_name)
+            self.logger.info(f"{log_prefix} Generating {pypi_name} {version}", tags=pypi_name)
             package = self._process_service(
                 service_name=service_name,
                 version=version,

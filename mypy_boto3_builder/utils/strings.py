@@ -9,8 +9,9 @@ import datetime
 import keyword
 import re
 import typing
+from collections.abc import Generator, Sequence
 from types import MappingProxyType
-from typing import Final, Literal
+from typing import Final, Literal, TypeVar
 from unittest.mock import MagicMock
 
 from botocore import xform_name as botocore_xform_name
@@ -18,6 +19,8 @@ from botocore.utils import get_service_module_name
 
 from mypy_boto3_builder.constants import DOCSTRING_LINE_LENGTH, DOCSTRING_MAX_LENGTH
 from mypy_boto3_builder.exceptions import BuildInternalError, TypeAnnotationError
+
+_T = TypeVar("_T")
 
 RESERVED_NAMES: Final = {
     *dir(typing),
@@ -253,3 +256,15 @@ def escape_md(value: str) -> str:
     Escape underscore characters.
     """
     return value.replace("_", r"\_")
+
+
+def progressify(seq: Sequence[_T], start: int = 1) -> Generator[tuple[str, _T]]:
+    """
+    Enumerate-like generator for sequences with progress.
+    """
+    total_str = f"{len(seq)}"
+    index = start
+    for item in seq:
+        current_str = f"{{:0{len(total_str)}}}".format(index)
+        index += 1
+        yield f"[{current_str}/{total_str}]", item

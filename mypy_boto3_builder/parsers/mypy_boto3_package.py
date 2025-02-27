@@ -1,5 +1,5 @@
 """
-Parser that produces `structures.MasterPackage`.
+Parser that produces `structures.MypyBoto3Package`.
 
 Copyright 2024 Vlad Emelianov
 """

@@ -17,10 +17,12 @@ from mypy_boto3_builder.constants import (
     PACKAGE_NAME,
 )
 from mypy_boto3_builder.enums.product import Product, ProductLibrary
+from mypy_boto3_builder.enums.product_type import ProductType
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
+from mypy_boto3_builder.generators.boto34_generator import Boto34Generator
 from mypy_boto3_builder.generators.mypy_boto3_generator import MypyBoto3Generator
 from mypy_boto3_builder.generators.types_boto3_generator import TypesBoto3Generator
 from mypy_boto3_builder.jinja_manager import JinjaManager
@@ -96,6 +98,8 @@ def get_generator(product: Product, kwargs: GeneratorKwargs) -> BaseGenerator:
     """
     Get Generator class for a product.
     """
+    if product.get_type() == ProductType.boto34:
+        return Boto34Generator(**kwargs)
     library = product.get_library()
     match library:
         case ProductLibrary.boto3:

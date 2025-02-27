@@ -1,0 +1,31 @@
+"""
+Wrapper for {{ package.library_name }} {{ package.service_name.class_name }} service.
+
+[Documentation]({{ package.get_local_doc_link() }})
+
+{{ copyright }}
+
+Usage::
+
+{% filter indent(4, True) -%}
+```python
+{% filter format_python() -%}
+{% include "boto34/aiobotocore_service_usage.py.jinja2" with context -%}
+{% endfilter -%}
+{{ "\n```" }}
+{% endfilter -%}
+"""
+
+from __future__ import annotations
+from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
+
+try:
+    from {{ package.name }}.client import {{ package.client.name }}
+except ImportError:
+    {{ package.client.name }} = object  # type: ignore[misc,assignment]
+
+class {{ package.service_name.class_name }}Service(
+    ServiceFactory[{{ package.client.name }}]  # type: ignore[misc,assignment]
+):
+    SERVICE_NAME = "{{ package.service_name.boto3_name }}"
+    _SERVICE_PROP = "{{ package.service_name.import_name }}"

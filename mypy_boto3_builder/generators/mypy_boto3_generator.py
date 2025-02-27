@@ -20,7 +20,7 @@ class MypyBoto3Generator(BaseGenerator):
     Generator for mypy-boto3 package.
     """
 
-    service_package_data = Boto3StubsPackageData()
+    _service_package_data = Boto3StubsPackageData()
 
     def generate_stubs(self) -> MypyBoto3Package | None:
         """

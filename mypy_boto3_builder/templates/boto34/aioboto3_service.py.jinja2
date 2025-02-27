@@ -1,0 +1,49 @@
+"""
+Wrapper for {{ package.library_name }} {{ package.service_name.class_name }} service.
+
+[Documentation]({{ package.get_local_doc_link() }})
+
+{{ copyright }}
+
+Usage::
+
+{% filter indent(4, True) -%}
+```python
+{% filter format_python() -%}
+{% include "boto34/boto3_service_usage.py.jinja2" with context -%}
+{% endfilter -%}
+{{ "\n```" }}
+{% endfilter -%}
+"""
+
+from __future__ import annotations
+
+{% if package.service_resource %}
+from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceResourceFactory
+{% else %}
+from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
+{% endif %}
+
+{% if package.service_resource %}
+try:
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+except ImportError:
+    {{ package.client.name }} = object  # type: ignore[misc,assignment]
+    {{ package.service_resource.name }} = object  # type: ignore[misc,assignment]
+{% else %}
+try:
+    from {{ package.name }}.client import {{ package.client.name }}
+except ImportError:
+    {{ package.client.name }} = object  # type: ignore[misc,assignment]
+{% endif %}
+
+class {{ package.service_name.class_name }}Service(
+    {% if package.service_resource %}
+    ServiceResourceFactory[{{ package.client.name }}, {{ package.service_resource.name }}]  # type: ignore[misc,assignment]
+    {% else %}
+    ServiceFactory[{{ package.client.name }}]  # type: ignore[misc,assignment]
+    {% endif %}
+):
+    SERVICE_NAME = "{{ package.service_name.boto3_name }}"
+    _SERVICE_PROP = "{{ package.service_name.import_name }}"
