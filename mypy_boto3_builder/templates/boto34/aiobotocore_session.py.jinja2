@@ -1,0 +1,37 @@
+"""
+Type annotated wrapper for {{ package.library_name }} Session.
+
+{{ copyright }}
+
+Usage::
+
+    ```python
+    from {{ package.name }}.{{ package.library_name }} import get_session
+
+    # Wrapper for {{ package.library_name }}.Session constructor
+    # Returns {{ package.name }}.Session inherited from {{ package.library_name }}.Session
+    session = get_session()
+    session: {{ package.name }}.{{ package.library_name }}.session.Session
+    ```
+"""
+from __future__ import annotations
+
+from typing import Mapping
+from {{ package.library_name }}.session import AioSession as _Session
+
+{% for service_name in package.service_names %}
+from {{ package.name }}.{{ package.library_name }}.services.{{ service_name.import_name }} import {{ service_name.class_name }}Service
+{% endfor %}
+
+
+class Session(_Session):
+{% for service_name in package.service_names %}
+    @property
+    def {{ package.get_property_name(service_name) }}(self) -> {{ service_name.class_name }}Service:
+        return {{ service_name.class_name }}Service(self)
+{% endfor %}
+
+
+
+def get_session(env_vars: Mapping[str, str] | None = None) -> Session:
+    return Session(session_vars=env_vars)

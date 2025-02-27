@@ -1,0 +1,17 @@
+# Supported AWS services
+
+## What is session
+
+Session is `boto34.boto3.Session` for [boto3](https://pypi.org/project/boto3/),
+`boto34.aioboto3.Session` for [aioboto3](https://pypi.org/project/aioboto3/),
+or `boto34.aiobotocore.Session` for [aiobotocore](https://pypi.org/project/aiobotocore/).
+
+You can use any service with any backend. Service availability depends on your [botocore](https://pypi.org/project/botocore/) version.
+
+## List of supported AWS services
+
+| Service name | Type annotated | Usage | boto3 equivalent |
+|-|-|-|-|
+{% for service_name in package.service_names -%}
+| [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }}) | ✓ | `session.{{ package.get_property_name(service_name) }}.client(...)`{% if package.has_service_resource(service_name) %}<br />`session.{{ package.get_property_name(service_name) }}.resource(...)`{% endif %} | `boto3.client("{{ service_name.boto3_name }}", ...)`{% if package.has_service_resource(service_name) %}<br />`boto3.resource("{{ service_name.boto3_name }}", ...)`{% endif %} |{{ "\n" -}}
+{% endfor -%}

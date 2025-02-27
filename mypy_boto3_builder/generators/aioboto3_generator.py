@@ -36,7 +36,7 @@ class AioBoto3Generator(BaseGenerator):
     Generator for types-aioboto3 packages.
     """
 
-    service_package_data = TypesAioBoto3PackageData()
+    _service_package_data = TypesAioBoto3PackageData()
     service_template_path = TemplatePath.types_aiobotocore_service
 
     def _get_static_files_path(self) -> Path:

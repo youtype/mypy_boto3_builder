@@ -32,7 +32,7 @@ class Boto3Generator(BaseGenerator):
     Generator for boto3-stubs packages.
     """
 
-    service_package_data = Boto3StubsPackageData()
+    _service_package_data = Boto3StubsPackageData()
     service_template_path = TemplatePath.types_boto3_service
 
     def _get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:

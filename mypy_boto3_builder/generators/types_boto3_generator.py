@@ -31,7 +31,7 @@ class TypesBoto3Generator(BaseGenerator):
     Generator for types-boto3 packages.
     """
 
-    service_package_data = TypesBoto3PackageData()
+    _service_package_data = TypesBoto3PackageData()
     service_template_path = TemplatePath.types_boto3_service
 
     def _get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:
