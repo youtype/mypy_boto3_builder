@@ -30,7 +30,7 @@ class Session(Boto3Session):
         self.resource_factory: AIOBoto3ResourceFactory  # type: ignore[override]
         self._loader: Loader
 
-    def get_credentials(self) -> AioCredentials | None: ...
+    async def get_credentials(self) -> AioCredentials | None: ...  # type: ignore[override]
     def client(  # type: ignore[override]
         self,
         service_name: str,
@@ -57,6 +57,12 @@ class Session(Boto3Session):
         aws_session_token: str | None = ...,
         config: AioConfig | None = ...,
     ) -> ResourceCreatorContext[Any]: ...
+    async def get_available_regions(  # type: ignore[override]
+        self,
+        service_name: str,
+        partition_name: str = ...,
+        allow_non_regional: bool = ...,
+    ) -> list[str]: ...
 
 _AIOBoto3ServiceResource = TypeVar("_AIOBoto3ServiceResource", bound=AIOBoto3ServiceResource)
 
