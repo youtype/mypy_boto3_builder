@@ -21,21 +21,3 @@ session: boto34.{{ package.library_name }}.session.Session
 {{ package.service_name.underscore_name }}_resource = session.{{ package.service_name.import_name }}.resource()
 {{ package.service_name.underscore_name }}_resource: {{ package.name }}.service_resource.{{ package.service_resource.name }}
 {% endif %}
-
-{% if package.waiters %}
-# Type annotated shortcuts for {{ package.library_name }}.Client.get_waiter
-# Initialize client first to use it
-{% for waiter in package.waiters[:1] %}
-{{ package.service_name.underscore_name }}_waiter = session.{{ package.service_name.import_name }}.get_waiters({{ package.service_name.underscore_name }}_client).{{ waiter.attribute_name }}
-{{ package.service_name.underscore_name }}_waiter: {{ package.name }}.waiter.{{ waiter.name }}
-{% endfor %}
-{% endif %}
-
-{% if package.paginators %}
-# Type annotated shortcuts for {{ package.library_name }}.Client.get_paginator
-# Initialize client first to use it
-{% for paginator in package.paginators[:1] %}
-{{ package.service_name.underscore_name }}_paginator = session.{{ package.service_name.import_name }}.get_paginators({{ package.service_name.underscore_name }}_client).{{ paginator.operation_name }}
-{{ package.service_name.underscore_name }}_paginator: {{ package.name }}.paginator.{{ paginator.name }}
-{% endfor %}
-{% endif %}
