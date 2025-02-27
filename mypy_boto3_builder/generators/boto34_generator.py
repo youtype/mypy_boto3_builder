@@ -78,7 +78,7 @@ class Boto34Generator(BaseGenerator):
         service_package_data = self.service_package_data
         main_package = Boto34Package(
             data=service_package_data,
-            service_names=self.service_names,
+            service_names=self.main_service_names,
             version=self.version,
         )
         library_name = service_package_data.get_library_name()
@@ -94,6 +94,7 @@ class Boto34Generator(BaseGenerator):
             service_output_path = services_output_path / f"{service_name.import_name}.py"
             self.logger.info(f"{log_prefix} Generating {print_path(service_output_path)}")
             package = parse_fake_service_package(service_name, service_package_data, self.version)
+            main_package.service_packages.append(package)
             rendered = render_jinja2_template(
                 service_template_path,
                 {
