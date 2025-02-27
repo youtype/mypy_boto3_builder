@@ -23,6 +23,7 @@ from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_aioboto
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
 from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 from mypy_boto3_builder.structures.packages.types_aiobotocore_package import TypesAioBotocorePackage
+from mypy_boto3_builder.utils.strings import progressify
 
 
 class AioBotocoreGenerator(BaseGenerator):
@@ -101,7 +102,6 @@ class AioBotocoreGenerator(BaseGenerator):
         Generate service and main docs.
         """
         package_data = TypesAioBotocorePackageData()
-        total_str = f"{len(self.service_names)}"
 
         self.logger.info(
             f"Generating {package_data.pypi_name} module docs",
@@ -117,10 +117,9 @@ class AioBotocoreGenerator(BaseGenerator):
             templates_path=TemplatePath.types_aiobotocore_docs,
         )
 
-        for index, service_name in enumerate(self.service_names):
-            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
+        for log_prefix, service_name in progressify(self.service_names):
             package_name = package_data.get_service_package_name(service_name)
-            self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
+            self.logger.info(f"{log_prefix} Generating {package_name} module docs")
             self._process_service_docs(
                 service_name=service_name,
                 package_data=package_data,

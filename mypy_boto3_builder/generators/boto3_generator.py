@@ -24,6 +24,7 @@ from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.packages.service_package import ServicePackage
 from mypy_boto3_builder.structures.packages.types_boto3_package import TypesBoto3Package
+from mypy_boto3_builder.utils.strings import progressify
 
 
 class Boto3Generator(BaseGenerator):
@@ -104,7 +105,6 @@ class Boto3Generator(BaseGenerator):
         Generate service and docs.
         """
         package_data = Boto3StubsPackageData()
-        total_str = f"{len(self.service_names)}"
 
         self.logger.info(
             f"Generating {package_data.pypi_name} package docs",
@@ -121,10 +121,9 @@ class Boto3Generator(BaseGenerator):
             templates_path=TemplatePath.types_boto3_docs,
         )
 
-        for index, service_name in enumerate(self.service_names):
-            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
+        for log_prefix, service_name in progressify(self.service_names):
             package_name = package_data.get_service_package_name(service_name)
-            self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
+            self.logger.info(f"{log_prefix} Generating {package_name} module docs")
             self._process_service_docs(
                 service_name=service_name,
                 package_data=package_data,
