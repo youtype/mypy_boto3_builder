@@ -17,7 +17,6 @@ Usage::
 """
 
 from __future__ import annotations
-from {{ package.name }}.client import {{ package.client.name }}
 
 {% if package.service_resource %}
 from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceResourceFactory
