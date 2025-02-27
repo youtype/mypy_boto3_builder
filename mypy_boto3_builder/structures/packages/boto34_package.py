@@ -61,6 +61,6 @@ class Boto34Package(Package):
         Get property name for service.
         """
         if service_name == ServiceNameCatalog.events:
-            return "events_"
+            return "eventbridge"
 
         return service_name.import_name
