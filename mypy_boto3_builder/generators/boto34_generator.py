@@ -116,6 +116,16 @@ class Boto34Generator(BaseGenerator):
         self.logger.info("Formatting output")
         self.package_writer.format_output(main_package, generated_paths)
 
+        list_output_path = self.output_path / main_package.name / "services.md"
+        self.logger.info(f"Generating {print_path(list_output_path)}")
+        list_output_path.write_text(
+            render_jinja2_template(
+                TemplatePath.boto34_services,
+                {"package": main_package},
+            )
+        )
+        self.package_writer.format_output(main_package, [list_output_path])
+
     def generate_stubs_lite(self) -> NoReturn:
         """
         Not implemented.

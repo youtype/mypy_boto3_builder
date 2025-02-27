@@ -92,6 +92,7 @@ class TemplatePath:
     boto34_aiobotocore_session: Final = TEMPLATES_PATH / "boto34" / "aiobotocore_session.py.jinja2"
     boto34_aioboto3_service: Final = TEMPLATES_PATH / "boto34" / "aioboto3_service.py.jinja2"
     boto34_aioboto3_session: Final = TEMPLATES_PATH / "boto34" / "aioboto3_session.py.jinja2"
+    boto34_services: Final = TEMPLATES_PATH / "boto34" / "services.md.jinja2"
 
 
 class StaticStubsPath:
