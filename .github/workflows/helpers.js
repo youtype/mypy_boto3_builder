@@ -54,17 +54,20 @@ function getNextPostVersion(version) {
 
 async function getBoto3Version() {
     const versions = await getReleaseVersions('boto3')
-    return sortVersions(versions).pop()
+    const stableVersions = versions.filter(v => !v.includes('.dev'))
+    return sortVersions(stableVersions).pop()
 }
 
 async function getAioBotocoreVersion() {
     const versions = await getReleaseVersions('aiobotocore')
-    return sortVersions(versions).pop()
+    const stableVersions = versions.filter(v => !v.includes('.dev'))
+    return sortVersions(stableVersions).pop()
 }
 
 async function getAioBoto3Version() {
     const versions = await getReleaseVersions('aioboto3')
-    return sortVersions(versions).pop()
+    const stableVersions = versions.filter(v => !v.includes('.dev'))
+    return sortVersions(stableVersions).pop()
 }
 
 async function getTypesAioBotocoreVersions(aiobotocoreVersion) {
