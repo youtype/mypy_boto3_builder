@@ -18,3 +18,4 @@ class ProductType(Enum):
     docs = "docs"
     full = "full"
     custom = "custom"
+    boto34 = "boto34"

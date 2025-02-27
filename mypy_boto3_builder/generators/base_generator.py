@@ -26,6 +26,7 @@ from mypy_boto3_builder.structures.packages.service_package import ServicePackag
 from mypy_boto3_builder.utils.github import download_and_extract
 from mypy_boto3_builder.utils.package_builder import PackageBuilder
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+from mypy_boto3_builder.utils.strings import progressify
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
@@ -240,6 +241,8 @@ class BaseGenerator(ABC):
                 packages.append(self.generate_full_stubs())
             case ProductType.custom:
                 packages.append(self.generate_custom_stubs())
+            case ProductType.boto34:
+                self.generate_stubs()
 
         generated_packages = list(filter(None, packages))
         if self.is_packaged() and generated_packages:
@@ -322,19 +325,15 @@ class BaseGenerator(ABC):
         """
         Generate service stubs.
         """
-        total_str = f"{len(self.service_names)}"
         packages: list[ServicePackage] = []
-        for index, service_name in enumerate(self.service_names):
-            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            progress_str = f"[{current_str}/{total_str}]"
-
+        for log_prefix, service_name in progressify(self.service_names):
             pypi_name = self.service_package_data.get_service_pypi_name(service_name)
             try:
                 version = self._get_package_build_version(pypi_name)
             except AlreadyPublishedError:
                 continue
 
-            self.logger.info(f"{progress_str} Generating {pypi_name} {version}", tags=pypi_name)
+            self.logger.info(f"{log_prefix} Generating {pypi_name} {version}", tags=pypi_name)
             package = self._process_service(
                 service_name=service_name,
                 version=version,
