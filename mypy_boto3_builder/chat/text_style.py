@@ -39,7 +39,7 @@ class TextStyle(Enum):
         return f"class:{self.value}"
 
     @property
-    def css(self) -> str:  # noqa: C901, PLR0911
+    def css(self) -> str:  # noqa: C901
         """
         CSS properties for class.
         """
