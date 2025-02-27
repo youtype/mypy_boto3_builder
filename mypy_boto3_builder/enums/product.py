@@ -43,6 +43,10 @@ class Product(Enum):
 
     mypy_boto3 = "mypy-boto3"
 
+    boto34_boto3 = "boto34-boto3"
+    boto34_aiobotocore = "boto34-aiobotocore"
+    boto34_aioboto3 = "boto34-aioboto3"
+
     def __str__(self) -> str:
         """
         Get string representation for debugging.
@@ -61,6 +65,7 @@ class Product(Enum):
                 | Product.types_boto3_full
                 | Product.types_boto3_docs
                 | Product.types_boto3_custom
+                | Product.boto34_boto3
             ):
                 return ProductLibrary.boto3
             case (
@@ -79,6 +84,7 @@ class Product(Enum):
                 | Product.types_aiobotocore_full
                 | Product.types_aiobotocore_docs
                 | Product.types_aiobotocore_custom
+                | Product.boto34_aiobotocore
             ):
                 return ProductLibrary.aiobotocore
             case (
@@ -86,6 +92,7 @@ class Product(Enum):
                 | Product.types_aioboto3_lite
                 | Product.types_aioboto3_docs
                 | Product.types_aioboto3_custom
+                | Product.boto34_aioboto3
             ):
                 return ProductLibrary.aioboto3
             case Product.mypy_boto3:
@@ -135,3 +142,5 @@ class Product(Enum):
                 | Product.types_aioboto3_custom
             ):
                 return ProductType.custom
+            case Product.boto34_boto3 | Product.boto34_aiobotocore | Product.boto34_aioboto3:
+                return ProductType.boto34

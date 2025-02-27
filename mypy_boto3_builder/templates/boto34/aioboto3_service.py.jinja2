@@ -1,0 +1,87 @@
+"""
+Wrapper for {{ package.library_name }} {{ package.service_name.class_name }} {{ package.version }} service.
+
+[Documentation]({{ package.get_local_doc_link() }})
+
+{{ copyright }}
+
+Usage::
+
+{% filter indent(4, True) -%}
+```python
+{% filter format_python() -%}
+{% include "boto34/boto3_service_usage.py.jinja2" with context -%}
+{% endfilter -%}
+```
+{% endfilter -%}
+"""
+
+from __future__ import annotations
+from {{ main_package.name }}.{{ package.library_name }}.client_factory import ClientFactory
+from {{ package.name }}.client import {{ package.client.name }}
+
+
+{% if package.service_resource %}
+from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceResourceFactory
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+{% else %}
+from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
+{% endif %}
+
+{% if package.waiters %}
+{% for waiter in package.waiters %}
+from {{ package.name }}.waiter import {{ waiter.name }}
+{% endfor %}
+{% else %}
+from typing import Any
+{% endif %}
+
+{% if package.paginators %}
+{% for paginator in package.paginators %}
+from {{ package.name }}.paginator import {{ paginator.name }}
+{% endfor %}
+{% else %}
+from typing import Any
+{% endif %}
+
+{% if package.waiters %}
+class {{ package.service_name.class_name }}WaiterFactory(ClientFactory[{{ package.client.name }}]):
+{% for waiter in package.waiters %}
+    @property
+    def {{ waiter.attribute_name }}(self) -> {{ waiter.name }}:
+        return self._client.get_waiter("{{ waiter.attribute_name }}")
+{% endfor %}
+{% endif %}
+
+
+{% if package.paginators %}
+class {{ package.service_name.class_name }}PaginatorFactory(ClientFactory[{{ package.client.name }}]):
+{% for paginator in package.paginators %}
+    @property
+    def {{ paginator.operation_name }}(self) -> {{ paginator.name }}:
+        return self._client.get_paginator("{{ paginator.operation_name }}")
+{% endfor %}
+{% endif %}
+
+class {{ package.service_name.class_name }}Service(
+    {% if package.service_resource %}ServiceResourceFactory{% else %}ServiceFactory{% endif %}[
+        {{ package.client.name }},
+        {% if package.service_resource %}{{ package.service_resource.name }},{% endif %}
+        {% if package.waiters %}{{ package.service_name.class_name }}WaiterFactory{% else %}ClientFactory[Any]{% endif %},
+        {% if package.paginators %}{{ package.service_name.class_name }}PaginatorFactory{% else %}ClientFactory[Any]{% endif %},
+    ]
+):
+    SERVICE_NAME = "{{ package.service_name.boto3_name }}"
+    _SERVICE_PROP = "{{ package.service_name.import_name }}"
+    _WAITER_FACTORY_CLS = {% if package.waiters %}{{ package.service_name.class_name }}WaiterFactory{% else %}None{% endif %}
+    _PAGINATOR_FACTORY_CLS = {% if package.paginators %}{{ package.service_name.class_name }}PaginatorFactory{% else %}None{% endif %}
+
+    {% if package.waiters %}
+    def get_waiters(self, client: {{ package.client.name }}) -> {{ package.service_name.class_name }}WaiterFactory:
+        return self._get_waiter_factory(client)
+    {% endif %}
+
+    {% if package.paginators %}
+    def get_paginators(self, client: {{ package.client.name }}) -> {{ package.service_name.class_name }}PaginatorFactory:
+        return self._get_paginator_factory(client)
+    {% endif %}

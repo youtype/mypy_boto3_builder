@@ -14,7 +14,7 @@ from typing import ClassVar
 from mypy_boto3_builder.cli_parser import CLINamespace
 from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.enums.product_type import ProductType
-from mypy_boto3_builder.exceptions import AlreadyPublishedError
+from mypy_boto3_builder.exceptions import AlreadyPublishedError, BuildInternalError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.service_package_parser import ServicePackageParser
@@ -42,7 +42,7 @@ class BaseGenerator(ABC):
         cleanup -- Whether to cleanup generated files
     """
 
-    service_package_data: ClassVar[BasePackageData]
+    _service_package_data: ClassVar[BasePackageData | None] = None
     service_template_path: ClassVar[Path]
 
     def __init__(
@@ -187,6 +187,15 @@ class BaseGenerator(ABC):
         """
         Generate custom stubs.
         """
+
+    @property
+    def service_package_data(self) -> BasePackageData:
+        """
+        Service package data.
+        """
+        if self._service_package_data is None:
+            raise BuildInternalError("Service package data is not set")
+        return self._service_package_data
 
     def _generate_full_stubs_services(self, package: Package) -> None:
         service_package_writer = PackageWriter(

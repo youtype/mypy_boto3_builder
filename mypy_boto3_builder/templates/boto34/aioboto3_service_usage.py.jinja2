@@ -1,0 +1,24 @@
+
+from boto34.{{ package.library_name }} import Session
+
+# Wrapper for {{ package.library_name }}.Session class
+# Returns boto34.Session inherited from {{ package.library_name }}.Session
+session = Session()
+session: boto34.{{ package.library_name }}.session.Session
+
+{% if package.client %}
+# Type annotated {{ package.library_name }}.AioClient
+# Uses the same arguments as {{ package.library_name }}.client method
+# Returns type annotated {{ package.library_name }} {{ package.service_name.class_name }} client
+async with session.{{ package.service_name.import_name }}.client() as {{ package.service_name.underscore_name }}_client:
+    {{ package.service_name.underscore_name }}_client: {{ package.name }}.client.{{ package.client.name }}
+{% endif %}
+
+
+{% if package.service_resource %}
+# Type annotated {{ package.library_name }}.AIOBoto3ServiceResource
+# Uses the same arguments as {{ package.library_name }}.resource method
+# Returns type annotated {{ package.library_name }} {{ package.service_name.class_name }} resource
+async with session.{{ package.service_name.import_name }}.resource() as {{ package.service_name.underscore_name }}_resource:
+    {{ package.service_name.underscore_name }}_resource: {{ package.name }}.resource.{{ package.service_resource.name }}
+{% endif %}

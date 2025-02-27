@@ -1,0 +1,41 @@
+
+from boto34.{{ package.library_name }} import Session
+
+# Wrapper for {{ package.library_name }}.Session constructor
+# Returns boto34.Session inherited from {{ package.library_name }}.Session
+session = Session()
+session: boto34.{{ package.library_name }}.session.Session
+
+{% if package.client %}
+# Type annotated {{ package.library_name }}.Client
+# Uses the same arguments as {{ package.library_name }}.client method
+# Returns type annotated {{ package.library_name }} {{ package.service_name.class_name }} client
+{{ package.service_name.underscore_name }}_client = session.{{ package.service_name.import_name }}.client()
+{{ package.service_name.underscore_name }}_client: {{ package.name }}.client.{{ package.client.name }}
+{% endif %}
+
+{% if package.service_resource %}
+# Type annotated {{ package.library_name }}.Resource
+# Uses the same arguments as {{ package.library_name }}.resource method
+# returns type annotated {{ package.library_name }} {{ package.service_name.class_name }} resource
+{{ package.service_name.underscore_name }}_resource = session.{{ package.service_name.import_name }}.resource()
+{{ package.service_name.underscore_name }}_resource: {{ package.name }}.service_resource.{{ package.service_resource.name }}
+{% endif %}
+
+{% if package.waiters %}
+# Type annotated shortcuts for {{ package.library_name }}.Client.get_waiter
+# Initialize client first to use it
+{% for waiter in package.waiters[:1] %}
+{{ package.service_name.underscore_name }}_waiter = session.{{ package.service_name.import_name }}.get_waiters({{ package.service_name.underscore_name }}_client).{{ waiter.attribute_name }}
+{{ package.service_name.underscore_name }}_waiter: {{ package.name }}.waiter.{{ waiter.name }}
+{% endfor %}
+{% endif %}
+
+{% if package.paginators %}
+# Type annotated shortcuts for {{ package.library_name }}.Client.get_paginator
+# Initialize client first to use it
+{% for paginator in package.paginators[:1] %}
+{{ package.service_name.underscore_name }}_paginator = session.{{ package.service_name.import_name }}.get_paginators({{ package.service_name.underscore_name }}_client).{{ paginator.operation_name }}
+{{ package.service_name.underscore_name }}_paginator: {{ package.name }}.paginator.{{ paginator.name }}
+{% endfor %}
+{% endif %}
