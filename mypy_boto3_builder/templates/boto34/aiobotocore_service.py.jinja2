@@ -19,13 +19,10 @@ Usage::
 from __future__ import annotations
 from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
 
-try:
-    from {{ package.name }}.client import {{ package.client.name }}
-except ImportError:
-    {{ package.client.name }} = object  # type: ignore[misc,assignment]
+from {{ package.name }}.client import {{ package.client.name }}
 
 class {{ package.service_name.class_name }}Service(
-    ServiceFactory[{{ package.client.name }}]  # type: ignore[misc,assignment]
+    ServiceFactory[{{ package.client.name }}]
 ):
     SERVICE_NAME = "{{ package.service_name.boto3_name }}"
     _SERVICE_PROP = "{{ package.service_name.import_name }}"

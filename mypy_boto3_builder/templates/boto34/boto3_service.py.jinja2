@@ -24,25 +24,16 @@ from {{ main_package.name }}.{{ package.library_name }}.service_factory import S
 from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
 {% endif %}
 
+from {{ package.name }}.client import {{ package.client.name }}
 {% if package.service_resource %}
-try:
-    from {{ package.name }}.client import {{ package.client.name }}
-    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
-except ImportError:
-    {{ package.client.name }} = object  # type: ignore[misc,assignment]
-    {{ package.service_resource.name }} = object  # type: ignore[misc,assignment]
-{% else %}
-try:
-    from {{ package.name }}.client import {{ package.client.name }}
-except ImportError:
-    {{ package.client.name }} = object  # type: ignore[misc,assignment]
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
 {% endif %}
 
 class {{ package.service_name.class_name }}Service(
     {% if package.service_resource %}
-    ServiceResourceFactory[{{ package.client.name }}, {{ package.service_resource.name }}]  # type: ignore[misc,assignment]
+    ServiceResourceFactory[{{ package.client.name }}, {{ package.service_resource.name }}]
     {% else %}
-    ServiceFactory[{{ package.client.name }}]  # type: ignore[misc,assignment]
+    ServiceFactory[{{ package.client.name }}]
     {% endif %}
 ):
     SERVICE_NAME = "{{ package.service_name.boto3_name }}"
