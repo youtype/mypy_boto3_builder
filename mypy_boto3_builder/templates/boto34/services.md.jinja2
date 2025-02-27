@@ -13,5 +13,5 @@ You can use any service with any backend. Service availability depends on your [
 | Service name | Type annotated | Usage | boto3 equivalent |
 |-|-|-|-|
 {% for service_name in package.service_names -%}
-| [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }}) | ✓ | `session.{{ service_name.import_name }}.client(...)`{% if package.has_service_resource(service_name) %}<br />`session.{{ service_name.import_name }}.resource(...)`{% endif %} | `boto3.client("{{ service_name.boto3_name }}", ...)`{% if package.has_service_resource(service_name) %}<br />`boto3.resource("{{ service_name.boto3_name }}", ...)`{% endif %} |{{ "\n" -}}
+| [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }}) | ✓ | `session.{{ package.get_property_name(service_name) }}.client(...)`{% if package.has_service_resource(service_name) %}<br />`session.{{ package.get_property_name(service_name) }}.resource(...)`{% endif %} | `boto3.client("{{ service_name.boto3_name }}", ...)`{% if package.has_service_resource(service_name) %}<br />`boto3.resource("{{ service_name.boto3_name }}", ...)`{% endif %} |{{ "\n" -}}
 {% endfor -%}

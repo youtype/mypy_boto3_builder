@@ -27,7 +27,7 @@ from {{ package.name }}.{{ package.library_name }}.services.{{ service_name.impo
 class Session(_Session):
 {% for service_name in package.service_names %}
     @property
-    def {{ service_name.import_name }}(self) -> {{ service_name.class_name }}Service:
+    def {{ package.get_property_name(service_name) }}(self) -> {{ service_name.class_name }}Service:
         return {{ service_name.class_name }}Service(self)
 {% endfor %}
 

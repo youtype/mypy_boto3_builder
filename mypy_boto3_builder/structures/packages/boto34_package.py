@@ -8,7 +8,7 @@ from collections.abc import Iterable
 from typing import TYPE_CHECKING
 
 from mypy_boto3_builder.package_data import BasePackageData
-from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.package import Package
 
 if TYPE_CHECKING:
@@ -55,3 +55,12 @@ class Boto34Package(Package):
             if package.service_name == service_name:
                 return package.service_resource is not None
         return False
+
+    def get_property_name(self, service_name: ServiceName) -> str:
+        """
+        Get property name for service.
+        """
+        if service_name == ServiceNameCatalog.events:
+            return "events_"
+
+        return service_name.import_name
