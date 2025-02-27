@@ -180,6 +180,7 @@ ignore = [
     "S603",    # subprocess-without-shell-equals-true
     "TD",      # flake8-todos
     "TRY003",  # raise-vanilla-args
+    "PLR0911", # too-many-return-statements
 ]
 fixable = ["ALL"]
 unfixable = ["B"]
