@@ -199,7 +199,8 @@ class ServiceNameCatalog:
         """
         if name in cls.ITEMS:
             service_name = cls.ITEMS[name]
-            service_name.class_name = class_name
+            if not service_name.class_name:
+                service_name.class_name = class_name
             return service_name
 
         service_name = ServiceName(name, class_name)
