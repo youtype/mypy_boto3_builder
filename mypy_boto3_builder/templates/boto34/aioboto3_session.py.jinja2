@@ -25,7 +25,7 @@ Usage::
     ```
 """
 
-from {{ package.library_name }}.session import Session as _Session
+from {{ package.library_name }}.session import Session as Aioboto3Session
 from {{ package.name }}.{{ package.library_name }}.service_factory import ServiceFactory, ServiceResourceFactory
 
 {% for service_package in package.service_packages %}
@@ -36,7 +36,7 @@ from {{ service_package.name }}.service_resource import {{ service_package.servi
 {% endfor %}
 
 
-class Session(_Session):
+class Session(Aioboto3Session):
 {% for service_package in package.service_packages %}
 {% if service_package.service_resource %}
     @property

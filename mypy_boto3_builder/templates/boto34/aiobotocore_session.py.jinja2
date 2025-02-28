@@ -22,7 +22,7 @@ Usage::
 from __future__ import annotations
 
 from typing import Mapping
-from {{ package.library_name }}.session import AioSession as _Session
+from {{ package.library_name }}.session import AioSession
 from {{ package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
 
 {% for service_package in package.service_packages %}
@@ -30,7 +30,7 @@ from {{ service_package.name }}.client import {{ service_package.client.name }}
 {% endfor %}
 
 
-class Session(_Session):
+class Session(AioSession):
 {% for service_package in package.service_packages %}
     @property
     def {{ package.get_property_name(service_package.service_name) }}(self) -> ServiceFactory[{{ service_package.client.name }}]:
