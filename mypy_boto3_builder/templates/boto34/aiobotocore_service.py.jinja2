@@ -1,0 +1,21 @@
+"""
+Wrapper for {{ package.library_name }} {{ package.service_name.class_name }} service.
+
+[Documentation]({{ package.get_local_doc_link() }})
+
+{{ copyright }}
+"""
+
+from __future__ import annotations
+
+from {{ main_package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
+from {{ package.name }}.client import {{ package.client.name }}
+
+class {{ package.service_name.class_name }}Service(
+    ServiceFactory[{{ package.client.name }}]
+):
+    """
+    {{ package.service_name.class_name }} service wrapper.
+
+    [Documentation]({{ package.get_local_doc_link() }})
+    """

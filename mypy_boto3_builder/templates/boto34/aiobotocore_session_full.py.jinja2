@@ -26,18 +26,15 @@ from {{ package.library_name }}.session import AioSession
 from {{ package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
 
 {% for service_package in package.service_packages %}
-from {{ package.name }}.{{ package.library_name }}.services.{{ service_package.service_name.import_name }} import {{ service_package.service_name.class_name }}Service
+from {{ service_package.name }}.client import {{ service_package.client.name }}
 {% endfor %}
 
 
 class Session(AioSession):
 {% for service_package in package.service_packages %}
     @property
-    def {{ package.get_property_name(service_package.service_name) }}(self) -> {{ service_package.service_name.class_name }}Service:
-        """
-        {{ package.library_name }} Session for {{ service_package.service_name.class_name }} service.
-        """
-        return {{ service_package.service_name.class_name }}Service("{{ service_package.service_name.boto3_name }}", self)
+    def {{ package.get_property_name(service_package.service_name) }}(self) -> ServiceFactory[{{ service_package.client.name }}]:
+        return ServiceFactory("{{ service_package.service_name.boto3_name }}", self)
 {% endfor %}
 
 

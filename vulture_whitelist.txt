@@ -1,3 +1,4 @@
+_._generate_stubs  # unused method (mypy_boto3_builder/generators/boto34_generator.py:134)
 is_vscode_supported  # unused variable (mypy_boto3_builder/package_data.py:59)
 is_conda_forge_supported  # unused variable (mypy_boto3_builder/package_data.py:62)
 _.has_pypi_lite_package  # unused method (mypy_boto3_builder/package_data.py:86)
@@ -43,7 +44,7 @@ _.stubs_lite_pypi  # unused property (mypy_boto3_builder/structures/package_url.
 _.stubs_full_pypi  # unused property (mypy_boto3_builder/structures/package_url.py:83)
 _.pepy  # unused property (mypy_boto3_builder/structures/package_url.py:90)
 _.pypistats  # unused property (mypy_boto3_builder/structures/package_url.py:97)
-_.get_property_name  # unused method (mypy_boto3_builder/structures/packages/boto34_package.py:59)
+_.get_property_name  # unused method (mypy_boto3_builder/structures/packages/boto34_package.py:50)
 _.get_type_defs_all_names  # unused method (mypy_boto3_builder/structures/packages/service_package.py:130)
 _.get_literals_all_names  # unused method (mypy_boto3_builder/structures/packages/service_package.py:136)
 _.get_init_import_records  # unused method (mypy_boto3_builder/structures/packages/service_package.py:154)
