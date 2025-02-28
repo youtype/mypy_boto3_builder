@@ -12,19 +12,39 @@ Usage::
     # Returns {{ package.name }}.Session inherited from {{ package.library_name }}.Session
     session = Session()
     session: {{ package.name }}.{{ package.library_name }}.session.Session
+
+    # s3_client is aiobotocore.AioBaseClient
+    # with type annotations only in type checking mode
+    async with session.s3.client() as s3_client:
+        s3_client.list_buckets()
+
+    # s3_resource is aioboto3.AIOBoto3ServiceResource
+    # with type annotations only in type checking mode
+    async with session.s3.resource() as s3_resource:
+        s3_resource.Bucket("bucket").objects.all()
     ```
 """
 
 from {{ package.library_name }}.session import Session as _Session
+from {{ package.name }}.{{ package.library_name }}.service_factory import ServiceFactory, ServiceResourceFactory
 
-{% for service_name in package.service_names %}
-from {{ package.name }}.{{ package.library_name }}.services.{{ service_name.import_name }} import {{ service_name.class_name }}Service
+{% for service_package in package.service_packages %}
+from {{ service_package.name }}.client import {{ service_package.client.name }}
+{% if service_package.service_resource %}
+from {{ service_package.name }}.service_resource import {{ service_package.service_resource.name }}
+{% endif %}
 {% endfor %}
 
 
 class Session(_Session):
-{% for service_name in package.service_names %}
+{% for service_package in package.service_packages %}
+{% if service_package.service_resource %}
     @property
-    def {{ package.get_property_name(service_name) }}(self) -> {{ service_name.class_name }}Service:
-        return {{ service_name.class_name }}Service(self)
+    def {{ package.get_property_name(service_package.service_name) }}(self) -> ServiceResourceFactory[{{ service_package.client.name }}, {{ service_package.service_resource.name }}]:
+        return ServiceResourceFactory("{{ service_package.service_name.boto3_name }}", self)
+{% else %}
+    @property
+    def {{ package.get_property_name(service_package.service_name) }}(self) -> ServiceFactory[{{ service_package.client.name }}]:
+        return ServiceFactory("{{ service_package.service_name.boto3_name }}", self)
+{% endif %}
 {% endfor %}

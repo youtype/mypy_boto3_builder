@@ -47,15 +47,6 @@ class Boto34Package(Package):
         """
         return "boto34"
 
-    def has_service_resource(self, service_name: ServiceName) -> bool:
-        """
-        Check if service has service resource.
-        """
-        for package in self.service_packages:
-            if package.service_name == service_name:
-                return package.service_resource is not None
-        return False
-
     def get_property_name(self, service_name: ServiceName) -> str:
         """
         Get property name for service.

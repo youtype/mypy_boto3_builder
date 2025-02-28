@@ -12,23 +12,29 @@ Usage::
     # Returns {{ package.name }}.Session inherited from {{ package.library_name }}.Session
     session = get_session()
     session: {{ package.name }}.{{ package.library_name }}.session.Session
+
+    # s3_client is a regular aiobotocore.AioBaseClient
+    # with type annotations only in type checking mode
+    async with session.s3.create_client() as s3_client:
+        s3_client.list_buckets()
     ```
 """
 from __future__ import annotations
 
 from typing import Mapping
 from {{ package.library_name }}.session import AioSession as _Session
+from {{ package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
 
-{% for service_name in package.service_names %}
-from {{ package.name }}.{{ package.library_name }}.services.{{ service_name.import_name }} import {{ service_name.class_name }}Service
+{% for service_package in package.service_packages %}
+from {{ service_package.name }}.client import {{ service_package.client.name }}
 {% endfor %}
 
 
 class Session(_Session):
-{% for service_name in package.service_names %}
+{% for service_package in package.service_packages %}
     @property
-    def {{ package.get_property_name(service_name) }}(self) -> {{ service_name.class_name }}Service:
-        return {{ service_name.class_name }}Service(self)
+    def {{ package.get_property_name(service_package.service_name) }}(self) -> ServiceFactory[{{ service_package.client.name }}]:
+        return ServiceFactory("{{ service_package.service_name.boto3_name }}", self)
 {% endfor %}
 
 

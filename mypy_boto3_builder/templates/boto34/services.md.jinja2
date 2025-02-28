@@ -8,12 +8,12 @@ or `boto34.aiobotocore.Session` for [aiobotocore](https://pypi.org/project/aiobo
 
 You can use any service with any backend. Service availability depends on your [botocore](https://pypi.org/project/botocore/) version.
 
-Currently there are {{ len(package.service_names) }} supported services.
+Currently there are {{ len(package.service_packages) }} supported services.
 
 ## List of supported AWS services
 
 | Service name | Type annotated | Usage | boto3 equivalent |
 |-|-|-|-|
-{% for service_name in package.service_names -%}
-| [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }}) | ✓ | `session.{{ package.get_property_name(service_name) }}.client(...)`{% if package.has_service_resource(service_name) %}<br />`session.{{ package.get_property_name(service_name) }}.resource(...)`{% endif %} | `boto3.client("{{ service_name.boto3_name }}", ...)`{% if package.has_service_resource(service_name) %}<br />`boto3.resource("{{ service_name.boto3_name }}", ...)`{% endif %} |{{ "\n" -}}
+{% for service_package in package.service_packages -%}
+| [{{ service_package.service_name.class_name }}]({{ service_package.service_name.boto3_doc_link }}) | ✓ | `session.{{ package.get_property_name(service_package.service_name) }}.client(...)`{% if service_package.service_resource %}<br />`session.{{ package.get_property_name(service_package.service_name) }}.resource(...)`{% endif %} | `boto3.client("{{ service_package.service_name.boto3_name }}", ...)`{% if service_package.service_resource %}<br />`boto3.resource("{{ service_package.service_name.boto3_name }}", ...)`{% endif %} |{{ "\n" -}}
 {% endfor -%}
