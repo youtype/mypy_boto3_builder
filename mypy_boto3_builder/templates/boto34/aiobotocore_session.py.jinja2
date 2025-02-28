@@ -23,7 +23,6 @@ from __future__ import annotations
 
 from typing import Mapping
 from {{ package.library_name }}.session import AioSession
-from {{ package.name }}.{{ package.library_name }}.service_factory import ServiceFactory
 
 {% for service_package in package.service_packages %}
 from {{ package.name }}.{{ package.library_name }}.services.{{ service_package.service_name.import_name }} import {{ service_package.service_name.class_name }}Service
