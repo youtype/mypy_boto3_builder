@@ -25,6 +25,7 @@ class Session(Boto3Session):
         region_name: str | None = ...,
         botocore_session: AioBotocoreSession | None = ...,
         profile_name: str | None = ...,
+        aws_account_id: str | None = ...,
     ) -> None:
         self._session: AioBotocoreSession
         self.resource_factory: AIOBoto3ResourceFactory  # type: ignore[override]
@@ -43,6 +44,7 @@ class Session(Boto3Session):
         aws_secret_access_key: str | None = ...,
         aws_session_token: str | None = ...,
         config: AioConfig | None = ...,
+        aws_account_id: str | None = ...,
     ) -> ClientCreatorContext[Any]: ...
     def resource(  # type: ignore[override]
         self,

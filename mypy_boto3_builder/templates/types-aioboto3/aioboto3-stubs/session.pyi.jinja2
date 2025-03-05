@@ -26,6 +26,7 @@ class Session:
         region_name: str | None = ...,
         botocore_session: AioBotocoreSession | None = ...,
         profile_name: str | None = ...,
+        aws_account_id: str | None = ...,
     ) -> None:
         self._session: AioBotocoreSession
         self.resource_factory: AIOBoto3ResourceFactory  # type: ignore [override]

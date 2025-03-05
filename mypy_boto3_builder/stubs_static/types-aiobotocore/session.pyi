@@ -59,8 +59,12 @@ class AioSession(Session):
         config: Config | None = ...,
     ) -> ClientCreatorContext[Any]: ...
     async def get_credentials(self) -> AioCredentials | None: ...  # type: ignore[override]
-    def set_credentials(
-        self, access_key: str, secret_key: str, token: Any | None = ...
+    def set_credentials(  # type: ignore[override]
+        self,
+        access_key: str,
+        secret_key: str,
+        token: Any | None = ...,
+        account_id: str | None = ...,
     ) -> None: ...
     async def get_service_model(  # type: ignore[override]
         self, service_name: str, api_version: Any | None = ...
