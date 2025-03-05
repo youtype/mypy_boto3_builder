@@ -46,6 +46,7 @@ class WrapperPackageParser:
             get_optional(ExternalImport.from_class(Config)),
             Type.Ellipsis,
         ),
+        Argument("aws_account_id", get_optional(Type.str), Type.Ellipsis),
     )
 
     def __init__(self, package: WrapperPackage) -> None:
