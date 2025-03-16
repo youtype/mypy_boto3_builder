@@ -20,6 +20,7 @@ REQUIRED_ATTRIBUTE_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, boo
     ServiceNameCatalog.all: {
         ALL: {
             "NextToken": False,
+            "PaginationToken": False,
             "nextToken": False,
             "Contents": False,
             "Item": False,
