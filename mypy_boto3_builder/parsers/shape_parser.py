@@ -21,11 +21,7 @@ from botocore.paginate import PageIterator
 
 from mypy_boto3_builder.boto3_ports.model import Collection as Boto3Collection
 from mypy_boto3_builder.boto3_ports.model import ResourceModel
-from mypy_boto3_builder.constants import (
-    ATTRIBUTES,
-    CLIENT,
-    SERVICE_RESOURCE,
-)
+from mypy_boto3_builder.constants import ATTRIBUTES, CLIENT, SERVICE_RESOURCE
 from mypy_boto3_builder.exceptions import ShapeParserError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.resource_loader import ResourceLoader

@@ -106,14 +106,17 @@ class TypeParent(FakeAnnotation, ABC):
     def replace_self_references(self, replacement: FakeAnnotation) -> "set[TypeParent]":
         """
         Replace self references with a new type annotation to avoid recursion.
+
+        Checks for self references multiple times in case of circular references.
         """
-        """
-        Replace self references with a new type annotation to avoid recursion.
-        """
-        parents = self.find_type_annotation_parents(self)
-        for parent in parents:
-            parent.replace_child(self, replacement)
-        return parents
+        mutated_parents: set[TypeParent] = set()
+        parents: set[TypeParent] | None = None
+        while parents or parents is None:
+            parents = self.find_type_annotation_parents(self)
+            for parent in parents:
+                parent.replace_child(self, replacement)
+            mutated_parents.update(parents)
+        return mutated_parents
 
     def get_sortable_children(self) -> list[TypeDefSortable]:
         """
