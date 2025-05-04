@@ -100,12 +100,14 @@ def parse_types_aioboto3_package(
             ExternalImport(Import.aiobotocore + "session", "ClientCreatorContext"),
             [method.return_type],
         )
+        method.type_ignore = "override"
         package.session_class.methods.append(method)
     for method in parser.get_session_resource_methods():
         method.return_type = TypeSubscript(
             InternalImport("ResourceCreatorContext"),
             [method.return_type],
         )
+        method.type_ignore = "override"
         package.session_class.methods.append(method)
 
     for type_annotation in package.session_class.iterate_types():

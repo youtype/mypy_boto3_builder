@@ -27,7 +27,7 @@ class Session(Boto3Session):
         profile_name: str | None = ...,
         aws_account_id: str | None = ...,
     ) -> None:
-        self._session: AioBotocoreSession
+        self._session: AioBotocoreSession  # type: ignore[override]
         self.resource_factory: AIOBoto3ResourceFactory  # type: ignore[override]
         self._loader: Loader
 
