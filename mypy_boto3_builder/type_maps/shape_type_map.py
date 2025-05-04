@@ -12,7 +12,6 @@ from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_maps.named_unions import (
-    AttributeValueTypeDef,
     BlobTypeDef,
     PolicyDocumentTypeDef,
     StreamingBodyType,
@@ -20,7 +19,7 @@ from mypy_boto3_builder.type_maps.named_unions import (
     TimestampTypeDef,
     UniversalAttributeValueTypeDef,
 )
-from mypy_boto3_builder.type_maps.typed_dicts import GetTemplateOutputTypeDef
+from mypy_boto3_builder.type_maps.typed_dicts import AttributeValueTypeDef, GetTemplateOutputTypeDef
 from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
 ShapeTypeMap = Mapping[ServiceName, Mapping[str, Mapping[str, FakeAnnotation]]]

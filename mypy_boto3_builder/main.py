@@ -11,12 +11,9 @@ from collections.abc import Iterable, Sequence
 
 from mypy_boto3_builder.chat.chat_buddy import ChatBuddy
 from mypy_boto3_builder.cli_parser import CLINamespace, parse_args
-from mypy_boto3_builder.constants import (
-    BUILDER_REPO_URL,
-    OUTPUT_PATH_SENTINEL,
-    PACKAGE_NAME,
-)
-from mypy_boto3_builder.enums.product import Product, ProductLibrary
+from mypy_boto3_builder.constants import BUILDER_REPO_URL, OUTPUT_PATH_SENTINEL, PACKAGE_NAME
+from mypy_boto3_builder.enums.product import Product
+from mypy_boto3_builder.enums.product_library import ProductLibrary
 from mypy_boto3_builder.enums.product_type import ProductType
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator

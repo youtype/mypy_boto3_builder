@@ -191,6 +191,12 @@ class ServiceNameCatalog:
         events.boto3_name: events,
     }
 
+    # Services that are outdated and no longer built
+    # but still exist in the catalog.
+    IGNORED_ITEMS: Final[set[str]] = {
+        sms_voice.boto3_name,
+    }
+
     @classmethod
     def add(cls, name: str, class_name: str) -> ServiceName:
         """

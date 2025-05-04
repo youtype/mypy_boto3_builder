@@ -57,6 +57,8 @@ def get_available_service_names() -> list[ServiceName]:
     available_services = session.get_available_services()
     result: list[ServiceName] = []
     for name in available_services:
+        if name in ServiceNameCatalog.IGNORED_ITEMS:
+            continue
         service_data = session.get_service_data(name)
         metadata = service_data["metadata"]
         class_name = get_botocore_class_name(metadata)
