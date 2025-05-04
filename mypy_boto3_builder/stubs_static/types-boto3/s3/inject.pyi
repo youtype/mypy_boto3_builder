@@ -4,6 +4,7 @@ Type annotations for boto3.s3.inject module.
 Copyright 2024 Vlad Emelianov
 """
 
+import logging
 from typing import IO, Any, Callable
 
 from boto3 import utils as utils
@@ -13,6 +14,8 @@ from boto3.s3.transfer import TransferConfig as TransferConfig
 from boto3.s3.transfer import create_transfer_manager as create_transfer_manager
 from botocore.client import BaseClient
 from botocore.exceptions import ClientError as ClientError
+
+logger: logging.Logger = ...
 
 def inject_s3_transfer_methods(class_attributes: dict[str, Any], **kwargs: Any) -> None: ...
 def inject_bucket_methods(class_attributes: dict[str, Any], **kwargs: Any) -> None: ...
@@ -119,6 +122,7 @@ def object_upload_fileobj(
     Callback: Callable[..., Any] | None = ...,
     Config: TransferConfig | None = ...,
 ) -> None: ...
+def disable_threading_if_append_mode(config: TransferConfig, fileobj: IO[Any]) -> None: ...
 def download_fileobj(
     self: Any,
     Bucket: str,
