@@ -182,12 +182,18 @@ class AioBotocorePostprocessor(BasePostprocessor):
         type_annotations: Iterable[FakeAnnotation],
     ) -> Generator[ExternalImport]:
         stack = list(type_annotations)
+        processed: set[FakeAnnotation] = set()
         while stack:
             type_annotation = stack.pop()
             if is_external_import(type_annotation):
                 yield type_annotation
             if is_type_parent(type_annotation):
-                stack.extend(type_annotation.get_children_types())
+                for child in type_annotation.get_children_types():
+                    if child in processed:
+                        continue
+                    if is_external_import(child) or is_type_parent(child):
+                        processed.add(child)
+                        stack.append(child)
 
     def _replace_botocore_external_imports(self) -> None:
         shallow_type_annotations = self._iterate_types_shallow()
