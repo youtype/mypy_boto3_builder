@@ -122,46 +122,6 @@ writer = PackageWriter(output_path)
 writer.write_service_package(package, templates_path)
 ```
 
-## Key Design Patterns
-
-### 1. Template Method Pattern
-`BaseGenerator` defines the generation algorithm, subclasses customize specific steps:
-
-```python
-class BaseGenerator:
-    def generate_service_package(self, service_package):
-        # Template method
-        self._setup_imports()
-        self._generate_client()
-        self._generate_resources()
-        return self._finalize_package()
-    
-    def _generate_client(self):
-        # Abstract method - subclasses implement
-        raise NotImplementedError
-```
-
-### 2. Builder Pattern
-Complex objects like `ServicePackage` are built incrementally:
-
-```python
-class ServicePackageBuilder:
-    def add_client(self, client): ...
-    def add_resources(self, resources): ...
-    def build(self) -> ServicePackage: ...
-```
-
-### 3. Strategy Pattern
-Different generators for different target libraries:
-
-```python
-generators = {
-    'types-boto3': TypesBoto3Generator(),
-    'aioboto3': AioBoto3Generator(),
-    'aiobotocore': AioBotocoreGenerator(),
-}
-```
-
 ## Configuration & Extensibility
 
 ### Adding New AWS Services
@@ -199,11 +159,11 @@ Services can be processed independently:
 ```python
 # Current: Sequential
 for service in services:
-    generate_service(service)
+    generate_product(product)
 
 # Potential: Parallel
 with ThreadPoolExecutor() as executor:
-    futures = [executor.submit(generate_service, s) for s in services]
+    futures = [executor.submit(generate_product, s) for s in products]
 ```
 
 ### Memory Management
@@ -242,8 +202,7 @@ Large service definitions are processed incrementally to manage memory usage.
 ### Command Structure
 ```
 mypy-boto3-builder
-├── generate          # Generate type stubs
-├── docs-generate     # Generate documentation
+├── --product <product_name> --services <AWS SDK services> # Generate type stubs
 └── chat             # Interactive configuration
 ```
 
@@ -258,11 +217,11 @@ Uses `questionary` for complex configuration:
 ### Potential Improvements
 1. **Async processing** for faster generation
 2. **Incremental builds** to avoid regenerating unchanged services
-3. **Plugin system** for custom type transformations
-4. **Caching layer** for parsed service definitions
+3. **Caching layer** for parsed service definitions
+4. **Botocore support** for usage without `boto3`
 
 ### Scalability
-- Current architecture handles 300+ AWS services
+- Current architecture handles 400+ AWS services
 - Memory usage scales linearly with service count
 - Generation time is dominated by template rendering
 
@@ -283,4 +242,4 @@ Uses `questionary` for complex configuration:
 
 ---
 
-*This architecture supports generating type annotations for 300+ AWS services across multiple Python AWS SDK libraries, enabling static type checking for millions of lines of AWS SDK usage.*
+*This architecture supports generating type annotations for 400+ AWS services across multiple Python AWS SDK libraries, enabling static type checking for millions of lines of AWS SDK usage.*
