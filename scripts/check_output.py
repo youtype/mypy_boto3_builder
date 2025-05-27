@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # /// script
-# requires-python = ">=3.8"
+# requires-python = ">=3.9"
 # dependencies = [
 #   "loguru",
 # ]
@@ -208,7 +208,7 @@ def run_ruff(path: Path) -> None:
             "ruff",
             "check",
             "--target-version",
-            "py38",
+            "py39",
             "--select",
             ",".join(RUFF_SELECT_CHECKS),
             "--ignore",

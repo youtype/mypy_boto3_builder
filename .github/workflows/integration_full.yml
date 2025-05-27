@@ -29,7 +29,7 @@ jobs:
           - "types-aiobotocore-full"
           - "types-aiobotocore-custom"
         python_version:
-          - "3.8" # oldest supported
+          - "3.9" # oldest supported
           - "3.10" # most popular
           - "3.13" # latest
     steps:

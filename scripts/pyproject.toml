@@ -1,7 +1,7 @@
 [tool.ruff]
 extend = "../pyproject.toml"
-target-version = "py38"
+target-version = "py39"
 
 [tool.pyright]
 extend = "../pyproject.toml"
-pythonVersion = "3.8"
+pythonVersion = "3.9"
