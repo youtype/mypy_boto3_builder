@@ -27,10 +27,10 @@ class TypeAnnotation(FakeAnnotation):
     _SUPPORTED_TYPES: Final[Mapping[str, ImportRecord]] = {
         "Union": ImportRecord(Import.typing, "Union"),
         "Any": ImportRecord(Import.typing, "Any"),
-        "Dict": ImportRecord(Import.builtins, "dict"),
-        "List": ImportRecord(Import.builtins, "list"),
-        "Set": ImportRecord(Import.builtins, "set"),
-        "Type": ImportRecord(Import.builtins, "type"),
+        "dict": ImportRecord(Import.builtins, "dict"),
+        "list": ImportRecord(Import.builtins, "list"),
+        "set": ImportRecord(Import.builtins, "set"),
+        "type": ImportRecord(Import.builtins, "type"),
         "IO": ImportRecord(Import.typing, "IO"),
         "overload": ImportRecord(Import.typing, "overload"),
         "NoReturn": ImportRecord(Import.typing, "NoReturn"),
@@ -114,15 +114,15 @@ class TypeAnnotation(FakeAnnotation):
 
     def is_dict(self) -> bool:
         """
-        Whether annotation is a plain Dict.
+        Whether annotation is a plain dict.
         """
-        return self._wrapped_type == "Dict"
+        return self._wrapped_type == "dict"
 
     def is_list(self) -> bool:
         """
-        Whether annotation is a plain List.
+        Whether annotation is a plain list.
         """
-        return self._wrapped_type == "List"
+        return self._wrapped_type == "list"
 
     def __copy__(self) -> Self:
         """

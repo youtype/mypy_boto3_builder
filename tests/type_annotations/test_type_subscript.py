@@ -17,9 +17,9 @@ class TestTypeSubscript:
         assert hash(self.result)
 
     def test_render(self) -> None:
-        assert self.result.render() == "Dict[str, int, Any]"
-        assert TypeSubscript(Type.List, [Type.str]).render() == "List[str]"
-        assert TypeSubscript(Type.Dict).render() == "Dict"
+        assert self.result.render() == "dict[str, int, Any]"
+        assert TypeSubscript(Type.List, [Type.str]).render() == "list[str]"
+        assert TypeSubscript(Type.Dict).render() == "dict"
 
     def test_get_import_records(self) -> None:
         records = sorted(self.result.get_import_records())
@@ -70,9 +70,9 @@ class TestTypeSubscript:
     def test_replace_child(self) -> None:
         inner = TypeSubscript(Type.List, [Type.int])
         outer = TypeSubscript(Type.Dict, [Type.str, inner])
-        assert outer.copy().replace_child(Type.str, Type.bool).render() == "Dict[bool, List[int]]"
-        assert outer.copy().replace_child(inner, Type.bool).render() == "Dict[str, bool]"
-        assert outer.copy().replace_child(Type.Dict, Type.Dict).render() == "Dict[str, List[int]]"
+        assert outer.copy().replace_child(Type.str, Type.bool).render() == "dict[bool, list[int]]"
+        assert outer.copy().replace_child(inner, Type.bool).render() == "dict[str, bool]"
+        assert outer.copy().replace_child(Type.Dict, Type.Dict).render() == "dict[str, list[int]]"
         with pytest.raises(TypeAnnotationError):
             outer.copy().replace_child(Type.int, Type.bool)
 

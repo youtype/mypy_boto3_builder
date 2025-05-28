@@ -31,7 +31,7 @@ class TestFunction:
         assert self.function.body == "line1\nline2"
         assert self.function.docstring == "docstring\n\nlong"
         assert self.function.short_docstring == "docstring"
-        assert repr(self.function) == "def name(self, my_str: str = 'test', lst: List[Any]) -> None"
+        assert repr(self.function) == "def name(self, my_str: str = 'test', lst: list[Any]) -> None"
 
         self.function.docstring = ""
         assert not self.function.short_docstring
