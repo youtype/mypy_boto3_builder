@@ -23,7 +23,7 @@ class TestTypeSubscript:
 
     def test_get_import_records(self) -> None:
         records = sorted(self.result.get_import_records())
-        assert len(records) == 2
+        assert len(records) == 1
         assert records[0].render() == "from typing import Any"
 
     def test_get_types(self) -> None:

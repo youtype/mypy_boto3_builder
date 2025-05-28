@@ -66,5 +66,4 @@ class TestClassRecord:
         rendered = [i.render() for i in sorted(self.class_record.get_required_import_records())]
         assert rendered == [
             "from typing import Any",
-            "from builtins import list as List",
         ]

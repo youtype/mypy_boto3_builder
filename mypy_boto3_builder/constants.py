@@ -44,7 +44,6 @@ TYPING_EXTENSIONS_PYPI_NAME: Final = "typing-extensions"
 
 # python versions supported by output stubs
 SUPPORTED_PY_VERSIONS: Final = {
-    # (3, 8),
     (3, 9),
     (3, 10),
     (3, 11),

@@ -37,7 +37,7 @@ class TestTypeAnnotation:
         assert result[0].render() == "from typing import Literal"
 
         result = sorted(Type.DictStrAny.get_import_records())
-        assert len(result) == 2
+        assert len(result) == 1
         assert result[0].render() == "from typing import Any"
 
     def test_copy(self) -> None:
