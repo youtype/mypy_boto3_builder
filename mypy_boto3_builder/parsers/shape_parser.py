@@ -1039,9 +1039,9 @@ class ShapeParser:
     @staticmethod
     def _get_arg_from_target(target: str) -> str:
         if "[" in target:
-            target = target.split("[")[0]
+            target = target.split("[", maxsplit=1)[0]
         if "." in target:
-            target = target.split(".")[0]
+            target = target.split(".", maxsplit=1)[0]
         return target
 
     def _get_skip_argument_names(self, action_shape: ActionShape) -> set[str]:
