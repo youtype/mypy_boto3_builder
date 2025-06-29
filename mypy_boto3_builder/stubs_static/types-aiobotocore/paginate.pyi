@@ -4,7 +4,8 @@ Type annotations for aiobotocore.paginate module.
 Copyright 2025 Vlad Emelianov
 """
 
-from typing import Any, AsyncIterator, Generic, TypeVar
+from collections.abc import AsyncIterator
+from typing import Any, Generic, TypeVar
 
 from botocore.paginate import PageIterator, Paginator
 

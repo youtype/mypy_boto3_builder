@@ -5,8 +5,8 @@ Copyright 2025 Vlad Emelianov
 """
 
 import logging
-from collections.abc import Callable, Coroutine
-from typing import Any, Mapping
+from collections.abc import Callable, Coroutine, Mapping
+from typing import Any
 
 from aiobotocore.credentials import AioCredentials
 from botocore.model import OperationModel

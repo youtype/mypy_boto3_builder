@@ -4,7 +4,8 @@ Type annotations for aiobotocore.endpoint module.
 Copyright 2025 Vlad Emelianov
 """
 
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 from aiobotocore.awsrequest import AioAWSResponse
 from aiobotocore.httpsession import AIOHTTPSession as AIOHTTPSession

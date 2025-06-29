@@ -4,7 +4,8 @@ Type annotations for aiobotocore.handlers module.
 Copyright 2025 Vlad Emelianov
 """
 
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 from botocore.signers import RequestSigner
 from requests.models import Response

@@ -4,8 +4,9 @@ Type annotations for aiobotocore.regions module.
 Copyright 2025 Vlad Emelianov
 """
 
+from collections.abc import Mapping
 from logging import Logger
-from typing import Any, Mapping
+from typing import Any
 
 from botocore.endpoint_provider import RuleSetEndpoint
 from botocore.model import OperationModel

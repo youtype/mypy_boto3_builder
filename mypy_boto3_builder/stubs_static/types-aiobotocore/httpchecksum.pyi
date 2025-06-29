@@ -4,9 +4,10 @@ Type annotations for aiobotocore.httpchecksum module.
 Copyright 2025 Vlad Emelianov
 """
 
-from typing import Any, Mapping, TypeVar
+from collections.abc import Mapping
+from typing import Any, TypeVar
 
-from aiobotocore.response import StreamingBody
+from aiobotocore.response import HttpxStreamingBody, StreamingBody
 from aiohttp import StreamReader
 from botocore.awsrequest import AWSHTTPResponse, AWSRequest
 from botocore.httpchecksum import AwsChunkedWrapper, BaseChecksum
@@ -29,6 +30,17 @@ class StreamingChecksumBody(StreamingBody):
         expected: BaseChecksum,
     ) -> None: ...
     async def read(self, amt: int | None = ...) -> bytes: ...
+
+class HttpxStreamingChecksumBody(HttpxStreamingBody):
+    def __init__(
+        self,
+        raw_stream: StreamReader,
+        content_length: str,
+        checksum: BaseChecksum,
+        expected: BaseChecksum,
+    ) -> None: ...
+    async def read(self, amt: int | None = ...) -> bytes: ...
+    async def readinto(self, b: bytearray) -> int: ...
 
 async def handle_checksum_body(
     http_response: AWSHTTPResponse,

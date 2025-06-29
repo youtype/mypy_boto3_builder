@@ -4,7 +4,8 @@ Type annotations for aiobotocore.eventstream module.
 Copyright 2025 Vlad Emelianov
 """
 
-from typing import AsyncIterator, Generic, Iterator, TypeVar
+from collections.abc import AsyncIterator, Iterator
+from typing import Generic, TypeVar
 
 from botocore.eventstream import EventStream
 
