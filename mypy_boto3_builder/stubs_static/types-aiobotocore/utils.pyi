@@ -4,10 +4,12 @@ Type annotations for aiobotocore.utils module.
 Copyright 2025 Vlad Emelianov
 """
 
+import contextlib
 import logging
-from collections.abc import Callable, Coroutine, Mapping
+from collections.abc import AsyncIterator, Callable, Coroutine, Mapping
 from typing import Any
 
+from aiobotocore.client import AioBaseClient
 from aiobotocore.credentials import AioCredentials
 from botocore.model import OperationModel
 from botocore.session import Session
@@ -89,3 +91,8 @@ class AioContainerMetadataFetcher(ContainerMetadataFetcher):
         self, full_url: str, headers: Mapping[str, Any] | None = ...
     ) -> str: ...
     async def retrieve_uri(self, relative_uri: str) -> dict[str, Any]: ...
+
+@contextlib.asynccontextmanager
+def create_nested_client(
+    session: Session, service_name: str, **kwargs: Any
+) -> AsyncIterator[AioBaseClient]: ...

@@ -51,6 +51,7 @@ class TransferConfig(S3TransferConfig):
 class S3Transfer:
     ALLOWED_DOWNLOAD_ARGS: list[str]
     ALLOWED_UPLOAD_ARGS: list[str]
+    ALLOWED_COPY_ARGS: list[str]
     def __init__(
         self,
         client: BaseClient | None = ...,
