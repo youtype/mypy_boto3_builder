@@ -10,7 +10,7 @@ from collections.abc import Iterable, Sequence
 from pathlib import Path
 from typing import Final
 
-from mypy_boto3_builder.constants import TEMPLATES_PATH
+from mypy_boto3_builder.constants import TEMPLATES_PATH, UTF8
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.structures.package import Package
@@ -178,7 +178,7 @@ class PackageWriter:
         if not path.parent.exists():
             path.parent.mkdir(exist_ok=True, parents=True)
 
-        path.write_text(content)
+        path.write_text(content, encoding=UTF8)
         self.logger.debug(f"Rendered {print_path(path)}", tags=print_path(path))
 
     def _render_docs_templates(

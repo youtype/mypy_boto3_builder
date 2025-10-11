@@ -130,7 +130,7 @@ class ChatBuddy:
         selected: Iterable[ServiceName] = (),
     ) -> list[Choice]:
         sorted_service_names = sorted(service_names, key=lambda x: x.class_name)
-        last_shortcut = None
+        last_shortcut: str | None = None
         result: list[Choice] = []
         for service_name in sorted_service_names:
             current_shortcut = service_name.class_name[0].lower()

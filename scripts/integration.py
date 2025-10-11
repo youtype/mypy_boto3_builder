@@ -27,6 +27,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from loguru import logger
+from mypy_boto3_builder.constants import UTF8
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -362,17 +363,17 @@ def compare(data: str, snapshot_path: Path, *, update: bool) -> None:
     """
     data = data.strip()
     if not snapshot_path.exists():
-        snapshot_path.write_text(data)
+        snapshot_path.write_text(data, encoding=UTF8)
         logger.info(f"Created {print_path(snapshot_path)}")
         return
 
-    old_data = snapshot_path.read_text().strip()
+    old_data = snapshot_path.read_text(encoding=UTF8).strip()
     if old_data == data:
         logger.debug(f"Matched {print_path(snapshot_path)}")
         return
 
     if update:
-        snapshot_path.write_text(data)
+        snapshot_path.write_text(data, encoding=UTF8)
         logger.info(f"Updated {print_path(snapshot_path)}")
         return
 

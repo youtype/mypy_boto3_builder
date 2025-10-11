@@ -226,7 +226,7 @@ def run_ruff(path: Path) -> None:
             )
         except subprocess.CalledProcessError:
             temp_path = Path(f.name)
-            output = temp_path.read_text()
+            output = temp_path.read_text(encoding="utf8")
             raise CheckError(path, output) from None
 
 
@@ -265,7 +265,7 @@ def run_pyright(path: Path) -> None:
             return
 
         temp_path = Path(f.name)
-        output = temp_path.read_text()
+        output = temp_path.read_text(encoding="utf8")
         try:
             output_data = json.loads(output)
         except json.JSONDecodeError:

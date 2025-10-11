@@ -42,6 +42,9 @@ CLIENT: Final = "Client"
 
 TYPING_EXTENSIONS_PYPI_NAME: Final = "typing-extensions"
 
+# UTF-8 encoding
+UTF8 = "utf8"
+
 # python versions supported by output stubs
 SUPPORTED_PY_VERSIONS: Final = {
     (3, 9),

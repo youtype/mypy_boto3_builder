@@ -48,10 +48,10 @@ class Type:
     datetime: Final[ExternalImport] = ExternalImport.from_class(datetime)
 
     SequenceAny: Final[TypeSubscript] = TypeSubscript(Sequence, [Any])
-    MappingStrAny: Final[TypeSubscript] = TypeSubscript(Mapping, [str, Any])
+    MappingStrAny: Final[TypeSubscript] = TypeSubscript(Mapping, [str, Any])  # noqa: A003
     ListAny: Final[TypeSubscript] = TypeSubscript(List, [Any])
-    DictStrAny: Final[TypeSubscript] = TypeSubscript(Dict, [str, Any])
-    DictStrStr: Final[TypeSubscript] = TypeSubscript(Dict, [str, str])
+    DictStrAny: Final[TypeSubscript] = TypeSubscript(Dict, [str, Any])  # noqa: A003
+    DictStrStr: Final[TypeSubscript] = TypeSubscript(Dict, [str, str])  # noqa: A003
     IOAny: Final[TypeSubscript] = TypeSubscript(IO, [Any])
     RemoveArgument: Final[TypeConstant] = TypeConstant("RemoveArgument")
     NotRequired: Final[TypeAnnotation] = TypeAnnotation("NotRequired")

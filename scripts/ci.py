@@ -181,7 +181,7 @@ def get_workflow_name(path: Path) -> str:
     """
     Get workflow name.
     """
-    data = path.read_text()
+    data = path.read_text(encoding="utf8")
     for line in data.splitlines():
         if line.startswith("name:"):
             return line.split(":", 1)[1].strip().replace('"', "")
