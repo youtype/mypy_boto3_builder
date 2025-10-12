@@ -1,4 +1,4 @@
-FROM python:3.13.0-alpine3.20
+FROM python:3.13-alpine3.22
 
 RUN mkdir -p /home/builder/scripts
 RUN mkdir -p /output
@@ -16,14 +16,14 @@ RUN adduser \
 
 USER builder
 
-ENV PATH "$PATH:/home/builder/.local/bin"
+ENV PATH="$PATH:/home/builder/.local/bin"
 RUN python -m pip install --no-cache-dir .
 
 COPY ./scripts/docker.sh ./scripts/docker.sh
 
 WORKDIR /output
 
-ENV BOTO3_VERSION ""
-ENV BOTOCORE_VERSION ""
+ENV BOTO3_VERSION=""
+ENV BOTOCORE_VERSION=""
 
 ENTRYPOINT ["/builder/scripts/docker.sh"]
