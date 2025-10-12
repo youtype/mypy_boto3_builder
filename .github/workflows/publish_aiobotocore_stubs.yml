@@ -123,7 +123,7 @@ jobs:
         with:
           python-version-file: .python-version
       - name: Set up uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@v7
         with:
           version: "latest"
       - name: Build all packages
