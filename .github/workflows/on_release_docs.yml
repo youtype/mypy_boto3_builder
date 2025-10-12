@@ -16,7 +16,7 @@ jobs:
       MAIN_BRANCH: main
     steps:
       - name: Checkout main branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ env.MAIN_BRANCH }}
       - name: Set up git
@@ -52,7 +52,7 @@ jobs:
           rm -rf docs/*
           uvx --with-requirements requirements.mkdocs.txt mkdocs build
       - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: gh-pages
           path: ./gh-pages
