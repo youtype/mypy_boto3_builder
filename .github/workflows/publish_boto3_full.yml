@@ -126,7 +126,7 @@ jobs:
             scripts/release.py
             .python-version
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version-file: .python-version
       - name: Set up uv
