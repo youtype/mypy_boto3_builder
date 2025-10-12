@@ -40,8 +40,8 @@ dependencies = [
 build = ["setuptools"]
 check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "aiohttp",
     "boto3",
     "botocore-stubs",
@@ -65,6 +65,8 @@ dev-dependencies = [
     "typing_extensions",
     "wheel",
 ]
+
+[tool.uv]
 package = true
 
 [project.scripts]
