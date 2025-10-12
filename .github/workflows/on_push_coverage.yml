@@ -28,7 +28,7 @@ jobs:
       - name: Build coverage report
         run: uv run pytest --cov mypy_boto3_builder --cov-report=xml --junitxml=junit.xml
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
