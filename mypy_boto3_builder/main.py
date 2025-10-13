@@ -149,7 +149,7 @@ def initialize_jinja_manager() -> None:
     jinja_manager.update_globals(
         get_md_doc_link=get_md_doc_link,
         builder_version=get_builder_version(),
-        current_year=str(datetime.datetime.now(datetime.timezone.utc).year),
+        current_year=str(datetime.datetime.now(datetime.UTC).year),
         get_anchor_link=get_anchor_link,
         len=len,
         sorted=sorted,

@@ -7,7 +7,7 @@ Copyright 2024 Vlad Emelianov
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
 from contextlib import contextmanager
-from typing import Any, ClassVar, Final, Generic, TypeVar
+from typing import Any, ClassVar, Final
 from unittest.mock import patch
 
 from prompt_toolkit import PromptSession
@@ -18,10 +18,8 @@ from questionary.question import Question
 from mypy_boto3_builder.chat.text_style import TextStyle
 from mypy_boto3_builder.chat.type_defs import Message
 
-_R = TypeVar("_R")
 
-
-class BasePrompt(ABC, Generic[_R]):
+class BasePrompt[R](ABC):
     """
     Base wrapper for questionary.Question.
     """
@@ -32,7 +30,7 @@ class BasePrompt(ABC, Generic[_R]):
 
     def __init__(self) -> None:
         self._question: Question | None = None
-        self._result: _R | None = None
+        self._result: R | None = None
 
     def get_help_message(self) -> Message:
         """
@@ -103,10 +101,10 @@ class BasePrompt(ABC, Generic[_R]):
     def _create_question(self) -> Question:
         raise NotImplementedError("Method is not implemented")
 
-    def _patch_answer(self) -> None:
-        pass
+    @abstractmethod
+    def _patch_answer(self) -> None: ...
 
-    def ask(self) -> _R:
+    def ask(self) -> R:
         """
         Ask a question and return a result.
         """
@@ -116,7 +114,7 @@ class BasePrompt(ABC, Generic[_R]):
             raise ValueError("Result is not set")
         return self._result
 
-    def _set_result(self, result: _R) -> None:
+    def _set_result(self, result: R) -> None:
         """
         Set a result.
         """

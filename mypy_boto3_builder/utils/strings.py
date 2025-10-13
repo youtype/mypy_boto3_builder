@@ -11,7 +11,7 @@ import re
 import typing
 from collections.abc import Generator, Sequence
 from types import MappingProxyType
-from typing import Final, Literal, TypeVar
+from typing import Final, Literal
 from unittest.mock import MagicMock
 
 from botocore import xform_name as botocore_xform_name
@@ -19,8 +19,6 @@ from botocore.utils import get_service_module_name
 
 from mypy_boto3_builder.constants import DOCSTRING_LINE_LENGTH, DOCSTRING_MAX_LENGTH
 from mypy_boto3_builder.exceptions import BuildInternalError, TypeAnnotationError
-
-_T = TypeVar("_T")
 
 RESERVED_NAMES: Final = {
     *dir(typing),
@@ -208,7 +206,7 @@ def get_copyright() -> str:
     """
     Get copyright notice.
     """
-    now = datetime.datetime.now(datetime.timezone.utc)
+    now = datetime.datetime.now(datetime.UTC)
     return f"Copyright {now.year} Vlad Emelianov"
 
 
@@ -258,7 +256,7 @@ def escape_md(value: str) -> str:
     return value.replace("_", r"\_")
 
 
-def progressify(seq: Sequence[_T], start: int = 1) -> Generator[tuple[str, _T]]:
+def progressify[T](seq: Sequence[T], start: int = 1) -> Generator[tuple[str, T]]:
     """
     Enumerate-like generator for sequences with progress.
     """

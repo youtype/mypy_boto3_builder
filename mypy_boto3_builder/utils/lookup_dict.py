@@ -6,15 +6,14 @@ Copyright 2024 Vlad Emelianov
 
 import itertools
 from collections.abc import Iterator, Mapping
-from typing import ClassVar, Generic, TypeVar, cast
+from typing import ClassVar, TypeVar, cast
 
 from mypy_boto3_builder.constants import ALL
 
 _T = TypeVar("_T")
-_V = TypeVar("_V")
 
 
-class LookupDict(Generic[_V]):
+class LookupDict[V]:
     """
     Lookup dictionary to get values by multiple keys.
 
@@ -31,12 +30,12 @@ class LookupDict(Generic[_V]):
         items: Mapping[str, _T],
     ) -> None:
         self._items = items
-        self._lookup_items: dict[tuple[str, ...], _V] = {}
+        self._lookup_items: dict[tuple[str, ...], V] = {}
         self._keys_len = 0
         self._products: tuple[tuple[bool, ...], ...] = ()
 
     @property
-    def _lookup(self) -> dict[tuple[str, ...], _V]:
+    def _lookup(self) -> dict[tuple[str, ...], V]:
         if not self._lookup_items:
             self._lookup_items = self._generate_lookup({str(k): v for k, v in self._items.items()})
             self._keys_len = len(next(iter(self._lookup_items)))
@@ -59,8 +58,8 @@ class LookupDict(Generic[_V]):
             product_iter = iter(product)
             yield tuple(True if key else next(product_iter) for key in static_keys)
 
-    def _generate_lookup(self, hash_map: Mapping[str, _T]) -> dict[tuple[str, ...], _V]:
-        result: dict[tuple[str, ...], _V] = {}
+    def _generate_lookup(self, hash_map: Mapping[str, _T]) -> dict[tuple[str, ...], V]:
+        result: dict[tuple[str, ...], V] = {}
         stack: list[tuple[Mapping[str, _T], tuple[str, ...]]] = [(hash_map, ())]
 
         while stack:
@@ -71,7 +70,7 @@ class LookupDict(Generic[_V]):
                     value_t = cast("Mapping[str, _T]", value)
                     stack.append((value_t, new_keys))
                 else:
-                    value_v = cast("_V", value)
+                    value_v = cast("V", value)
                     result[new_keys] = value_v
 
         return result
@@ -86,7 +85,7 @@ class LookupDict(Generic[_V]):
                 for is_static, key in zip(product, keys, strict=True)
             )
 
-    def get(self, *keys: str) -> _V | None:
+    def get(self, *keys: str) -> V | None:
         """
         Get value by multiple keys.
         """
