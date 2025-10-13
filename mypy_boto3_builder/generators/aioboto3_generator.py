@@ -197,6 +197,6 @@ class AioBoto3Generator(BaseGenerator):
         self.setup_package_writer.write_package(
             package,
             template_path=TemplatePath.types_aioboto3_custom,
-            include_template_names=("setup.py.jinja2",),
+            include_template_names=("pyproject.toml.jinja2",),
         )
         return package

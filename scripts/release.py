@@ -166,7 +166,7 @@ def build(path: Path, max_retries: int = 10) -> Path:
 
         try:
             with chdir(path):
-                check_call((sys.executable, "setup.py", "build", "sdist", "bdist_wheel"))
+                check_call(("uv", "build", "--sdist", "--wheel"))
 
             whl_path = next(iter((path / "dist").glob("*.whl")))
             tar_path = next(iter((path / "dist").glob("*.tar.gz")))
@@ -244,7 +244,7 @@ def get_package_name(path: Path) -> str:
     """
     Get package version.
     """
-    text = (path / "setup.py").read_text().split("\n")
+    text = (path / "pyproject.toml").read_text().split("\n")
     for line in text:
         if line.strip().startswith("name="):
             return line.split("=")[1].strip().replace('"', "").replace(",", "")
@@ -256,7 +256,7 @@ def get_version(path: Path) -> str:
     """
     Get package version.
     """
-    text = (path / "setup.py").read_text().split("\n")
+    text = (path / "pyproject.toml").read_text().split("\n")
     for line in text:
         if line.strip().startswith("version="):
             return line.split("=")[1].strip().replace('"', "").replace(",", "")

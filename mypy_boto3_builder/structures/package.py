@@ -198,7 +198,6 @@ class Package:
             "Development Status :: 5 - Production/Stable",
             "Intended Audience :: Developers",
             "Environment :: Console",
-            "License :: OSI Approved :: MIT License",
             "Natural Language :: English",
             "Operating System :: OS Independent",
         ]

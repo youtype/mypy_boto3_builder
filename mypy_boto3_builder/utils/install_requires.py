@@ -45,13 +45,13 @@ class InstallRequiresItem:
 
     def render(self) -> str:
         """
-        Render item to a valid install_requires string for setup.py.
+        Render item to a valid install_requires string for pyproject.toml.
         """
         version = f">={self.min_version}" if self.min_version else ""
 
         python_version = ""
         if self.drop_python_version:
-            python_version = f'; python_version<"{self.drop_python_version}"'
+            python_version = f"; python_version<'{self.drop_python_version}'"
 
         return f"{self.name}{version}{python_version}"
 

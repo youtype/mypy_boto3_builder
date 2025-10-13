@@ -31,7 +31,7 @@ jobs:
         python_version:
           - "3.9" # oldest supported
           - "3.10" # most popular
-          - "3.13" # latest
+          - "3.14" # latest
     steps:
       - uses: actions/checkout@v5
       - name: Set up uv
