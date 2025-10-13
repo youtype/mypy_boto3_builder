@@ -26,7 +26,7 @@ requires-python = ">={{ package.min_python_version }}"
 {% if package.install_requires %}
 dependencies = [
 {%- for item in package.install_requires.iterate_items() -%}
-    {{ "\n    " -}}"{{ item.render() }}",
+    {{ "\n    " -}}"{{ item.render().replace('"', "'") }}",
 {% endfor -%}
 ]
 {% endif %}
