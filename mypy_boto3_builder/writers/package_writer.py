@@ -122,8 +122,8 @@ class PackageWriter:
         result: list[TemplateRender] = []
         setup_path = self._get_setup_path(package)
         template_paths = (
-            templates_path / "setup.py.jinja2",
             templates_path / "README.md.jinja2",
+            templates_path / "pyproject.toml.jinja2",
             TEMPLATES_PATH / "common" / "LICENSE.jinja2",
         )
         for template_path in template_paths:

@@ -1,0 +1,61 @@
+# Setup script for {{ package.pypi_name }}.
+
+# {{ copyright }}
+
+[project]
+name = "{{ package.pypi_name }}"
+version = "{{ package.version }}"
+license = "MIT"
+authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
+description = "{{ package.description }}"
+readme = "README.md"
+classifiers = [
+{%- for classifier in package.get_classifiers() -%}
+    {{ "\n    " -}}"{{ classifier -}}",
+{%- endfor %}
+]
+keywords = [
+    "{{ package.library_name }}",
+    "{{ package.library_name }}-stubs",
+    "type-annotations",
+    "mypy",
+    "typeshed",
+    "autocomplete",
+]
+requires-python = ">={{ package.min_python_version }}"
+{% if package.install_requires %}
+dependencies = [
+{%- for item in package.install_requires.iterate_items() -%}
+    {{ "\n    " -}}"{{ item.render() }}",
+{% endfor -%}
+]
+{% endif %}
+
+[project.urls]
+Homepage = "{{ builder_repo_url }}"
+Documentation = "{{ package.get_local_doc_link() }}"
+Source = "{{ builder_repo_url }}"
+Tracker = "{{ builder_repo_url }}/issues"
+
+{% if package.extras %}
+[project.optional-dependencies]
+{% for package_extra in package.extras %}
+{{ package_extra.name }} = [
+{%- for extra_package in package_extra.packages -%}
+    {{ "\n    " -}}"{{ extra_package }}",
+{% endfor -%}
+]
+{% endfor %}
+{% endif %}
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+packages = [
+{%- for package_name in package.setup_package_data -%}
+    {{ "\n    " -}}"{{ package_name }}",
+{% endfor -%}
+]

@@ -52,7 +52,7 @@ class BasePackageData(ABC):
     # link to local documentation
     local_doc_link: str
 
-    # install_requires for setup.py
+    # install_requires for pyproject.toml
     install_requires: tuple[str, ...]
 
     # is package installable with VSCode extensions

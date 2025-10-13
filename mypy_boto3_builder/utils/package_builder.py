@@ -6,20 +6,16 @@ Copyright 2024 Vlad Emelianov
 
 import shutil
 import subprocess
-import sys
 import tarfile
 import zipfile
 from collections.abc import Sequence
 from pathlib import Path
-from typing import Literal
 
 from mypy_boto3_builder.enums.output_type import OutputType
 from mypy_boto3_builder.exceptions import BuildInternalError
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.utils.path import print_path
-
-_Target = Literal["sdist", "bdist_wheel"]
 
 
 class PackageBuilder:
@@ -62,7 +58,7 @@ class PackageBuilder:
 
         return False
 
-    def _build(self, package: Package, targets: Sequence[_Target]) -> None:
+    def _build(self, package: Package, extra_args: Sequence[str]) -> None:
         package_path = self.build_path / package.directory_name
         self._logger.debug(f"Building package {print_path(package_path)}")
         dist_path = package_path / "dist"
@@ -70,10 +66,12 @@ class PackageBuilder:
             shutil.rmtree(dist_path)
         try:
             subprocess.check_output(
-                [sys.executable, "setup.py", *targets],
+                ["uv", "build", *extra_args],  # noqa: S607
                 cwd=package_path,
                 stderr=subprocess.STDOUT,
             )
+        except FileNotFoundError as e:
+            raise BuildInternalError(f"uv is not installed: {e}") from None
         except subprocess.CalledProcessError as e:
             raise BuildInternalError(f"Failed to build package: {e.output.decode()}") from None
 
@@ -85,16 +83,16 @@ class PackageBuilder:
                 continue
 
             target_path = self.output_path / file_path.name
-            file_path.rename(target_path)
+            shutil.move(file_path, target_path)
             self._logger.debug(f"Built package {print_path(target_path)}")
 
     def build(self, package: Package, output_types: Sequence[OutputType]) -> None:
         """
         Build wheel package.
         """
-        targets: list[_Target] = []
+        extra_args: list[str] = []
         if OutputType.wheel in output_types:
-            targets.append("bdist_wheel")
+            extra_args.append("--wheel")
         if OutputType.sdist in output_types:
-            targets.append("sdist")
-        self._build(package, targets)
+            extra_args.append("--sdist")
+        self._build(package, extra_args)
