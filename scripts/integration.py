@@ -464,6 +464,8 @@ def main() -> None:
             filter_service_names=args.services,
         )
         Config.install_paths = install_paths
+    else:
+        Config.install_paths = list(args.output_path.iterdir())
 
     for product in args.products:
         service_names = product.get_service_names(args.services)
