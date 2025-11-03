@@ -27,7 +27,7 @@ requires-python = ">={{ package.min_python_version }}"
 dependencies = [
 {%- for item in package.install_requires.iterate_items() -%}
     {{ "\n    " -}}"{{ item.render().replace('"', "'") }}",
-{% endfor -%}
+{%- endfor %}
 ]
 {% endif %}
 
@@ -37,25 +37,28 @@ Documentation = "{{ package.get_local_doc_link() }}"
 Source = "{{ builder_repo_url }}"
 Tracker = "{{ builder_repo_url }}/issues"
 
-{% if package.extras %}
-[project.optional-dependencies]
-{% for package_extra in package.extras %}
-{{ package_extra.name }} = [
-{%- for extra_package in package_extra.packages -%}
-    {{ "\n    " -}}"{{ extra_package }}",
-{% endfor -%}
-]
-{% endfor %}
-{% endif %}
-
 [build-system]
 requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
+platforms = ["any"]
 include-package-data = true
-packages = [
-{%- for package_name in package.setup_package_data -%}
-    {{ "\n    " -}}"{{ package_name }}",
-{% endfor -%}
+
+[tool.setuptools.package-dir]
+"" = "."
+
+[tool.setuptools.package-data]
+"*" = ["*.pyi", "py.typed"]
+
+{% if package.extras %}
+[project.optional-dependencies]
+{% for package_extra in package.extras -%}
+{{ package_extra.name }} = [
+{%- for extra_package in package_extra.packages -%}
+    {{ "\n    " -}}"{{ extra_package }}",
+{%- endfor %}
 ]
+{% endfor %}
+{% endif %}
+

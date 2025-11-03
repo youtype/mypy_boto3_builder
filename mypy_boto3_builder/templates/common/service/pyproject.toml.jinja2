@@ -43,5 +43,9 @@ requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
+platforms = ["any"]
 include-package-data = true
 packages = ["{{ package.name }}"]
+
+[tool.setuptools.package-data]
+"*" = ["*.pyi", "py.typed"]
