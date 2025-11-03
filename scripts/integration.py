@@ -280,7 +280,7 @@ def parse_args() -> CLINamespace:
         default=None,
         help="Python version for checkers. Default: None",
     )
-    parser.add_argument("--filter", type=str, default=None, help="Filter for services")
+    parser.add_argument("--filter", type=str, nargs="*", default=None, help="Filter for services")
     parser.add_argument(
         "-o",
         "--output-path",
@@ -295,7 +295,7 @@ def parse_args() -> CLINamespace:
         products=tuple(ProductChoices.get(name) for name in args.product),
         fast=args.fast,
         update=args.update,
-        services=tuple(args.filter) if args.filter else (),
+        services=args.filter or (),
         output_path=args.output_path or TEMP_PATH,
         wheel=args.wheel,
         python_version=args.python,
