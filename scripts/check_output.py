@@ -372,6 +372,16 @@ def is_package_dir(path: Path) -> bool:
     return (path / "__init__.pyi").exists()
 
 
+def print_path(path: Path) -> str:
+    """
+    Print path relative to cwd.
+    """
+    try:
+        return path.absolute().relative_to(Path.cwd()).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 def run_checks(path: Path) -> None:
     """
     Check package type checkers snapshot.
@@ -379,19 +389,18 @@ def run_checks(path: Path) -> None:
     Raises:
         CheckError -- If snapshot is not equal to current output.
     """
-    relative_path = path.absolute().relative_to(Path.cwd())
-    logger.info(f"Checking {relative_path} ...")
-    logger.debug(f"Running ruff for {relative_path} ...")
+    logger.info(f"Checking {print_path(path)} ...")
+    logger.debug(f"Running ruff for {print_path(path)} ...")
     run_ruff(path)
-    logger.debug(f"Running mypy for {relative_path} ...")
+    logger.debug(f"Running mypy for {print_path(path)} ...")
     run_mypy(path)
-    logger.debug(f"Running pyright for {relative_path} ...")
+    logger.debug(f"Running pyright for {print_path(path)} ...")
     run_pyright(path)
 
     if (path / "__main__.py").exists():
-        logger.debug(f"Running call for {relative_path} ...")
+        logger.debug(f"Running call for {print_path(path)} ...")
         run_call(path)
-        logger.debug(f"Running import for {relative_path} ...")
+        logger.debug(f"Running import for {print_path(path)} ...")
         run_import(path)
 
 

@@ -48,13 +48,13 @@ class WrapperPackage(Package, ABC):
     @property
     def description(self) -> str:
         """
-        Package description for setup.py.
+        Package description.
         """
         return self._description
 
     def set_description(self, value: str) -> None:
         """
-        Set package description for setup.py.
+        Set package description.
         """
         self._description = value
 
@@ -83,7 +83,7 @@ class WrapperPackage(Package, ABC):
 
     def get_short_description(self, prefix: str = "Type annotations") -> str:
         """
-        Get short description for the package in setup.py.
+        Get short description for the package.
         """
         return (
             f"{prefix} for {self.library_name} {self.library_version}"
