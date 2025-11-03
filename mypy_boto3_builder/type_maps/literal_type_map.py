@@ -17,6 +17,8 @@ from mypy_boto3_builder.utils.lookup_dict import LookupDict
 LITERAL_TYPE_MAP: Final[Mapping[ServiceName, Mapping[str, set[str]]]] = {
     # FIXME: https://github.com/boto/botocore/issues/3128
     ServiceNameCatalog.ec2: {"PlatformValuesType": {"windows"}},
+    # FIXME: https://github.com/youtype/mypy_boto3_builder/issues/374
+    ServiceNameCatalog.bedrock_runtime: {"ToolUseTypeType": {"server_tool_use", "tool_use"}},
 }
 
 _LOOKUP: LookupDict[set[str]] = LookupDict(

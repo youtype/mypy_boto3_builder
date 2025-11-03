@@ -169,6 +169,7 @@ class ServiceNameCatalog:
     old_ssm_sap = ServiceName("ssm-sap", "SsmSap", "ssmsap")
     sms_voice = ServiceName("sms-voice", "SMSVoice")
     events = ServiceName("events", "")
+    bedrock_runtime = ServiceName("bedrock-runtime", "")
 
     ITEMS: ClassVar[dict[str, ServiceName]] = {
         ec2.boto3_name: ec2,
