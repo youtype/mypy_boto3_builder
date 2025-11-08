@@ -31,6 +31,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 from unittest.mock import patch
 
+import tomllib
 from loguru import logger
 from requests.exceptions import ConnectionError as RequestsConnectionError
 from requests.exceptions import HTTPError
@@ -270,24 +271,16 @@ def get_package_name(path: Path) -> str:
     """
     Get package version.
     """
-    text = (path / "pyproject.toml").read_text().split("\n")
-    for line in text:
-        if line.strip().startswith("name"):
-            return line.split("=")[1].strip().replace('"', "").replace(",", "")
-
-    return ""
+    data = tomllib.load((path / "pyproject.toml").open("rb"))
+    return data["project"]["name"]
 
 
 def get_version(path: Path) -> str:
     """
     Get package version.
     """
-    text = (path / "pyproject.toml").read_text().split("\n")
-    for line in text:
-        if line.strip().startswith("version"):
-            return line.split("=")[1].strip().replace('"', "").replace(",", "")
-
-    return ""
+    data = tomllib.load((path / "pyproject.toml").open("rb"))
+    return data["project"]["version"]
 
 
 def publish_batches(args: CLINamespace, path_batches: Sequence[Sequence[Sequence[Path]]]) -> None:
