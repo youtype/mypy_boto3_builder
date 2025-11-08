@@ -272,7 +272,7 @@ def get_package_name(path: Path) -> str:
     """
     text = (path / "pyproject.toml").read_text().split("\n")
     for line in text:
-        if line.strip().startswith("name="):
+        if line.strip().startswith("name"):
             return line.split("=")[1].strip().replace('"', "").replace(",", "")
 
     return ""
@@ -284,7 +284,7 @@ def get_version(path: Path) -> str:
     """
     text = (path / "pyproject.toml").read_text().split("\n")
     for line in text:
-        if line.strip().startswith("version="):
+        if line.strip().startswith("version"):
             return line.split("=")[1].strip().replace('"', "").replace(",", "")
 
     return ""
