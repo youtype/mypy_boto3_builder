@@ -191,14 +191,13 @@ def build(path: Path, max_retries: int = 10) -> Path:
 
             whl_path = find_whl(path / "dist")
             sdist_path = find_sdist(path / "dist")
-            if whl_path:
-                check_call((sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()))
-            else:
-                logger.warning(f"No wheel built for {path.name}")
-            if sdist_path:
-                check_call(("tar", "-tzf", sdist_path.as_posix()))
-            else:
-                logger.warning(f"No sdist built for {path.name}")
+            if not whl_path:
+                raise RuntimeError(f"No wheel built for {path.name}")
+            if not sdist_path:
+                raise RuntimeError(f"No sdist built for {path.name}")
+
+            check_call((sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()))
+            check_call(("tar", "-tzf", sdist_path.as_posix()))
         except (subprocess.CalledProcessError, IndexError) as e:
             attempt += 1
             last_error = e
