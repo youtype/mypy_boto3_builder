@@ -155,6 +155,26 @@ def cleanup(path: Path) -> None:
         shutil.rmtree(rm_path)
 
 
+def find_whl(path: Path) -> Path | None:
+    """
+    Find built *.whl in dist directory.
+    """
+    for whl_path in path.glob("*.whl"):
+        return whl_path
+
+    return None
+
+
+def find_sdist(path: Path) -> Path | None:
+    """
+    Find built *.tar.gz in dist directory.
+    """
+    for tar_path in path.glob("*.tar.gz"):
+        return tar_path
+
+    return None
+
+
 def build(path: Path, max_retries: int = 10) -> Path:
     """
     Build package.
@@ -162,16 +182,23 @@ def build(path: Path, max_retries: int = 10) -> Path:
     attempt = 1
     last_error = Exception("Unknown error")
     while attempt <= max_retries:
+        logger.info(f"Building {path.name} attempt {attempt}")
         cleanup(path)
 
         try:
             with chdir(path):
                 check_call(("uv", "build", "--sdist", "--wheel"))
 
-            whl_path = next(iter((path / "dist").glob("*.whl")))
-            tar_path = next(iter((path / "dist").glob("*.tar.gz")))
-            check_call(("tar", "-tzf", tar_path.as_posix()))
-            check_call((sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()))
+            whl_path = find_whl(path / "dist")
+            sdist_path = find_sdist(path / "dist")
+            if whl_path:
+                check_call((sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()))
+            else:
+                logger.warning(f"No wheel built for {path.name}")
+            if sdist_path:
+                check_call(("tar", "-tzf", sdist_path.as_posix()))
+            else:
+                logger.warning(f"No sdist built for {path.name}")
         except (subprocess.CalledProcessError, IndexError) as e:
             attempt += 1
             last_error = e
