@@ -41,19 +41,15 @@ build = ["setuptools"]
 check = ["boto3-stubs", "types-aiobotocore", "types-aioboto3"]
 
 [dependency-groups]
-dev = [
+typecheck = ["pyright", "mypy"]
+scripts = ["istub", "twine", "wheel"]
+test = ["pytest-cov", "pytest-mock", "pytest", "requests-mock"]
+types = [
     "aiohttp",
     "boto3",
-    "botocore-stubs",
     "cryptography",
-    "istub",
-    "mypy",
-    "pyright",
-    "pytest-cov",
-    "pytest-mock",
-    "pytest",
-    "requests-mock",
-    "twine",
+    "typing_extensions",
+    "botocore-stubs",
     "types-boto3",
     "types-certifi",
     "types-python-dateutil",
@@ -62,12 +58,11 @@ dev = [
     "types-setuptools",
     "types-six",
     "types-urllib3",
-    "typing_extensions",
-    "wheel",
 ]
 
 [tool.uv]
 package = true
+default-groups = ["test", "types", "typecheck", "scripts"]
 
 [project.scripts]
 mypy-boto3-builder = 'mypy_boto3_builder.main:main'
