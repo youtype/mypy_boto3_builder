@@ -1,4 +1,4 @@
-FROM python:3.13-alpine3.22
+FROM python:3.14-alpine3.22
 
 RUN mkdir -p /home/builder/scripts
 RUN mkdir -p /output
