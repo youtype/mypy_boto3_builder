@@ -34,7 +34,8 @@ Compatible with
 [Emacs](https://www.gnu.org/software/emacs/),
 [Sublime Text](https://www.sublimetext.com/),
 [mypy](https://github.com/python/mypy),
-[pyright](https://github.com/microsoft/pyright)
+[pyright](https://github.com/microsoft/pyright),
+[ty](https://docs.astral.sh/ty/),
 and other tools.
 
 See how it helps to find and fix potential bugs:

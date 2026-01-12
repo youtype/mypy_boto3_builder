@@ -1,12 +1,12 @@
 [project]
 name = "mypy-boto3-builder"
 version = "8.12.0"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 description = "Type annotations generator for types-boto3, boto3-stubs, types-aiobotocore, and types-aioboto3."
 authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
 license = { file = "LICENSE" }
 readme = "README.md"
-keywords = ["boto3", "type-annotations", "pyright", "mypy", "boto3-stubs"]
+keywords = ["boto3", "type-annotations", "pyright", "mypy", "ty", "boto3-stubs"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
@@ -14,9 +14,9 @@ classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: Implementation :: CPython",
     "Typing :: Typed",
@@ -115,10 +115,10 @@ reportMissingTypeArgument = "error"
 reportIncompatibleMethodOverride = "error"
 reportIncompatibleVariableOverride = "error"
 reportUnknownParameterType = "error"
-pythonVersion = "3.12"
+pythonVersion = "3.13"
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.13"
 warn_return_any = true
 warn_unused_ignores = false
 disallow_untyped_defs = true
@@ -171,13 +171,14 @@ ignore = [
     "ISC001",  # implicit-str-concat
     "PERF203", # try-except-in-loop
     "PLR0904", # too-many-public-methods
+    "PLR0911", # too-many-return-statements
     "PLR0913", # too-many-arguments
     "PLR6301", # no-self-use
+    "RUF067",  # non-empty-init-module
     "S404",    # suspicious-subprocess-import
     "S603",    # subprocess-without-shell-equals-true
     "TD",      # flake8-todos
     "TRY003",  # raise-vanilla-args
-    "PLR0911", # too-many-return-statements
 ]
 fixable = ["ALL"]
 unfixable = ["B"]
@@ -211,3 +212,6 @@ notice-rgx = "(?i)Copyright \\d{4}"
 make_whitelist = true
 min_confidence = 60
 paths = ["mypy_boto3_builder", "vulture_whitelist.txt"]
+
+[tool.ty.src]
+exclude = ["mypy_boto3_builder/stubs_static"]

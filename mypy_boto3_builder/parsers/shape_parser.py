@@ -168,7 +168,7 @@ class ShapeParser:
             raise ShapeParserError("Service resource does not exist")
         return ResourceModel(
             name=self.service_name.boto3_name,
-            definition=dict(self._get_service_resource()),
+            definition=self._get_service_resource(),
             resource_defs=self._get_subresources(),
         )
 
@@ -181,7 +181,7 @@ class ShapeParser:
             raise ShapeParserError(f"Resource {resource_name} not found in subresources")
         return ResourceModel(
             name=resource_name,
-            definition=dict(resource_defs[resource_name]),
+            definition=resource_defs[resource_name],
             resource_defs=resource_defs,
         )
 
@@ -1087,17 +1087,18 @@ class ShapeParser:
             if path.endswith("[]"):
                 return_type = TypeSubscript(Type.List, [return_type])
 
-        operation_model = None
+        operation_model: OperationModel | None = None
         if "request" in action_shape:
             operation_name = action_shape["request"]["operation"]
-            operation_model = self._get_operation(operation_name)
+            request_operation_model = self._get_operation(operation_name)
+            operation_model = request_operation_model
             skip_argument_names = self._get_skip_argument_names(action_shape)
-            if operation_model.input_shape is not None:
+            if request_operation_model.input_shape is not None:
                 shape_arguments = self._parse_arguments(
                     class_name=self.resource_name,
                     method_name=method_name,
                     operation_name=operation_name,
-                    shape=operation_model.input_shape,
+                    shape=request_operation_model.input_shape,
                     exclude_names=skip_argument_names,
                 )
                 arguments.extend(self._get_kw_flags(method_name, shape_arguments))
@@ -1106,9 +1107,9 @@ class ShapeParser:
             self._enrich_arguments_defaults(arguments, action_shape)
             arguments.sort(key=lambda x: not x.required)
 
-            if operation_model.output_shape is not None and return_type is Type.none:
+            if request_operation_model.output_shape is not None and return_type is Type.none:
                 operation_return_type = self.parse_shape(
-                    operation_model.output_shape,
+                    request_operation_model.output_shape,
                     is_output=True,
                 )
                 return_type = operation_return_type
@@ -1118,10 +1119,12 @@ class ShapeParser:
             arguments=arguments,
             return_type=return_type,
             docstring=get_short_docstring(
-                extract_docstring_from_html(operation_model.documentation),
+                extract_docstring_from_html(
+                    operation_model.documentation if operation_model else ""
+                ),
             ),
         )
-        if operation_model.input_shape is not None:
+        if operation_model and operation_model.input_shape is not None:
             self.create_request_type_annotation(
                 method=method,
                 name=operation_model.input_shape.name,

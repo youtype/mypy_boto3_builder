@@ -9,10 +9,14 @@ from __future__ import annotations
 import functools
 import logging
 import sys
+from typing import TYPE_CHECKING
 
 import loguru
 
 from mypy_boto3_builder.constants import LOGGER_NAME
+
+if TYPE_CHECKING:
+    from loguru import BasicHandlerConfig
 
 __all__ = ("get_logger", "setup_logger")
 
@@ -38,10 +42,13 @@ def setup_logger(level: int = logging.DEBUG, name: str = LOGGER_NAME) -> None:
     Set up logger.
     """
     level_name = logging.getLevelName(level)
+    handler_config: BasicHandlerConfig = {
+        "sink": sys.stderr,
+        "level": level_name,
+        "format": functools.partial(_formatter, name),
+    }
     loguru.logger.configure(
-        handlers=[
-            {"sink": sys.stderr, "level": level_name, "format": functools.partial(_formatter, name)}
-        ],
+        handlers=[handler_config],
     )
 
 

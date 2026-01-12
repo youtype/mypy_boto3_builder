@@ -8,6 +8,9 @@ jobs:
   deploy:
     name: "Release: publish"
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - uses: actions/checkout@v6
         with:
@@ -40,13 +43,6 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "github-actions"
-      - name: Commit changes
-        env:
-          VERSION: ${{ steps.version.outputs.result }}
-        run: |
-          git add pyproject.toml
-          git commit -m "Release ${VERSION}"
-          git push
       - name: Publish to PyPI
         env:
           TWINE_USERNAME: __token__
@@ -55,8 +51,16 @@ jobs:
         run: |
           rm -rf dist/* || true
           uv build --sdist --wheel --no-sources
-          # uv publish
-          uvx twine upload --non-interactive dist/*
+      - name: Publish package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: Commit changes
+        env:
+          VERSION: ${{ steps.version.outputs.result }}
+        run: |
+          git add pyproject.toml
+          git commit -m "Release ${VERSION}"
+          git tag ${STUBS_VERSION}
+          git push --all --follow-tags
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

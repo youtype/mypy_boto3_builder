@@ -48,6 +48,7 @@ class EnumListAction(argparse.Action):
         default: Sequence[enum.Enum] | None = None,
         nargs: str | None = None,
         required: bool = False,
+        deprecated: bool = False,
         **kwargs: str | None,
     ) -> None:
         self._enum_type = type
@@ -70,6 +71,7 @@ class EnumListAction(argparse.Action):
             type=None,
             help=help_str,
             required=required,
+            deprecated=deprecated,
             **kwargs,
         )
 
@@ -77,17 +79,17 @@ class EnumListAction(argparse.Action):
         self,
         parser: argparse.ArgumentParser,
         namespace: argparse.Namespace,
-        value: str | Sequence[Any] | None,
-        _option_string: str | None = None,
+        values: str | Sequence[Any] | None,
+        option_string: str | None = None,
     ) -> None:
         """
         Convert value back into an Enum.
         """
         value_list: list[str] = []
-        if isinstance(value, str):
-            value_list.append(value)
-        if isinstance(value, list):
-            value_list.extend([i for i in value if isinstance(i, str)])
+        if isinstance(values, str):
+            value_list.append(values)
+        if isinstance(values, list):
+            value_list.extend([i for i in values if isinstance(i, str)])
         enum_values = [self._enum_type(i) for i in value_list]
         result = enum_values if self.nargs != "?" else enum_values[0]
         setattr(namespace, self.dest, result)

@@ -1,3 +1,4 @@
+option_string  # unused variable (mypy_boto3_builder/cli_parser.py:83)
 _._generate_stubs  # unused method (mypy_boto3_builder/generators/boto34_generator.py:134)
 is_vscode_supported  # unused variable (mypy_boto3_builder/package_data.py:59)
 is_conda_forge_supported  # unused variable (mypy_boto3_builder/package_data.py:62)

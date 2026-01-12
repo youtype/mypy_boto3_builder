@@ -31,6 +31,8 @@ from loguru import logger
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
+    from loguru import BasicHandlerConfig
+
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 TYPES_BOTO3_PATH = ROOT_PATH / "integration" / "types-boto3"
@@ -437,20 +439,17 @@ def main() -> None:
     Run main logic.
     """
     args = parse_args()
-    logger.configure(
-        handlers=[
-            {
-                "sink": sys.stderr,
-                "level": args.log_level,
-                "format": (
-                    "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
-                    "<level>{level: <8}</level> | "
-                    f"<cyan>{Path(__file__).stem}</cyan> - "
-                    "<white>{message}</white>"
-                ),
-            }
-        ]
-    )
+    handler_config: BasicHandlerConfig = {
+        "sink": sys.stderr,
+        "level": args.log_level,
+        "format": (
+            "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
+            "<level>{level: <8}</level> | "
+            f"<cyan>{Path(__file__).stem}</cyan> - "
+            "<white>{message}</white>"
+        ),
+    }
+    logger.configure(handlers=[handler_config])
     Config.python_version = args.python_version
     Config.products = args.products
     error: Exception | None = None

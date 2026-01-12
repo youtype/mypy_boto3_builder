@@ -3,6 +3,7 @@ from unittest.mock import MagicMock, Mock, patch
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser, TypedDictMap
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 
@@ -224,9 +225,10 @@ class TestShapeParser:
         assert shape_parser._parse_shape_string(shape).render() == "str"
 
         shape.enum = ["a", "b"]
-        assert shape_parser._parse_shape_string(shape).render() == "MyShapeType"
-        assert shape_parser._parse_shape_string(shape).render() == "MyShapeType"
-        assert shape_parser._parse_shape_string(shape).children == {"a", "b"}
+        result = shape_parser._parse_shape_string(shape)
+        assert isinstance(result, TypeLiteral)
+        assert result.render() == "MyShapeType"
+        assert result.children == {"a", "b"}
 
     def test_get_resource_method_map(self) -> None:
         self.loader.load_resources.return_value = {

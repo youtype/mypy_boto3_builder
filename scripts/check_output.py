@@ -34,6 +34,8 @@ from loguru import logger
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
+    from loguru import BasicHandlerConfig
+
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 DEFAULT_PATH = ROOT_PATH / "mypy_boto3_output"
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -100,6 +102,7 @@ RUFF_IGNORE_CHECKS = (
     # ruff does not support conditional import syntax for aio libs
     "UP004",  # useless-object-inheritance
     "UP013",  # convert-typed-dict-functional-to-class
+    "RUF067",  # non-empty-init-module
 )
 
 
@@ -446,20 +449,17 @@ def main() -> None:
     args = parse_args()
     Config.path = args.path
     Config.python_version = args.python_version
-    logger.configure(
-        handlers=[
-            {
-                "sink": sys.stderr,
-                "level": args.log_level,
-                "format": (
-                    "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
-                    "<level>{level: <8}</level> | "
-                    f"<cyan>{Path(__file__).stem}</cyan> - "
-                    "<white>{message}</white>"
-                ),
-            }
-        ]
-    )
+    handler_config: BasicHandlerConfig = {
+        "sink": sys.stderr,
+        "level": args.log_level,
+        "format": (
+            "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | "
+            "<level>{level: <8}</level> | "
+            f"<cyan>{Path(__file__).stem}</cyan> - "
+            "<white>{message}</white>"
+        ),
+    }
+    logger.configure(handlers=[handler_config])
     has_errors = False
     package_paths = get_package_paths(
         path=args.path,

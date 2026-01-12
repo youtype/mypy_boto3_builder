@@ -4,7 +4,7 @@ Type checking utils.
 Copyright 2024 Vlad Emelianov
 """
 
-from typing import TypeGuard
+from typing import TypeIs
 
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -18,28 +18,28 @@ from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 
 
-def is_typed_dict(annotation: FakeAnnotation) -> TypeGuard[TypeTypedDict]:
+def is_typed_dict(annotation: FakeAnnotation) -> TypeIs[TypeTypedDict]:
     """
     Whether type annotation is TypedDict.
     """
     return isinstance(annotation, TypeTypedDict)
 
 
-def is_union(annotation: FakeAnnotation) -> TypeGuard[TypeUnion]:
+def is_union(annotation: FakeAnnotation) -> TypeIs[TypeUnion]:
     """
     Whether type annotation is a Union.
     """
     return isinstance(annotation, TypeUnion)
 
 
-def is_literal(annotation: FakeAnnotation) -> TypeGuard[TypeLiteral]:
+def is_literal(annotation: FakeAnnotation) -> TypeIs[TypeLiteral]:
     """
     Whether type annotation is a literal.
     """
     return isinstance(annotation, TypeLiteral)
 
 
-def is_type_def(annotation: FakeAnnotation) -> TypeGuard[TypeDefSortable]:
+def is_type_def(annotation: FakeAnnotation) -> TypeIs[TypeDefSortable]:
     """
     Whether type annotation is a named TypeDefSortable.
     """
@@ -52,28 +52,28 @@ def is_type_def(annotation: FakeAnnotation) -> TypeGuard[TypeDefSortable]:
     return False
 
 
-def is_type_parent(annotation: FakeAnnotation) -> TypeGuard[TypeParent]:
+def is_type_parent(annotation: FakeAnnotation) -> TypeIs[TypeParent]:
     """
     Whether type annotation is a TypeParent.
     """
     return isinstance(annotation, TypeParent)
 
 
-def is_external_import(annotation: FakeAnnotation) -> TypeGuard[ExternalImport]:
+def is_external_import(annotation: FakeAnnotation) -> TypeIs[ExternalImport]:
     """
     Whether type annotation is a ExternalImport.
     """
     return isinstance(annotation, ExternalImport)
 
 
-def is_internal_import(annotation: FakeAnnotation) -> TypeGuard[InternalImport]:
+def is_internal_import(annotation: FakeAnnotation) -> TypeIs[InternalImport]:
     """
     Whether type annotation is a InternalImport.
     """
     return isinstance(annotation, InternalImport)
 
 
-def is_type_subscript(annotation: FakeAnnotation) -> TypeGuard[TypeSubscript]:
+def is_type_subscript(annotation: FakeAnnotation) -> TypeIs[TypeSubscript]:
     """
     Whether type annotation is a TypeSubscript.
     """

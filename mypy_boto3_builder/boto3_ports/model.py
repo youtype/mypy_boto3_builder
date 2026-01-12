@@ -4,6 +4,7 @@ Backport of `boto3.resources.model`.
 Copyright 2024 Vlad Emelianov
 """
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Any
 
@@ -161,7 +162,7 @@ class ResourceModel:
     """
 
     def __init__(
-        self, name: str, definition: dict[str, Any], resource_defs: dict[str, Any]
+        self, name: str, definition: Mapping[str, Any], resource_defs: dict[str, Any]
     ) -> None:
         self._definition = definition
         self._resource_defs = resource_defs

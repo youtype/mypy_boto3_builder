@@ -1,0 +1,33 @@
+version: '3'
+
+vars:
+  RUNNER: uv run
+  SOURCES: mypy_boto3_builder scripts tests
+  SOURCES_MAIN: mypy_boto3_builder
+
+tasks:
+  lint:
+    cmds:
+      - "{{.RUNNER}} ruff check {{.SOURCES}}"
+  format:
+    cmds:
+      - "{{.RUNNER}} ruff check --fix {{.SOURCES}}"
+      - "{{.RUNNER}} ruff format {{.SOURCES}}"
+  ty:
+    cmds:
+      - uvx ty check {{.SOURCES}}
+  mypy:
+    cmds:
+      - "{{.RUNNER}} mypy {{.SOURCES_MAIN}}"
+  test:
+    cmds:
+      - "{{.RUNNER}} pytest"
+  e2e:
+    cmds:
+      - "{{.RUNNER}} python -m scripts.integration"
+  vulture:
+    cmds:
+      - "uvx vulture"
+  vulture-u:
+    cmds:
+      - "uvx vulture {{.SOURCES_MAIN}} --make-whitelist > vulture_whitelist.txt || true"

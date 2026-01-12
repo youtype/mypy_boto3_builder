@@ -1,5 +1,6 @@
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.structures.paginator import Paginator
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 
 
 class TestPaginator:
@@ -27,5 +28,6 @@ class TestPaginator:
     def test_get_client_method(self) -> None:
         result = self.paginator.get_client_method()
         assert result.name == "get_paginator"
+        assert isinstance(result.return_type, ExternalImport)
         assert result.return_type.name == "name"
         assert result.arguments[1].type_annotation.children == {"my_operation_name"}

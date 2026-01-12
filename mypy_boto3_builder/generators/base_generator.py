@@ -371,8 +371,10 @@ class BaseGenerator(ABC):
                 PackageExtra(
                     ServiceName.FULL,
                     (
-                        f"{package.data.pypi_full_name}"
-                        f">={package.min_library_version}, <{package.max_library_version}",
+                        (
+                            f"{package.data.pypi_full_name}"
+                            f">={package.min_library_version}, <{package.max_library_version}"
+                        ),
                     ),
                 ),
             )
@@ -412,8 +414,10 @@ class BaseGenerator(ABC):
             PackageExtra(
                 service_name.extras_name,
                 (
-                    f"{package.data.get_service_pypi_name(service_name)}"
-                    f">={package.min_library_version}, <{package.max_library_version}",
+                    (
+                        f"{package.data.get_service_pypi_name(service_name)}"
+                        f">={package.min_library_version}, <{package.max_library_version}"
+                    ),
                 ),
             )
             for service_name in package.service_names
