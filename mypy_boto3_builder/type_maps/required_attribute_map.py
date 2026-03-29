@@ -11,7 +11,7 @@ from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.lookup_dict import LookupDict
 
-# Mapping reresenting Required/NotRequired keys of output botocore shapes.
+# Mapping representing Required/NotRequired keys of output botocore shapes.
 # ServiceName -> TypedDict name -> Argument name -> is_required (True/False)
 # False means that argument should be marked as NotRequired.
 # True means that argument should be marked as Required.
@@ -30,6 +30,12 @@ REQUIRED_ATTRIBUTE_MAP: Final[Mapping[ServiceName, Mapping[str, Mapping[str, boo
     ServiceNameCatalog.dynamodb: {
         ALL: {
             "LastEvaluatedKey": False,
+        },
+    },
+    ServiceNameCatalog.sqs: {
+        "ChangeMessageVisibilityBatchResultTypeDef": {
+            "Successful": False,
+            "Failed": False,
         },
     },
     ServiceNameCatalog.stepfunctions: {
@@ -54,9 +60,11 @@ _LOOKUP: LookupDict[bool] = LookupDict(
 )
 
 
-def is_required(service_name: ServiceName, typed_dict_name: str, argument_name: str) -> bool:
+def get_attribute_required_override(
+    service_name: ServiceName, typed_dict_name: str, argument_name: str
+) -> bool | None:
     """
-    Check if output shape argument should be marked as NotRequired.
+    Return the optional override value for an attribute.
 
     Arguments:
         service_name -- Service name.
@@ -64,7 +72,7 @@ def is_required(service_name: ServiceName, typed_dict_name: str, argument_name: 
         attribute_name -- Target attribute name.
 
     Returns:
-        Literal children or None.
+        True or False if the field should be overridden to Required or NotRequired accordingly.
+        If no override is set, returns None.
     """
-    is_required = _LOOKUP.get(service_name.name, typed_dict_name, argument_name)
-    return True if is_required is None else is_required
+    return _LOOKUP.get(service_name.name, typed_dict_name, argument_name)

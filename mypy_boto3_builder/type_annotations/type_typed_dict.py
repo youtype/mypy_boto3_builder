@@ -81,11 +81,11 @@ class TypedDictAttribute:
         """
         return self.required
 
-    def mark_as_required(self) -> None:
+    def set_required(self, required: bool) -> None:  # noqa: FBT001
         """
-        Mark attribute as required.
+        Update whether an attribute is required.
         """
-        self.required = True
+        self.required = required
 
 
 class TypeTypedDict(TypeParent, TypeDefSortable):

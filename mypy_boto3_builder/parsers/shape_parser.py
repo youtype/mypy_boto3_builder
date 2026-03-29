@@ -56,7 +56,7 @@ from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
     get_method_type_stub,
 )
-from mypy_boto3_builder.type_maps.required_attribute_map import is_required
+from mypy_boto3_builder.type_maps.required_attribute_map import get_attribute_required_override
 from mypy_boto3_builder.type_maps.shape_type_map import (
     get_output_shape_type_stub,
     get_shape_type_stub,
@@ -487,6 +487,7 @@ class ShapeParser:
         typed_dict_map[resource_typed_dict_name] = typed_dict
 
         for attr_name, attr_shape in shape.members.items():
+            is_required = (attr_name in required) if required else True
             typed_dict.add_attribute(
                 attr_name,
                 self.parse_shape(
@@ -495,7 +496,7 @@ class ShapeParser:
                     is_output_child=is_output_or_child,
                     is_streaming=is_streaming,
                 ),
-                required=attr_name in required,
+                required=is_required,
             )
         if output:
             self._mark_typed_dict_as_total(typed_dict)
@@ -512,14 +513,18 @@ class ShapeParser:
 
     def _mark_typed_dict_as_total(self, typed_dict: TypeTypedDict) -> None:
         for attribute in typed_dict.children:
-            if is_required(self.service_name, typed_dict.name, attribute.name):
-                attribute.mark_as_required()
-            else:
+            override_is_required = get_attribute_required_override(
+                self.service_name, typed_dict.name, attribute.name
+            )
+
+            if override_is_required is None:
                 attribute_rendered = attribute.get_type_annotation().render()
                 self.logger.debug(
                     f"Leaving output {typed_dict.name}.{attribute.name} as {attribute_rendered}",
                     tags=(typed_dict.name, attribute.name, attribute_rendered),
                 )
+            else:
+                attribute.set_required(override_is_required)
 
     def _add_response_metadata(self, typed_dict: TypeTypedDict) -> None:
         child_names = {i.name for i in typed_dict.children}
