@@ -1,9 +1,15 @@
+from collections.abc import Iterator
 from unittest.mock import MagicMock, Mock, patch
 
+import pytest
+from pytest_mock import MockerFixture
+
+from mypy_boto3_builder.parsers.resource_loader import ResourceLoader
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser, TypedDictMap
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
+from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 
 
 class TestShapeParser:
@@ -272,3 +278,41 @@ class TestShapeParser:
         }
         result = self.shape_parser.get_resource_method_map("c")
         assert len(result.keys()) == 4
+
+
+@pytest.fixture
+def _real_botocore_session(mocker: MockerFixture) -> Iterator[None]:
+    """Undo the autouse botocore session mock so ShapeParser uses real service data."""
+    mocker.stopall()
+    ResourceLoader._botocore_session = None
+    ResourceLoader._loader = None
+    get_botocore_session.cache_clear()
+    yield
+    ResourceLoader._botocore_session = None
+    ResourceLoader._loader = None
+    get_botocore_session.cache_clear()
+
+
+@pytest.mark.usefixtures("_real_botocore_session")
+def test_sqs_change_message_visibility_batch_not_required() -> None:
+    shape_parser = ShapeParser(ServiceNameCatalog.sqs)
+    shape_parser.get_client_method_map()
+    typed_dict = shape_parser._response_typed_dict_map[
+        "ChangeMessageVisibilityBatchResultTypeDef"
+    ]
+    failed_attrs = [c for c in typed_dict.children if c.name == "Failed"]
+    assert len(failed_attrs) == 1
+    assert not failed_attrs[0].is_required()
+
+
+@pytest.mark.usefixtures("_real_botocore_session")
+def test_sagemaker_describe_training_job_failure_reason_not_required() -> None:
+    service_name = ServiceName("sagemaker", "SageMaker")
+    shape_parser = ShapeParser(service_name)
+    shape_parser.get_client_method_map()
+    typed_dict = shape_parser._response_typed_dict_map[
+        "DescribeTrainingJobResponseTypeDef"
+    ]
+    failure_reason_attrs = [c for c in typed_dict.children if c.name == "FailureReason"]
+    assert len(failure_reason_attrs) == 1
+    assert not failure_reason_attrs[0].is_required()
