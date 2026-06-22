@@ -33,7 +33,7 @@ jobs:
           - "3.10" # most popular
           - "3.14" # latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up uv
         uses: astral-sh/setup-uv@v7
         with:
