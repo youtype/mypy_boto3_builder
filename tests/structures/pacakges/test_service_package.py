@@ -41,6 +41,8 @@ class TestServicePackage:
     def test_init(self) -> None:
         assert self.service_package.name == "mypy_boto3_s3"
         assert self.service_package.pypi_name == "mypy-boto3-s3"
+        assert self.service_package.replacement_pypi_name == "types-boto3-s3"
+        assert self.service_package.replacement_import_name == "types_boto3_s3"
 
     def test_client(self) -> None:
         assert self.service_package.client.name == "Client"

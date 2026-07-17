@@ -1,5 +1,25 @@
 # {{ package.pypi_name }}
 
+{% if package.replacement_pypi_name -%}
+## Deprecated
+
+**This package is deprecated. Use
+[{{ package.replacement_pypi_name }}](https://pypi.org/project/{{ package.replacement_pypi_name }}/)
+instead.**
+
+{% if package.replacement_import_name -%}
+`{{ package.pypi_name }}` and `{{ package.replacement_pypi_name }}` provide **equivalent type
+annotations** and are fully compatible with the same `{{ package.library_name }}` version.
+To migrate, replace the package name in your dependencies and change imports from
+`{{ package.name }}` to `{{ package.replacement_import_name }}`.
+{% else -%}
+`{{ package.pypi_name }}` and `{{ package.replacement_pypi_name }}` are **100% equivalent and
+fully compatible**.
+You can switch to `{{ package.replacement_pypi_name }}` without changing any imports or type
+annotations.
+{% endif %}
+
+{% endif -%}
 [![PyPI - {{ package.pypi_name }}]({{ package.url.pypi_badge }})]({{ package.url.pypi }})
 [![PyPI - Python Version]({{ package.url.pyversions_badge }})]({{ package.url.pypi }})
 [![Docs]({{ package.url.rtd_badge }})]({{ package.url.docs }})

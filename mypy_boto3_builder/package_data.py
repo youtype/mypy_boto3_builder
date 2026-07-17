@@ -61,6 +61,9 @@ class BasePackageData(ABC):
     # is the package released to conda-forge
     is_conda_forge_supported: bool = False
 
+    # preferred PyPI replacement for a deprecated package
+    replacement_pypi_name: str = ""
+
     def get_service_package_name(self, service_name: ServiceName) -> str:
         """
         Get service package name.
@@ -266,6 +269,7 @@ class Boto3StubsPackageData(BasePackageData):
     )
     is_vscode_supported: bool = True
     is_conda_forge_supported: bool = True
+    replacement_pypi_name: str = TypesBoto3PackageData.pypi_name
 
     def _get_library_version(self) -> str:
         return get_boto3_version()
@@ -279,6 +283,7 @@ class Boto3StubsLitePackageData(Boto3StubsPackageData):
 
     pypi_name: str = Boto3StubsPackageData.pypi_lite_name
     pypi_lite_name: str = ""
+    replacement_pypi_name: str = TypesBoto3PackageData.pypi_lite_name
 
 
 @dataclass(kw_only=True)
@@ -291,6 +296,7 @@ class Boto3StubsFullPackageData(Boto3StubsPackageData):
     pypi_name: str = Boto3StubsPackageData.pypi_full_name
     is_conda_forge_supported: bool = False
     install_requires: tuple[str, ...] = ()
+    replacement_pypi_name: str = TypesBoto3PackageData.pypi_full_name
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
@@ -307,6 +313,7 @@ class Boto3StubsCustomPackageData(Boto3StubsPackageData):
 
     pypi_name: str = Boto3StubsPackageData.pypi_custom_name
     is_conda_forge_supported: bool = False
+    replacement_pypi_name: str = TypesBoto3PackageData.pypi_custom_name
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """

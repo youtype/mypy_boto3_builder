@@ -23,6 +23,8 @@ class TestPackage:
         )
         assert package.get_module_name(ServiceNameCatalog.s3) == "mypy_boto3_s3"
         assert package.get_service_pypi_name(ServiceNameCatalog.s3) == "mypy-boto3-s3"
+        assert package.replacement_pypi_name == "types-boto3"
+        assert not package.replacement_import_name
         assert package.essential_service_names == [ServiceNameCatalog.s3]
         assert package.min_python_version
         assert str(package) == "boto3-stubs 2.3.4 (boto3 1.2.3)"
@@ -41,3 +43,4 @@ class TestPackage:
         assert "Programming Language :: Python :: 3" in classifiers
         assert "Programming Language :: Python :: 3.13" in classifiers
         assert "Programming Language :: Python :: 3 :: Only" in classifiers
+        assert "Development Status :: 7 - Inactive" in classifiers

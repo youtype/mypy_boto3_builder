@@ -85,7 +85,10 @@ class WrapperPackage(Package, ABC):
         """
         Get short description for the package.
         """
-        return (
+        description = (
             f"{prefix} for {self.library_name} {self.library_version}"
             f" generated with {PACKAGE_NAME} {get_builder_version()}"
         )
+        if self.replacement_pypi_name:
+            return f"Deprecated: {description}. Use {self.replacement_pypi_name} instead"
+        return description

@@ -38,12 +38,12 @@ class TestMain:
             ] == ["ec2", "ecs"]
 
     @patch("mypy_boto3_builder.main.get_available_service_names")
-    @patch("mypy_boto3_builder.main.Boto3Generator")
+    @patch("mypy_boto3_builder.main.TypesBoto3Generator")
     @patch.object(sys, "argv", ["-o", "/tmp", "-b", "1.2.3.post4"])  # noqa: S108
     def test_main(
         self,
-        Boto3GeneratorMock: MagicMock,
+        TypesBoto3GeneratorMock: MagicMock,
         get_available_service_names_mock: MagicMock,
     ) -> None:
         main()
-        Boto3GeneratorMock().generate_product.assert_called()
+        TypesBoto3GeneratorMock().generate_product.assert_called()
