@@ -1,9 +1,14 @@
 # Mypy Boto3 Builder
 
 Type annotations generator for [types-boto3](https://pypi.org/project/types-boto3/),
-[boto3-stubs](https://pypi.org/project/boto3-stubs/),
 [types-aiobotocore](https://pypi.org/project/types-aiobotocore/),
 and [types-aioboto3](https://pypi.org/project/types-aioboto3/) projects.
+
+The `boto3-stubs` package family is deprecated in favor of `types-boto3`. Every
+`boto3-stubs` package is 100% equivalent and fully compatible with its `types-boto3`
+counterpart, so existing projects can switch package names without changing imports or type
+annotations.
+
 Compatible with
 [VSCode](https://code.visualstudio.com/),
 [PyCharm](https://www.jetbrains.com/pycharm/),
@@ -22,7 +27,6 @@ See how it helps to find and fix potential bugs:
   - [Type annotations documentation](#type-annotations-documentation)
   - [Versioning](#versioning)
   - [Latest changes](#latest-changes)
-
 
 ## Quickstart
 

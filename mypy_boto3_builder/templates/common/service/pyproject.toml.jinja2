@@ -7,7 +7,7 @@ name = "{{ package.pypi_name }}"
 version = "{{ package.version }}"
 license = "MIT"
 authors = [{ name = "Vlad Emelianov", email = "vlad.emelianov.nz@gmail.com" }]
-description = "Type annotations for {{ package.library_name }} {{ service_name.class_name }} {{ package.library_version }} service generated with {{ builder_package_name }} {{ builder_version }}"
+description = "{% if package.replacement_pypi_name %}Deprecated: {% endif %}Type annotations for {{ package.library_name }} {{ service_name.class_name }} {{ package.library_version }} service generated with {{ builder_package_name }} {{ builder_version }}{% if package.replacement_pypi_name %}. Use {{ package.replacement_pypi_name }} instead{% endif %}"
 readme = "README.md"
 classifiers = [
 {%- for classifier in package.get_classifiers() -%}

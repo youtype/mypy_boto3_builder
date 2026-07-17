@@ -133,19 +133,6 @@ wheels = [
 ]
 
 [[package]]
-name = "boto3-stubs"
-version = "1.40.69"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "botocore-stubs" },
-    { name = "types-s3transfer" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/e3/f7/10c3314c273fcd74bbf588c521cd30cba5784c492ba14858014bdd295af3/boto3_stubs-1.40.69.tar.gz", hash = "sha256:244121672c614b58426f1630f5685a821f4a8cff49deed59a287d9d91c7a4d64", size = 99409, upload-time = "2025-11-08T08:35:02.954Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ed/54/1f5d5db7812524809656baadc63669f4456a88bc65f1b30b576f3d2309f9/boto3_stubs-1.40.69-py3-none-any.whl", hash = "sha256:004e9647c310dcaec45145645dfa9aec73fb233f2649900eeaa976894378d57c", size = 68982, upload-time = "2025-11-08T08:34:57.269Z" },
-]
-
-[[package]]
 name = "botocore"
 version = "1.40.69"
 source = { registry = "https://pypi.org/simple" }
@@ -925,9 +912,9 @@ build = [
     { name = "setuptools" },
 ]
 check = [
-    { name = "boto3-stubs" },
     { name = "types-aioboto3" },
     { name = "types-aiobotocore" },
+    { name = "types-boto3" },
 ]
 
 [package.dev-dependencies]
@@ -965,7 +952,6 @@ types = [
 [package.metadata]
 requires-dist = [
     { name = "boto3" },
-    { name = "boto3-stubs", marker = "extra == 'check'" },
     { name = "botocore" },
     { name = "jinja2" },
     { name = "loguru" },
@@ -979,6 +965,7 @@ requires-dist = [
     { name = "setuptools", marker = "extra == 'build'" },
     { name = "types-aioboto3", marker = "extra == 'check'" },
     { name = "types-aiobotocore", marker = "extra == 'check'" },
+    { name = "types-boto3", marker = "extra == 'check'" },
 ]
 provides-extras = ["build", "check"]
 

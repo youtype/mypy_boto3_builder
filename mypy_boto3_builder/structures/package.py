@@ -147,6 +147,33 @@ class Package:
         """
         return self.data.local_doc_link
 
+    @property
+    def replacement_pypi_name(self) -> str:
+        """
+        Preferred replacement for a deprecated PyPI package.
+        """
+        if not self.data.replacement_pypi_name:
+            return ""
+
+        if self.pypi_name == self.data.pypi_name:
+            return self.data.replacement_pypi_name
+
+        service_pypi_prefix = f"{self.data.service_pypi_prefix}-"
+        if not self.pypi_name.startswith(service_pypi_prefix):
+            return ""
+
+        service_name = self.pypi_name.removeprefix(service_pypi_prefix)
+        return f"{self.data.replacement_pypi_name}-{service_name}"
+
+    @property
+    def replacement_import_name(self) -> str:
+        """
+        Import name for the preferred service package replacement.
+        """
+        if self.pypi_name == self.data.pypi_name:
+            return ""
+        return self.replacement_pypi_name.replace("-", "_")
+
     def get_service_local_doc_link(self, service_name: ServiceName) -> str:
         """
         Get link to service local docs.
@@ -195,7 +222,11 @@ class Package:
         Get classifiers for package.
         """
         result = [
-            "Development Status :: 5 - Production/Stable",
+            (
+                "Development Status :: 7 - Inactive"
+                if self.replacement_pypi_name
+                else "Development Status :: 5 - Production/Stable"
+            ),
             "Intended Audience :: Developers",
             "Environment :: Console",
             "Natural Language :: English",

@@ -168,7 +168,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         action=EnumListAction,
         metavar="PRODUCT",
         nargs="+",
-        default=(Product.boto3_stubs, Product.boto3_stubs_services),
+        default=(Product.types_boto3, Product.types_boto3_services),
         help="Package to generate.",
     )
     parser.add_argument(

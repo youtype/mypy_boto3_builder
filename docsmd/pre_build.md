@@ -5,8 +5,11 @@
   - [aiobotocore](#aiobotocore)
   - [aioboto3](#aioboto3)
 
-
 ## boto3 and botocore
+
+Use the `types-boto3` package family for new and existing projects. The legacy `boto3-stubs`
+packages are deprecated; they are 100% equivalent and fully compatible with the corresponding
+`types-boto3` packages.
 
 Check [types-boto3](https://pypi.org/project/types-boto3/) project for installation
 and usage instructions.
