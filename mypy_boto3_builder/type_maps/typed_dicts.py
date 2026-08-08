@@ -53,7 +53,7 @@ CopySourceTypeDef = TypeTypedDict(
 TagTypeDef = TypeTypedDict(
     "TagTypeDef",
     (
-        TypedDictAttribute("Key", Type.str, required=False),
+        TypedDictAttribute("Key", Type.str, required=True),
         TypedDictAttribute("Value", Type.str, required=False),
     ),
 )
