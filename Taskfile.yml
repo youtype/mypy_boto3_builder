@@ -1,0 +1,27 @@
+version: "3"
+
+vars:
+  RUNNER:
+    sh: 'echo {{ .RUNNER | default "uv run" }}'
+  SOURCES: mypy_boto3_builder tests
+  SOURCES_ROOT: mypy_boto3_builder
+
+tasks:
+  default:
+    cmd:
+      task: all
+  lint:
+    desc: Lint python source files
+    cmds:
+      - "{{.RUNNER}} ruff format --check {{.SOURCES}}"
+      - "{{.RUNNER}} ruff check {{.SOURCES}}"
+
+  ty:
+    desc: Perform type-checking
+    silent: true
+    cmd: "uvx ty check {{.SOURCES_ROOT}}"
+
+  mypy:
+    desc: Run mypy type-checking
+    silent: true
+    cmd: "{{.RUNNER}} mypy {{.SOURCES_ROOT}}"

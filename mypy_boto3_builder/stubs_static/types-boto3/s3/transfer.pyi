@@ -55,7 +55,7 @@ class S3Transfer:
     def __init__(
         self,
         client: BaseClient | None = ...,
-        config: Config | None = ...,
+        config: TransferConfig | None = ...,
         osutil: OSUtils | None = ...,
         manager: TransferManager | None = ...,
     ) -> None: ...
