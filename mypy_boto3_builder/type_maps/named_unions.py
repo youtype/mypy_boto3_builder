@@ -34,7 +34,7 @@ CopySourceOrStrTypeDef = TypeUnion(
 
 BlobTypeDef = TypeUnion(
     name="BlobTypeDef",
-    children=(Type.str, Type.bytes, Type.IOAny, StreamingBodyType),
+    children=(Type.str, Type.bytes, Type.IOAny, Type.bytearray, StreamingBodyType),
 )
 
 TimestampTypeDef = TypeUnion(name="TimestampTypeDef", children=(Type.datetime, Type.str))
